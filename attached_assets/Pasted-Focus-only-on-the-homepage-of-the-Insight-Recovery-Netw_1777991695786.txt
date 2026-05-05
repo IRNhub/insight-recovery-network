@@ -1,0 +1,218 @@
+Focus only on the homepage of the Insight Recovery Network website.
+
+Do not redesign the entire site. Do not change the other pages yet. The current visual direction is good: premium, calm, editorial, private, clinical and understated. Keep the navy, ivory and muted champagne palette. Keep the refined typography. The goal now is to make the homepage feel finished, warmer, more credible and more conversion-focused without making it busy or salesy.
+
+Current issue:
+The homepage looks classy, but it is too sparse in places and still feels unfinished. The hero placeholder that says “Clinical Setting” must be replaced with a more premium bespoke visual treatment. The pathway cards need supporting copy. The services section needs more substance. The dark trust section needs a heading and stronger structure.
+
+Important:
+Avoid generic AI landing page styling.
+Avoid bright medical colours.
+Avoid fake testimonials.
+Avoid fake accreditations.
+Avoid exaggerated claims.
+Avoid clinical promises.
+Avoid stock rehab clichés.
+Avoid making the site feel like a SaaS template.
+Use UK English.
+
+Homepage changes required:
+
+1. Hero section
+
+Keep the current headline style but update the hero so it feels more complete and credible.
+
+Hero eyebrow:
+Confidential addiction and mental health support
+
+Hero headline:
+Private addiction and mental health support, built around the person.
+
+Hero subheading:
+Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
+
+Primary CTA:
+Speak Confidentially
+
+Secondary CTA:
+Explore Support Options
+
+Replace the current beige placeholder panel that says “Clinical Setting”.
+
+Instead create a premium visual panel on the right using layered editorial design. It can include:
+- A warm abstract image placeholder or soft gradient block
+- A small overlaid card that says “Confidential guidance”
+- A second small detail card that says “Treatment placement · Online support · Insight OS”
+- Subtle linework or a soft grid
+- Muted champagne accents
+- No cheesy stock icons
+- No generic medical imagery
+- It should look like a premium private advisory service, not a health-tech dashboard
+
+Add a small trust row under the hero buttons:
+- Private guidance
+- Clinically informed
+- International options
+- Digital recovery tools
+
+2. Pathway section
+
+Keep the section title:
+Find the right path
+
+Keep the eyebrow:
+Where to start
+
+Update the three pathway cards so each has a title, one short supportive sentence, and a clear link.
+
+Card 1:
+Title: I need help for myself
+Copy: If things feel difficult to manage alone, we can help you understand the right next step.
+Link: Explore support
+
+Card 2:
+Title: I need help for someone else
+Copy: Speak confidentially about concerns for a family member, partner, friend or colleague.
+Link: Get guidance
+
+Card 3:
+Title: I am a professional or organisation
+Copy: Explore digital recovery tools, treatment pathways and partnership options.
+Link: Work with us
+
+Make the cards feel more refined:
+- Slightly more content
+- Better spacing
+- Subtle border
+- Gentle hover state
+- Not too boxy
+- No heavy shadows
+
+3. Services section
+
+Keep the section concept but improve the copy and layout.
+
+Eyebrow:
+Our services
+
+Heading:
+Comprehensive care, quietly delivered
+
+Supporting copy:
+We offer discreet, recovery-informed support tailored to the needs of each individual, family or organisation.
+
+Service 1:
+Treatment Placement
+Copy:
+Confidential guidance in finding suitable detox, residential rehab or ongoing recovery support in the UK or internationally.
+CTA:
+Learn more
+
+Service 2:
+Online Recovery Programme
+Copy:
+Structured group support, one-to-one sessions and relapse prevention planning for people who need support without entering residential treatment.
+CTA:
+Learn more
+
+Service 3:
+Insight OS
+Copy:
+A dedicated digital recovery platform for check-ins, journaling, triggers, recovery planning and ongoing support.
+CTA:
+Learn more
+
+Add a fourth optional service if it fits naturally:
+Family and Intervention Guidance
+Copy:
+Support for families who are worried, overwhelmed or unsure how to approach the next conversation.
+CTA:
+Learn more
+
+Make this section feel commercially strong but not salesy.
+
+4. Dark trust section
+
+The current dark section has four icons and text but no heading. Add a proper heading and intro.
+
+Eyebrow:
+Why Insight Recovery Network
+
+Heading:
+Private support with clinical depth.
+
+Intro:
+We help people and families make sense of complex situations with calm, confidential and practical guidance.
+
+Then show four refined trust points:
+- Confidential guidance
+  Private conversations for individuals and families navigating sensitive challenges.
+- Recovery-informed approach
+  Support shaped by addiction, mental health and relapse prevention experience.
+- Treatment pathway knowledge
+  Guidance across detox, residential rehab, online support and continuing care.
+- Digital continuity
+  Insight OS supports daily structure, reflection and long-term recovery management.
+
+Keep the dark navy background. Use muted champagne accents and understated icons.
+
+5. How it works section
+
+Make this section clearer and more useful.
+
+Eyebrow:
+The process
+
+Heading:
+How it works
+
+Steps:
+1. Tell us what is happening
+Briefly share what you or someone close to you is facing.
+
+2. Clarify the right level of support
+We help you think through whether online support, treatment placement, family guidance or digital recovery tools are most appropriate.
+
+3. Take the next step confidentially
+We agree a practical next step and support you in moving forward with clarity.
+
+Make the process visually elegant:
+- Numbered steps
+- Clean spacing
+- Soft connecting line if appropriate
+- Good mobile layout
+
+6. Final CTA and footer area
+
+Keep the final CTA:
+A private conversation can be the first step.
+
+Add a short supporting line:
+You do not need to have everything worked out before making contact. A confidential conversation can help clarify what support may be appropriate.
+
+Button:
+Speak Confidentially
+
+Keep the footer dark and refined.
+
+7. General homepage polish
+
+Improve:
+- Section transitions
+- Mobile spacing
+- Button hover states
+- Typography consistency
+- Paragraph line lengths
+- CTA clarity
+- Visual rhythm
+
+Do not:
+- Add fake testimonials
+- Add stock-looking people images unless they are tasteful placeholders
+- Add too much text
+- Add noisy animations
+- Rebuild the whole project
+- Touch non-homepage pages unless required by shared components
+
+Deliverable:
+Update only the homepage and any shared components needed for the homepage. The homepage should now feel like a finished premium private clinical network website, not a sparse concept mockup.
