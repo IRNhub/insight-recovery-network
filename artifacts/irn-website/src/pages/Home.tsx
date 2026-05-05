@@ -3,8 +3,8 @@ import { PageHero } from "@/components/ui/page-hero";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
-import { ArrowRight, Shield, Globe, Compass, CheckCircle } from "lucide-react";
-import { Link } from "wouter";
+import { Shield, Globe, Compass, CheckCircle } from "lucide-react";
+import { ServicePreview } from "@/components/ui/service-preview";
 
 export default function Home() {
   return (
@@ -45,47 +45,21 @@ export default function Home() {
               />
             </div>
             <div className="lg:col-span-7 lg:col-start-6 flex flex-col gap-12">
-              {/* Service Item 1 */}
-              <div className="group border-b border-border pb-12">
-                <h3 className="text-2xl font-serif text-primary mb-4 flex items-center justify-between">
-                  Treatment Placement
-                  <ArrowRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
-                </h3>
-                <p className="text-muted-foreground text-lg mb-6 leading-relaxed font-light">
-                  Expert guidance in finding the right detox, residential rehab, or ongoing recovery planning locally or internationally.
-                </p>
-                <Link href="/treatment-placement" className="text-sm font-semibold tracking-wide uppercase text-primary border-b border-primary pb-1 hover:text-accent hover:border-accent transition-colors">
-                  Learn More
-                </Link>
-              </div>
-
-              {/* Service Item 2 */}
-              <div className="group border-b border-border pb-12">
-                <h3 className="text-2xl font-serif text-primary mb-4 flex items-center justify-between">
-                  Online Recovery Programme
-                  <ArrowRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
-                </h3>
-                <p className="text-muted-foreground text-lg mb-6 leading-relaxed font-light">
-                  Structured group support, one-to-one sessions, and accountability without entering residential treatment.
-                </p>
-                <Link href="/online-programme" className="text-sm font-semibold tracking-wide uppercase text-primary border-b border-primary pb-1 hover:text-accent hover:border-accent transition-colors">
-                  Learn More
-                </Link>
-              </div>
-
-              {/* Service Item 3 */}
-              <div className="group pb-4">
-                <h3 className="text-2xl font-serif text-primary mb-4 flex items-center justify-between">
-                  Insight OS
-                  <ArrowRight className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
-                </h3>
-                <p className="text-muted-foreground text-lg mb-6 leading-relaxed font-light">
-                  A dedicated digital platform for recovery management. Daily check-ins, health scores, and proactive guidance.
-                </p>
-                <Link href="/insight-os" className="text-sm font-semibold tracking-wide uppercase text-primary border-b border-primary pb-1 hover:text-accent hover:border-accent transition-colors">
-                  Learn More
-                </Link>
-              </div>
+              <ServicePreview
+                title="Treatment Placement"
+                description="Expert guidance in finding the right detox, residential rehab, or ongoing recovery planning locally or internationally."
+                href="/treatment-placement"
+              />
+              <ServicePreview
+                title="Online Recovery Programme"
+                description="Structured group support, one-to-one sessions, and accountability without entering residential treatment."
+                href="/online-programme"
+              />
+              <ServicePreview
+                title="Insight OS"
+                description="A dedicated digital platform for recovery management. Daily check-ins, health scores, and proactive guidance."
+                href="/insight-os"
+              />
             </div>
           </div>
         </div>

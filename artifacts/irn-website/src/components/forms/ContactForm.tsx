@@ -35,8 +35,7 @@ export function ContactForm() {
     }
   });
 
-  function onSubmit(data: ContactFormValues) {
-    console.log("Form submitted:", data);
+  function onSubmit(_data: ContactFormValues) {
     setIsSubmitted(true);
   }
 
@@ -44,7 +43,7 @@ export function ContactForm() {
     return (
       <div className="bg-secondary/30 p-8 md:p-12 border border-border/50 text-center flex flex-col items-center justify-center min-h-[400px]">
         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinelinejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
