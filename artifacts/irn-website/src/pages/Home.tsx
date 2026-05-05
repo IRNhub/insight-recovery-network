@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
 import { ServicePreview } from "@/components/ui/service-preview";
 import { Button } from "@/components/ui/button";
+import { Fragment } from "react";
 import { Shield, BookOpen, Map, Monitor } from "lucide-react";
 import { Link } from "wouter";
 import treatmentImg from "@/assets/hero-treatment-placement.png";
@@ -27,156 +28,170 @@ export default function Home() {
         canonical="/"
       />
 
-      {/* ── Hero — full-width layered editorial composition ── */}
-      <section className="relative overflow-hidden bg-background md:min-h-[860px] lg:min-h-[920px]">
+      {/* ── Hero — refined editorial layered composition ── */}
+      <section className="relative overflow-hidden bg-background md:min-h-[800px] lg:min-h-[840px]">
 
-        {/* ── Desktop: cinematic image layers (hidden on mobile) ── */}
-        <div className="hidden md:block">
-
-          {/* Treatment Placement — wide cinematic image, right 62% of viewport */}
-          <div className="absolute inset-y-0 right-0 w-[62%]">
-            <img
-              src={treatmentImg}
-              alt="A calm, private residential treatment setting surrounded by landscaped gardens"
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Left-edge fade: image dissolves into ivory background */}
-            <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-background via-background/70 to-transparent" />
-            {/* Top fade for navbar breathing room */}
-            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 to-transparent" />
-          </div>
-
-          {/* Champagne ambient glow — behind text panel */}
-          <div
-            className="absolute pointer-events-none"
-            style={{
-              top: "20%", left: "5%",
-              width: "520px", height: "480px",
-              background: "radial-gradient(ellipse at center, rgba(201,169,110,0.13) 0%, transparent 68%)",
-            }}
+        {/* Treatment Placement — wide cinematic image starting further left so there's no bare gap */}
+        <div className="absolute inset-y-0 right-0 w-[76%] hidden md:block">
+          <img
+            src={treatmentImg}
+            alt="A calm, private residential treatment setting surrounded by landscaped gardens"
+            className="w-full h-full object-cover object-center"
           />
-
-          {/* Insight OS card — bottom left, below and slightly outside text panel */}
-          <div className="absolute bottom-10 left-10 lg:left-14 z-20 w-[168px]">
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{
-                boxShadow: "0 24px 56px -8px rgba(22,43,59,0.38), 0 0 0 1px rgba(255,255,255,0.08)",
-                transform: "perspective(800px) rotateY(2deg)",
-              }}
-            >
-              <img
-                src={digitalToolsImg}
-                alt="Insight OS digital recovery app displayed on a phone"
-                className="w-full h-28 object-cover object-[center_22%]"
-              />
-              <div
-                className="px-3 py-2.5 border-t border-white/10"
-                style={{ background: "rgba(22,43,59,0.84)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
-              >
-                <div className="w-4 h-px bg-accent mb-1.5" />
-                <p className="font-serif text-primary-foreground text-[11px] leading-snug">Insight OS</p>
-                <p className="text-primary-foreground/55 text-[10px] font-light mt-0.5 leading-tight">Digital recovery tools</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Online Recovery Programme card — bottom right, within treatment image */}
-          <div className="absolute bottom-10 right-10 lg:right-14 z-20 w-[200px]">
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{
-                boxShadow: "0 24px 56px -8px rgba(22,43,59,0.38), 0 0 0 1px rgba(255,255,255,0.08)",
-                transform: "perspective(800px) rotateY(-2deg)",
-              }}
-            >
-              <img
-                src={onlineProgrammeImg}
-                alt="A person attending a structured online recovery session from home"
-                className="w-full h-32 object-cover"
-              />
-              <div
-                className="px-3 py-2.5 border-t border-white/10"
-                style={{ background: "rgba(22,43,59,0.84)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
-              >
-                <div className="w-4 h-px bg-accent mb-1.5" />
-                <p className="font-serif text-primary-foreground text-[11px] leading-snug">Online Recovery Programme</p>
-                <p className="text-primary-foreground/55 text-[10px] font-light mt-0.5 leading-tight">Group and one-to-one support</p>
-              </div>
-            </div>
-          </div>
-
+          {/* Left-edge gradient — image dissolves into ivory so text panel sits naturally on it */}
+          <div className="absolute inset-y-0 left-0 w-[38%] bg-gradient-to-r from-background to-transparent" />
+          <div className="absolute inset-y-0 left-[30%] w-[16%] bg-gradient-to-r from-background/30 to-transparent" />
         </div>
 
-        {/* ── Text panel — floats over the image on desktop ── */}
-        <div className="relative z-10 container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-48 lg:pb-52">
+        {/* Soft champagne ambient glow behind the panel */}
+        <div
+          className="absolute pointer-events-none hidden md:block"
+          style={{
+            top: "8%", left: "0%",
+            width: "480px", height: "440px",
+            background: "radial-gradient(ellipse at 30% 40%, rgba(201,169,110,0.10) 0%, transparent 72%)",
+          }}
+        />
 
-          {/* Floating editorial panel */}
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24">
+
+          {/* ── Editorial panel — main copy + supporting services as one unified block ── */}
           <div
-            className="max-w-[560px] md:border md:border-border/35 md:p-10 lg:p-12"
+            className="max-w-[448px]"
             style={{
-              background: "rgba(246,244,240,0.93)",
-              backdropFilter: "blur(14px)",
-              WebkitBackdropFilter: "blur(14px)",
-              boxShadow: "0 12px 48px -8px rgba(22,43,59,0.14), 0 0 0 1px rgba(201,169,110,0.14)",
+              background: "rgba(246,244,240,0.96)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              boxShadow: "0 16px 48px -8px rgba(22,43,59,0.13), 0 0 0 1px rgba(201,169,110,0.20)",
             }}
           >
-            <span
-              className="text-xs font-semibold tracking-widest uppercase text-accent/80 font-sans block mb-5"
-              data-testid="text-hero-eyebrow"
-            >
-              Confidential addiction and mental health support
-            </span>
 
-            <h1
-              className="text-4xl md:text-5xl lg:text-[3.25rem] font-serif text-primary leading-[1.07] tracking-tight mb-5"
-              data-testid="text-hero-heading"
+            {/* Main copy block */}
+            <div className="px-8 pt-8 pb-7 md:px-9 md:pt-9 md:pb-7"
+              style={{ borderBottom: "1px solid rgba(201,169,110,0.16)" }}
             >
-              Private addiction and mental health support, built around the person.
-            </h1>
+              <span
+                className="text-[9.5px] font-semibold tracking-[0.18em] uppercase text-accent/70 font-sans block mb-4"
+                data-testid="text-hero-eyebrow"
+              >
+                Confidential addiction and mental health support
+              </span>
 
-            <p
-              className="text-lg text-muted-foreground leading-relaxed font-light mb-7"
-              data-testid="text-hero-description"
-            >
-              Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
-            </p>
+              <h1
+                className="font-serif text-primary leading-[1.07] tracking-tight mb-4"
+                style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+                data-testid="text-hero-heading"
+              >
+                Private addiction and mental health support, built around the person.
+              </h1>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <Link href="/contact" data-testid="button-hero-primary">
-                <Button size="lg" className="rounded-none h-14 px-8 text-base w-full sm:w-auto">
-                  Speak Confidentially
-                </Button>
-              </Link>
-              <Link href="/what-we-offer" data-testid="button-hero-secondary">
-                <Button variant="outline" size="lg" className="rounded-none h-14 px-8 text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
-                  Explore Support Options
-                </Button>
-              </Link>
+              <p
+                className="text-[14.5px] text-muted-foreground leading-relaxed font-light mb-6"
+                data-testid="text-hero-description"
+              >
+                Confidential treatment placement, structured online recovery and digital tools — for individuals, families and professionals.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <Link href="/contact" data-testid="button-hero-primary">
+                  <Button className="rounded-none h-11 px-6 text-sm w-full sm:w-auto">
+                    Speak Confidentially
+                  </Button>
+                </Link>
+                <Link href="/what-we-offer" data-testid="button-hero-secondary">
+                  <Button variant="outline" className="rounded-none h-11 px-6 text-sm border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
+                    Explore Support Options
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Trust row — inline dot-separated */}
+              <div className="flex flex-wrap items-center gap-x-0 gap-y-1">
+                {trustPoints.map((item, i) => (
+                  <Fragment key={item}>
+                    {i > 0 && (
+                      <span className="mx-2 text-border/50 text-xs select-none">·</span>
+                    )}
+                    <span className="text-[10.5px] text-muted-foreground/65 tracking-wide">{item}</span>
+                  </Fragment>
+                ))}
+              </div>
             </div>
 
-            {/* Trust row */}
-            <div className="flex flex-wrap gap-x-4 gap-y-2 pt-5 border-t border-border/40">
-              {trustPoints.map((item) => (
-                <div key={item} className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                  <span className="text-xs text-muted-foreground tracking-wide">{item}</span>
+            {/* ── Supporting services strip — attached below, same panel ── */}
+            <div className="px-8 pt-5 pb-6 md:px-9 md:pt-5 md:pb-7">
+              <p className="text-[9px] font-semibold tracking-[0.20em] uppercase text-muted-foreground/45 mb-4">
+                Also supporting recovery through
+              </p>
+              <div className="grid grid-cols-2 gap-x-5 gap-y-3">
+
+                {/* Online Recovery Programme */}
+                <div className="flex gap-2.5 items-start">
+                  <div
+                    className="flex-shrink-0 w-8 h-8 overflow-hidden"
+                    style={{ border: "1px solid rgba(22,43,59,0.10)" }}
+                  >
+                    <img
+                      src={onlineProgrammeImg}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-serif text-primary text-[11px] leading-tight mb-0.5">
+                      Online Recovery Programme
+                    </p>
+                    <p className="text-muted-foreground/60 text-[10px] leading-snug font-light">
+                      Structured group and one-to-one support.
+                    </p>
+                  </div>
                 </div>
-              ))}
+
+                {/* Digital Recovery Tools */}
+                <div className="flex gap-2.5 items-start">
+                  <div
+                    className="flex-shrink-0 w-8 h-8 overflow-hidden"
+                    style={{ border: "1px solid rgba(22,43,59,0.10)" }}
+                  >
+                    <img
+                      src={digitalToolsImg}
+                      alt=""
+                      aria-hidden="true"
+                      className="w-full h-full object-cover object-[center_20%]"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-serif text-primary text-[11px] leading-tight mb-0.5">
+                      Digital Recovery Tools
+                    </p>
+                    <p className="text-muted-foreground/60 text-[10px] leading-snug font-light">
+                      Insight OS for daily structure and reflection.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
           </div>
 
-          {/* Mobile-only image stack (shown below text on small screens) */}
-          <div className="mt-8 md:hidden flex flex-col gap-3">
-            <div className="rounded-xl overflow-hidden shadow-md">
-              <img src={treatmentImg} alt="Private residential treatment setting" className="w-full h-52 object-cover" />
+          {/* Mobile-only image stack — below text panel */}
+          <div className="mt-5 md:hidden flex flex-col gap-2.5">
+            <div className="overflow-hidden">
+              <img
+                src={treatmentImg}
+                alt="Private residential treatment setting"
+                className="w-full h-52 object-cover"
+              />
             </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-xl overflow-hidden shadow-md">
-                <img src={onlineProgrammeImg} alt="Online recovery session" className="w-full h-32 object-cover" />
+            <div className="grid grid-cols-2 gap-2.5">
+              <div className="overflow-hidden">
+                <img src={onlineProgrammeImg} alt="Online recovery session" className="w-full h-28 object-cover" />
               </div>
-              <div className="rounded-xl overflow-hidden shadow-md">
-                <img src={digitalToolsImg} alt="Insight OS app" className="w-full h-32 object-cover object-[center_20%]" />
+              <div className="overflow-hidden">
+                <img src={digitalToolsImg} alt="Insight OS app" className="w-full h-28 object-cover object-[center_20%]" />
               </div>
             </div>
           </div>

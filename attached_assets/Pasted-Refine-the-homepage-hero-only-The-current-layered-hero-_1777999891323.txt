@@ -1,0 +1,86 @@
+Refine the homepage hero only.
+
+The current layered hero is closer, but the composition still feels unresolved.
+
+Keep:
+- The wide cinematic Treatment Placement background image.
+- The soft fade/gradient treatment.
+- The premium editorial style.
+- The idea of showing Online Recovery Programme and Digital Recovery Tools as supporting services.
+
+Fix these issues:
+- The main text block is too large and boxy.
+- The left side feels too empty.
+- The Online Recovery Programme and Digital Recovery Tools cards look like random floating thumbnails.
+- The small cards are too disconnected from the main hero story.
+- The hero should feel intentional, balanced and premium, not like separate elements placed around the page.
+
+Required changes:
+
+1. Text panel
+Make the hero text panel smaller, more refined and better integrated with the image.
+- Reduce its width and height.
+- Remove the feeling of a large plain rectangle.
+- Use a softer editorial card treatment with fine border, subtle shadow and warm ivory/glass background.
+- Move it so it overlaps the main image more naturally.
+- It should feel like it is layered above the image, not sitting separately on the left.
+- Keep the text readable and elegant.
+
+2. Background image
+Keep Treatment Placement as the main cinematic hero image.
+- Let it span across the hero area.
+- Use a soft left-side fade so the text remains readable.
+- Avoid too much blank empty space on the left.
+- The image should feel immersive but not like wallpaper.
+
+3. Supporting service cards
+Remove the current random floating thumbnail placement.
+
+Replace the two small cards with one intentional supporting component.
+
+Create a small section inside the hero, either below the buttons within the text panel or attached just below it, called:
+
+Also supporting recovery through
+
+Then show two refined mini service tiles:
+- Online Recovery Programme
+  Structured group and one-to-one support.
+- Digital Recovery Tools
+  Insight OS for daily structure and reflection.
+
+Each tile may include a small cropped thumbnail from the relevant image, but keep them aligned, consistent and connected as one component.
+Do not scatter them across the hero.
+Do not place one in the far left and one in the far right.
+Do not make them look like random image cards.
+
+4. Trust row
+Keep the trust row but make it cleaner:
+Private guidance · Clinically informed · International options · Digital recovery tools
+
+It should align with the text panel and not feel like filler.
+
+5. Overall composition
+The final hero should feel:
+- Balanced across the page
+- Premium
+- Intentional
+- Calm
+- Bespoke
+- Less boxy
+- Less empty on the left
+- Not like a carousel
+- Not like a collage template
+
+Desktop:
+The hero should have a strong editorial composition with the text panel overlapping the main image and the supporting services clearly connected to the text.
+
+Mobile:
+Stack cleanly:
+- Text first
+- Main image
+- Supporting service tiles
+Keep spacing tight and premium.
+
+Do not work on admin/enquiries.
+Do not work on other pages.
+Only refine the homepage hero.
