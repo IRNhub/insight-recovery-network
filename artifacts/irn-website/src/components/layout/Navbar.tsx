@@ -27,6 +27,7 @@ export function Navbar() {
     { href: "/treatment-placement", label: "Treatment Placement" },
     { href: "/online-programme", label: "Online Programme" },
     { href: "/insight-os", label: "Insight OS" },
+    { href: "/resources", label: "Resources" },
   ];
 
   return (

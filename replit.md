@@ -17,10 +17,14 @@ Premium, mobile-first marketing website for Insight Recovery Network. React + Vi
 - `/online-programme` — Online Programme
 - `/insight-os` — Insight OS
 - `/contact` — Contact (frontend-only form with confirmation state)
+- `/resources` — Resources list with category filter
+- `/resources/:slug` — Individual article detail page
 
 **Design:** Playfair Display (serif headings) + Plus Jakarta Sans (body). Palette: deep navy/charcoal, warm ivory background, muted gold accent, soft sage. No backend connected. Contact form is frontend-only.
 
-**Components:** Layout, Navbar, Footer, Button, SectionHeader, PageHero, PathwayCard, ServicePreview, CTASection, ContactForm — all in `artifacts/irn-website/src/components/`
+**Components:** Layout, Navbar, Footer, Button, SectionHeader, PageHero, PathwayCard, ServicePreview, CTASection, ContactForm, ArticleCard — all in `artifacts/irn-website/src/components/`
+
+**Article data:** Static TypeScript data at `artifacts/irn-website/src/data/articles.ts` — 6 seed articles across 4 categories (Addiction & Substances, Treatment Options, Recovery & Wellbeing, Mental Health, Family & Relationships). Metadata includes slug, author, authorRole, date, readingTime, category, and full article content.
 
 ### API Server (`artifacts/api-server`) — served at `/api`
 Express 5 API server. Currently only has a health check endpoint. Will be extended for contact form submission in Phase 2.

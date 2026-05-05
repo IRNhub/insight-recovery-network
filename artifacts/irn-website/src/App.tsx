@@ -10,6 +10,8 @@ import TreatmentPlacement from "@/pages/TreatmentPlacement";
 import OnlineProgramme from "@/pages/OnlineProgramme";
 import InsightOS from "@/pages/InsightOS";
 import Contact from "@/pages/Contact";
+import ResourcesList from "@/pages/ResourcesList";
+import ResourceDetail from "@/pages/ResourceDetail";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/online-programme" component={OnlineProgramme} />
       <Route path="/insight-os" component={InsightOS} />
       <Route path="/contact" component={Contact} />
+      <Route path="/resources" component={ResourcesList} />
+      <Route path="/resources/:slug" component={ResourceDetail} />
       <Route component={NotFound} />
     </Switch>
   );
