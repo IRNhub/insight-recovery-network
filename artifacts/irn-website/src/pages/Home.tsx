@@ -14,9 +14,27 @@ import digitalToolsImg from "@/assets/hero-digital-tools.png";
 
 const trustPoints = [
   "Private guidance",
-  "Clinically informed",
-  "International options",
+  "Structured support",
   "Digital recovery tools",
+  "Treatment pathways",
+];
+
+const pillars = [
+  {
+    title: "Online Programme",
+    desc: "Groups, one-to-one support and relapse prevention planning.",
+    href: "/online-programme",
+  },
+  {
+    title: "Insight OS",
+    desc: "Daily structure, journaling, check-ins and Anchor guidance.",
+    href: "/insight-os",
+  },
+  {
+    title: "Treatment Placement",
+    desc: "Confidential guidance for detox, residential rehab and continuing care.",
+    href: "/treatment-placement",
+  },
 ];
 
 export default function Home() {
@@ -28,174 +46,239 @@ export default function Home() {
         canonical="/"
       />
 
-      {/* ── Hero — refined editorial layered composition ── */}
-      <section className="relative overflow-hidden bg-background md:min-h-[800px] lg:min-h-[840px]">
+      {/* ── Hero — premium three-pillar two-zone composition ── */}
+      <section className="bg-background overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-10 xl:gap-14">
 
-        {/* Treatment Placement — wide cinematic image starting further left so there's no bare gap */}
-        <div className="absolute inset-y-0 right-0 w-[76%] hidden md:block">
-          <img
-            src={treatmentImg}
-            alt="A calm, private residential treatment setting surrounded by landscaped gardens"
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Left-edge gradient — image dissolves into ivory so text panel sits naturally on it */}
-          <div className="absolute inset-y-0 left-0 w-[38%] bg-gradient-to-r from-background to-transparent" />
-          <div className="absolute inset-y-0 left-[30%] w-[16%] bg-gradient-to-r from-background/30 to-transparent" />
-        </div>
+            {/* ══ LEFT ZONE: copy + CTAs + trust + pillar summary ══ */}
+            <div className="lg:w-[44%] xl:w-[42%] flex flex-col gap-0">
 
-        {/* Soft champagne ambient glow behind the panel */}
-        <div
-          className="absolute pointer-events-none hidden md:block"
-          style={{
-            top: "8%", left: "0%",
-            width: "480px", height: "440px",
-            background: "radial-gradient(ellipse at 30% 40%, rgba(201,169,110,0.10) 0%, transparent 72%)",
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24">
-
-          {/* ── Editorial panel — main copy + supporting services as one unified block ── */}
-          <div
-            className="max-w-[448px]"
-            style={{
-              background: "rgba(246,244,240,0.96)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              boxShadow: "0 16px 48px -8px rgba(22,43,59,0.13), 0 0 0 1px rgba(201,169,110,0.20)",
-            }}
-          >
-
-            {/* Main copy block */}
-            <div className="px-8 pt-8 pb-7 md:px-9 md:pt-9 md:pb-7"
-              style={{ borderBottom: "1px solid rgba(201,169,110,0.16)" }}
-            >
+              {/* Eyebrow */}
               <span
-                className="text-[9.5px] font-semibold tracking-[0.18em] uppercase text-accent/70 font-sans block mb-4"
+                className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans block mb-5"
                 data-testid="text-hero-eyebrow"
               >
-                Confidential addiction and mental health support
+                Confidential online recovery, digital tools and treatment guidance
               </span>
 
+              {/* Headline */}
               <h1
-                className="font-serif text-primary leading-[1.07] tracking-tight mb-4"
-                style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
+                className="font-serif text-primary leading-[1.07] tracking-tight mb-5"
+                style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
                 data-testid="text-hero-heading"
               >
-                Private addiction and mental health support, built around the person.
+                Recovery support that meets you where you are.
               </h1>
 
+              {/* Subheading */}
               <p
-                className="text-[14.5px] text-muted-foreground leading-relaxed font-light mb-6"
+                className="text-[15px] text-muted-foreground leading-relaxed font-light mb-7 max-w-[480px]"
                 data-testid="text-hero-description"
               >
-                Confidential treatment placement, structured online recovery and digital tools — for individuals, families and professionals.
+                Insight Recovery Network combines structured online recovery support, Insight OS digital recovery tools and confidential treatment placement guidance — for individuals, families and professionals.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+              {/* CTAs */}
+              <div className="flex flex-wrap gap-3 mb-7">
                 <Link href="/contact" data-testid="button-hero-primary">
-                  <Button className="rounded-none h-11 px-6 text-sm w-full sm:w-auto">
+                  <Button className="rounded-none h-12 px-7 text-sm">
                     Speak Confidentially
                   </Button>
                 </Link>
                 <Link href="/what-we-offer" data-testid="button-hero-secondary">
-                  <Button variant="outline" className="rounded-none h-11 px-6 text-sm border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
+                  <Button variant="outline" className="rounded-none h-12 px-7 text-sm border-primary/20 hover:bg-primary/5">
                     Explore Support Options
                   </Button>
                 </Link>
               </div>
 
-              {/* Trust row — inline dot-separated */}
-              <div className="flex flex-wrap items-center gap-x-0 gap-y-1">
+              {/* Trust row */}
+              <div className="flex flex-wrap items-center gap-y-1 mb-8 pb-8 border-b border-border/30">
                 {trustPoints.map((item, i) => (
                   <Fragment key={item}>
                     {i > 0 && (
-                      <span className="mx-2 text-border/50 text-xs select-none">·</span>
+                      <span className="mx-2.5 text-border/40 text-xs select-none">·</span>
                     )}
-                    <span className="text-[10.5px] text-muted-foreground/65 tracking-wide">{item}</span>
+                    <span className="text-[10.5px] text-muted-foreground/60 tracking-wide">{item}</span>
                   </Fragment>
                 ))}
               </div>
+
+              {/* Three-pillar compact summary */}
+              <div className="flex flex-col gap-5">
+                {pillars.map((p, i) => (
+                  <div key={p.title} className="flex gap-4 items-start group">
+                    {/* Champagne index */}
+                    <div className="flex-shrink-0 flex items-center justify-center w-6 h-6 mt-0.5">
+                      <span
+                        className="font-serif text-[11px] font-medium"
+                        style={{ color: "rgba(201,169,110,0.85)" }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="min-w-0">
+                      <Link href={p.href}>
+                        <p className="font-serif text-primary text-[13px] leading-tight mb-1 group-hover:text-primary/70 transition-colors">
+                          {p.title}
+                        </p>
+                      </Link>
+                      <p className="text-muted-foreground/65 text-[12px] leading-snug font-light">
+                        {p.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
             </div>
 
-            {/* ── Supporting services strip — attached below, same panel ── */}
-            <div className="px-8 pt-5 pb-6 md:px-9 md:pt-5 md:pb-7">
-              <p className="text-[9px] font-semibold tracking-[0.20em] uppercase text-muted-foreground/45 mb-4">
-                Also supporting recovery through
-              </p>
-              <div className="grid grid-cols-2 gap-x-5 gap-y-3">
+            {/* ══ RIGHT ZONE: premium staggered image mosaic ══ */}
+            <div className="lg:flex-1 min-w-0">
 
-                {/* Online Recovery Programme */}
-                <div className="flex gap-2.5 items-start">
+              {/* Desktop mosaic — hidden on mobile */}
+              <div className="hidden md:block relative" style={{ height: "580px" }}>
+
+                {/* Gap constants: left col = 56%, gap = 3%, right col = 41% */}
+
+                {/* Online Recovery Programme — tall dominant left panel */}
+                <div
+                  className="absolute top-0 left-0 rounded-xl overflow-hidden group"
+                  style={{
+                    width: "56%", height: "100%",
+                    boxShadow: "0 8px 32px -4px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.07)",
+                  }}
+                >
+                  <img
+                    src={onlineProgrammeImg}
+                    alt="A person attending a structured online recovery session from home"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                  {/* Label overlay */}
                   <div
-                    className="flex-shrink-0 w-8 h-8 overflow-hidden"
-                    style={{ border: "1px solid rgba(22,43,59,0.10)" }}
+                    className="absolute bottom-0 left-0 right-0 px-5 py-4"
+                    style={{ background: "linear-gradient(to top, rgba(22,43,59,0.88) 0%, rgba(22,43,59,0.60) 60%, transparent 100%)" }}
                   >
-                    <img
-                      src={onlineProgrammeImg}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-serif text-primary text-[11px] leading-tight mb-0.5">
+                    <div className="w-5 h-px mb-2" style={{ background: "rgba(201,169,110,0.8)" }} />
+                    <p className="font-serif text-white text-[13px] leading-tight mb-0.5">
                       Online Recovery Programme
                     </p>
-                    <p className="text-muted-foreground/60 text-[10px] leading-snug font-light">
-                      Structured group and one-to-one support.
+                    <p className="text-white/55 text-[11px] font-light leading-snug">
+                      Structured support from wherever you are.
                     </p>
                   </div>
                 </div>
 
-                {/* Digital Recovery Tools */}
-                <div className="flex gap-2.5 items-start">
+                {/* Digital Recovery Tools — top-right, secondary prominent */}
+                <div
+                  className="absolute top-0 right-0 rounded-xl overflow-hidden group"
+                  style={{
+                    width: "41%", height: "57%",
+                    boxShadow: "0 8px 32px -4px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.07)",
+                  }}
+                >
+                  <img
+                    src={digitalToolsImg}
+                    alt="Insight OS digital recovery app on a phone"
+                    className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
                   <div
-                    className="flex-shrink-0 w-8 h-8 overflow-hidden"
-                    style={{ border: "1px solid rgba(22,43,59,0.10)" }}
+                    className="absolute bottom-0 left-0 right-0 px-4 py-3.5"
+                    style={{ background: "linear-gradient(to top, rgba(22,43,59,0.88) 0%, rgba(22,43,59,0.55) 65%, transparent 100%)" }}
                   >
-                    <img
-                      src={digitalToolsImg}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover object-[center_20%]"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-serif text-primary text-[11px] leading-tight mb-0.5">
+                    <div className="w-4 h-px mb-1.5" style={{ background: "rgba(201,169,110,0.8)" }} />
+                    <p className="font-serif text-white text-[12px] leading-tight mb-0.5">
                       Digital Recovery Tools
                     </p>
-                    <p className="text-muted-foreground/60 text-[10px] leading-snug font-light">
-                      Insight OS for daily structure and reflection.
+                    <p className="text-white/55 text-[10.5px] font-light leading-snug">
+                      Insight OS for daily recovery structure.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Treatment Placement — bottom-right, supporting */}
+                <div
+                  className="absolute bottom-0 right-0 rounded-xl overflow-hidden group"
+                  style={{
+                    width: "41%", height: "40%",
+                    boxShadow: "0 8px 32px -4px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.07)",
+                  }}
+                >
+                  <img
+                    src={treatmentImg}
+                    alt="A calm, private residential treatment setting surrounded by landscaped gardens"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
+                  <div
+                    className="absolute bottom-0 left-0 right-0 px-4 py-3"
+                    style={{ background: "linear-gradient(to top, rgba(22,43,59,0.88) 0%, rgba(22,43,59,0.50) 65%, transparent 100%)" }}
+                  >
+                    <div className="w-4 h-px mb-1.5" style={{ background: "rgba(201,169,110,0.8)" }} />
+                    <p className="font-serif text-white text-[12px] leading-tight mb-0.5">
+                      Treatment Placement
+                    </p>
+                    <p className="text-white/55 text-[10.5px] font-light leading-snug">
+                      Private guidance when residential care is needed.
                     </p>
                   </div>
                 </div>
 
               </div>
+
+              {/* Mobile: clean stacked premium cards */}
+              <div className="md:hidden flex flex-col gap-3">
+                {[
+                  {
+                    img: onlineProgrammeImg,
+                    alt: "Online recovery session",
+                    title: "Online Recovery Programme",
+                    desc: "Structured support from wherever you are.",
+                    objPos: "center",
+                  },
+                  {
+                    img: digitalToolsImg,
+                    alt: "Insight OS app",
+                    title: "Digital Recovery Tools",
+                    desc: "Insight OS for daily recovery structure.",
+                    objPos: "center 20%",
+                  },
+                  {
+                    img: treatmentImg,
+                    alt: "Private treatment setting",
+                    title: "Treatment Placement",
+                    desc: "Private guidance when residential care is needed.",
+                    objPos: "center",
+                  },
+                ].map((panel) => (
+                  <div
+                    key={panel.title}
+                    className="relative rounded-xl overflow-hidden"
+                    style={{
+                      height: "180px",
+                      boxShadow: "0 4px 16px -4px rgba(22,43,59,0.16), 0 0 0 1px rgba(22,43,59,0.06)",
+                    }}
+                  >
+                    <img
+                      src={panel.img}
+                      alt={panel.alt}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: panel.objPos }}
+                    />
+                    <div
+                      className="absolute bottom-0 left-0 right-0 px-4 py-3"
+                      style={{ background: "linear-gradient(to top, rgba(22,43,59,0.85) 0%, transparent 100%)" }}
+                    >
+                      <p className="font-serif text-white text-[12px] leading-tight">{panel.title}</p>
+                      <p className="text-white/55 text-[10.5px] font-light">{panel.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
             </div>
 
           </div>
-
-          {/* Mobile-only image stack — below text panel */}
-          <div className="mt-5 md:hidden flex flex-col gap-2.5">
-            <div className="overflow-hidden">
-              <img
-                src={treatmentImg}
-                alt="Private residential treatment setting"
-                className="w-full h-52 object-cover"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-2.5">
-              <div className="overflow-hidden">
-                <img src={onlineProgrammeImg} alt="Online recovery session" className="w-full h-28 object-cover" />
-              </div>
-              <div className="overflow-hidden">
-                <img src={digitalToolsImg} alt="Insight OS app" className="w-full h-28 object-cover object-[center_20%]" />
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 

@@ -1,0 +1,138 @@
+Refocus and redesign only the homepage hero section.
+
+The current layered hero is not working. It makes Treatment Placement dominate visually, while Online Recovery Programme and Digital Recovery Tools feel like small add-ons. That does not reflect the business direction.
+
+Insight Recovery Network should be presented as a recovery ecosystem built around three core pillars:
+1. Online Recovery Programme
+2. Digital Recovery Tools / Insight OS
+3. Treatment Placement
+
+The Online Recovery Programme and Digital Recovery Tools should feel central and important, not secondary. Treatment Placement should remain important but should not visually dominate the whole hero.
+
+Important:
+Do not use the Treatment Placement image as a full-width background anymore.
+Do not use the current faded background image treatment.
+Do not create a carousel.
+Do not scatter small cards randomly.
+Do not leave one side of the page feeling empty.
+Do not create a generic three-card grid.
+Do not make it look like a SaaS landing page.
+Do not touch admin/enquiries or backend features.
+Only update the homepage hero.
+
+New hero concept:
+Create a premium three-pillar hero composition.
+
+Layout:
+- Use a balanced two-zone hero, but make both sides feel visually rich.
+- Left side: hero text, CTAs, trust row, and a small refined “three pillars” summary.
+- Right side: a premium visual composition showing the three pillars with image panels.
+- The right-side visual should not be one single image. It should be a designed ecosystem panel with three connected visual cards.
+- The composition should feel spacious, editorial and premium, not like three generic cards.
+
+Hero copy:
+Eyebrow:
+Confidential online recovery, digital tools and treatment guidance
+
+Headline:
+Recovery support that meets you where you are.
+
+Subheading:
+Insight Recovery Network combines structured online recovery support, Insight OS digital recovery tools and confidential treatment placement guidance for individuals, families and professionals.
+
+Primary CTA:
+Speak Confidentially
+
+Secondary CTA:
+Explore Support Options
+
+Trust row:
+Private guidance · Structured support · Digital recovery tools · Treatment pathways
+
+Left-side richness:
+To avoid the left side feeling empty, add a refined three-pillar summary underneath the trust row or beside the CTAs.
+
+Three-pillar summary:
+- Online Programme
+  Groups, one-to-one support and relapse prevention planning.
+- Insight OS
+  Daily structure, journaling, check-ins and Anchor guidance.
+- Treatment Placement
+  Confidential guidance for detox, residential rehab and continuing care.
+
+This summary should be compact and elegant. It should not feel like a bulky card grid.
+
+Right-side visual composition:
+Use the three uploaded images:
+- Online Recovery Programme image
+- Digital Recovery Tools image
+- Treatment Placement image
+
+Make Online Recovery Programme and Digital Recovery Tools visually prominent.
+Suggested composition:
+- Main large image panel: Online Recovery Programme
+- Secondary prominent panel: Digital Recovery Tools / Insight OS
+- Smaller supporting panel: Treatment Placement
+
+Or:
+- Three staggered image panels arranged as a connected premium system, with Online Programme and Digital Recovery Tools slightly larger than Treatment Placement.
+
+Visual style:
+- Warm ivory background
+- Deep navy text
+- Muted champagne accents
+- Soft shadows
+- Fine borders
+- Subtle depth
+- Slight offset layering
+- Rounded corners
+- Elegant hover states if clickable
+- No harsh shadows
+- No heavy gradients
+- No image blending lines
+- No broken-looking fade effects
+
+Each visual panel should have a small label:
+1. Online Recovery Programme
+   Structured support from wherever you are.
+
+2. Digital Recovery Tools
+   Insight OS for daily recovery structure.
+
+3. Treatment Placement
+   Private guidance when residential care is needed.
+
+Important visual requirement:
+The three panels must feel like one intentional premium composition, not random floating thumbnails.
+They should be aligned around a shared invisible grid.
+They can overlap slightly, but not in a messy way.
+The right side should feel full and polished.
+The left side should also feel intentional and complete.
+
+Fix layout issues:
+- Ensure the CTA buttons are aligned and never overflow the text panel.
+- Ensure text spacing is balanced.
+- Ensure the hero is responsive.
+- Ensure no navigation elements overlap.
+- Ensure the header spacing remains fixed and polished.
+
+Desktop:
+- Hero should feel balanced across the full width.
+- No huge empty areas.
+- No awkward oversized blank card.
+- The text should be strong and readable.
+- The image composition should feel premium and dimensional.
+
+Mobile:
+- Stack cleanly:
+  1. Hero text and CTAs
+  2. Three-pillar visual composition
+  3. Compact trust/summary section
+- Avoid tiny unreadable image cards.
+- If needed on mobile, show the three visuals as a clean vertical set of premium cards.
+
+Tone:
+The page should feel like a premium private recovery network, not a rehab directory and not a generic tech product.
+
+Deliverable:
+Replace the current hero with a balanced premium three-pillar hero where Online Recovery Programme, Digital Recovery Tools / Insight OS, and Treatment Placement are all clearly presented, with Online Programme and Insight OS visually central to the business.
