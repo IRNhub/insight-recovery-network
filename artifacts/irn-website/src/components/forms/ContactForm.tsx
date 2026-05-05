@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useLocation } from "wouter";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { useSubmitEnquiry } from "@workspace/api-client-react";
+import { submitLeadToIrnOs } from "@/lib/irn-os";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -26,7 +28,10 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
-  const { mutate: submitEnquiry, isPending, isSuccess, isError } = useSubmitEnquiry();
+  const [location] = useLocation();
+  const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -39,8 +44,28 @@ export function ContactForm() {
     },
   });
 
-  function onSubmit(data: ContactFormValues) {
-    submitEnquiry({ data });
+  async function onSubmit(data: ContactFormValues) {
+    setIsPending(true);
+    setIsError(false);
+    try {
+      await submitLeadToIrnOs({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        preferredContactMethod: data.preferredContact,
+        enquiryType: data.supportType,
+        message: data.message,
+        consentAccepted: data.consent,
+        source: "Website",
+        pageSource: location,
+        createdAt: new Date().toISOString(),
+      });
+      setIsSuccess(true);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsPending(false);
+    }
   }
 
   if (isSuccess) {
@@ -48,7 +73,7 @@ export function ContactForm() {
       <div className="bg-secondary/30 p-8 md:p-12 border border-border/50 text-center flex flex-col items-center justify-center min-h-[400px]">
         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
+            <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
         <h3 className="font-serif text-2xl text-primary mb-3">Thank you.</h3>
@@ -65,7 +90,7 @@ export function ContactForm() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           {isError && (
             <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
-              We were unable to submit your enquiry. Please try again, or contact us directly by email.
+              We were unable to submit your enquiry at this time. Please try again, or contact us directly by email.
             </div>
           )}
 

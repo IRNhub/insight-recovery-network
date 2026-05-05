@@ -1,0 +1,120 @@
+Update only the homepage hero section.
+
+Replace the current hero carousel with a premium layered hero composition using the three uploaded images:
+1. Treatment Placement
+2. Online Recovery Programme
+3. Digital Recovery Tools
+
+Goal:
+Create a bespoke, high-end hero section where the images and text feel layered, dimensional and integrated across the page. Do not make the images sit in one small huddled group on the right. The composition should spread across the hero area and feel intentional, cinematic and premium.
+
+Design direction:
+The hero should feel like a private clinical network, boutique treatment advisory service and modern recovery platform. It should feel calm, confidential, premium and human.
+
+Important:
+Do not create a standard split hero with text on the left and image on the right.
+Do not create a basic image carousel.
+Do not make the images look like wallpaper.
+Do not place all images in one corner.
+Do not make the design feel busy or like a collage template.
+Do not use loud animation.
+Do not use fake badges, fake testimonials or fake accreditations.
+
+Hero layout concept:
+Create a large full-width hero section with a layered visual composition.
+
+Suggested structure:
+- Use the Treatment Placement image as the main large hero image, spanning a wide area of the section.
+- Position it as a large cinematic image panel across the right and centre of the hero, possibly bleeding slightly behind the text area.
+- Use a soft dark navy or warm ivory overlay/gradient so the text remains readable.
+- Place the main hero text in a floating editorial text panel that overlaps the image slightly, so the text feels like it sits above the image rather than separate from it.
+- Add the Online Recovery Programme image as a smaller elevated card, offset lower or to the side.
+- Add the Digital Recovery Tools image as a smaller phone/app-focused card, offset in a different position.
+- The three visuals should show the IRN ecosystem:
+  Treatment placement · Online support · Digital recovery tools
+- Use depth through layering, soft shadows, subtle borders, gentle rotation or perspective, and muted champagne glow.
+- Keep everything elegant and not cluttered.
+
+Hero text:
+Eyebrow:
+Confidential addiction and mental health support
+
+Headline:
+Private addiction and mental health support, built around the person.
+
+Subheading:
+Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
+
+Primary CTA:
+Speak Confidentially
+
+Secondary CTA:
+Explore Support Options
+
+Trust row:
+Private guidance · Clinically informed · International options · Digital recovery tools
+
+Text panel style:
+- The text should feel like a premium editorial card or glass-style panel.
+- It can sit over part of the main image.
+- Use warm ivory or very subtle translucent ivory background.
+- Add soft shadow, fine border and slight backdrop blur if appropriate.
+- It should pop forward above the image.
+- Text must remain highly readable.
+- Keep line lengths elegant.
+
+Image composition details:
+Main image:
+- Use Treatment Placement as the dominant image.
+- Crop it horizontally and cinematically.
+- It should occupy a large area across the hero, not just a small box.
+- Use rounded corners, soft shadow and subtle border.
+- Avoid over-cropping important parts.
+
+Secondary image:
+- Use Online Recovery Programme as a medium floating card.
+- Position it so it supports the main visual without cluttering the hero.
+- It should look like a layered object, not a random thumbnail.
+
+Third image:
+- Use Digital Recovery Tools as a smaller elevated card.
+- If possible, crop around the phone/app so the digital element is clear.
+- Position it as a refined app/product detail, not a large competing image.
+
+Add a small refined label somewhere within the image composition:
+Treatment placement · Online support · Digital recovery tools
+
+This label should be subtle, premium and not salesy.
+
+Desktop:
+- The hero should use the full width of the page.
+- The composition should feel balanced across the page.
+- Text and images should overlap tastefully.
+- The text must not be cramped.
+- The image area should feel dimensional and high-end.
+- Avoid too much empty white space above the hero.
+
+Mobile:
+- Stack gracefully.
+- Text panel first or slightly overlapping the main image.
+- Images should not become tiny or cluttered.
+- Consider showing the main image and one smaller supporting image on mobile if all three become too busy.
+- CTAs must remain clear and easy to tap.
+- Trust row should wrap cleanly.
+
+Motion:
+- No carousel.
+- Use subtle entrance animation only if already used elsewhere.
+- Respect prefers-reduced-motion.
+- No constant movement.
+
+Technical:
+- Use React, TypeScript and Tailwind.
+- Build the hero as a clean reusable component.
+- Use the uploaded image filenames exactly as they exist in the project.
+- Ensure all images have accessible alt text.
+- Keep performance reasonable.
+- Do not affect other pages.
+
+Deliverable:
+Replace the homepage hero with a premium full-width layered image and text composition using the three images. The final result should feel bespoke, cinematic, dimensional and polished, with both the images and the hero text visually popping forward.
