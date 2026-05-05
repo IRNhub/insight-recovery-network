@@ -1,0 +1,222 @@
+Build a premium, mobile-first marketing website for Insight Recovery Network.
+
+This is Phase 1 of the project. The goal is to create a classy, calm, high-end public website that does not look generic or AI-generated. It should feel like a trusted private clinical network, not a cheap rehab funnel, not a template site, and not a busy health-tech dashboard.
+
+Business context:
+Insight Recovery Network provides confidential addiction and mental health support, including private treatment placement, online recovery programmes, family/intervention guidance, and Insight OS, a digital recovery platform.
+
+Primary goals:
+1. Build trust quickly.
+2. Position Insight Recovery Network as premium, private, clinical and human.
+3. Guide visitors into three clear pathways:
+   - I need help for myself
+   - I need help for someone else
+   - I am a professional or organisation
+4. Capture enquiries through a clean contact form.
+5. Create a strong foundation for later phases: assessments, blog, CRM integration, Meta Pixel, SEO content and Insight OS integration.
+
+Tech requirements:
+- Use React, Vite, TypeScript and Tailwind CSS.
+- Use clean reusable components.
+- Use responsive mobile-first design.
+- Use accessible semantic HTML.
+- Do not use overly flashy animations.
+- Add subtle premium transitions only.
+- Keep the project structure simple and easy to expand.
+- Use placeholder images for now, but structure the design so hero and section images can be swapped easily.
+- Do not connect any backend yet unless there is already a simple local form placeholder.
+- Contact form can show a “Thank you, we’ll be in touch shortly” confirmation state for now.
+
+Brand style:
+The design should feel:
+- Calm
+- Private
+- Premium
+- Clinically credible
+- Human
+- Warm
+- Minimal
+- Spacious
+- Reassuring
+
+Avoid:
+- Generic AI-generated gradients everywhere
+- Stock-photo-heavy rehab clichés
+- Bright medical blues
+- Overcrowded sections
+- Excessive icons
+- Cheap sales-funnel styling
+- Overuse of cards
+- Loud animations
+- Robotic copy
+- Anything that feels like a SaaS landing page template
+
+Visual direction:
+- Use a sophisticated palette:
+  - Deep navy / charcoal as the main dark tone
+  - Warm ivory or soft stone as the page background
+  - Muted gold or champagne as a subtle accent
+  - Soft sage or muted teal may be used sparingly
+- Typography should feel editorial and premium.
+- Use large spacing, strong hierarchy and refined section layouts.
+- Buttons should be clean, subtle and confident.
+- Rounded corners should be elegant, not cartoonish.
+- Use soft shadows very sparingly.
+- Make it look excellent on mobile.
+
+Suggested navigation:
+- Home
+- About
+- What We Offer
+- Treatment Placement
+- Online Programme
+- Insight OS
+- Contact
+
+Phase 1 pages to build:
+
+1. Home page
+Sections:
+- Hero section with a calm premium feel.
+  Headline:
+  “Private addiction and mental health support, built around the person.”
+  Subheading:
+  “Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.”
+  Primary CTA:
+  “Speak Confidentially”
+  Secondary CTA:
+  “Explore Support Options”
+- Three pathway section:
+  “I need help for myself”
+  “I need help for someone else”
+  “I am a professional or organisation”
+- Services overview:
+  Treatment Placement
+  Online Recovery Programme
+  Insight OS
+- Why Insight Recovery Network:
+  Confidential guidance
+  Clinically informed support
+  International treatment partnerships
+  Digital recovery tools
+- Simple “How it works” section:
+  1. Tell us what is happening
+  2. We help clarify the right level of support
+  3. We guide the next step confidentially
+- Final CTA section:
+  “A private conversation can be the first step.”
+
+2. About page
+Sections:
+- Intro to Insight Recovery Network
+- Clinical and recovery-informed approach
+- International experience
+- Values:
+  Confidentiality
+  Dignity
+  Clarity
+  Continuity
+  Practical support
+- Founder/Clinical Director placeholder section for Craig Bilton
+- CTA to contact
+
+3. What We Offer page
+Sections:
+- Overview of IRN’s support pathways
+- Treatment Placement
+- Online Recovery Programme
+- Insight OS
+- Family and intervention guidance
+- Professional partnerships
+- CTA to contact
+
+4. Treatment Placement page
+Sections:
+- Private treatment placement for addiction and mental health
+- Support with detox, residential rehab and ongoing recovery planning
+- Mention possible regions:
+  UK, South Africa, Thailand, Spain, Sri Lanka and selected international partners
+- Explain that IRN helps people and families understand options and find suitable support
+- Avoid making unrealistic promises
+- Include CTA:
+  “Request confidential placement guidance”
+
+5. Online Programme page
+Sections:
+- Structured online recovery support
+- Good for people who need support, accountability and relapse prevention planning without entering residential treatment
+- Include:
+  Group support
+  One-to-one sessions
+  Recovery planning
+  Daily structure
+  Practical relapse prevention tools
+- CTA:
+  “Ask about the online programme”
+
+6. Insight OS page
+Sections:
+- Product-style page for Insight OS
+- Headline:
+  “The operating system for your recovery.”
+- Include features:
+  Daily check-ins
+  Journaling
+  Recovery Health Score
+  Triggers and warning signs
+  Recovery Academy
+  Anchor AI recovery guidance
+- CTA:
+  “Open Insight OS”
+  Link placeholder: https://irnonline.app
+
+7. Contact page
+Sections:
+- Confidential enquiry form
+Fields:
+  Name
+  Email
+  Phone / WhatsApp
+  Preferred contact method
+  What support are you looking for?
+  Message
+  Consent checkbox
+- Contact reassurance text:
+  “Your enquiry is confidential. We will only use your information to respond to your request for support.”
+- Confirmation state after submission.
+
+Copy style:
+- Professional but warm.
+- Avoid hype.
+- Avoid exaggerated claims.
+- Avoid sounding like AI.
+- Use short, confident sentences.
+- Use emotionally intelligent language without being dramatic.
+- Speak to people who may feel overwhelmed, worried, embarrassed or unsure.
+- Use UK English spelling.
+
+Important design instruction:
+Make the website feel bespoke. Do not create a generic hero with a centred title, three cards and a stock gradient. Use asymmetry, editorial spacing, refined typography, careful section rhythm, and subtle visual details so it feels designed by a premium studio.
+
+Components to create:
+- Layout
+- Navbar
+- Footer
+- Button
+- SectionHeader
+- ServicePreview
+- PathwayCard
+- CTASection
+- ContactForm
+- PageHero
+
+Footer should include:
+- Insight Recovery Network
+- Confidential addiction and mental health support
+- Links to key pages
+- Placeholder for Privacy Policy
+- Placeholder for Terms
+- Copyright
+
+Deliverable:
+Create the full Phase 1 website with all pages, routing, responsive layout, refined styling and placeholder content/images. Keep the code clean and easy to extend in Phase 2.
