@@ -47,8 +47,64 @@ export default function Home() {
       />
 
       {/* ── Hero — premium three-pillar two-zone composition ── */}
-      <section className="bg-background overflow-hidden">
-        <div className="container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-20 lg:pb-24">
+      <section className="relative bg-background overflow-hidden">
+
+        {/* ── Subtle background depth layer ── */}
+
+        {/* Barely-visible dot grid — editorial texture */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(22,43,59,0.055) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
+          }}
+        />
+
+        {/* Champagne radial glow — right side, behind image panels */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "10%", right: "-6%",
+            width: "65%", height: "90%",
+            background: "radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.11) 0%, rgba(201,169,110,0.04) 45%, transparent 75%)",
+          }}
+        />
+
+        {/* Soft champagne wash — left side, behind text zone */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "0%", left: "-5%",
+            width: "55%", height: "100%",
+            background: "radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.07) 0%, transparent 65%)",
+          }}
+        />
+
+        {/* Oversized faint circle — editorial background accent */}
+        <div
+          className="absolute pointer-events-none hidden lg:block"
+          style={{
+            top: "50%", right: "28%",
+            transform: "translate(50%, -50%)",
+            width: "520px", height: "520px",
+            borderRadius: "50%",
+            border: "1px solid rgba(201,169,110,0.09)",
+          }}
+        />
+        <div
+          className="absolute pointer-events-none hidden lg:block"
+          style={{
+            top: "50%", right: "28%",
+            transform: "translate(50%, -50%)",
+            width: "360px", height: "360px",
+            borderRadius: "50%",
+            border: "1px solid rgba(201,169,110,0.06)",
+          }}
+        />
+
+        <div className="container mx-auto px-6 md:px-12 pt-20 md:pt-24 lg:pt-28 pb-16 md:pb-20 lg:pb-24">
           <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-10 xl:gap-14">
 
             {/* ══ LEFT ZONE: copy + CTAs + trust + pillar summary ══ */}
