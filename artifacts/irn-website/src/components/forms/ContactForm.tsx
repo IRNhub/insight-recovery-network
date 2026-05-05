@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -8,21 +7,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { useSubmitEnquiry } from "@workspace/api-client-react";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
   email: z.string().email("Please enter a valid email address"),
   phone: z.string().min(5, "Please enter your phone or WhatsApp number"),
-  preferredContact: z.string({ required_error: "Please select a preferred contact method" }),
-  supportType: z.string({ required_error: "Please select the type of support you are looking for" }),
+  preferredContact: z.enum(["email", "phone", "whatsapp"], {
+    required_error: "Please select a preferred contact method",
+  }),
+  supportType: z.enum(["myself", "someone-else", "professional", "general"], {
+    required_error: "Please select the type of support you are looking for",
+  }),
   message: z.string().min(10, "Please provide a brief message"),
-  consent: z.boolean().refine(val => val === true, "You must consent to proceed")
+  consent: z.boolean().refine((val) => val === true, "You must consent to proceed"),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { mutate: submitEnquiry, isPending, isSuccess, isError } = useSubmitEnquiry();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -31,15 +35,15 @@ export function ContactForm() {
       email: "",
       phone: "",
       message: "",
-      consent: false
-    }
+      consent: false,
+    },
   });
 
-  function onSubmit(_data: ContactFormValues) {
-    setIsSubmitted(true);
+  function onSubmit(data: ContactFormValues) {
+    submitEnquiry({ data });
   }
 
-  if (isSubmitted) {
+  if (isSuccess) {
     return (
       <div className="bg-secondary/30 p-8 md:p-12 border border-border/50 text-center flex flex-col items-center justify-center min-h-[400px]">
         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
@@ -59,6 +63,12 @@ export function ContactForm() {
     <div className="bg-white p-8 md:p-12 border border-border shadow-sm">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {isError && (
+            <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
+              We were unable to submit your enquiry. Please try again, or contact us directly by email.
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField
               control={form.control}
@@ -73,7 +83,7 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="email"
@@ -159,10 +169,10 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel className="text-primary font-medium">Message</FormLabel>
                 <FormControl>
-                  <Textarea 
-                    placeholder="Please briefly describe what you are looking for support with..." 
+                  <Textarea
+                    placeholder="Please briefly describe what you are looking for support with..."
                     className="min-h-[120px] rounded-none resize-y border-input focus-visible:ring-1 focus-visible:ring-accent focus-visible:border-accent"
-                    {...field} 
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
@@ -192,8 +202,13 @@ export function ContactForm() {
             )}
           />
 
-          <Button type="submit" size="lg" className="w-full rounded-none h-14 text-base font-medium mt-4">
-            Submit Confidential Enquiry
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full rounded-none h-14 text-base font-medium mt-4"
+            disabled={isPending}
+          >
+            {isPending ? "Submitting…" : "Submit Confidential Enquiry"}
           </Button>
         </form>
       </Form>

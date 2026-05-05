@@ -14,3 +14,23 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * Stores a new enquiry from the contact form and notifies the team
+ * @summary Submit a contact enquiry
+ */
+export const submitEnquiryBodyNameMin = 2;
+
+export const submitEnquiryBodyPhoneMin = 5;
+
+export const submitEnquiryBodyMessageMin = 10;
+
+export const SubmitEnquiryBody = zod.object({
+  name: zod.string().min(submitEnquiryBodyNameMin),
+  email: zod.string().email(),
+  phone: zod.string().min(submitEnquiryBodyPhoneMin),
+  preferredContact: zod.enum(["email", "phone", "whatsapp"]),
+  supportType: zod.enum(["myself", "someone-else", "professional", "general"]),
+  message: zod.string().min(submitEnquiryBodyMessageMin),
+  consent: zod.boolean(),
+});

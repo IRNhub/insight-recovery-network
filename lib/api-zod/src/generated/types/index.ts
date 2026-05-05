@@ -6,4 +6,10 @@
  * OpenAPI spec version: 0.1.0
  */
 
+export * from "./enquiryCreated";
+export * from "./enquiryInput";
+export * from "./enquiryInputPreferredContact";
+export * from "./enquiryInputSupportType";
 export * from "./healthStatus";
+export * from "./validationError";
+export * from "./validationErrorDetailsItem";

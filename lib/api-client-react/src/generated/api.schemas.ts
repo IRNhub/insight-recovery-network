@@ -8,3 +8,50 @@
 export interface HealthStatus {
   status: string;
 }
+
+export type EnquiryInputPreferredContact =
+  (typeof EnquiryInputPreferredContact)[keyof typeof EnquiryInputPreferredContact];
+
+export const EnquiryInputPreferredContact = {
+  email: "email",
+  phone: "phone",
+  whatsapp: "whatsapp",
+} as const;
+
+export type EnquiryInputSupportType =
+  (typeof EnquiryInputSupportType)[keyof typeof EnquiryInputSupportType];
+
+export const EnquiryInputSupportType = {
+  myself: "myself",
+  "someone-else": "someone-else",
+  professional: "professional",
+  general: "general",
+} as const;
+
+export interface EnquiryInput {
+  /** @minLength 2 */
+  name: string;
+  email: string;
+  /** @minLength 5 */
+  phone: string;
+  preferredContact: EnquiryInputPreferredContact;
+  supportType: EnquiryInputSupportType;
+  /** @minLength 10 */
+  message: string;
+  consent: boolean;
+}
+
+export interface EnquiryCreated {
+  id: number;
+  createdAt: string;
+}
+
+export type ValidationErrorDetailsItem = {
+  field: string;
+  message: string;
+};
+
+export interface ValidationError {
+  error: string;
+  details?: ValidationErrorDetailsItem[];
+}
