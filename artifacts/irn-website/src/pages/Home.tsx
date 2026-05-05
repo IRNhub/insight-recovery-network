@@ -47,64 +47,77 @@ export default function Home() {
       />
 
       {/* ── Hero — premium three-pillar two-zone composition ── */}
-      <section className="relative bg-background overflow-hidden">
+      {/*
+        NOTE: Layout <main> already has pt-[88px] for the fixed navbar.
+        Hero padding here is ADDITIONAL space below that offset.
+        Keep it small — 8-14 is enough for breathing room.
+      */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: "linear-gradient(160deg, #F2EDE3 0%, #F6F4EF 40%, #EEE9DF 100%)",
+          borderTop: "1px solid rgba(201,169,110,0.22)",
+          borderBottom: "1px solid rgba(201,169,110,0.14)",
+        }}
+      >
+        {/* ── Visible background depth ── */}
 
-        {/* ── Subtle background depth layer ── */}
-
-        {/* Barely-visible dot grid — editorial texture */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle, rgba(22,43,59,0.055) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-            maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
-            WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%)",
-          }}
-        />
-
-        {/* Champagne radial glow — right side, behind image panels */}
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            top: "10%", right: "-6%",
-            width: "65%", height: "90%",
-            background: "radial-gradient(ellipse at 60% 40%, rgba(201,169,110,0.11) 0%, rgba(201,169,110,0.04) 45%, transparent 75%)",
-          }}
-        />
-
-        {/* Soft champagne wash — left side, behind text zone */}
+        {/* Large blurred champagne oval — left text zone glow */}
         <div
           className="absolute pointer-events-none"
           style={{
-            top: "0%", left: "-5%",
-            width: "55%", height: "100%",
-            background: "radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.07) 0%, transparent 65%)",
+            top: "-10%", left: "-8%",
+            width: "58%", height: "130%",
+            background: "radial-gradient(ellipse at 35% 45%, rgba(201,169,110,0.22) 0%, rgba(201,169,110,0.08) 40%, transparent 70%)",
+            filter: "blur(48px)",
           }}
         />
 
-        {/* Oversized faint circle — editorial background accent */}
+        {/* Warm navy ambient behind image cluster */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            top: "0%", right: "-4%",
+            width: "62%", height: "100%",
+            background: "radial-gradient(ellipse at 55% 42%, rgba(201,169,110,0.18) 0%, rgba(22,43,59,0.04) 50%, transparent 80%)",
+            filter: "blur(32px)",
+          }}
+        />
+
+        {/* Oversized faint editorial circles — centred on image/text boundary */}
         <div
           className="absolute pointer-events-none hidden lg:block"
           style={{
-            top: "50%", right: "28%",
-            transform: "translate(50%, -50%)",
-            width: "520px", height: "520px",
+            top: "50%", left: "48%",
+            transform: "translate(-50%, -50%)",
+            width: "660px", height: "660px",
+            borderRadius: "50%",
+            border: "1px solid rgba(201,169,110,0.13)",
+          }}
+        />
+        <div
+          className="absolute pointer-events-none hidden lg:block"
+          style={{
+            top: "50%", left: "48%",
+            transform: "translate(-50%, -50%)",
+            width: "440px", height: "440px",
             borderRadius: "50%",
             border: "1px solid rgba(201,169,110,0.09)",
           }}
         />
+
+        {/* Barely-visible dot grid — fades at edges */}
         <div
-          className="absolute pointer-events-none hidden lg:block"
+          className="absolute inset-0 pointer-events-none"
           style={{
-            top: "50%", right: "28%",
-            transform: "translate(50%, -50%)",
-            width: "360px", height: "360px",
-            borderRadius: "50%",
-            border: "1px solid rgba(201,169,110,0.06)",
+            backgroundImage: "radial-gradient(circle, rgba(22,43,59,0.07) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+            maskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, rgba(0,0,0,0.6) 0%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 50% 50%, rgba(0,0,0,0.6) 0%, transparent 100%)",
           }}
         />
 
-        <div className="container mx-auto px-6 md:px-12 pt-20 md:pt-24 lg:pt-28 pb-16 md:pb-20 lg:pb-24">
+        <div className="container mx-auto px-6 md:px-12 pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-16 lg:pb-20">
           <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-10 xl:gap-14">
 
             {/* ══ LEFT ZONE: copy + CTAs + trust + pillar summary ══ */}
