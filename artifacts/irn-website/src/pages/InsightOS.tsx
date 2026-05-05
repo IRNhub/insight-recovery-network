@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { LineChart, BookOpen, AlertCircle, GraduationCap, Sparkles } from "lucide-react";
@@ -6,6 +7,11 @@ import { Button } from "@/components/ui/button";
 export default function InsightOS() {
   return (
     <Layout>
+      <SEO
+        title="Insight OS — Digital Recovery Management Platform"
+        description="Insight OS is a dedicated digital platform for long-term recovery management. Track your health score, log triggers, get AI guidance, and use guided journaling."
+        canonical="/insight-os"
+      />
       {/* Product-style Hero */}
       <section className="relative overflow-hidden bg-primary pt-24 pb-32 lg:pt-32 lg:pb-48 text-primary-foreground">
         <div className="absolute inset-0 bg-[url('https://placehold.co/1920x1080/162B3B/1A3344?text=')] opacity-50 bg-cover bg-center mix-blend-overlay"></div>

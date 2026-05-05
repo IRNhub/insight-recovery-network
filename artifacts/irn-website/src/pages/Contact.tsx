@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Shield, Mail, Phone } from "lucide-react";
@@ -5,6 +6,11 @@ import { Shield, Mail, Phone } from "lucide-react";
 export default function Contact() {
   return (
     <Layout>
+      <SEO
+        title="Contact Us — Speak Confidentially"
+        description="Reach out to Insight Recovery Network in confidence. We offer clear, compassionate guidance for individuals, families and professionals seeking support."
+        canonical="/contact"
+      />
       <section className="bg-secondary/20 py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">

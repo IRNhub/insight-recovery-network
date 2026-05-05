@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -8,6 +9,11 @@ import { ArrowRight } from "lucide-react";
 export default function WhatWeOffer() {
   return (
     <Layout>
+      <SEO
+        title="What We Offer — Addiction & Mental Health Services"
+        description="Explore our services: treatment placement, online recovery programme, the Insight OS digital platform, and specialised support for families and professionals."
+        canonical="/what-we-offer"
+      />
       <PageHero 
         label="Our Services"
         heading="Comprehensive support across the recovery continuum."

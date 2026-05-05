@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
@@ -17,6 +18,11 @@ const trustPoints = [
 export default function Home() {
   return (
     <Layout>
+      <SEO
+        title="Private Addiction & Mental Health Support"
+        description="Private addiction and mental health support for individuals, families and professionals. Expert treatment placement, online recovery programmes, digital tools."
+        canonical="/"
+      />
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-6 md:px-12">

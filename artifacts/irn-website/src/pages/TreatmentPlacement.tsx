@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PageHero } from "@/components/ui/page-hero";
 import { CTASection } from "@/components/ui/cta-section";
@@ -6,6 +7,11 @@ import { MapPin, Shield, HeartHandshake } from "lucide-react";
 export default function TreatmentPlacement() {
   return (
     <Layout>
+      <SEO
+        title="Treatment Placement — Private Rehab & Detox Guidance"
+        description="Independent, confidential guidance to find the right detox or rehabilitation facility in the UK or internationally. We assess needs and manage the transition."
+        canonical="/treatment-placement"
+      />
       <PageHero 
         label="Treatment Placement"
         heading="Navigating residential care with certainty."

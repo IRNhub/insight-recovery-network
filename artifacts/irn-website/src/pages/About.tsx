@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PageHero } from "@/components/ui/page-hero";
 import { CTASection } from "@/components/ui/cta-section";
@@ -5,6 +6,11 @@ import { CTASection } from "@/components/ui/cta-section";
 export default function About() {
   return (
     <Layout>
+      <SEO
+        title="About Us — Clinically Informed Recovery Guidance"
+        description="Learn about our clinical and recovery-informed approach, our international experience, and the values that guide our support for individuals and families."
+        canonical="/about"
+      />
       <PageHero 
         label="About Us"
         heading="Clinically informed care with absolute discretion."

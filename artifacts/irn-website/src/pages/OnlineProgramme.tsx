@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PageHero } from "@/components/ui/page-hero";
 import { CTASection } from "@/components/ui/cta-section";
@@ -6,6 +7,11 @@ import { Users, User, Calendar, Activity, Lock } from "lucide-react";
 export default function OnlineProgramme() {
   return (
     <Layout>
+      <SEO
+        title="Online Recovery Programme — Structured Digital Support"
+        description="A structured online recovery programme with group support, one-to-one therapy, daily structure, and relapse prevention — available without residential care."
+        canonical="/online-programme"
+      />
       <PageHero 
         label="Online Programme"
         heading="Structured recovery support, accessible anywhere."
