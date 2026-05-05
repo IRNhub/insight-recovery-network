@@ -92,6 +92,62 @@ function buildTransporter() {
   });
 }
 
+function buildAcknowledgementHtml(data: EnquiryData): string {
+  const fromEmail = process.env["SMTP_FROM"] ?? process.env["SMTP_USER"] ?? "hello@insightrecoverynetwork.com";
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family: Georgia, serif; color: #1a1a2e; background: #f9f8f6; padding: 32px;">
+  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e0ddd8; padding: 40px;">
+    <h2 style="color: #2c3e6b; font-size: 22px; margin-top: 0;">Thank you for reaching out</h2>
+    <hr style="border: none; border-top: 1px solid #e0ddd8; margin: 24px 0;" />
+    <p style="font-size: 16px; line-height: 1.7; margin-top: 0;">Dear ${escapeHtml(data.name)},</p>
+    <p style="font-size: 16px; line-height: 1.7;">Thank you for contacting Insight Recovery Network. We have received your enquiry and a member of our team will be in touch with you shortly.</p>
+    <p style="font-size: 16px; line-height: 1.7;">We understand that reaching out can take courage, and we want you to know that your message matters to us. You will hear from us as soon as possible — typically within one working day.</p>
+    <p style="font-size: 16px; line-height: 1.7;">If you need to speak with someone sooner, or if anything urgent has come up in the meantime, please do not hesitate to contact us directly at <a href="mailto:${escapeHtml(fromEmail)}" style="color: #2c3e6b;">${escapeHtml(fromEmail)}</a>.</p>
+    <p style="font-size: 16px; line-height: 1.7;">Take care,<br /><strong>The Insight Recovery Network Team</strong></p>
+    <hr style="border: none; border-top: 1px solid #e0ddd8; margin: 32px 0 16px;" />
+    <p style="color: #999; font-size: 12px; margin: 0;">You are receiving this email because you submitted an enquiry via the Insight Recovery Network contact form. If you did not submit this enquiry, please ignore this email or contact us at <a href="mailto:${escapeHtml(fromEmail)}" style="color: #999;">${escapeHtml(fromEmail)}</a>.</p>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+
+export async function sendAcknowledgementEmail(data: EnquiryData): Promise<void> {
+  const transporter = buildTransporter();
+
+  if (!transporter) {
+    logger.info("SMTP not configured — skipping acknowledgement email");
+    return;
+  }
+
+  const fromEmail = process.env["SMTP_FROM"] ?? process.env["SMTP_USER"] ?? "hello@insightrecoverynetwork.com";
+  const subject = "We've received your enquiry — Insight Recovery Network";
+
+  await transporter.sendMail({
+    from: fromEmail,
+    to: data.email,
+    subject,
+    html: buildAcknowledgementHtml(data),
+    text: [
+      `Dear ${data.name},`,
+      ``,
+      `Thank you for contacting Insight Recovery Network. We have received your enquiry and a member of our team will be in touch with you shortly.`,
+      ``,
+      `We understand that reaching out can take courage, and we want you to know that your message matters to us. You will hear from us as soon as possible — typically within one working day.`,
+      ``,
+      `If you need to speak with someone sooner, or if anything urgent has come up in the meantime, please do not hesitate to contact us directly at ${fromEmail}.`,
+      ``,
+      `Take care,`,
+      `The Insight Recovery Network Team`,
+    ].join("\n"),
+  });
+
+  logger.info({ to: data.email }, "Acknowledgement email sent to enquirer");
+}
+
 export async function sendEnquiryNotification(data: EnquiryData): Promise<void> {
   const toEmail = process.env["ENQUIRY_TO_EMAIL"];
 

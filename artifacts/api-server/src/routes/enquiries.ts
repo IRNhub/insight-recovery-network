@@ -2,7 +2,7 @@ import { Router, type IRouter, type Request, type Response } from "express";
 import { SubmitEnquiryBody } from "@workspace/api-zod";
 import { db, enquiriesTable } from "@workspace/db";
 import { logger } from "../lib/logger";
-import { sendEnquiryNotification } from "../lib/email";
+import { sendEnquiryNotification, sendAcknowledgementEmail } from "../lib/email";
 
 const router: IRouter = Router();
 
@@ -46,6 +46,10 @@ router.post("/enquiries", async (req: Request, res: Response) => {
 
     await sendEnquiryNotification(data).catch((err) => {
       logger.warn({ err }, "Email notification failed — enquiry still saved");
+    });
+
+    await sendAcknowledgementEmail(data).catch((err) => {
+      logger.warn({ err }, "Acknowledgement email failed — enquiry still saved");
     });
 
     res.status(201).json({ id: enquiry.id, createdAt: enquiry.createdAt });
