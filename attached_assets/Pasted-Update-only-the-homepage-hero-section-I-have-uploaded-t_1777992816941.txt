@@ -1,0 +1,113 @@
+Update only the homepage hero section.
+
+I have uploaded three hero images:
+1. Treatment Placement image
+2. Online Recovery Programme image
+3. Insight OS image
+
+Replace the current static right-side hero placeholder with a premium image carousel.
+
+Important design goal:
+The carousel must not look like a flat wallpaper or basic background image. It should feel like a high-end floating visual object with depth, dimension and polish. Think premium editorial website, private clinic, boutique advisory service, or luxury wellness brand. It should look designed, not dropped in.
+
+Carousel visual treatment:
+- Create a large right-side hero image panel.
+- The image panel should feel slightly 3D and elevated from the page.
+- Use layered depth:
+  - Main image card with rounded corners.
+  - Soft shadow underneath.
+  - Subtle border or inner highlight.
+  - Slight perspective or gentle transform if tasteful.
+  - A muted champagne/accent glow behind the image.
+  - A second offset background layer behind the image to create depth.
+- Do not make it look like a normal flat image rectangle.
+- Do not use harsh shadows.
+- Do not overdo the 3D effect.
+- It should feel premium, subtle and confident.
+
+Carousel behaviour:
+- Auto-rotate through the three images every 5 to 6 seconds.
+- Use a smooth fade and slight slide transition.
+- Keep movement subtle and elegant.
+- Add pause-on-hover for desktop.
+- Add manual controls:
+  - Small refined dots or progress indicators.
+  - Optional small left/right arrows if they look premium.
+- Ensure it works beautifully on mobile.
+
+Carousel content overlays:
+Each slide should have a small refined overlay card on the image, positioned near the lower-left or lower-right depending on best composition.
+
+Slide 1:
+Title: Treatment Placement
+Text: Private guidance for detox, residential rehab and continuing care.
+
+Slide 2:
+Title: Online Recovery Programme
+Text: Structured group support, one-to-one sessions and relapse prevention planning from wherever you are.
+
+Slide 3:
+Title: Insight OS
+Text: Daily recovery structure, reflection and guidance in your pocket.
+
+Overlay card style:
+- Semi-transparent deep navy or warm ivory glass effect.
+- Text must be readable.
+- Small champagne accent line or label.
+- Rounded corners.
+- Soft blur/backdrop if supported.
+- Must feel premium and discreet.
+- Do not cover the main focal point of the image.
+
+Hero layout:
+Keep the current left-hand hero content:
+Eyebrow:
+Confidential addiction and mental health support
+
+Headline:
+Private addiction and mental health support, built around the person.
+
+Subheading:
+Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
+
+Buttons:
+Speak Confidentially
+Explore Support Options
+
+Under the buttons, add a subtle trust row:
+Private guidance · Clinically informed · International options · Digital recovery tools
+
+Desktop layout:
+- Left side: hero copy and CTAs.
+- Right side: premium floating carousel.
+- Keep generous spacing.
+- The carousel should be visually dominant but not overpower the headline.
+
+Mobile layout:
+- Hero copy first.
+- Carousel below.
+- Carousel should remain premium and dimensional on mobile.
+- Avoid cropping important parts of the images.
+- Overlay text should remain readable.
+- Dots/progress indicators should be touch-friendly.
+
+Technical requirements:
+- Use React, TypeScript and Tailwind.
+- Build this as a reusable HeroCarousel component.
+- Use the uploaded images from the project assets/public folder.
+- Use accessible alt text for each image.
+- Do not add external carousel libraries unless already installed.
+- Keep performance reasonable.
+- Use CSS transitions rather than heavy animation libraries if possible.
+- Respect prefers-reduced-motion and disable auto-slide animation for users who prefer reduced motion.
+
+Design warning:
+Do not turn this into a flashy marketing slider.
+Do not make the images full-background wallpaper.
+Do not use loud zoom effects.
+Do not use cheesy rehab imagery treatments.
+Do not add fake badges, fake awards or fake testimonials.
+Do not add too much text over the images.
+
+Deliverable:
+Replace the hero placeholder with a polished, premium, floating 3D-style carousel using the three uploaded images. The hero should feel finished, high-end, calm and conversion-focused.

@@ -5,14 +5,39 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
 import { ServicePreview } from "@/components/ui/service-preview";
 import { Button } from "@/components/ui/button";
+import { HeroCarousel, type CarouselSlide } from "@/components/ui/hero-carousel";
 import { Shield, BookOpen, Map, Monitor } from "lucide-react";
 import { Link } from "wouter";
+import treatmentImg from "@/assets/hero-treatment-placement.png";
+import onlineProgrammeImg from "@/assets/hero-online-programme.png";
+import digitalToolsImg from "@/assets/hero-digital-tools.png";
 
 const trustPoints = [
   "Private guidance",
   "Clinically informed",
   "International options",
   "Digital recovery tools",
+];
+
+const heroSlides: CarouselSlide[] = [
+  {
+    src: treatmentImg,
+    alt: "A calm, private residential treatment setting surrounded by landscaped gardens",
+    title: "Treatment Placement",
+    text: "Private guidance for detox, residential rehab and continuing care.",
+  },
+  {
+    src: onlineProgrammeImg,
+    alt: "A person attending a structured online recovery session from home",
+    title: "Online Recovery Programme",
+    text: "Structured group support, one-to-one sessions and relapse prevention planning from wherever you are.",
+  },
+  {
+    src: digitalToolsImg,
+    alt: "Someone using the Insight OS digital recovery app on their phone",
+    title: "Digital Recovery Tools",
+    text: "Insight OS gives people daily recovery structure, reflection and guidance in their pocket.",
+  },
 ];
 
 export default function Home() {
@@ -66,55 +91,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: editorial visual panel */}
-            <div className="lg:col-span-6 relative mt-6 lg:mt-0 hidden md:block">
-              <div className="relative w-full aspect-[4/5] max-w-[480px] ml-auto">
-
-                {/* Base warm stone panel */}
-                <div className="absolute inset-0 bg-[#EAE5DC]">
-                  {/* Subtle vertical accent line */}
-                  <div className="absolute left-10 top-0 bottom-0 w-px bg-[#C9A96E]/20" />
-                  {/* Horizontal accent line */}
-                  <div className="absolute left-0 right-0 top-16 h-px bg-[#C9A96E]/15" />
-                  {/* Soft grid overlay */}
-                  <svg
-                    className="absolute inset-0 w-full h-full opacity-[0.06]"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <pattern id="hero-grid" width="48" height="48" patternUnits="userSpaceOnUse">
-                        <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#162B3B" strokeWidth="0.5" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#hero-grid)" />
-                  </svg>
-                  {/* Large faint serif watermark */}
-                  <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
-                    <span className="font-serif text-[9rem] text-primary/[0.04] leading-none">IRN</span>
-                  </div>
-                </div>
-
-                {/* Offset decorative block — top right */}
-                <div className="absolute top-6 right-6 w-20 h-20 border border-[#C9A96E]/30 bg-[#C9A96E]/8" />
-
-                {/* Dark accent block — mid left */}
-                <div className="absolute top-1/3 left-0 w-1 h-20 bg-primary/40" />
-
-                {/* Floating card 1 — Confidential guidance */}
-                <div className="absolute bottom-28 left-0 -translate-x-6 bg-white border border-border/30 p-5 max-w-[190px] shadow-sm">
-                  <div className="w-6 h-px bg-accent mb-3" />
-                  <p className="font-serif text-primary text-sm leading-snug">Confidential guidance</p>
-                  <p className="text-[11px] text-muted-foreground mt-1.5 font-light">Private. Discreet. Informed.</p>
-                </div>
-
-                {/* Floating card 2 — Services */}
-                <div className="absolute bottom-6 right-0 translate-x-0 bg-primary text-primary-foreground p-4 max-w-[210px]">
-                  <p className="text-[10px] text-primary-foreground/50 uppercase tracking-widest mb-2">Services</p>
-                  <p className="text-sm font-light leading-relaxed text-primary-foreground/85">
-                    Treatment placement&nbsp;·&nbsp;Online support&nbsp;·&nbsp;Insight OS
-                  </p>
-                </div>
-
+            {/* Right: premium floating carousel */}
+            <div className="lg:col-span-6 relative mt-8 lg:mt-0">
+              <div className="max-w-[520px] ml-auto group">
+                <HeroCarousel slides={heroSlides} />
               </div>
             </div>
 
