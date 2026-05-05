@@ -5,7 +5,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
 import { ServicePreview } from "@/components/ui/service-preview";
 import { Button } from "@/components/ui/button";
-import { HeroCarousel, type CarouselSlide } from "@/components/ui/hero-carousel";
 import { Shield, BookOpen, Map, Monitor } from "lucide-react";
 import { Link } from "wouter";
 import treatmentImg from "@/assets/hero-treatment-placement.png";
@@ -19,27 +18,6 @@ const trustPoints = [
   "Digital recovery tools",
 ];
 
-const heroSlides: CarouselSlide[] = [
-  {
-    src: treatmentImg,
-    alt: "A calm, private residential treatment setting surrounded by landscaped gardens",
-    title: "Treatment Placement",
-    text: "Private guidance for detox, residential rehab and continuing care.",
-  },
-  {
-    src: onlineProgrammeImg,
-    alt: "A person attending a structured online recovery session from home",
-    title: "Online Recovery Programme",
-    text: "Structured group support, one-to-one sessions and relapse prevention planning from wherever you are.",
-  },
-  {
-    src: digitalToolsImg,
-    alt: "Someone using the Insight OS digital recovery app on their phone",
-    title: "Digital Recovery Tools",
-    text: "Insight OS gives people daily recovery structure, reflection and guidance in their pocket.",
-  },
-];
-
 export default function Home() {
   return (
     <Layout>
@@ -48,57 +26,161 @@ export default function Home() {
         description="Private addiction and mental health support for individuals, families and professionals. Expert treatment placement, online recovery programmes, digital tools."
         canonical="/"
       />
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-background py-16 md:py-24 lg:py-32">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
-            {/* Left: copy */}
-            <div className="lg:col-span-6 flex flex-col gap-6 md:gap-7 z-10">
-              <span className="text-xs font-semibold tracking-widest uppercase text-accent/80 font-sans" data-testid="text-hero-eyebrow">
-                Confidential addiction and mental health support
-              </span>
+      {/* ── Hero — full-width layered editorial composition ── */}
+      <section className="relative overflow-hidden bg-background md:min-h-[860px] lg:min-h-[920px]">
 
-              <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight" data-testid="text-hero-heading">
-                Private addiction and mental health support, built around the person.
-              </h1>
+        {/* ── Desktop: cinematic image layers (hidden on mobile) ── */}
+        <div className="hidden md:block">
 
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-xl font-light" data-testid="text-hero-description">
-                Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-2">
-                <Link href="/contact" data-testid="button-hero-primary">
-                  <Button size="lg" className="rounded-none h-14 px-8 text-base w-full sm:w-auto">
-                    Speak Confidentially
-                  </Button>
-                </Link>
-                <Link href="/what-we-offer" data-testid="button-hero-secondary">
-                  <Button variant="outline" size="lg" className="rounded-none h-14 px-8 text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
-                    Explore Support Options
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Trust row */}
-              <div className="flex flex-wrap gap-x-5 gap-y-2.5 pt-4 mt-1 border-t border-border/40">
-                {trustPoints.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-                    <span className="text-xs text-muted-foreground tracking-wide">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: premium floating carousel */}
-            <div className="lg:col-span-6 relative mt-8 lg:mt-0">
-              <div className="max-w-[520px] ml-auto group">
-                <HeroCarousel slides={heroSlides} />
-              </div>
-            </div>
-
+          {/* Treatment Placement — wide cinematic image, right 62% of viewport */}
+          <div className="absolute inset-y-0 right-0 w-[62%]">
+            <img
+              src={treatmentImg}
+              alt="A calm, private residential treatment setting surrounded by landscaped gardens"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Left-edge fade: image dissolves into ivory background */}
+            <div className="absolute inset-y-0 left-0 w-[45%] bg-gradient-to-r from-background via-background/70 to-transparent" />
+            {/* Top fade for navbar breathing room */}
+            <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/30 to-transparent" />
           </div>
+
+          {/* Champagne ambient glow — behind text panel */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: "20%", left: "5%",
+              width: "520px", height: "480px",
+              background: "radial-gradient(ellipse at center, rgba(201,169,110,0.13) 0%, transparent 68%)",
+            }}
+          />
+
+          {/* Insight OS card — bottom left, below and slightly outside text panel */}
+          <div className="absolute bottom-10 left-10 lg:left-14 z-20 w-[168px]">
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{
+                boxShadow: "0 24px 56px -8px rgba(22,43,59,0.38), 0 0 0 1px rgba(255,255,255,0.08)",
+                transform: "perspective(800px) rotateY(2deg)",
+              }}
+            >
+              <img
+                src={digitalToolsImg}
+                alt="Insight OS digital recovery app displayed on a phone"
+                className="w-full h-28 object-cover object-[center_22%]"
+              />
+              <div
+                className="px-3 py-2.5 border-t border-white/10"
+                style={{ background: "rgba(22,43,59,0.84)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                <div className="w-4 h-px bg-accent mb-1.5" />
+                <p className="font-serif text-primary-foreground text-[11px] leading-snug">Insight OS</p>
+                <p className="text-primary-foreground/55 text-[10px] font-light mt-0.5 leading-tight">Digital recovery tools</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Online Recovery Programme card — bottom right, within treatment image */}
+          <div className="absolute bottom-10 right-10 lg:right-14 z-20 w-[200px]">
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{
+                boxShadow: "0 24px 56px -8px rgba(22,43,59,0.38), 0 0 0 1px rgba(255,255,255,0.08)",
+                transform: "perspective(800px) rotateY(-2deg)",
+              }}
+            >
+              <img
+                src={onlineProgrammeImg}
+                alt="A person attending a structured online recovery session from home"
+                className="w-full h-32 object-cover"
+              />
+              <div
+                className="px-3 py-2.5 border-t border-white/10"
+                style={{ background: "rgba(22,43,59,0.84)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}
+              >
+                <div className="w-4 h-px bg-accent mb-1.5" />
+                <p className="font-serif text-primary-foreground text-[11px] leading-snug">Online Recovery Programme</p>
+                <p className="text-primary-foreground/55 text-[10px] font-light mt-0.5 leading-tight">Group and one-to-one support</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ── Text panel — floats over the image on desktop ── */}
+        <div className="relative z-10 container mx-auto px-6 md:px-12 pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-48 lg:pb-52">
+
+          {/* Floating editorial panel */}
+          <div
+            className="max-w-[560px] md:border md:border-border/35 md:p-10 lg:p-12"
+            style={{
+              background: "rgba(246,244,240,0.93)",
+              backdropFilter: "blur(14px)",
+              WebkitBackdropFilter: "blur(14px)",
+              boxShadow: "0 12px 48px -8px rgba(22,43,59,0.14), 0 0 0 1px rgba(201,169,110,0.14)",
+            }}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase text-accent/80 font-sans block mb-5"
+              data-testid="text-hero-eyebrow"
+            >
+              Confidential addiction and mental health support
+            </span>
+
+            <h1
+              className="text-4xl md:text-5xl lg:text-[3.25rem] font-serif text-primary leading-[1.07] tracking-tight mb-5"
+              data-testid="text-hero-heading"
+            >
+              Private addiction and mental health support, built around the person.
+            </h1>
+
+            <p
+              className="text-lg text-muted-foreground leading-relaxed font-light mb-7"
+              data-testid="text-hero-description"
+            >
+              Insight Recovery Network provides confidential treatment placement, structured online recovery support and digital recovery tools for individuals, families and professionals.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <Link href="/contact" data-testid="button-hero-primary">
+                <Button size="lg" className="rounded-none h-14 px-8 text-base w-full sm:w-auto">
+                  Speak Confidentially
+                </Button>
+              </Link>
+              <Link href="/what-we-offer" data-testid="button-hero-secondary">
+                <Button variant="outline" size="lg" className="rounded-none h-14 px-8 text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
+                  Explore Support Options
+                </Button>
+              </Link>
+            </div>
+
+            {/* Trust row */}
+            <div className="flex flex-wrap gap-x-4 gap-y-2 pt-5 border-t border-border/40">
+              {trustPoints.map((item) => (
+                <div key={item} className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                  <span className="text-xs text-muted-foreground tracking-wide">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile-only image stack (shown below text on small screens) */}
+          <div className="mt-8 md:hidden flex flex-col gap-3">
+            <div className="rounded-xl overflow-hidden shadow-md">
+              <img src={treatmentImg} alt="Private residential treatment setting" className="w-full h-52 object-cover" />
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-xl overflow-hidden shadow-md">
+                <img src={onlineProgrammeImg} alt="Online recovery session" className="w-full h-32 object-cover" />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-md">
+                <img src={digitalToolsImg} alt="Insight OS app" className="w-full h-32 object-cover object-[center_20%]" />
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 

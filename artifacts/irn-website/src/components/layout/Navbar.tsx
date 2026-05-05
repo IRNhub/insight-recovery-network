@@ -38,15 +38,15 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
-          <Link href="/" className="group flex items-center gap-2" data-testid="link-home">
+          <Link href="/" className="group flex items-center gap-2 flex-shrink-0" data-testid="link-home">
             <span className="font-serif text-xl font-medium tracking-tight text-primary transition-colors group-hover:text-primary/80">
               Insight Recovery Network
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <ul className="flex items-center gap-8 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-6 ml-10">
+            <ul className="flex items-center gap-5 text-sm font-medium">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
