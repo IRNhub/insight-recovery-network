@@ -3,14 +3,14 @@ import { Layout } from "@/components/layout/Layout";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
-import { ServicePreview } from "@/components/ui/service-preview";
 import { Button } from "@/components/ui/button";
 import { Fragment } from "react";
-import { Shield, BookOpen, Map, Monitor } from "lucide-react";
+import { Shield, BookOpen, Map, Monitor, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import treatmentImg from "@/assets/hero-treatment-placement.png";
 import onlineProgrammeImg from "@/assets/hero-online-programme.png";
 import digitalToolsImg from "@/assets/hero-digital-tools.png";
+import familyImg from "@/assets/hero-family-guidance.png";
 
 const trustPoints = [
   "Private guidance",
@@ -352,14 +352,14 @@ export default function Home() {
       </section>
 
       {/* ── Pathways ── */}
-      <section className="py-20 lg:py-28 bg-secondary/20">
+      <section className="py-10 lg:py-14 bg-secondary/20">
         <div className="container mx-auto px-6 md:px-12">
           <SectionHeader
             label="Where to start"
             heading="Find the right path"
-            className="mb-12"
+            className="mb-8"
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             <PathwayCard
               title="I need help for myself"
               description="If things feel difficult to manage alone, we can help you understand the right next step."
@@ -385,46 +385,88 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Services ── */}
-      <section className="py-24 lg:py-32">
+      {/* ── Services — image-led 2×2 grid ── */}
+      <section className="py-16 lg:py-20">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
-            <div className="lg:col-span-4 lg:sticky lg:top-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
+
+            {/* Left: heading + intro, sticky on desktop */}
+            <div className="lg:col-span-4 lg:sticky lg:top-28">
               <SectionHeader
                 label="Our services"
                 heading="Comprehensive care, quietly delivered"
-                description="We offer discreet, recovery-informed support tailored to the needs of each individual, family or organisation."
+                description="Discreet, recovery-informed support tailored to the needs of each individual, family or organisation."
               />
             </div>
-            <div className="lg:col-span-7 lg:col-start-6 flex flex-col gap-12">
-              <ServicePreview
-                title="Treatment Placement"
-                description="Confidential guidance in finding suitable detox, residential rehab or ongoing recovery support in the UK or internationally."
-                href="/treatment-placement"
-              />
-              <ServicePreview
-                title="Online Recovery Programme"
-                description="Structured group support, one-to-one sessions and relapse prevention planning for people who need support without entering residential treatment."
-                href="/online-programme"
-              />
-              <ServicePreview
-                title="Insight OS"
-                description="A dedicated digital recovery platform for check-ins, journaling, triggers, recovery planning and ongoing support."
-                href="/insight-os"
-              />
-              <ServicePreview
-                title="Family and Intervention Guidance"
-                description="Support for families who are worried, overwhelmed or unsure how to approach the next conversation."
-                href="/what-we-offer"
-              />
+
+            {/* Right: 2×2 image-led cards */}
+            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {[
+                {
+                  img: onlineProgrammeImg,
+                  alt: "Online recovery group session on a laptop",
+                  title: "Online Recovery Programme",
+                  copy: "Structured group support, one-to-one sessions and relapse prevention planning.",
+                  href: "/online-programme",
+                  objPos: "center",
+                },
+                {
+                  img: digitalToolsImg,
+                  alt: "Insight OS digital recovery app on a phone",
+                  title: "Insight OS",
+                  copy: "Daily structure, journaling, check-ins and Anchor guidance through Insight OS.",
+                  href: "/insight-os",
+                  objPos: "center 20%",
+                },
+                {
+                  img: treatmentImg,
+                  alt: "Private residential treatment setting",
+                  title: "Treatment Placement",
+                  copy: "Confidential guidance for detox, residential rehab and continuing care.",
+                  href: "/treatment-placement",
+                  objPos: "center",
+                },
+                {
+                  img: familyImg,
+                  alt: "Family guidance consultation session",
+                  title: "Family & Intervention Guidance",
+                  copy: "Support for families who are worried, overwhelmed or unsure how to help.",
+                  href: "/what-we-offer",
+                  objPos: "center top",
+                },
+              ].map((s) => (
+                <Link href={s.href} key={s.title}>
+                  <div className="group flex flex-col bg-white border border-border/40 rounded-xl overflow-hidden hover:border-accent/40 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 cursor-pointer" style={{ boxShadow: "0 1px 3px rgba(22,43,59,0.06)" }}>
+                    <div className="overflow-hidden" style={{ height: "176px" }}>
+                      <img
+                        src={s.img}
+                        alt={s.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        style={{ objectPosition: s.objPos }}
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <div className="w-5 h-px mb-3" style={{ background: "rgba(201,169,110,0.9)" }} />
+                      <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h3>
+                      <p className="text-muted-foreground text-[13px] font-light leading-relaxed mb-4 flex-1">{s.copy}</p>
+                      <span className="text-[11px] font-semibold tracking-wide uppercase text-accent group-hover:text-primary transition-colors duration-300 flex items-center gap-1.5">
+                        Learn more
+                        <ArrowRight className="w-3 h-3 transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ── Why IRN (dark trust section) ── */}
-      <section className="py-24 lg:py-32 bg-primary text-primary-foreground relative overflow-hidden">
-        {/* Subtle linework */}
+      <section className="py-20 lg:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+
+        {/* Subtle corner linework */}
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -436,72 +478,94 @@ export default function Home() {
           </svg>
         </div>
 
+        {/* Warm champagne glow — top right */}
+        <div
+          className="absolute top-0 right-0 w-1/2 h-full pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 85% 35%, rgba(201,169,110,0.10) 0%, transparent 60%)" }}
+        />
+
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          {/* Section header */}
-          <div className="max-w-2xl mb-16">
-            <span className="text-xs font-semibold tracking-widest uppercase text-accent/80 block mb-4">
-              Why Insight Recovery Network
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-primary-foreground leading-tight mb-5">
-              Private support with clinical depth.
-            </h2>
-            <p className="text-primary-foreground/65 leading-relaxed font-light max-w-xl">
-              We help people and families make sense of complex situations with calm, confidential and practical guidance.
-            </p>
+
+          {/* Header row — text left, image right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-14">
+            <div className="lg:col-span-6">
+              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80 block mb-4">
+                Why Insight Recovery Network
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-serif text-primary-foreground leading-tight mb-5">
+                Private support with clinical depth.
+              </h2>
+              <p className="text-primary-foreground/65 leading-relaxed font-light max-w-lg text-[15px]">
+                We help people and families make sense of complex situations with calm, confidential and practical guidance.
+              </p>
+            </div>
+
+            {/* Warm image panel — desktop only */}
+            <div className="hidden lg:block lg:col-span-5 lg:col-start-8">
+              <div
+                className="rounded-xl overflow-hidden"
+                style={{
+                  height: "220px",
+                  border: "1px solid rgba(201,169,110,0.18)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+                }}
+              >
+                <img
+                  src={familyImg}
+                  alt="A calm, private consultation with a family and their advisor"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            <div className="flex flex-col gap-4" data-testid="trust-point-confidential">
-              <Shield className="w-6 h-6 text-accent" strokeWidth={1.5} />
-              <div className="w-8 h-px bg-accent/40" />
-              <h3 className="text-lg font-serif text-primary-foreground">Confidential guidance</h3>
-              <p className="text-primary-foreground/60 font-light text-sm leading-relaxed">
-                Private conversations for individuals and families navigating sensitive challenges.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4" data-testid="trust-point-approach">
-              <BookOpen className="w-6 h-6 text-accent" strokeWidth={1.5} />
-              <div className="w-8 h-px bg-accent/40" />
-              <h3 className="text-lg font-serif text-primary-foreground">Recovery-informed approach</h3>
-              <p className="text-primary-foreground/60 font-light text-sm leading-relaxed">
-                Support shaped by addiction, mental health and relapse prevention experience.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4" data-testid="trust-point-pathways">
-              <Map className="w-6 h-6 text-accent" strokeWidth={1.5} />
-              <div className="w-8 h-px bg-accent/40" />
-              <h3 className="text-lg font-serif text-primary-foreground">Treatment pathway knowledge</h3>
-              <p className="text-primary-foreground/60 font-light text-sm leading-relaxed">
-                Guidance across detox, residential rehab, online support and continuing care.
-              </p>
-            </div>
-            <div className="flex flex-col gap-4" data-testid="trust-point-digital">
-              <Monitor className="w-6 h-6 text-accent" strokeWidth={1.5} />
-              <div className="w-8 h-px bg-accent/40" />
-              <h3 className="text-lg font-serif text-primary-foreground">Digital continuity</h3>
-              <p className="text-primary-foreground/60 font-light text-sm leading-relaxed">
-                Insight OS supports daily structure, reflection and long-term recovery management.
-              </p>
-            </div>
+          {/* Four trust points with vertical dividers */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
+            {[
+              { Icon: Shield, testId: "trust-point-confidential", title: "Confidential guidance", body: "Private conversations for individuals and families navigating sensitive challenges." },
+              { Icon: BookOpen, testId: "trust-point-approach", title: "Recovery-informed approach", body: "Support shaped by addiction, mental health and relapse prevention experience." },
+              { Icon: Map, testId: "trust-point-pathways", title: "Treatment pathway knowledge", body: "Guidance across detox, residential rehab, online support and continuing care." },
+              { Icon: Monitor, testId: "trust-point-digital", title: "Digital continuity", body: "Insight OS supports daily structure, reflection and long-term recovery management." },
+            ].map(({ Icon, testId, title, body }, i) => (
+              <div
+                key={testId}
+                data-testid={testId}
+                className="flex flex-col gap-3 py-8 md:py-0 md:px-8 lg:px-7 first:md:pl-0 last:md:pr-0"
+              >
+                <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                <div className="w-6 h-px bg-accent/35" />
+                <h3 className="text-[15px] font-serif text-primary-foreground leading-snug">{title}</h3>
+                <p className="text-primary-foreground/55 font-light text-[13px] leading-relaxed">{body}</p>
+              </div>
+            ))}
           </div>
+
         </div>
       </section>
 
       {/* ── How it works ── */}
-      <section className="py-24 lg:py-32">
+      <section className="py-14 lg:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <SectionHeader
-            align="center"
-            label="The process"
-            heading="How it works"
-            className="mb-16"
-          />
+
+          {/* Centred heading + intro */}
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              The process
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-4">How it works</h2>
+            <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
+              You do not need to know exactly what support you need before getting in touch. We help you slow things down, understand the options and decide on the next step.
+            </p>
+          </div>
 
           <div className="relative max-w-4xl mx-auto">
-            {/* Connecting line — desktop only */}
-            <div className="hidden md:block absolute top-7 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-px bg-border/50" />
+            {/* Champagne connector line — desktop */}
+            <div
+              className="hidden md:block absolute top-[2.375rem] left-[calc(16.67%+2.5rem)] right-[calc(16.67%+2.5rem)] h-px"
+              style={{ background: "rgba(201,169,110,0.28)" }}
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
               {[
                 {
                   n: "1",
@@ -519,21 +583,29 @@ export default function Home() {
                   body: "We agree a practical next step and support you in moving forward with clarity.",
                 },
               ].map(({ n, title, body }) => (
-                <div key={n} className="flex flex-col items-center text-center group">
+                <div
+                  key={n}
+                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-6 pt-6 pb-7"
+                  style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.06)" }}
+                >
                   <div
-                    className="w-14 h-14 flex items-center justify-center border border-accent/60 text-primary font-serif text-lg mb-6 relative z-10 transition-colors duration-300 group-hover:bg-accent/10 bg-background"
+                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-5 relative z-10"
+                    style={{
+                      background: "rgba(246,244,240,1)",
+                      border: "1px solid rgba(201,169,110,0.50)",
+                      color: "rgba(22,43,59,0.88)",
+                    }}
                     data-testid={`step-number-${n}`}
                   >
                     {n}
                   </div>
-                  <h3 className="text-lg font-serif text-primary mb-3 leading-snug px-2">{title}</h3>
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed px-4 max-w-[260px]">
-                    {body}
-                  </p>
+                  <h3 className="text-[15px] font-serif text-primary mb-3 leading-snug">{title}</h3>
+                  <p className="text-[13px] text-muted-foreground font-light leading-relaxed">{body}</p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 

@@ -1,0 +1,161 @@
+Update the homepage sections below the hero only.
+
+Do not change the hero section. The current three-pillar hero is good and should remain unchanged.
+
+Goal:
+Make the homepage sections below the hero feel warmer, more visually engaging, more complete and more commercially useful while keeping the premium, calm, editorial style.
+
+Current issues:
+- “Find the right path” has too much vertical padding and feels too large.
+- “Comprehensive care, quietly delivered” feels too bland and too text-heavy.
+- The dark “Private support with clinical depth” section is good but feels empty.
+- The “How it works” section has a good structure but feels too sparse and clinical.
+
+Keep the brand style:
+- Warm ivory background
+- Deep navy
+- Muted champagne accents
+- Refined typography
+- Calm, premium, private clinical network feel
+- No loud colours
+- No generic SaaS look
+- No fake testimonials
+- No fake accreditations
+- No exaggerated promises
+
+1. FIND THE RIGHT PATH
+
+Refine this section, do not overbuild it.
+
+Changes:
+- Reduce top and bottom padding significantly.
+- Bring this section closer to the hero.
+- Keep the three pathway cards but reduce their height slightly.
+- Make the cards feel warmer and more useful.
+- Add a subtle premium hover state: slight lift, fine champagne border, soft shadow.
+- Keep the copy but improve spacing.
+- Add small subtle icon or number treatment if it looks premium.
+- Do not make the cards feel bulky.
+
+Cards:
+1. I need help for myself
+Copy: If things feel difficult to manage alone, we can help you understand the right next step.
+CTA: Explore support
+
+2. I need help for someone else
+Copy: Speak confidentially about concerns for a family member, partner, friend or colleague.
+CTA: Get guidance
+
+3. I am a professional or organisation
+Copy: Explore digital recovery tools, treatment pathways and partnership options.
+CTA: Work with us
+
+2. COMPREHENSIVE CARE, QUIETLY DELIVERED
+
+Redesign this section into a premium image-led service showcase.
+
+This section should feel more substantial, warm and commercially strong.
+
+Use four service cards with images:
+1. Online Recovery Programme
+Image: use the online programme image
+Copy: Structured group support, one-to-one sessions and relapse prevention planning.
+CTA: Learn more
+
+2. Insight OS
+Image: use the digital recovery tools image
+Copy: Daily structure, journaling, check-ins and Anchor guidance through Insight OS.
+CTA: Learn more
+
+3. Treatment Placement
+Image: use the treatment placement image
+Copy: Confidential guidance for detox, residential rehab and continuing care.
+CTA: Learn more
+
+4. Family & Intervention Guidance
+Image: use the new family intervention guidance image
+Copy: Support for families who are worried, overwhelmed or unsure how to help.
+CTA: Learn more
+
+Layout:
+- Left side should keep the heading and short introduction.
+- Right side or main area should display the four service cards.
+- On desktop, use a premium 4-card layout or 2x2 layout, whichever looks more elegant.
+- On tablet, use 2x2.
+- On mobile, stack vertically.
+- Cards should have image on top, title, short copy and CTA underneath.
+- Use soft ivory card background, subtle border, rounded corners, gentle shadow.
+- Do not make the cards feel generic or bulky.
+- Do not let Treatment Placement dominate.
+- Put Online Recovery Programme first, Insight OS second, Treatment Placement third, Family & Intervention Guidance fourth.
+
+Update section heading if needed:
+Heading: Comprehensive care, quietly delivered
+Intro: Discreet, recovery-informed support tailored to the needs of each individual, family or organisation.
+
+3. PRIVATE SUPPORT WITH CLINICAL DEPTH
+
+Keep the dark navy section, but make it feel less empty and more human.
+
+Changes:
+- Keep the heading and intro.
+- Add a warm supporting image on the right side, if the layout allows.
+- Suggested image style: calm private consultation room, chairs, notebook, warm lamp, subtle plant, no people required.
+- If no new image is available, create a refined visual panel using subtle linework, soft glow and warm card treatment.
+- Centre each icon above its title or align each full column more intentionally.
+- Increase visual balance across the four points.
+- Add subtle dividers or vertical lines between points if they look premium.
+- Keep the section calm, not busy.
+
+Content:
+Eyebrow: Why Insight Recovery Network
+Heading: Private support with clinical depth.
+Intro: We help people and families make sense of complex situations with calm, confidential and practical guidance.
+
+Trust points:
+1. Confidential guidance
+Private conversations for individuals and families navigating sensitive challenges.
+
+2. Recovery-informed approach
+Support shaped by addiction, mental health and relapse prevention experience.
+
+3. Treatment pathway knowledge
+Guidance across detox, residential rehab, online support and continuing care.
+
+4. Digital continuity
+Insight OS supports daily structure, reflection and long-term recovery management.
+
+4. HOW IT WORKS
+
+Keep the basic structure but make it warmer and more useful.
+
+Changes:
+- Reduce excessive padding.
+- Add a short intro beneath the heading:
+“You do not need to know exactly what support you need before getting in touch. We help you slow things down, understand the options and decide on the next step.”
+- Turn each step into a soft premium card or more substantial editorial block.
+- Keep the numbered step system, but make the numbers feel more polished.
+- Add subtle icons only if they look refined.
+- Improve spacing and readability.
+- Make it feel reassuring rather than sparse.
+
+Steps:
+1. Tell us what is happening
+Briefly share what you or someone close to you is facing. There is no need to have everything worked out.
+
+2. Clarify the right level of support
+We help you think through whether online support, treatment placement, family guidance or digital recovery tools are most appropriate.
+
+3. Take the next step confidentially
+We agree a practical next step and support you in moving forward with clarity.
+
+5. GENERAL REQUIREMENTS
+
+- Do not change the hero.
+- Do not work on admin/enquiries.
+- Do not change backend features.
+- Keep all sections responsive.
+- Check desktop and mobile.
+- Keep the site premium, warm, calm and professional.
+- Avoid over-designing.
+- The homepage should feel more complete, human and conversion-focused without becoming busy.

@@ -13,12 +13,15 @@ export function PathwayCard({ title, description, href, linkLabel = "Explore pat
   return (
     <Link href={href} data-testid={`link-pathway-${title.toLowerCase().replace(/\s+/g, "-")}`}>
       <div
-        className="group relative flex flex-col justify-between h-full bg-white p-8 md:p-10 border border-border/40 hover:border-accent/50 transition-all duration-400 cursor-pointer"
-        style={{ animationDelay: `${delay}ms` }}
+        className="group relative flex flex-col justify-between h-full bg-white p-7 border border-border/40 hover:border-accent/50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer"
+        style={{
+          animationDelay: `${delay}ms`,
+          boxShadow: "0 0 0 0 transparent",
+        }}
       >
-        <div className="mb-8">
+        <div className="mb-7">
           <div className="w-5 h-px bg-accent mb-5 transition-all duration-300 group-hover:w-10"></div>
-          <h3 className="font-serif text-xl md:text-2xl text-primary leading-snug pr-4 mb-4">
+          <h3 className="font-serif text-xl text-primary leading-snug pr-4 mb-3">
             {title}
           </h3>
           {description && (
