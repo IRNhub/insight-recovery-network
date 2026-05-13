@@ -4,18 +4,18 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-const isProduction = process.env.NODE_ENV === "production";
-
-// PORT is only required when running the dev/preview server, not during build
+// PORT is only required when running the dev/preview server, not during build.
 const rawPort = process.env.PORT;
 const port = rawPort ? Number(rawPort) : 3000;
 if (rawPort && (Number.isNaN(port) || port <= 0)) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-// In production the app is always served at the domain root ("/").
-// In development the Replit proxy may mount it at a sub-path via BASE_PATH.
-const basePath = isProduction ? "/" : (process.env.BASE_PATH ?? "/");
+// The app is always served at the domain root ("/") — both in production
+// (custom domain) and in the Replit dev proxy.  Hard-coding "/" removes
+// any dependency on the BASE_PATH env-var and keeps the wouter Router
+// base as "" (root) regardless of build mode.
+const basePath = "/";
 
 export default defineConfig({
   base: basePath,
