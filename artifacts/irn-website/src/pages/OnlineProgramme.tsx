@@ -6,9 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Users, User, Shield, CalendarCheck, Laptop, HeartHandshake } from "lucide-react";
 
 import heroImg from "@/assets/op-hero.png";
-import groupImg from "@/assets/op-group.png";
 import oneToOneImg from "@/assets/op-one-to-one.png";
-import insightOsImg from "@/assets/op-insight-os.png";
 
 const whoFor = [
   {
@@ -42,49 +40,31 @@ const included = [
     Icon: Users,
     title: "Live Group Support",
     body: "Facilitated recovery groups providing education, reflection, accountability, and shared experience.",
-    img: groupImg,
-    imgAlt: "Online recovery group session",
-    imgPos: "center 20%",
   },
   {
     Icon: User,
     title: "One-to-One Therapy",
     body: "Individual sessions focused on underlying patterns, emotional regulation, relapse risk, and recovery planning.",
-    img: null,
-    imgAlt: "",
-    imgPos: "",
   },
   {
     Icon: Shield,
     title: "Relapse Prevention Planning",
     body: "A structured plan to identify warning signs, triggers, high-risk situations, and practical intervention steps.",
-    img: null,
-    imgAlt: "",
-    imgPos: "",
   },
   {
     Icon: CalendarCheck,
     title: "Daily Recovery Structure",
     body: "Worksheets, reflection tasks, planning tools, and behavioural commitments to keep recovery active between sessions.",
-    img: null,
-    imgAlt: "",
-    imgPos: "",
   },
   {
     Icon: Laptop,
     title: "Insight OS Access",
     body: "Digital tools for journaling, check-ins, tracking, recovery planning, and AI-assisted guidance through Anchor.",
-    img: insightOsImg,
-    imgAlt: "Insight OS recovery platform on laptop and phone",
-    imgPos: "center 30%",
   },
   {
     Icon: HeartHandshake,
     title: "Family and Professional Coordination",
     body: "Where appropriate, support communication with families, employers, or other professionals involved in care.",
-    img: null,
-    imgAlt: "",
-    imgPos: "",
   },
 ];
 
@@ -130,7 +110,7 @@ export default function OnlineProgramme() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-background py-14 md:py-24 lg:py-28">
+      <section className="relative overflow-hidden bg-background py-12 md:py-20 lg:py-24">
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
@@ -212,9 +192,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Who this programme is for ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-10 md:py-16" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-10 md:mb-14">
+          <div className="mb-7 md:mb-10">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Who this is for
             </span>
@@ -247,9 +227,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── What's included ── */}
-      <section id="whats-included" className="py-14 md:py-24 bg-background">
+      <section id="whats-included" className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-10 md:mb-14">
+          <div className="mb-7 md:mb-10">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Programme components
             </span>
@@ -258,38 +238,26 @@ export default function OnlineProgramme() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
             {included.map((item) => (
               <div
                 key={item.title}
-                className="group flex flex-col bg-white border border-border/35 rounded-xl overflow-hidden hover:border-primary/15 transition-all duration-300"
+                className="group flex flex-col bg-white border border-border/35 rounded-xl hover:border-primary/15 transition-all duration-300 p-5"
                 style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 5px 20px -4px rgba(22,43,59,0.10)")}
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 1px 4px rgba(22,43,59,0.05)")}
               >
-                {item.img && (
-                  <div className="relative overflow-hidden" style={{ height: "180px" }}>
-                    <img
-                      src={item.img}
-                      alt={item.imgAlt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      style={{ objectPosition: item.imgPos }}
-                    />
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg"
+                    style={{ background: "rgba(246,244,240,1)", border: "1px solid rgba(201,169,110,0.25)" }}
+                  >
+                    <item.Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
                   </div>
-                )}
-                <div className="flex flex-col flex-grow p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg"
-                      style={{ background: "rgba(246,244,240,1)", border: "1px solid rgba(201,169,110,0.25)" }}
-                    >
-                      <item.Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
-                    </div>
-                    <div className="w-4 h-px" style={{ background: "rgba(201,169,110,0.5)" }} />
-                  </div>
-                  <h3 className="font-serif text-primary text-[17px] leading-snug mb-2">{item.title}</h3>
-                  <p className="text-[13px] text-muted-foreground/75 font-light leading-relaxed">{item.body}</p>
+                  <div className="w-4 h-px" style={{ background: "rgba(201,169,110,0.5)" }} />
                 </div>
+                <h3 className="font-serif text-primary text-[16px] leading-snug mb-1.5">{item.title}</h3>
+                <p className="text-[12.5px] text-muted-foreground/70 font-light leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -297,9 +265,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── How the programme works ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-10 md:py-16" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-10 md:mb-14">
+          <div className="mb-7 md:mb-10">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               The process
             </span>
@@ -341,7 +309,7 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── More than online counselling — split layout ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -390,7 +358,7 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Clinically guided, not 12-step dependent ── */}
-      <section className="py-14 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-10 md:py-14" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div
             className="max-w-4xl mx-auto rounded-xl border border-border/30 p-8 md:p-12 bg-white"
@@ -425,11 +393,11 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Programme Options (Pricing) ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-10 md:py-16 bg-background">
         <div className="container mx-auto px-6 md:px-12">
 
           {/* Heading */}
-          <div className="mb-10 md:mb-14 max-w-3xl">
+          <div className="mb-7 md:mb-10 max-w-3xl">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Programme Options
             </span>

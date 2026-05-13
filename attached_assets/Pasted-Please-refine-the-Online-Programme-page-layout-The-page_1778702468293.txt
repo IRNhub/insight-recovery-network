@@ -1,0 +1,68 @@
+Please refine the Online Programme page layout. The page is much better, but it still feels too spread out and has too much empty vertical space between sections.
+
+Do not redesign the page from scratch. Keep the current structure, copy, typography, colours, pricing section, and overall premium style. This is a spacing and consistency refinement.
+
+Main issues to fix:
+
+1. Reduce excessive vertical spacing
+- Reduce top and bottom padding across the Online Programme page sections by around 20 to 30 percent.
+- The page should still feel premium and calm, but not overly empty.
+- Tighten the spacing between:
+  - Hero and “Who this is for”
+  - “Who this is for” and “What’s included”
+  - “What’s included” and “How the programme works”
+  - “How the programme works” and “More than online counselling”
+  - “More than online counselling” and “Clinically guided, not 12-step dependent”
+  - “Clinical approach” and pricing
+  - Pricing and final CTA
+
+2. Refine the “Who this is for” section
+- Keep the six cards and copy.
+- Slightly reduce card grid gap.
+- Slightly reduce internal card padding if needed.
+- Make the cards feel more intentionally grouped rather than floating far apart.
+
+3. Refine the “What’s included” section
+- Remove the images from the cards in this section.
+- The section currently feels inconsistent because only some cards have images.
+- Make all six cards visually consistent with icons, headings, and copy.
+- Keep the section premium, clean, and easy to scan.
+- Do not add more images to this section.
+
+4. Keep images in intentional places only
+Use images only where they add strong visual value:
+- Hero image
+- “More than online counselling” image
+- Optional Insight OS/digital support image if already present elsewhere
+Do not overload the page with images.
+
+5. Refine the “How the programme works” section
+- Reduce excessive empty space above and below the process cards.
+- Tighten card spacing slightly.
+- Keep the elegant four-step layout.
+- Make sure the connector line remains subtle and aligned.
+- Improve readability if any text appears too faint.
+
+6. Pricing section
+- Keep the current three-card pricing layout.
+- Keep the middle “Structured Support” card highlighted.
+- Do not change prices or package wording.
+- Just ensure spacing above and below the pricing section feels balanced.
+
+7. Final CTA
+- Keep the final CTA.
+- Reduce excessive empty space if needed.
+- Make sure it feels connected to the pricing section rather than too far away.
+
+8. Mobile responsiveness
+- Check that all tightened spacing still works well on mobile.
+- Cards should stack neatly.
+- No images should create awkward gaps.
+- Buttons should remain easy to tap.
+
+Technical requirements:
+- Inspect the current Online Programme page before editing.
+- Reuse existing classes and components where possible.
+- Do not break routes.
+- Do not alter other pages.
+- After completion, summarise exactly which file or files were changed and what refinements were made.
