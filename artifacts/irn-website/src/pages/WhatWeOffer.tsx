@@ -4,10 +4,11 @@ import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
-import heroImg from "@/assets/service-family-guidance.png";
-import treatmentImg from "@/assets/service-treatment-placement.png";
-import onlineImg from "@/assets/service-online-programme.png";
-import digitalImg from "@/assets/service-digital-tools.png";
+import heroImg from "@/assets/wwo-hero.png";
+import treatmentImg from "@/assets/wwo-treatment-placement.png";
+import onlineImg from "@/assets/wwo-online-programme.png";
+import digitalImg from "@/assets/wwo-insight-os.png";
+import familyImg from "@/assets/wwo-family-intervention.png";
 
 const services = [
   {
@@ -17,7 +18,7 @@ const services = [
     linkLabel: "Explore placement",
     img: treatmentImg,
     imgAlt: "Private treatment facility",
-    imgPos: "center",
+    imgPos: "center 55%",
     body: "Confidential guidance in identifying and securing the right detox or residential rehabilitation facility — from first conversation to admission, with access to our network of trusted international providers.",
     tags: ["Detox", "Residential Care", "International Options", "Family Guidance"],
   },
@@ -28,7 +29,7 @@ const services = [
     linkLabel: "Explore programme",
     img: onlineImg,
     imgAlt: "Online recovery programme session",
-    imgPos: "center 30%",
+    imgPos: "center 15%",
     body: "A structured digital recovery programme offering group support, one-to-one therapy, and relapse prevention planning for those who need flexibility without compromising quality of care.",
     tags: ["Groups", "1:1 Support", "Worksheets", "Relapse Prevention"],
   },
@@ -39,7 +40,7 @@ const services = [
     linkLabel: "Explore OS",
     img: digitalImg,
     imgAlt: "Insight OS digital recovery platform",
-    imgPos: "center 20%",
+    imgPos: "center 35%",
     body: "Our proprietary recovery platform. Daily check-ins, health scoring, journaling, and AI-assisted guidance work together to give you structure and clarity throughout the recovery journey.",
     tags: ["Daily Check-ins", "Journaling", "Recovery Tools", "AI Guidance"],
   },
@@ -91,14 +92,20 @@ const specialised = [
   {
     title: "Family & Intervention",
     body: "We support families in navigating complex, highly emotional situations with care, clarity, and boundaries. From strategic guidance to formal intervention planning, we provide the framework needed to initiate change safely.",
+    img: familyImg,
+    imgAlt: "Family intervention session",
   },
   {
     title: "Professional Partnerships",
     body: "We act as a discreet, expert resource for professionals, EAPs, HR teams, and legal counsel. When an organisation encounters a sensitive substance or mental health issue, we assess, advise, and coordinate a clinical response.",
+    img: null,
+    imgAlt: "",
   },
   {
     title: "Aftercare & Continuity Planning",
     body: "Sustained recovery requires structure beyond treatment. We design tailored aftercare plans integrating Insight OS, peer support, clinical oversight, and scheduled reviews to protect long-term wellbeing.",
+    img: null,
+    imgAlt: "",
   },
 ];
 
@@ -358,15 +365,31 @@ export default function WhatWeOffer() {
             {specialised.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col p-6 lg:p-7 rounded-xl border"
+                className="flex flex-col rounded-xl border overflow-hidden"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   borderColor: "rgba(255,255,255,0.10)",
                 }}
               >
-                <div className="w-6 h-px mb-5" style={{ background: "rgba(201,169,110,0.70)" }} />
-                <h3 className="font-serif text-white text-[19px] leading-snug mb-3">{item.title}</h3>
-                <p className="text-[13.5px] text-primary-foreground/65 font-light leading-relaxed">{item.body}</p>
+                {item.img && (
+                  <div className="relative overflow-hidden" style={{ height: "180px" }}>
+                    <img
+                      src={item.img}
+                      alt={item.imgAlt}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: "center 30%" }}
+                    />
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(22,43,59,0.55) 100%)" }}
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col flex-grow p-6 lg:p-7">
+                  <div className="w-6 h-px mb-5" style={{ background: "rgba(201,169,110,0.70)" }} />
+                  <h3 className="font-serif text-white text-[19px] leading-snug mb-3">{item.title}</h3>
+                  <p className="text-[13.5px] text-primary-foreground/65 font-light leading-relaxed">{item.body}</p>
+                </div>
               </div>
             ))}
           </div>
