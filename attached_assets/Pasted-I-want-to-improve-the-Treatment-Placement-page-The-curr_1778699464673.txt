@@ -1,0 +1,73 @@
+I want to improve the Treatment Placement page. The current page is clean and on-brand, but it feels unfinished and slightly bland because the hero uses a plain placeholder block that says “Placement”. Please upgrade the page visually and structurally while keeping the existing premium Insight Recovery Network style.
+
+Important brand direction:
+- Keep the refined navy, cream, muted gold, and premium typography.
+- Keep the tone calm, discreet, clinical, and trustworthy.
+- Avoid generic rehab clichés, dramatic addiction imagery, or overly emotional stock visuals.
+- Do not reuse homepage images.
+- Use the new peaceful residential/courtyard image asset for this Treatment Placement page if available. If the file is not yet in the project, create a clear image placeholder named something like treatment-placement-courtyard.png and add comments showing where to replace it.
+
+Specific improvements:
+
+1. Hero section
+- Replace the current grey “Placement” placeholder block with a premium right-side image panel using the residential courtyard/treatment environment image.
+- Keep the hero message around:
+  “Navigating residential care with certainty.”
+- Add subtle visual depth: soft border, shadow, layered background panel, or small gold accent.
+- Add a small floating label or caption over/near the image:
+  “Vetted international providers”
+  or
+  “Independent placement guidance”
+- Keep the main CTA button:
+  “Request Guidance”
+- Add a small reassurance line below the CTA:
+  “Private, discreet, clinically informed.”
+
+2. Improve the section beginning “Not all facilities are appropriate for all individuals.”
+- Keep the core copy, but improve the visual layout.
+- Make the right-side “Our International Network” card feel more premium.
+- Turn the location list into clean pill-style tags:
+  United Kingdom, South Africa, Thailand, Spain, Sri Lanka
+- Keep the clinical disclaimer but make it visually refined and readable.
+
+3. Add a new section: “How placement guidance works”
+Create a four-step process:
+1. Understand the situation
+   Assess urgency, risk, substance use history, mental health needs, family context, and practical requirements.
+2. Identify suitable options
+   Match needs against trusted providers, considering clinical fit, location, budget, length of stay, and environment.
+3. Support admission planning
+   Help coordinate communication, availability, documentation, travel considerations, and family questions.
+4. Plan continuity of care
+   Consider aftercare, online support, relapse prevention, and ongoing recovery structure.
+
+Design this as a premium timeline or four elegant cards with subtle gold numbering.
+
+4. Add a new section: “When treatment placement may be appropriate”
+Use six compact cards or a refined grid:
+- Repeated relapse despite outpatient support
+- High-risk alcohol or drug use
+- Complex mental health alongside addiction
+- Family unable to manage the situation safely
+- Need for structured separation from current environment
+- Previous treatment ended without strong aftercare
+
+Keep copy short and clinically appropriate.
+
+5. Improve the final CTA
+Replace the final CTA with:
+Heading: “Need help choosing the right treatment setting?”
+Subheading: “Speak confidentially with our clinical team. We will help you understand the safest and most appropriate options without pressure or obligation.”
+Button: “Request Placement Guidance”
+
+6. Mobile responsiveness
+- Make sure the hero image stacks properly on mobile.
+- Cards and process steps should be easy to read on a phone.
+- Keep spacing premium but avoid excessive empty space.
+
+7. Technical requirements
+- Inspect the existing Treatment Placement page first.
+- Reuse existing layout components and design classes where possible.
+- Do not break any routes.
+- Keep the site fast and lightweight.
+- After changes, summarise exactly which files were edited and what improvements were made.
