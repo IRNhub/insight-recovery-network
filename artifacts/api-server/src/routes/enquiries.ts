@@ -2,7 +2,7 @@ import { Router, type IRouter, type Request, type Response } from "express";
 import { SubmitEnquiryBody } from "@workspace/api-zod";
 import { db, enquiriesTable } from "@workspace/db";
 import { logger } from "../lib/logger";
-import { sendEnquiryNotification, sendAcknowledgementEmail } from "../lib/email";
+import { sendEnquiryNotification } from "../lib/email";
 
 const router: IRouter = Router();
 
@@ -28,6 +28,11 @@ router.post("/enquiries", async (req: Request, res: Response) => {
     return;
   }
 
+  const pageSource =
+    typeof req.body["pageSource"] === "string" ? req.body["pageSource"] : undefined;
+
+  const submittedAt = new Date().toUTCString();
+
   try {
     const [enquiry] = await db
       .insert(enquiriesTable)
@@ -44,12 +49,18 @@ router.post("/enquiries", async (req: Request, res: Response) => {
 
     logger.info({ enquiryId: enquiry.id }, "Enquiry stored");
 
-    await sendEnquiryNotification(data).catch((err) => {
+    await sendEnquiryNotification({
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      preferredContact: data.preferredContact,
+      supportType: data.supportType,
+      message: data.message,
+      consent: data.consent,
+      pageSource,
+      submittedAt,
+    }).catch((err) => {
       logger.warn({ err }, "Email notification failed — enquiry still saved");
-    });
-
-    await sendAcknowledgementEmail(data).catch((err) => {
-      logger.warn({ err }, "Acknowledgement email failed — enquiry still saved");
     });
 
     res.status(201).json({ id: enquiry.id, createdAt: enquiry.createdAt });

@@ -9,7 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { submitLeadToIrnOs } from "@/lib/irn-os";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -26,6 +25,8 @@ const contactFormSchema = z.object({
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+const API_BASE = "/api";
 
 export function ContactForm() {
   const [location] = useLocation();
@@ -48,18 +49,25 @@ export function ContactForm() {
     setIsPending(true);
     setIsError(false);
     try {
-      await submitLeadToIrnOs({
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        preferredContactMethod: data.preferredContact,
-        enquiryType: data.supportType,
-        message: data.message,
-        consentAccepted: data.consent,
-        source: "Website",
-        pageSource: location,
-        createdAt: new Date().toISOString(),
+      const response = await fetch(`${API_BASE}/enquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          preferredContact: data.preferredContact,
+          supportType: data.supportType,
+          message: data.message,
+          consent: data.consent,
+          pageSource: location,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+
       setIsSuccess(true);
     } catch {
       setIsError(true);
