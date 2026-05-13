@@ -1,0 +1,115 @@
+I want to significantly improve the Online Programme page. The current page is clean but feels too empty, too bland, and does not explain the programme properly. Please expand it into a stronger, more informative, premium sales/explanation page while keeping the Insight Recovery Network brand style.
+
+Brand direction:
+- Keep the premium navy, cream, muted gold, and refined typography.
+- Tone should be calm, clinical, discreet, structured, and trustworthy.
+- Avoid generic rehab clichés, dramatic addiction imagery, or overly emotional stock visuals.
+- Do not reuse the same hero images from the homepage or treatment placement page.
+- Use warm, private, online-support style imagery: laptop, notebook, calm home setting, reflective workspace, discreet online support.
+- Avoid obvious Zoom screenshots or cheesy therapy stock images.
+
+Page improvements:
+
+1. Hero section
+Upgrade the hero so it no longer feels empty.
+Use this direction:
+Heading: “Structured recovery support, wherever you are.”
+Subheading: “A clinically guided online recovery programme combining group support, one-to-one therapy, relapse prevention planning, structured worksheets, and access to Insight OS.”
+Primary button: “Enquire Now”
+Secondary button: “View What’s Included”
+Small reassurance line: “Private, structured, non-judgemental support.”
+
+Add a right-side image panel using a new online programme image. Suggested image direction: calm home office, person at laptop with notebook, warm lighting, private recovery support feel. If the image asset is not available, add a clearly named placeholder such as online-programme-hero.png and comments showing where to replace it.
+
+2. Add a “Who this programme is for” section
+Create a section with the heading:
+“For when residential care is not the right fit.”
+
+Add six compact cards:
+- You need structure but cannot step away from work or family
+- You have completed treatment and need strong aftercare
+- You are relapsing despite trying to manage alone
+- You want professional guidance without entering rehab
+- You need accountability, education, and relapse prevention tools
+- You are supporting a loved one and need a structured pathway
+
+Each card should have a short, clinically appropriate paragraph.
+
+3. Improve and expand the “What’s included” section
+Use premium cards with icons or subtle numbering. Include:
+- Live Group Support
+- One-to-One Therapy
+- Relapse Prevention Planning
+- Daily Recovery Structure
+- Insight OS Access
+- Family and Professional Coordination
+
+Use the following copy direction:
+Live Group Support: Facilitated recovery groups providing education, reflection, accountability, and shared experience.
+One-to-One Therapy: Individual sessions focused on underlying patterns, emotional regulation, relapse risk, and recovery planning.
+Relapse Prevention Planning: A structured plan to identify warning signs, triggers, high-risk situations, and practical intervention steps.
+Daily Recovery Structure: Worksheets, reflection tasks, planning tools, and behavioural commitments to keep recovery active between sessions.
+Insight OS Access: Digital tools for journaling, check-ins, tracking, recovery planning, and AI-assisted guidance through Anchor.
+Family and Professional Coordination: Where appropriate, support communication with families, employers, or other professionals involved in care.
+
+4. Add a “How the programme works” section
+Create a four-step process:
+1. Initial consultation
+   We understand your current situation, risks, history, goals, and support needs.
+2. Programme recommendation
+   We identify whether the online programme is appropriate, or whether a higher level of care may be needed.
+3. Structured weekly support
+   You join a rhythm of group work, individual sessions, recovery assignments, and digital support.
+4. Ongoing review
+   Progress, risks, relapse warning signs, and recovery goals are reviewed as the programme develops.
+
+Design this as a premium timeline or elegant step cards with muted gold numbering.
+
+5. Add a “Clinically guided, not 12-step dependent” section
+Add a section explaining:
+“The programme is not a 12-step programme. It is structured around psychoeducation, relapse prevention, emotional regulation, accountability, behavioural change, and practical recovery planning. Some clients may choose to use 12-step support alongside the programme, but it is not required.”
+
+Make this section visually distinct but not defensive.
+
+6. Add a “More than online counselling” section
+Use a split layout with an image on one side and text on the other.
+Heading: “More than online counselling.”
+Copy direction:
+“Many people receive isolated therapy sessions without a wider recovery structure. Our online programme combines therapeutic support with practical education, group accountability, daily reflection, relapse prevention planning, and digital recovery tools.”
+
+Include bullet points:
+- Structured programme rhythm
+- Practical worksheets and recovery tasks
+- Clinical relapse prevention focus
+- Access to Insight OS
+- Support between sessions
+- Clear accountability and review
+
+7. Improve the final CTA
+Replace the current CTA with:
+Heading: “Ready to build recovery with structure?”
+Subheading: “Start with a confidential consultation. We will help you understand whether the online programme is the right level of support for your situation.”
+Button: “Enquire About the Programme”
+
+8. Images
+Add space for 3 to 4 image assets:
+- online-programme-hero.png
+- online-group-support.png
+- online-reflection-workspace.png
+- insight-os-support.png
+
+If real image files are not present, use elegant placeholders and clear comments so I can replace them later.
+
+9. Mobile responsiveness
+- Hero should stack cleanly on mobile.
+- Image panels should not create awkward empty space.
+- Cards should stack neatly.
+- Buttons should be easy to tap.
+- Keep the premium spacing but reduce excessive blank areas.
+
+10. Technical requirements
+- Inspect the existing Online Programme page first.
+- Reuse current components and styling conventions where possible.
+- Do not break routes.
+- Keep the build lightweight and fast.
+- After completing, summarise exactly which files were edited and what improvements were made.

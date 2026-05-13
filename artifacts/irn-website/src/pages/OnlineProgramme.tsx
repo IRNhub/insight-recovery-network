@@ -1,8 +1,124 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
-import { PageHero } from "@/components/ui/page-hero";
 import { CTASection } from "@/components/ui/cta-section";
-import { Users, User, Calendar, Activity, Lock } from "lucide-react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Users, User, Shield, CalendarCheck, Laptop, HeartHandshake } from "lucide-react";
+
+import heroImg from "@/assets/op-hero.png";
+import groupImg from "@/assets/op-group.png";
+import oneToOneImg from "@/assets/op-one-to-one.png";
+import insightOsImg from "@/assets/op-insight-os.png";
+
+const whoFor = [
+  {
+    title: "You need structure but cannot step away from work or family",
+    body: "The online programme provides a clinical rhythm of support without requiring you to leave your responsibilities behind.",
+  },
+  {
+    title: "You have completed treatment and need strong aftercare",
+    body: "The transition out of residential care is high-risk. Structured online support reduces the likelihood of relapse in the critical early months.",
+  },
+  {
+    title: "You are relapsing despite trying to manage alone",
+    body: "Willpower alone rarely sustains recovery. Structured professional support, accountability, and relapse prevention tools make a measurable difference.",
+  },
+  {
+    title: "You want professional guidance without entering rehab",
+    body: "For those who are not yet at a point requiring residential care, the online programme provides a serious clinical alternative.",
+  },
+  {
+    title: "You need accountability, education, and relapse prevention tools",
+    body: "The programme gives you frameworks, worksheets, and professional oversight to make recovery an active daily practice.",
+  },
+  {
+    title: "You are supporting a loved one and need a structured pathway",
+    body: "We can help you understand whether this level of support is appropriate and coordinate a structured response for the person you are supporting.",
+  },
+];
+
+const included = [
+  {
+    Icon: Users,
+    title: "Live Group Support",
+    body: "Facilitated recovery groups providing education, reflection, accountability, and shared experience.",
+    img: groupImg,
+    imgAlt: "Online recovery group session",
+    imgPos: "center 20%",
+  },
+  {
+    Icon: User,
+    title: "One-to-One Therapy",
+    body: "Individual sessions focused on underlying patterns, emotional regulation, relapse risk, and recovery planning.",
+    img: null,
+    imgAlt: "",
+    imgPos: "",
+  },
+  {
+    Icon: Shield,
+    title: "Relapse Prevention Planning",
+    body: "A structured plan to identify warning signs, triggers, high-risk situations, and practical intervention steps.",
+    img: null,
+    imgAlt: "",
+    imgPos: "",
+  },
+  {
+    Icon: CalendarCheck,
+    title: "Daily Recovery Structure",
+    body: "Worksheets, reflection tasks, planning tools, and behavioural commitments to keep recovery active between sessions.",
+    img: null,
+    imgAlt: "",
+    imgPos: "",
+  },
+  {
+    Icon: Laptop,
+    title: "Insight OS Access",
+    body: "Digital tools for journaling, check-ins, tracking, recovery planning, and AI-assisted guidance through Anchor.",
+    img: insightOsImg,
+    imgAlt: "Insight OS recovery platform on laptop and phone",
+    imgPos: "center 30%",
+  },
+  {
+    Icon: HeartHandshake,
+    title: "Family and Professional Coordination",
+    body: "Where appropriate, support communication with families, employers, or other professionals involved in care.",
+    img: null,
+    imgAlt: "",
+    imgPos: "",
+  },
+];
+
+const steps = [
+  {
+    n: "1",
+    title: "Initial consultation",
+    body: "We understand your current situation, risks, history, goals, and support needs.",
+  },
+  {
+    n: "2",
+    title: "Programme recommendation",
+    body: "We identify whether the online programme is appropriate, or whether a higher level of care may be needed.",
+  },
+  {
+    n: "3",
+    title: "Structured weekly support",
+    body: "You join a rhythm of group work, individual sessions, recovery assignments, and digital support.",
+  },
+  {
+    n: "4",
+    title: "Ongoing review",
+    body: "Progress, risks, relapse warning signs, and recovery goals are reviewed as the programme develops.",
+  },
+];
+
+const moreThanBullets = [
+  "Structured programme rhythm",
+  "Practical worksheets and recovery tasks",
+  "Clinical relapse prevention focus",
+  "Access to Insight OS",
+  "Support between sessions",
+  "Clear accountability and review",
+];
 
 export default function OnlineProgramme() {
   return (
@@ -12,72 +128,307 @@ export default function OnlineProgramme() {
         description="A structured online recovery programme with group support, one-to-one therapy, daily structure, and relapse prevention — available without residential care."
         canonical="/online-programme"
       />
-      <PageHero 
-        label="Online Programme"
-        heading="Structured recovery support, accessible anywhere."
-        description="A robust digital programme providing the accountability, therapy, and structure needed to establish and maintain recovery."
-        primaryCta={{ label: "Enquire Now", href: "/contact" }}
-      />
 
-      <section className="py-20 md:py-32">
+      {/* ── Hero ── */}
+      <section className="relative overflow-hidden bg-background py-14 md:py-24 lg:py-28">
+        <div
+          className="absolute inset-0 opacity-[0.025] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg,#162B3B,#162B3B 1px,transparent 1px,transparent 72px),repeating-linear-gradient(90deg,#162B3B,#162B3B 1px,transparent 1px,transparent 72px)",
+          }}
+        />
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+
+            {/* Left: text */}
+            <div className="lg:col-span-6 flex flex-col gap-5 md:gap-6">
+              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80">
+                Online Programme
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
+                Structured recovery support, wherever you are.
+              </h1>
+              <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
+                A clinically guided online recovery programme combining group support, one-to-one therapy, relapse prevention planning, structured worksheets, and access to Insight OS.
+              </p>
+              <div className="flex flex-col gap-2.5 pt-1">
+                {[
+                  "No need to step away from work or family",
+                  "Clinical structure, not isolated counselling",
+                  "Flexible — available from anywhere",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
+                    <span className="text-[13px] text-muted-foreground/75 font-light">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Link href="/contact">
+                  <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto">
+                    Enquire Now
+                  </Button>
+                </Link>
+                <a href="#whats-included">
+                  <Button variant="outline" size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
+                    View What's Included
+                  </Button>
+                </a>
+              </div>
+              <p className="text-[11.5px] text-muted-foreground/55 font-light tracking-wide">
+                Private, structured, non-judgemental support.
+              </p>
+            </div>
+
+            {/* Right: image */}
+            <div className="lg:col-span-6 relative mt-4 lg:mt-0">
+              <div className="relative" style={{ paddingBottom: "68%" }}>
+                <div
+                  className="absolute inset-0 translate-x-4 translate-y-4 md:translate-x-5 md:translate-y-5 rounded-xl"
+                  style={{
+                    background: "rgba(201,169,110,0.11)",
+                    border: "1px solid rgba(201,169,110,0.22)",
+                  }}
+                />
+                <img
+                  src={heroImg}
+                  alt="Person working through online recovery programme at home"
+                  className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
+                  style={{ objectPosition: "center 20%" }}
+                />
+                <div
+                  className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"
+                  style={{ background: "rgba(22,43,59,0.82)", backdropFilter: "blur(8px)" }}
+                >
+                  <p className="font-serif text-white text-[12px] leading-tight">Structured weekly support</p>
+                  <p className="text-white/55 text-[10.5px] font-light">Group · 1:1 · Insight OS · Relapse Prevention</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Who this programme is for ── */}
+      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-4xl mx-auto text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight mb-6">
+          <div className="mb-10 md:mb-14">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              Who this is for
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight max-w-2xl">
               For when residential care is not the right fit.
             </h2>
-            <p className="text-lg text-muted-foreground font-light leading-relaxed">
-              Our Online Programme is designed for individuals who require professional support and structured relapse prevention but cannot—or do not need to—step away from their professional and family responsibilities to enter a residential facility.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 border border-border flex flex-col items-start hover:border-accent/40 transition-colors">
-              <Users className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-xl font-serif text-primary mb-3">Group Support</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                Facilitated, confidential peer groups providing shared experience, accountability, and a supportive network to combat isolation.
-              </p>
-            </div>
-            
-            <div className="bg-white p-8 border border-border flex flex-col items-start hover:border-accent/40 transition-colors">
-              <User className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-xl font-serif text-primary mb-3">One-to-One Sessions</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                Dedicated individual therapy to address specific underlying issues and develop personalised coping strategies.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            {whoFor.map((item, i) => (
+              <div
+                key={item.title}
+                className="flex gap-4 bg-white border border-border/30 rounded-xl p-5"
+                style={{ boxShadow: "0 1px 3px rgba(22,43,59,0.04)" }}
+              >
+                <div className="flex-shrink-0 pt-0.5">
+                  <span className="font-serif text-[10.5px]" style={{ color: "rgba(201,169,110,0.85)" }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div>
+                  <div className="w-4 h-px mb-2.5" style={{ background: "rgba(201,169,110,0.5)" }} />
+                  <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{item.title}</h3>
+                  <p className="text-[12.5px] text-muted-foreground/70 font-light leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white p-8 border border-border flex flex-col items-start hover:border-accent/40 transition-colors">
-              <Calendar className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-xl font-serif text-primary mb-3">Daily Structure</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                Frameworks designed to instil healthy routines, manage triggers, and keep individuals focused on their recovery goals.
-              </p>
-            </div>
+      {/* ── What's included ── */}
+      <section id="whats-included" className="py-14 md:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-10 md:mb-14">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              Programme components
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
+              What's included.
+            </h2>
+          </div>
 
-            <div className="bg-white p-8 border border-border flex flex-col items-start hover:border-accent/40 transition-colors lg:col-start-2">
-              <Activity className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-xl font-serif text-primary mb-3">Relapse Prevention</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                Practical, evidence-based tools and education to identify warning signs early and intervene before a return to use.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+            {included.map((item) => (
+              <div
+                key={item.title}
+                className="group flex flex-col bg-white border border-border/35 rounded-xl overflow-hidden hover:border-primary/15 transition-all duration-300"
+                style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 5px 20px -4px rgba(22,43,59,0.10)")}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 1px 4px rgba(22,43,59,0.05)")}
+              >
+                {item.img && (
+                  <div className="relative overflow-hidden" style={{ height: "180px" }}>
+                    <img
+                      src={item.img}
+                      alt={item.imgAlt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      style={{ objectPosition: item.imgPos }}
+                    />
+                  </div>
+                )}
+                <div className="flex flex-col flex-grow p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div
+                      className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg"
+                      style={{ background: "rgba(246,244,240,1)", border: "1px solid rgba(201,169,110,0.25)" }}
+                    >
+                      <item.Icon className="w-4 h-4 text-accent" strokeWidth={1.5} />
+                    </div>
+                    <div className="w-4 h-px" style={{ background: "rgba(201,169,110,0.5)" }} />
+                  </div>
+                  <h3 className="font-serif text-primary text-[17px] leading-snug mb-2">{item.title}</h3>
+                  <p className="text-[13px] text-muted-foreground/75 font-light leading-relaxed">{item.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-white p-8 border border-border flex flex-col items-start hover:border-accent/40 transition-colors">
-              <Lock className="w-8 h-8 text-accent mb-6" strokeWidth={1.5} />
-              <h3 className="text-xl font-serif text-primary mb-3">Secure Environment</h3>
-              <p className="text-muted-foreground font-light text-sm leading-relaxed">
-                All sessions and communications take place within a highly secure, private digital environment ensuring absolute confidentiality.
-              </p>
+      {/* ── How the programme works ── */}
+      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-10 md:mb-14">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              The process
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
+              How the programme works.
+            </h2>
+          </div>
+
+          <div className="relative">
+            <div
+              className="hidden md:block absolute top-[1.625rem] left-[calc(12.5%+1.25rem)] right-[calc(12.5%+1.25rem)] h-px pointer-events-none"
+              style={{ background: "rgba(201,169,110,0.25)" }}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5 lg:gap-6">
+              {steps.map((s) => (
+                <div
+                  key={s.n}
+                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-4 pt-5 pb-5 md:px-5 md:pt-6 md:pb-6"
+                  style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+                >
+                  <div
+                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-4 relative z-10"
+                    style={{
+                      background: "rgba(246,244,240,1)",
+                      border: "1px solid rgba(201,169,110,0.50)",
+                      color: "rgba(22,43,59,0.88)",
+                      borderRadius: "50%",
+                    }}
+                  >
+                    {s.n}
+                  </div>
+                  <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h3>
+                  <p className="text-[12.5px] text-muted-foreground/65 font-light leading-relaxed">{s.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <CTASection 
-        heading="Ask about the online programme."
-        description="We can discuss if this level of care is appropriate for your situation."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+      {/* ── More than online counselling — split layout ── */}
+      <section className="py-14 md:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="relative rounded-xl overflow-hidden" style={{ paddingBottom: "72%" }}>
+                <div
+                  className="absolute inset-0 -translate-x-4 translate-y-4 md:-translate-x-5 md:translate-y-5 rounded-xl"
+                  style={{
+                    background: "rgba(201,169,110,0.09)",
+                    border: "1px solid rgba(201,169,110,0.20)",
+                  }}
+                />
+                <img
+                  src={oneToOneImg}
+                  alt="One-to-one online therapy session with recovery worksheets"
+                  className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
+                  style={{ objectPosition: "center 20%" }}
+                />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="flex flex-col gap-5 order-1 lg:order-2">
+              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70">
+                Why it is different
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
+                More than online counselling.
+              </h2>
+              <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
+                Many people receive isolated therapy sessions without a wider recovery structure. Our online programme combines therapeutic support with practical education, group accountability, daily reflection, relapse prevention planning, and digital recovery tools.
+              </p>
+              <div className="flex flex-col gap-2.5 mt-1">
+                {moreThanBullets.map((bullet) => (
+                  <div key={bullet} className="flex items-center gap-3">
+                    <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
+                    <span className="text-[13.5px] text-primary/75 font-light">{bullet}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Clinically guided, not 12-step dependent ── */}
+      <section className="py-14 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
+        <div className="container mx-auto px-6 md:px-12">
+          <div
+            className="max-w-4xl mx-auto rounded-xl border border-border/30 p-8 md:p-12 bg-white"
+            style={{ boxShadow: "0 1px 6px rgba(22,43,59,0.06)" }}
+          >
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+              <div className="flex-shrink-0">
+                <div
+                  className="w-12 h-12 flex items-center justify-center rounded-xl"
+                  style={{ background: "rgba(246,244,240,1)", border: "1px solid rgba(201,169,110,0.3)" }}
+                >
+                  <Shield className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                </div>
+              </div>
+              <div className="flex flex-col gap-3">
+                <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70">
+                  Clinical approach
+                </span>
+                <h2 className="text-2xl md:text-3xl font-serif text-primary leading-tight">
+                  Clinically guided, not 12-step dependent.
+                </h2>
+                <p className="text-[14.5px] text-muted-foreground/80 font-light leading-relaxed">
+                  The programme is not a 12-step programme. It is structured around psychoeducation, relapse prevention, emotional regulation, accountability, behavioural change, and practical recovery planning.
+                </p>
+                <p className="text-[14.5px] text-muted-foreground/80 font-light leading-relaxed">
+                  Some clients may choose to use 12-step support alongside the programme, but it is not required. The clinical framework stands independently and is designed to work for a wide range of individuals, backgrounds, and beliefs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <CTASection
+        heading="Ready to build recovery with structure?"
+        description="Start with a confidential consultation. We will help you understand whether the online programme is the right level of support for your situation."
+        primaryCta={{ label: "Enquire About the Programme", href: "/contact" }}
       />
     </Layout>
   );
