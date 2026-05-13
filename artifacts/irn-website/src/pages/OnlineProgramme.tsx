@@ -110,7 +110,7 @@ export default function OnlineProgramme() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-background py-12 md:py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-background py-8 md:py-14">
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
@@ -192,9 +192,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Who this programme is for ── */}
-      <section className="py-10 md:py-16" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-7 md:py-10" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-7 md:mb-10">
+          <div className="mb-5 md:mb-7">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Who this is for
             </span>
