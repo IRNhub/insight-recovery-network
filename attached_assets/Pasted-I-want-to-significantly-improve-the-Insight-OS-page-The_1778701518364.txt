@@ -1,0 +1,162 @@
+I want to significantly improve the Insight OS page. The current page massively undersells the platform, feels too empty, and the colour treatment does not match the premium cream/navy/gold feel used across the other pages. Please redesign and expand this page so Insight OS feels like a serious digital recovery platform and one of the core pillars of Insight Recovery Network.
+
+Important brand direction:
+- Keep the premium Insight Recovery Network style: cream/off-white backgrounds, deep navy, muted gold accents, refined typography, soft borders, and elegant spacing.
+- Avoid making the whole page feel too dark. The current dark hero is too heavy and the heading lacks impact.
+- The page should feel calm, modern, clinical, trustworthy, and product-led.
+- Do not make it look like a generic SaaS landing page.
+- Do not use cheesy AI/robot imagery.
+- Use high-quality product imagery/mockups where possible.
+- If image files are not available yet, create clearly named placeholders and comments so I can replace them.
+
+Main positioning:
+Insight OS should be presented as:
+“The operating system for your recovery.”
+
+Core message:
+Insight OS is a digital recovery platform designed to help people build structure, track progress, recognise risk, use recovery tools, and stay connected to support between sessions, groups, and treatment episodes.
+
+Page improvements:
+
+1. Hero section
+Redesign the hero so it feels premium, clear, and aligned with the rest of the website.
+Use a cream/off-white hero background with navy typography and muted gold accents, not a dark-heavy hero.
+Suggested hero copy:
+
+Small label:
+“Digital Recovery Platform”
+
+Heading:
+“Insight OS: the operating system for your recovery.”
+
+Subheading:
+“A structured digital recovery platform helping users build daily consistency, track progress, recognise risk, and stay connected to the tools that support long-term change.”
+
+Buttons:
+Primary: “Open Insight OS”
+Secondary: “Explore the Platform”
+
+Add a reassurance line:
+“Private, structured, recovery-focused support.”
+
+Hero image:
+Use a right-side image panel or layered product mockup showing Insight OS on a laptop and phone. If the actual generated image is not yet in the project, create a placeholder named:
+insight-os-dashboard-mockup.png
+
+The image panel should feel premium, with soft shadow, subtle border, and a layered card effect.
+
+2. Replace the current large placeholder box
+Remove the plain white “Insight OS Dashboard” placeholder.
+Replace it with a proper product showcase section using the Insight OS laptop/phone mockup image.
+
+3. Add section: “Built for the daily work of recovery”
+Add copy explaining that recovery is built through repeated daily actions, not only during therapy or treatment.
+
+Create six premium feature cards:
+- Daily Check-ins
+- Mood & Trigger Tracking
+- Guided Journaling
+- Relapse Prevention Planning
+- Recovery Tools
+- Progress & Insight
+
+Suggested short copy:
+Daily Check-ins: Build consistency through simple daily reflection.
+Mood & Trigger Tracking: Notice emotional and behavioural patterns before they escalate.
+Guided Journaling: Turn thoughts and experiences into insight and action.
+Relapse Prevention Planning: Create a practical plan for warning signs, triggers, and high-risk situations.
+Recovery Tools: Access grounding, breathing, and reflection tools when support is needed.
+Progress & Insight: Review patterns, wins, and areas needing attention.
+
+4. Add section: “Meet Anchor, your recovery guide”
+Anchor is a key differentiator and needs its own section.
+
+Heading:
+“Meet Anchor, your recovery guide.”
+
+Copy:
+“Anchor provides reflective prompts, practical guidance, emotional check-ins, and recovery-focused support based on the tools and frameworks inside Insight OS.”
+
+Add careful clinical boundary wording:
+“Anchor does not replace therapy, emergency support, or clinical care, but it helps users stay engaged with recovery between sessions.”
+
+Create feature bullets or cards:
+- Guided reflection
+- Trigger support
+- Recovery planning prompts
+- Daily motivation
+- Worksheet support
+- Progress insights
+
+Use a subtle visual treatment, not a robot or futuristic AI cliché. If using an image placeholder, call it:
+anchor-guidance-visual.png
+
+5. Add section: “What Insight OS helps you do”
+Create a benefit-led section with six cards:
+- Recognise risk earlier
+- Build recovery consistency
+- Strengthen accountability
+- Turn insight into action
+- Stay connected to support
+- Maintain progress after treatment
+
+This section should focus on outcomes, not just features.
+
+6. Add section: “Included with our recovery pathways”
+Add a section explaining how Insight OS supports the wider Insight Recovery Network model.
+
+Copy direction:
+“Insight OS is integrated into our online programme and recovery support pathways, giving clients a structured digital space to continue the work between groups, one-to-one sessions, and relapse prevention planning.”
+
+Add three pathway cards:
+- Online Programme
+- Aftercare Support
+- Relapse Prevention Planning
+
+Each card should explain how Insight OS strengthens that pathway.
+
+7. Add section: “Not just content, an active recovery system”
+Explain that Insight OS is interactive and practical, not just a resource library.
+
+Copy direction:
+“Insight OS is designed to help users do the work of recovery, not simply read about it. The platform combines daily engagement, structured reflection, tracking, planning, and guided support.”
+
+Include a visual split layout with an image placeholder:
+insight-os-phone-checkin.png
+
+8. Final CTA
+Replace the current “Ready to log in?” section with something stronger.
+
+Heading:
+“Ready to use Insight OS?”
+
+Subheading:
+“Access the platform or speak with us about how Insight OS can support your recovery pathway.”
+
+Buttons:
+Primary: “Open Insight OS”
+Secondary: “Speak Confidentially”
+
+9. Images needed
+Add image placeholders or use assets if available:
+- insight-os-dashboard-mockup.png
+- insight-os-phone-checkin.png
+- anchor-guidance-visual.png
+- insight-os-recovery-tools.png
+
+Make sure image containers are elegant and consistent with the website style.
+
+10. Mobile responsiveness
+- Hero should stack cleanly on mobile.
+- Product mockups should scale properly.
+- Feature cards should stack cleanly.
+- Buttons should be easy to tap.
+- Avoid massive empty spaces.
+
+11. Technical requirements
+- Inspect the existing Insight OS page before changing.
+- Reuse existing components and styling conventions where possible.
+- Do not break any routes.
+- Make sure “Open Insight OS” links to the correct Insight OS app URL.
+- Keep the site fast and lightweight.
+- After completion, summarise exactly which files were edited and what improvements were made.
