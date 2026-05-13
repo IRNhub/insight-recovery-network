@@ -1,0 +1,109 @@
+I want to add a pricing comparison section to the Online Programme page, but it must not appear too early or dominate the page.
+
+Please add it after the main explanatory sections, ideally after:
+- Hero
+- Who the programme is for
+- What’s included
+- How the programme works
+- Clinically guided, not 12-step dependent
+- More than online counselling
+
+Then add the pricing section before the final CTA.
+
+Design direction:
+- Keep the current Insight Recovery Network premium style.
+- Use navy, cream, muted gold, refined typography, elegant spacing, and subtle borders.
+- The section should feel clinical, calm, trustworthy, and premium, not salesy or “gym membership” style.
+- Do not use the existing pricing graphic as an image. Build a responsive website section/cards instead.
+- The pricing cards must look excellent on desktop and mobile.
+- Avoid aggressive ticks/crosses. Use calm inclusion lists instead.
+- Highlight the middle tier subtly as the recommended/most balanced option, but do not make it look pushy.
+
+Section heading:
+“Programme Options”
+
+Section subheading:
+“Our online programme is available in three levels of support. Each option includes structured recovery tasks, group support, relapse prevention work, Insight OS access, and ongoing accountability. The appropriate level of support is confirmed after a confidential consultation.”
+
+Pricing cards:
+
+1. Essential Support
+Small label: Bronze
+Price: £950 per month
+Description:
+“For clients who need structured online recovery support with regular individual input and full programme access.”
+
+Includes:
+- 4 individual sessions per month
+- Access to the online group programme
+- Full Insight OS access
+- Daily digital check-ins
+- Recovery worksheets
+- Programme accountability
+
+Button:
+“Enquire About Essential”
+
+2. Structured Support
+Small label: Silver
+Price: £1,250 per month
+Description:
+“For clients who need a higher level of therapeutic contact, family involvement where appropriate, and regular recovery review.”
+
+Includes:
+- 8 individual sessions per month
+- Everything in Essential Support
+- Family support where appropriate
+- Enhanced recovery planning
+- Regular progress review
+- Increased accountability
+
+Badge:
+“Most balanced”
+
+Button:
+“Enquire About Structured”
+
+3. Enhanced Clinical Support
+Small label: Gold
+Price: £1,950 per month
+Description:
+“For clients requiring intensive support, greater availability, and closer case management.”
+
+Includes:
+- 12 individual sessions per month
+- Everything in Structured Support
+- Priority support access
+- Enhanced case management
+- Crisis planning support
+- Extended care coordination
+
+Button:
+“Enquire About Enhanced”
+
+Important wording note:
+Do not use the phrases “24 hour support” or “crisis access” as standalone promises. Use safer wording:
+- “Priority support access”
+- “Crisis planning support”
+- “Extended care coordination”
+
+Add a short clinical note underneath the pricing cards:
+“All programme options begin with a confidential consultation to ensure the level of support is clinically appropriate. If detox, residential treatment, or a higher level of care is indicated, we will advise this clearly.”
+
+Add another small note:
+“Programme structure may be adapted depending on clinical need, availability, risk, and agreed care boundaries.”
+
+Interaction/design:
+- Pricing cards should have subtle hover states.
+- Use small gold dividers or numbering.
+- The middle card can have a slightly stronger border or muted gold accent.
+- Avoid bright colours or hard sales styling.
+- Keep the design consistent with the rest of the site.
+
+Technical requirements:
+- Inspect the existing Online Programme page first.
+- Reuse existing components and styling where possible.
+- Do not break routes.
+- Make sure the layout is responsive.
+- Make sure all buttons link to the existing contact/enquiry pathway.
+- After completion, summarise exactly which files were edited and what changed.

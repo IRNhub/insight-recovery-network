@@ -424,6 +424,220 @@ export default function OnlineProgramme() {
         </div>
       </section>
 
+      {/* ── Programme Options (Pricing) ── */}
+      <section className="py-14 md:py-24 bg-background">
+        <div className="container mx-auto px-6 md:px-12">
+
+          {/* Heading */}
+          <div className="mb-10 md:mb-14 max-w-3xl">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              Programme Options
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight mb-4">
+              Three levels of support.
+            </h2>
+            <p className="text-[14.5px] text-muted-foreground/80 font-light leading-relaxed">
+              Our online programme is available in three levels of support. Each option includes structured recovery tasks, group support, relapse prevention work, Insight OS access, and ongoing accountability. The appropriate level of support is confirmed after a confidential consultation.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+
+            {/* Essential Support */}
+            <div
+              className="flex flex-col bg-white border border-border/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/15"
+              style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 6px 24px -4px rgba(22,43,59,0.10)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 1px 4px rgba(22,43,59,0.05)")}
+            >
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="mb-5">
+                  <span
+                    className="inline-block text-[9px] font-semibold tracking-[0.22em] uppercase px-2.5 py-1 rounded-full mb-3"
+                    style={{ background: "rgba(201,169,110,0.10)", color: "rgba(201,169,110,0.85)", border: "1px solid rgba(201,169,110,0.25)" }}
+                  >
+                    Bronze
+                  </span>
+                  <h3 className="font-serif text-primary text-xl leading-snug mb-1">Essential Support</h3>
+                  <div className="w-6 h-px mt-2 mb-4" style={{ background: "rgba(201,169,110,0.45)" }} />
+                  <div className="mb-3">
+                    <span className="font-serif text-primary text-3xl tracking-tight">£950</span>
+                    <span className="text-muted-foreground/60 text-[13px] font-light ml-1.5">per month</span>
+                  </div>
+                  <p className="text-[13px] text-muted-foreground/70 font-light leading-relaxed">
+                    For clients who need structured online recovery support with regular individual input and full programme access.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2.5 mb-6 flex-grow">
+                  {[
+                    "4 individual sessions per month",
+                    "Access to the online group programme",
+                    "Full Insight OS access",
+                    "Daily digital check-ins",
+                    "Recovery worksheets",
+                    "Programme accountability",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <div className="w-4 h-px flex-shrink-0 mt-[9px]" style={{ background: "rgba(201,169,110,0.55)" }} />
+                      <span className="text-[13px] text-primary/70 font-light leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/contact">
+                  <button
+                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+                    style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
+                  >
+                    Enquire About Essential
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Structured Support — highlighted */}
+            <div
+              className="flex flex-col rounded-xl overflow-hidden transition-all duration-300 relative"
+              style={{
+                background: "rgba(22,43,59,1)",
+                border: "1px solid rgba(201,169,110,0.35)",
+                boxShadow: "0 4px 20px -4px rgba(22,43,59,0.22)",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 10px 36px -6px rgba(22,43,59,0.32)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 4px 20px -4px rgba(22,43,59,0.22)")}
+            >
+              {/* Top accent line */}
+              <div className="h-[2px] w-full" style={{ background: "linear-gradient(90deg, transparent, rgba(201,169,110,0.60), transparent)" }} />
+
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="mb-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span
+                      className="inline-block text-[9px] font-semibold tracking-[0.22em] uppercase px-2.5 py-1 rounded-full"
+                      style={{ background: "rgba(201,169,110,0.15)", color: "rgba(201,169,110,0.90)", border: "1px solid rgba(201,169,110,0.30)" }}
+                    >
+                      Silver
+                    </span>
+                    <span
+                      className="inline-block text-[9px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 rounded-full"
+                      style={{ background: "rgba(201,169,110,0.12)", color: "rgba(201,169,110,0.80)", border: "1px solid rgba(201,169,110,0.20)" }}
+                    >
+                      Most balanced
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-white text-xl leading-snug mb-1">Structured Support</h3>
+                  <div className="w-6 h-px mt-2 mb-4" style={{ background: "rgba(201,169,110,0.50)" }} />
+                  <div className="mb-3">
+                    <span className="font-serif text-white text-3xl tracking-tight">£1,250</span>
+                    <span className="text-white/45 text-[13px] font-light ml-1.5">per month</span>
+                  </div>
+                  <p className="text-[13px] text-white/60 font-light leading-relaxed">
+                    For clients who need a higher level of therapeutic contact, family involvement where appropriate, and regular recovery review.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2.5 mb-6 flex-grow">
+                  {[
+                    "8 individual sessions per month",
+                    "Everything in Essential Support",
+                    "Family support where appropriate",
+                    "Enhanced recovery planning",
+                    "Regular progress review",
+                    "Increased accountability",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <div className="w-4 h-px flex-shrink-0 mt-[9px]" style={{ background: "rgba(201,169,110,0.50)" }} />
+                      <span className="text-[13px] text-white/65 font-light leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/contact">
+                  <button
+                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none transition-all duration-200"
+                    style={{
+                      background: "rgba(201,169,110,0.15)",
+                      border: "1px solid rgba(201,169,110,0.40)",
+                      color: "rgba(201,169,110,0.90)",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,169,110,0.25)";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,169,110,0.15)";
+                    }}
+                  >
+                    Enquire About Structured
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Enhanced Clinical Support */}
+            <div
+              className="flex flex-col bg-white border border-border/30 rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/15"
+              style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 6px 24px -4px rgba(22,43,59,0.10)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 1px 4px rgba(22,43,59,0.05)")}
+            >
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="mb-5">
+                  <span
+                    className="inline-block text-[9px] font-semibold tracking-[0.22em] uppercase px-2.5 py-1 rounded-full mb-3"
+                    style={{ background: "rgba(201,169,110,0.10)", color: "rgba(201,169,110,0.85)", border: "1px solid rgba(201,169,110,0.25)" }}
+                  >
+                    Gold
+                  </span>
+                  <h3 className="font-serif text-primary text-xl leading-snug mb-1">Enhanced Clinical Support</h3>
+                  <div className="w-6 h-px mt-2 mb-4" style={{ background: "rgba(201,169,110,0.45)" }} />
+                  <div className="mb-3">
+                    <span className="font-serif text-primary text-3xl tracking-tight">£1,950</span>
+                    <span className="text-muted-foreground/60 text-[13px] font-light ml-1.5">per month</span>
+                  </div>
+                  <p className="text-[13px] text-muted-foreground/70 font-light leading-relaxed">
+                    For clients requiring intensive support, greater availability, and closer case management.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2.5 mb-6 flex-grow">
+                  {[
+                    "12 individual sessions per month",
+                    "Everything in Structured Support",
+                    "Priority support access",
+                    "Enhanced case management",
+                    "Crisis planning support",
+                    "Extended care coordination",
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3">
+                      <div className="w-4 h-px flex-shrink-0 mt-[9px]" style={{ background: "rgba(201,169,110,0.55)" }} />
+                      <span className="text-[13px] text-primary/70 font-light leading-relaxed">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link href="/contact">
+                  <button
+                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+                    style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
+                  >
+                    Enquire About Enhanced
+                  </button>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Clinical notes */}
+          <div className="mt-8 md:mt-10 max-w-3xl mx-auto flex flex-col gap-3">
+            <div className="w-8 h-px mx-auto" style={{ background: "rgba(201,169,110,0.40)" }} />
+            <p className="text-[13px] text-muted-foreground/65 font-light leading-relaxed text-center">
+              All programme options begin with a confidential consultation to ensure the level of support is clinically appropriate. If detox, residential treatment, or a higher level of care is indicated, we will advise this clearly.
+            </p>
+            <p className="text-[12px] text-muted-foreground/45 font-light leading-relaxed text-center">
+              Programme structure may be adapted depending on clinical need, availability, risk, and agreed care boundaries.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <CTASection
         heading="Ready to build recovery with structure?"
