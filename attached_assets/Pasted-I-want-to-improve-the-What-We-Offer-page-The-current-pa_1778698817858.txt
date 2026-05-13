@@ -1,0 +1,73 @@
+I want to improve the “What We Offer” page. The current page is clean but feels too bland, sparse, and static. Please make it feel more premium, visually engaging, and conversion-focused while staying consistent with the current Insight Recovery Network brand style.
+
+Important design direction:
+- Keep the premium clinical feel: navy, cream, soft gold, refined typography.
+- Do not make it look overly corporate, generic, or AI-generated.
+- Keep the tone calm, discreet, professional, and human.
+- Do not reuse the same images used on the homepage.
+- If adding images, use different image assets or placeholders with clear filenames and comments so I can replace them later.
+- Avoid clichés: no dramatic sad people, no obvious addiction imagery, no generic hands-holding stock photos.
+
+Page improvements required:
+
+1. Upgrade the hero section
+- Make the hero less empty and more visually balanced.
+- Keep or refine the message around “support across the recovery continuum.”
+- Add a right-side visual panel or image area using a different image from the homepage.
+- Suggested image direction: calm consultation setting, treatment planning, professional guidance, or a warm private room.
+- Add subtle design depth such as layered panels, soft borders, background texture, or small pathway indicators.
+
+2. Improve the three core service cards
+Current cards are Treatment Placement, Online Programme, and Insight OS.
+- Make them feel more premium and useful.
+- Add subtle numbering: 01, 02, 03.
+- Add short descriptive copy.
+- Add small service tags under each card:
+  Treatment Placement: Detox, Residential Care, International Options, Family Guidance
+  Online Programme: Groups, 1:1 Support, Worksheets, Relapse Prevention
+  Insight OS: Daily Check-ins, Journaling, Recovery Tools, AI Guidance
+- Add refined hover states and stronger spacing.
+
+3. Add a “Who We Support” section
+Create a new section with four elegant cards:
+- Individuals seeking help
+- Families unsure what to do next
+- Professionals managing complex situations
+- People leaving treatment who need aftercare
+
+Each card should have one short paragraph explaining how we help that audience.
+
+4. Add a “How We Help You Find the Right Path” section
+Create a 4-step process:
+1. Confidential conversation
+2. Clinical recommendation
+3. Coordinated support
+4. Ongoing recovery structure
+
+Make this visually appealing with a vertical or horizontal timeline, subtle gold numbering, and clear copy.
+
+5. Improve the “Specialised Guidance” dark section
+- Keep the navy premium feel.
+- Make it less static and more structured.
+- Add a third item: Aftercare & Continuity Planning.
+- Consider using cards, a split layout, or a subtle image/texture, but do not overcomplicate it.
+
+6. Improve the final CTA section
+Replace the current generic CTA with:
+Heading: Unsure which route is right?
+Subheading: Start with a confidential conversation. We will help you understand the options without pressure, judgement, or obligation.
+Button: Speak Confidentially
+
+7. Mobile responsiveness
+- Ensure the new layout works beautifully on mobile.
+- Cards should stack cleanly.
+- Images should not create awkward empty space.
+- Navigation and CTA buttons must remain usable.
+
+8. Technical requirements
+- Inspect the existing components first.
+- Reuse the current design system/classes where possible.
+- Avoid creating duplicate components unnecessarily.
+- Keep the page fast and lightweight.
+- Make sure all page routes still work after changes.
+- After changes, tell me exactly which files were edited and summarise the design improvements.
