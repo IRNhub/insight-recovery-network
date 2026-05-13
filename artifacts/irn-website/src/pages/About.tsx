@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { PageHero } from "@/components/ui/page-hero";
 import { CTASection } from "@/components/ui/cta-section";
+import craigImg from "@/assets/craig-bilton.jpg";
 
 export default function About() {
   return (
@@ -73,10 +74,9 @@ export default function About() {
               <div className="md:col-span-5">
                 <div className="aspect-[3/4] w-full max-w-sm mx-auto md:mx-0 relative">
                   <img 
-                    src="https://placehold.co/600x800/E2E0D9/162B3B?text=Craig+Bilton" 
-                    alt="Craig Bilton" 
-                    data-placeholder="true"
-                    className="w-full h-full object-cover shadow-sm grayscale hover:grayscale-0 transition-all duration-700"
+                    src={craigImg}
+                    alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network"
+                    className="w-full h-full object-cover object-top shadow-sm"
                   />
                   <div className="absolute inset-0 border border-primary/10 m-2"></div>
                 </div>
