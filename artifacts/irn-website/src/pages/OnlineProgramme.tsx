@@ -227,9 +227,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── What's included ── */}
-      <section id="whats-included" className="py-10 md:py-16 bg-background">
+      <section id="whats-included" className="py-7 md:py-10 bg-background">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-7 md:mb-10">
+          <div className="mb-5 md:mb-7">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Programme components
             </span>
@@ -265,9 +265,9 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── How the programme works ── */}
-      <section className="py-10 md:py-16" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-7 md:py-10" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-7 md:mb-10">
+          <div className="mb-5 md:mb-7">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               The process
             </span>
@@ -309,7 +309,7 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── More than online counselling — split layout ── */}
-      <section className="py-10 md:py-16 bg-background">
+      <section className="py-7 md:py-10 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -358,7 +358,7 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Clinically guided, not 12-step dependent ── */}
-      <section className="py-10 md:py-14" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-7 md:py-10" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div
             className="max-w-4xl mx-auto rounded-xl border border-border/30 p-8 md:p-12 bg-white"
@@ -393,11 +393,11 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── Programme Options (Pricing) ── */}
-      <section className="py-10 md:py-16 bg-background">
+      <section className="py-7 md:py-10 bg-background">
         <div className="container mx-auto px-6 md:px-12">
 
           {/* Heading */}
-          <div className="mb-7 md:mb-10 max-w-3xl">
+          <div className="mb-5 md:mb-7 max-w-3xl">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               Programme Options
             </span>
