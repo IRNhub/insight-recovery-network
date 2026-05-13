@@ -7,8 +7,8 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Us — Clinically Informed Recovery Guidance"
-        description="Learn about our clinical and recovery-informed approach, our international experience, and the values that guide our support for individuals and families."
+        title="About Insight Recovery Network — Private Addiction &amp; Mental Health Guidance"
+        description="Insight Recovery Network provides clinically informed, confidential support for individuals and families facing addiction and mental health challenges. International experience, absolute discretion."
         canonical="/about"
       />
       <PageHero 
@@ -26,17 +26,17 @@ export default function About() {
                   Navigating treatment options or knowing how to help someone can be overwhelming. We exist to bring clarity, dignity, and clinical expertise to those decisions.
                 </p>
                 
-                <h3>A Clinical and Recovery-Informed Approach</h3>
+                <h2>A Clinical and Recovery-Informed Approach</h2>
                 <p>
                   Insight Recovery Network operates at the intersection of clinical best practice and lived recovery experience. Our approach prioritises the person, stripping away the jargon and confusion to focus on what actually works. We do not apply a one-size-fits-all model; every recommendation is carefully considered based on the individual's specific needs, background, and clinical requirements.
                 </p>
 
-                <h3>International Experience</h3>
+                <h2>International Experience</h2>
                 <p>
                   With partnerships and experience spanning multiple countries, we have the network and capability to arrange support locally or internationally. Whether that involves sourcing a specialised detox facility in the UK, a residential programme in South Africa, or long-term therapeutic care in Thailand, we possess the insight to connect individuals with the right environment for their recovery.
                 </p>
 
-                <h3 className="mt-12">Our Values</h3>
+                <h2 className="mt-12">Our Values</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 not-prose">
                   <div className="border-l-2 border-accent pl-6 py-2">
                     <h4 className="font-serif text-xl text-primary mb-2">Confidentiality</h4>

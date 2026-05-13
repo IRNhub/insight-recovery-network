@@ -121,7 +121,7 @@ export default function InsightOS() {
     <Layout>
       <SEO
         title="Insight OS — The Operating System for Your Recovery"
-        description="Insight OS is a structured digital recovery platform. Daily check-ins, mood tracking, guided journaling, relapse prevention, and Anchor recovery guidance — all in one place."
+        description="Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance."
         canonical="/insight-os"
       />
 
