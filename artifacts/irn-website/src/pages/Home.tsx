@@ -117,7 +117,7 @@ export default function Home() {
           }}
         />
 
-        <div className="container mx-auto px-6 md:px-12 pt-8 md:pt-10 lg:pt-12 pb-14 md:pb-16 lg:pb-20">
+        <div className="container mx-auto px-6 md:px-12 pt-8 md:pt-10 lg:pt-12 pb-8 md:pb-16 lg:pb-20">
           <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-10 xl:gap-14">
 
             {/* ══ LEFT ZONE: copy + CTAs + trust + pillar summary ══ */}
@@ -163,7 +163,7 @@ export default function Home() {
               </div>
 
               {/* Trust row */}
-              <div className="flex flex-wrap items-center gap-y-1 mb-8 pb-8 border-b border-border/30">
+              <div className="flex flex-wrap items-center gap-y-1 mb-5 md:mb-8 pb-5 md:pb-8 border-b border-border/30">
                 {trustPoints.map((item, i) => (
                   <Fragment key={item}>
                     {i > 0 && (
@@ -174,8 +174,64 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Three-pillar compact summary */}
-              <div className="flex flex-col gap-5">
+              {/* Mobile: horizontal swipeable image strip — hidden md+ */}
+              <div
+                className="md:hidden -mx-6 px-6 overflow-x-auto snap-x snap-mandatory scroll-pl-6 flex gap-3 pb-3 scrollbar-hide"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                {[
+                  {
+                    img: onlineProgrammeImg,
+                    alt: "Online recovery session",
+                    title: "Online Recovery Programme",
+                    desc: "Structured support from wherever you are.",
+                    objPos: "center",
+                  },
+                  {
+                    img: digitalToolsImg,
+                    alt: "Insight OS app",
+                    title: "Digital Recovery Tools",
+                    desc: "Insight OS for daily recovery structure.",
+                    objPos: "center 20%",
+                  },
+                  {
+                    img: treatmentImg,
+                    alt: "Private treatment setting",
+                    title: "Treatment Placement",
+                    desc: "Private guidance when residential care is needed.",
+                    objPos: "center",
+                  },
+                ].map((panel) => (
+                  <div
+                    key={panel.title}
+                    className="snap-start flex-shrink-0 relative rounded-xl overflow-hidden"
+                    style={{
+                      width: "72vw",
+                      maxWidth: "260px",
+                      height: "200px",
+                      boxShadow: "0 4px 16px -4px rgba(22,43,59,0.16), 0 0 0 1px rgba(22,43,59,0.06)",
+                    }}
+                  >
+                    <img
+                      src={panel.img}
+                      alt={panel.alt}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: panel.objPos }}
+                    />
+                    <div
+                      className="absolute bottom-0 left-0 right-0 px-4 py-3"
+                      style={{ background: "linear-gradient(to top, rgba(22,43,59,0.85) 0%, transparent 100%)" }}
+                    >
+                      <div className="w-4 h-px mb-1.5" style={{ background: "rgba(201,169,110,0.8)" }} />
+                      <p className="font-serif text-white text-[12px] leading-tight">{panel.title}</p>
+                      <p className="text-white/55 text-[10.5px] font-light">{panel.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Three-pillar compact summary — tablet and desktop only */}
+              <div className="hidden md:flex flex-col gap-5">
                 {pillars.map((p, i) => (
                   <div key={p.title} className="flex gap-4 items-start group">
                     {/* Champagne index */}
@@ -203,10 +259,10 @@ export default function Home() {
 
             </div>
 
-            {/* ══ RIGHT ZONE: premium staggered image mosaic ══ */}
-            <div className="lg:flex-1 min-w-0">
+            {/* ══ RIGHT ZONE: premium staggered image mosaic — hidden on mobile, images shown inline above ══ */}
+            <div className="hidden md:block lg:flex-1 min-w-0">
 
-              {/* Desktop mosaic — hidden on mobile */}
+              {/* Desktop mosaic */}
               <div className="hidden md:block relative" style={{ height: "580px" }}>
 
                 {/* Gap constants: left col = 56%, gap = 3%, right col = 41% */}
@@ -295,55 +351,6 @@ export default function Home() {
 
               </div>
 
-              {/* Mobile: clean stacked premium cards */}
-              <div className="md:hidden flex flex-col gap-3">
-                {[
-                  {
-                    img: onlineProgrammeImg,
-                    alt: "Online recovery session",
-                    title: "Online Recovery Programme",
-                    desc: "Structured support from wherever you are.",
-                    objPos: "center",
-                  },
-                  {
-                    img: digitalToolsImg,
-                    alt: "Insight OS app",
-                    title: "Digital Recovery Tools",
-                    desc: "Insight OS for daily recovery structure.",
-                    objPos: "center 20%",
-                  },
-                  {
-                    img: treatmentImg,
-                    alt: "Private treatment setting",
-                    title: "Treatment Placement",
-                    desc: "Private guidance when residential care is needed.",
-                    objPos: "center",
-                  },
-                ].map((panel) => (
-                  <div
-                    key={panel.title}
-                    className="relative rounded-xl overflow-hidden"
-                    style={{
-                      height: "180px",
-                      boxShadow: "0 4px 16px -4px rgba(22,43,59,0.16), 0 0 0 1px rgba(22,43,59,0.06)",
-                    }}
-                  >
-                    <img
-                      src={panel.img}
-                      alt={panel.alt}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: panel.objPos }}
-                    />
-                    <div
-                      className="absolute bottom-0 left-0 right-0 px-4 py-3"
-                      style={{ background: "linear-gradient(to top, rgba(22,43,59,0.85) 0%, transparent 100%)" }}
-                    >
-                      <p className="font-serif text-white text-[12px] leading-tight">{panel.title}</p>
-                      <p className="text-white/55 text-[10.5px] font-light">{panel.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
             </div>
 
@@ -352,12 +359,12 @@ export default function Home() {
       </section>
 
       {/* ── Pathways ── */}
-      <section className="py-10 lg:py-14 bg-secondary/20">
+      <section className="py-6 md:py-10 lg:py-14 bg-secondary/20">
         <div className="container mx-auto px-6 md:px-12">
           <SectionHeader
             label="Where to start"
             heading="Find the right path"
-            className="mb-8"
+            className="mb-5 md:mb-8"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             <PathwayCard
@@ -386,7 +393,7 @@ export default function Home() {
       </section>
 
       {/* ── Services — image-led 2×2 grid ── */}
-      <section className="py-16 lg:py-20">
+      <section className="py-10 md:py-16 lg:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
 
@@ -464,7 +471,7 @@ export default function Home() {
       </section>
 
       {/* ── Why IRN (dark trust section) ── */}
-      <section className="py-20 lg:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+      <section className="py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground relative overflow-hidden">
 
         {/* Subtle corner linework */}
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
@@ -487,7 +494,7 @@ export default function Home() {
         <div className="container mx-auto px-6 md:px-12 relative z-10">
 
           {/* Header row — text left, image right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start mb-8 md:mb-14">
             <div className="lg:col-span-6">
               <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80 block mb-4">
                 Why Insight Recovery Network
@@ -530,7 +537,7 @@ export default function Home() {
               <div
                 key={testId}
                 data-testid={testId}
-                className="flex flex-col gap-3 py-8 md:py-0 md:px-8 lg:px-7 first:md:pl-0 last:md:pr-0"
+                className="flex flex-col gap-3 py-4 md:py-0 md:px-8 lg:px-7 first:md:pl-0 last:md:pr-0"
               >
                 <Icon className="w-5 h-5 text-accent" strokeWidth={1.5} />
                 <div className="w-6 h-px bg-accent/35" />
@@ -544,11 +551,11 @@ export default function Home() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="py-14 lg:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-8 md:py-14 lg:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
 
           {/* Centred heading + intro */}
-          <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="max-w-2xl mx-auto text-center mb-7 md:mb-12">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
               The process
             </span>
@@ -565,7 +572,7 @@ export default function Home() {
               style={{ background: "rgba(201,169,110,0.28)" }}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 lg:gap-6">
               {[
                 {
                   n: "1",
@@ -585,11 +592,11 @@ export default function Home() {
               ].map(({ n, title, body }) => (
                 <div
                   key={n}
-                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-6 pt-6 pb-7"
+                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-4 pt-5 pb-5 md:px-6 md:pt-6 md:pb-7"
                   style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.06)" }}
                 >
                   <div
-                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-5 relative z-10"
+                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-4 md:mb-5 relative z-10"
                     style={{
                       background: "rgba(246,244,240,1)",
                       border: "1px solid rgba(201,169,110,0.50)",

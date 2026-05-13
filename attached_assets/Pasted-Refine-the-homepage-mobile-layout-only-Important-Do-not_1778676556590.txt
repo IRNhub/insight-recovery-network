@@ -1,0 +1,146 @@
+Refine the homepage mobile layout only.
+
+Important:
+Do not change the desktop layout.
+Do not change the desktop hero.
+Do not change desktop spacing, desktop image composition or desktop section layouts.
+Only adjust the mobile and small tablet experience, ideally below the md/lg breakpoint using responsive Tailwind classes or mobile-specific CSS media queries.
+
+Current issue:
+The homepage looks good on desktop, but on mobile it feels repetitive and too long. The same three pillars are shown as text, then as images, then again in the services section. This makes the first part of the mobile homepage feel text-heavy, bland and repetitive.
+
+Goal:
+Keep the premium, calm, editorial design but make the mobile homepage feel more visual, more concise and less repetitive.
+
+Mobile changes required:
+
+1. Mobile hero
+
+Keep:
+- Eyebrow
+- Headline
+- Short intro paragraph
+- Primary CTA: Speak Confidentially
+- Secondary CTA: Explore Support Options
+- Small trust row
+
+Remove or hide on mobile only:
+- The three-pillar text list inside the hero:
+  01 Online Programme
+  02 Insight OS
+  03 Treatment Placement
+
+This list works on desktop, but on mobile it repeats the same content too soon.
+
+Bring the hero images higher:
+- On mobile, the three visual pillar images should appear sooner after the CTA/trust row.
+- Do not leave a long text-only area before the visuals.
+- Reduce excessive vertical spacing in the mobile hero.
+
+2. Mobile three-pillar images
+
+On mobile only, change the three hero visual panels into a compact swipeable horizontal visual strip or carousel-style row.
+
+Requirements:
+- Show one large card at a time or partially show the next card to indicate swiping.
+- Cards should be horizontally scrollable with smooth touch scrolling.
+- Use scroll snap if appropriate.
+- Keep the images premium and readable.
+- Keep labels on the image:
+  Online Recovery Programme
+  Digital Recovery Tools
+  Treatment Placement
+- Do not stack all three huge images vertically in the hero on mobile.
+- Desktop must remain unchanged.
+
+If a swipeable strip is too complex, use a compact vertical layout with smaller image cards, but the preferred solution is a horizontal swipeable strip.
+
+3. Find the right path section on mobile
+
+This section is currently too large on mobile.
+
+Adjust mobile only:
+- Reduce top and bottom padding.
+- Reduce card padding.
+- Reduce card height.
+- Make headings slightly smaller on mobile.
+- Keep the copy but tighten spacing.
+- Make the cards feel like quick navigation choices rather than huge feature blocks.
+- Keep the premium card style.
+
+Cards should remain stacked on mobile, but more compact.
+
+4. Comprehensive care section on mobile
+
+Keep the four service image cards. They look good and should remain.
+
+Adjust only if needed:
+- Reduce excessive top spacing before this section.
+- Keep image cards stacked.
+- Ensure consistent image height.
+- Ensure text does not feel oversized.
+- Keep the order:
+  1. Online Recovery Programme
+  2. Insight OS
+  3. Treatment Placement
+  4. Family & Intervention Guidance
+
+This section can be the detailed version of the services, so it is okay that it has images and more content.
+
+5. Private support with clinical depth section on mobile
+
+Keep the dark navy section and content.
+
+Mobile adjustments:
+- Reduce vertical padding.
+- Tighten spacing between the four trust points.
+- Reduce icon-to-title spacing.
+- Keep the content readable.
+- Do not add extra images on mobile.
+- The section should still feel premium, but not overly tall.
+
+6. How it works section on mobile
+
+The step cards are currently too large.
+
+Mobile adjustments:
+- Reduce section padding.
+- Keep the intro paragraph.
+- Reduce card padding.
+- Reduce spacing between cards.
+- Keep numbered cards, but make them more compact.
+- Maintain readability and warmth.
+
+7. Final CTA on mobile
+
+Keep the dark CTA section.
+
+Mobile adjustments:
+- Ensure the heading, supporting copy and button are not oversized.
+- Reduce excessive padding if needed.
+- Keep it premium and clear.
+
+Technical requirements:
+- Use mobile-first or breakpoint-specific Tailwind classes carefully.
+- Do not accidentally alter desktop.
+- After changes, check desktop still matches the current approved layout.
+- Ensure mobile layout has no horizontal overflow.
+- Ensure sticky mobile browser bar does not cover critical text or buttons.
+- Maintain accessible button sizes.
+
+Important visual direction:
+The mobile homepage should feel:
+- Less repetitive
+- More visual earlier
+- Easier to scroll
+- Premium and warm
+- Clear and conversion-focused
+- Not text-heavy at the top
+
+Do not:
+- Change desktop.
+- Rework the entire site.
+- Touch admin/enquiries or backend.
+- Add new sections.
+- Remove important CTAs.
+- Make the design feel app-like or SaaS-like.

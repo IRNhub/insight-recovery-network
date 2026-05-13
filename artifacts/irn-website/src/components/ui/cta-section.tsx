@@ -17,7 +17,7 @@ export function CTASection({
   isExternal
 }: CTASectionProps) {
   return (
-    <section className="py-24 lg:py-32 bg-primary relative overflow-hidden">
+    <section className="py-14 md:py-24 lg:py-32 bg-primary relative overflow-hidden">
       {/* Abstract subtle background pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -32,12 +32,12 @@ export function CTASection({
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          <h2 className="text-3xl md:text-5xl font-serif text-primary-foreground leading-tight mb-6">
+          <h2 className="text-2xl md:text-5xl font-serif text-primary-foreground leading-tight mb-5 md:mb-6">
             {heading}
           </h2>
           
           {description && (
-            <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl font-light">
+            <p className="text-base md:text-xl text-primary-foreground/80 mb-7 md:mb-10 max-w-2xl font-light">
               {description}
             </p>
           )}
@@ -45,13 +45,13 @@ export function CTASection({
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal ? (
               <a href={primaryCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button size="lg" className="rounded-none h-14 px-10 text-base bg-white text-primary hover:bg-white/90 w-full">
+                <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {primaryCta.label}
                 </Button>
               </a>
             ) : (
               <Link href={primaryCta.href} className="w-full sm:w-auto">
-                <Button size="lg" className="rounded-none h-14 px-10 text-base bg-white text-primary hover:bg-white/90 w-full">
+                <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {primaryCta.label}
                 </Button>
               </Link>
