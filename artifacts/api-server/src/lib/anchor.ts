@@ -32,6 +32,59 @@ export interface AnchorInput {
   name: string;
 }
 
+const FALLBACK_TEMPLATES: Record<string, (firstName: string) => string> = {
+  "lower-concern": (firstName) =>
+    `${firstName}, thank you for taking the time to complete this assessment — it takes honesty and courage to look clearly at your relationship with alcohol, and that in itself is meaningful.
+
+Based on what you shared, your responses suggest a lower level of clinical concern at this point in time. That is genuinely positive. It may mean that your drinking is not yet causing significant harm, or that you have a reasonable level of awareness and control. Even so, completing an assessment like this often reflects a quiet concern — and that concern is worth listening to.
+
+The most useful thing you can do right now is stay curious about your relationship with alcohol. Patterns that feel manageable today can shift gradually over time, particularly during periods of stress, change, or difficulty. Staying aware of how much you drink, when, and why — is one of the most effective early tools available.
+
+If anything you shared in this assessment continues to sit with you, or if your circumstances change, please do not hesitate to reach out. Insight Recovery Network offers confidential conversations with no obligation and no pressure. We are here to help you think things through, whatever stage you are at.`,
+
+  "moderate-concern": (firstName) =>
+    `${firstName}, completing this assessment is a meaningful step — one that takes honesty, and often a quiet recognition that something deserves attention. Thank you for doing that.
+
+Your responses suggest a moderate level of concern. This does not mean you are in crisis, but it does suggest that your relationship with alcohol is having some impact on your daily life, and that your body and mind may be starting to adjust to a pattern that is worth addressing thoughtfully.
+
+Moderate concern is actually a powerful place to be. It often means you are catching something early — before it becomes significantly harder to change. Many people find that having a conversation with a recovery professional at this stage makes a real difference, helping them understand their options and make informed, safe choices about how to move forward.
+
+Insight Recovery Network is available for a confidential conversation whenever you are ready. There is no pressure, no judgement, and no obligation. We would simply encourage you to speak to someone — a GP, a trusted clinician, or a member of our team — sooner rather than later. You deserve support that matches the honesty you have shown today.`,
+
+  "higher-concern": (firstName) =>
+    `${firstName}, taking this assessment takes real courage, and the honesty you have brought to your answers reflects something important — a part of you that knows a change may be needed, and is willing to face that. That matters.
+
+Your responses indicate a higher level of clinical concern. The pattern of drinking you have described suggests a significant level of dependence or harm, and some of what you have shared points to your body and mind having adapted to alcohol in ways that carry real risk. This is not a judgement — dependence is a physical and psychological process, not a moral failure.
+
+At this level of concern, it is important that you speak to a clinician before making any significant changes to your drinking. Reducing or stopping alcohol when there is a higher level of physical dependence needs to be done carefully and with the right support in place. Going it alone is not the safest path at this stage.
+
+Insight Recovery Network can help you understand your options and connect you with the right level of care. Please reach out to us — or to your GP — as soon as you are able. A confidential conversation costs nothing and could make all the difference.`,
+
+  "possible-detox-risk": (firstName) =>
+    `${firstName}, the fact that you have completed this assessment — and answered honestly — is significant. It suggests that some part of you is ready to face what is happening and take a step forward. That takes real courage, and it is the right instinct.
+
+Your responses indicate that your current level of drinking carries a meaningful medical risk if you were to stop or reduce suddenly without support. This is not meant to alarm you — but it is important that you understand this clearly: making changes to your drinking at this stage should not be done alone or without clinical guidance.
+
+Please do not attempt to stop or significantly reduce your alcohol intake without speaking to a doctor or specialist first. Withdrawal from alcohol at higher levels of dependence can involve serious physical symptoms, and the right support makes a significant difference to both safety and outcomes.
+
+Insight Recovery Network is here for exactly this situation. We can help you understand the safest pathway forward, whether that involves a medically supported detox, residential treatment, or another form of structured care. Please reach out to us or your GP as a priority — you do not have to navigate this alone, and you should not try to.`,
+
+  "urgent-medical-advice": (firstName) =>
+    `${firstName}, completing this assessment when you are in this position takes genuine courage, and we want you to know that you are not alone in what you are facing.
+
+Your responses indicate a high level of clinical risk, and it is important that we are direct with you: please seek medical advice before making any changes to your drinking. Based on what you have shared, stopping alcohol suddenly or without proper support could be medically dangerous. This is not something to manage alone.
+
+Please contact your GP, call NHS 111, or reach out to Insight Recovery Network today. If at any point you feel unwell, confused, or experience shaking, sweating, or other worrying symptoms, please call 999 or go to your nearest A&E immediately.
+
+We know this may feel overwhelming. The most important thing right now is simply to speak to someone qualified who can help you take the next step safely. Insight Recovery Network offers confidential, non-judgemental support and can help you access the right level of clinical care quickly. You have shown real bravery by completing this assessment — please use that same courage to reach out for the help that is available to you.`,
+};
+
+function getFallbackResponse(scoreLevel: string, name: string): string {
+  const firstName = name.split(" ")[0] ?? name;
+  const templateFn = FALLBACK_TEMPLATES[scoreLevel] ?? FALLBACK_TEMPLATES["moderate-concern"];
+  return templateFn(firstName);
+}
+
 function getOpenAIClient(): OpenAI {
   const apiKey = process.env["AI_INTEGRATIONS_OPENAI_API_KEY"];
   const baseURL = process.env["AI_INTEGRATIONS_OPENAI_BASE_URL"];
@@ -69,9 +122,14 @@ Please write a personalised Anchor response for ${input.name}, reflecting their 
       ],
     });
 
-    return response.choices[0]?.message?.content ?? "";
+    const aiText = response.choices[0]?.message?.content ?? "";
+    if (!aiText) {
+      logger.warn("Anchor AI returned empty content — using fallback");
+      return getFallbackResponse(input.scoreLevel, input.name);
+    }
+    return aiText;
   } catch (err) {
-    logger.warn({ err }, "Anchor AI response failed — returning empty string");
-    return "";
+    logger.warn({ err }, "Anchor AI call failed — using static fallback response");
+    return getFallbackResponse(input.scoreLevel, input.name);
   }
 }
