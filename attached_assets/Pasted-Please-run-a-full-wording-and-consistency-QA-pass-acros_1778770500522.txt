@@ -1,0 +1,72 @@
+Please run a full wording and consistency QA pass across all assessment question configs.
+
+Do not change scoring values or scoring order. Only improve the user-facing answer labels where needed.
+
+Use these standard scales:
+
+1. Frequency questions:
+- Every day or almost every day
+- Most days
+- Some days
+- Rarely or not at all
+
+Use this for questions asking “how often”.
+
+2. Impact/severity questions:
+- A lot
+- Moderately
+- A little
+- Not at all
+
+Use this for questions asking how much something affects daily life, relationships, work, sleep, mood, functioning, or wellbeing.
+
+3. Control/difficulty questions:
+- Very difficult
+- Quite difficult
+- A little difficult
+- Not difficult
+
+Use this for questions about managing, controlling, stopping, cutting down, or resisting urges.
+
+4. Agreement questions:
+- Strongly agree
+- Somewhat agree
+- Not sure
+- Disagree
+
+Use this for belief/reflection statements.
+
+5. Duration questions:
+Use plain time ranges, for example:
+- More than a year
+- 6–12 months
+- 1–6 months
+- Less than a month
+
+6. Safety/risk questions:
+- Yes
+- Sometimes
+- No
+- Prefer not to say
+
+Use this for risk, safety, self-harm, withdrawal, medical, or safeguarding questions.
+
+Please audit every assessment currently available or configured:
+- Alcohol & Detox
+- Drug Use
+- Detox
+- Anxiety
+- Depression
+- ADHD/Impulsivity
+- Any coming-soon assessment configs if they already exist
+
+Specific fixes:
+- Replace “Significantly / Moderately / Mildly / Not at all” with “A lot / Moderately / A little / Not at all” for impact questions.
+- Replace “Nearly every day / More than half the days / Several days / Not at all” with “Every day or almost every day / Most days / Some days / Rarely or not at all” for frequency questions.
+- Avoid mixed wording styles within the same section unless the question type genuinely changes.
+- Keep all scoring values exactly the same.
+
+After changes, provide a summary showing:
+- which assessment files were updated
+- which label sets were standardised
+- confirmation that scoring was not changed

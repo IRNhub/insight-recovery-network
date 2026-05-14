@@ -129,10 +129,10 @@ export const drugUseAssessment: AssessmentConfig = {
           type: "radio",
           required: true,
           options: [
-            { value: "yes-serious", label: "Yes, seriously", score: 4 },
-            { value: "some-extent", label: "To some extent", score: 2 },
-            { value: "minor", label: "Minor issues only", score: 1 },
-            { value: "no", label: "Not really", score: 0 },
+            { value: "yes-serious", label: "A lot", score: 4 },
+            { value: "some-extent", label: "Moderately", score: 2 },
+            { value: "minor", label: "A little", score: 1 },
+            { value: "no", label: "Not at all", score: 0 },
           ],
         },
         {
