@@ -24,6 +24,13 @@ Your response should:
 - Be between 220 and 300 words
 - Never use bullet points — write in flowing paragraphs`;
 
+/**
+ * Ordered list of models to try. The proxy resolves aliases to versioned identifiers
+ * (e.g. gpt-5.1 → gpt-5.1-2025-11-13). If a model is unavailable we step down;
+ * any non-model error (network, auth, quota) skips immediately to the static fallback.
+ */
+const ANCHOR_MODELS = ["gpt-5.1", "gpt-5", "gpt-5-mini"] as const;
+
 export interface AnchorInput {
   scoreLevel: string;
   scoreLabel: string;
@@ -32,13 +39,23 @@ export interface AnchorInput {
   name: string;
 }
 
+function isModelNotFoundError(err: unknown): boolean {
+  if (!(err instanceof OpenAI.APIError)) return false;
+  if (err.status === 404) return true;
+  const body = err.error as Record<string, unknown> | undefined;
+  const code = body?.code as string | undefined;
+  if (code === "model_not_found") return true;
+  const msg = err.message?.toLowerCase() ?? "";
+  return msg.includes("model") && (msg.includes("not found") || msg.includes("does not exist"));
+}
+
 const FALLBACK_TEMPLATES: Record<string, (firstName: string) => string> = {
   "lower-concern": (firstName) =>
     `${firstName}, thank you for taking the time to complete this assessment — it takes honesty and courage to look clearly at your relationship with alcohol, and that in itself is meaningful.
 
 Based on what you shared, your responses suggest a lower level of clinical concern at this point in time. That is genuinely positive. It may mean that your drinking is not yet causing significant harm, or that you have a reasonable level of awareness and control. Even so, completing an assessment like this often reflects a quiet concern — and that concern is worth listening to.
 
-The most useful thing you can do right now is stay curious about your relationship with alcohol. Patterns that feel manageable today can shift gradually over time, particularly during periods of stress, change, or difficulty. Staying aware of how much you drink, when, and why — is one of the most effective early tools available.
+The most useful thing you can do right now is stay curious about your relationship with alcohol. Patterns that feel manageable today can shift gradually over time, particularly during periods of stress, change, or difficulty. Staying aware of how much you drink, when, and why is one of the most effective early tools available.
 
 If anything you shared in this assessment continues to sit with you, or if your circumstances change, please do not hesitate to reach out. Insight Recovery Network offers confidential conversations with no obligation and no pressure. We are here to help you think things through, whatever stage you are at.`,
 
@@ -49,7 +66,7 @@ Your responses suggest a moderate level of concern. This does not mean you are i
 
 Moderate concern is actually a powerful place to be. It often means you are catching something early — before it becomes significantly harder to change. Many people find that having a conversation with a recovery professional at this stage makes a real difference, helping them understand their options and make informed, safe choices about how to move forward.
 
-Insight Recovery Network is available for a confidential conversation whenever you are ready. There is no pressure, no judgement, and no obligation. We would simply encourage you to speak to someone — a GP, a trusted clinician, or a member of our team — sooner rather than later. You deserve support that matches the honesty you have shown today.`,
+Insight Recovery Network is available for a confidential conversation whenever you are ready. There is no pressure, no judgement, and no obligation. We would simply encourage you to speak to someone — a GP, a trusted clinician, or a member of our team — sooner rather than later.`,
 
   "higher-concern": (firstName) =>
     `${firstName}, taking this assessment takes real courage, and the honesty you have brought to your answers reflects something important — a part of you that knows a change may be needed, and is willing to face that. That matters.
@@ -58,7 +75,7 @@ Your responses indicate a higher level of clinical concern. The pattern of drink
 
 At this level of concern, it is important that you speak to a clinician before making any significant changes to your drinking. Reducing or stopping alcohol when there is a higher level of physical dependence needs to be done carefully and with the right support in place. Going it alone is not the safest path at this stage.
 
-Insight Recovery Network can help you understand your options and connect you with the right level of care. Please reach out to us — or to your GP — as soon as you are able. A confidential conversation costs nothing and could make all the difference.`,
+Insight Recovery Network can help you understand your options and connect you with the right level of care. Please reach out to us — or to your GP — as soon as you are able.`,
 
   "possible-detox-risk": (firstName) =>
     `${firstName}, the fact that you have completed this assessment — and answered honestly — is significant. It suggests that some part of you is ready to face what is happening and take a step forward. That takes real courage, and it is the right instinct.
@@ -67,7 +84,7 @@ Your responses indicate that your current level of drinking carries a meaningful
 
 Please do not attempt to stop or significantly reduce your alcohol intake without speaking to a doctor or specialist first. Withdrawal from alcohol at higher levels of dependence can involve serious physical symptoms, and the right support makes a significant difference to both safety and outcomes.
 
-Insight Recovery Network is here for exactly this situation. We can help you understand the safest pathway forward, whether that involves a medically supported detox, residential treatment, or another form of structured care. Please reach out to us or your GP as a priority — you do not have to navigate this alone, and you should not try to.`,
+Insight Recovery Network is here for exactly this situation. We can help you understand the safest pathway forward, whether that involves a medically supported detox, residential treatment, or another form of structured care. Please reach out to us or your GP as a priority.`,
 
   "urgent-medical-advice": (firstName) =>
     `${firstName}, completing this assessment when you are in this position takes genuine courage, and we want you to know that you are not alone in what you are facing.
@@ -76,12 +93,12 @@ Your responses indicate a high level of clinical risk, and it is important that 
 
 Please contact your GP, call NHS 111, or reach out to Insight Recovery Network today. If at any point you feel unwell, confused, or experience shaking, sweating, or other worrying symptoms, please call 999 or go to your nearest A&E immediately.
 
-We know this may feel overwhelming. The most important thing right now is simply to speak to someone qualified who can help you take the next step safely. Insight Recovery Network offers confidential, non-judgemental support and can help you access the right level of clinical care quickly. You have shown real bravery by completing this assessment — please use that same courage to reach out for the help that is available to you.`,
+We know this may feel overwhelming. The most important thing right now is simply to speak to someone qualified who can help you take the next step safely. Insight Recovery Network offers confidential, non-judgemental support and can help you access the right level of clinical care quickly. You have shown real bravery by completing this assessment — please use that same courage to reach out.`,
 };
 
 function getFallbackResponse(scoreLevel: string, name: string): string {
   const firstName = name.split(" ")[0] ?? name;
-  const templateFn = FALLBACK_TEMPLATES[scoreLevel] ?? FALLBACK_TEMPLATES["moderate-concern"];
+  const templateFn = FALLBACK_TEMPLATES[scoreLevel] ?? FALLBACK_TEMPLATES["moderate-concern"]!;
   return templateFn(firstName);
 }
 
@@ -94,6 +111,20 @@ function getOpenAIClient(): OpenAI {
   return new OpenAI({ apiKey, baseURL });
 }
 
+/**
+ * Generates a personalised Anchor reflection using the pre-computed scoring outputs.
+ *
+ * IMPORTANT: This function is intentionally called AFTER structured scoring has already
+ * determined scoreLevel, scoreLabel, redFlags, and tags. The AI is used solely to write
+ * the human-readable reflection — it plays no role in calculating risk levels or flags.
+ *
+ * Model resolution order: gpt-5.1 → gpt-5 → gpt-5-mini
+ * - model_not_found errors step down to the next model
+ * - any other error (network, auth, quota) goes directly to the static fallback
+ * - if all models are exhausted, the static fallback is used
+ *
+ * The static fallback always returns a non-empty, clinically safe string.
+ */
 export async function generateAnchorResponse(input: AnchorInput): Promise<string> {
   const redFlagText =
     input.redFlags.length > 0
@@ -111,25 +142,45 @@ ${input.sectionSummary}
 Please write a personalised Anchor response for ${input.name}, reflecting their specific situation with compassion and clinical awareness.
 `.trim();
 
+  let openai: OpenAI;
   try {
-    const openai = getOpenAIClient();
-    const response = await openai.chat.completions.create({
-      model: "gpt-5.1",
-      max_completion_tokens: 500,
-      messages: [
-        { role: "system", content: ANCHOR_SYSTEM_PROMPT },
-        { role: "user", content: userMessage },
-      ],
-    });
-
-    const aiText = response.choices[0]?.message?.content ?? "";
-    if (!aiText) {
-      logger.warn("Anchor AI returned empty content — using fallback");
-      return getFallbackResponse(input.scoreLevel, input.name);
-    }
-    return aiText;
+    openai = getOpenAIClient();
   } catch (err) {
-    logger.warn({ err }, "Anchor AI call failed — using static fallback response");
+    logger.warn({ err }, "Anchor: OpenAI client could not be initialised — using static fallback");
     return getFallbackResponse(input.scoreLevel, input.name);
   }
+
+  for (const model of ANCHOR_MODELS) {
+    try {
+      const response = await openai.chat.completions.create({
+        model,
+        max_completion_tokens: 500,
+        messages: [
+          { role: "system", content: ANCHOR_SYSTEM_PROMPT },
+          { role: "user", content: userMessage },
+        ],
+      });
+
+      const resolvedModel = response.model;
+      const aiText = response.choices[0]?.message?.content ?? "";
+
+      if (!aiText) {
+        logger.warn({ requestedModel: model, resolvedModel }, "Anchor: AI returned empty content — using static fallback");
+        return getFallbackResponse(input.scoreLevel, input.name);
+      }
+
+      logger.info({ requestedModel: model, resolvedModel }, "Anchor: reflection generated successfully");
+      return aiText;
+    } catch (err) {
+      if (isModelNotFoundError(err)) {
+        logger.warn({ requestedModel: model, err: (err as Error).message }, `Anchor: model "${model}" not found — trying next`);
+        continue;
+      }
+      logger.warn({ requestedModel: model, err }, "Anchor: non-model error — using static fallback");
+      return getFallbackResponse(input.scoreLevel, input.name);
+    }
+  }
+
+  logger.warn({ triedModels: ANCHOR_MODELS }, "Anchor: all models unavailable — using static fallback");
+  return getFallbackResponse(input.scoreLevel, input.name);
 }
