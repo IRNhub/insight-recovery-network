@@ -17,9 +17,35 @@ if (rawPort && (Number.isNaN(port) || port <= 0)) {
 // base as "" (root) regardless of build mode.
 const basePath = "/";
 
+function suspendedRedirectPlugin() {
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "").split("?")[0].split("#")[0];
+    if (pathname === "/suspended" || pathname === "/suspended/") {
+      res.writeHead(301, { Location: "https://www.insightrecoverynetwork.com/" });
+      res.end();
+      return;
+    }
+    next();
+  }
+  return {
+    name: "suspended-redirect",
+    configureServer(server: import("vite").ViteDevServer) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
 export default defineConfig({
   base: basePath,
   plugins: [
+    suspendedRedirectPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
