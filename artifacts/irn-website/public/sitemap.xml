@@ -59,9 +59,9 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Live assessment pages -->
+  <!-- Assessment pages (canonical /assessments/[type]) -->
   <url>
-    <loc>https://www.insightrecoverynetwork.com/assessment/alcohol-detox</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-detox</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,7 +97,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/adhd</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/adhd-impulsivity</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

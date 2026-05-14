@@ -10,64 +10,70 @@ const assessments = [
     title: "Alcohol & Detox Suitability Assessment",
     description:
       "Explore whether alcohol may be affecting your wellbeing and whether stopping suddenly could carry medical risk. Covers use patterns, withdrawal history, and detox safety.",
-    href: "/assessment/alcohol-detox",
+    href: "/assessments/alcohol-detox",
     duration: "10–15 minutes",
     forWhom: "For individuals drinking heavily who are considering stopping",
-    active: true,
+    featured: true,
   },
   {
     id: "alcohol-use",
     title: "Alcohol Use Assessment",
     description:
       "Reflect on your current relationship with alcohol and understand whether it may be affecting your health, relationships, or daily life.",
+    href: "/assessments/alcohol-use",
     duration: "7–10 minutes",
     forWhom: "For individuals questioning their drinking",
-    active: false,
+    featured: false,
   },
   {
     id: "drug-use",
     title: "Drug Use & Substance Assessment",
     description:
       "Explore your relationship with substances and identify whether further professional support or treatment may be appropriate.",
+    href: "/assessments/drug-use",
     duration: "7–10 minutes",
     forWhom: "For individuals concerned about substance use",
-    active: false,
+    featured: false,
   },
   {
     id: "detox",
     title: "Detox Suitability Assessment",
     description:
       "If you are considering stopping or reducing alcohol or substance use, this assessment helps identify the safest pathway.",
+    href: "/assessments/detox",
     duration: "8–12 minutes",
     forWhom: "For those considering stopping or reducing use",
-    active: false,
+    featured: false,
   },
   {
     id: "anxiety",
     title: "Anxiety Self-Assessment",
     description:
       "Reflect on how anxiety may be affecting your thoughts, physical wellbeing, and daily life.",
+    href: "/assessments/anxiety",
     duration: "6–8 minutes",
     forWhom: "For individuals experiencing worry or anxiety",
-    active: false,
+    featured: false,
   },
   {
     id: "depression",
     title: "Depression Self-Assessment",
     description:
       "Reflect on how low mood or depression may be affecting your energy, motivation, and sense of wellbeing.",
+    href: "/assessments/depression",
     duration: "6–8 minutes",
     forWhom: "For individuals experiencing low mood or depression",
-    active: false,
+    featured: false,
   },
   {
     id: "adhd",
     title: "ADHD & Impulsivity Self-Reflection",
     description:
       "Explore patterns of attention, impulsivity, and restlessness that may be affecting your work, relationships, or daily life.",
+    href: "/assessments/adhd-impulsivity",
     duration: "7–10 minutes",
     forWhom: "For individuals exploring attention and impulsivity patterns",
-    active: false,
+    featured: false,
   },
 ];
 
@@ -138,7 +144,6 @@ export default function AssessmentsIndex() {
                   fetchPriority="high"
                   loading="eager"
                 />
-                {/* Subtle overlay badge */}
                 <div
                   className="absolute bottom-4 left-4 px-3.5 py-2.5 rounded-lg flex items-center gap-2.5"
                   style={{ background: "rgba(22,43,59,0.84)", backdropFilter: "blur(8px)" }}
@@ -160,21 +165,28 @@ export default function AssessmentsIndex() {
       <section className="py-10 md:py-14">
         <div className="container mx-auto px-6 md:px-12 max-w-5xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {assessments.map((assessment) =>
-              assessment.active ? (
-                /* ── Active card ── */
-                <div
-                  key={assessment.id}
-                  className="flex flex-col bg-white border-2 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
-                  style={{
-                    borderColor: "rgba(201,169,110,0.55)",
-                    boxShadow: "0 2px 12px rgba(22,43,59,0.09)",
-                  }}
-                >
-                  <div className="p-6 flex flex-col flex-1">
-                    {/* Active badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-5 h-px" style={{ background: "#C9A96E" }} />
+            {assessments.map((assessment) => (
+              <div
+                key={assessment.id}
+                className="flex flex-col bg-white border hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
+                style={{
+                  borderWidth: assessment.featured ? "2px" : "1px",
+                  borderColor: assessment.featured
+                    ? "rgba(201,169,110,0.55)"
+                    : "rgba(22,43,59,0.12)",
+                  boxShadow: assessment.featured
+                    ? "0 2px 12px rgba(22,43,59,0.09)"
+                    : "0 1px 4px rgba(22,43,59,0.05)",
+                }}
+              >
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Badge row */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div
+                      className="w-5 h-px"
+                      style={{ background: assessment.featured ? "#C9A96E" : "rgba(201,169,110,0.5)" }}
+                    />
+                    {assessment.featured && (
                       <span
                         className="text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1"
                         style={{
@@ -182,84 +194,43 @@ export default function AssessmentsIndex() {
                           color: "rgba(201,169,110,0.95)",
                         }}
                       >
-                        Available Now
+                        Featured
                       </span>
-                    </div>
-                    <p className="text-[10px] font-semibold tracking-widest uppercase text-accent font-sans mb-2">
-                      Self-Assessment
-                    </p>
-                    <h2 className="font-serif text-primary text-[17px] leading-snug mb-3">
-                      {assessment.title}
-                    </h2>
-                    <p className="text-muted-foreground text-sm font-light leading-relaxed mb-3 flex-1">
-                      {assessment.description}
-                    </p>
-                    <p className="text-xs text-muted-foreground/55 font-light italic mb-3">
-                      {assessment.forWhom}
-                    </p>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground font-light mb-5">
-                      <Clock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                      {assessment.duration}
-                    </div>
-                    <Link href={assessment.href!}>
-                      <button className="inline-flex items-center gap-3 px-5 h-11 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors w-full justify-center">
-                        Begin Assessment
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </Link>
+                    )}
                   </div>
-                </div>
-              ) : (
-                /* ── Coming soon card ── */
-                <div
-                  key={assessment.id}
-                  className="flex flex-col bg-white border border-border/30 opacity-75"
-                  style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
-                >
-                  <div className="p-6 flex flex-col flex-1">
-                    {/* Coming soon badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-5 h-px" style={{ background: "rgba(201,169,110,0.4)" }} />
-                      <span
-                        className="text-[9px] font-semibold tracking-widest uppercase px-2.5 py-1"
-                        style={{
-                          background: "rgba(22,43,59,0.06)",
-                          color: "rgba(22,43,59,0.45)",
-                        }}
-                      >
-                        Coming Soon
-                      </span>
-                    </div>
-                    <p className="text-[10px] font-semibold tracking-widest uppercase font-sans mb-2" style={{ color: "rgba(201,169,110,0.6)" }}>
-                      Self-Assessment
-                    </p>
-                    <h2 className="font-serif text-primary/60 text-[17px] leading-snug mb-3">
-                      {assessment.title}
-                    </h2>
-                    <p className="text-muted-foreground/60 text-sm font-light leading-relaxed mb-3 flex-1">
-                      {assessment.description}
-                    </p>
-                    <p className="text-xs text-muted-foreground/40 font-light italic mb-3">
-                      {assessment.forWhom}
-                    </p>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground/50 font-light mb-5">
-                      <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "rgba(201,169,110,0.5)" }} />
-                      {assessment.duration}
-                    </div>
-                    <div
-                      className="inline-flex items-center justify-center h-11 text-sm font-light w-full"
+
+                  <p className="text-[10px] font-semibold tracking-widest uppercase text-accent font-sans mb-2">
+                    Self-Assessment
+                  </p>
+                  <h2 className="font-serif text-primary text-[17px] leading-snug mb-3">
+                    {assessment.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm font-light leading-relaxed mb-3 flex-1">
+                    {assessment.description}
+                  </p>
+                  <p className="text-xs text-muted-foreground/55 font-light italic mb-3">
+                    {assessment.forWhom}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground font-light mb-5">
+                    <Clock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                    {assessment.duration}
+                  </div>
+
+                  <Link href={assessment.href}>
+                    <button
+                      className="inline-flex items-center gap-3 px-5 h-11 text-sm font-medium transition-colors w-full justify-center"
                       style={{
-                        background: "rgba(22,43,59,0.04)",
-                        color: "rgba(22,43,59,0.35)",
-                        border: "1px solid rgba(22,43,59,0.10)",
+                        background: assessment.featured ? "#162B3B" : "rgba(22,43,59,0.88)",
+                        color: "#F6F4F0",
                       }}
                     >
-                      Coming Soon
-                    </div>
-                  </div>
+                      Begin Assessment
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </Link>
                 </div>
-              )
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

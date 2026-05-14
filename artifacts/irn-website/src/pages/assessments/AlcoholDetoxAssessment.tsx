@@ -101,7 +101,7 @@ export default function AlcoholDetoxAssessment() {
         <SEO
           title="Alcohol & Detox Suitability Assessment"
           description="Complete our confidential alcohol and detox suitability assessment. Understand your risk level and receive personalised guidance from our recovery team."
-          canonical="/assessment/alcohol-detox"
+          canonical="/assessments/alcohol-detox"
           noIndex={true}
         />
         <AssessmentEngine
@@ -119,7 +119,7 @@ export default function AlcoholDetoxAssessment() {
         <SEO
           title="Your Assessment Results"
           description="Your alcohol and detox suitability assessment results."
-          canonical="/assessment/alcohol-detox/result"
+          canonical="/assessments/alcohol-detox/result"
           noIndex={true}
         />
         <AssessmentResult
@@ -138,7 +138,7 @@ export default function AlcoholDetoxAssessment() {
       <SEO
         title="Alcohol & Detox Suitability Assessment"
         description="Complete our confidential alcohol and detox suitability assessment. Understand your risk level and receive personalised guidance from our recovery team."
-        canonical="/assessment/alcohol-detox"
+        canonical="/assessments/alcohol-detox"
       />
 
       {/* Intro / landing */}

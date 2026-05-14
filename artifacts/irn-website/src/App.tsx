@@ -52,12 +52,16 @@ function Router() {
         <Route path="/resources" component={ResourcesList} />
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/assessments" component={AssessmentsIndex} />
-        <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
+        {/* Canonical assessment routes */}
+        <Route path="/assessments/alcohol-detox" component={AlcoholDetoxAssessment} />
         <Route path="/assessments/alcohol-use" component={AlcoholUseAssessmentPage} />
         <Route path="/assessments/drug-use" component={DrugUseAssessmentPage} />
         <Route path="/assessments/detox" component={DetoxAssessmentPage} />
         <Route path="/assessments/anxiety" component={AnxietyAssessmentPage} />
         <Route path="/assessments/depression" component={DepressionAssessmentPage} />
+        <Route path="/assessments/adhd-impulsivity" component={AdhdAssessmentPage} />
+        {/* Legacy / backward-compat routes */}
+        <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
         <Route path="/assessments/adhd" component={AdhdAssessmentPage} />
         <Route component={NotFound} />
       </Switch>

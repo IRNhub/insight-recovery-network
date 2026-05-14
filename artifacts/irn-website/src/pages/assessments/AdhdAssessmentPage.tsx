@@ -6,7 +6,7 @@ export default function AdhdAssessmentPage() {
     <AssessmentPage
       config={adhdAssessment}
       seoDescription="Take our free confidential ADHD and impulsivity self-reflection. Explore whether patterns of attention, restlessness, or impulsivity may be affecting your work, relationships, or daily life."
-      canonical="/assessments/adhd"
+      canonical="/assessments/adhd-impulsivity"
     />
   );
 }
