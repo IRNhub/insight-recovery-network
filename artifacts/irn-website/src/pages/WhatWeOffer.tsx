@@ -9,6 +9,8 @@ import treatmentImg from "@/assets/wwo-treatment-placement.webp";
 import onlineImg from "@/assets/wwo-online-programme.webp";
 import digitalImg from "@/assets/wwo-insight-os.webp";
 import familyImg from "@/assets/wwo-family-intervention.webp";
+import professionalImg from "@/assets/professional-partnerships.webp";
+import aftercareImg from "@/assets/aftercare-continuity.webp";
 
 const services = [
   {
@@ -93,19 +95,22 @@ const specialised = [
     title: "Family & Intervention",
     body: "We support families in navigating complex, highly emotional situations with care, clarity, and boundaries. From strategic guidance to formal intervention planning, we provide the framework needed to initiate change safely.",
     img: familyImg,
-    imgAlt: "Family intervention session",
+    imgAlt: "Family consultation in a calm private room",
+    imgPos: "center 30%",
   },
   {
     title: "Professional Partnerships",
     body: "We act as a discreet, expert resource for professionals, EAPs, HR teams, and legal counsel. When an organisation encounters a sensitive substance or mental health issue, we assess, advise, and coordinate a clinical response.",
-    img: null,
-    imgAlt: "",
+    img: professionalImg,
+    imgAlt: "Professionals reviewing notes in a private office",
+    imgPos: "center 25%",
   },
   {
     title: "Aftercare & Continuity Planning",
     body: "Sustained recovery requires structure beyond treatment. We design tailored aftercare plans integrating Insight OS, peer support, clinical oversight, and scheduled reviews to protect long-term wellbeing.",
-    img: null,
-    imgAlt: "",
+    img: aftercareImg,
+    imgAlt: "Calm planning scene with notebook and weekly plan tablet",
+    imgPos: "center 40%",
   },
 ];
 
@@ -397,20 +402,22 @@ export default function WhatWeOffer() {
                   borderColor: "rgba(255,255,255,0.10)",
                 }}
               >
-                {item.img && (
-                  <div className="relative overflow-hidden" style={{ height: "180px" }}>
-                    <img
-                      src={item.img}
-                      alt={item.imgAlt}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: "center 30%" }}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "linear-gradient(to bottom, transparent 40%, rgba(22,43,59,0.55) 100%)" }}
-                    />
-                  </div>
-                )}
+                <div className="relative overflow-hidden flex-shrink-0" style={{ height: "200px" }}>
+                  <img
+                    src={item.img}
+                    alt={item.imgAlt}
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: item.imgPos }}
+                    loading="lazy"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(22,43,59,0.30) 0%, rgba(22,43,59,0.20) 50%, rgba(22,43,59,0.65) 100%)",
+                    }}
+                  />
+                </div>
                 <div className="flex flex-col flex-grow p-6 lg:p-7">
                   <div className="w-6 h-px mb-5" style={{ background: "rgba(201,169,110,0.70)" }} />
                   <h3 className="font-serif text-white text-[19px] leading-snug mb-3">{item.title}</h3>
