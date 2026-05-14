@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Fragment } from "react";
 import { Shield, BookOpen, Map, Monitor, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import treatmentImg from "@/assets/hero-treatment-placement.png";
-import onlineProgrammeImg from "@/assets/hero-online-programme.png";
-import digitalToolsImg from "@/assets/hero-digital-tools.png";
-import familyImg from "@/assets/hero-family-guidance.png";
+import treatmentImg from "@/assets/hero-treatment-placement.webp";
+import onlineProgrammeImg from "@/assets/hero-online-programme.webp";
+import digitalToolsImg from "@/assets/hero-digital-tools.webp";
+import familyImg from "@/assets/hero-family-guidance.webp";
 
 const trustPoints = [
   "Private guidance",
@@ -186,6 +186,7 @@ export default function Home() {
                     title: "Online Recovery Programme",
                     desc: "Structured support from wherever you are.",
                     objPos: "center",
+                    eager: true,
                   },
                   {
                     img: digitalToolsImg,
@@ -193,6 +194,7 @@ export default function Home() {
                     title: "Digital Recovery Tools",
                     desc: "Insight OS for daily recovery structure.",
                     objPos: "center 20%",
+                    eager: false,
                   },
                   {
                     img: treatmentImg,
@@ -200,6 +202,7 @@ export default function Home() {
                     title: "Treatment Placement",
                     desc: "Private guidance when residential care is needed.",
                     objPos: "center",
+                    eager: false,
                   },
                 ].map((panel) => (
                   <div
@@ -217,6 +220,8 @@ export default function Home() {
                       alt={panel.alt}
                       className="w-full h-full object-cover"
                       style={{ objectPosition: panel.objPos }}
+                      loading={panel.eager ? "eager" : "lazy"}
+                      fetchPriority={panel.eager ? "high" : "auto"}
                     />
                     <div
                       className="absolute bottom-0 left-0 right-0 px-4 py-3"
@@ -279,6 +284,8 @@ export default function Home() {
                     src={onlineProgrammeImg}
                     alt="A person attending a structured online recovery session from home"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    fetchPriority="high"
+                    loading="eager"
                   />
                   {/* Label overlay */}
                   <div
@@ -450,6 +457,7 @@ export default function Home() {
                         alt={s.alt}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                         style={{ objectPosition: s.objPos }}
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-5 flex flex-col flex-1">
@@ -521,6 +529,7 @@ export default function Home() {
                   src={familyImg}
                   alt="A calm, private consultation with a family and their advisor"
                   className="w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
               </div>
             </div>

@@ -1,0 +1,64 @@
+Please optimise the Insight Recovery Network website based on PageSpeed Insights mobile results.
+
+Current scores:
+- Performance: 51
+- Accessibility: 89
+- Best Practices: 100
+- SEO: 100
+
+Main problems:
+- Largest Contentful Paint is extremely high at around 24.9s
+- First Contentful Paint around 6.1s
+- Total Blocking Time around 340ms
+- Total network payload around 9.3MB
+- PageSpeed flags image delivery, cache lifetimes, render-blocking requests, unused JavaScript and accessibility issues
+
+Please implement performance fixes in priority order:
+
+1. Image optimisation
+- Identify all large homepage images.
+- Convert images to WebP or AVIF where appropriate.
+- Compress all homepage and above-the-fold images.
+- Serve mobile-sized versions on mobile using responsive srcset/sizes where possible.
+- Lazy-load all below-the-fold images.
+- Do not lazy-load the main hero/LCP image.
+- Preload the main hero/LCP image if appropriate.
+- Make sure the homepage does not load large desktop images on mobile.
+
+2. LCP optimisation
+- Identify the exact Largest Contentful Paint element.
+- Optimise that element specifically.
+- If it is a hero image or background image, ensure it is compressed, correctly sized, and loaded early.
+- If it is text, ensure fonts are not blocking rendering.
+
+3. JavaScript and CSS optimisation
+- Reduce unused JavaScript where possible.
+- Defer non-critical scripts.
+- Remove unused imports/components from the homepage.
+- Ensure the homepage does not load unnecessary code for pages that are not currently visible.
+- Optimise render-blocking CSS.
+
+4. Caching
+- Set efficient cache lifetimes for static assets including images, JS, CSS and fonts.
+- Use long cache headers for hashed/static files where possible.
+
+5. Fonts
+- Use font-display: swap.
+- Preload only critical fonts.
+- Avoid loading unnecessary font weights.
+
+6. Accessibility fixes
+- Remove user-scalable="no" from the viewport meta tag.
+- Ensure users can pinch zoom on mobile.
+- Fix low contrast text flagged by Lighthouse while preserving the premium design.
+- Fix heading order so headings descend sequentially.
+
+7. Re-test target
+After changes, the target is:
+- Mobile Performance: 75+
+- Accessibility: 95+
+- Best Practices: 100
+- SEO: 100
+- LCP significantly reduced from 24.9s
+
+Please apply changes carefully without breaking the visual design or layout.

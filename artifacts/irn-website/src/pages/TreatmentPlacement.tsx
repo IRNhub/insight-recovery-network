@@ -5,7 +5,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 
-import courtyardImg from "@/assets/tp-courtyard.png";
+import courtyardImg from "@/assets/tp-courtyard.webp";
 
 const placementSteps = [
   {
@@ -115,6 +115,8 @@ export default function TreatmentPlacement() {
                   alt="Private residential treatment setting at dusk"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 60%" }}
+                  fetchPriority="high"
+                  loading="eager"
                 />
                 <div
                   className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"

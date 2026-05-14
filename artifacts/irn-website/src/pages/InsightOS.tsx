@@ -18,10 +18,10 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-import heroMockupImg from "@/assets/ios-hero-mockup.png";
-import phoneCheckinImg from "@/assets/ios-phone-checkin.png";
-import anchorGuidanceImg from "@/assets/ios-anchor-guidance.png";
-import recoveryToolsImg from "@/assets/ios-recovery-tools.png";
+import heroMockupImg from "@/assets/ios-hero-mockup.webp";
+import phoneCheckinImg from "@/assets/ios-phone-checkin.webp";
+import anchorGuidanceImg from "@/assets/ios-anchor-guidance.webp";
+import recoveryToolsImg from "@/assets/ios-recovery-tools.webp";
 
 const features = [
   {
@@ -192,6 +192,8 @@ export default function InsightOS() {
                   alt="Insight OS dashboard on laptop and phone"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 15%" }}
+                  fetchPriority="high"
+                  loading="eager"
                 />
                 <div
                   className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"
@@ -271,6 +273,7 @@ export default function InsightOS() {
                   alt="Anchor guidance interface on laptop and phone showing recovery prompts"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 20%" }}
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -398,6 +401,7 @@ export default function InsightOS() {
                   alt="Insight OS daily check-in screen on mobile phone"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 10%" }}
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -426,6 +430,7 @@ export default function InsightOS() {
                   alt="Insight OS recovery tools — journaling, grounding, and reflection"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 25%" }}
+                  loading="lazy"
                 />
               </div>
             </div>

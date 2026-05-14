@@ -4,11 +4,11 @@ import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
-import heroImg from "@/assets/wwo-hero.png";
-import treatmentImg from "@/assets/wwo-treatment-placement.png";
-import onlineImg from "@/assets/wwo-online-programme.png";
-import digitalImg from "@/assets/wwo-insight-os.png";
-import familyImg from "@/assets/wwo-family-intervention.png";
+import heroImg from "@/assets/wwo-hero.webp";
+import treatmentImg from "@/assets/wwo-treatment-placement.webp";
+import onlineImg from "@/assets/wwo-online-programme.webp";
+import digitalImg from "@/assets/wwo-insight-os.webp";
+import familyImg from "@/assets/wwo-family-intervention.webp";
 
 const services = [
   {
@@ -171,6 +171,8 @@ export default function WhatWeOffer() {
                   alt="Clinical consultation and recovery guidance"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center" }}
+                  fetchPriority="high"
+                  loading="eager"
                 />
                 <div
                   className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"

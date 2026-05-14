@@ -5,8 +5,8 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Users, User, Shield, CalendarCheck, Laptop, HeartHandshake } from "lucide-react";
 
-import heroImg from "@/assets/op-hero.png";
-import oneToOneImg from "@/assets/op-one-to-one.png";
+import heroImg from "@/assets/op-hero.webp";
+import oneToOneImg from "@/assets/op-one-to-one.webp";
 
 const whoFor = [
   {
@@ -207,6 +207,8 @@ export default function OnlineProgramme() {
                   alt="Person working through online recovery programme at home"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 20%" }}
+                  fetchPriority="high"
+                  loading="eager"
                 />
                 <div
                   className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"
@@ -359,6 +361,7 @@ export default function OnlineProgramme() {
                   alt="One-to-one online therapy session with recovery worksheets"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 20%" }}
+                  loading="lazy"
                 />
               </div>
             </div>
