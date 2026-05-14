@@ -14,6 +14,12 @@ import ResourcesList from "@/pages/ResourcesList";
 import ResourceDetail from "@/pages/ResourceDetail";
 import AssessmentsIndex from "@/pages/assessments/AssessmentsIndex";
 import AlcoholDetoxAssessment from "@/pages/assessments/AlcoholDetoxAssessment";
+import AlcoholUseAssessmentPage from "@/pages/assessments/AlcoholUseAssessmentPage";
+import DrugUseAssessmentPage from "@/pages/assessments/DrugUseAssessmentPage";
+import DetoxAssessmentPage from "@/pages/assessments/DetoxAssessmentPage";
+import AnxietyAssessmentPage from "@/pages/assessments/AnxietyAssessmentPage";
+import DepressionAssessmentPage from "@/pages/assessments/DepressionAssessmentPage";
+import AdhdAssessmentPage from "@/pages/assessments/AdhdAssessmentPage";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -44,6 +50,12 @@ function Router() {
       <Route path="/resources/:slug" component={ResourceDetail} />
       <Route path="/assessments" component={AssessmentsIndex} />
       <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
+      <Route path="/assessments/alcohol-use" component={AlcoholUseAssessmentPage} />
+      <Route path="/assessments/drug-use" component={DrugUseAssessmentPage} />
+      <Route path="/assessments/detox" component={DetoxAssessmentPage} />
+      <Route path="/assessments/anxiety" component={AnxietyAssessmentPage} />
+      <Route path="/assessments/depression" component={DepressionAssessmentPage} />
+      <Route path="/assessments/adhd" component={AdhdAssessmentPage} />
       <Route component={NotFound} />
     </Switch>
   );

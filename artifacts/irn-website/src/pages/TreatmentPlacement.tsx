@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Shield, HeartHandshake, MapPin } from "lucide-react";
+import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
 
 import courtyardImg from "@/assets/tp-courtyard.png";
 
@@ -298,6 +298,32 @@ export default function TreatmentPlacement() {
                 <p className="text-[13.5px] text-primary/80 font-light leading-snug">{item}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <p className="text-sm text-muted-foreground font-light">
+              Unsure about your risk level?
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/assessments/detox">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
+                  Detox Suitability Assessment
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </Link>
+              <Link href="/assessments/alcohol-use">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
+                  Alcohol Use Assessment
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </Link>
+              <Link href="/assessments/drug-use">
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
+                  Drug Use Assessment
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

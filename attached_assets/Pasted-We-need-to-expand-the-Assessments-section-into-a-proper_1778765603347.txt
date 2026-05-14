@@ -1,0 +1,124 @@
+We need to expand the Assessments section into a proper SEO and lead-generation system.
+
+Current goal:
+Build a full assessments hub and multiple dedicated assessment pages for Insight Recovery Network.
+
+Please implement:
+
+1. Assessments Hub Page
+Route:
+/assessments
+
+The hub should introduce the assessments as confidential, clinically informed self-reflection tools. It should clearly state they are not diagnostic tools and do not replace medical or psychological assessment.
+
+The hub should include cards linking to:
+
+- Alcohol Use Assessment
+- Drug Use Assessment
+- Detox Suitability Assessment
+- Anxiety Assessment
+- Depression Assessment
+- ADHD & Impulsivity Self-Reflection Assessment
+
+Each card should include:
+- Short description
+- Who it is for
+- Approximate completion time
+- “Start Assessment” button
+
+2. Individual Assessment Routes
+
+Create these pages:
+
+/assessments/alcohol-use
+/assessments/drug-use
+/assessments/detox
+/assessments/anxiety
+/assessments/depression
+/assessments/adhd
+
+Each page should have:
+- SEO title and meta description
+- H1 specific to the assessment
+- Short clinical introduction
+- Clear disclaimer that it is not a diagnosis
+- 10 to 16 questions
+- Multiple choice scoring
+- Result bands
+- Recommended next step
+- Lead capture/contact CTA
+
+3. Result Bands
+
+Use result bands such as:
+
+Low concern:
+Responses suggest no immediate high-risk pattern, but the user may still benefit from education, tracking, or Insight OS.
+
+Moderate concern:
+Responses suggest patterns worth discussing with a professional. Recommend booking a confidential call or exploring the online programme.
+
+Elevated concern:
+Responses suggest a higher level of concern. Recommend professional assessment and a confidential call with Insight Recovery Network.
+
+Urgent/detox concern:
+For detox-related risk responses, recommend speaking with a medical professional urgently and contacting Insight Recovery Network for guidance. Avoid giving medical instructions.
+
+4. Safety and Clinical Boundaries
+
+Do not diagnose.
+Do not tell people they are addicted.
+Do not provide detox instructions.
+Do not give medication advice.
+Do not imply emergency support is available 24/7 unless we explicitly offer that.
+Use language like:
+“Your answers suggest…”
+“This may indicate…”
+“It may be worth speaking with a professional…”
+
+5. Lead Capture
+
+At the result screen, include:
+- Name
+- Email
+- Phone
+- Preferred contact method
+- Optional message
+- Consent checkbox
+- Submit button: “Request a confidential call”
+
+When submitted, send the assessment type, score band, answers summary, and contact details to the existing enquiry/lead handling flow.
+
+6. SEO Requirements
+
+Add each assessment page to sitemap.xml.
+
+Add internal links:
+- From homepage to Assessments
+- From What We Offer to Assessments
+- From Treatment Placement to Detox and Drug/Alcohol Assessments
+- From Online Programme to Alcohol, Drug, Anxiety and Depression Assessments
+
+Each page should have canonical tags using:
+https://www.insightrecoverynetwork.com
+
+7. UX Requirements
+
+Keep the design premium, calm, and clinically trustworthy.
+Use the existing Insight Recovery Network design system.
+Make the assessment mobile-friendly.
+Show progress through the questions.
+Do not make the assessment feel gimmicky.
+Results should feel meaningful, professional, and supportive.
+
+8. Admin/Email
+
+If the site already has an enquiry email system, use it.
+If not, prepare the assessment submission data so it can be sent via the existing Resend/email setup.
+Include in the email:
+- Assessment type
+- Score
+- Result band
+- Contact details
+- Key flagged answers
+- Date/time submitted

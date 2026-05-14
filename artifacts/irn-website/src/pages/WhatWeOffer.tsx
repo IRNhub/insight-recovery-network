@@ -186,6 +186,30 @@ export default function WhatWeOffer() {
         </div>
       </section>
 
+      {/* ── Assessments callout ── */}
+      <div
+        style={{
+          background: "rgba(201,169,110,0.07)",
+          borderTop: "1px solid rgba(201,169,110,0.18)",
+          borderBottom: "1px solid rgba(201,169,110,0.18)",
+        }}
+      >
+        <div className="container mx-auto px-6 md:px-12 py-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4">
+            <p className="text-sm text-muted-foreground font-light">
+              Not sure which service is right for you?
+            </p>
+            <Link
+              href="/assessments"
+              className="text-sm font-medium text-primary hover:text-accent transition-colors flex items-center gap-1.5"
+            >
+              Take a free confidential assessment
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* ── Core Services ── */}
       <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">

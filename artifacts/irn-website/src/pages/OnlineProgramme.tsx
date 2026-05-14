@@ -159,6 +159,37 @@ export default function OnlineProgramme() {
               <p className="text-[11.5px] text-muted-foreground/55 font-light tracking-wide">
                 Private, structured, non-judgemental support.
               </p>
+              <p className="text-[12px] text-muted-foreground/60 font-light leading-relaxed">
+                Not sure if this programme is right for you?{" "}
+                <Link
+                  href="/assessments/alcohol-use"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  Alcohol
+                </Link>
+                {", "}
+                <Link
+                  href="/assessments/drug-use"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  drug use
+                </Link>
+                {", "}
+                <Link
+                  href="/assessments/anxiety"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  anxiety
+                </Link>
+                {" and "}
+                <Link
+                  href="/assessments/depression"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  depression
+                </Link>
+                {" assessments are available free and confidentially."}
+              </p>
             </div>
 
             {/* Right: image */}
