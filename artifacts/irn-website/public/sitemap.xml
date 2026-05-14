@@ -59,6 +59,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Live assessment pages -->
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/assessment/alcohol-detox</loc>
+    <lastmod>2026-05-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Resource articles -->
   <url>
     <loc>https://www.insightrecoverynetwork.com/resources/understanding-alcohol-dependency</loc>

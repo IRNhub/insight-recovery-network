@@ -139,7 +139,6 @@ export default function AlcoholDetoxAssessment() {
         title="Alcohol & Detox Suitability Assessment"
         description="Complete our confidential alcohol and detox suitability assessment. Understand your risk level and receive personalised guidance from our recovery team."
         canonical="/assessment/alcohol-detox"
-        noIndex={true}
       />
 
       {/* Intro / landing */}
