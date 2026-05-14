@@ -24,6 +24,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/about", label: "About" },
     { href: "/what-we-offer", label: "What We Offer" },
+    { href: "/assessments", label: "Assessments" },
     { href: "/treatment-placement", label: "Treatment Placement" },
     { href: "/online-programme", label: "Online Programme" },
     { href: "/insight-os", label: "Insight OS" },

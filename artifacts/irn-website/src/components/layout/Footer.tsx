@@ -22,6 +22,11 @@ export function Footer() {
             <h4 className="font-serif text-lg text-primary-foreground/90">Pathways</h4>
             <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
               <li>
+                <Link href="/assessments" className="hover:text-accent transition-colors">
+                  Assessments
+                </Link>
+              </li>
+              <li>
                 <Link href="/treatment-placement" className="hover:text-accent transition-colors">
                   Treatment Placement
                 </Link>

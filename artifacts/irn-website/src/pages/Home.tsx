@@ -616,6 +616,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Assessments promo ── */}
+      <section
+        className="py-14 md:py-20"
+        style={{
+          background: "linear-gradient(160deg, #F2EDE3 0%, #F6F4EF 60%, #EEE9DF 100%)",
+          borderTop: "1px solid rgba(201,169,110,0.18)",
+          borderBottom: "1px solid rgba(201,169,110,0.14)",
+        }}
+      >
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-2xl">
+            <div className="w-8 h-px mb-7" style={{ background: "#C9A96E" }} />
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans block mb-4">
+              Free Assessments
+            </span>
+            <h2 className="font-serif text-primary text-3xl md:text-4xl leading-tight mb-5">
+              Not sure what level of support you need?
+            </h2>
+            <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-8 max-w-lg">
+              Start with a confidential assessment and receive personalised guidance based on your answers.
+            </p>
+            <Link href="/assessments">
+              <button className="inline-flex items-center gap-3 px-7 h-12 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+                View Free Assessments
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Final CTA ── */}
       <CTASection
         heading="A private conversation can be the first step."
