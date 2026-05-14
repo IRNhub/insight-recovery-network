@@ -1,5 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
-import { useEffect } from "react";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,13 +18,19 @@ import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
 
-function RedirectToHome() {
-  const [, navigate] = useLocation();
-  useEffect(() => { navigate("/", { replace: true }); }, [navigate]);
-  return null;
-}
+const REDIRECT_PATHS: Record<string, string> = {
+  "/suspended": "/",
+  "/suspended/": "/",
+};
 
 function Router() {
+  const rawPath = typeof window !== "undefined" ? window.location.pathname : "";
+  const redirectTarget = REDIRECT_PATHS[rawPath];
+  if (redirectTarget) {
+    window.location.replace(redirectTarget);
+    return null;
+  }
+
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -39,8 +44,6 @@ function Router() {
       <Route path="/resources/:slug" component={ResourceDetail} />
       <Route path="/assessments" component={AssessmentsIndex} />
       <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
-      <Route path="/suspended" component={RedirectToHome} />
-      <Route path="/suspended/" component={RedirectToHome} />
       <Route component={NotFound} />
     </Switch>
   );
