@@ -12,6 +12,7 @@ import InsightOS from "@/pages/InsightOS";
 import Contact from "@/pages/Contact";
 import ResourcesList from "@/pages/ResourcesList";
 import ResourceDetail from "@/pages/ResourceDetail";
+import AlcoholDetoxAssessment from "@/pages/assessments/AlcoholDetoxAssessment";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/resources" component={ResourcesList} />
       <Route path="/resources/:slug" component={ResourceDetail} />
+      <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
       <Route component={NotFound} />
     </Switch>
   );
