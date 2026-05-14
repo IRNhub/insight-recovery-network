@@ -78,6 +78,8 @@ export default function AlcoholDetoxAssessment() {
       tags.push(`red-flag:${flag}`);
       if (flag === "mental-health-risk") {
         tags.push("mental-health-red-flag");
+        tags.push("urgent-safeguarding");
+        tags.push("crisis-support-recommended");
       }
     }
     for (const advisory of score.advisories) {

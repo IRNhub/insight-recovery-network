@@ -130,7 +130,11 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
     : "";
   const hasMentalHealthAdvisory = data.advisories.includes("mental-health-advisory");
   const hasMentalHealthRedFlag = data.redFlags.includes("mental-health-risk");
-  const mentalHealthBlock = hasMentalHealthAdvisory && !hasMentalHealthRedFlag
+  const mentalHealthBlock = hasMentalHealthRedFlag
+    ? `<div style="background:#fdf4ff;border:1px solid #d8b4fe;padding:14px 16px;margin-bottom:24px;font-size:14px;color:#4c1d95;line-height:1.7;">
+        <strong>If you are having thoughts of self-harm or suicide:</strong> please reach out for support now. You can speak to the Samaritans at any time — call <strong>116 123</strong> (free, 24/7) or text <strong>SHOUT</strong> to <strong>85258</strong>. If you believe you are in immediate danger, call <strong>999</strong> or go to your nearest A&amp;E. You do not have to face this alone.
+       </div>`
+    : hasMentalHealthAdvisory
     ? `<div style="background:#fffbeb;border:1px solid #fcd34d;padding:14px 16px;margin-bottom:24px;font-size:14px;color:#78350f;line-height:1.6;">
         <strong>Emotional wellbeing note:</strong> You also reported significant low mood or anxiety. This does not automatically mean there is an immediate crisis, but it does suggest that emotional wellbeing should be part of any support plan. If these feelings become overwhelming or you feel unsafe, please seek urgent help immediately.
        </div>`
@@ -169,19 +173,24 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
 
 function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
   const colour = RISK_COLOURS[data.scoreLevel] ?? "#162B3B";
-  const isHighRisk = data.scoreLevel === "possible-detox-risk" || data.scoreLevel === "urgent-medical-advice";
-  const urgencyBadge = isHighRisk
-    ? `<div style="background:#fff0f0;border:1px solid #f5c6cb;padding:10px 16px;margin-bottom:20px;font-size:14px;color:#721c24;font-weight:bold;">⚠ HIGH RISK — Priority follow-up recommended</div>`
+  const isDetoxMedicalRisk = data.scoreLevel === "possible-detox-risk" || data.scoreLevel === "urgent-medical-advice";
+  const hasSafeguarding = data.tags.includes("urgent-safeguarding");
+  const detoxBadge = isDetoxMedicalRisk
+    ? `<div style="background:#fff0f0;border:1px solid #f5c6cb;padding:10px 16px;margin-bottom:10px;font-size:14px;color:#721c24;font-weight:bold;">⚠ HIGH RISK — Urgent medical advice priority. Priority follow-up recommended.</div>`
     : "";
+  const safeguardingBadge = hasSafeguarding
+    ? `<div style="background:#fdf4ff;border:1px solid #d8b4fe;padding:10px 16px;margin-bottom:20px;font-size:14px;color:#5b21b6;font-weight:bold;">⚠ URGENT SAFEGUARDING PRIORITY — Self-harm or suicidal ideation reported. Crisis support consideration required.</div>`
+    : isDetoxMedicalRisk ? `<div style="margin-bottom:10px;"></div>` : "";
+  const urgencyBadge = `${detoxBadge}${safeguardingBadge}`;
   const hasMentalHealthRedFlagLead = data.redFlags.includes("mental-health-risk");
   const hasMentalHealthAdvisoryLead = data.advisories.includes("mental-health-advisory");
   const redFlagRows = data.redFlags.length > 0
-    ? `<tr><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Red Flags</td><td style="padding:10px 0;color:#9b2a2a;">${escapeHtml(data.redFlags.join(", "))}${hasMentalHealthRedFlagLead ? " — <strong>⚠ Self-harm / suicidal ideation flagged</strong>" : ""}</td></tr>`
+    ? `<tr><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Red Flags</td><td style="padding:10px 0;color:#9b2a2a;">${escapeHtml(data.redFlags.join(", "))}</td></tr>`
     : "";
-  const mentalHealthLeadRow = hasMentalHealthAdvisoryLead && !hasMentalHealthRedFlagLead
+  const mentalHealthLeadRow = hasMentalHealthRedFlagLead
+    ? `<tr style="background:#fdf4ff;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#5b21b6;font-size:13px;"><strong>⚠ Urgent safeguarding priority.</strong> Self-harm or suicidal ideation reported — <strong>mental-health-red-flag, urgent-safeguarding, crisis-support-recommended</strong>. Immediate crisis support consideration required.</td></tr>`
+    : hasMentalHealthAdvisoryLead
     ? `<tr style="background:#fffbeb;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#78350f;font-size:13px;">Significant low mood or anxiety reported — <strong>mental-health-advisory</strong>. Not urgent escalation, but should be included in any support plan discussion.</td></tr>`
-    : hasMentalHealthRedFlagLead
-    ? `<tr style="background:#fff0f0;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#9b2a2a;font-size:13px;"><strong>⚠ Self-harm or suicidal ideation reported — mental-health-red-flag.</strong> Priority safeguarding consideration recommended.</td></tr>`
     : "";
   const tagsRow = data.tags.length > 0
     ? `<tr style="background:#f9f8f6;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Tags</td><td style="padding:10px 0;font-size:12px;">${escapeHtml(data.tags.join(", "))}</td></tr>`
@@ -253,12 +262,17 @@ export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Prom
     return;
   }
 
-  const isHighRisk = data.scoreLevel === "possible-detox-risk" || data.scoreLevel === "urgent-medical-advice";
+  const isDetoxMedicalRisk = data.scoreLevel === "possible-detox-risk" || data.scoreLevel === "urgent-medical-advice";
+  const hasSafeguardingTag = data.tags.includes("urgent-safeguarding");
+  let subjectPrefix = "";
+  if (hasSafeguardingTag && isDetoxMedicalRisk) subjectPrefix = "⚠ SAFEGUARDING + MEDICAL — ";
+  else if (hasSafeguardingTag) subjectPrefix = "⚠ SAFEGUARDING — ";
+  else if (isDetoxMedicalRisk) subjectPrefix = "⚠ HIGH RISK — ";
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: fromEmail,
     to: toEmail,
-    subject: `${isHighRisk ? "⚠ HIGH RISK — " : ""}New Assessment Lead: ${data.name} — ${data.scoreLabel}`,
+    subject: `${subjectPrefix}New Assessment Lead: ${data.name} — ${data.scoreLabel}`,
     html: buildAssessmentLeadHtml(data),
     text: `New Assessment Lead\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone ?? "Not provided"}\nScore: ${data.scoreLabel} (${data.scoreValue})\nRed Flags: ${data.redFlags.join(", ") || "None"}\nTags: ${data.tags.join(", ")}\n\nSection Summary:\n${data.sectionSummary}`,
   });
