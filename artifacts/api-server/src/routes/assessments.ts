@@ -18,6 +18,7 @@ const SubmitAssessmentBody = z.object({
   scoreLevel: z.string().min(1),
   scoreLabel: z.string().min(1),
   redFlags: z.array(z.string()),
+  advisories: z.array(z.string()).default([]),
   tags: z.array(z.string()),
   sectionSummary: z.string(),
 });
@@ -83,6 +84,7 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
       scoreLevel: data.scoreLevel,
       scoreValue: data.scoreValue,
       redFlags: data.redFlags,
+      advisories: data.advisories,
       tags: data.tags,
       sectionSummary: data.sectionSummary,
       anchorResponse,

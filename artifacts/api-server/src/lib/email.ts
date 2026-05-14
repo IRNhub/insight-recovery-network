@@ -105,6 +105,7 @@ interface AssessmentEmailData {
   scoreLevel: string;
   scoreValue: number;
   redFlags: string[];
+  advisories: string[];
   tags: string[];
   sectionSummary: string;
   anchorResponse: string;
@@ -127,6 +128,14 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
         <strong>Important:</strong> Your results suggest that stopping or reducing alcohol suddenly could be unsafe. Please do not stop drinking abruptly without speaking to a clinician first. If you are in crisis, call 999 or go to your nearest A&amp;E.
        </div>`
     : "";
+  const hasMentalHealthAdvisory = data.advisories.includes("mental-health-advisory");
+  const hasMentalHealthRedFlag = data.redFlags.includes("mental-health-risk");
+  const mentalHealthBlock = hasMentalHealthAdvisory && !hasMentalHealthRedFlag
+    ? `<div style="background:#fffbeb;border:1px solid #fcd34d;padding:14px 16px;margin-bottom:24px;font-size:14px;color:#78350f;line-height:1.6;">
+        <strong>Emotional wellbeing note:</strong> You also reported significant low mood or anxiety. This does not automatically mean there is an immediate crisis, but it does suggest that emotional wellbeing should be part of any support plan. If these feelings become overwhelming or you feel unsafe, please seek urgent help immediately.
+       </div>`
+    : "";
+
   const anchorBlock = data.anchorResponse
     ? `<div style="margin-top:24px;border-top:1px solid #e0ddd8;padding-top:24px;">
         <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">A note from Anchor</div>
@@ -144,6 +153,7 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
     <p style="color:#555;font-size:15px;line-height:1.6;">Thank you for completing the <strong>${escapeHtml(data.type.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()))}</strong>. Your results are below.</p>
     <hr style="border:none;border-top:1px solid #e0ddd8;margin:24px 0;" />
     ${safetyNote}
+    ${mentalHealthBlock}
     <div style="border-left:4px solid ${colour};padding:12px 16px;margin-bottom:24px;background:#fafaf8;">
       <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Result Level</div>
       <div style="font-size:20px;font-weight:bold;color:${colour};">${escapeHtml(data.scoreLabel)}</div>
@@ -163,8 +173,15 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
   const urgencyBadge = isHighRisk
     ? `<div style="background:#fff0f0;border:1px solid #f5c6cb;padding:10px 16px;margin-bottom:20px;font-size:14px;color:#721c24;font-weight:bold;">⚠ HIGH RISK — Priority follow-up recommended</div>`
     : "";
+  const hasMentalHealthRedFlagLead = data.redFlags.includes("mental-health-risk");
+  const hasMentalHealthAdvisoryLead = data.advisories.includes("mental-health-advisory");
   const redFlagRows = data.redFlags.length > 0
-    ? `<tr><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Red Flags</td><td style="padding:10px 0;color:#9b2a2a;">${escapeHtml(data.redFlags.join(", "))}</td></tr>`
+    ? `<tr><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Red Flags</td><td style="padding:10px 0;color:#9b2a2a;">${escapeHtml(data.redFlags.join(", "))}${hasMentalHealthRedFlagLead ? " — <strong>⚠ Self-harm / suicidal ideation flagged</strong>" : ""}</td></tr>`
+    : "";
+  const mentalHealthLeadRow = hasMentalHealthAdvisoryLead && !hasMentalHealthRedFlagLead
+    ? `<tr style="background:#fffbeb;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#78350f;font-size:13px;">Significant low mood or anxiety reported — <strong>mental-health-advisory</strong>. Not urgent escalation, but should be included in any support plan discussion.</td></tr>`
+    : hasMentalHealthRedFlagLead
+    ? `<tr style="background:#fff0f0;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#9b2a2a;font-size:13px;"><strong>⚠ Self-harm or suicidal ideation reported — mental-health-red-flag.</strong> Priority safeguarding consideration recommended.</td></tr>`
     : "";
   const tagsRow = data.tags.length > 0
     ? `<tr style="background:#f9f8f6;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Tags</td><td style="padding:10px 0;font-size:12px;">${escapeHtml(data.tags.join(", "))}</td></tr>`
@@ -188,6 +205,7 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
       <tr><td style="padding:10px 0;color:#666;font-weight:bold;">Phone</td><td style="padding:10px 0;">${data.phone ? escapeHtml(data.phone) : "Not provided"}</td></tr>
       <tr style="background:#f9f8f6;"><td style="padding:10px 0;color:#666;font-weight:bold;">Assessment Type</td><td style="padding:10px 0;">${escapeHtml(data.type)}</td></tr>
       ${redFlagRows}
+      ${mentalHealthLeadRow}
       ${tagsRow}
       <tr><td style="padding:10px 0;color:#666;font-weight:bold;">Submitted</td><td style="padding:10px 0;">${escapeHtml(data.submittedAt)}</td></tr>
     </table>

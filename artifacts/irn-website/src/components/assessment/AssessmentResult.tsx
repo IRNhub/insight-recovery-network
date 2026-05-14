@@ -8,6 +8,7 @@ interface AssessmentResultProps {
   name: string;
   anchorResponse: string;
   isLoading?: boolean;
+  advisories?: string[];
 }
 
 const LEVEL_CONFIG = {
@@ -43,7 +44,7 @@ const LEVEL_CONFIG = {
   },
 };
 
-export function AssessmentResult({ result, name, anchorResponse, isLoading }: AssessmentResultProps) {
+export function AssessmentResult({ result, name, anchorResponse, isLoading, advisories = [] }: AssessmentResultProps) {
   const config = LEVEL_CONFIG[result.level];
   const firstName = name.split(" ")[0] ?? name;
   const isHighRisk =
@@ -91,6 +92,19 @@ export function AssessmentResult({ result, name, anchorResponse, isLoading }: As
           </span>
           <p className="text-foreground font-light leading-relaxed">{result.tagline}</p>
         </div>
+
+        {/* Mental health advisory (non-urgent) */}
+        {advisories.includes("mental-health-advisory") && (
+          <div className="border border-amber-200 bg-amber-50 p-6">
+            <div className="flex items-start gap-3">
+              <AlertTriangle className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
+              <p className="text-sm font-light text-amber-900 leading-relaxed">
+                <strong className="font-semibold">Emotional wellbeing note:</strong>{" "}
+                You also reported significant low mood or anxiety. This does not automatically mean there is an immediate crisis, but it does suggest that emotional wellbeing should be part of any support plan. If these feelings become overwhelming or you feel unsafe, please seek urgent help immediately.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Anchor response */}
         <div className="bg-white border border-border/50 p-7 md:p-9">

@@ -5,6 +5,7 @@ export interface QuestionOption {
   label: string;
   score: number;
   redFlag?: boolean;
+  advisoryKey?: string;
 }
 
 export interface Question {
@@ -35,6 +36,7 @@ export interface ScoreResult {
   value: number;
   level: ScoreLevel;
   redFlags: string[];
+  advisories: string[];
   label: string;
   colour: string;
   tagline: string;

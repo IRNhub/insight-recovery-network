@@ -41,6 +41,7 @@ export function scoreAssessment(
 ): ScoreResult {
   let totalScore = 0;
   const triggeredRedFlags: string[] = [];
+  const triggeredAdvisories: string[] = [];
 
   for (const section of config.sections) {
     for (const question of section.questions) {
@@ -59,6 +60,10 @@ export function scoreAssessment(
           if (!triggeredRedFlags.includes(question.redFlagKey)) {
             triggeredRedFlags.push(question.redFlagKey);
           }
+        }
+
+        if (option.advisoryKey && !triggeredAdvisories.includes(option.advisoryKey)) {
+          triggeredAdvisories.push(option.advisoryKey);
         }
       }
     }
@@ -87,6 +92,7 @@ export function scoreAssessment(
     value: totalScore,
     level,
     redFlags: triggeredRedFlags,
+    advisories: triggeredAdvisories,
     label: SCORE_LABELS[level],
     colour: SCORE_COLOURS[level],
     tagline: SCORE_TAGLINES[level],

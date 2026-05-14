@@ -52,6 +52,7 @@ export default function AlcoholDetoxAssessment() {
           scoreLevel: score.level,
           scoreLabel: score.label,
           redFlags: score.redFlags,
+          advisories: score.advisories,
           tags,
           sectionSummary,
         }),
@@ -75,6 +76,12 @@ export default function AlcoholDetoxAssessment() {
     ];
     for (const flag of score.redFlags) {
       tags.push(`red-flag:${flag}`);
+      if (flag === "mental-health-risk") {
+        tags.push("mental-health-red-flag");
+      }
+    }
+    for (const advisory of score.advisories) {
+      tags.push(advisory);
     }
     if (score.value >= alcoholDetoxAssessment.scoreThresholds.possibleDetoxRisk) {
       tags.push("priority:high");
@@ -118,6 +125,7 @@ export default function AlcoholDetoxAssessment() {
           name={userName}
           anchorResponse={anchorResponse}
           isLoading={isLoadingAnchor}
+          advisories={result.advisories}
         />
       </Layout>
     );

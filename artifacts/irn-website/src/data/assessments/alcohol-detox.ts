@@ -313,6 +313,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
               value: "yes-mood",
               label: "Yes, significant low mood or anxiety",
               score: 4,
+              advisoryKey: "mental-health-advisory",
             },
             { value: "somewhat", label: "Somewhat", score: 2 },
             { value: "no", label: "Not particularly", score: 0 },
