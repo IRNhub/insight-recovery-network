@@ -5,6 +5,7 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { articles, CATEGORIES } from "@/data/articles";
 import { BookOpen } from "lucide-react";
+import resourcesHero from "../assets/resources-hero.png";
 
 export default function ResourcesList() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -59,69 +60,13 @@ export default function ResourcesList() {
                 style={{
                   aspectRatio: "16/11",
                   boxShadow: "0 12px 40px -8px rgba(22,43,59,0.20), 0 0 0 1px rgba(22,43,59,0.06)",
-                  background: "linear-gradient(135deg, #162B3B 0%, #1a3347 60%, #0f2030 100%)",
                 }}
               >
-                {/* Subtle grid */}
-                <svg
-                  className="absolute inset-0 w-full h-full opacity-[0.04]"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <defs>
-                    <pattern id="rGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.8" />
-                    </pattern>
-                  </defs>
-                  <rect width="100%" height="100%" fill="url(#rGrid)" />
-                </svg>
-
-                {/* Gold circle decorations — reference IRN logo mark */}
-                <div
-                  className="absolute top-6 right-8 w-28 h-28 rounded-full pointer-events-none"
-                  style={{ border: "1.5px solid rgba(201,169,110,0.18)" }}
+                <img
+                  src={resourcesHero}
+                  alt="Clinical resource library — laptop showing the Insight Recovery Network resources page on a desk with clinical books and a notebook"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div
-                  className="absolute top-10 right-12 w-16 h-16 rounded-full pointer-events-none"
-                  style={{ border: "1px solid rgba(201,169,110,0.10)" }}
-                />
-
-                {/* Editorial article card representation */}
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div
-                    className="w-full max-w-[260px] rounded-lg p-6"
-                    style={{
-                      background: "rgba(246,244,240,0.06)",
-                      border: "1px solid rgba(201,169,110,0.22)",
-                    }}
-                  >
-                    <div className="w-8 h-0.5 mb-4" style={{ background: "rgba(201,169,110,0.75)" }} />
-                    <div className="flex flex-col gap-2.5 mb-5">
-                      <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.25)" }} />
-                      <div className="h-px w-5/6" style={{ background: "rgba(255,255,255,0.18)" }} />
-                      <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.18)" }} />
-                      <div className="h-px w-4/5" style={{ background: "rgba(255,255,255,0.13)" }} />
-                    </div>
-                    <div className="w-5 h-0.5 mb-3" style={{ background: "rgba(201,169,110,0.4)" }} />
-                    <div className="flex flex-col gap-2 mb-5">
-                      <div className="h-px w-full" style={{ background: "rgba(255,255,255,0.12)" }} />
-                      <div className="h-px w-3/4" style={{ background: "rgba(255,255,255,0.10)" }} />
-                      <div className="h-px w-5/6" style={{ background: "rgba(255,255,255,0.10)" }} />
-                    </div>
-                    <div
-                      className="flex items-center gap-2.5 pt-4"
-                      style={{ borderTop: "1px solid rgba(201,169,110,0.2)" }}
-                    >
-                      <div
-                        className="w-6 h-6 rounded-full flex-shrink-0"
-                        style={{ background: "rgba(201,169,110,0.18)" }}
-                      />
-                      <div className="flex flex-col gap-1.5">
-                        <div className="h-px w-20" style={{ background: "rgba(255,255,255,0.25)" }} />
-                        <div className="h-px w-14" style={{ background: "rgba(255,255,255,0.15)" }} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* Overlay badge */}
                 <div
