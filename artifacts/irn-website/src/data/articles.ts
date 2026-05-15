@@ -8,6 +8,7 @@ export interface Article {
   readingTime: number;
   category: string;
   content: string;
+  image?: string;
 }
 
 export const CATEGORIES = [

@@ -20,7 +20,7 @@ export function PageHero({
   image
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-background py-16 md:py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-background py-10 md:py-14">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 flex flex-col gap-6 md:gap-8 z-10 pr-0 lg:pr-8">

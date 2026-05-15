@@ -1,0 +1,75 @@
+Please audit and reduce excessive vertical spacing across the website, especially the hero sections and the final CTA/footer areas.
+
+Issues observed:
+1. Resources page hero has far too much vertical padding above and below the headline.
+2. Several pages have a large dark CTA section before the footer with excessive top and bottom padding.
+3. Pages affected include:
+- About
+- What We Offer
+- Treatment Placement
+- Online Programme
+- Insight OS
+- Resources
+Possibly others.
+4. Assessments page spacing is better, so use that as a reference for tighter spacing.
+
+Requirements:
+
+A. Global CTA/footer spacing
+- Find the reusable final CTA/footer component used across pages.
+- Reduce vertical padding by approximately 40–50%.
+- The section should still feel premium and spacious, but not like there is a huge empty block above and below the text.
+- Avoid changing the footer navigation layout unless needed.
+- Make sure the CTA section still works on mobile.
+
+B. Resources page hero
+- Reduce hero vertical padding by approximately 40–50%.
+- Create a more balanced hero layout, ideally two-column on desktop:
+  - Left: heading and intro copy
+  - Right: editorial image/visual
+- On mobile, stack the text and image cleanly.
+- Keep styling aligned with the IRN design: cream background, navy typography, subtle gold accents.
+
+C. Resources page hero image
+Use a premium editorial-style visual direction:
+- calm private workspace
+- notebook, tablet/laptop, article/research style layout
+- warm natural light
+- cream background
+- subtle navy and muted gold accents
+- clinical insight and recovery guidance feel
+- no faces
+- no medical equipment
+- no visible personal data
+- no brand names
+
+If no image asset is available yet, create a polished CSS placeholder visual card until an image is supplied.
+
+D. Blog/resource cards
+- Add image support to resource/blog cards.
+- Each card should support a featured image at the top.
+- Keep image crop ratio consistent across all cards.
+- If no image exists for a blog, use a tasteful placeholder or hide the image area consistently.
+- Do not let cards become uneven or messy.
+
+E. Do not remove existing blogs yet.
+- Keep the current resource articles for now.
+- We will improve or replace the blog content separately.
+- Just prepare the Resources page layout so each article can have an image and look more premium.
+
+F. QA
+After changes, check desktop and mobile for:
+- Resources
+- About
+- What We Offer
+- Treatment Placement
+- Online Programme
+- Insight OS
+- Assessments
+
+Confirm:
+1. Hero spacing is reduced
+2. Final CTA/footer spacing is reduced globally
+3. No sections feel cramped
+4. Footer still displays correctly
+5. Resources page cards are ready for featured images

@@ -51,7 +51,7 @@ export default function TreatmentPlacement() {
       />
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-background py-14 md:py-24 lg:py-28">
+      <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-14">
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{

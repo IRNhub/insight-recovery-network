@@ -17,7 +17,7 @@ export function CTASection({
   isExternal
 }: CTASectionProps) {
   return (
-    <section className="py-14 md:py-24 lg:py-32 bg-primary relative overflow-hidden">
+    <section className="py-8 md:py-14 lg:py-16 bg-primary relative overflow-hidden">
       {/* Abstract subtle background pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
