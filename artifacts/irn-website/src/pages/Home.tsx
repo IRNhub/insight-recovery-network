@@ -41,9 +41,9 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Insight Recovery Network | Addiction &amp; Mental Health Support"
-        fullTitle="Insight Recovery Network | Addiction & Mental Health Support"
-        description="Confidential addiction and mental health support, including online recovery programmes, assessments, treatment placement and family guidance."
+        title="Private Addiction &amp; Mental Health Support | Insight Recovery"
+        fullTitle="Private Addiction & Mental Health Support | Insight Recovery"
+        description="Confidential addiction and mental health support through treatment placement, online recovery programmes, assessments and digital recovery tools."
         canonical="/"
       />
 
@@ -463,7 +463,7 @@ export default function Home() {
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <div className="w-5 h-px mb-3" style={{ background: "rgba(201,169,110,0.9)" }} />
-                      <h2 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h2>
+                      <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h3>
                       <p className="text-muted-foreground text-[13px] font-light leading-relaxed mb-4 flex-1">{s.copy}</p>
                       <span className="text-[11px] font-semibold tracking-wide uppercase text-accent group-hover:text-primary transition-colors duration-300 flex items-center gap-1.5">
                         Learn more
