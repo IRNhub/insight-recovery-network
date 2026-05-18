@@ -6,14 +6,15 @@ const SITE_NAME = "Insight Recovery Network";
 
 interface SEOProps {
   title: string;
+  fullTitle?: string;
   description: string;
   canonical: string;
   ogImage?: string;
   noIndex?: boolean;
 }
 
-export function SEO({ title, description, canonical, ogImage = DEFAULT_OG_IMAGE, noIndex = false }: SEOProps) {
-  const fullTitle = `${title} | ${SITE_NAME}`;
+export function SEO({ title, fullTitle: fullTitleOverride, description, canonical, ogImage = DEFAULT_OG_IMAGE, noIndex = false }: SEOProps) {
+  const fullTitle = fullTitleOverride ?? `${title} | ${SITE_NAME}`;
   const canonicalUrl = `${SITE_URL}${canonical}`;
 
   return (

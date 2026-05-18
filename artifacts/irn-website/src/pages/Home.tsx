@@ -21,12 +21,12 @@ const trustPoints = [
 
 const pillars = [
   {
-    title: "Online Programme",
+    title: "Online Recovery Programme",
     desc: "Groups, one-to-one support and relapse prevention planning.",
     href: "/online-programme",
   },
   {
-    title: "Insight OS",
+    title: "Insight OS Digital Recovery Tools",
     desc: "Daily structure, journaling, check-ins and Anchor guidance.",
     href: "/insight-os",
   },
@@ -41,8 +41,9 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Private Addiction & Mental Health Support"
-        description="Private addiction and mental health support for individuals, families and professionals. Expert treatment placement, online recovery programmes, digital tools."
+        title="Insight Recovery Network | Addiction &amp; Mental Health Support"
+        fullTitle="Insight Recovery Network | Addiction & Mental Health Support"
+        description="Confidential addiction and mental health support, including online recovery programmes, assessments, treatment placement and family guidance."
         canonical="/"
       />
 
@@ -128,7 +129,7 @@ export default function Home() {
                 className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans block mb-5"
                 data-testid="text-hero-eyebrow"
               >
-                Confidential online recovery, digital tools and treatment guidance
+                Private support for addiction and mental health — online programmes, assessments and treatment placement
               </span>
 
               {/* Headline */}
@@ -137,7 +138,7 @@ export default function Home() {
                 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)" }}
                 data-testid="text-hero-heading"
               >
-                Recovery support that meets you where you are.
+                Private Addiction and Mental Health Support, Online and Abroad
               </h1>
 
               {/* Subheading */}
@@ -145,7 +146,7 @@ export default function Home() {
                 className="text-[15px] text-muted-foreground leading-relaxed font-light mb-7 max-w-[480px]"
                 data-testid="text-hero-description"
               >
-                Insight Recovery Network combines structured online recovery support, Insight OS digital recovery tools and confidential treatment placement guidance — for individuals, families and professionals.
+                Expert support for alcohol and drug addiction, mental health challenges and co-occurring conditions — combining online recovery programmes, clinical assessments, treatment placement guidance and Insight OS digital recovery tools.
               </p>
 
               {/* CTAs */}
@@ -182,7 +183,7 @@ export default function Home() {
                 {[
                   {
                     img: onlineProgrammeImg,
-                    alt: "Online recovery session",
+                    alt: "A person taking part in a structured online alcohol and drug recovery programme from home via laptop",
                     title: "Online Recovery Programme",
                     desc: "Structured support from wherever you are.",
                     objPos: "center",
@@ -190,15 +191,15 @@ export default function Home() {
                   },
                   {
                     img: digitalToolsImg,
-                    alt: "Insight OS app",
-                    title: "Digital Recovery Tools",
+                    alt: "Insight OS digital recovery tools app showing daily check-ins and recovery planning on a phone",
+                    title: "Insight OS Digital Recovery Tools",
                     desc: "Insight OS for daily recovery structure.",
                     objPos: "center 20%",
                     eager: false,
                   },
                   {
                     img: treatmentImg,
-                    alt: "Private treatment setting",
+                    alt: "A calm, private residential treatment facility for addiction rehabilitation and detox",
                     title: "Treatment Placement",
                     desc: "Private guidance when residential care is needed.",
                     objPos: "center",
@@ -282,7 +283,7 @@ export default function Home() {
                 >
                   <img
                     src={onlineProgrammeImg}
-                    alt="A person attending a structured online recovery session from home"
+                    alt="A person attending a structured online alcohol and drug recovery programme from home via laptop"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                     fetchPriority="high"
                     loading="eager"
@@ -312,7 +313,7 @@ export default function Home() {
                 >
                   <img
                     src={digitalToolsImg}
-                    alt="Insight OS digital recovery app on a phone"
+                    alt="Insight OS digital recovery tools app on a phone showing daily check-in and progress tracking"
                     className="w-full h-full object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                   <div
@@ -408,8 +409,8 @@ export default function Home() {
             <div className="lg:col-span-4 lg:sticky lg:top-28">
               <SectionHeader
                 label="Our services"
-                heading="Comprehensive care, quietly delivered"
-                description="Discreet, recovery-informed support tailored to the needs of each individual, family or organisation."
+                heading="What We Offer"
+                description="Comprehensive, discreet care for addiction, mental health and family recovery — tailored to the needs of each individual."
               />
             </div>
 
@@ -418,7 +419,7 @@ export default function Home() {
               {[
                 {
                   img: onlineProgrammeImg,
-                  alt: "Online recovery group session on a laptop",
+                  alt: "Online alcohol and drug recovery group session on a laptop",
                   title: "Online Recovery Programme",
                   copy: "Structured group support, one-to-one sessions and relapse prevention planning.",
                   href: "/online-programme",
@@ -426,15 +427,15 @@ export default function Home() {
                 },
                 {
                   img: digitalToolsImg,
-                  alt: "Insight OS digital recovery app on a phone",
-                  title: "Insight OS",
+                  alt: "Insight OS digital recovery tools app on a phone",
+                  title: "Insight OS Digital Recovery Tools",
                   copy: "Daily structure, journaling, check-ins and Anchor guidance through Insight OS.",
                   href: "/insight-os",
                   objPos: "center 20%",
                 },
                 {
                   img: treatmentImg,
-                  alt: "Private residential treatment setting",
+                  alt: "A private residential treatment facility for addiction rehabilitation and detox",
                   title: "Treatment Placement",
                   copy: "Confidential guidance for detox, residential rehab and continuing care.",
                   href: "/treatment-placement",
@@ -442,7 +443,7 @@ export default function Home() {
                 },
                 {
                   img: familyImg,
-                  alt: "Family guidance consultation session",
+                  alt: "A private consultation for family addiction guidance and intervention support",
                   title: "Family & Intervention Guidance",
                   copy: "Support for families who are worried, overwhelmed or unsure how to help.",
                   href: "/what-we-offer",
@@ -462,7 +463,7 @@ export default function Home() {
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <div className="w-5 h-px mb-3" style={{ background: "rgba(201,169,110,0.9)" }} />
-                      <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h3>
+                      <h2 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h2>
                       <p className="text-muted-foreground text-[13px] font-light leading-relaxed mb-4 flex-1">{s.copy}</p>
                       <span className="text-[11px] font-semibold tracking-wide uppercase text-accent group-hover:text-primary transition-colors duration-300 flex items-center gap-1.5">
                         Learn more
@@ -641,10 +642,10 @@ export default function Home() {
               Free Assessments
             </span>
             <h2 className="font-serif text-primary text-3xl md:text-4xl leading-tight mb-5">
-              Not sure what level of support you need?
+              Addiction and Mental Health Assessments
             </h2>
             <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-8 max-w-lg">
-              Start with a confidential assessment and receive personalised guidance based on your answers.
+              Not sure where to start? Take a free confidential assessment and receive personalised guidance based on your answers.
             </p>
             <Link href="/assessments">
               <button className="inline-flex items-center gap-3 px-7 h-12 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
@@ -658,8 +659,8 @@ export default function Home() {
 
       {/* ── Final CTA ── */}
       <CTASection
-        heading="A private conversation can be the first step."
-        description="You do not need to have everything worked out before making contact. A confidential conversation can help clarify what support may be appropriate."
+        heading="Speak Confidentially"
+        description="You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family."
         primaryCta={{ label: "Speak Confidentially", href: "/contact" }}
       />
     </Layout>
