@@ -25,28 +25,6 @@ const whatWeHelpWith = [
   { label: "Mental health and dual-diagnosis considerations", href: "/assessments/anxiety" },
 ];
 
-const howWeWork = [
-  {
-    n: "1",
-    title: "Confidential consultation",
-    body: "You speak with us in complete confidence. There is no pressure, no obligation, and no need to have everything worked out before making contact.",
-  },
-  {
-    n: "2",
-    title: "Clinical picture and needs assessment",
-    body: "We take time to understand the full picture — substance use, mental health, history, risk, family context, and practical circumstances — before making any recommendation.",
-  },
-  {
-    n: "3",
-    title: "Treatment or support recommendation",
-    body: "Based on what we learn, we make a clear, honest recommendation about the most appropriate level and type of support — whether that is online recovery, residential treatment, or family guidance.",
-  },
-  {
-    n: "4",
-    title: "Ongoing recovery planning",
-    body: "We look beyond the immediate step. Recovery requires continuity, and we help plan the structure, tools, and support needed to protect long-term progress.",
-  },
-];
 
 const values = [
   {
@@ -318,48 +296,65 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── How we work ── */}
-      <section className="py-10 md:py-14">
+      {/* ── How it works ── */}
+      <section className="py-8 md:py-14 lg:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-7 text-center">
-              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans block mb-3">
-                The process
-              </span>
-              <h2 className="font-serif text-primary text-[1.75rem] md:text-[2rem] leading-tight">
-                How we work
-              </h2>
-            </div>
 
-            <div className="relative">
-              <div
-                className="hidden md:block absolute top-[2.375rem] left-[calc(16.67%+2.5rem)] right-[calc(16.67%+2.5rem)] h-px"
-                style={{ background: "rgba(201,169,110,0.28)" }}
-              />
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-4">
-                {howWeWork.map(({ n, title, body }) => (
+          <div className="max-w-2xl mx-auto text-center mb-7 md:mb-12">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              The process
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-4">How it works</h2>
+            <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
+              You do not need to know exactly what support you need before getting in touch. We help you slow things down, understand the options and decide on the next step.
+            </p>
+          </div>
+
+          <div className="relative max-w-4xl mx-auto">
+            <div
+              className="hidden md:block absolute top-[2.375rem] left-[calc(16.67%+2.5rem)] right-[calc(16.67%+2.5rem)] h-px"
+              style={{ background: "rgba(201,169,110,0.28)" }}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 lg:gap-6">
+              {[
+                {
+                  n: "1",
+                  title: "Tell us what is happening",
+                  body: "Briefly share what you or someone close to you is facing. There is no need to have everything worked out.",
+                },
+                {
+                  n: "2",
+                  title: "Clarify the right level of support",
+                  body: "We help you think through whether online support, treatment placement, family guidance or digital recovery tools are most appropriate.",
+                },
+                {
+                  n: "3",
+                  title: "Take the next step confidentially",
+                  body: "We agree a practical next step and support you in moving forward with clarity.",
+                },
+              ].map(({ n, title, body }) => (
+                <div
+                  key={n}
+                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-4 pt-5 pb-5 md:px-6 md:pt-6 md:pb-7"
+                  style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.06)" }}
+                >
                   <div
-                    key={n}
-                    className="flex flex-col items-center text-center bg-white border border-border/30 px-4 pt-5 pb-5 md:px-5"
-                    style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-4 md:mb-5 relative z-10"
+                    style={{
+                      background: "rgba(246,244,240,1)",
+                      border: "1px solid rgba(201,169,110,0.50)",
+                      color: "rgba(22,43,59,0.88)",
+                    }}
                   >
-                    <div
-                      className="w-12 h-12 flex items-center justify-center font-serif text-base mb-3.5 relative z-10"
-                      style={{
-                        background: "rgba(246,244,240,1)",
-                        border: "1px solid rgba(201,169,110,0.50)",
-                        color: "rgba(22,43,59,0.88)",
-                      }}
-                    >
-                      {n}
-                    </div>
-                    <h3 className="text-[13.5px] font-serif text-primary mb-2 leading-snug">{title}</h3>
-                    <p className="text-[12.5px] text-muted-foreground font-light leading-relaxed">{body}</p>
+                    {n}
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-[15px] font-serif text-primary mb-3 leading-snug">{title}</h3>
+                  <p className="text-[13px] text-muted-foreground font-light leading-relaxed">{body}</p>
+                </div>
+              ))}
             </div>
           </div>
+
         </div>
       </section>
 
