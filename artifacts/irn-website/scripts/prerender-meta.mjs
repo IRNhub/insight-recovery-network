@@ -2,22 +2,24 @@
  * Post-build pre-render script.
  *
  * After `vite build`, this script generates per-article HTML files under
- *   dist/public/resources/<slug>/index.html
+ *   dist/public/resources/<slug>.html
  *
  * Each file is a copy of dist/public/index.html with the generic site-wide
  * OG / Twitter / canonical / title meta tags replaced with article-specific
  * values, so social crawlers (Facebook, LinkedIn, etc.) see the correct
  * preview metadata without needing JavaScript.
  *
- * Static file servers try an exact path match before falling back to the SPA
- * index.html, so browsers still receive the SPA shell while crawlers receive
- * the pre-rendered article shell.
+ * The artifact.toml rewrites map  /resources/<slug>  →  /resources/<slug>.html
+ * so browsers and crawlers both receive the pre-rendered shell at the clean URL.
+ * Flat .html files (not directories) are used deliberately: directory-based
+ * pre-rendering causes static servers to return 403 (directory listing disabled)
+ * for bare slug paths, which blocks social crawlers.
  *
  * Run via:  node scripts/prerender-meta.mjs
  * Wired into package.json "build" so it runs automatically after vite build.
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
@@ -149,7 +151,6 @@ function replaceMeta(html, attr, attrValue, newContent) {
 }
 
 function replaceMeta2(html, attr, attrValue, newContent) {
-  // Also handle reversed attribute order: content="..." property="..."
   const re = new RegExp(
     `(<meta\\s+content=")[^"]*(\"\\s+${attr}="${escapeRegex(attrValue)}")`
   );
@@ -272,7 +273,6 @@ async function generateArticleOgImage() {
     .jpeg({ quality: 90 })
     .toFile(outDist);
 
-  // Also write to public/ so future `vite build` copies it automatically
   await sharp(src)
     .resize(1200, 630, { fit: "cover", position: "centre" })
     .jpeg({ quality: 90 })
@@ -293,17 +293,31 @@ async function main() {
   // Step 1: Generate 1200×630 OG image for the new article
   await generateArticleOgImage();
 
-  // Step 2: Read the built index.html
+  // Step 2: Remove any old directory-based pre-rendered files (slug/index.html)
+  // They cause 403s on static servers that disable directory listing.
+  const resourcesDir = resolve(distPublic, "resources");
+  if (existsSync(resourcesDir)) {
+    for (const article of ARTICLES) {
+      const oldDir = resolve(resourcesDir, article.slug);
+      if (existsSync(oldDir)) {
+        rmSync(oldDir, { recursive: true, force: true });
+        console.log(`  🗑  Removed old directory: resources/${article.slug}/`);
+      }
+    }
+  }
+
+  // Step 3: Ensure resources/ directory exists
+  mkdirSync(resourcesDir, { recursive: true });
+
+  // Step 4: Read the built index.html
   const baseHtml = readFileSync(indexPath, "utf-8");
 
-  // Step 3: Generate per-article HTML files
+  // Step 5: Generate per-article flat HTML files: resources/<slug>.html
   let count = 0;
   for (const article of ARTICLES) {
-    const dir = resolve(distPublic, "resources", article.slug);
-    mkdirSync(dir, { recursive: true });
     const html = injectArticleMeta(baseHtml, article);
-    writeFileSync(resolve(dir, "index.html"), html, "utf-8");
-    console.log(`  ✓ /resources/${article.slug}`);
+    writeFileSync(resolve(resourcesDir, `${article.slug}.html`), html, "utf-8");
+    console.log(`  ✓ /resources/${article.slug}  →  resources/${article.slug}.html`);
     count++;
   }
 

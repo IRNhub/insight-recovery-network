@@ -1,0 +1,73 @@
+Please fix Facebook and social sharing for this article page:
+
+https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+
+Current problem:
+- Facebook Sharing Debugger is returning HTTP 403 for this URL
+- Facebook says this may be due to a robots.txt block and suggests allowlisting facebookexternalhit
+- The page is also showing generic site metadata instead of article-specific metadata
+- We need the article preview to show the correct title, description, and image when shared on Facebook and other platforms
+
+Please do the following:
+
+1. Fix robots.txt so Facebook’s crawler is allowed.
+Add rules to allow at least:
+- facebookexternalhit
+- Facebot
+
+Example:
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+If there are any disallow rules currently affecting these bots, remove or override them.
+
+2. Check whether any server middleware, hosting config, reverse proxy config, bot protection, or firewall logic is returning 403 for Facebook crawlers.
+If so, allow Facebook’s crawler through for public blog/resource pages.
+
+3. Ensure this specific page outputs article-specific SEO metadata in the HTML response, not only after client-side rendering.
+
+Use:
+
+Title:
+Why Can’t I Stop Drinking or Using, Even When I Want To? | Insight Recovery Network
+
+Meta description:
+If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+
+Canonical URL:
+https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+
+Open Graph tags:
+og:type=article
+og:title=Why Can’t I Stop Drinking or Using, Even When I Want To?
+og:description=If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+og:url=https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+og:site_name=Insight Recovery Network
+og:image=[ABSOLUTE URL OF FEATURED IMAGE]
+og:image:width=1200
+og:image:height=630
+
+Twitter tags:
+twitter:card=summary_large_image
+twitter:title=Why Can’t I Stop Drinking or Using, Even When I Want To?
+twitter:description=If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+twitter:image=[ABSOLUTE URL OF FEATURED IMAGE]
+
+4. Make sure the article page has its own real metadata, and that it is not being overridden by generic site-wide metadata.
+
+5. Make sure the blog page is crawlable without requiring JavaScript for the title, description, and Open Graph tags.
+
+6. If this route is currently a React SPA route only, make sure this page is pre-rendered, server-rendered, or otherwise outputs the article metadata and content in the initial HTML.
+
+7. Confirm the final HTML source for this page includes:
+- correct <title>
+- meta description
+- canonical URL
+- Open Graph tags
+- Twitter card tags
+
+8. After implementation, verify that the page no longer returns 403 to Facebook and is ready to be re-scraped via Facebook Sharing Debugger.
