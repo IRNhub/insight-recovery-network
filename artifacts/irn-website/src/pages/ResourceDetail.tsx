@@ -1,11 +1,35 @@
 import { useParams, Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import NotFound from "@/pages/not-found";
 import { getArticleBySlug, articles, formatDate } from "@/data/articles";
-import { Clock, Calendar, ArrowLeft } from "lucide-react";
+import { Clock, Calendar, ArrowLeft, ArrowRight } from "lucide-react";
+
+const SITE_URL = "https://www.insightrecoverynetwork.com";
+
+/** Convert [text](url) patterns to <Link> elements */
+function parseInlineLinks(text: string): React.ReactNode[] {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  if (parts.length === 1) return [text];
+  return parts.map((part, idx) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (m) {
+      return (
+        <Link
+          key={idx}
+          href={m[2]}
+          className="text-primary underline underline-offset-2 hover:text-accent transition-colors duration-200"
+        >
+          {m[1]}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
 
 function parseContent(content: string) {
   const lines = content.split("\n");
@@ -15,18 +39,57 @@ function parseContent(content: string) {
   while (i < lines.length) {
     const line = lines[i];
 
+    // ## Heading
     if (line.startsWith("## ")) {
       elements.push(
         <h2 key={i} className="text-2xl md:text-3xl font-serif text-primary mt-10 mb-4 leading-snug">
           {line.replace("## ", "")}
         </h2>
       );
+
+    // [CTA:/path:Button Label] ... [/CTA]  — inline CTA callout block
+    } else if (line.startsWith("[CTA:")) {
+      const tagMatch = line.match(/^\[CTA:([^:]+):([^\]]+)\]$/);
+      const ctaHref = tagMatch ? tagMatch[1] : "/contact";
+      const ctaLabel = tagMatch ? tagMatch[2] : "Speak Confidentially";
+      const ctaLines: string[] = [];
+      i++;
+      while (i < lines.length && lines[i] !== "[/CTA]") {
+        if (lines[i].trim()) ctaLines.push(lines[i]);
+        i++;
+      }
+      elements.push(
+        <div
+          key={i}
+          className="my-10 p-7 md:p-9 border-l-4 rounded-r-xl"
+          style={{
+            borderColor: "#C9A96E",
+            background: "linear-gradient(135deg, rgba(246,244,240,0.95) 0%, rgba(242,237,227,0.7) 100%)",
+          }}
+        >
+          <p className="text-base font-light leading-relaxed text-primary/90 mb-6">
+            {parseInlineLinks(ctaLines.join(" "))}
+          </p>
+          <Link
+            href={ctaHref}
+            className="inline-flex items-center gap-2.5 px-7 h-11 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity duration-200"
+            style={{ background: "#162B3B" }}
+          >
+            {ctaLabel}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      );
+
+    // **Whole-line bold paragraph**
     } else if (line.startsWith("**") && line.endsWith("**")) {
       elements.push(
         <p key={i} className="font-semibold text-primary mt-6 mb-2 text-sm">
           {line.replace(/\*\*/g, "")}
         </p>
       );
+
+    // - Bullet list
     } else if (line.startsWith("- ")) {
       const listItems: string[] = [];
       while (i < lines.length && lines[i].startsWith("- ")) {
@@ -38,16 +101,35 @@ function parseContent(content: string) {
           {listItems.map((item, idx) => (
             <li key={idx} className="flex items-start gap-3 text-muted-foreground font-light text-base leading-relaxed">
               <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
-              <span>{item}</span>
+              <span>{parseInlineLinks(item)}</span>
             </li>
           ))}
         </ul>
       );
       continue;
+
+    // Regular paragraph — handles **inline bold** and [text](url) inline links
     } else if (line.trim() !== "") {
-      const parts = line.split(/(\*\*[^*]+\*\*)/g).map((part, idx) => {
+      const rawParts = line.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+      const parts = rawParts.map((part, idx) => {
         if (part.startsWith("**") && part.endsWith("**")) {
-          return <strong key={idx} className="font-semibold text-primary">{part.replace(/\*\*/g, "")}</strong>;
+          return (
+            <strong key={idx} className="font-semibold text-primary">
+              {part.replace(/\*\*/g, "")}
+            </strong>
+          );
+        }
+        const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (linkMatch) {
+          return (
+            <Link
+              key={idx}
+              href={linkMatch[2]}
+              className="text-primary underline underline-offset-2 hover:text-accent transition-colors duration-200"
+            >
+              {linkMatch[1]}
+            </Link>
+          );
         }
         return part;
       });
@@ -78,20 +160,53 @@ export default function ResourceDetail() {
 
   const moreRelated =
     related.length < 2
-      ? articles.filter((a) => a.slug !== article.slug && !related.includes(a)).slice(0, 2 - related.length)
+      ? articles
+          .filter((a) => a.slug !== article.slug && !related.includes(a))
+          .slice(0, 2 - related.length)
       : [];
 
   const relatedArticles = [...related, ...moreRelated].slice(0, 2);
+
+  const canonicalPath = `/resources/${article.slug}`;
+  const ogImage = article.image
+    ? `${SITE_URL}${article.image}`
+    : `${SITE_URL}/opengraph.jpg`;
+
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    author: {
+      "@type": "Person",
+      name: article.author,
+      jobTitle: article.authorRole,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Insight Recovery Network",
+      url: SITE_URL,
+    },
+    datePublished: article.date,
+    dateModified: article.date,
+    url: `${SITE_URL}${canonicalPath}`,
+    mainEntityOfPage: `${SITE_URL}${canonicalPath}`,
+    image: ogImage,
+  };
 
   return (
     <Layout>
       <SEO
         title={article.title}
         description={article.excerpt}
-        canonical={`/resources/${article.slug}`}
+        canonical={canonicalPath}
+        ogImage={ogImage}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+      </Helmet>
 
-      {/* Article header */}
+      {/* ── Article header ── */}
       <section className="py-16 md:py-24 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto">
@@ -136,7 +251,32 @@ export default function ResourceDetail() {
         </div>
       </section>
 
-      {/* Article body */}
+      {/* ── Featured image (shown when article supplies one) ── */}
+      {article.image && (
+        <section className="border-b border-border/40" style={{ background: "rgba(246,244,240,0.45)" }}>
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-3xl mx-auto py-10 md:py-12">
+              <div
+                className="relative overflow-hidden rounded-xl"
+                style={{
+                  aspectRatio: "16/9",
+                  boxShadow:
+                    "0 12px 40px -8px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.06)",
+                }}
+              >
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Article body ── */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
@@ -145,7 +285,7 @@ export default function ResourceDetail() {
         </div>
       </section>
 
-      {/* Related articles */}
+      {/* ── Related articles ── */}
       {relatedArticles.length > 0 && (
         <section className="py-16 md:py-20 border-t border-border/40">
           <div className="container mx-auto px-6 md:px-12">

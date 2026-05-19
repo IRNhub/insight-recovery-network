@@ -22,6 +22,107 @@ export const CATEGORIES = [
 
 export const articles: Article[] = [
   {
+    slug: "why-cant-i-stop-how-addiction-works",
+    title: "Why Can't I Stop, Even When I Want To? Understanding How Addiction Actually Works",
+    excerpt:
+      "If you have tried to stop drinking, using, or acting out and found that willpower was never enough, the problem was never your character. This article explains what addiction actually is, why willpower keeps losing, and what genuine recovery involves.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-05-19",
+    readingTime: 12,
+    category: "Addiction & Substances",
+    image: "/article-why-cant-i-stop.png",
+    content: `
+If you have ever sworn you would stop, meant it completely, and then watched yourself do the exact thing you swore off, you already know the most confusing part of addiction. It is not that you do not want to stop. It is that wanting to stop, even badly, often does not seem to be enough.
+
+That experience leaves most people with a quiet, corrosive conclusion: there must be something wrong with me. Weak. Broken. Lacking whatever other people have.
+
+That conclusion is wrong. Not kindly wrong. Factually wrong. And understanding why is the first real step in recovery, whether you are looking at alcohol, drugs, or a behaviour you cannot seem to put down.
+
+This article explains what addiction actually is, why willpower keeps losing, and what genuine recovery involves.
+
+## Is Addiction a Choice or a Disease?
+
+This is one of the most searched questions about addiction, and the way it is usually framed creates a false choice.
+
+Addiction is a disease in a specific, practical sense. It has recognisable symptoms. It follows a predictable course. It gets worse without intervention. And it responds to treatment. That is what the word disease is pointing at. It is not a metaphor and it is not an excuse.
+
+Whether you prefer the word disease, condition, disorder, or pattern, the practical point is the same: addiction follows a recognisable mechanism and requires more than good intentions.
+
+But calling it a disease does not mean you are powerless or broken for life. It means the opposite. It means this is a known condition with a known path through it. You do not get cured of addiction in the sense of it never having existed. You recover from it, which is a different and more durable thing. People carry the condition and, through sustained recovery, reach a point where it no longer governs their life in any practical way.
+
+## Why Doesn't Willpower Work for Addiction?
+
+Here is the part almost nobody explains clearly.
+
+Your brain has an old, deep system that is not interested in your long-term goals, your values, your relationships, or your future. It is interested in one thing: relief now. It is fast, it is powerful, and it was running long before the reasoning part of you came online.
+
+Addiction does not negotiate with the reasonable part of you. It goes underneath it. It hijacks that older, survival-driven system and convinces it that the substance or the behaviour is essential, in the same category as food or safety.
+
+Once that has happened, you have a problem that logic cannot reach, because the part of you doing the demanding does not speak the language of logic. This is why you could know, with total clarity, that the thing was destroying you, and still move toward it. You were not stupid. You were not weak. You were a reasoning person trying to argue with a system that does not reason.
+
+Willpower is the wrong tool for this, in the same way that determination does not set a broken bone. This is not a counsel of despair. It is the reason the right kind of help works when trying harder on your own did not.
+
+## For Families: Why Promises Keep Breaking
+
+If you are a family member watching this happen, it can look like the person simply does not care enough. But broken promises are often not evidence of a lack of love. They are evidence that the addiction is operating at a level deeper than intention.
+
+That does not mean there should be no boundaries. It means boundaries and support need to be built around the reality of addiction, not around the hope that one emotional conversation will fix it.
+
+## What Is Addiction Actually Doing for You?
+
+This is the heart of it, and it is the idea that changes how recovery feels.
+
+Addiction is not the pursuit of something bad. It is the pursuit of something good, by a route that destroys you.
+
+Nobody develops an addiction because they want chaos and loss. They develop it because, at some point, the substance or the behaviour met a real need, and it met that need fast and reliably. The need to feel calm in a body that does not feel safe. The need to feel something when you have gone numb, or to stop feeling something unbearable. The need to belong, to escape, to rest, to feel in control of one thing.
+
+None of those needs are wrong. Every human being has them. The need was never the problem. The problem is the route.
+
+This is the sentence that the whole of recovery is built on: addiction meets legitimate needs in an illegitimate way.
+
+Recovery is not about killing the need. The need is human and it is staying. Recovery is about meeting that same need through a route that does not cost you everything.
+
+## What About Process Addiction? Gambling, Sex, Work, Food, Screens
+
+Not every addiction involves a substance. Gambling, sex, work, food, spending, gaming, and the pursuit of intensity can all run on the identical mechanism. The brain is hijacked the same way. The legitimate need underneath is the same kind of need.
+
+Process addictions are often harder to see and harder to treat, for one main reason. There is no test for a behaviour the way there is for a substance. So much more of the recovery depends on the honesty of the person doing it. That makes self-honesty not a nice-to-have but a load-bearing pillar of the work, alongside accountability, structure, and lifestyle change.
+
+If you have been quietly wondering whether something that is not a substance has the same grip on you, the answer is that it can, and that it is treatable in the same way.
+
+## Why Stopping Is Not the Same as Recovering
+
+This is the distinction that matters most, and the one most people are never told.
+
+Stopping the substance or the behaviour is necessary. It is not optional and it is not minor. But it is not the same thing as recovery, and confusing the two is where a lot of people get stuck.
+
+Put it this way. Being sober stops the bleeding. Recovery is what heals the scar.
+
+Stopping addresses the symptom. You cannot heal anything while the bleeding continues, so this matters enormously. But a wound that has stopped bleeding is not a wound that has healed. It is a wound that has been given the conditions to heal, if the actual healing work now happens.
+
+The healing work is the rest of it. Understanding the mechanism. Meeting the legitimate need a different way. Accountability. The small daily things, done consistently. The lifestyle change. The honest look at why you turned there, and the deliberate pivot in the other direction. Recovery is not a single decision. It is a paradigm shift and a lifestyle shift.
+
+That is good news, not bad. If you have stopped and still do not feel free, you are not failing. You have stopped the bleeding. The healing is a different process, and it is the one that actually gives you your life back.
+
+[CTA:/contact:Speak Confidentially]
+If this describes where you are, Insight Recovery Network can help you understand what is happening and what kind of support is appropriate — whether that is [online recovery support](/online-programme), [treatment placement](/treatment-placement), or [family guidance](/what-we-offer). You do not need to have the perfect words or a fully formed plan. You just need an honest starting point.
+[/CTA]
+
+## You Do Not Have to Work This Out Alone
+
+If any of this has described your own experience, the most useful thing to know is this. The reason trying harder on your own has not worked is not a flaw in you. It is the nature of the thing itself. And it is precisely why structured, knowledgeable support makes the difference it does.
+
+At Insight Recovery Network, this is the work. A [structured online recovery programme](/online-programme) built around how addiction actually functions, delivered by someone with both deep clinical experience and lived experience of recovery. Whether the issue is alcohol, drugs, or a behavioural addiction, the approach is the same: understand the mechanism, meet the real need a different way, and build a life the addiction is no longer running.
+
+If you would like to understand more about [treatment placement](/treatment-placement), explore [digital recovery tools with Insight OS](/insight-os), or simply have a private conversation about where you are, the next step does not have to be dramatic. It just has to be a step.
+
+[CTA:/contact:Speak Confidentially]
+The need was always legitimate. There is a better way to meet it. A direct, honest conversation — no judgement, no script, no pressure — about where you are and what genuine recovery could look like for you. Reach out today.
+[/CTA]
+    `.trim(),
+  },
+  {
     slug: "understanding-alcohol-dependency",
     title: "Understanding Alcohol Dependency: Signs, Stages and What to Do Next",
     excerpt:
