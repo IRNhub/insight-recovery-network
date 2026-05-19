@@ -1,19 +1,25 @@
 /**
  * Post-build pre-render script.
  *
- * After `vite build`, this script generates per-article HTML files under
- *   dist/public/resources/<slug>.html
+ * After `vite build`, this script generates:
  *
- * Each file is a copy of dist/public/index.html with the generic site-wide
- * OG / Twitter / canonical / title meta tags replaced with article-specific
- * values, so social crawlers (Facebook, LinkedIn, etc.) see the correct
- * preview metadata without needing JavaScript.
+ *  1. Per-page HTML files for the main site routes:
+ *       dist/public/about.html
+ *       dist/public/what-we-offer.html
+ *       dist/public/treatment-placement.html
+ *       dist/public/online-programme.html
+ *       dist/public/insight-os.html
+ *       dist/public/contact.html
+ *     Each file is a copy of dist/public/index.html with:
+ *       - Page-specific <title>, <meta>, <link rel="canonical"> and OG tags
+ *       - Page-specific static body content (h1, descriptions, key links)
+ *     Vite's preview server (sirv) serves `pagename.html` when `/pagename`
+ *     is requested, so no rewrite rules are required for these files.
  *
- * The artifact.toml rewrites map  /resources/<slug>  →  /resources/<slug>.html
- * so browsers and crawlers both receive the pre-rendered shell at the clean URL.
- * Flat .html files (not directories) are used deliberately: directory-based
- * pre-rendering causes static servers to return 403 (directory listing disabled)
- * for bare slug paths, which blocks social crawlers.
+ *  2. Per-article HTML files under dist/public/resources/<slug>.html
+ *     Each file is a copy of dist/public/index.html with article-specific
+ *     OG / Twitter / canonical / title meta tags replaced with article-specific
+ *     values, so social crawlers see the correct preview metadata without JS.
  *
  * Run via:  node scripts/prerender-meta.mjs
  * Wired into package.json "build" so it runs automatically after vite build.
@@ -30,6 +36,8 @@ const distPublic = resolve(root, "dist/public");
 const publicDir = resolve(root, "public");
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const SITE_NAME = "Insight Recovery Network";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
 
 /** Escape a string for use inside an HTML attribute value. */
 function esc(str) {
@@ -39,6 +47,559 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
+
+function escapeRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. MAIN SITE PAGES
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Metadata for each pre-rendered page route.
+ * Keep title/description in sync with the SEO component props in each page.
+ */
+const PAGES = [
+  {
+    route: "/about",
+    file: "about.html",
+    title: "About Insight Recovery Network | Private Addiction Recovery Support",
+    description:
+      "Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">
+              About Insight Recovery Network
+            </p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Discreet addiction recovery support for individuals and families navigating complex treatment decisions.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
+              Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">About Craig Bilton, Founder</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:1.5rem;">
+              With over 20 years of international addiction treatment experience, Craig Bilton founded Insight Recovery Network to provide genuinely independent, clinically informed guidance. His background spans residential rehabilitation, online recovery support, and complex case management across the UK and internationally.
+            </p>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;">
+              Craig's approach is built on three principles: clarity, continuity, and practical support — providing honest guidance, long-term recovery planning, and tangible tools rather than generic advice.
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">What We Help With</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Alcohol and drug addiction concerns</li>
+              <li>Private rehab and detox decisions</li>
+              <li>Treatment placement in the UK and internationally</li>
+              <li>Family intervention and crisis guidance</li>
+              <li>Online addiction recovery support</li>
+              <li>Relapse prevention and aftercare planning</li>
+              <li>Mental health and dual-diagnosis considerations</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">
+              All enquiries are handled with complete discretion. You do not need to have everything worked out before reaching out.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/what-we-offer",
+    file: "what-we-offer.html",
+    title: "Addiction Counselling &amp; Recovery Services | Insight Recovery Network",
+    description:
+      "Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Our Services</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Comprehensive support across the recovery continuum.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
+              From the moment of crisis through to long-term wellbeing, we provide structured pathways for individuals, families, and professionals.
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;">
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Treatment Placement</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Confidential, independent guidance for finding the right detox or residential rehabilitation facility in the UK or internationally, matched to individual clinical need.</p>
+                <a href="/treatment-placement" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about Treatment Placement</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Online Recovery Programme</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Structured group support, one-to-one therapy sessions and relapse prevention planning for alcohol and drug addiction recovery. Available from wherever you are.</p>
+                <a href="/online-programme" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about the Online Recovery Programme</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Insight OS Digital Recovery Tools</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">A structured digital recovery platform for daily check-ins, mood tracking, journaling, recovery planning and access to the Anchor guidance system.</p>
+                <a href="/insight-os" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about Insight OS</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Family &amp; Intervention Guidance</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Structured support and guidance for families navigating a loved one's addiction, mental health difficulties and the process of seeking appropriate care.</p>
+                <a href="/what-we-offer" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about Family Guidance</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Professional Partnerships</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">A discreet, expert resource for professionals, EAPs, HR teams, and legal counsel — assessing, advising, and coordinating a clinical response to sensitive substance or mental health issues.</p>
+                <a href="/contact" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Enquire about Professional Partnerships</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Aftercare &amp; Continuity Planning</h2>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Sustained recovery requires structure beyond treatment. Tailored aftercare plans integrating Insight OS, peer support, clinical oversight, and scheduled reviews.</p>
+                <a href="/insight-os" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about Aftercare</a>
+              </article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Not sure where to start? A private conversation can help clarify the most appropriate pathway for you or your family.</p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/treatment-placement",
+    file: "treatment-placement.html",
+    title: "Private Rehab Placement — UK &amp; International | Insight Recovery Network",
+    description:
+      "Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure.",
+    ogImage: `${SITE_URL}/og-treatment-placement.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Treatment Placement</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Independent guidance on private rehab and detox, UK and internationally.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
+              Choosing the right treatment facility is one of the most consequential decisions a person or family can make. We assess your needs, identify the most appropriate options, and manage the transition — without commercial ties to any provider.
+            </p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">How the Placement Process Works</h2>
+            <ol style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li><strong style="color:#162B3B;">Understand the situation</strong> — Assess urgency, risk, substance use history, mental health needs, family context, and practical requirements.</li>
+              <li><strong style="color:#162B3B;">Identify suitable options</strong> — Match needs against trusted providers, considering clinical fit, location, budget, length of stay, and environment.</li>
+              <li><strong style="color:#162B3B;">Present and clarify</strong> — Share a clear shortlist of appropriate facilities with honest assessments of each, without pressure or sales tactics.</li>
+              <li><strong style="color:#162B3B;">Manage the transition</strong> — Coordinate directly with the chosen facility to ensure a smooth and structured admission.</li>
+              <li><strong style="color:#162B3B;">Aftercare planning</strong> — Ensure a clear plan is in place before discharge, including ongoing support through Insight OS and the Online Recovery Programme.</li>
+            </ol>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">What We Cover</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Alcohol detox and residential rehabilitation</li>
+              <li>Drug detox and residential rehabilitation</li>
+              <li>Dual-diagnosis treatment (addiction and mental health)</li>
+              <li>Private facilities across the UK</li>
+              <li>International treatment centres in Thailand, Spain, South Africa, and Sri Lanka</li>
+              <li>Continuing care and structured aftercare planning</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">
+              All enquiries are handled with complete discretion. There is no obligation and no pressure.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/online-programme",
+    file: "online-programme.html",
+    title: "Online Addiction Recovery Programme | Insight Recovery Network",
+    description:
+      "A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network.",
+    ogImage: `${SITE_URL}/og-online-programme.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Programme</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              A structured online addiction recovery programme — without residential care.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
+              For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning — wherever you are in the world.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">Who Is the Programme For?</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Those who need structure but cannot step away from work or family responsibilities</li>
+              <li>People who have completed residential treatment and need strong aftercare</li>
+              <li>Those in early recovery who want daily clinical support and peer accountability</li>
+              <li>Individuals who prefer the privacy of online recovery over residential settings</li>
+              <li>People whose location limits access to in-person treatment</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">Programme Components</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Group Therapy Sessions</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Structured weekly group sessions with peers in recovery, facilitated by a clinical therapist.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">One-to-One Support</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Individual sessions with your assigned clinician to address personal recovery challenges and goals.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Relapse Prevention Planning</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">A structured, personalised plan identifying triggers, warning signs, and practical intervention strategies.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Insight OS Digital Tools</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Daily check-ins, mood tracking, journaling, and Anchor recovery guidance — integrated throughout the programme.</p>
+              </article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Ready to take the next step? A private conversation can help clarify whether the online programme is the right fit.</p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/insight-os",
+    file: "insight-os.html",
+    title: "Insight OS — The Operating System for Your Recovery | Insight Recovery Network",
+    description:
+      "Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
+    ogImage: `${SITE_URL}/og-insight-os.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Insight OS</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              The operating system for your recovery.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
+              Insight OS is a structured digital recovery platform designed to bring daily rhythm, accountability, and clinical guidance to life outside treatment. It combines daily check-ins, mood tracking, guided journaling, relapse prevention tools, and the Anchor recovery guidance system.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get Started</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">What Insight OS Includes</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Daily Check-Ins</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">A structured morning check-in to set intentions and a reflective evening review to track progress and emotional state.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Mood Tracking</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Track emotional patterns over time to identify triggers, early warning signs, and progress in recovery.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Guided Journaling</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Clinically informed journal prompts to support reflection, self-awareness, and emotional processing in recovery.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Anchor Guidance System</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">A structured recovery guidance system providing strategies, frameworks, and prompts for navigating difficult moments.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Relapse Prevention Tools</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Personalised prevention plans, trigger identification, and structured response protocols for high-risk situations.</p>
+              </article>
+              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
+                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Recovery Planning</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Goal setting, milestone tracking, and structured weekly planning to maintain momentum and long-term wellbeing.</p>
+              </article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Get Started with Insight OS</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Insight OS is available as part of the Online Recovery Programme or as a standalone digital recovery tool. Contact us to find out more.</p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/contact",
+    file: "contact.html",
+    title: "Contact Us — Speak Confidentially | Insight Recovery Network",
+    description:
+      "Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families.",
+    ogImage: `${SITE_URL}/og-contact.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Contact</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:640px;">
+              Speak Confidentially
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;margin-bottom:2rem;">
+              You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Contact Details</h2>
+            <p style="font-family:sans-serif;font-size:1rem;color:#4a5568;line-height:2;">
+              Email: <a href="mailto:support@insightrecoverynetwork.com" style="color:#162B3B;">support@insightrecoverynetwork.com</a><br>
+              Based in Newquay, Cornwall, UK<br>
+              Supporting clients across the UK and internationally
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What to Expect</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;">
+              Your first contact will be a confidential, no-obligation conversation. We will listen carefully, ask relevant questions, and help you understand the most appropriate pathway forward — whether that is treatment placement, an online programme, Insight OS, or simply more information.
+            </p>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Our Services</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment Placement</a> — Private rehab and detox guidance, UK and internationally</li>
+              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a> — Structured group and one-to-one support</li>
+              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a> — Digital recovery tools and daily structure</li>
+              <li><a href="/what-we-offer" style="color:#162B3B;">Family Guidance</a> — Support for families navigating addiction</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free Assessments</a> — Confidential self-assessments for alcohol, drugs, and mental health</li>
+            </ul>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Helper: inject page-specific meta tags into index.html
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Replace all key meta tags and body content in the built index.html
+ * to produce a page-specific pre-rendered HTML file.
+ */
+function injectPageMeta(baseHtml, page) {
+  let out = baseHtml;
+  const canonicalUrl = `${SITE_URL}${page.route}`;
+
+  // <title>
+  out = out.replace(/<title>[^<]*<\/title>/, `<title>${page.title}</title>`);
+
+  // <meta name="description">
+  out = out.replace(
+    /(<meta\s+name="description"\s+content=")[^"]*(")/,
+    `$1${esc(page.description)}$2`
+  );
+
+  // <link rel="canonical">
+  out = out.replace(
+    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+    `$1${canonicalUrl}$2`
+  );
+
+  // og:title
+  out = out.replace(
+    /(<meta\s+property="og:title"\s+content=")[^"]*(")/,
+    `$1${page.title}$2`
+  );
+
+  // og:description
+  out = out.replace(
+    /(<meta\s+property="og:description"\s+content=")[^"]*(")/,
+    `$1${esc(page.description)}$2`
+  );
+
+  // og:image
+  out = out.replace(
+    /(<meta\s+property="og:image"\s+content=")[^"]*(")/,
+    `$1${esc(page.ogImage)}$2`
+  );
+
+  // og:image:alt
+  out = out.replace(
+    /(<meta\s+property="og:image:alt"\s+content=")[^"]*(")/,
+    `$1${esc(SITE_NAME)}$2`
+  );
+
+  // og:url
+  out = out.replace(
+    /(<meta\s+property="og:url"\s+content=")[^"]*(")/,
+    `$1${canonicalUrl}$2`
+  );
+
+  // twitter:title
+  out = out.replace(
+    /(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,
+    `$1${page.title}$2`
+  );
+
+  // twitter:description
+  out = out.replace(
+    /(<meta\s+name="twitter:description"\s+content=")[^"]*(")/,
+    `$1${esc(page.description)}$2`
+  );
+
+  // twitter:image
+  out = out.replace(
+    /(<meta\s+name="twitter:image"\s+content=")[^"]*(")/,
+    `$1${esc(page.ogImage)}$2`
+  );
+
+  // Replace the static body content inside <div id="root">...</div>
+  // Uses greedy matching so the outer closing </div> is matched (not an inner one).
+  // The comment "React mounts here" immediately follows the root </div>.
+  const bodyReplaced = out.replace(
+    /(<div id="root">)[\s\S]*(<\/div>)(\s*\n\s*<!-- React mounts here)/,
+    `$1\n${page.body}\n    $2$3`
+  );
+
+  // ── Assertions: fail hard if critical replacements did not apply ──────────
+  const checks = [
+    {
+      label: "<title>",
+      pattern: new RegExp(`<title>${escapeRegex(page.title)}</title>`),
+      html: bodyReplaced,
+    },
+    {
+      label: "canonical href",
+      pattern: new RegExp(`<link rel="canonical" href="${escapeRegex(canonicalUrl)}"`),
+      html: bodyReplaced,
+    },
+    {
+      label: "#root body content",
+      // Verify the body replacement ran: <div id="root"> must be directly
+      // followed by content from page.body (not the home-page static shell).
+      // We check for the absence of the default home-page marker in the root.
+      pattern: null,
+      customCheck: () => bodyReplaced !== out,
+    },
+  ];
+
+  for (const check of checks) {
+    const passed = check.customCheck
+      ? check.customCheck()
+      : check.pattern.test(check.html);
+    if (!passed) {
+      throw new Error(
+        `[prerender] Replacement failed for route "${page.route}": ${check.label} was not applied.\n` +
+        `Check that index.html contains the expected marker text and try rebuilding.`
+      );
+    }
+  }
+
+  return bodyReplaced;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. ARTICLE PAGES
+// ─────────────────────────────────────────────────────────────────────────────
 
 /**
  * Article metadata for pre-rendering.
@@ -157,10 +718,6 @@ function replaceMeta2(html, attr, attrValue, newContent) {
   return html.replace(re, `$1${newContent}$2`);
 }
 
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
 /** Inject article-specific meta tags into the base index.html. */
 function injectArticleMeta(html, article) {
   let out = html;
@@ -257,6 +814,10 @@ function injectArticleMeta(html, article) {
   return out;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. OG IMAGE GENERATION
+// ─────────────────────────────────────────────────────────────────────────────
+
 /** Generate a 1200×630 JPEG OG image for the article. */
 async function generateArticleOgImage() {
   const src = resolve(publicDir, "article-why-cant-i-stop.png");
@@ -281,6 +842,10 @@ async function generateArticleOgImage() {
   console.log("  ✓ article-why-cant-i-stop-og.jpg  (1200×630 JPEG)");
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. MAIN
+// ─────────────────────────────────────────────────────────────────────────────
+
 async function main() {
   const indexPath = resolve(distPublic, "index.html");
   if (!existsSync(indexPath)) {
@@ -288,12 +853,26 @@ async function main() {
     process.exit(1);
   }
 
-  console.log("\n▶  Pre-rendering article OG meta tags…\n");
+  const baseHtml = readFileSync(indexPath, "utf-8");
 
-  // Step 1: Generate 1200×630 OG image for the new article
+  // ── Step 1: Pre-render main site pages ───────────────────────────────────
+  console.log("\n▶  Pre-rendering main site pages…\n");
+
+  let pageCount = 0;
+  for (const page of PAGES) {
+    const html = injectPageMeta(baseHtml, page);
+    writeFileSync(resolve(distPublic, page.file), html, "utf-8");
+    console.log(`  ✓ ${page.route}  →  ${page.file}`);
+    pageCount++;
+  }
+
+  console.log(`\n  Pre-rendered ${pageCount} site pages.\n`);
+
+  // ── Step 2: Generate 1200×630 OG image for the new article ───────────────
+  console.log("▶  Generating article OG images…\n");
   await generateArticleOgImage();
 
-  // Step 2: Remove any old directory-based pre-rendered files (slug/index.html)
+  // ── Step 3: Clean up old directory-based pre-rendered article files ───────
   // They cause 403s on static servers that disable directory listing.
   const resourcesDir = resolve(distPublic, "resources");
   if (existsSync(resourcesDir)) {
@@ -306,22 +885,21 @@ async function main() {
     }
   }
 
-  // Step 3: Ensure resources/ directory exists
+  // ── Step 4: Ensure resources/ directory exists ────────────────────────────
   mkdirSync(resourcesDir, { recursive: true });
 
-  // Step 4: Read the built index.html
-  const baseHtml = readFileSync(indexPath, "utf-8");
+  // ── Step 5: Pre-render per-article flat HTML files ────────────────────────
+  console.log("\n▶  Pre-rendering article OG meta tags…\n");
 
-  // Step 5: Generate per-article flat HTML files: resources/<slug>.html
-  let count = 0;
+  let articleCount = 0;
   for (const article of ARTICLES) {
     const html = injectArticleMeta(baseHtml, article);
     writeFileSync(resolve(resourcesDir, `${article.slug}.html`), html, "utf-8");
     console.log(`  ✓ /resources/${article.slug}  →  resources/${article.slug}.html`);
-    count++;
+    articleCount++;
   }
 
-  console.log(`\n  Pre-rendered ${count} article pages.\n`);
+  console.log(`\n  Pre-rendered ${articleCount} article pages.\n`);
 }
 
 main().catch((err) => {
