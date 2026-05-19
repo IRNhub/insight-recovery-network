@@ -104,8 +104,8 @@ export default function OnlineProgramme() {
   return (
     <Layout>
       <SEO
-        title="Online Recovery Programme — Structured Digital Support"
-        description="A structured online recovery programme with group support, one-to-one therapy, daily structure, and relapse prevention — available without residential care."
+        title="Online Addiction Recovery Programme"
+        description="A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network."
         canonical="/online-programme"
       />
 

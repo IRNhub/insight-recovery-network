@@ -41,9 +41,8 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Private Addiction &amp; Mental Health Support | Insight Recovery"
-        fullTitle="Private Addiction & Mental Health Support | Insight Recovery"
-        description="Confidential addiction and mental health support through treatment placement, online recovery programmes, assessments and digital recovery tools."
+        title="Private Addiction Recovery Support"
+        description="Insight Recovery Network provides private addiction and mental health recovery support, led by Craig Bilton. Based in Newquay, Cornwall, we offer online recovery programmes, private rehab placement, family intervention guidance, and relapse prevention — available across the UK and internationally."
         canonical="/"
       />
 
@@ -512,7 +511,7 @@ export default function Home() {
                 Private support with clinical depth.
               </h2>
               <p className="text-primary-foreground/65 leading-relaxed font-light max-w-lg text-[15px]">
-                We help people and families make sense of complex situations with calm, confidential and practical guidance.
+                Led by Craig Bilton, we help individuals and families make sense of complex situations with calm, confidential and practical guidance — based in Newquay, Cornwall, and supporting clients across the UK and internationally.
               </p>
             </div>
 

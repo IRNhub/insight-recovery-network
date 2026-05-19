@@ -1,0 +1,99 @@
+Improve the About page for Insight Recovery Network so it feels more premium, credible, clinically authoritative, and conversion-focused.
+
+Current issues:
+- The page looks elegant but is too thin.
+- The founder section contains placeholder text and must be replaced.
+- The page needs stronger trust signals, clearer service positioning, and better internal SEO structure.
+- Keep the current premium visual direction: calm, discreet, high-end, clinical, navy/cream/gold styling.
+
+Please update the About page as follows:
+
+1. Hero section
+Replace the current headline with:
+“Discreet addiction recovery support for individuals and families navigating complex treatment decisions.”
+
+Add supporting copy:
+“Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.”
+
+2. Add credibility strip below the hero
+Include four concise trust points:
+- 20+ years’ international addiction treatment experience
+- UK-based, online-first recovery support
+- Private treatment placement guidance
+- Family intervention and relapse prevention planning
+
+Style this as a premium horizontal trust bar or four subtle cards.
+
+3. Add a “Why Insight Recovery Network exists” section
+Copy:
+“Addiction and mental health crises rarely arrive neatly. Families are often left trying to make urgent decisions while overwhelmed, frightened, or unsure who to trust. Insight Recovery Network was created to bring clarity, dignity, and clinical judgement into that process.
+
+We help people understand what level of support is needed, whether that means structured online recovery support, private detox, residential treatment, family intervention, relapse prevention planning, or longer-term recovery guidance.”
+
+4. Keep and strengthen the “A Clinical and Recovery-Informed Approach” section
+Use copy:
+“Our work sits at the intersection of clinical best practice, lived recovery understanding, and practical treatment navigation. We do not apply a one-size-fits-all model. Every recommendation is considered in relation to the person’s substance use, mental health, risk, family context, motivation, history, and recovery environment.”
+
+5. Add a “What we help with” section
+Use premium cards or a clean two-column layout. Include:
+- Alcohol and drug addiction concerns
+- Cocaine and stimulant use
+- Private rehab and detox decisions
+- Treatment placement in the UK and internationally
+- Family intervention and crisis guidance
+- Online addiction recovery support
+- Relapse prevention and aftercare planning
+- Mental health and dual-diagnosis considerations
+
+Where relevant, link these items internally to existing pages or future-ready routes.
+
+6. Replace the founder bio placeholder completely
+Use this copy:
+“Craig Bilton is the Founder and Clinical Director of Insight Recovery Network. With more than 20 years’ experience across addiction treatment, mental health support, programme leadership, intervention work, and international treatment placement, Craig has worked with individuals and families navigating some of the most complex stages of addiction and recovery.
+
+His work has included senior clinical and operational roles across treatment settings in the UK and internationally, including residential rehabilitation, structured outpatient programmes, family support, relapse prevention, and long-term recovery planning.
+
+Insight Recovery Network was created to offer families and individuals a more joined-up, discreet, and clinically informed route into support, whether that means finding the right treatment environment, accessing structured online recovery support, or receiving guidance during a crisis point.”
+
+Keep the existing founder image, but improve the layout:
+- tighter premium image crop if possible
+- subtle border/shadow
+- clear title: “Founder & Clinical Director”
+- button under bio: “Speak Confidentially”
+
+7. Add “How we work” section
+Use four steps:
+1. Confidential consultation
+2. Clinical picture and needs assessment
+3. Treatment or support recommendation
+4. Ongoing recovery planning
+
+Copy should feel calm, premium, and practical.
+
+8. Keep the values section but improve spacing and visual hierarchy
+Values:
+- Confidentiality
+- Dignity
+- Clarity
+- Continuity
+- Practical Support
+
+9. Final CTA
+Change heading to:
+“Speak confidentially about your situation.”
+
+Button:
+“Arrange a confidential consultation”
+
+10. SEO
+Set/update:
+Page title:
+“About Insight Recovery Network | Private Addiction Recovery Support”
+
+Meta description:
+“Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes.”
+
+Use a single clear H1.
+Use H2s for main sections.
+Do not keyword-stuff.
+Keep the tone premium, clinically credible, discreet, and human.

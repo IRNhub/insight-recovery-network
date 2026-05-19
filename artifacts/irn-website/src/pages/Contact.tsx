@@ -8,7 +8,7 @@ export default function Contact() {
     <Layout>
       <SEO
         title="Contact Us — Speak Confidentially"
-        description="Contact Insight Recovery Network confidentially. Private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families."
+        description="Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families."
         canonical="/contact"
       />
       <section className="bg-secondary/20 py-16 md:py-24">

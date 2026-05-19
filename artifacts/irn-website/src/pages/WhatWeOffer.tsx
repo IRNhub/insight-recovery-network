@@ -118,8 +118,8 @@ export default function WhatWeOffer() {
   return (
     <Layout>
       <SEO
-        title="What We Offer — Addiction & Mental Health Services"
-        description="Explore our services: treatment placement, online recovery programme, the Insight OS digital platform, and specialised support for families and professionals."
+        title="Addiction Counselling &amp; Recovery Services"
+        description="Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs."
         canonical="/what-we-offer"
       />
 

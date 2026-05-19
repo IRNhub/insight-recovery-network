@@ -45,8 +45,8 @@ export default function TreatmentPlacement() {
   return (
     <Layout>
       <SEO
-        title="Treatment Placement — Private Rehab & Detox Guidance"
-        description="Independent, confidential guidance to find the right detox or rehabilitation facility in the UK or internationally. We assess needs and manage the transition."
+        title="Private Rehab Placement — UK &amp; International"
+        description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure."
         canonical="/treatment-placement"
       />
 

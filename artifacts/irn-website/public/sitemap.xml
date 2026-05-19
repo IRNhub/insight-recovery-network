@@ -4,25 +4,25 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.insightrecoverynetwork.com/</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/what-we-offer</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/treatment-placement</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/online-programme</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -34,19 +34,19 @@
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/about</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/resources</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/contact</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -59,48 +59,48 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Assessment pages (canonical /assessments/[type]) -->
+  <!-- Assessment landing pages (intro phase only — in-progress and result phases carry noindex) -->
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-detox</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-use</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/drug-use</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/detox</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/anxiety</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/depression</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/assessments/adhd-impulsivity</loc>
     <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Resource articles -->
@@ -137,6 +137,12 @@
   <url>
     <loc>https://www.insightrecoverynetwork.com/resources/online-recovery-programmes</loc>
     <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works</loc>
+    <lastmod>2026-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

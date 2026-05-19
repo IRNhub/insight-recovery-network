@@ -8,14 +8,15 @@ export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Insight Recovery Network — Private Addiction &amp; Mental Health Guidance"
-        description="Insight Recovery Network provides clinically informed, confidential support for individuals and families facing addiction and mental health challenges. International experience, absolute discretion."
+        title="Craig Bilton — Addiction Recovery Expert"
+        fullTitle="Craig Bilton — Addiction Recovery Expert | Insight Recovery Network"
+        description="Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, based in Newquay, Cornwall. Providing private addiction counselling, treatment placement guidance, and structured recovery support for individuals and families across the UK."
         canonical="/about"
       />
       <PageHero 
         label="About Us"
         heading="Clinically informed care with absolute discretion."
-        description="Insight Recovery Network was founded to provide clear, practical, and highly confidential support for individuals and families facing complex addiction and mental health challenges."
+        description="Insight Recovery Network was founded to provide clear, practical, and highly confidential support for individuals and families facing complex addiction and mental health challenges — based in Newquay, Cornwall, and supporting clients across the UK and internationally."
       />
 
       <section className="py-16 md:py-24">
@@ -86,8 +87,14 @@ export default function About() {
                   Founder & Clinical Director
                 </span>
                 <h3 className="text-3xl md:text-4xl font-serif text-primary mb-6">Craig Bilton</h3>
-                <p className="text-lg text-muted-foreground font-light leading-relaxed mb-6">
-                  [Placeholder for Founder Bio] Craig has extensive experience in the clinical management of complex addiction cases and international treatment placement. He founded Insight Recovery Network to bridge the gap between initial crisis intervention and long-term sustainable recovery.
+                <p className="text-lg text-muted-foreground font-light leading-relaxed mb-5">
+                  Craig Bilton is a specialist in complex addiction and mental health management, with extensive experience supporting individuals and families through every stage of the recovery process — from initial crisis assessment through to sustained, long-term recovery.
+                </p>
+                <p className="text-muted-foreground font-light leading-relaxed mb-5">
+                  His background spans addiction counselling, residential treatment coordination, and structured relapse prevention planning. Craig has worked with clients across the UK and internationally, developing a deep knowledge of treatment environments — from private detox facilities in the UK to residential rehabilitation programmes in South Africa and Thailand.
+                </p>
+                <p className="text-muted-foreground font-light leading-relaxed mb-6">
+                  Craig founded Insight Recovery Network to address the gap that so often exists between a person recognising they need help and being connected to the right level of support. Based in Newquay, Cornwall, IRN provides clinical clarity, decisive guidance, and ongoing structure to those navigating one of the most difficult challenges a person can face.
                 </p>
               </div>
             </div>
