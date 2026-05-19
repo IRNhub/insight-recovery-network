@@ -1,0 +1,81 @@
+URGENT EMAIL ROUTING FIX
+
+Please audit the entire website/app codebase and update all contact and feedback email routing immediately.
+
+Requirements:
+
+1. Any public website reference that asks users to contact Insight Recovery Network / IRN must use:
+
+info@insightrecoverynetwork.com
+
+This includes, but is not limited to:
+- Contact page email links
+- Footer email links
+- Header/nav contact CTAs
+- “Get in touch” sections
+- Blog/resource CTAs
+- Assessment/contact forms
+- Any hardcoded mailto links
+- Any email address shown in visible page content
+- Any backend recipient used for general website enquiries
+
+2. Any Anchor-generated feedback, Anchor notifications, Anchor summaries, or Anchor-admin feedback emails must be sent to either:
+
+info@insightrecovery.com
+
+or:
+
+craig@insightrecoverynetwork.com
+
+Please search specifically for:
+- Anchor feedback
+- Anchor notifications
+- AI feedback
+- admin feedback
+- feedback recipient
+- contactRecipient
+- enquiryRecipient
+- supportEmail
+- MAIL_TO
+- RESEND_TO
+- TO_EMAIL
+- ADMIN_EMAIL
+- FEEDBACK_EMAIL
+
+3. Do a full-codebase search for old or incorrect addresses and replace/reroute them where appropriate:
+- craig@insightrecoverynetwork.com should remain only where it is specifically for Craig or Anchor/internal feedback.
+- info@insightrecoverynetwork.com should be the default public-facing IRN contact address.
+- Remove or replace any outdated Gmail/personal email addresses.
+- Remove any inconsistent/incorrect contact addresses from visible website copy.
+
+4. Backend form handling:
+- Check all API routes that send contact form submissions or assessment enquiries.
+- General enquiry/contact forms must send to info@insightrecoverynetwork.com.
+- Anchor/internal feedback emails must send to craig@insightrecoverynetwork.com and/or info@insightrecovery.com.
+- Make sure Resend or the current email provider is using the correct recipient values.
+
+5. Environment variables:
+- If email recipients are stored in .env or Replit Secrets, create or update clear variables such as:
+  PUBLIC_CONTACT_EMAIL=info@insightrecoverynetwork.com
+  GENERAL_ENQUIRY_TO=info@insightrecoverynetwork.com
+  ANCHOR_FEEDBACK_TO=craig@insightrecoverynetwork.com
+  ANCHOR_FEEDBACK_CC=info@insightrecovery.com
+
+Do not expose secrets in the frontend. Public display emails are fine, but API keys and private config must remain server-side.
+
+6. Validation:
+- After changes, run a search across the codebase for:
+  @insight
+  mailto:
+  contact
+  feedback
+  Anchor
+  recipient
+  Resend
+  sendEmail
+- Confirm every email address is intentional.
+- Run typecheck/build if available.
+- Report back with every file changed and exactly which email routes were updated.
+
+Important:
+This is urgent. Please prioritise the email routing fix before any visual or non-essential improvements.

@@ -41,8 +41,8 @@ export default function Contact() {
                     <Mail className="w-5 h-5 text-accent mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-primary mb-1">Email</p>
-                      <a href="mailto:support@insightrecoverynetwork.com" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                        support@insightrecoverynetwork.com
+                      <a href="mailto:info@insightrecoverynetwork.com" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                        info@insightrecoverynetwork.com
                       </a>
                     </div>
                   </div>

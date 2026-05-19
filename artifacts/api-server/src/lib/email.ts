@@ -254,11 +254,12 @@ export async function sendAssessmentResultToUser(data: AssessmentEmailData): Pro
 
 export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Promise<void> {
   const apiKey = process.env["RESEND_API_KEY"];
-  const toEmail = process.env["ENQUIRY_TO_EMAIL"];
+  const toEmail = process.env["ANCHOR_FEEDBACK_TO"];
+  const ccEmail = process.env["ANCHOR_FEEDBACK_CC"];
   const fromEmail = process.env["ENQUIRY_FROM_EMAIL"];
 
   if (!apiKey || !toEmail || !fromEmail) {
-    logger.info("Resend not configured — skipping lead notification email");
+    logger.info("ANCHOR_FEEDBACK_TO or ENQUIRY_FROM_EMAIL not set — skipping lead notification email");
     return;
   }
 
@@ -272,18 +273,19 @@ export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Prom
   const { error } = await resend.emails.send({
     from: fromEmail,
     to: toEmail,
+    ...(ccEmail ? { cc: ccEmail } : {}),
     subject: `${subjectPrefix}New Assessment Lead: ${data.name} — ${data.scoreLabel}`,
     html: buildAssessmentLeadHtml(data),
     text: `New Assessment Lead\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone ?? "Not provided"}\nScore: ${data.scoreLabel} (${data.scoreValue})\nRed Flags: ${data.redFlags.join(", ") || "None"}\nTags: ${data.tags.join(", ")}\n\nSection Summary:\n${data.sectionSummary}`,
   });
 
   if (error) throw new Error(`Resend error: ${error.message}`);
-  logger.info({ to: toEmail }, "Assessment lead email sent to Craig");
+  logger.info({ to: toEmail, cc: ccEmail }, "Assessment lead email sent");
 }
 
 export async function sendEnquiryNotification(data: EnquiryData): Promise<void> {
   const apiKey = process.env["RESEND_API_KEY"];
-  const toEmail = process.env["ENQUIRY_TO_EMAIL"];
+  const toEmail = process.env["GENERAL_ENQUIRY_TO"];
   const fromEmail = process.env["ENQUIRY_FROM_EMAIL"];
 
   if (!apiKey) {
@@ -292,7 +294,7 @@ export async function sendEnquiryNotification(data: EnquiryData): Promise<void> 
   }
 
   if (!toEmail) {
-    logger.info("ENQUIRY_TO_EMAIL not set — skipping email notification");
+    logger.info("GENERAL_ENQUIRY_TO not set — skipping email notification");
     return;
   }
 
