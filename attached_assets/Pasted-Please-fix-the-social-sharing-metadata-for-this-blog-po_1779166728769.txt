@@ -1,0 +1,42 @@
+Please fix the social sharing metadata for this blog post so that Facebook, LinkedIn, and other platforms show the correct article preview instead of the generic site preview.
+
+Target blog URL:
+https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+
+Please ensure this page outputs article-specific metadata on first load, not just after client-side rendering.
+
+Use the following metadata for this blog post:
+
+Page title:
+Why Can’t I Stop Drinking or Using, Even When I Want To? | Insight Recovery Network
+
+Meta description:
+If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+
+Canonical URL:
+https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+
+Open Graph tags:
+og:type = article
+og:title = Why Can’t I Stop Drinking or Using, Even When I Want To?
+og:description = If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+og:url = https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works
+og:site_name = Insight Recovery Network
+og:image = [INSERT ABSOLUTE URL OF BLOG FEATURED IMAGE]
+og:image:width = 1200
+og:image:height = 630
+
+Twitter tags:
+twitter:card = summary_large_image
+twitter:title = Why Can’t I Stop Drinking or Using, Even When I Want To?
+twitter:description = If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.
+twitter:image = [INSERT ABSOLUTE URL OF BLOG FEATURED IMAGE]
+
+Important:
+1. The metadata must be available in the HTML response so Facebook’s crawler can read it.
+2. If the site is a React SPA, make sure this route is pre-rendered, server-rendered, or otherwise outputs the metadata correctly for crawlers.
+3. Make sure the og:image uses a fully qualified absolute URL, not a relative path.
+4. Use a 1200x630 image for best Facebook sharing results.
+5. Check that the article page has the correct title tag and meta description.
+6. If there is a generic site-wide SEO component overriding the page metadata, update it so this blog page uses its own article metadata.
+7. After implementation, confirm that this URL is ready to be re-scraped in Facebook Sharing Debugger.
