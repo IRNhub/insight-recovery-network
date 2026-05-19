@@ -1,0 +1,60 @@
+URGENT BRANDING FIX: Replace the current orange square favicon/browser tab icon across the whole website.
+
+The current browser tab shows an orange square placeholder icon. I do not want this. Please audit and replace all favicon/icon references with a clean Insight Recovery Network branded favicon.
+
+Tasks:
+
+1. Search the entire codebase for all favicon/icon references, including:
+   - favicon.ico
+   - favicon.png
+   - apple-touch-icon
+   - manifest icons
+   - site.webmanifest
+   - rel="icon"
+   - rel="shortcut icon"
+   - rel="apple-touch-icon"
+   - any Vite/Replit/template placeholder icons
+   - any orange square or default generated icon asset
+
+2. Replace the current favicon with a premium IRN branded favicon.
+   Use the official Insight Recovery Network logo/mark if available in the project assets.
+   If the full logo is too detailed for a browser tab, create/use a simplified square favicon version:
+   - dark navy or deep brand background
+   - cream/gold IRN mark or simplified logo symbol
+   - no orange
+   - no default placeholder icon
+   - no generic square
+
+3. Generate or add the correct icon sizes:
+   - favicon.ico
+   - favicon-16x16.png
+   - favicon-32x32.png
+   - apple-touch-icon.png, 180x180
+   - android-chrome-192x192.png
+   - android-chrome-512x512.png
+
+4. Update index.html so the favicon links are explicit and point to the new files, for example:
+   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+   <link rel="manifest" href="/site.webmanifest" />
+
+5. Update site.webmanifest so the app icons point to the correct branded files:
+   - /android-chrome-192x192.png
+   - /android-chrome-512x512.png
+
+6. Make sure the browser tab title still displays correctly and is not changed unless it currently says something wrong.
+
+7. Remove or replace any cached/original orange placeholder icon files so they cannot be used again.
+
+8. Add a cache-busting query string to the favicon links if needed, for example:
+   href="/favicon-32x32.png?v=2"
+
+9. After implementation, confirm:
+   - the orange square favicon is gone
+   - the browser tab shows the new IRN branded icon
+   - the icon works in Chrome/Safari
+   - the manifest icons are updated
+   - there are no remaining references to the old orange icon
+
+Do not change the website layout or content. This is only a favicon/icon branding fix.

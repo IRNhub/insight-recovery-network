@@ -1,0 +1,54 @@
+Please fix the continuity issue between the Home page and About page process sections.
+
+Currently:
+- The About page has a “How we work” section with 4 steps.
+- The Home page has a “How it works” section with 3 steps.
+
+I want continuity across the website. Please standardise both sections so they use the same 3-step structure, wording style, and visual style.
+
+Use this 3-step version across both pages:
+
+Section eyebrow:
+THE PROCESS
+
+Section title:
+How it works
+
+Intro text:
+You do not need to know exactly what support you need before getting in touch. We help you slow things down, understand the options and decide on the next step.
+
+Step 1 title:
+Tell us what is happening
+
+Step 1 body:
+Briefly share what you or someone close to you is facing. There is no need to have everything worked out.
+
+Step 2 title:
+Clarify the right level of support
+
+Step 2 body:
+We help you think through whether online support, treatment placement, family guidance or digital recovery tools are most appropriate.
+
+Step 3 title:
+Take the next step confidentially
+
+Step 3 body:
+We agree a practical next step and support you in moving forward with clarity.
+
+Tasks:
+1. Update the About page “How we work” section to match the Home page 3-step structure.
+2. Change the About page heading from “How we work” to “How it works” for consistency.
+3. Remove the 4-step version from the About page completely.
+4. Keep the visual design consistent with the Home page version:
+   - 3 cards only
+   - same spacing
+   - same typography
+   - same numbered boxes
+   - same connecting line if currently used
+   - same card style and border radius
+5. Make sure the section works properly on desktop, tablet, and mobile.
+6. On mobile, the cards should stack cleanly with no awkward connecting line running through the layout.
+7. Do not change the wider page content or navigation.
+8. After updating, search the codebase for duplicate process sections or old 4-step copy and remove/replace any outdated version.
+
+The goal is that the Home page and About page feel like they belong to the same website and explain the process in the same clear way.
