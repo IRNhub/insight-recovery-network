@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "dsTx3YXfJe0JCUSnfBFro"
+uri = "file://artifacts/irn-website/public/og-treatment-placement.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "Q2J2NeFRI4yWKOqFBtnfJ"
+uri = "file://artifacts/irn-website/public/og-online-programme.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "ooGeQsoFEjZzwuoc4Qz1c"
+uri = "file://artifacts/irn-website/public/og-insight-os.png"
+type = "image"
+title = "generated_image"
+
+[[generated]]
+id = "NK1_bwxy1XUP-OIEfV4bi"
+uri = "file://artifacts/irn-website/public/og-contact.png"
+type = "image"
+title = "generated_image"

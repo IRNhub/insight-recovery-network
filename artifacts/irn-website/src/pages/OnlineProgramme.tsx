@@ -107,6 +107,7 @@ export default function OnlineProgramme() {
         title="Online Addiction Recovery Programme"
         description="A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network."
         canonical="/online-programme"
+        ogImage="https://www.insightrecoverynetwork.com/og-online-programme.png"
       />
 
       {/* ── Hero ── */}

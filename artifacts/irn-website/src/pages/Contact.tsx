@@ -10,6 +10,7 @@ export default function Contact() {
         title="Contact Us — Speak Confidentially"
         description="Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families."
         canonical="/contact"
+        ogImage="https://www.insightrecoverynetwork.com/og-contact.png"
       />
       <section className="bg-secondary/20 py-16 md:py-24">
         <div className="container mx-auto px-6 md:px-12">

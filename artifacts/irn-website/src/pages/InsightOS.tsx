@@ -123,6 +123,7 @@ export default function InsightOS() {
         title="Insight OS — The Operating System for Your Recovery"
         description="Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance."
         canonical="/insight-os"
+        ogImage="https://www.insightrecoverynetwork.com/og-insight-os.png"
       />
 
       {/* ── Hero ── */}

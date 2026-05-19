@@ -48,6 +48,7 @@ export default function TreatmentPlacement() {
         title="Private Rehab Placement — UK &amp; International"
         description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure."
         canonical="/treatment-placement"
+        ogImage="https://www.insightrecoverynetwork.com/og-treatment-placement.png"
       />
 
       {/* ── Hero ── */}
