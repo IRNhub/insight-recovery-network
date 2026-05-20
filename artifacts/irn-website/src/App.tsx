@@ -29,6 +29,8 @@ const queryClient = new QueryClient();
 const REDIRECT_PATHS: Record<string, string> = {
   "/suspended": "/",
   "/suspended/": "/",
+  "/private-addiction-treatment": "/treatment-placement",
+  "/private-addiction-treatment/": "/treatment-placement",
 };
 
 function Router() {

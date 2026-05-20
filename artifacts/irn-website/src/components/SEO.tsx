@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://www.insightrecoverynetwork.com";
+const SITE_URL = "https://insightrecoverynetwork.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
 const SITE_NAME = "Insight Recovery Network";
 

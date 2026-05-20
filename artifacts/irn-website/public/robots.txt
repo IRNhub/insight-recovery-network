@@ -7,4 +7,4 @@ Allow: /
 User-agent: Facebot
 Allow: /
 
-Sitemap: https://www.insightrecoverynetwork.com/sitemap.xml
+Sitemap: https://insightrecoverynetwork.com/sitemap.xml

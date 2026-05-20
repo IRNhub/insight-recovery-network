@@ -25,7 +25,7 @@ function suspendedRedirectPlugin() {
   ) {
     const pathname = (req.url ?? "").split("?")[0].split("#")[0];
     if (pathname === "/suspended" || pathname === "/suspended/") {
-      res.writeHead(301, { Location: "https://www.insightrecoverynetwork.com/" });
+      res.writeHead(301, { Location: "https://insightrecoverynetwork.com/" });
       res.end();
       return;
     }

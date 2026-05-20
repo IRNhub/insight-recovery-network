@@ -1,0 +1,86 @@
+Urgent SEO indexing fix needed.
+
+Bing Webmaster Tools is showing that multiple important pages cannot be indexed because their canonical tags point to the homepage:
+
+Canonical currently being detected:
+https://www.insightrecoverynetwork.com/
+
+This is wrong.
+
+Please audit and fix the SEO/head/canonical implementation across the whole site.
+
+Critical issues found:
+
+1. Many internal pages are incorrectly canonicalised to the homepage.
+Examples:
+- https://insightrecoverynetwork.com/resources
+- https://insightrecoverynetwork.com/about
+- https://insightrecoverynetwork.com/treatment-placement
+- https://insightrecoverynetwork.com/online-programme
+- https://insightrecoverynetwork.com/what-we-offer
+- https://insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment
+- https://insightrecoverynetwork.com/assessments
+
+Each indexable page must have a self-referencing canonical tag.
+
+Correct examples:
+<link rel="canonical" href="https://insightrecoverynetwork.com/resources" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/about" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/treatment-placement" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/online-programme" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/what-we-offer" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment" />
+<link rel="canonical" href="https://insightrecoverynetwork.com/assessments" />
+
+2. The site appears to be mixing www and non-www canonical URLs.
+The live site is being inspected as:
+https://insightrecoverynetwork.com/
+
+Use non-www consistently as the preferred canonical version unless there is a deliberate redirect strategy already in place.
+
+Preferred domain:
+https://insightrecoverynetwork.com
+
+Do not canonicalise pages to:
+https://www.insightrecoverynetwork.com/
+
+unless the whole site redirects to www, which it currently does not appear to be doing.
+
+3. The page below appears to contain a noindex directive:
+https://insightrecoverynetwork.com/private-addiction-treatment
+
+Bing reports:
+"The inspected URL is not indexable as the page contains 'noindex' directive either in a meta tag or HTTP header."
+
+Please remove any noindex directive from this page unless it was deliberately meant to be hidden. This is an important commercial SEO page and should be indexable.
+
+4. Bing is also showing duplicate SEO tags across multiple pages:
+- More than one title tag
+- More than one meta description tag
+- More than one canonical tag
+
+Please fix the SEO/head system so each page has only:
+- One <title> tag
+- One <meta name="description"> tag
+- One <link rel="canonical"> tag
+- No noindex tag on public commercial/resource pages
+
+Likely cause:
+SEO tags may be duplicated between index.html and a React SEO component, Helmet, route-level metadata, or a global default SEO component.
+
+Requirements:
+- Do not remove Google verification.
+- Do not remove Bing verification:
+<meta name="msvalidate.01" content="D844729F6F273A478C5F7DB0BBCD7463" />
+- Do not remove schema markup unless duplicated or invalid.
+- Do not remove Open Graph/Twitter tags unless duplicated or incorrect.
+- Keep sitemap.xml and robots.txt working.
+- Ensure public pages return HTTP 200 and are indexable.
+- Ensure robots meta is index,follow or absent on all public SEO pages.
+
+After fixing, please provide:
+1. The file or component where the wrong canonical was being set.
+2. The file or component where noindex was being added.
+3. Confirmation that all public pages now have self-referencing canonical URLs.
+4. Confirmation that each page has only one title, one meta description, and one canonical tag.
+5. Confirmation that https://insightrecoverynetwork.com/private-addiction-treatment no longer has noindex.
