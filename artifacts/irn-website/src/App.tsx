@@ -33,6 +33,15 @@ const REDIRECT_PATHS: Record<string, string> = {
 
 function Router() {
   const rawPath = typeof window !== "undefined" ? window.location.pathname : "";
+
+  // Strip trailing slash from all paths except root "/"
+  if (rawPath !== "/" && rawPath.endsWith("/")) {
+    window.location.replace(
+      rawPath.slice(0, -1) + window.location.search + window.location.hash
+    );
+    return null;
+  }
+
   const redirectTarget = REDIRECT_PATHS[rawPath];
   if (redirectTarget) {
     window.location.replace(redirectTarget);

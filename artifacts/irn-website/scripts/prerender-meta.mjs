@@ -475,6 +475,210 @@ const PAGES = [
       </main>
     `,
   },
+  {
+    route: "/assessments",
+    file: "assessments.html",
+    title: "Free Addiction &amp; Mental Health Assessments | Insight Recovery Network",
+    description:
+      "Confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Start a free clinical assessment and receive personalised guidance — no registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Clinical Assessments</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Free confidential assessments for addiction and mental health.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:1rem;">
+              These assessments are designed to help individuals and families understand their situation more clearly. Each one takes 7–15 minutes, is completely confidential, and requires no registration. Results are designed to provide personalised guidance — not a diagnosis.
+            </p>
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              These tools are for informational purposes only and do not constitute medical advice. If you are in crisis or require urgent support, please contact your GP or emergency services.
+            </p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially Instead</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:2rem;">Available Assessments</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.75rem;">
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Alcohol &amp; Detox Suitability Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Explore whether alcohol may be affecting your wellbeing and whether stopping suddenly could carry medical risk. Covers use patterns, withdrawal history, and detox safety.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">10–15 minutes &nbsp;·&nbsp; For individuals drinking heavily considering stopping</p>
+                <a href="/assessments/alcohol-detox" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Alcohol &amp; Detox Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Alcohol Use Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Reflect on your current relationship with alcohol and understand whether it may be affecting your health, relationships, or daily life.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">7–10 minutes &nbsp;·&nbsp; For individuals questioning their drinking</p>
+                <a href="/assessments/alcohol-use" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Alcohol Use Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Drug Use &amp; Substance Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Explore your relationship with substances and identify whether further professional support or treatment may be appropriate.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">7–10 minutes &nbsp;·&nbsp; For individuals concerned about substance use</p>
+                <a href="/assessments/drug-use" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Drug Use Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Detox Suitability Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Understand whether medical detox may be necessary, and what level of supervision or support is advisable before reducing or stopping substance use.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">8–12 minutes &nbsp;·&nbsp; For individuals preparing to stop using substances</p>
+                <a href="/assessments/detox" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Detox Suitability Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Anxiety Screening Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Explore patterns of anxiety, worry, and nervous system activation to understand whether anxiety may be contributing to addictive behaviour or recovery difficulty.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">7–10 minutes &nbsp;·&nbsp; For individuals experiencing anxiety alongside addiction</p>
+                <a href="/assessments/anxiety" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Anxiety Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Depression Screening Assessment</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Reflect on mood, energy, motivation, and emotional wellbeing to understand whether depression may be a factor in your recovery and what support may be appropriate.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">7–10 minutes &nbsp;·&nbsp; For individuals experiencing low mood or depression</p>
+                <a href="/assessments/depression" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Depression Assessment</a>
+              </article>
+              <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
+                <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">ADHD &amp; Impulsivity Screening</h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Explore attention, impulsivity, and executive function patterns that may be contributing to addictive behaviour, relapse, or difficulty engaging with treatment.</p>
+                <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">10–12 minutes &nbsp;·&nbsp; For individuals exploring ADHD and addiction</p>
+                <a href="/assessments/adhd-impulsivity" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start ADHD Assessment</a>
+              </article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Clinical Disclaimer</h2>
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              These assessments are for informational and educational purposes only. They do not constitute a diagnosis, clinical assessment, or medical advice. Results are intended to provide personalised guidance to help you understand your situation and consider appropriate next steps. If you have concerns about withdrawal, mental health crisis, or urgent physical health issues, please contact your GP, a medical professional, or emergency services immediately.
+            </p>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Not sure where to start?</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">A private conversation with Craig Bilton can help clarify the most appropriate level of support for you or your family — without pressure or obligation.</p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/resources" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Browse Resources</a>
+            </div>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/resources",
+    file: "resources.html",
+    title: "Addiction &amp; Recovery Resources — Clinical Articles | Insight Recovery Network",
+    description:
+      "Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families make informed decisions about addiction support and treatment.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Clinical Resources</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Addiction and recovery articles.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;">
+              Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families understand their situation and make informed decisions.
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:2rem;">All Articles</h2>
+            <div style="display:flex;flex-direction:column;gap:0;">
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/private-rehab-vs-nhs-addiction-treatment" style="color:#162B3B;text-decoration:none;">Private Rehab vs NHS Addiction Treatment: What Is the Difference?</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support — and understand which route may be more appropriate for your situation.</p>
+                <a href="/resources/private-rehab-vs-nhs-addiction-treatment" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/how-to-choose-private-rehab-centre-uk" style="color:#162B3B;text-decoration:none;">How to Choose the Right Private Rehab Centre in the UK</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Choosing private rehab in the UK? Learn what to look for, what questions to ask, what warning signs to avoid, and how to find a treatment setting that is clinically appropriate for the person's actual needs.</p>
+                <a href="/resources/how-to-choose-private-rehab-centre-uk" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Addiction &amp; Substances</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/why-cant-i-stop-how-addiction-works" style="color:#162B3B;text-decoration:none;">Why Can't I Stop? How Addiction Works</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Addiction is not a moral failing or a lack of willpower. Understanding the neuroscience and psychology of compulsive use can help individuals and families make sense of what is happening — and why change is often so difficult without support.</p>
+                <a href="/resources/why-cant-i-stop-how-addiction-works" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Recovery &amp; Wellbeing</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/online-recovery-programmes" style="color:#162B3B;text-decoration:none;">Online Recovery Programmes: Who Are They For and Do They Work?</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Digital recovery support has matured significantly in recent years. For many people, structured online programmes offer a clinically effective alternative to in-person treatment.</p>
+                <a href="/resources/online-recovery-programmes" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Mental Health</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/mental-health-and-addiction" style="color:#162B3B;text-decoration:none;">Mental Health and Addiction: Understanding the Connection</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Addiction and mental health conditions frequently co-occur. Understanding the relationship between them is essential to effective treatment.</p>
+                <a href="/resources/mental-health-and-addiction" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Family &amp; Relationships</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/supporting-a-loved-one-through-recovery" style="color:#162B3B;text-decoration:none;">Supporting a Loved One Through Recovery</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">When someone close to you is in recovery, knowing how to help — and how not to — can make a significant difference to their long-term wellbeing and your own.</p>
+                <a href="/resources/supporting-a-loved-one-through-recovery" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Recovery &amp; Wellbeing</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/managing-relapse-part-of-recovery" style="color:#162B3B;text-decoration:none;">Managing Relapse as Part of Recovery</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Relapse does not mean failure. Understanding how and why relapse happens — and how to respond to it — is one of the most important parts of sustainable recovery.</p>
+                <a href="/resources/managing-relapse-part-of-recovery" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/what-happens-in-residential-rehabilitation" style="color:#162B3B;text-decoration:none;">What Happens in Residential Rehabilitation?</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Residential rehabilitation can feel like a significant step. Understanding what actually happens during a residential rehab stay can help individuals and families make a more informed decision.</p>
+                <a href="/resources/what-happens-in-residential-rehabilitation" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Addiction &amp; Substances</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/understanding-alcohol-dependency" style="color:#162B3B;text-decoration:none;">Understanding Alcohol Dependency</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Alcohol dependency is a complex condition involving physical, psychological, and social factors. Understanding its nature is the first step towards making sense of what is happening and what level of support may be needed.</p>
+                <a href="/resources/understanding-alcohol-dependency" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">You do not need to have everything worked out before reaching out. A private conversation can help clarify the most appropriate support for you or your family.</p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            </div>
+          </section>
+        </div>
+      </main>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
