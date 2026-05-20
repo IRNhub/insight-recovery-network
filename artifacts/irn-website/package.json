@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node scripts/generate-favicons.mjs && node scripts/generate-og-images.mjs && vite build --config vite.config.ts && node scripts/prerender-meta.mjs",
+    "build": "node scripts/generate-favicons.mjs && node --experimental-strip-types scripts/generate-og-images.ts && vite build --config vite.config.ts && node scripts/prerender-meta.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

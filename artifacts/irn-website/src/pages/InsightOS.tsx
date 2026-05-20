@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -116,14 +117,16 @@ const pathways = [
   },
 ];
 
+const insightOsOg = getOgConfig("/insight-os")!;
+
 export default function InsightOS() {
   return (
     <Layout>
       <SEO
-        title="Insight OS — The Operating System for Your Recovery"
+        title={insightOsOg.seoTitle ?? insightOsOg.title}
         description="Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance."
         canonical="/insight-os"
-        ogImage="https://www.insightrecoverynetwork.com/og-insight-os.png"
+        ogImage={ogImageUrl(insightOsOg.file)}
       />
 
       {/* ── Hero ── */}

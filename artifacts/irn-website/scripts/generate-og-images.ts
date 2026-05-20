@@ -3,46 +3,19 @@ import sharp from "sharp";
 import { readFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
+import { OG_PAGES } from "../src/config/og-pages.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
-const publicDir = resolve(root, "public");
-const assetsDir = resolve(__dirname, "../../../attached_assets");
 
 const NAVY = "#162B3B";
 const GOLD = "#C9A96E";
 const SITE = "insightrecoverynetwork.com";
 
-const PAGES = [
-  {
-    file: "og-home.png",
-    title: "Private Addiction Recovery Support",
-  },
-  {
-    file: "og-about.png",
-    title: "About Insight Recovery Network",
-  },
-  {
-    file: "og-contact.png",
-    title: "Speak Confidentially",
-  },
-  {
-    file: "og-treatment-placement.png",
-    title: "Private Rehab Placement",
-    subtitle: "UK & International",
-  },
-  {
-    file: "og-online-programme.png",
-    title: "Online Addiction Recovery Programme",
-  },
-  {
-    file: "og-insight-os.png",
-    title: "Insight OS",
-    subtitle: "The Operating System for Your Recovery",
-  },
-];
-
-function buildTemplate(logoDataUrl, { title, subtitle }) {
+function buildTemplate(
+  logoDataUrl: string,
+  { title, subtitle }: { title: string; subtitle?: string }
+) {
   const titleSize = subtitle ? 66 : 76;
 
   return {
@@ -194,23 +167,22 @@ function buildTemplate(logoDataUrl, { title, subtitle }) {
 async function main() {
   console.log("Generating OG social share images…");
 
-  // Logo — remove white background pixels, then composite onto navy so it
-  // blends seamlessly into the card without a white box.
-  const logoPath = resolve(
-    assetsDir,
-    "IRN_Logo_(500_x_300_px)_1778827901167.png"
-  );
+  // Logo — project-controlled asset in src/assets/
+  // White/near-white pixels are stripped to transparent so the logo mark
+  // renders cleanly on the navy card background.
+  const logoPath = resolve(root, "src/assets/irn-logo.png");
   const LOGO_W = 168;
   const LOGO_H = 101;
 
-  // 1. Make white / near-white pixels transparent
   const { data: rawPixels, info: rawInfo } = await sharp(logoPath)
     .ensureAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
   const pixels = Buffer.from(rawPixels);
   for (let i = 0; i < pixels.length; i += 4) {
-    const r = pixels[i], g = pixels[i + 1], b = pixels[i + 2];
+    const r = pixels[i],
+      g = pixels[i + 1],
+      b = pixels[i + 2];
     if (r > 230 && g > 230 && b > 230) pixels[i + 3] = 0;
   }
   const transparentLogo = await sharp(pixels, {
@@ -223,7 +195,6 @@ async function main() {
     .png()
     .toBuffer();
 
-  // 2. Composite onto solid navy background
   const logoBg = await sharp({
     create: {
       width: LOGO_W,
@@ -237,7 +208,8 @@ async function main() {
     .toBuffer();
   const logoDataUrl = `data:image/png;base64,${logoBg.toString("base64")}`;
 
-  // Fonts — read from @fontsource/playfair-display (no network dependency)
+  // Fonts — read from @fontsource/playfair-display (no network dependency).
+  // satori's opentype.js does not support WOFF2, so we use WOFF.
   const fontsDir = resolve(
     root,
     "node_modules/@fontsource/playfair-display/files"
@@ -259,14 +231,17 @@ async function main() {
     },
   ];
 
-  for (const page of PAGES) {
+  // OG_PAGES is the single source of truth — imported from src/config/og-pages.ts
+  const publicDir = resolve(root, "public");
+  for (const page of OG_PAGES) {
     const svg = await satori(buildTemplate(logoDataUrl, page), {
       width: 1200,
       height: 630,
       fonts,
     });
-
-    await sharp(Buffer.from(svg)).png().toFile(resolve(publicDir, page.file));
+    await sharp(Buffer.from(svg))
+      .png()
+      .toFile(resolve(publicDir, page.file));
     console.log(`  ✓ ${page.file}`);
   }
 

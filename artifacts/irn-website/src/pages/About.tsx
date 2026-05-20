@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -49,15 +50,17 @@ const values = [
   },
 ];
 
+const aboutOg = getOgConfig("/about")!;
+
 export default function About() {
   return (
     <Layout>
       <SEO
-        title="About Insight Recovery Network"
+        title={aboutOg.seoTitle ?? aboutOg.title}
         fullTitle="About Insight Recovery Network | Private Addiction Recovery Support"
         description="Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes."
         canonical="/about"
-        ogImage="https://insightrecoverynetwork.com/og-about.png"
+        ogImage={ogImageUrl(aboutOg.file)}
       />
 
       {/* ── Hero — two-column ── */}

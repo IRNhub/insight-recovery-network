@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -41,14 +42,16 @@ const indications = [
 
 const locations = ["United Kingdom", "South Africa", "Thailand", "Spain", "Sri Lanka"];
 
+const treatmentOg = getOgConfig("/treatment-placement")!;
+
 export default function TreatmentPlacement() {
   return (
     <Layout>
       <SEO
-        title="Private Rehab Placement — UK &amp; International"
+        title={treatmentOg.seoTitle ?? treatmentOg.title}
         description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure."
         canonical="/treatment-placement"
-        ogImage="https://www.insightrecoverynetwork.com/og-treatment-placement.png"
+        ogImage={ogImageUrl(treatmentOg.file)}
       />
 
       {/* ── Hero ── */}

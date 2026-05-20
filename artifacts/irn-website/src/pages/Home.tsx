@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
@@ -37,14 +38,16 @@ const pillars = [
   },
 ];
 
+const homeOg = getOgConfig("/")!;
+
 export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Private Addiction Recovery Support"
+        title={homeOg.seoTitle ?? homeOg.title}
         description="Insight Recovery Network provides private addiction and mental health recovery support, led by Craig Bilton. Based in Newquay, Cornwall, we offer online recovery programmes, private rehab placement, family intervention guidance, and relapse prevention — available across the UK and internationally."
         canonical="/"
-        ogImage="https://insightrecoverynetwork.com/og-home.png"
+        ogImage={ogImageUrl(homeOg.file)}
       />
 
       {/* ── Hero — premium three-pillar two-zone composition ── */}

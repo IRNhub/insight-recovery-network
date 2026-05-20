@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -100,14 +101,16 @@ const moreThanBullets = [
   "Clear accountability and review",
 ];
 
+const onlineProgrammeOg = getOgConfig("/online-programme")!;
+
 export default function OnlineProgramme() {
   return (
     <Layout>
       <SEO
-        title="Online Addiction Recovery Programme"
+        title={onlineProgrammeOg.seoTitle ?? onlineProgrammeOg.title}
         description="A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network."
         canonical="/online-programme"
-        ogImage="https://www.insightrecoverynetwork.com/og-online-programme.png"
+        ogImage={ogImageUrl(onlineProgrammeOg.file)}
       />
 
       {/* ── Hero ── */}
