@@ -1,10 +1,19 @@
+import { useLayoutEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>
-);
+function AppWithReadySignal() {
+  useLayoutEffect(() => {
+    document.documentElement.classList.add("js-ready");
+  }, []);
+
+  return (
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  );
+}
+
+createRoot(document.getElementById("root")!).render(<AppWithReadySignal />);
