@@ -283,6 +283,92 @@ export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Prom
   logger.info({ to: toEmail, cc: ccEmail }, "Assessment lead email sent");
 }
 
+interface AcknowledgementData {
+  name: string;
+  email: string;
+}
+
+function buildAcknowledgementHtml(data: AcknowledgementData, teamEmail: string): string {
+  const firstName = escapeHtml(data.name.split(" ")[0] || data.name);
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family:Georgia,serif;color:#1a1a2e;background:#f9f8f6;padding:32px;">
+  <div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e0ddd8;padding:40px 44px;">
+
+    <div style="border-left:3px solid #C9A96E;padding-left:14px;margin-bottom:32px;">
+      <p style="margin:0;font-size:11px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;color:#C9A96E;">Insight Recovery Network</p>
+    </div>
+
+    <h1 style="color:#162B3B;font-size:22px;font-weight:normal;margin:0 0 20px;line-height:1.3;">We've received your enquiry.</h1>
+
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 18px;">Dear ${firstName},</p>
+
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 18px;">Thank you for reaching out to us. We have received your message and someone from our team will be in touch with you shortly.</p>
+
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 18px;">We understand that taking this step can feel significant, and we want you to know that every enquiry we receive is treated with care and complete confidentiality — whether you are seeking support for yourself or for someone you love.</p>
+
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 28px;">If you would prefer to speak with someone sooner, or have an urgent concern, you are welcome to contact us directly at <a href="mailto:${escapeHtml(teamEmail)}" style="color:#162B3B;text-decoration:underline;">${escapeHtml(teamEmail)}</a>.</p>
+
+    <hr style="border:none;border-top:1px solid #e0ddd8;margin:0 0 28px;" />
+
+    <p style="font-size:14px;line-height:1.8;color:#555;margin:0 0 6px;">Warm regards,</p>
+    <p style="font-size:14px;line-height:1.8;color:#162B3B;font-weight:bold;margin:0 0 4px;">The Insight Recovery Network Team</p>
+    <a href="https://www.insightrecoverynetwork.com" style="font-size:13px;color:#888;text-decoration:none;">www.insightrecoverynetwork.com</a>
+
+    <p style="font-size:11px;color:#bbb;margin-top:32px;line-height:1.6;">This is an automated acknowledgement. Please do not reply directly to this message — instead contact us at <a href="mailto:${escapeHtml(teamEmail)}" style="color:#bbb;">${escapeHtml(teamEmail)}</a>.</p>
+  </div>
+</body>
+</html>`.trim();
+}
+
+function buildAcknowledgementText(data: AcknowledgementData, teamEmail: string): string {
+  const firstName = data.name.split(" ")[0] || data.name;
+  return [
+    "We've received your enquiry — Insight Recovery Network",
+    "",
+    `Dear ${firstName},`,
+    "",
+    "Thank you for reaching out to us. We have received your message and someone from our team will be in touch with you shortly.",
+    "",
+    "We understand that taking this step can feel significant, and we want you to know that every enquiry we receive is treated with care and complete confidentiality — whether you are seeking support for yourself or for someone you love.",
+    "",
+    `If you would prefer to speak with someone sooner, or have an urgent concern, you are welcome to contact us directly at ${teamEmail}.`,
+    "",
+    "Warm regards,",
+    "The Insight Recovery Network Team",
+    "www.insightrecoverynetwork.com",
+  ].join("\n");
+}
+
+export async function sendAcknowledgementEmail(data: AcknowledgementData): Promise<void> {
+  const apiKey = process.env["RESEND_API_KEY"];
+  const fromEmail = process.env["ENQUIRY_FROM_EMAIL"];
+  const teamEmail = process.env["GENERAL_ENQUIRY_TO"] ?? fromEmail ?? "";
+
+  if (!apiKey || !fromEmail) {
+    logger.info("Resend not configured — skipping acknowledgement email");
+    return;
+  }
+
+  const resend = new Resend(apiKey);
+
+  const { error } = await resend.emails.send({
+    from: fromEmail,
+    to: data.email,
+    ...(teamEmail ? { replyTo: teamEmail } : {}),
+    subject: "We've received your enquiry — Insight Recovery Network",
+    html: buildAcknowledgementHtml(data, teamEmail),
+    text: buildAcknowledgementText(data, teamEmail),
+  });
+
+  if (error) {
+    throw new Error(`Resend error: ${error.message}`);
+  }
+
+  logger.info({ to: data.email }, "Acknowledgement email sent to visitor");
+}
+
 export async function sendEnquiryNotification(data: EnquiryData): Promise<void> {
   const apiKey = process.env["RESEND_API_KEY"];
   const toEmail = process.env["GENERAL_ENQUIRY_TO"];
