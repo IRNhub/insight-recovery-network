@@ -57,6 +57,7 @@ export default function About() {
         fullTitle="About Insight Recovery Network | Private Addiction Recovery Support"
         description="Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes."
         canonical="/about"
+        ogImage="https://insightrecoverynetwork.com/og-about.png"
       />
 
       {/* ── Hero — two-column ── */}

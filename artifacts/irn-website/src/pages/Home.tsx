@@ -44,6 +44,7 @@ export default function Home() {
         title="Private Addiction Recovery Support"
         description="Insight Recovery Network provides private addiction and mental health recovery support, led by Craig Bilton. Based in Newquay, Cornwall, we offer online recovery programmes, private rehab placement, family intervention guidance, and relapse prevention — available across the UK and internationally."
         canonical="/"
+        ogImage="https://insightrecoverynetwork.com/og-home.png"
       />
 
       {/* ── Hero — premium three-pillar two-zone composition ── */}

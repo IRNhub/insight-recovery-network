@@ -24,3 +24,15 @@ id = "NK1_bwxy1XUP-OIEfV4bi"
 uri = "file://artifacts/irn-website/public/og-contact.png"
 type = "image"
 title = "generated_image"
+
+[[generated]]
+id = "CvD9sspElAruRFLt1PsDN"
+uri = "file://artifacts/irn-website/public/og-home.png"
+type = "image"
+title = "IRN home OG image dawn light interior"
+
+[[generated]]
+id = "-xFX9QN0EwsbEUwN9NNI6"
+uri = "file://artifacts/irn-website/public/og-about.png"
+type = "image"
+title = "IRN about OG image consulting room"
