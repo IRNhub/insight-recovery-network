@@ -656,6 +656,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Resources promo ── */}
+      <section className="py-12 md:py-16 border-t border-border/30">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="max-w-xl">
+              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans block mb-3">
+                Clinical Resources
+              </span>
+              <h2 className="font-serif text-primary text-2xl md:text-3xl leading-tight mb-3">
+                Addiction and recovery articles
+              </h2>
+              <p className="text-[14px] text-muted-foreground font-light leading-relaxed">
+                Authoritative articles on addiction, recovery, treatment options and mental health — written by Craig Bilton to help individuals and families make informed decisions.
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+              <Link href="/resources">
+                <button className="inline-flex items-center gap-3 px-7 h-12 text-sm font-medium border border-primary/25 text-primary hover:bg-primary/5 transition-colors">
+                  Browse Resources
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Final CTA ── */}
       <CTASection
         heading="Speak Confidentially"

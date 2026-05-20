@@ -1,0 +1,56 @@
+We need to fix Google Search Console indexing issues for https://www.insightrecoverynetwork.com.
+
+Current Search Console Page Indexing status:
+- 9 indexed pages
+- 24 not indexed pages
+- Reasons:
+  - Excluded by noindex tag: 3
+  - Alternate page with proper canonical tag: 2
+  - Discovered, currently not indexed: 16
+  - Crawled, currently not indexed: 1
+  - Soft 404: 2
+
+Please perform a full indexing and technical SEO audit.
+
+Tasks:
+
+1. Audit all public routes and sitemap URLs.
+2. Identify any pages incorrectly returning thin content, empty content, placeholder content, or behaviour that could trigger a Soft 404.
+3. For Soft 404 pages:
+   - either improve them with meaningful crawlable content,
+   - redirect them to the most relevant existing page,
+   - or remove them from the sitemap if they should not exist.
+4. Audit all pages with noindex tags.
+   - Keep noindex only on private, admin, app, login, checkout, account, or non-public pages.
+   - Remove noindex from any public SEO page that should appear in Google.
+5. Fix duplicate URL versions, especially trailing slash duplicates such as:
+   - /contact
+   - /contact/
+   Choose one canonical version and redirect the duplicate version to it.
+6. Ensure every important public page has:
+   - 200 status
+   - unique title tag
+   - unique meta description
+   - self-referencing canonical URL
+   - indexable robots meta
+   - no accidental noindex
+   - meaningful crawlable HTML content
+   - internal links pointing to it
+7. Improve internal linking:
+   - Homepage should link clearly to treatment placement, online recovery support, Insight OS, family intervention support, assessments, resources/blog, and contact.
+   - Resources/blog page should link to every published article.
+   - Each blog should link naturally to relevant service pages.
+8. Confirm that /sitemap.xml only includes canonical, public, indexable URLs.
+9. Remove duplicate, redirected, noindex, private, thin, or test URLs from the sitemap.
+10. Generate a report listing:
+   - every sitemap URL
+   - HTTP status
+   - canonical URL
+   - robots meta value
+   - title tag
+   - meta description
+   - whether it is internally linked
+   - whether it should be indexed
+   - any recommended fix
+
+Do not change the site design unless needed for crawlability or internal linking. Focus on resolving Search Console indexing issues and making the site easier for Google to crawl and index.

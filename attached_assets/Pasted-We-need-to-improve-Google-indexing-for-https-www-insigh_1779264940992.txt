@@ -1,0 +1,52 @@
+We need to improve Google indexing for https://www.insightrecoverynetwork.com.
+
+Current Search Console status:
+- /sitemap.xml is submitted successfully.
+- Google has discovered around 23 pages.
+- Only around 9 pages appear to be indexed.
+- There is also an old/broken /sitemap/ submission in Search Console, but the correct sitemap is /sitemap.xml.
+
+Please audit the website for technical SEO and indexing readiness.
+
+Tasks:
+
+1. Confirm that /sitemap.xml returns a valid XML sitemap with a 200 status.
+2. Confirm every important public page is included in /sitemap.xml.
+3. Remove any non-public, duplicate, thin, test, admin, or irrelevant routes from the sitemap.
+4. Confirm every sitemap URL returns 200, not 404, redirect, blocked, or soft 404.
+5. Confirm every important page has:
+   - unique title tag
+   - unique meta description
+   - canonical URL pointing to itself
+   - indexable robots meta tag
+   - no accidental noindex
+   - crawlable HTML content
+6. Add or improve internal links from the homepage to the main commercial pages:
+   - private rehab placement
+   - online addiction support
+   - family intervention guidance
+   - Insight OS / digital recovery tools
+   - resources/blog
+   - contact/assessment
+7. Add internal links from each blog page to relevant service pages.
+8. Make sure blog pages are not isolated and can be reached through normal internal navigation.
+9. Add Article schema to blog posts where appropriate.
+10. Add Organisation schema and LocalBusiness/MedicalBusiness-style schema where appropriate, without making unsupported claims.
+11. Check robots.txt and ensure it does not block important pages.
+12. Create a clear SEO audit report showing:
+   - all sitemap URLs
+   - HTTP status for each URL
+   - title tag
+   - meta description
+   - canonical
+   - robots meta value
+   - whether the page is internally linked
+   - whether the page appears thin or duplicate
+13. Do not change the visual design unless required for internal linking or crawlability.
+14. Prioritise indexing readiness and Search Console health.
+
+After the audit, show me:
+- which pages are currently index-ready
+- which pages need content improvement
+- which pages should be removed from the sitemap
+- what changes were made

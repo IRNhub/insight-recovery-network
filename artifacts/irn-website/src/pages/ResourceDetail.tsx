@@ -194,12 +194,26 @@ export default function ResourceDetail() {
       "@type": "Organization",
       name: "Insight Recovery Network",
       url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/favicon.svg`,
+      },
     },
     datePublished: article.date,
     dateModified: article.date,
     url: `${SITE_URL}${canonicalPath}`,
-    mainEntityOfPage: `${SITE_URL}${canonicalPath}`,
-    image: ogImage,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}${canonicalPath}`,
+    },
+    image: {
+      "@type": "ImageObject",
+      url: ogImage,
+      width: 1200,
+      height: 630,
+    },
+    articleSection: article.category,
+    inLanguage: "en-GB",
   };
 
   return (
@@ -209,6 +223,10 @@ export default function ResourceDetail() {
         description={article.excerpt}
         canonical={canonicalPath}
         ogImage={ogImage}
+        ogType="article"
+        datePublished={article.date}
+        author={article.author}
+        section={article.category}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
