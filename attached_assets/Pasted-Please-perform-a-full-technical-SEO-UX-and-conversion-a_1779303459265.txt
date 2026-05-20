@@ -1,0 +1,439 @@
+Please perform a full technical, SEO, UX, and conversion audit of the entire Insight Recovery Network website.
+
+Website context:
+Insight Recovery Network is a UK-based online addiction recovery and treatment placement service. The website must feel premium, clinically credible, trustworthy, discreet, and conversion-focused. The main goals are:
+1. Help people understand our services.
+2. Improve Google/Bing visibility.
+3. Capture inquiries and consultation requests reliably.
+4. Build trust with individuals and families looking for addiction support, private rehab guidance, online recovery support, and family intervention help.
+
+Important:
+Do not make unnecessary design changes.
+Do not remove existing content unless there is a clear technical or SEO reason.
+Do not break current routing, styling, forms, or mobile responsiveness.
+First audit, then fix clear issues.
+Where possible, document what you changed.
+
+Please audit and fix the following areas comprehensively:
+
+1. SEO TAGS AND METADATA
+
+Check every public page, including:
+- Homepage
+- About page
+- Services pages
+- Treatment placement pages
+- Online programme pages
+- Intervention/family support pages
+- Blog index
+- Individual blog pages
+- Contact/consultation pages
+- Assessment pages
+- Any hidden but public landing pages
+
+For every page, confirm:
+- Unique SEO title tag
+- Unique meta description
+- Correct meta robots tag
+- Correct canonical tag
+- Correct Open Graph title
+- Correct Open Graph description
+- Correct Open Graph image
+- Correct Twitter/X card metadata
+- Correct favicon/icon references
+- Correct language tag
+- Correct viewport tag
+- No duplicate title tags
+- No duplicate meta descriptions unless intentionally justified
+- No missing H1
+- Only one clear H1 per page
+- Proper H2/H3 hierarchy
+- Page title and H1 are aligned but not identical in a spammy way
+- Meta descriptions are compelling and within good SEO length range
+- Titles are not too long or too short
+- Canonicals point to the preferred live URL, not localhost, preview URLs, Replit URLs, staging URLs, or duplicate paths
+
+Please specifically check for:
+- Any canonical tags using the wrong domain
+- Any noindex tags accidentally applied to important pages
+- Any pages missing index/follow
+- Any old or duplicate meta tag injection logic
+- Any stale SEO data from previous versions of the site
+- Any dynamic route pages where SEO tags are not updating correctly
+- Any blog pages inheriting generic homepage SEO by mistake
+
+2. INDEXING, SITEMAP, ROBOTS AND CRAWLABILITY
+
+Audit and fix:
+- robots.txt
+- sitemap.xml
+- llms.txt if present
+- Any sitemap generation logic
+- Any duplicate URLs in sitemap
+- Any missing important pages from sitemap
+- Any broken URLs in sitemap
+- Any non-canonical URLs included in sitemap
+- Any 404/redirect URLs included in sitemap
+- Any private/admin/app routes accidentally included in sitemap
+- Any app-only pages that should not be indexed
+- Any blog/resources pages that should be indexed but are missing
+- Any trailing slash/non-trailing slash inconsistencies
+- HTTP/HTTPS canonical consistency
+- www/non-www consistency
+
+Make sure:
+- robots.txt allows search engines to crawl public marketing pages
+- robots.txt does not block CSS/JS required for rendering
+- sitemap.xml is accessible at /sitemap.xml
+- robots.txt references the sitemap
+- Important public pages are indexable
+- Private, dashboard, auth, admin, or app areas are not indexed
+- 404 page behaves correctly
+- Redirects are clean and do not create chains
+
+3. STRUCTURED DATA / SCHEMA MARKUP
+
+Audit and improve schema where appropriate.
+
+Check for valid JSON-LD:
+- Organization schema
+- LocalBusiness or ProfessionalService schema if appropriate
+- Website schema
+- Breadcrumb schema
+- Article schema for blog posts
+- FAQ schema only where genuine FAQs exist on the page
+- Service schema where appropriate
+
+Use accurate business information:
+- Business name: Insight Recovery Network
+- Online-only service
+- Based in Newquay, Cornwall, UK
+- Email: info@insightrecoverynetwork.com for general enquiries
+- Email: craig@insightrecoverynetwork.com where appropriate for direct/Anchor feedback routing
+- Phone: +44 7415 994475
+- Do not imply face-to-face services unless explicitly stated
+- Do not invent physical clinic locations
+- Do not make misleading medical claims
+
+Validate schema structure and ensure:
+- No invalid JSON
+- No duplicate/conflicting schema blocks
+- No fake reviews
+- No unsupported claims
+- Blog posts have correct headline, description, datePublished/dateModified, author/publisher if available
+- Organization logo/image references are correct absolute URLs
+
+4. CONTENT QUALITY AND SEO ALIGNMENT
+
+Audit key pages for:
+- Thin content
+- Duplicate content
+- Missing service explanations
+- Missing location/service relevance
+- Weak calls to action
+- Poor internal linking
+- Keyword stuffing
+- Overuse of generic AI-sounding copy
+- Missing trust signals
+- Missing clinical credibility
+- Missing explanation of online-only service
+- Inconsistent descriptions of Insight Recovery Network, Insight OS, online programme, treatment placement, rehab guidance, and family intervention support
+
+Check keyword alignment for key themes:
+- private addiction treatment UK
+- private rehab guidance
+- rehab placement support
+- online addiction recovery programme
+- alcohol addiction help UK
+- drug addiction help UK
+- family intervention guidance UK
+- addiction recovery support online
+- private rehab abroad
+- treatment placement support
+- Insight Recovery Network
+- Insight OS
+
+Do not keyword stuff.
+Improve only where natural and clinically credible.
+
+5. BLOG AND RESOURCE PAGE AUDIT
+
+For all blog/resource pages:
+- Confirm each blog has a unique slug
+- Confirm each blog has a unique title tag
+- Confirm each blog has a unique meta description
+- Confirm each blog has Article schema
+- Confirm each blog has a canonical tag
+- Confirm each blog is included in the sitemap
+- Confirm images have alt text
+- Confirm internal links to relevant services
+- Confirm clear call to action at the end
+- Confirm there is no duplicate content across blogs
+- Confirm dates are handled properly
+- Confirm blog cards display correctly
+- Confirm blog pages work on mobile
+- Confirm Open Graph image works when shared
+
+6. TECHNICAL PERFORMANCE
+
+Audit and fix:
+- Page load speed issues
+- Image sizes
+- Uncompressed images
+- Missing lazy loading
+- Render-blocking issues where easily fixable
+- Unused heavy scripts
+- Console errors
+- Broken imports
+- Failed network requests
+- Font loading issues
+- Layout shift problems
+- Mobile performance issues
+- JavaScript errors affecting SEO rendering
+- Client-side routing issues that may prevent crawlers from seeing pages
+- Incorrect status codes
+- Broken assets
+- Missing favicons/icons
+- Broken manifest references
+
+Make sure:
+- The site loads properly on mobile and desktop
+- Main content is visible without needing user interaction
+- Critical SEO metadata is present in the server-rendered/head output as much as possible
+- No page relies on broken client-side state to show core marketing content
+
+7. MOBILE AND RESPONSIVE AUDIT
+
+Check all public pages on:
+- Mobile
+- Tablet
+- Desktop
+
+Look for:
+- Text too small
+- Buttons too close together
+- CTA buttons cut off
+- Hero sections cropping badly
+- Forms difficult to use
+- Images cropping awkwardly
+- Menus not working
+- Sticky elements blocking content
+- Footer links hard to tap
+- Blog cards breaking layout
+- Poor spacing
+- Horizontal scroll
+- Modal issues
+- Contact forms difficult to complete
+
+Fix clear responsive issues.
+
+8. FORMS, LEADS, INQUIRIES AND CONSULTATION REQUESTS
+
+This is critical.
+
+Audit every form and conversion route, including:
+- Contact form
+- Request consultation form
+- Assessment form
+- Treatment placement inquiry form
+- Online programme inquiry form
+- Any newsletter form
+- Any callback/request support form
+- Any CTA that opens a form/modal
+- Any floating contact/WhatsApp/email CTA
+- Any hidden or older forms still present in code
+
+For each form, test:
+- Form opens correctly
+- All fields are visible
+- Required fields validate properly
+- Email validation works
+- Phone field accepts UK/international formats where appropriate
+- Error messages are clear
+- Success message appears after submission
+- Submission does not silently fail
+- User cannot submit empty forms
+- User cannot submit duplicate accidental submissions too easily
+- Loading state appears while submitting
+- Form works on mobile
+- Form works on desktop
+- Form data goes to the correct destination
+- Email notification is sent to the correct address
+- Any CRM/lead storage logic works correctly
+- No form sends to outdated or incorrect email addresses
+- No inquiry goes to a test email
+- No inquiry goes only to browser console
+- No inquiry disappears without confirmation
+
+Routing requirements:
+- General website contact/inquiry emails should go to:
+  info@insightrecoverynetwork.com
+
+- Anchor feedback or Anchor-related feedback should go to either:
+  info@insightrecoverynetwork.com
+  and/or
+  craig@insightrecoverynetwork.com
+
+- Do not use old, incorrect, placeholder, or test email addresses.
+
+Please create a clear test submission route in development if needed, but avoid sending repeated live emails unnecessarily. Use safe test mode/logging if available, then confirm the live path is correctly configured.
+
+9. CALL-TO-ACTION AUDIT
+
+Audit every CTA across the site.
+
+Check that buttons and links go to the correct pages/forms:
+- Book a consultation
+- Request a consultation
+- Contact us
+- Speak to someone
+- Get help now
+- Start assessment
+- Learn more
+- Treatment placement
+- Online programme
+- Insight OS
+- Family support
+- Rehab guidance
+- Blog CTAs
+- Footer CTAs
+- Header CTAs
+- Mobile menu CTAs
+- Hero CTAs
+
+Fix:
+- Broken CTA links
+- CTAs pointing to old pages
+- CTAs that do nothing
+- CTAs hidden on mobile
+- CTAs opening the wrong modal
+- CTAs with inconsistent wording
+- CTAs that are visually unclear
+- CTAs that lead users away from conversion unnecessarily
+
+10. NAVIGATION AND INTERNAL LINKING
+
+Audit:
+- Header navigation
+- Mobile navigation
+- Footer navigation
+- Breadcrumbs where present
+- Service page links
+- Blog internal links
+- Homepage service cards
+- About page links
+- Any resource links
+
+Check for:
+- Broken internal links
+- Duplicate routes
+- Old slugs
+- Inconsistent naming
+- Missing important pages
+- Links to staging/Replit URLs
+- Links opening unnecessarily in new tabs
+- External links without rel attributes where needed
+- Footer information accuracy
+
+11. BRAND, TRUST AND COMPLIANCE REVIEW
+
+Audit for:
+- Consistent brand name: Insight Recovery Network
+- Consistent naming of Insight OS
+- No accidental references to old business names
+- No placeholder text
+- No lorem ipsum
+- No claims of guaranteed recovery
+- No misleading medical claims
+- No implication of emergency/crisis service unless properly framed
+- No implication of regulated medical treatment if not appropriate
+- No promise of immediate admission unless accurate
+- No claim of being a physical clinic
+- No fake testimonials/reviews
+- No inaccurate therapist/doctor claims
+- No mismatched phone/email details
+
+Add or improve appropriate disclaimers where needed:
+- The website is not an emergency service
+- People in immediate danger should contact emergency services
+- Services are online/private support and treatment guidance as described
+- Treatment placement guidance does not replace medical assessment where required
+
+Keep the tone calm, professional, clinically credible, and high-trust.
+
+12. ANALYTICS, TRACKING AND VERIFICATION
+
+Audit whether the following are present and correctly installed if already configured:
+- Google Search Console verification
+- Bing Webmaster Tools verification
+- Google Analytics / GA4 if present
+- Meta Pixel if present
+- Any conversion tracking
+- Any contact/consultation submit events
+- Any broken or duplicated tracking scripts
+
+Check:
+- Verification meta tags are in the actual rendered head
+- No duplicate tracking scripts
+- No old/staging tracking IDs
+- Tracking does not break page performance
+- Forms can trigger conversion events if configured
+- Privacy/cookie implications are handled appropriately
+
+Do not add new third-party tracking unless already intended/configured. Just audit, repair broken existing logic, and report what is missing.
+
+13. ACCESSIBILITY AND BASIC UX
+
+Audit and fix:
+- Missing alt text
+- Poor contrast
+- Buttons without accessible labels
+- Form labels missing
+- Keyboard navigation issues
+- Focus states
+- Modal accessibility
+- ARIA misuse
+- Images with empty/irrelevant alt text
+- Icon-only buttons without labels
+- Headings used only for styling
+- Links without clear purpose
+
+14. SECURITY AND PRIVACY BASICS
+
+Check:
+- No API keys exposed in frontend
+- No secrets in client code
+- No sensitive data logged to console
+- Forms do not expose private configuration
+- Contact submissions are handled safely
+- Admin/app routes are not publicly indexed
+- No debug routes are public
+- No test credentials or development notes exposed
+- No source maps exposing sensitive information in production if avoidable
+
+15. FINAL OUTPUT REQUIRED
+
+After the audit and fixes, provide a clear report in the Replit response with:
+
+A. Critical issues found and fixed
+B. SEO metadata issues found and fixed
+C. Canonical/sitemap/robots issues found and fixed
+D. Form and inquiry issues found and fixed
+E. CTA/link issues found and fixed
+F. Mobile/responsive issues found and fixed
+G. Tracking/verification findings
+H. Any remaining issues that require manual setup outside Replit
+I. Exact files changed
+J. Any recommended next steps for Google Search Console/Bing Webmaster Tools
+
+Also provide a simple testing checklist I can use manually after publishing:
+- Pages to inspect
+- Forms to submit
+- URLs to check
+- Sitemap/robots links
+- Google/Bing verification checks
+- Consultation request test
+- Mobile menu test
+- Blog share preview test
+
+Please be thorough. The goal is to make sure the site is technically sound, SEO-ready, indexable, trustworthy, and that no inquiry or consultation request is being lost.
