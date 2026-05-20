@@ -1095,8 +1095,9 @@ async function main() {
   console.log("▶  Generating sitemap.xml…\n");
   const today = new Date().toISOString().split("T")[0];
   const sitemapXml = generateSitemap(today);
+  const totalUrls = SITEMAP_EXTRA.length + PAGES.length + ARTICLES.length;
   writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
-  console.log(`  ✓ sitemap.xml  (${PAGES.length + ARTICLES.length + 2} URLs, lastmod ${today})\n`);
+  console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, lastmod ${today})\n`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1105,12 +1106,18 @@ async function main() {
 
 /**
  * Site pages that appear in the sitemap in addition to PAGES and ARTICLES.
- * Only includes the homepage and the one active assessment (alcohol-detox).
- * Coming-soon assessment routes are excluded until they are published.
+ * Includes the homepage and all canonical assessment routes.
+ * Add new assessment slugs here when they go live.
  */
 const SITEMAP_EXTRA = [
   { url: "/", changefreq: "weekly", priority: "1.0" },
-  { url: "/assessments/alcohol-detox", changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/alcohol-detox",   changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/alcohol-use",     changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/drug-use",        changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/detox",           changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/anxiety",         changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/depression",      changefreq: "monthly", priority: "0.7" },
+  { url: "/assessments/adhd-impulsivity", changefreq: "monthly", priority: "0.7" },
 ];
 
 /**
