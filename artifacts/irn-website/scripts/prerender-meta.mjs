@@ -1090,6 +1090,71 @@ async function main() {
   }
 
   console.log(`\n  Pre-rendered ${articleCount} article pages.\n`);
+
+  // ── Step 6: Generate sitemap.xml ─────────────────────────────────────────
+  console.log("▶  Generating sitemap.xml…\n");
+  const today = new Date().toISOString().split("T")[0];
+  const sitemapXml = generateSitemap(today);
+  writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
+  console.log(`  ✓ sitemap.xml  (${PAGES.length + ARTICLES.length + 2} URLs, lastmod ${today})\n`);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. SITEMAP GENERATION
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Site pages that appear in the sitemap in addition to PAGES and ARTICLES.
+ * Only includes the homepage and the one active assessment (alcohol-detox).
+ * Coming-soon assessment routes are excluded until they are published.
+ */
+const SITEMAP_EXTRA = [
+  { url: "/", changefreq: "weekly", priority: "1.0" },
+  { url: "/assessments/alcohol-detox", changefreq: "monthly", priority: "0.7" },
+];
+
+/**
+ * Priority and changefreq overrides for routes in PAGES.
+ * Routes not listed here default to monthly / 0.8.
+ */
+const SITEMAP_PAGE_META = {
+  "/what-we-offer":    { changefreq: "monthly", priority: "0.9" },
+  "/treatment-placement": { changefreq: "monthly", priority: "0.9" },
+  "/online-programme": { changefreq: "monthly", priority: "0.9" },
+  "/insight-os":       { changefreq: "monthly", priority: "0.8" },
+  "/about":            { changefreq: "monthly", priority: "0.8" },
+  "/resources":        { changefreq: "weekly",  priority: "0.8" },
+  "/contact":          { changefreq: "monthly", priority: "0.8" },
+  "/assessments":      { changefreq: "monthly", priority: "0.8" },
+};
+
+function generateSitemap(today) {
+  const urlEntry = (loc, changefreq, priority) =>
+    `  <url>\n    <loc>${SITE_URL}${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+
+  const extraEntries = SITEMAP_EXTRA.map((p) =>
+    urlEntry(p.url, p.changefreq, p.priority)
+  );
+
+  const pageEntries = PAGES.map((p) => {
+    const meta = SITEMAP_PAGE_META[p.route] ?? { changefreq: "monthly", priority: "0.8" };
+    return urlEntry(p.route, meta.changefreq, meta.priority);
+  });
+
+  const articleEntries = ARTICLES.map((a) =>
+    urlEntry(`/resources/${a.slug}`, "monthly", "0.7")
+  );
+
+  const allEntries = [...extraEntries, ...pageEntries, ...articleEntries];
+  return [
+    `<?xml version="1.0" encoding="UTF-8"?>`,
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
+    ``,
+    allEntries.join("\n"),
+    ``,
+    `</urlset>`,
+    ``,
+  ].join("\n");
 }
 
 main().catch((err) => {

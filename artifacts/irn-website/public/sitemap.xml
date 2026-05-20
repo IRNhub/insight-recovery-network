@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This file is overwritten at build time by scripts/prerender-meta.mjs.
+  To add or remove URLs, edit SITEMAP_EXTRA / SITEMAP_PAGE_META in that script.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Core pages -->
   <url>
     <loc>https://insightrecoverynetwork.com/</loc>
     <lastmod>2026-05-20</lastmod>
@@ -9,32 +12,50 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://insightrecoverynetwork.com/assessments/alcohol-detox</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://insightrecoverynetwork.com/about</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://insightrecoverynetwork.com/what-we-offer</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/treatment-placement</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/online-programme</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/insight-os</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insightrecoverynetwork.com/about</loc>
-    <lastmod>2026-05-19</lastmod>
+    <loc>https://insightrecoverynetwork.com/contact</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insightrecoverynetwork.com/assessments</loc>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -45,74 +66,58 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://insightrecoverynetwork.com/contact</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Assessments hub -->
-  <url>
-    <loc>https://insightrecoverynetwork.com/assessments</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Resource articles -->
-  <url>
     <loc>https://insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/understanding-alcohol-dependency</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/what-happens-in-residential-rehabilitation</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/managing-relapse-part-of-recovery</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/supporting-a-loved-one-through-recovery</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/mental-health-and-addiction</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/online-recovery-programmes</loc>
-    <lastmod>2026-05-13</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://insightrecoverynetwork.com/resources/how-to-choose-private-rehab-centre-uk</loc>
-    <lastmod>2026-05-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://insightrecoverynetwork.com/resources/how-to-choose-private-rehab-centre-uk</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
