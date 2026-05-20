@@ -16,6 +16,14 @@ export function Footer() {
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed text-sm">
               Confidential addiction and mental health support. Treatment placement, digital tools, and ongoing recovery programmes.
             </p>
+            <div className="flex flex-col gap-2 text-sm text-primary-foreground/60">
+              <a href="mailto:info@insightrecoverynetwork.com" className="hover:text-accent transition-colors">
+                info@insightrecoverynetwork.com
+              </a>
+              <a href="tel:+447415994475" className="hover:text-accent transition-colors">
+                +44 7415 994475
+              </a>
+            </div>
           </div>
 
           <div className="lg:col-span-2 lg:col-start-7 flex flex-col gap-4">
@@ -78,9 +86,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/50">
-          <p>© {currentYear} Insight Recovery Network. All rights reserved.</p>
-          <p>Discreet, private support.</p>
+        <div className="mt-12 pt-8 border-t border-primary-foreground/10">
+          <p className="text-xs text-primary-foreground/35 leading-relaxed max-w-3xl mb-6">
+            <strong className="font-medium text-primary-foreground/45">Important:</strong> Insight Recovery Network is not an emergency or crisis service. If you or someone else is in immediate danger, please call <strong className="font-medium text-primary-foreground/45">999</strong> or attend your nearest A&amp;E. For emotional support at any time, the Samaritans are available on <strong className="font-medium text-primary-foreground/45">116 123</strong> (free, 24/7). Our services are private support and treatment guidance, not regulated medical treatment.
+          </p>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-sm text-primary-foreground/50">
+            <p>© {currentYear} Insight Recovery Network. All rights reserved.</p>
+            <p>Newquay, Cornwall, UK &middot; Discreet, private support.</p>
+          </div>
         </div>
       </div>
     </footer>

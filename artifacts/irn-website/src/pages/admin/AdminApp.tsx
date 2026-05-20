@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useLocation } from "wouter";
+import { Helmet } from "react-helmet-async";
 import AdminLogin from "./AdminLogin";
 import AdminArticles from "./AdminArticles";
 import AdminEnquiries from "./AdminEnquiries";
@@ -41,11 +42,18 @@ export default function AdminApp() {
   }
 
   if (!secret) {
-    return <AdminLogin onLogin={handleLogin} />;
+    return (
+      <>
+        <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+        <AdminLogin onLogin={handleLogin} />
+      </>
+    );
   }
 
   return (
-    <Switch>
+    <>
+      <Helmet><meta name="robots" content="noindex, nofollow" /></Helmet>
+      <Switch>
       <Route path="/admin/articles/new">
         <ArticleEditor secret={secret} />
       </Route>
@@ -62,5 +70,6 @@ export default function AdminApp() {
         <AdminArticles secret={secret} onLogout={handleLogout} />
       </Route>
     </Switch>
+    </>
   );
 }

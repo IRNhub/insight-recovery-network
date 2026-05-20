@@ -37,7 +37,7 @@ const publicDir = resolve(root, "public");
 
 const SITE_URL = "https://insightrecoverynetwork.com";
 const SITE_NAME = "Insight Recovery Network";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-home.png`;
 
 /** Escape a string for use inside an HTML attribute value. */
 function esc(str) {
@@ -67,7 +67,7 @@ const PAGES = [
     title: "About Insight Recovery Network | Private Addiction Recovery Support",
     description:
       "Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes.",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}/og-about.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
