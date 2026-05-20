@@ -694,7 +694,7 @@ function injectPageMeta(baseHtml, page) {
   const canonicalUrl = `${SITE_URL}${page.route}`;
 
   // <title>
-  out = out.replace(/<title>[^<]*<\/title>/, `<title>${page.title}</title>`);
+  out = out.replace(/<title[^>]*>[^<]*<\/title>/, `<title>${page.title}</title>`);
 
   // <meta name="description">
   out = out.replace(
@@ -953,7 +953,7 @@ function injectArticleMeta(html, article) {
   let out = html;
 
   // <title>
-  out = out.replace(/<title>[^<]*<\/title>/, `<title>${esc(article.pageTitle)}</title>`);
+  out = out.replace(/<title[^>]*>[^<]*<\/title>/, `<title>${esc(article.pageTitle)}</title>`);
 
   // <meta name="description">
   out = out.replace(
