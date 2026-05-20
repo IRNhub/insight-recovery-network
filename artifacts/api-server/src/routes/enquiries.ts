@@ -1,10 +1,21 @@
 import { Router, type IRouter, type Request, type Response } from "express";
 import { SubmitEnquiryBody } from "@workspace/api-zod";
 import { db, enquiriesTable } from "@workspace/db";
+import { eq, desc } from "drizzle-orm";
 import { logger } from "../lib/logger";
 import { sendEnquiryNotification, sendAcknowledgementEmail } from "../lib/email";
 
 const router: IRouter = Router();
+
+function requireAdmin(req: Request, res: Response): boolean {
+  const secret = req.headers["x-admin-secret"];
+  const expected = process.env.ADMIN_SECRET;
+  if (!expected || secret !== expected) {
+    res.status(401).json({ error: "Unauthorised" });
+    return false;
+  }
+  return true;
+}
 
 router.post("/enquiries", async (req: Request, res: Response) => {
   const parseResult = SubmitEnquiryBody.safeParse(req.body);
@@ -49,6 +60,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
 
     logger.info({ enquiryId: enquiry.id }, "Enquiry stored");
 
+    let notificationSent = false;
     await sendEnquiryNotification({
       name: data.name,
       email: data.email,
@@ -59,9 +71,21 @@ router.post("/enquiries", async (req: Request, res: Response) => {
       consent: data.consent,
       pageSource,
       submittedAt,
-    }).catch((err) => {
-      logger.warn({ err }, "Email notification failed — enquiry still saved");
-    });
+    })
+      .then(() => {
+        notificationSent = true;
+      })
+      .catch((err) => {
+        logger.warn({ err, enquiryId: enquiry.id }, "Email notification failed — enquiry still saved");
+      });
+
+    await db
+      .update(enquiriesTable)
+      .set({ notificationSent })
+      .where(eq(enquiriesTable.id, enquiry.id))
+      .catch((dbErr) => {
+        logger.warn({ dbErr }, "Failed to update notificationSent flag on enquiry");
+      });
 
     await sendAcknowledgementEmail({
       name: data.name,
@@ -74,6 +98,20 @@ router.post("/enquiries", async (req: Request, res: Response) => {
   } catch (err) {
     logger.error({ err }, "Failed to store enquiry");
     res.status(500).json({ error: "An unexpected error occurred. Please try again." });
+  }
+});
+
+router.get("/admin/enquiries", async (req: Request, res: Response) => {
+  if (!requireAdmin(req, res)) return;
+  try {
+    const rows = await db
+      .select()
+      .from(enquiriesTable)
+      .orderBy(desc(enquiriesTable.createdAt));
+    res.json(rows);
+  } catch (err) {
+    logger.error({ err }, "Failed to list enquiries");
+    res.status(500).json({ error: "Failed to fetch enquiries" });
   }
 });
 

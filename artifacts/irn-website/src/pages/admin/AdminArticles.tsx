@@ -3,6 +3,22 @@ import { Link, useLocation } from "wouter";
 import { PlusCircle, Pencil, Trash2, Eye, EyeOff, Loader2, LogOut } from "lucide-react";
 import { formatDate } from "@/data/articles";
 
+interface AdminEnquirySummary {
+  notificationSent: boolean;
+}
+
+async function fetchEnquirySummary(secret: string): Promise<AdminEnquirySummary[]> {
+  try {
+    const res = await fetch("/api/admin/enquiries", {
+      headers: { "x-admin-secret": secret },
+    });
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
+
 interface AdminArticle {
   id: number;
   slug: string;
@@ -29,13 +45,20 @@ async function fetchAdminArticles(secret: string): Promise<AdminArticle[]> {
 }
 
 export default function AdminArticles({ secret, onLogout }: AdminArticlesProps) {
-  const [, navigate] = useLocation();
+  const [location, navigate] = useLocation();
   const queryClient = useQueryClient();
 
   const { data: articles = [], isLoading, isError } = useQuery({
     queryKey: ["admin-articles", secret],
     queryFn: () => fetchAdminArticles(secret),
   });
+
+  const { data: enquiries = [] } = useQuery({
+    queryKey: ["admin-enquiries-summary", secret],
+    queryFn: () => fetchEnquirySummary(secret),
+  });
+
+  const missedNotificationCount = enquiries.filter((e) => !e.notificationSent).length;
 
   const togglePublish = useMutation({
     mutationFn: async ({ id, published }: { id: number; published: boolean }) => {
@@ -80,7 +103,7 @@ export default function AdminArticles({ secret, onLogout }: AdminArticlesProps) 
         <div className="container mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="w-5 h-px" style={{ background: "#C9A96E" }} />
-            <span className="font-serif text-primary text-lg">Article Management</span>
+            <span className="font-serif text-primary text-lg">IRN Admin</span>
           </div>
           <div className="flex items-center gap-3">
             <button
@@ -100,6 +123,31 @@ export default function AdminArticles({ secret, onLogout }: AdminArticlesProps) 
               Sign out
             </button>
           </div>
+        </div>
+
+        {/* Tab nav */}
+        <div className="container mx-auto px-6 md:px-12 flex gap-0 border-t border-border/20">
+          <Link
+            href="/admin/articles"
+            className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 transition-colors ${
+              location === "/admin/articles" || location === "/admin"
+                ? "border-primary text-primary"
+                : "border-transparent text-muted-foreground hover:text-primary"
+            }`}
+          >
+            Articles
+          </Link>
+          <Link
+            href="/admin/enquiries"
+            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+          >
+            Enquiries
+            {missedNotificationCount > 0 && (
+              <span className="bg-red-500 text-white text-[9px] font-bold rounded-full px-1.5 py-px leading-tight">
+                {missedNotificationCount}
+              </span>
+            )}
+          </Link>
         </div>
       </header>
 

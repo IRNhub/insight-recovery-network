@@ -12,12 +12,14 @@ export const enquiriesTable = pgTable("enquiries", {
   message: text("message").notNull(),
   consent: boolean("consent").notNull().default(true),
   status: text("status").notNull().default("new"),
+  notificationSent: boolean("notification_sent").notNull().default(false),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
 export const insertEnquirySchema = createInsertSchema(enquiriesTable).omit({
   id: true,
   status: true,
+  notificationSent: true,
   createdAt: true,
 });
 

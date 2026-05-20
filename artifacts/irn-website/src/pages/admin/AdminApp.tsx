@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Switch, Route, useLocation } from "wouter";
 import AdminLogin from "./AdminLogin";
 import AdminArticles from "./AdminArticles";
+import AdminEnquiries from "./AdminEnquiries";
 import ArticleEditor from "./ArticleEditor";
 
 const STORAGE_KEY = "irn_admin_secret";
@@ -50,6 +51,9 @@ export default function AdminApp() {
       </Route>
       <Route path="/admin/articles/:id/edit">
         {(params) => <ArticleEditor secret={secret} articleId={Number(params.id)} />}
+      </Route>
+      <Route path="/admin/enquiries">
+        <AdminEnquiries secret={secret} onLogout={handleLogout} />
       </Route>
       <Route path="/admin/articles">
         <AdminArticles secret={secret} onLogout={handleLogout} />
