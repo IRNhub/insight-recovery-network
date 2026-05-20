@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
+import fs from "fs";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 // PORT is only required when running the dev/preview server, not during build.
@@ -16,6 +17,44 @@ if (rawPort && (Number.isNaN(port) || port <= 0)) {
 // any dependency on the BASE_PATH env-var and keeps the wouter Router
 // base as "" (root) regardless of build mode.
 const basePath = "/";
+
+function servePrerenderedHtmlPlugin() {
+  function htmlMiddleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "/").split("?")[0].split("#")[0];
+    if (pathname === "/" || pathname.includes(".") || pathname.startsWith("/api")) {
+      return next();
+    }
+    const clean = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+    const htmlFile = path.resolve(
+      import.meta.dirname,
+      "dist/public",
+      clean.replace(/^\//, "") + ".html",
+    );
+    if (fs.existsSync(htmlFile)) {
+      const content = fs.readFileSync(htmlFile);
+      res.writeHead(200, {
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Length": content.length,
+      });
+      res.end(content);
+      return;
+    }
+    next();
+  }
+  return {
+    name: "serve-prerendered-html",
+    configureServer(server: import("vite").ViteDevServer) {
+      server.middlewares.use(htmlMiddleware);
+    },
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(htmlMiddleware);
+    },
+  };
+}
 
 function suspendedRedirectPlugin() {
   function middleware(
@@ -45,6 +84,7 @@ function suspendedRedirectPlugin() {
 export default defineConfig({
   base: basePath,
   plugins: [
+    servePrerenderedHtmlPlugin(),
     suspendedRedirectPlugin(),
     react(),
     tailwindcss(),

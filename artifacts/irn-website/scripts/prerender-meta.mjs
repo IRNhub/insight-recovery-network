@@ -693,21 +693,6 @@ function injectPageMeta(baseHtml, page) {
   let out = baseHtml;
   const canonicalUrl = `${SITE_URL}${page.route}`;
 
-  // <title>
-  out = out.replace(/<title[^>]*>[^<]*<\/title>/, `<title>${page.title}</title>`);
-
-  // <meta name="description">
-  out = out.replace(
-    /(<meta\s+name="description"\s+content=")[^"]*(")/,
-    `$1${esc(page.description)}$2`
-  );
-
-  // <link rel="canonical">
-  out = out.replace(
-    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
-    `$1${canonicalUrl}$2`
-  );
-
   // og:title
   out = out.replace(
     /(<meta\s+property="og:title"\s+content=")[^"]*(")/,
@@ -766,16 +751,6 @@ function injectPageMeta(baseHtml, page) {
 
   // ── Assertions: fail hard if critical replacements did not apply ──────────
   const checks = [
-    {
-      label: "<title>",
-      pattern: new RegExp(`<title>${escapeRegex(page.title)}</title>`),
-      html: bodyReplaced,
-    },
-    {
-      label: "canonical href",
-      pattern: new RegExp(`<link rel="canonical" href="${escapeRegex(canonicalUrl)}"`),
-      html: bodyReplaced,
-    },
     {
       label: "#root body content",
       // Verify the body replacement ran: <div id="root"> must be directly
@@ -951,21 +926,6 @@ function replaceMeta2(html, attr, attrValue, newContent) {
 /** Inject article-specific meta tags into the base index.html. */
 function injectArticleMeta(html, article) {
   let out = html;
-
-  // <title>
-  out = out.replace(/<title[^>]*>[^<]*<\/title>/, `<title>${esc(article.pageTitle)}</title>`);
-
-  // <meta name="description">
-  out = out.replace(
-    /(<meta\s+name="description"\s+content=")[^"]*(")/,
-    `$1${esc(article.description)}$2`
-  );
-
-  // <link rel="canonical">
-  out = out.replace(
-    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
-    `$1${SITE_URL}/resources/${article.slug}$2`
-  );
 
   // og:title
   out = out.replace(

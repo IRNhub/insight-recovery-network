@@ -1,0 +1,61 @@
+The Bing live URL retest shows the fix is still incomplete.
+
+For this URL:
+https://insightrecoverynetwork.com/treatment-placement
+
+Bing still reports:
+
+URL cannot be indexed because the page is an alternate version of a similar page specified as canonical.
+
+Detected canonical:
+https://insightrecoverynetwork.com/
+
+This is still wrong.
+
+The www issue appears to be fixed, but the page-specific canonical issue is not fixed.
+
+Please fix the canonical generation so every indexable route outputs a self-referencing canonical URL based on the current route/path.
+
+Correct examples:
+
+Homepage:
+<link rel="canonical" href="https://insightrecoverynetwork.com/" />
+
+Treatment placement:
+<link rel="canonical" href="https://insightrecoverynetwork.com/treatment-placement" />
+
+Online programme:
+<link rel="canonical" href="https://insightrecoverynetwork.com/online-programme" />
+
+Resources:
+<link rel="canonical" href="https://insightrecoverynetwork.com/resources" />
+
+About:
+<link rel="canonical" href="https://insightrecoverynetwork.com/about" />
+
+Assessments:
+<link rel="canonical" href="https://insightrecoverynetwork.com/assessments" />
+
+Private rehab vs NHS article:
+<link rel="canonical" href="https://insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment" />
+
+Also Bing still reports:
+- More than one title tag
+- More than one meta description tag
+- More than one canonical tag
+
+So please fix the duplicate head tags as well.
+
+Likely issue:
+There is still a default homepage canonical/title/meta description being inserted globally, while each page also inserts its own SEO tags.
+
+Please ensure:
+1. Only one <title> tag per page
+2. Only one <meta name="description"> per page
+3. Only one <link rel="canonical"> per page
+4. Canonical uses the current route path, not always the homepage
+5. Public commercial/resource pages do not have noindex
+6. Bing and Google verification tags remain in place
+
+After fixing, please verify in the built/live HTML source for /treatment-placement that there is only one canonical and that it is exactly:
+<link rel="canonical" href="https://insightrecoverynetwork.com/treatment-placement" />
