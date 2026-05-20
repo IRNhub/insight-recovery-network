@@ -1,14 +1,28 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
-import { articles, CATEGORIES } from "@/data/articles";
-import { BookOpen } from "lucide-react";
+import { CATEGORIES } from "@/data/articles";
+import { BookOpen, Loader2 } from "lucide-react";
 import resourcesHero from "../assets/resources-hero.png";
+import type { Article } from "@/data/articles";
+
+async function fetchArticles(): Promise<Article[]> {
+  const res = await fetch("/api/articles");
+  if (!res.ok) throw new Error("Failed to load articles");
+  return res.json();
+}
 
 export default function ResourcesList() {
   const [activeCategory, setActiveCategory] = useState("All");
+
+  const { data: articles = [], isLoading, isError } = useQuery({
+    queryKey: ["articles"],
+    queryFn: fetchArticles,
+    staleTime: 60_000,
+  });
 
   const filtered =
     activeCategory === "All"
@@ -111,7 +125,16 @@ export default function ResourcesList() {
       {/* Articles grid */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
-          {filtered.length > 0 ? (
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20 gap-3 text-muted-foreground">
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <span className="text-sm font-light">Loading articles…</span>
+            </div>
+          ) : isError ? (
+            <div className="text-center py-20">
+              <p className="text-muted-foreground font-light">Unable to load articles. Please try again shortly.</p>
+            </div>
+          ) : filtered.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((article) => (
                 <ArticleCard key={article.slug} article={article} />

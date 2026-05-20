@@ -22,6 +22,7 @@ const DetoxAssessmentPage = lazy(() => import("@/pages/assessments/DetoxAssessme
 const AnxietyAssessmentPage = lazy(() => import("@/pages/assessments/AnxietyAssessmentPage"));
 const DepressionAssessmentPage = lazy(() => import("@/pages/assessments/DepressionAssessmentPage"));
 const AdhdAssessmentPage = lazy(() => import("@/pages/assessments/AdhdAssessmentPage"));
+const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
@@ -74,6 +75,9 @@ function Router() {
         {/* Legacy / backward-compat routes */}
         <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
         <Route path="/assessments/adhd" component={AdhdAssessmentPage} />
+        {/* Admin */}
+        <Route path="/admin" component={AdminApp} />
+        <Route path="/admin/:rest*" component={AdminApp} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

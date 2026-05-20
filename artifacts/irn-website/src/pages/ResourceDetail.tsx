@@ -1,14 +1,29 @@
 import { useParams, Link } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import NotFound from "@/pages/not-found";
-import { getArticleBySlug, articles, formatDate } from "@/data/articles";
-import { Clock, Calendar, ArrowLeft, ArrowRight } from "lucide-react";
+import { formatDate } from "@/data/articles";
+import type { Article } from "@/data/articles";
+import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+
+async function fetchArticle(slug: string): Promise<Article> {
+  const res = await fetch(`/api/articles/${slug}`);
+  if (res.status === 404) throw Object.assign(new Error("not-found"), { status: 404 });
+  if (!res.ok) throw new Error("Failed to load article");
+  return res.json();
+}
+
+async function fetchAllArticles(): Promise<Article[]> {
+  const res = await fetch("/api/articles");
+  if (!res.ok) return [];
+  return res.json();
+}
 
 /** Convert [text](url) patterns to <Link> elements */
 function parseInlineLinks(text: string): React.ReactNode[] {
@@ -156,19 +171,58 @@ function parseContent(content: string) {
 
 export default function ResourceDetail() {
   const params = useParams<{ slug: string }>();
-  const article = getArticleBySlug(params.slug);
 
-  if (!article) {
-    return <NotFound />;
+  const {
+    data: article,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["article", params.slug],
+    queryFn: () => fetchArticle(params.slug),
+    retry: false,
+    staleTime: 60_000,
+  });
+
+  const { data: allArticles = [] } = useQuery({
+    queryKey: ["articles"],
+    queryFn: fetchAllArticles,
+    staleTime: 60_000,
+    enabled: !!article,
+  });
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="flex items-center justify-center py-40 gap-3 text-muted-foreground">
+          <Loader2 className="w-5 h-5 animate-spin" />
+          <span className="text-sm font-light">Loading article…</span>
+        </div>
+      </Layout>
+    );
   }
 
-  const related = articles
+  if (isError) {
+    const is404 = (error as { status?: number })?.status === 404;
+    if (is404) return <NotFound />;
+    return (
+      <Layout>
+        <div className="text-center py-40">
+          <p className="text-muted-foreground font-light">Unable to load this article. Please try again.</p>
+        </div>
+      </Layout>
+    );
+  }
+
+  if (!article) return <NotFound />;
+
+  const related = allArticles
     .filter((a) => a.slug !== article.slug && a.category === article.category)
     .slice(0, 2);
 
   const moreRelated =
     related.length < 2
-      ? articles
+      ? allArticles
           .filter((a) => a.slug !== article.slug && !related.includes(a))
           .slice(0, 2 - related.length)
       : [];
