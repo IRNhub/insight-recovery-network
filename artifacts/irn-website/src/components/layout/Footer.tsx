@@ -77,10 +77,24 @@ export function Footer() {
             <h4 className="font-serif text-lg text-primary-foreground/90">Legal</h4>
             <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
               <li>
-                <span className="cursor-not-allowed opacity-70">Privacy Policy</span>
+                <Link href="/privacy-policy" className="hover:text-accent transition-colors">
+                  Privacy Policy
+                </Link>
               </li>
               <li>
-                <span className="cursor-not-allowed opacity-70">Terms of Service</span>
+                <Link href="/terms-of-service" className="hover:text-accent transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="hover:text-accent transition-colors">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/clinical-disclaimer" className="hover:text-accent transition-colors">
+                  Clinical Disclaimer
+                </Link>
               </li>
             </ul>
           </div>

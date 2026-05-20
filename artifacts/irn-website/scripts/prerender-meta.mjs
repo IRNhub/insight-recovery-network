@@ -679,6 +679,122 @@ const PAGES = [
       </main>
     `,
   },
+  {
+    route: "/privacy-policy",
+    file: "privacy-policy.html",
+    title: "Privacy Policy | Insight Recovery Network",
+    description:
+      "How Insight Recovery Network collects, uses and protects your personal data under UK GDPR. All enquiries are handled with complete discretion.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:780px;margin:0 auto;padding:3rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
+          <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Privacy Policy</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:640px;">
+            We are committed to protecting the privacy of everyone who contacts us. This page explains what personal data we collect, how we use it, and your rights under UK GDPR. We are based in Newquay, Cornwall, UK.
+          </p>
+          <a href="mailto:info@insightrecoverynetwork.com" style="font-family:sans-serif;font-size:0.9rem;color:#162B3B;text-decoration:underline;">info@insightrecoverynetwork.com</a>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/terms-of-service",
+    file: "terms-of-service.html",
+    title: "Terms of Service | Insight Recovery Network",
+    description:
+      "Terms governing use of the Insight Recovery Network website and services. We provide private online support and guidance — not regulated medical treatment or emergency care.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:780px;margin:0 auto;padding:3rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
+          <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Terms of Service</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:640px;">
+            Insight Recovery Network is an online-only private support and guidance service. We do not provide regulated medical treatment, clinical diagnosis, or emergency care. Governing law: England and Wales.
+          </p>
+          <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Contact Us</a>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/cookie-policy",
+    file: "cookie-policy.html",
+    title: "Cookie Policy | Insight Recovery Network",
+    description:
+      "Insight Recovery Network uses only essential session cookies. We do not use tracking, advertising or analytics cookies. Learn what cookies we set and how to manage them.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:780px;margin:0 auto;padding:3rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
+          <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Cookie Policy</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:640px;">
+            We use only strictly necessary session storage for admin authentication. We do not use tracking, advertising, or analytics cookies. No cookie consent banner is required.
+          </p>
+          <a href="mailto:info@insightrecoverynetwork.com" style="font-family:sans-serif;font-size:0.9rem;color:#162B3B;text-decoration:underline;">info@insightrecoverynetwork.com</a>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/clinical-disclaimer",
+    file: "clinical-disclaimer.html",
+    title: "Clinical Disclaimer | Insight Recovery Network",
+    description:
+      "Insight Recovery Network provides private online support and guidance — not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:780px;margin:0 auto;padding:3rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
+          <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Clinical Disclaimer</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:1.5rem;max-width:640px;">
+            Insight Recovery Network is not a regulated medical provider, not registered with the CQC, and not an emergency service. If you are in immediate danger, call <strong>999</strong> or go to your nearest A&amp;E. For 24/7 emotional support, contact the Samaritans on <strong>116 123</strong>.
+          </p>
+          <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+        </div>
+      </main>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1125,14 +1241,18 @@ const SITEMAP_EXTRA = [
  * Routes not listed here default to monthly / 0.8.
  */
 const SITEMAP_PAGE_META = {
-  "/what-we-offer":    { changefreq: "monthly", priority: "0.9" },
-  "/treatment-placement": { changefreq: "monthly", priority: "0.9" },
-  "/online-programme": { changefreq: "monthly", priority: "0.9" },
-  "/insight-os":       { changefreq: "monthly", priority: "0.8" },
-  "/about":            { changefreq: "monthly", priority: "0.8" },
-  "/resources":        { changefreq: "weekly",  priority: "0.8" },
-  "/contact":          { changefreq: "monthly", priority: "0.8" },
-  "/assessments":      { changefreq: "monthly", priority: "0.8" },
+  "/what-we-offer":      { changefreq: "monthly", priority: "0.9" },
+  "/treatment-placement":{ changefreq: "monthly", priority: "0.9" },
+  "/online-programme":   { changefreq: "monthly", priority: "0.9" },
+  "/insight-os":         { changefreq: "monthly", priority: "0.8" },
+  "/about":              { changefreq: "monthly", priority: "0.8" },
+  "/resources":          { changefreq: "weekly",  priority: "0.8" },
+  "/contact":            { changefreq: "monthly", priority: "0.8" },
+  "/assessments":        { changefreq: "monthly", priority: "0.8" },
+  "/privacy-policy":     { changefreq: "yearly",  priority: "0.4" },
+  "/terms-of-service":   { changefreq: "yearly",  priority: "0.4" },
+  "/cookie-policy":      { changefreq: "yearly",  priority: "0.4" },
+  "/clinical-disclaimer":{ changefreq: "yearly",  priority: "0.4" },
 };
 
 function generateSitemap(today) {

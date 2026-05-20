@@ -23,6 +23,10 @@ const AnxietyAssessmentPage = lazy(() => import("@/pages/assessments/AnxietyAsse
 const DepressionAssessmentPage = lazy(() => import("@/pages/assessments/DepressionAssessmentPage"));
 const AdhdAssessmentPage = lazy(() => import("@/pages/assessments/AdhdAssessmentPage"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
+const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
+const CookiePolicy = lazy(() => import("@/pages/legal/CookiePolicy"));
+const ClinicalDisclaimer = lazy(() => import("@/pages/legal/ClinicalDisclaimer"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
@@ -75,6 +79,11 @@ function Router() {
         {/* Legacy / backward-compat routes */}
         <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
         <Route path="/assessments/adhd" component={AdhdAssessmentPage} />
+        {/* Legal */}
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route path="/cookie-policy" component={CookiePolicy} />
+        <Route path="/clinical-disclaimer" component={ClinicalDisclaimer} />
         {/* Admin */}
         <Route path="/admin" component={AdminApp} />
         <Route path="/admin/:rest*" component={AdminApp} />
