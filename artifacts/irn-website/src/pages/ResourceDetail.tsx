@@ -47,6 +47,14 @@ function parseContent(content: string) {
         </h2>
       );
 
+    // ### Sub-heading
+    } else if (line.startsWith("### ")) {
+      elements.push(
+        <h3 key={i} className="text-lg md:text-xl font-serif text-primary mt-7 mb-3 leading-snug">
+          {line.replace("### ", "")}
+        </h3>
+      );
+
     // [CTA:/path:Button Label] ... [/CTA]  — inline CTA callout block
     } else if (line.startsWith("[CTA:")) {
       const tagMatch = line.match(/^\[CTA:([^:]+):([^\]]+)\]$/);

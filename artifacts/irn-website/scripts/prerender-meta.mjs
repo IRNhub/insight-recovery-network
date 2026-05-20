@@ -696,6 +696,19 @@ const ARTICLES = [
     date: "2026-02-10",
     type: "article",
   },
+  {
+    slug: "how-to-choose-private-rehab-centre-uk",
+    pageTitle:
+      "How to Choose the Right Private Rehab in the UK | Insight Recovery Network",
+    ogTitle:
+      "How to Choose the Right Private Rehab Centre in the UK",
+    description:
+      "Choosing private rehab in the UK? Learn what to ask, what to avoid, and how to find clinically suitable addiction treatment.",
+    image: `${SITE_URL}/rehab-options.png`,
+    imageAlt: "Private rehab guidance consultation with treatment planning notes and a calm professional setting",
+    date: "2026-05-19",
+    type: "article",
+  },
 ];
 
 /**
