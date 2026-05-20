@@ -697,6 +697,19 @@ const ARTICLES = [
     type: "article",
   },
   {
+    slug: "private-rehab-vs-nhs-addiction-treatment",
+    pageTitle:
+      "Private Rehab vs NHS Addiction Treatment | Insight Recovery Network",
+    ogTitle:
+      "Private Rehab vs NHS Addiction Treatment: What Is the Difference?",
+    description:
+      "Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support.",
+    image: `${SITE_URL}/private-rehab-nhs.png`,
+    imageAlt: "Private rehab and NHS addiction treatment comparison guidance in a calm professional consultation setting",
+    date: "2026-05-20",
+    type: "article",
+  },
+  {
     slug: "how-to-choose-private-rehab-centre-uk",
     pageTitle:
       "How to Choose the Right Private Rehab in the UK | Insight Recovery Network",
