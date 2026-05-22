@@ -31,11 +31,68 @@ const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
 
+/**
+ * Client-side redirect map — mirrors the server-side SERVER_REDIRECTS in vite.config.ts.
+ * Handles in-app navigation to old/legacy URLs (belt-and-suspenders alongside server 301s).
+ * Trailing slashes are already stripped by the Router function before this map is checked.
+ */
 const REDIRECT_PATHS: Record<string, string> = {
-  "/suspended": "/",
-  "/suspended/": "/",
-  "/private-addiction-treatment": "/treatment-placement",
-  "/private-addiction-treatment/": "/treatment-placement",
+  // ── Previously handled ────────────────────────────────────────────────
+  "/suspended":                          "/",
+  "/private-addiction-treatment":        "/treatment-placement",
+
+  // ── Old WordPress page slugs ──────────────────────────────────────────
+  "/about-us":                           "/about",
+  "/contact-us":                         "/contact",
+  "/get-in-touch":                       "/contact",
+  "/services":                           "/what-we-offer",
+  "/our-services":                       "/what-we-offer",
+  "/what-we-do":                         "/what-we-offer",
+  "/blog":                               "/resources",
+  "/news":                               "/resources",
+  "/articles":                           "/resources",
+  "/privacy":                            "/privacy-policy",
+  "/terms":                              "/terms-of-service",
+  "/terms-and-conditions":               "/terms-of-service",
+  "/online-therapy":                     "/online-programme",
+  "/online-recovery":                    "/online-programme",
+  "/family-support":                     "/what-we-offer",
+  "/family-intervention":                "/what-we-offer",
+  "/intervention":                       "/what-we-offer",
+  "/rehab":                              "/treatment-placement",
+  "/rehabilitation":                     "/treatment-placement",
+  "/alcohol-detox":                      "/treatment-placement",
+  "/alcohol-treatment":                  "/treatment-placement",
+  "/alcohol-addiction":                  "/resources/understanding-alcohol-dependency",
+  "/understanding-alcohol-addiction":    "/resources/understanding-alcohol-dependency",
+  "/alcohol-dependency":                 "/resources/understanding-alcohol-dependency",
+  "/drug-treatment":                     "/treatment-placement",
+  "/drug-detox":                         "/treatment-placement",
+  "/drug-rehabilitation":                "/treatment-placement",
+  "/drug-addiction":                     "/treatment-placement",
+  "/mental-health":                      "/what-we-offer",
+  "/mental-health-support":              "/what-we-offer",
+  "/self-assessment":                    "/assessments",
+  "/addiction-assessment":               "/assessments",
+  "/free-assessment":                    "/assessments",
+  "/addiction":                          "/what-we-offer",
+  "/recovery":                           "/what-we-offer",
+
+  // ── Legacy canonical assessment routes → canonical URLs ───────────────
+  "/assessment/alcohol-detox":           "/assessments/alcohol-detox",
+  "/assessments/adhd":                   "/assessments/adhd-impulsivity",
+
+  // ── Old WordPress blog post patterns ─────────────────────────────────
+  "/blog/alcohol-addiction":             "/resources/understanding-alcohol-dependency",
+  "/blog/alcohol-dependency":            "/resources/understanding-alcohol-dependency",
+  "/blog/alcohol-detox":                 "/treatment-placement",
+  "/blog/drug-addiction":                "/treatment-placement",
+  "/blog/drug-treatment":                "/treatment-placement",
+  "/blog/rehab":                         "/treatment-placement",
+  "/blog/rehabilitation":                "/treatment-placement",
+  "/blog/mental-health":                 "/what-we-offer",
+  "/blog/online-recovery":               "/online-programme",
+  "/blog/family-support":                "/what-we-offer",
 };
 
 function Router() {
@@ -76,9 +133,7 @@ function Router() {
         <Route path="/assessments/anxiety" component={AnxietyAssessmentPage} />
         <Route path="/assessments/depression" component={DepressionAssessmentPage} />
         <Route path="/assessments/adhd-impulsivity" component={AdhdAssessmentPage} />
-        {/* Legacy / backward-compat routes */}
-        <Route path="/assessment/alcohol-detox" component={AlcoholDetoxAssessment} />
-        <Route path="/assessments/adhd" component={AdhdAssessmentPage} />
+        {/* Legacy routes are handled as client-side 301s in REDIRECT_PATHS above */}
         {/* Legal */}
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/terms-of-service" component={TermsOfService} />

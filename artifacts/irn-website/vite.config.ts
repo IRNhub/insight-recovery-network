@@ -56,22 +56,89 @@ function servePrerenderedHtmlPlugin() {
   };
 }
 
-function suspendedRedirectPlugin() {
+/**
+ * Server-side 301 redirect map for legacy and old WordPress URLs.
+ * Runs in both the Vite dev server and the production preview server.
+ * Keys are normalised (trailing slash stripped, lowercase) before lookup.
+ */
+const SERVER_REDIRECTS: Record<string, string> = {
+  // ── Previously handled ────────────────────────────────────────────────
+  "/suspended":                          "/",
+  "/private-addiction-treatment":        "/treatment-placement",
+
+  // ── Old WordPress page slugs ──────────────────────────────────────────
+  "/about-us":                           "/about",
+  "/contact-us":                         "/contact",
+  "/get-in-touch":                       "/contact",
+  "/services":                           "/what-we-offer",
+  "/our-services":                       "/what-we-offer",
+  "/what-we-do":                         "/what-we-offer",
+  "/blog":                               "/resources",
+  "/news":                               "/resources",
+  "/articles":                           "/resources",
+  "/privacy":                            "/privacy-policy",
+  "/terms":                              "/terms-of-service",
+  "/terms-and-conditions":               "/terms-of-service",
+  "/online-therapy":                     "/online-programme",
+  "/online-recovery":                    "/online-programme",
+  "/family-support":                     "/what-we-offer",
+  "/family-intervention":                "/what-we-offer",
+  "/intervention":                       "/what-we-offer",
+  "/rehab":                              "/treatment-placement",
+  "/rehabilitation":                     "/treatment-placement",
+  "/alcohol-detox":                      "/treatment-placement",
+  "/alcohol-treatment":                  "/treatment-placement",
+  "/alcohol-addiction":                  "/resources/understanding-alcohol-dependency",
+  "/understanding-alcohol-addiction":    "/resources/understanding-alcohol-dependency",
+  "/alcohol-dependency":                 "/resources/understanding-alcohol-dependency",
+  "/drug-treatment":                     "/treatment-placement",
+  "/drug-detox":                         "/treatment-placement",
+  "/drug-rehabilitation":                "/treatment-placement",
+  "/drug-addiction":                     "/treatment-placement",
+  "/mental-health":                      "/what-we-offer",
+  "/mental-health-support":              "/what-we-offer",
+  "/self-assessment":                    "/assessments",
+  "/addiction-assessment":               "/assessments",
+  "/free-assessment":                    "/assessments",
+  "/addiction":                          "/what-we-offer",
+  "/recovery":                           "/what-we-offer",
+
+  // ── Legacy canonical assessment routes → canonical URLs ───────────────
+  "/assessment/alcohol-detox":           "/assessments/alcohol-detox",
+  "/assessments/adhd":                   "/assessments/adhd-impulsivity",
+
+  // ── Old WordPress blog post patterns (common RankMath slugs) ─────────
+  "/blog/alcohol-addiction":             "/resources/understanding-alcohol-dependency",
+  "/blog/alcohol-dependency":            "/resources/understanding-alcohol-dependency",
+  "/blog/alcohol-detox":                 "/treatment-placement",
+  "/blog/drug-addiction":                "/treatment-placement",
+  "/blog/drug-treatment":                "/treatment-placement",
+  "/blog/rehab":                         "/treatment-placement",
+  "/blog/rehabilitation":                "/treatment-placement",
+  "/blog/mental-health":                 "/what-we-offer",
+  "/blog/online-recovery":               "/online-programme",
+  "/blog/family-support":                "/what-we-offer",
+};
+
+function serverRedirectsPlugin() {
   function middleware(
     req: import("http").IncomingMessage,
     res: import("http").ServerResponse,
     next: () => void,
   ) {
-    const pathname = (req.url ?? "").split("?")[0].split("#")[0];
-    if (pathname === "/suspended" || pathname === "/suspended/") {
-      res.writeHead(301, { Location: "https://insightrecoverynetwork.com/" });
+    const raw = (req.url ?? "").split("?")[0].split("#")[0];
+    // Normalise: strip trailing slash (except root), lowercase
+    const pathname = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;
+    const target = SERVER_REDIRECTS[pathname.toLowerCase()];
+    if (target) {
+      res.writeHead(301, { Location: target });
       res.end();
       return;
     }
     next();
   }
   return {
-    name: "suspended-redirect",
+    name: "server-redirects",
     configureServer(server: import("vite").ViteDevServer) {
       server.middlewares.use(middleware);
     },
@@ -85,7 +152,7 @@ export default defineConfig({
   base: basePath,
   plugins: [
     servePrerenderedHtmlPlugin(),
-    suspendedRedirectPlugin(),
+    serverRedirectsPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
