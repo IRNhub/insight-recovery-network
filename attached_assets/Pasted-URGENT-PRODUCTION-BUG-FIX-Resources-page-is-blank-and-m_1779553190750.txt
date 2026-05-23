@@ -1,0 +1,79 @@
+URGENT PRODUCTION BUG FIX: Resources page is blank and mobile browser appears to be stuck in a repeated load/reload state.
+
+Website: insightrecoverynetwork.com
+Affected page: /resources
+Issue observed on mobile:
+- The resources page is blank/empty.
+- Blog posts/resources are not showing.
+- Browser loading icon is rapidly switching between stop “X” and refresh, suggesting a possible reload loop, redirect loop, service worker/cache issue, or runtime crash.
+- This is happening after the previous fix was marked as resolved, but the production site still shows no content.
+
+Please do a full production-level investigation, not just a superficial component check.
+
+Required checks:
+
+1. Verify the deployed production route
+- Confirm that /resources exists and renders the correct Resources/Blog page.
+- Confirm there is no redirect loop involving /resources, /resources/, resource slugs, canonical redirects, or old WordPress-style redirects.
+- Check vite.config.ts, server redirects, Express routes, and any suspendedRedirectPlugin or legacy redirect logic.
+
+2. Check the actual blog/resource data source
+- Locate where the resource/blog posts are stored.
+- Confirm the latest blog post still exists in the codebase/data.
+- Confirm all previous blog/resource posts still exist.
+- Confirm the Resources page imports the correct data file.
+- Confirm no recent change renamed, removed, or disconnected the resource array.
+- Confirm the list is not being filtered out accidentally because of category, published status, date, slug, or visibility fields.
+
+3. Check for JavaScript/runtime errors
+- Run the production build locally.
+- Open /resources in browser dev tools.
+- Check the console for errors.
+- Fix any crash causing the page to render blank.
+- Add safe fallbacks so a single bad resource/blog entry cannot crash the entire Resources page.
+
+4. Check service worker and caching
+- Inspect the service worker/PWA caching logic.
+- Make sure old JS bundles are not being served after deployment.
+- If needed, update the service worker cache version and force old caches to clear.
+- Add cache-busting for deployed assets if necessary.
+- Ensure users receive the latest production bundle after redeploy.
+
+5. Check network/API failures
+- If the Resources page fetches content from an API, confirm the endpoint works in production.
+- Check for failed fetches, 404s, 500s, CORS issues, or infinite retry loops.
+- If content is static, make sure it does not depend on a failing API call.
+
+6. Check mobile-specific behaviour
+- Test /resources on mobile viewport.
+- Test iPhone/Safari-like viewport.
+- Confirm the page loads without blank screen, infinite loading, flickering, or reload loop.
+- Confirm the blog/resource cards are visible.
+
+7. Fix the blank page properly
+- The Resources page must display all published blog/resource posts.
+- The latest blog must appear.
+- The page must show a helpful empty/error state only if there are genuinely no posts, which should not be the case here.
+- Do not hide errors silently.
+
+8. Add a production safety fallback
+- If the resources data fails to load, show a visible message and log the error.
+- Do not allow a blank white page.
+- Ensure one malformed post cannot break the whole page.
+
+Acceptance criteria:
+- https://insightrecoverynetwork.com/resources loads successfully in production.
+- All published blog/resource posts display.
+- The latest blog post displays.
+- No blank page.
+- No browser loading flicker/reload loop.
+- No console errors.
+- No failed resource/blog data requests.
+- Works on desktop and mobile.
+- Service worker/cache is updated so the fixed version is actually served to returning visitors.
+
+After fixing, provide:
+1. What caused the issue.
+2. Which files were changed.
+3. How you verified it in production.
+4. Whether this was a caching/service worker issue, data issue, route issue, or runtime error.

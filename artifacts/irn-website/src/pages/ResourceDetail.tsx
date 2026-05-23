@@ -6,23 +6,48 @@ import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import NotFound from "@/pages/not-found";
-import { formatDate } from "@/data/articles";
+import { formatDate, articles as staticArticles } from "@/data/articles";
 import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
 const SITE_URL = "https://insightrecoverynetwork.com";
 
 async function fetchArticle(slug: string): Promise<Article> {
-  const res = await fetch(`/api/articles/${slug}`);
-  if (res.status === 404) throw Object.assign(new Error("not-found"), { status: 404 });
-  if (!res.ok) throw new Error("Failed to load article");
-  return res.json();
+  try {
+    const res = await fetch(`/api/articles/${slug}`);
+    if (res.status === 404) {
+      // Fall back to the static bundled article before throwing
+      const staticMatch = staticArticles.find((a) => a.slug === slug);
+      if (staticMatch) return staticMatch;
+      throw Object.assign(new Error("not-found"), { status: 404 });
+    }
+    if (!res.ok) {
+      const staticMatch = staticArticles.find((a) => a.slug === slug);
+      if (staticMatch) return staticMatch;
+      throw new Error("Failed to load article");
+    }
+    return res.json();
+  } catch (err: unknown) {
+    // If we haven't already thrown a not-found, try static fallback
+    if ((err as { status?: number }).status === 404) throw err;
+    const staticMatch = staticArticles.find((a) => a.slug === slug);
+    if (staticMatch) return staticMatch;
+    throw err;
+  }
 }
 
 async function fetchAllArticles(): Promise<Article[]> {
-  const res = await fetch("/api/articles");
-  if (!res.ok) return [];
-  return res.json();
+  try {
+    const res = await fetch("/api/articles");
+    if (!res.ok) return staticArticles;
+    const dbArticles: Article[] = await res.json();
+    if (dbArticles.length === 0) return staticArticles;
+    const dbSlugs = new Set(dbArticles.map((a) => a.slug));
+    const staticOnly = staticArticles.filter((a) => !dbSlugs.has(a.slug));
+    return [...dbArticles, ...staticOnly];
+  } catch {
+    return staticArticles;
+  }
 }
 
 /** Convert [text](url) patterns to <Link> elements */

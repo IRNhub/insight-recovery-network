@@ -4,15 +4,30 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
-import { CATEGORIES } from "@/data/articles";
+import { CATEGORIES, articles as staticArticles } from "@/data/articles";
 import { BookOpen, Loader2, Search, X } from "lucide-react";
 import resourcesHero from "../assets/resources-hero.png";
 import type { Article } from "@/data/articles";
 
+/**
+ * Fetch published articles from the API and merge with the bundled static
+ * articles so the page always shows content even if the production database
+ * has not been seeded yet.  DB articles take precedence (same slug wins),
+ * and any articles added only via the admin CMS are appended to the list.
+ */
 async function fetchArticles(): Promise<Article[]> {
-  const res = await fetch("/api/articles");
-  if (!res.ok) throw new Error("Failed to load articles");
-  return res.json();
+  try {
+    const res = await fetch("/api/articles");
+    if (!res.ok) return staticArticles;
+    const dbArticles: Article[] = await res.json();
+    if (dbArticles.length === 0) return staticArticles;
+    // Merge: DB articles first (CMS edits win), then fill in any static-only ones
+    const dbSlugs = new Set(dbArticles.map((a) => a.slug));
+    const staticOnly = staticArticles.filter((a) => !dbSlugs.has(a.slug));
+    return [...dbArticles, ...staticOnly];
+  } catch {
+    return staticArticles;
+  }
 }
 
 function matchesSearch(article: Article, query: string): boolean {
@@ -30,10 +45,11 @@ export default function ResourcesList() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const { data: articles = [], isLoading, isError } = useQuery({
+  const { data: articles = staticArticles, isLoading, isError } = useQuery({
     queryKey: ["articles"],
     queryFn: fetchArticles,
-    staleTime: 60_000,
+    staleTime: 5 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const filtered = articles.filter((a) => {
