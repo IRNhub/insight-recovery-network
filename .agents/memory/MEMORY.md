@@ -1,0 +1,2 @@
+- [Assessment system architecture](assessment-system.md) — scoring is deterministic; Anchor AI only writes interpretation from a clinical brief, never raw Q&A.
+- [Anchor output format](anchor-output-format.md) — Anchor returns structured AnchorReport JSON (5 fields); fallbacks return same shape; never returns plain text string.

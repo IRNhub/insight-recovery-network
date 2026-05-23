@@ -1,0 +1,128 @@
+Please improve the website self-assessment results system so Anchor no longer simply repeats the user’s answers back to them.
+
+Current issue:
+After a user completes a self-assessment, Anchor’s feedback is too close to a regurgitation of the submitted answers. The result should feel clinically informed, interpretive, useful and safe, while clearly avoiding diagnosis.
+
+Required outcome:
+Each self-assessment should generate a structured, clinically responsible interpretation based on the user’s score and response pattern.
+
+Important clinical safety rule:
+Do not diagnose the user. Do not say “you have ADHD”, “you have depression”, “you have anxiety disorder”, or “you have substance use disorder”. Use language such as:
+- “Your responses fall within the high-indication range”
+- “Your score suggests moderate symptoms”
+- “This pattern may be consistent with…”
+- “This screening result suggests it may be worth seeking a fuller assessment”
+- “This is not a diagnosis”
+
+Assessment result format:
+For every self-assessment result, return the following sections:
+
+1. Screening Result
+Show the total score where applicable.
+Show a result band, such as:
+- Minimal / low indication
+- Mild / low-moderate indication
+- Moderate indication
+- High indication
+- Severe / very high indication
+
+Use assessment-specific scoring rules where available.
+
+2. What This May Suggest
+Provide a concise but meaningful interpretation of the result.
+Do not repeat the exact answers.
+Summarise the clinical pattern behind the answers.
+
+3. Key Patterns Noticed
+Identify 3 to 5 themes from the user’s response pattern.
+Examples:
+- attention regulation
+- mood disturbance
+- worry and overthinking
+- avoidance
+- impulsivity
+- emotional regulation
+- sleep impact
+- craving or loss of control
+- functional impairment
+- relationship impact
+- work/study impact
+
+4. What This Does Not Mean
+Add a short disclaimer that this is a screening tool, not a diagnosis.
+Mention that symptoms can overlap with stress, trauma, burnout, sleep issues, substance use, anxiety, depression, or other factors depending on the assessment.
+
+5. Suggested Next Steps
+Give practical next steps based on severity:
+- low: monitor, repeat later if needed, use self-help resources
+- mild/moderate: consider structured support, tracking, journaling, lifestyle review, speak to a professional if persistent
+- high/severe: recommend professional assessment/support
+- risk-related scores: recommend seeking urgent or appropriate professional help where clinically appropriate
+
+6. Insight Recovery Network CTA
+Add a soft, non-pushy CTA:
+“If you would like help understanding these results, Insight Recovery Network can help you explore next steps through a confidential consultation.”
+
+Scoring requirements:
+Implement proper scoring and interpretation bands for each assessment.
+
+For PHQ-9:
+- 0-4 minimal
+- 5-9 mild
+- 10-14 moderate
+- 15-19 moderately severe
+- 20-27 severe
+
+For GAD-7:
+- 0-4 minimal
+- 5-9 mild
+- 10-14 moderate
+- 15-21 severe
+
+For AUDIT:
+- 0-7 low risk
+- 8-15 increasing risk
+- 16-19 higher risk
+- 20+ possible dependence
+
+For ADHD / ASRS:
+Use the official ASRS-style interpretation where Part A is the key screener.
+If 4 or more Part A responses fall in the clinically significant/shaded range, return:
+“High indication: responses are highly consistent with adult ADHD traits and further assessment may be warranted.”
+If fewer than 4 are flagged, return a lower indication, but still comment on any meaningful functional patterns.
+
+Do not present ADHD as a numeric diagnostic probability unless there is a validated algorithm already implemented. Prefer “low / moderate / high indication” rather than percentages.
+
+Anchor feedback quality requirements:
+Anchor should generate interpretation from the score, subdomains and response pattern.
+Anchor must not list every answer back to the user.
+Anchor should sound warm, clinically credible, calm and professional.
+Anchor should be specific enough to feel personalised, but not overclaim.
+Anchor should not use alarming language.
+Anchor should not make treatment claims.
+Anchor should not diagnose.
+
+UI requirements:
+On the result page, show:
+- assessment name
+- score
+- result band badge
+- short interpretation summary
+- expandable “Detailed Anchor Insight”
+- recommended next steps
+- CTA button: “Book a confidential consultation”
+- CTA button or link: “Explore support options”
+
+Admin/lead capture requirement:
+When a user completes an assessment, store:
+- assessment type
+- total score
+- severity/result band
+- date completed
+- user email/contact details if provided
+- whether they clicked the CTA
+- Anchor summary
+
+This should allow IRN to understand which assessments are generating serious leads.
+
+Please audit the current assessment code, scoring logic, result rendering and Anchor prompt. Then update the system so each assessment produces clinically meaningful interpreted feedback rather than answer repetition.

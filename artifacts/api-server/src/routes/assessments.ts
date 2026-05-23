@@ -1,8 +1,9 @@
 import { Router, type IRouter, type Request, type Response } from "express";
 import { z } from "zod";
 import { db, assessmentsTable } from "@workspace/db";
+import { eq } from "drizzle-orm";
 import { logger } from "../lib/logger";
-import { generateAnchorResponse } from "../lib/anchor";
+import { generateAnchorResponse, type AnchorReport } from "../lib/anchor";
 import { sendAssessmentResultToUser, sendAssessmentLeadToCraig } from "../lib/email";
 
 const router: IRouter = Router();
@@ -17,10 +18,11 @@ const SubmitAssessmentBody = z.object({
   scoreValue: z.number().int().min(0),
   scoreLevel: z.string().min(1),
   scoreLabel: z.string().min(1),
+  bandName: z.string().min(1),
   redFlags: z.array(z.string()),
   advisories: z.array(z.string()).default([]),
   tags: z.array(z.string()),
-  sectionSummary: z.string(),
+  clinicalBrief: z.string(),
 });
 
 router.post("/assessments/submit", async (req: Request, res: Response) => {
@@ -48,13 +50,23 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
   const submittedAt = new Date().toUTCString();
 
   try {
-    const anchorResponse = await generateAnchorResponse({
+    const anchorReport: AnchorReport = await generateAnchorResponse({
       scoreLevel: data.scoreLevel,
-      scoreLabel: data.scoreLabel,
+      scoreLabel: data.bandName,
       redFlags: data.redFlags,
-      sectionSummary: data.sectionSummary,
+      clinicalBrief: data.clinicalBrief,
       name: data.name,
     });
+
+    const anchorResponseText = [
+      anchorReport.whatThisMaySuggest,
+      "",
+      `Key patterns: ${anchorReport.keyPatterns.join(", ")}`,
+      "",
+      anchorReport.whatThisDoesNotMean,
+      "",
+      anchorReport.suggestedNextSteps,
+    ].join("\n");
 
     const [assessment] = await db
       .insert(assessmentsTable)
@@ -67,9 +79,10 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
         answers: data.answers,
         scoreValue: data.scoreValue,
         scoreLevel: data.scoreLevel,
+        scoreLabel: data.bandName,
         redFlags: data.redFlags,
         tags: data.tags,
-        anchorResponse,
+        anchorResponse: anchorResponseText,
       })
       .returning({ id: assessmentsTable.id, createdAt: assessmentsTable.createdAt });
 
@@ -81,13 +94,14 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
       phone: data.phone,
       type: data.type,
       scoreLabel: data.scoreLabel,
+      bandName: data.bandName,
       scoreLevel: data.scoreLevel,
       scoreValue: data.scoreValue,
       redFlags: data.redFlags,
       advisories: data.advisories,
       tags: data.tags,
-      sectionSummary: data.sectionSummary,
-      anchorResponse,
+      clinicalBrief: data.clinicalBrief,
+      anchorReport,
       submittedAt,
     };
 
@@ -102,12 +116,31 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
 
     res.status(201).json({
       id: assessment.id,
-      anchorResponse,
+      anchorReport,
       createdAt: assessment.createdAt,
     });
   } catch (err) {
     logger.error({ err }, "Failed to process assessment");
     res.status(500).json({ error: "An unexpected error occurred. Please try again." });
+  }
+});
+
+router.post("/assessments/:id/cta-clicked", async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id ?? "", 10);
+  if (isNaN(id)) {
+    res.status(400).json({ error: "Invalid assessment id" });
+    return;
+  }
+  try {
+    await db
+      .update(assessmentsTable)
+      .set({ ctaClicked: true })
+      .where(eq(assessmentsTable.id, id));
+    logger.info({ assessmentId: id }, "CTA click recorded");
+    res.status(200).json({ ok: true });
+  } catch (err) {
+    logger.warn({ err, assessmentId: id }, "Failed to record CTA click — non-fatal");
+    res.status(200).json({ ok: true });
   }
 });
 

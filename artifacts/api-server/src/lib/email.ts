@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { logger } from "./logger";
+import type { AnchorReport } from "./anchor";
 
 interface EnquiryData {
   name: string;
@@ -102,13 +103,14 @@ interface AssessmentEmailData {
   phone?: string;
   type: string;
   scoreLabel: string;
+  bandName: string;
   scoreLevel: string;
   scoreValue: number;
   redFlags: string[];
   advisories: string[];
   tags: string[];
-  sectionSummary: string;
-  anchorResponse: string;
+  clinicalBrief: string;
+  anchorReport: AnchorReport;
   submittedAt: string;
 }
 
@@ -132,21 +134,35 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
   const hasMentalHealthRedFlag = data.redFlags.includes("mental-health-risk");
   const mentalHealthBlock = hasMentalHealthRedFlag
     ? `<div style="background:#fdf4ff;border:1px solid #d8b4fe;padding:14px 16px;margin-bottom:24px;font-size:14px;color:#4c1d95;line-height:1.7;">
-        <strong>If you are having thoughts of self-harm or suicide:</strong> please reach out for support now. You can speak to the Samaritans at any time — call <strong>116 123</strong> (free, 24/7) or text <strong>SHOUT</strong> to <strong>85258</strong>. If you believe you are in immediate danger, call <strong>999</strong> or go to your nearest A&amp;E. You do not have to face this alone.
+        <strong>If you are having thoughts of self-harm or suicide:</strong> please reach out for support now. You can speak to the Samaritans at any time — call <strong>116 123</strong> (free, 24/7) or text <strong>SHOUT</strong> to <strong>85258</strong>. If you believe you are in immediate danger, call <strong>999</strong> or go to your nearest A&amp;E.
        </div>`
     : hasMentalHealthAdvisory
     ? `<div style="background:#fffbeb;border:1px solid #fcd34d;padding:14px 16px;margin-bottom:24px;font-size:14px;color:#78350f;line-height:1.6;">
-        <strong>Emotional wellbeing note:</strong> You also reported significant low mood or anxiety. This does not automatically mean there is an immediate crisis, but it does suggest that emotional wellbeing should be part of any support plan. If these feelings become overwhelming or you feel unsafe, please seek urgent help immediately.
+        <strong>Emotional wellbeing note:</strong> You also reported significant low mood or anxiety. If these feelings become overwhelming or you feel unsafe, please seek urgent help immediately.
        </div>`
     : "";
 
-  const anchorBlock = data.anchorResponse
-    ? `<div style="margin-top:24px;border-top:1px solid #e0ddd8;padding-top:24px;">
-        <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">A note from Anchor</div>
-        <div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:16px;font-size:14px;line-height:1.8;white-space:pre-wrap;">${escapeHtml(data.anchorResponse)}</div>
-        <p style="color:#999;font-size:11px;margin-top:8px;">Anchor is an AI-assisted guidance tool. This is not a diagnosis and does not replace professional medical advice.</p>
-       </div>`
-    : "";
+  const { anchorReport } = data;
+  const patternsHtml = anchorReport.keyPatterns
+    .map((p) => `<li style="margin-bottom:4px;">${escapeHtml(p)}</li>`)
+    .join("");
+
+  const anchorBlock = `
+    <div style="margin-top:24px;border-top:1px solid #e0ddd8;padding-top:24px;">
+      <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">What this may suggest</div>
+      <p style="font-size:14px;line-height:1.8;color:#333;margin:0 0 16px;">${escapeHtml(anchorReport.whatThisMaySuggest)}</p>
+
+      <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">Key patterns noticed</div>
+      <ul style="font-size:14px;line-height:1.8;color:#333;margin:0 0 16px;padding-left:20px;">${patternsHtml}</ul>
+
+      <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">What this does not mean</div>
+      <p style="font-size:14px;line-height:1.8;color:#555;margin:0 0 16px;">${escapeHtml(anchorReport.whatThisDoesNotMean)}</p>
+
+      <div style="font-weight:bold;color:#162B3B;margin-bottom:8px;font-size:14px;">Suggested next steps</div>
+      <p style="font-size:14px;line-height:1.8;color:#333;margin:0 0 16px;">${escapeHtml(anchorReport.suggestedNextSteps)}</p>
+
+      <p style="color:#999;font-size:11px;margin-top:8px;">Anchor is an AI-assisted guidance tool. This is not a diagnosis and does not replace professional medical advice.</p>
+    </div>`;
 
   return `<!DOCTYPE html>
 <html>
@@ -159,8 +175,8 @@ function buildAssessmentResultHtml(data: AssessmentEmailData): string {
     ${safetyNote}
     ${mentalHealthBlock}
     <div style="border-left:4px solid ${colour};padding:12px 16px;margin-bottom:24px;background:#fafaf8;">
-      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Result Level</div>
-      <div style="font-size:20px;font-weight:bold;color:${colour};">${escapeHtml(data.scoreLabel)}</div>
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Score: ${data.scoreValue}</div>
+      <div style="font-size:20px;font-weight:bold;color:${colour};">${escapeHtml(data.bandName)}</div>
     </div>
     ${anchorBlock}
     <hr style="border:none;border-top:1px solid #e0ddd8;margin:32px 0 16px;" />
@@ -176,10 +192,10 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
   const isDetoxMedicalRisk = data.scoreLevel === "possible-detox-risk" || data.scoreLevel === "urgent-medical-advice";
   const hasSafeguarding = data.tags.includes("urgent-safeguarding");
   const detoxBadge = isDetoxMedicalRisk
-    ? `<div style="background:#fff0f0;border:1px solid #f5c6cb;padding:10px 16px;margin-bottom:10px;font-size:14px;color:#721c24;font-weight:bold;">⚠ HIGH RISK — Urgent medical advice priority. Priority follow-up recommended.</div>`
+    ? `<div style="background:#fff0f0;border:1px solid #f5c6cb;padding:10px 16px;margin-bottom:10px;font-size:14px;color:#721c24;font-weight:bold;">&#9888; HIGH RISK — Urgent medical advice priority. Priority follow-up recommended.</div>`
     : "";
   const safeguardingBadge = hasSafeguarding
-    ? `<div style="background:#fdf4ff;border:1px solid #d8b4fe;padding:10px 16px;margin-bottom:20px;font-size:14px;color:#5b21b6;font-weight:bold;">⚠ URGENT SAFEGUARDING PRIORITY — Self-harm or suicidal ideation reported. Crisis support consideration required.</div>`
+    ? `<div style="background:#fdf4ff;border:1px solid #d8b4fe;padding:10px 16px;margin-bottom:20px;font-size:14px;color:#5b21b6;font-weight:bold;">&#9888; URGENT SAFEGUARDING PRIORITY — Self-harm or suicidal ideation reported. Crisis support consideration required.</div>`
     : isDetoxMedicalRisk ? `<div style="margin-bottom:10px;"></div>` : "";
   const urgencyBadge = `${detoxBadge}${safeguardingBadge}`;
   const hasMentalHealthRedFlagLead = data.redFlags.includes("mental-health-risk");
@@ -188,13 +204,16 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
     ? `<tr><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Red Flags</td><td style="padding:10px 0;color:#9b2a2a;">${escapeHtml(data.redFlags.join(", "))}</td></tr>`
     : "";
   const mentalHealthLeadRow = hasMentalHealthRedFlagLead
-    ? `<tr style="background:#fdf4ff;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#5b21b6;font-size:13px;"><strong>⚠ Urgent safeguarding priority.</strong> Self-harm or suicidal ideation reported — <strong>mental-health-red-flag, urgent-safeguarding, crisis-support-recommended</strong>. Immediate crisis support consideration required.</td></tr>`
+    ? `<tr style="background:#fdf4ff;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#5b21b6;font-size:13px;"><strong>&#9888; Urgent safeguarding priority.</strong> Self-harm or suicidal ideation reported. Immediate crisis support consideration required.</td></tr>`
     : hasMentalHealthAdvisoryLead
-    ? `<tr style="background:#fffbeb;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#78350f;font-size:13px;">Significant low mood or anxiety reported — <strong>mental-health-advisory</strong>. Not urgent escalation, but should be included in any support plan discussion.</td></tr>`
+    ? `<tr style="background:#fffbeb;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Mental Health</td><td style="padding:10px 0;color:#78350f;font-size:13px;">Significant low mood or anxiety reported — advisory flag. Should be included in any support plan discussion.</td></tr>`
     : "";
   const tagsRow = data.tags.length > 0
     ? `<tr style="background:#f9f8f6;"><td style="padding:10px 0;color:#666;width:200px;vertical-align:top;font-weight:bold;">Tags</td><td style="padding:10px 0;font-size:12px;">${escapeHtml(data.tags.join(", "))}</td></tr>`
     : "";
+
+  const { anchorReport } = data;
+  const patternsText = anchorReport.keyPatterns.map((p) => `• ${escapeHtml(p)}`).join("<br>");
 
   return `<!DOCTYPE html>
 <html>
@@ -205,8 +224,8 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
     <hr style="border:none;border-top:1px solid #e0ddd8;margin:24px 0;" />
     ${urgencyBadge}
     <div style="border-left:4px solid ${colour};padding:12px 16px;margin-bottom:24px;background:#fafaf8;">
-      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Result Level</div>
-      <div style="font-size:20px;font-weight:bold;color:${colour};">${escapeHtml(data.scoreLabel)} (Score: ${data.scoreValue})</div>
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#888;margin-bottom:4px;">Score: ${data.scoreValue}</div>
+      <div style="font-size:20px;font-weight:bold;color:${colour};">${escapeHtml(data.bandName)}</div>
     </div>
     <table style="width:100%;border-collapse:collapse;font-size:15px;">
       <tr><td style="padding:10px 0;color:#666;width:200px;font-weight:bold;">Name</td><td style="padding:10px 0;">${escapeHtml(data.name)}</td></tr>
@@ -219,10 +238,17 @@ function buildAssessmentLeadHtml(data: AssessmentEmailData): string {
       <tr><td style="padding:10px 0;color:#666;font-weight:bold;">Submitted</td><td style="padding:10px 0;">${escapeHtml(data.submittedAt)}</td></tr>
     </table>
     <div style="margin-top:24px;">
-      <div style="color:#666;font-weight:bold;margin-bottom:8px;">Section Summary</div>
-      <div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:16px;font-size:13px;line-height:1.7;white-space:pre-wrap;">${escapeHtml(data.sectionSummary)}</div>
+      <div style="color:#666;font-weight:bold;margin-bottom:8px;font-size:14px;">Anchor — Key Patterns</div>
+      <div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:14px 16px;font-size:13px;line-height:1.7;">${patternsText}</div>
     </div>
-    ${data.anchorResponse ? `<div style="margin-top:24px;"><div style="color:#666;font-weight:bold;margin-bottom:8px;">Anchor Response (sent to client)</div><div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:16px;font-size:13px;line-height:1.7;white-space:pre-wrap;">${escapeHtml(data.anchorResponse)}</div></div>` : ""}
+    <div style="margin-top:16px;">
+      <div style="color:#666;font-weight:bold;margin-bottom:8px;font-size:14px;">Anchor — Interpretation</div>
+      <div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:14px 16px;font-size:13px;line-height:1.7;">${escapeHtml(anchorReport.whatThisMaySuggest)}</div>
+    </div>
+    <div style="margin-top:16px;">
+      <div style="color:#666;font-weight:bold;margin-bottom:8px;font-size:14px;">Clinical Brief (sent to Anchor)</div>
+      <div style="background:#f9f8f6;border:1px solid #e0ddd8;padding:14px 16px;font-size:12px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.clinicalBrief)}</div>
+    </div>
     <hr style="border:none;border-top:1px solid #e0ddd8;margin:32px 0 16px;" />
     <p style="color:#999;font-size:11px;">Submitted via the IRN Assessment system. Confidential — do not forward.</p>
   </div>
@@ -245,7 +271,7 @@ export async function sendAssessmentResultToUser(data: AssessmentEmailData): Pro
     to: data.email,
     subject: `Your Assessment Results — Insight Recovery Network`,
     html: buildAssessmentResultHtml(data),
-    text: `Your Assessment Results\n\nResult: ${data.scoreLabel}\n\n${data.anchorResponse}\n\nInsight Recovery Network — www.insightrecoverynetwork.com`,
+    text: `Your Assessment Results\n\nScore: ${data.scoreValue} — ${data.bandName}\n\nWhat this may suggest:\n${data.anchorReport.whatThisMaySuggest}\n\nKey patterns: ${data.anchorReport.keyPatterns.join(", ")}\n\nSuggested next steps:\n${data.anchorReport.suggestedNextSteps}\n\nInsight Recovery Network — www.insightrecoverynetwork.com`,
   });
 
   if (error) throw new Error(`Resend error: ${error.message}`);
@@ -274,9 +300,9 @@ export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Prom
     from: fromEmail,
     to: toEmail,
     ...(ccEmail ? { cc: ccEmail } : {}),
-    subject: `${subjectPrefix}New Assessment Lead: ${data.name} — ${data.scoreLabel}`,
+    subject: `${subjectPrefix}New Assessment Lead: ${data.name} — ${data.bandName}`,
     html: buildAssessmentLeadHtml(data),
-    text: `New Assessment Lead\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone ?? "Not provided"}\nScore: ${data.scoreLabel} (${data.scoreValue})\nRed Flags: ${data.redFlags.join(", ") || "None"}\nTags: ${data.tags.join(", ")}\n\nSection Summary:\n${data.sectionSummary}`,
+    text: `New Assessment Lead\n\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone ?? "Not provided"}\nScore: ${data.bandName} (${data.scoreValue})\nRed Flags: ${data.redFlags.join(", ") || "None"}\nKey Patterns: ${data.anchorReport.keyPatterns.join(", ")}\nTags: ${data.tags.join(", ")}\n\nClinical Brief:\n${data.clinicalBrief}`,
   });
 
   if (error) throw new Error(`Resend error: ${error.message}`);

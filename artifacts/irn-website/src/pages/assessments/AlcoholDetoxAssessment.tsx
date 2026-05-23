@@ -4,8 +4,8 @@ import { SEO } from "@/components/SEO";
 import { AssessmentEngine } from "@/components/assessment/AssessmentEngine";
 import { AssessmentResult } from "@/components/assessment/AssessmentResult";
 import { alcoholDetoxAssessment } from "@/data/assessments/alcohol-detox";
-import { buildSectionSummary } from "@/lib/assessment-scorer";
-import type { AssessmentAnswers, ScoreResult } from "@/types/assessment";
+import { buildClinicalBrief } from "@/lib/assessment-scorer";
+import type { AssessmentAnswers, ScoreResult, AnchorReport } from "@/types/assessment";
 import { Shield, Clock, Lock } from "lucide-react";
 
 type Phase = "intro" | "assessment" | "result";
@@ -16,7 +16,8 @@ export default function AlcoholDetoxAssessment() {
   const [phase, setPhase] = useState<Phase>("intro");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<ScoreResult | null>(null);
-  const [anchorResponse, setAnchorResponse] = useState("");
+  const [anchorReport, setAnchorReport] = useState<AnchorReport | null>(null);
+  const [assessmentId, setAssessmentId] = useState<number | undefined>(undefined);
   const [userName, setUserName] = useState("");
   const [isLoadingAnchor, setIsLoadingAnchor] = useState(false);
 
@@ -27,7 +28,7 @@ export default function AlcoholDetoxAssessment() {
     const email = typeof answers["email"] === "string" ? answers["email"] : "";
     const phone = typeof answers["phone"] === "string" ? answers["phone"] : undefined;
 
-    const sectionSummary = buildSectionSummary(alcoholDetoxAssessment, answers);
+    const clinicalBrief = buildClinicalBrief(alcoholDetoxAssessment, answers, score);
     const tags = buildTags(score);
 
     setResult(score);
@@ -51,21 +52,38 @@ export default function AlcoholDetoxAssessment() {
           scoreValue: score.value,
           scoreLevel: score.level,
           scoreLabel: score.label,
+          bandName: score.bandName,
           redFlags: score.redFlags,
           advisories: score.advisories,
           tags,
-          sectionSummary,
+          clinicalBrief,
         }),
       });
 
       if (response.ok) {
         const data = await response.json();
-        setAnchorResponse(data.anchorResponse ?? "");
+        if (data.anchorReport) {
+          setAnchorReport(data.anchorReport as AnchorReport);
+        }
+        if (typeof data.id === "number") {
+          setAssessmentId(data.id);
+        }
       }
     } catch {
-      // Anchor unavailable — result still shown
+      // Anchor unavailable — result still shown with deterministic content
     } finally {
       setIsLoadingAnchor(false);
+    }
+  }
+
+  async function handleCtaClick() {
+    if (!assessmentId) return;
+    try {
+      await fetch(`${API_BASE}/assessments/${assessmentId}/cta-clicked`, {
+        method: "POST",
+      });
+    } catch {
+      // Non-fatal
     }
   }
 
@@ -125,9 +143,11 @@ export default function AlcoholDetoxAssessment() {
         <AssessmentResult
           result={result}
           name={userName}
-          anchorResponse={anchorResponse}
+          anchorReport={anchorReport}
           isLoading={isLoadingAnchor}
           advisories={result.advisories}
+          assessmentId={assessmentId}
+          onCtaClick={handleCtaClick}
         />
       </Layout>
     );
@@ -246,7 +266,7 @@ export default function AlcoholDetoxAssessment() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground font-light mt-6 leading-relaxed">
-            After your score is calculated, Anchor — our AI-assisted recovery guidance system — will generate a personalised reflection. Anchor does not diagnose or give medical instructions.
+            After your score is calculated, Anchor — our AI-assisted recovery guidance system — will generate a personalised interpretation. Anchor does not diagnose or give medical instructions.
           </p>
         </div>
       </section>

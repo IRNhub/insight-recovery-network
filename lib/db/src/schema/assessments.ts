@@ -10,9 +10,11 @@ export const assessmentsTable = pgTable("assessments", {
   answers: jsonb("answers").notNull(),
   scoreValue: integer("score_value").notNull(),
   scoreLevel: text("score_level").notNull(),
+  scoreLabel: text("score_label"),
   redFlags: jsonb("red_flags").notNull().default([]),
   tags: jsonb("tags").notNull().default([]),
   anchorResponse: text("anchor_response"),
+  ctaClicked: boolean("cta_clicked").notNull().default(false),
   status: text("status").notNull().default("new"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });

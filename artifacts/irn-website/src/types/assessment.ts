@@ -38,8 +38,17 @@ export interface ScoreResult {
   redFlags: string[];
   advisories: string[];
   label: string;
+  bandName: string;
   colour: string;
   tagline: string;
+}
+
+export interface AnchorReport {
+  whatThisMaySuggest: string;
+  keyPatterns: string[];
+  whatThisDoesNotMean: string;
+  suggestedNextSteps: string;
+  ctaText: string;
 }
 
 export interface AssessmentConfig {
