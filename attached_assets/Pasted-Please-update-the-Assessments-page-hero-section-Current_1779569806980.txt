@@ -1,0 +1,70 @@
+Please update the Assessments page hero section.
+
+Current issue:
+The current assessments hero image with the tablet/desk scene needs to be replaced with the new brain/network hero image I have provided. The new image better matches the assessments page and the Insight Recovery Network brand.
+
+Task:
+Replace the current hero image on the Assessments page with the new brain image.
+
+Important:
+I still want the dark overlay block that currently appears on the existing hero image, the one that says:
+
+Confidential self-assessment
+Completely private · No account required
+
+Please keep that same overlay block and place it over the new brain image as part of the hero image layout.
+
+Requirements:
+1. Replace the existing Assessments page hero image with the new uploaded brain/network image.
+2. Keep the overlay card/block on top of the image.
+3. The overlay should remain visually consistent with the current site style:
+   - dark navy background
+   - soft rounded corners
+   - subtle transparency or premium glass effect if already used
+   - small shield icon on the left
+   - heading: “Confidential self-assessment”
+   - subtext: “Completely private · No account required”
+4. Position the overlay in a visually balanced way on the new image.
+   - On desktop, place it near the bottom-left area of the image.
+   - On mobile, ensure it remains readable and does not cover the brain awkwardly.
+5. Keep the image fully responsive.
+6. Preserve the rounded corners and spacing currently used on the image container.
+7. Ensure the image does not stretch or distort.
+8. Use `object-fit: cover` or the existing image handling pattern.
+9. Add suitable alt text, for example:
+   “Illustration of a connected brain representing confidential mental health self-assessments”
+10. Do not change the assessment cards, page copy, routing, assessment logic, or Anchor feedback logic in this task.
+11. After the update, check the Assessments page on desktop and mobile widths.
+
+Implementation guidance:
+Find the Assessments page component, likely something like:
+- `client/src/pages/assessments.tsx`
+- `client/src/pages/Assessments.tsx`
+- or wherever the current assessments hero image is rendered.
+
+Replace the image source with the new asset.
+
+If the existing overlay block is currently part of the image itself rather than coded separately, recreate it as a proper positioned HTML overlay inside the image container instead. Example structure:
+
+```tsx
+<div className="relative overflow-hidden rounded-[...existing radius...]">
+  <img
+    src={newBrainHeroImage}
+    alt="Illustration of a connected brain representing confidential mental health self-assessments"
+    className="w-full h-full object-cover"
+  />
+
+  <div className="absolute left-6 bottom-6 max-w-[520px] rounded-xl bg-[#162536]/90 backdrop-blur-sm px-6 py-4 shadow-lg">
+    <div className="flex items-start gap-3">
+      <Shield className="h-5 w-5 text-[#d6c4a3] mt-1" />
+      <div>
+        <p className="font-serif text-white text-lg">
+          Confidential self-assessment
+        </p>
+        <p className="text-white/75 text-sm">
+          Completely private · No account required
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

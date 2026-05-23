@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { ArrowRight, Clock, Shield, Lock } from "lucide-react";
-import assessmentsHeroImg from "@assets/Assesments_Hero_1778770268354.png";
+const assessmentsHeroImg = "/assessments-hero-brain.png";
 
 const assessments = [
   {
@@ -138,9 +138,9 @@ export default function AssessmentsIndex() {
               >
                 <img
                   src={assessmentsHeroImg}
-                  alt="A calm desk scene with a tablet showing a confidential self-assessment"
+                  alt="Illustration of a connected brain representing confidential mental health self-assessments"
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 30%" }}
+                  style={{ objectPosition: "center 40%" }}
                   fetchPriority="high"
                   loading="eager"
                 />
