@@ -1,0 +1,90 @@
+We need to audit and fix the SEO crawlability and AI visibility issues on insightrecoverynetwork.com.
+
+Current concern:
+Multiple live routes appear to be exposing very similar crawler-visible HTML, including /assessments, /treatment-placement, /insight-os, /what-we-offer, /about and /contact. Search results show repeated titles, repeated H1 content, repeated meta descriptions, and repeated page body snippets. This may be causing Google and AI crawlers to treat the pages as duplicates rather than distinct service pages.
+
+Please perform a full technical SEO audit and fix the following:
+
+1. Route-specific metadata
+Ensure every major route has a unique:
+- title tag
+- meta description
+- canonical URL
+- og:title
+- og:description
+- og:url
+- og:image where appropriate
+- twitter:title
+- twitter:description
+
+Routes to check:
+/
+ /about
+ /what-we-offer
+ /treatment-placement
+ /online-programme
+ /insight-os
+ /assessments
+ /resources
+ /contact
+Any individual article/resource routes
+
+2. Route-specific H1 and page content
+Ensure each page has one unique H1 that accurately reflects the page purpose.
+
+Examples:
+Homepage: Private Addiction and Mental Health Support, Online and Abroad
+Treatment Placement: Private Rehab and Detox Placement Guidance
+Online Programme: Structured Online Addiction Recovery Programme
+Insight OS: Digital Recovery Tools for Addiction and Mental Health
+Assessments: Free Confidential Addiction and Mental Health Assessments
+Resources: Addiction and Mental Health Recovery Resources
+About: About Insight Recovery Network
+Contact: Speak Confidentially With Insight Recovery Network
+
+Do not reuse the homepage H1 across all pages.
+
+3. Server-rendered or crawler-visible HTML
+Check whether the app is serving the same index.html shell for all routes without route-specific metadata. If this is a Vite React SPA, implement a reliable SEO solution so crawlers receive correct route-specific metadata.
+
+Options may include:
+- react-helmet-async for client-side metadata, plus prerendering if required
+- static prerender generation for public marketing pages
+- SSR if already supported
+- a route-based metadata map injected at request time
+
+Choose the most stable approach for this project.
+
+4. Sitemap and robots
+Check:
+- /sitemap.xml includes all important public pages and resource articles
+- /robots.txt allows crawling
+- sitemap URLs use the canonical https://www.insightrecoverynetwork.com format consistently
+- no important page is accidentally noindexed
+
+5. Canonicals
+Each public page should self-canonicalise to its own URL, not the homepage.
+
+6. Structured data foundation
+Add JSON-LD schema:
+- Organization schema for Insight Recovery Network
+- WebSite schema
+- Person schema for Craig Bilton
+- Service schema for the main service pages
+- FAQPage schema where FAQ sections exist
+- Article schema for resource/blog articles
+- BreadcrumbList schema where appropriate
+
+Keep schema accurate and do not make exaggerated medical claims.
+
+7. QA checks
+After fixing, provide a report showing for each route:
+- final URL
+- title
+- meta description
+- H1
+- canonical
+- indexability status
+- schema types present
+
+Also test by viewing page source or fetching the route HTML, not only by inspecting the browser-rendered DOM.

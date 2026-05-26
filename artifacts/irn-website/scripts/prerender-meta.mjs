@@ -1603,6 +1603,19 @@ const ARTICLES = [
     date: "2026-05-19",
     type: "article",
   },
+  {
+    slug: "online-addiction-support-vs-residential-rehab",
+    pageTitle:
+      "Online Addiction Support vs Residential Rehab UK: Which Is Right? | Insight Recovery Network",
+    ogTitle:
+      "Online Addiction Support vs Residential Rehab UK: Which Is Right?",
+    description:
+      "Online addiction support or residential rehab? A clinically informed UK guide to choosing the right level of care based on risk, fit, and recovery needs.",
+    image: `${SITE_URL}/online-vs-residential-hero.png`,
+    imageAlt: "A calm professional editorial photograph with a notebook, coffee cup and desk lamp in navy and gold, representing the considered choice between online addiction support and residential rehab",
+    date: "2026-05-26",
+    type: "article",
+  },
 ];
 
 /**

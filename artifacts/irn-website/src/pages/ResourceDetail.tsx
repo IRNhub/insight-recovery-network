@@ -156,6 +156,58 @@ function parseContent(content: string) {
       );
       continue;
 
+    // Markdown table — lines starting with |
+    } else if (line.startsWith("| ")) {
+      const tableLines: string[] = [];
+      while (i < lines.length && lines[i].startsWith("|")) {
+        tableLines.push(lines[i]);
+        i++;
+      }
+      const isSeparator = (row: string) =>
+        row.split("|").filter(Boolean).every((cell) => /^[\-: ]+$/.test(cell));
+      const filtered = tableLines.filter((l) => !isSeparator(l));
+      const [headerRow, ...dataRows] = filtered;
+      const headers = headerRow.split("|").filter(Boolean).map((s) => s.trim());
+      const rows = dataRows.map((row) =>
+        row.split("|").filter(Boolean).map((s) => s.trim())
+      );
+      elements.push(
+        <div key={`table-${i}`} className="my-8 overflow-x-auto rounded-lg border border-border/50">
+          <table className="w-full text-sm">
+            <thead>
+              <tr style={{ background: "#162B3B" }}>
+                {headers.map((h, idx) => (
+                  <th
+                    key={idx}
+                    className="px-4 py-3 text-left font-medium text-primary-foreground text-xs tracking-wide whitespace-nowrap"
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, ridx) => (
+                <tr
+                  key={ridx}
+                  className={ridx % 2 === 0 ? "bg-background" : "bg-muted/30"}
+                >
+                  {row.map((cell, cidx) => (
+                    <td
+                      key={cidx}
+                      className="px-4 py-3 text-muted-foreground font-light leading-relaxed align-top border-t border-border/30"
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      continue;
+
     // Regular paragraph — handles **inline bold** and [text](url) inline links
     } else if (line.trim() !== "") {
       const rawParts = line.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
