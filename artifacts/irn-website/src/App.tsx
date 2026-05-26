@@ -1,8 +1,9 @@
 import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useBrowserLocation } from "wouter/use-browser-location";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
 
@@ -37,7 +38,7 @@ const queryClient = new QueryClient();
 /**
  * Client-side redirect map — mirrors the server-side SERVER_REDIRECTS in vite.config.ts.
  * Handles in-app navigation to old/legacy URLs (belt-and-suspenders alongside server 301s).
- * Trailing slashes are already stripped by the Router function before this map is checked.
+ * Trailing slashes are already stripped by useNormalisedLocation before this map is checked.
  */
 const REDIRECT_PATHS: Record<string, string> = {
   // ── Previously handled ────────────────────────────────────────────────
@@ -98,6 +99,37 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/blog/family-support":                "/what-we-offer",
 };
 
+/**
+ * Custom wouter v3 location hook that strips trailing slashes before wouter
+ * ever sees the path. This replaces the old `return null` + popstate-dispatch
+ * approach which was unreliable because it fired a DOM event during a React
+ * render cycle.
+ *
+ * Behaviour:
+ * - wouter always receives the clean path (e.g. "/resources" not "/resources/")
+ * - The address bar is silently updated via replaceState after render
+ * - replaceState does NOT fire popstate, so there is no re-render loop
+ * - No blank screen: the correct page component renders immediately
+ */
+function useNormalisedLocation(): ReturnType<typeof useBrowserLocation> {
+  const [loc, navigate] = useBrowserLocation();
+
+  const normLoc = loc !== "/" && loc.endsWith("/") ? loc.slice(0, -1) : loc;
+
+  // Sync the address bar after render — replaceState, no reload, no popstate
+  useEffect(() => {
+    if (loc !== normLoc) {
+      window.history.replaceState(
+        null,
+        "",
+        normLoc + window.location.search + window.location.hash
+      );
+    }
+  }, [loc, normLoc]);
+
+  return [normLoc, navigate];
+}
+
 function Router() {
   // Enforce www canonical — redirect bare domain to www.
   // Only fires on the real production domain, never in dev (*.replit.dev).
@@ -115,23 +147,6 @@ function Router() {
   }
 
   const rawPath = typeof window !== "undefined" ? window.location.pathname : "";
-
-  // Strip trailing slash from all paths except root "/".
-  // IMPORTANT: use history.replaceState + popstate dispatch instead of
-  // window.location.replace.  A full-page reload would re-trigger the static
-  // server's automatic directory-redirect (/assessments → /assessments/) and
-  // create an infinite reload loop on routes that share a name with a
-  // sub-page directory (e.g. /assessments, /resources).
-  if (rawPath !== "/" && rawPath.endsWith("/")) {
-    const clean = rawPath.slice(0, -1);
-    window.history.replaceState(
-      null,
-      "",
-      clean + window.location.search + window.location.hash
-    );
-    window.dispatchEvent(new PopStateEvent("popstate", { state: null }));
-    return null;
-  }
 
   const redirectTarget = REDIRECT_PATHS[rawPath];
   if (redirectTarget) {
@@ -182,7 +197,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter>
+        <WouterRouter hook={useNormalisedLocation}>
           <Router />
         </WouterRouter>
         <Toaster />
