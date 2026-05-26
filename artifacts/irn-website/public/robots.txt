@@ -10,4 +10,16 @@ Allow: /
 User-agent: Facebot
 Allow: /
 
-Sitemap: https://insightrecoverynetwork.com/sitemap.xml
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+Sitemap: https://www.insightrecoverynetwork.com/sitemap.xml
