@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
+import { ogImageUrl } from "@/config/og-pages";
 import { ArrowRight, Clock, Shield, Lock } from "lucide-react";
 const assessmentsHeroImg = "/assessments-hero-brain.png";
 
@@ -81,9 +82,10 @@ export default function AssessmentsIndex() {
   return (
     <Layout>
       <SEO
-        title="Free Confidential Self-Assessments — Insight Recovery Network"
+        title="Free Confidential Addiction and Mental Health Self-Assessments"
         description="Free confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Clinically informed, non-diagnostic, results sent to your email."
         canonical="/assessments"
+        ogImage={ogImageUrl("og-assessments.png")}
       />
 
       {/* ── Hero — two-column layout ── */}
@@ -103,7 +105,7 @@ export default function AssessmentsIndex() {
                 Clinical Self-Assessments
               </p>
               <h1 className="font-serif text-primary leading-tight mb-4" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.75rem)" }}>
-                Free Confidential Assessments
+                Free Confidential Addiction and Mental Health Assessments
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-3 max-w-xl">
                 Clinically informed self-reflection tools to help you understand your current situation — whether that involves alcohol, substances, mental health, or patterns of attention and impulsivity.

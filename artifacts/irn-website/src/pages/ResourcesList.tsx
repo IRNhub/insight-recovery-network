@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { CATEGORIES, articles as staticArticles } from "@/data/articles";
@@ -67,6 +68,7 @@ export default function ResourcesList() {
         title="Resources — Addiction, Recovery & Mental Health Articles"
         description="Expert articles on addiction, recovery, mental health, and treatment options — written by clinical specialists to help individuals and families make informed decisions."
         canonical="/resources"
+        ogImage={ogImageUrl("og-resources.png")}
       />
 
       {/* ── Hero — two-column ── */}
@@ -89,7 +91,7 @@ export default function ResourcesList() {
                 className="font-serif text-primary leading-tight mb-4"
                 style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.75rem)" }}
               >
-                Insight and guidance from clinical experience.
+                Addiction and Mental Health Recovery Resources
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-3 max-w-xl">
                 Authoritative articles on addiction, recovery, mental health and

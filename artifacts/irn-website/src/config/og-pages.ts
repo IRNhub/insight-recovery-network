@@ -65,6 +65,27 @@ export const OG_PAGES: OgPageConfig[] = [
     subtitle: "The Operating System for Your Recovery",
     seoTitle: "Insight OS — The Operating System for Your Recovery",
   },
+  {
+    path: "/what-we-offer",
+    file: "og-what-we-offer.png",
+    title: "Addiction Counselling & Recovery Services",
+    subtitle: "Insight Recovery Network",
+    seoTitle: "Addiction Counselling & Recovery Services",
+  },
+  {
+    path: "/assessments",
+    file: "og-assessments.png",
+    title: "Free Confidential Assessments",
+    subtitle: "Addiction & Mental Health",
+    seoTitle: "Free Confidential Addiction & Mental Health Assessments",
+  },
+  {
+    path: "/resources",
+    file: "og-resources.png",
+    title: "Recovery Resources",
+    subtitle: "Addiction & Mental Health Articles",
+    seoTitle: "Addiction & Mental Health Recovery Resources",
+  },
 ];
 
 const SITE_BASE_URL = "https://insightrecoverynetwork.com";

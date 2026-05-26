@@ -19,7 +19,7 @@ export default function Contact() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-serif text-primary mb-6 leading-tight">
-              Speak Confidentially
+              Speak Confidentially With Insight Recovery Network
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-light mb-8">
               We understand that making contact can be difficult. Your enquiry is completely confidential. We will only use your information to respond to your request for support.

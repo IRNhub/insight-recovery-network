@@ -89,7 +89,7 @@ const PAGES = [
               About Insight Recovery Network
             </p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Discreet addiction recovery support for individuals and families navigating complex treatment decisions.
+              About Insight Recovery Network
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.
@@ -134,7 +134,7 @@ const PAGES = [
     title: "Addiction Counselling &amp; Recovery Services | Insight Recovery Network",
     description:
       "Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs.",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}/og-what-we-offer.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -154,7 +154,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Our Services</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Comprehensive support across the recovery continuum.
+              Addiction Counselling and Recovery Services
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               From the moment of crisis through to long-term wellbeing, we provide structured pathways for individuals, families, and professionals.
@@ -229,7 +229,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Treatment Placement</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Independent guidance on private rehab and detox, UK and internationally.
+              Private Rehab and Detox Placement Guidance
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Choosing the right treatment facility is one of the most consequential decisions a person or family can make. We assess your needs, identify the most appropriate options, and manage the transition — without commercial ties to any provider.
@@ -297,7 +297,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Programme</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              A structured online addiction recovery programme — without residential care.
+              Structured Online Addiction Recovery Programme
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning — wherever you are in the world.
@@ -370,7 +370,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Insight OS</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              The operating system for your recovery.
+              Digital Recovery Tools for Addiction and Mental Health
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Insight OS is a structured digital recovery platform designed to bring daily rhythm, accountability, and clinical guidance to life outside treatment. It combines daily check-ins, mood tracking, guided journaling, relapse prevention tools, and the Anchor recovery guidance system.
@@ -441,7 +441,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Contact</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:640px;">
-              Speak Confidentially
+              Speak Confidentially With Insight Recovery Network
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;margin-bottom:2rem;">
               You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.
@@ -450,7 +450,7 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Contact Details</h2>
             <p style="font-family:sans-serif;font-size:1rem;color:#4a5568;line-height:2;">
-              Email: <a href="mailto:support@insightrecoverynetwork.com" style="color:#162B3B;">support@insightrecoverynetwork.com</a><br>
+              Email: <a href="mailto:info@insightrecoverynetwork.com" style="color:#162B3B;">info@insightrecoverynetwork.com</a><br>
               Based in Newquay, Cornwall, UK<br>
               Supporting clients across the UK and internationally
             </p>
@@ -684,7 +684,7 @@ const PAGES = [
     title: "Free Addiction &amp; Mental Health Assessments | Insight Recovery Network",
     description:
       "Confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Start a free clinical assessment and receive personalised guidance — no registration required.",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}/og-assessments.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -704,7 +704,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Clinical Assessments</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Free confidential assessments for addiction and mental health.
+              Free Confidential Addiction and Mental Health Assessments
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:1rem;">
               These assessments are designed to help individuals and families understand their situation more clearly. Each one takes 7–15 minutes, is completely confidential, and requires no registration. Results are designed to provide personalised guidance — not a diagnosis.
@@ -1150,7 +1150,7 @@ const PAGES = [
     title: "Addiction &amp; Recovery Resources — Clinical Articles | Insight Recovery Network",
     description:
       "Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families make informed decisions about addiction support and treatment.",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}/og-resources.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -1170,7 +1170,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Clinical Resources</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Addiction and recovery articles.
+              Addiction and Mental Health Recovery Resources
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;">
               Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families understand their situation and make informed decisions.

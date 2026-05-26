@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
@@ -112,6 +113,19 @@ export default function OnlineProgramme() {
         canonical="/online-programme"
         ogImage={ogImageUrl(onlineProgrammeOg.file)}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Structured Online Addiction Recovery Programme",
+            "description": "A clinically guided online recovery programme with group therapy, one-to-one support, relapse prevention planning, and access to Insight OS. Available without residential care.",
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
+            "serviceType": "Online Addiction Recovery Programme",
+            "url": "https://insightrecoverynetwork.com/online-programme",
+          })}
+        </script>
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-8 md:py-14">
@@ -131,7 +145,7 @@ export default function OnlineProgramme() {
                 Online Programme
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Structured recovery support, wherever you are.
+                Structured Online Addiction Recovery Programme
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
                 A clinically guided online recovery programme combining group support, one-to-one therapy, relapse prevention planning, structured worksheets, and access to Insight OS.

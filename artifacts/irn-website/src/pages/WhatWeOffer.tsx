@@ -1,5 +1,6 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
+import { ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
@@ -121,6 +122,7 @@ export default function WhatWeOffer() {
         title="Addiction Counselling &amp; Recovery Services"
         description="Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs."
         canonical="/what-we-offer"
+        ogImage={ogImageUrl("og-what-we-offer.png")}
       />
 
       {/* ── Hero ── */}
@@ -142,7 +144,7 @@ export default function WhatWeOffer() {
                 Our Services
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Comprehensive support across the recovery continuum.
+                Addiction Counselling and Recovery Services
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
                 From the moment of crisis through to long-term wellbeing, we provide structured pathways for individuals, families, and professionals.

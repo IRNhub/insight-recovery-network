@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
@@ -128,6 +129,20 @@ export default function InsightOS() {
         canonical="/insight-os"
         ogImage={ogImageUrl(insightOsOg.file)}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Insight OS",
+            "description": "A structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
+            "url": "https://insightrecoverynetwork.com/insight-os",
+          })}
+        </script>
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-14">
@@ -147,7 +162,7 @@ export default function InsightOS() {
                 Digital Recovery Platform
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Insight OS: the operating system for your recovery.
+                Digital Recovery Tools for Addiction and Mental Health
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
                 A structured digital recovery platform helping users build daily consistency, track progress, recognise risk, and stay connected to the tools that support long-term change.

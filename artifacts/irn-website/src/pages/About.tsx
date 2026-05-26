@@ -94,7 +94,7 @@ export default function About() {
                 className="font-serif text-primary leading-[1.08] tracking-tight mb-5"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.6rem)" }}
               >
-                Discreet addiction recovery support for individuals and families navigating complex treatment decisions.
+                About Insight Recovery Network
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
                 Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
@@ -53,6 +54,23 @@ export default function TreatmentPlacement() {
         canonical="/treatment-placement"
         ogImage={ogImageUrl(treatmentOg.file)}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Private Rehab and Detox Placement",
+            "description": "Independent, confidential guidance on private rehab, detox, and residential treatment placement in the UK and internationally.",
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
+            "serviceType": "Addiction Treatment Placement",
+            "areaServed": [
+              { "@type": "Country", "name": "United Kingdom" },
+              { "@type": "Place", "name": "International" },
+            ],
+            "url": "https://insightrecoverynetwork.com/treatment-placement",
+          })}
+        </script>
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-14">
@@ -72,7 +90,7 @@ export default function TreatmentPlacement() {
                 Treatment Placement
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Navigating residential care with certainty.
+                Private Rehab and Detox Placement Guidance
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
                 Independent, confidential guidance to find the right detox, rehabilitation facility, or specialised care setting worldwide.
