@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
 
-const SITE_URL = "https://insightrecoverynetwork.com";
+const SITE_URL = "https://www.insightrecoverynetwork.com";
 
 const services = [
   {

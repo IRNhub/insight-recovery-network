@@ -37,7 +37,7 @@ export default function TermsOfService() {
             <div>
               <p>
                 These Terms of Service govern your use of the Insight Recovery Network website at{" "}
-                <a href="https://insightrecoverynetwork.com" className="underline underline-offset-2 hover:text-primary transition-colors">
+                <a href="https://www.insightrecoverynetwork.com" className="underline underline-offset-2 hover:text-primary transition-colors">
                   insightrecoverynetwork.com
                 </a>{" "}
                 and any services accessed through it. By using this website you agree to these terms. If you do not agree, please do not use the website.

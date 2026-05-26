@@ -35,7 +35,7 @@ const root = resolve(__dirname, "..");
 const distPublic = resolve(root, "dist/public");
 const publicDir = resolve(root, "public");
 
-const SITE_URL = "https://insightrecoverynetwork.com";
+const SITE_URL = "https://www.insightrecoverynetwork.com";
 const SITE_NAME = "Insight Recovery Network";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-home.png`;
 

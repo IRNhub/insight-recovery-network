@@ -11,8 +11,8 @@ const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Insight Recovery Network",
-  url: "https://insightrecoverynetwork.com",
-  logo: "https://insightrecoverynetwork.com/og-about.png",
+  url: "https://www.insightrecoverynetwork.com",
+  logo: "https://www.insightrecoverynetwork.com/og-about.png",
   description:
     "A UK-based private addiction recovery and mental health support service providing treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools.",
   address: {
@@ -37,7 +37,7 @@ const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Insight Recovery Network",
-  url: "https://insightrecoverynetwork.com",
+  url: "https://www.insightrecoverynetwork.com",
   description:
     "Private addiction recovery and mental health support — treatment placement, online recovery programmes, and digital recovery tools.",
 };
@@ -50,11 +50,11 @@ const PERSON_SCHEMA = {
   worksFor: {
     "@type": "Organization",
     name: "Insight Recovery Network",
-    url: "https://insightrecoverynetwork.com",
+    url: "https://www.insightrecoverynetwork.com",
   },
   description:
     "Addiction recovery specialist with over 20 years of international experience in residential rehabilitation, online recovery support, and complex case management.",
-  url: "https://insightrecoverynetwork.com/about",
+  url: "https://www.insightrecoverynetwork.com/about",
 };
 
 export function Layout({ children }: LayoutProps) {

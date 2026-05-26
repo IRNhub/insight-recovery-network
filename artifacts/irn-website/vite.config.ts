@@ -126,6 +126,19 @@ function serverRedirectsPlugin() {
     res: import("http").ServerResponse,
     next: () => void,
   ) {
+    // Redirect non-www to www (canonical domain enforcement).
+    // Strips port from Host so localhost dev is unaffected.
+    const host = (req.headers.host ?? "").replace(/:\d+$/, "");
+    if (host === "insightrecoverynetwork.com") {
+      const proto =
+        (req.headers["x-forwarded-proto"] as string | undefined) ?? "https";
+      res.writeHead(301, {
+        Location: `${proto}://www.insightrecoverynetwork.com${req.url}`,
+      });
+      res.end();
+      return;
+    }
+
     const raw = (req.url ?? "").split("?")[0].split("#")[0];
     // Normalise: strip trailing slash (except root), lowercase
     const pathname = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;

@@ -99,13 +99,37 @@ const REDIRECT_PATHS: Record<string, string> = {
 };
 
 function Router() {
+  // Enforce www canonical — redirect bare domain to www.
+  // Only fires on the real production domain, never in dev (*.replit.dev).
+  if (
+    typeof window !== "undefined" &&
+    window.location.hostname === "insightrecoverynetwork.com"
+  ) {
+    window.location.replace(
+      "https://www.insightrecoverynetwork.com" +
+        window.location.pathname +
+        window.location.search +
+        window.location.hash
+    );
+    return null;
+  }
+
   const rawPath = typeof window !== "undefined" ? window.location.pathname : "";
 
-  // Strip trailing slash from all paths except root "/"
+  // Strip trailing slash from all paths except root "/".
+  // IMPORTANT: use history.replaceState + popstate dispatch instead of
+  // window.location.replace.  A full-page reload would re-trigger the static
+  // server's automatic directory-redirect (/assessments → /assessments/) and
+  // create an infinite reload loop on routes that share a name with a
+  // sub-page directory (e.g. /assessments, /resources).
   if (rawPath !== "/" && rawPath.endsWith("/")) {
-    window.location.replace(
-      rawPath.slice(0, -1) + window.location.search + window.location.hash
+    const clean = rawPath.slice(0, -1);
+    window.history.replaceState(
+      null,
+      "",
+      clean + window.location.search + window.location.hash
     );
+    window.dispatchEvent(new PopStateEvent("popstate", { state: null }));
     return null;
   }
 

@@ -27,3 +27,18 @@ When changing a page H1, update in BOTH:
 
 ## Contact email
 Correct emails are `info@insightrecoverynetwork.com` (general) and `craig@insightrecoverynetwork.com` (clinical). Never `support@`.
+
+## www vs non-www canonical
+Canonical domain is **https://www.insightrecoverynetwork.com** (with www).
+All SITE_URL references, JSON-LD schemas, OG tags, sitemap, and canonicals must use www.
+The bare domain is redirected to www in two places:
+1. `App.tsx` Router() — client-side, checks `window.location.hostname === "insightrecoverynetwork.com"`
+2. `vite.config.ts` serverRedirectsPlugin — server-side 301 (only applies when vite preview runs)
+
+## The /assessments and /resources directory-redirect loop
+Both routes exist as BOTH a `.html` file AND a same-named directory in `dist/public/`.
+The static server (CDN) sees the directory and issues a 302 to the trailing-slash URL.
+**Never use `window.location.replace()` for trailing-slash stripping** — it causes a
+full page reload which re-triggers the directory redirect = infinite loop.
+The fix: use `history.replaceState() + dispatchEvent(new PopStateEvent("popstate"))`.
+This rewrites the URL client-side without any HTTP request to the server.

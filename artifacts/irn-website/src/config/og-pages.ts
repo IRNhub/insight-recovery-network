@@ -88,7 +88,7 @@ export const OG_PAGES: OgPageConfig[] = [
   },
 ];
 
-const SITE_BASE_URL = "https://insightrecoverynetwork.com";
+const SITE_BASE_URL = "https://www.insightrecoverynetwork.com";
 
 /** Absolute URL for a page's OG image, ready to pass to <SEO ogImage={}> */
 export function ogImageUrl(file: string): string {
