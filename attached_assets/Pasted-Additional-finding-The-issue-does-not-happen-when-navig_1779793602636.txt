@@ -1,0 +1,38 @@
+Additional finding:
+
+The issue does not happen when navigating client-side from the homepage. If I go to the homepage and click Assessments or Resources, both pages appear to work.
+
+The issue happens when I paste the route directly into the browser, especially with the full URL.
+
+Please specifically check direct-route serving and www/non-www canonical handling.
+
+Important observations:
+- Internal navigation from the homepage appears to go to https://insightrecoverynetwork.com/assessments and https://insightrecoverynetwork.com/resources
+- Some SEO/canonical/sitemap work may be using https://www.insightrecoverynetwork.com
+- Directly pasting URLs appears to trigger the glitch/reload loop
+
+Please verify:
+1. Whether https://www.insightrecoverynetwork.com/assessments redirects to https://insightrecoverynetwork.com/assessments or the other way round.
+2. Whether https://insightrecoverynetwork.com/assessments redirects to https://www.insightrecoverynetwork.com/assessments or the other way round.
+3. Whether the www and non-www versions are causing a redirect loop.
+4. Whether /assessments and /resources direct requests are served correctly from the production build.
+5. Whether the prerendered HTML exists and is valid for both routes.
+6. Whether the service worker is caching old versions of these routes.
+7. Whether the sitemap, canonical URLs, OG URLs, internal navigation links, and redirects all use the same preferred domain.
+
+Preferred outcome:
+Choose one canonical domain and make everything consistent.
+
+Recommended canonical:
+https://www.insightrecoverynetwork.com
+
+Then:
+- redirect all non-www traffic to www
+- ensure sitemap uses www
+- ensure canonical tags use www
+- ensure OG URLs use www
+- ensure internal links use relative paths or www consistently
+- ensure direct route requests to /assessments and /resources serve the correct prerendered HTML
+- ensure no route bounces between www and non-www
+
+Please do not remove the SEO improvements. Fix only the direct-route/www/non-www/prerender issue.

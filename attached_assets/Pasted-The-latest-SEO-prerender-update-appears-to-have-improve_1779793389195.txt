@@ -1,0 +1,54 @@
+The latest SEO/prerender update appears to have improved most pages, but two routes are now glitching in production:
+
+/assessments
+/resources
+
+Observed behaviour:
+Both pages appear to load, then reload/re-render repeatedly, like they are stuck in a loop. The browser refresh/stop indicator flickers continuously. Other pages appear to work normally.
+
+Please debug and fix this without rolling back the wider SEO improvements.
+
+Priority:
+1. Identify whether this is a React render loop, useEffect dependency loop, TanStack Query refetch loop, router/navigation loop, service worker issue, or prerender/hydration mismatch.
+2. Check the Assessments page component and Resources page component specifically.
+3. Check any shared components used by both pages, especially:
+   - SEO component
+   - Layout component
+   - prerender/static route wrapper
+   - article/resource fetching logic
+   - assessment list rendering logic
+   - canonical/meta generation logic
+   - any useEffect that calls setState, navigate, invalidateQueries, refetch, scrollTo, or window.location
+4. Look for unstable dependencies such as inline arrays, objects, functions, or route metadata being passed into useEffect/query keys.
+5. Look for code that redirects or normalises URLs repeatedly, such as:
+   - adding/removing trailing slashes
+   - forcing canonical URL
+   - redirecting from old slugs
+   - navigating from /resources to another resources route and back
+   - navigating from /assessments to another assessments route and back
+6. Check the browser console for:
+   - Maximum update depth exceeded
+   - hydration mismatch warnings
+   - repeated fetches
+   - repeated navigation events
+   - service worker/cache warnings
+7. Check the network tab or server logs to see whether the page is truly reloading the document, or whether it is just React repeatedly re-rendering.
+8. Confirm that the issue happens in production build, not just dev mode:
+   - run npm run build
+   - serve the production build locally if possible
+   - test /assessments and /resources directly
+9. Preserve all recent SEO work:
+   - unique H1s
+   - route-specific metadata
+   - schema
+   - OG images
+   - sitemap
+   - prerendering
+
+After fixing, provide a concise report showing:
+- root cause
+- files changed
+- why only /assessments and /resources were affected
+- confirmation that /assessments no longer loops
+- confirmation that /resources no longer loops
+- confirmation that the final production HTML for each route still has the correct title, meta description, H1 and canonical URL
