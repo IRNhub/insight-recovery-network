@@ -1,0 +1,75 @@
+Facebook Sharing Debugger is still returning Response Code 403 for both:
+
+https://www.insightrecoverynetwork.com
+https://insightrecoverynetwork.com
+
+This is not resolved.
+
+Please debug the actual live production response for Facebook’s crawler.
+
+Important: Facebook is still showing:
+Fetched URL: https://insightrecoverynetwork.com/
+Canonical URL: https://insightrecoverynetwork.com/
+Response Code: 403
+
+Tasks:
+
+1. Test the live site using Facebook’s user agent:
+facebookexternalhit/1.1
+
+Check what response code is returned for:
+https://www.insightrecoverynetwork.com
+https://insightrecoverynetwork.com
+https://www.insightrecoverynetwork.com/robots.txt
+https://insightrecoverynetwork.com/robots.txt
+https://www.insightrecoverynetwork.com/og-home-v2.png
+
+2. Fix whatever is causing Facebook’s crawler to receive 403.
+
+This may be caused by:
+- robots.txt not deployed correctly
+- hosting/firewall/security rules blocking bots
+- redirect rules mishandling social crawlers
+- old domain/canonical rules still pointing to the non-www domain
+- stale production deployment
+- Replit/Cloudflare/domain-level protection blocking Meta crawler
+
+3. Make sure the final production behaviour is:
+
+https://insightrecoverynetwork.com
+301 redirects to:
+https://www.insightrecoverynetwork.com
+
+And:
+
+https://www.insightrecoverynetwork.com
+returns HTTP 200 to normal browsers and to facebookexternalhit.
+
+4. Make sure robots.txt is publicly accessible and contains:
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.insightrecoverynetwork.com/sitemap.xml
+
+5. Make sure the homepage rendered HTML has:
+
+og:url = https://www.insightrecoverynetwork.com
+og:image = https://www.insightrecoverynetwork.com/og-home-v2.png
+twitter:image = https://www.insightrecoverynetwork.com/og-home-v2.png
+
+6. Remove any old non-www canonical or Open Graph URL.
+
+7. After deployment, confirm with a curl test using Facebook’s crawler user agent that the response is 200, not 403.
