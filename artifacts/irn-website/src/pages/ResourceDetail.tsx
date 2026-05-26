@@ -259,6 +259,22 @@ export default function ResourceDetail() {
     ? `${SITE_URL}${article.image}`
     : `${SITE_URL}/opengraph.jpg`;
 
+  const faqSchema =
+    article.faq && article.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: article.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -309,6 +325,9 @@ export default function ResourceDetail() {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        {faqSchema && (
+          <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        )}
       </Helmet>
 
       {/* ── Article header ── */}

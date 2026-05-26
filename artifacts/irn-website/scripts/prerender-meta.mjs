@@ -576,6 +576,371 @@ const PAGES = [
       </main>
     `,
   },
+  // ── Individual assessment intro pages ──────────────────────────────────────
+  {
+    route: "/assessments/alcohol-detox",
+    file: "assessments/alcohol-detox.html",
+    title: "Alcohol &amp; Detox Suitability Assessment | Insight Recovery Network",
+    description:
+      "Free confidential assessment to understand whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes. No registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Alcohol &amp; Detox Suitability Assessment — free and confidential.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              Designed for individuals drinking heavily who are considering stopping or reducing. This assessment explores whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes and requires no registration.
+            </p>
+            <a href="/assessments/alcohol-detox" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Alcohol &amp; Detox Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Alcohol use patterns, frequency, and quantity</li>
+              <li>Withdrawal history and previous detox experiences</li>
+              <li>Physical health factors and current medications</li>
+              <li>Detox suitability and level of supervision recommended</li>
+              <li>Appropriate next steps and support options</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. Alcohol withdrawal can be medically serious. Please contact your GP or seek medical advice before stopping or reducing alcohol use if you are concerned.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/alcohol-use",
+    file: "assessments/alcohol-use.html",
+    title: "Alcohol Use Self-Assessment | Insight Recovery Network",
+    description:
+      "Free confidential alcohol use self-assessment. Reflect on how drinking may be affecting your health, relationships, and daily life — personalised results sent to your email. No registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Alcohol Use Assessment — understand your relationship with alcohol.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This free assessment explores current drinking patterns and helps you understand whether alcohol may be affecting your health, relationships, work, or daily life. Based on clinically validated screening criteria. Takes 7–10 minutes and requires no registration.
+            </p>
+            <a href="/assessments/alcohol-use" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Alcohol Use Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Drinking frequency, quantity, and patterns</li>
+              <li>Impact on health, mood, and relationships</li>
+              <li>Signs of dependency or difficulty controlling use</li>
+              <li>Motivation and readiness to change</li>
+              <li>Appropriate support options and next steps</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. If you are concerned about alcohol withdrawal or urgent health risks, please contact your GP or seek medical support immediately.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/drug-use",
+    file: "assessments/drug-use.html",
+    title: "Drug Use &amp; Substance Self-Assessment | Insight Recovery Network",
+    description:
+      "Free confidential drug use and substance assessment. Explore your relationship with substances and understand whether professional support or treatment may be appropriate. No registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Drug Use &amp; Substance Assessment — free and confidential.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This free assessment explores your relationship with substances — including recreational drugs, prescription medications, and stimulants — and helps you understand whether the level of use may be causing harm or whether professional support is appropriate. Takes 7–10 minutes and requires no registration.
+            </p>
+            <a href="/assessments/drug-use" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Drug Use Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Substance type, frequency, and patterns of use</li>
+              <li>Impact on daily functioning and relationships</li>
+              <li>Dependency risk and withdrawal considerations</li>
+              <li>Co-occurring mental health concerns</li>
+              <li>Appropriate treatment and support pathways</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. If you are concerned about substance withdrawal or urgent health risks, please contact your GP or seek medical support immediately.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/detox",
+    file: "assessments/detox.html",
+    title: "Detox Suitability Assessment | Insight Recovery Network",
+    description:
+      "Free confidential detox suitability assessment. Understand whether medical detox is advisable, what level of supervision may be needed, and how to approach stopping safely. No registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Detox Suitability Assessment — understand what level of support you may need.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This assessment explores your substance use, medical history, and withdrawal risk to help determine whether detox is appropriate and what level of medical supervision may be advisable. Detox from alcohol, benzodiazepines, or opioids can carry serious risk without proper guidance. Takes 8–12 minutes and requires no registration.
+            </p>
+            <a href="/assessments/detox" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Detox Suitability Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Substance use and dependence level</li>
+              <li>Previous detox or withdrawal experiences</li>
+              <li>Physical health, medications, and risk factors</li>
+              <li>Appropriate detox pathway and supervision level</li>
+              <li>Whether residential or community detox is advisable</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. Detox from alcohol, benzodiazepines, or opioids can be medically serious. Always seek professional guidance before stopping or reducing use.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/anxiety",
+    file: "assessments/anxiety.html",
+    title: "Anxiety Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
+    description:
+      "Free confidential anxiety self-assessment based on GAD-7 criteria. Understand how anxiety may be affecting your thoughts, physical symptoms, and daily functioning — results sent to your email.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Anxiety Screening Assessment — free and confidential.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This assessment explores anxiety patterns including worry, physical tension, sleep disruption, and avoidance behaviour. Based on clinically validated GAD-7 screening criteria. Designed to help individuals understand whether anxiety may be contributing to addictive behaviour or recovery difficulty. Takes 7–10 minutes and requires no registration.
+            </p>
+            <a href="/assessments/anxiety" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Anxiety Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Frequency and severity of anxious thoughts and worry</li>
+              <li>Physical symptoms including tension, restlessness, and sleep difficulties</li>
+              <li>Impact on work, relationships, and daily functioning</li>
+              <li>Connection between anxiety and substance use</li>
+              <li>Appropriate support and treatment considerations</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. If you are experiencing a mental health crisis or urgent distress, please contact your GP or a mental health crisis service immediately.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/depression",
+    file: "assessments/depression.html",
+    title: "Depression Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
+    description:
+      "Free confidential depression self-assessment based on PHQ-9 criteria. Understand how low mood may be affecting your energy, motivation, and wellbeing — personalised results sent to your email.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              Depression Screening Assessment — free and confidential.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This assessment explores low mood, reduced motivation, sleep difficulties, and changes in energy and outlook. Based on PHQ-9 screening criteria. Designed to help individuals understand whether depression may be a factor in their wellbeing or recovery. Takes 7–10 minutes and requires no registration.
+            </p>
+            <a href="/assessments/depression" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Depression Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Mood, energy, and motivation patterns</li>
+              <li>Sleep, appetite, and concentration changes</li>
+              <li>Feelings of hopelessness or worthlessness</li>
+              <li>Impact on daily life, work, and relationships</li>
+              <li>Connection between depression and substance use or recovery</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. If you are experiencing suicidal thoughts or a mental health crisis, please contact your GP, a crisis line, or emergency services immediately.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/assessments/adhd-impulsivity",
+    file: "assessments/adhd-impulsivity.html",
+    title: "ADHD &amp; Impulsivity Self-Assessment | Insight Recovery Network",
+    description:
+      "Free confidential ADHD and impulsivity self-assessment. Explore patterns of attention, focus, and impulsive behaviour that may be affecting your work, relationships, or recovery. No registration required.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
+              ADHD &amp; Impulsivity Assessment — free and confidential.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
+              This assessment explores patterns of attention, focus, restlessness, and impulsive behaviour that may be contributing to addictive behaviour, relapse, or difficulty engaging with structured treatment. Designed for individuals exploring whether ADHD may be a factor in their recovery. Takes 10–12 minutes and requires no registration.
+            </p>
+            <a href="/assessments/adhd-impulsivity" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start ADHD &amp; Impulsivity Assessment</a>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Attention, focus, and concentration patterns</li>
+              <li>Impulsivity, decision-making, and self-control</li>
+              <li>Restlessness, hyperactivity, and emotional regulation</li>
+              <li>Impact on work, relationships, and daily life</li>
+              <li>Connection between ADHD patterns and addiction or relapse</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              This assessment is for informational purposes only and does not constitute a clinical assessment, diagnosis, or medical advice. Only a qualified clinician can diagnose ADHD. Results are intended to help you reflect and consider whether professional guidance may be appropriate.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
   {
     route: "/resources",
     file: "resources.html",
@@ -808,6 +1173,24 @@ const PAGES = [
 function injectPageMeta(baseHtml, page) {
   let out = baseHtml;
   const canonicalUrl = `${SITE_URL}${page.route}`;
+
+  // <title> tag
+  out = out.replace(
+    /(<title>)[^<]*(<\/title>)/,
+    `$1${page.title}$2`
+  );
+
+  // meta name="description"
+  out = out.replace(
+    /(<meta\s+name="description"\s+content=")[^"]*(")/,
+    `$1${esc(page.description)}$2`
+  );
+
+  // canonical href
+  out = out.replace(
+    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+    `$1${canonicalUrl}$2`
+  );
 
   // og:title
   out = out.replace(
@@ -1042,6 +1425,25 @@ function replaceMeta2(html, attr, attrValue, newContent) {
 /** Inject article-specific meta tags into the base index.html. */
 function injectArticleMeta(html, article) {
   let out = html;
+  const canonicalUrl = `${SITE_URL}/resources/${article.slug}`;
+
+  // <title> tag
+  out = out.replace(
+    /(<title>)[^<]*(<\/title>)/,
+    `$1${esc(article.pageTitle)}$2`
+  );
+
+  // meta name="description"
+  out = out.replace(
+    /(<meta\s+name="description"\s+content=")[^"]*(")/,
+    `$1${esc(article.description)}$2`
+  );
+
+  // canonical href
+  out = out.replace(
+    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
+    `$1${canonicalUrl}$2`
+  );
 
   // og:title
   out = out.replace(
@@ -1164,6 +1566,9 @@ async function main() {
   // ── Step 1: Pre-render main site pages ───────────────────────────────────
   console.log("\n▶  Pre-rendering main site pages…\n");
 
+  // Ensure sub-directories used by PAGES entries exist before writing
+  mkdirSync(resolve(distPublic, "assessments"), { recursive: true });
+
   let pageCount = 0;
   for (const page of PAGES) {
     const html = injectPageMeta(baseHtml, page);
@@ -1227,13 +1632,6 @@ async function main() {
  */
 const SITEMAP_EXTRA = [
   { url: "/", changefreq: "weekly", priority: "1.0" },
-  { url: "/assessments/alcohol-detox",   changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/alcohol-use",     changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/drug-use",        changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/detox",           changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/anxiety",         changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/depression",      changefreq: "monthly", priority: "0.7" },
-  { url: "/assessments/adhd-impulsivity", changefreq: "monthly", priority: "0.7" },
 ];
 
 /**
@@ -1241,7 +1639,14 @@ const SITEMAP_EXTRA = [
  * Routes not listed here default to monthly / 0.8.
  */
 const SITEMAP_PAGE_META = {
-  "/what-we-offer":      { changefreq: "monthly", priority: "0.9" },
+  "/what-we-offer":              { changefreq: "monthly", priority: "0.9" },
+  "/assessments/alcohol-detox":  { changefreq: "monthly", priority: "0.7" },
+  "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
+  "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },
+  "/assessments/detox":          { changefreq: "monthly", priority: "0.7" },
+  "/assessments/anxiety":        { changefreq: "monthly", priority: "0.7" },
+  "/assessments/depression":     { changefreq: "monthly", priority: "0.7" },
+  "/assessments/adhd-impulsivity": { changefreq: "monthly", priority: "0.7" },
   "/treatment-placement":{ changefreq: "monthly", priority: "0.9" },
   "/online-programme":   { changefreq: "monthly", priority: "0.9" },
   "/insight-os":         { changefreq: "monthly", priority: "0.8" },

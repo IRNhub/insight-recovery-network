@@ -9,6 +9,7 @@ export interface Article {
   category: string;
   content: string;
   image?: string;
+  faq?: Array<{ question: string; answer: string }>;
 }
 
 export const CATEGORIES = [
@@ -370,6 +371,28 @@ If you are unsure whether NHS support, private rehab, online recovery support, o
 Unsure whether NHS support or private rehab is the right route? Insight Recovery Network provides confidential guidance for individuals and families comparing addiction treatment options in the UK or abroad.
 [/CTA]
     `.trim(),
+    faq: [
+      {
+        question: "Is private rehab better than NHS addiction treatment?",
+        answer: "Not always. NHS addiction treatment can be valuable and may be the right route for many people. Private rehab may be more suitable where there is urgency, withdrawal risk, repeated relapse, family crisis, dual diagnosis, confidentiality concerns, or a need for residential structure. The right choice depends on the person's needs and circumstances.",
+      },
+      {
+        question: "How long are NHS addiction treatment waiting times?",
+        answer: "NHS addiction treatment waiting times can vary depending on the area, service demand, risk level, and type of support required. Some people may access support quickly, while others may experience delays or staged access. It is best to contact local services directly and seek guidance if the situation feels urgent.",
+      },
+      {
+        question: "Can I get detox through the NHS?",
+        answer: "In some cases, NHS or community addiction services may support detox pathways, including community detox where clinically appropriate. Detox suitability depends on the substance, level of dependence, physical health, risk, home environment, and medical assessment. Alcohol, benzodiazepine, opioid, and prescription medication withdrawal should always be taken seriously.",
+      },
+      {
+        question: "Is private rehab confidential?",
+        answer: "Private rehab should offer clear confidentiality policies, but it is important to ask how information is handled. This includes who receives updates, how consent works, how records are stored, and what happens if there is a safeguarding or medical concern. Confidential addiction treatment should be professional, ethical, and transparent.",
+      },
+      {
+        question: "Can Insight Recovery Network help me decide between NHS and private treatment?",
+        answer: "Yes. Insight Recovery Network provides confidential rehab placement guidance to help individuals and families compare NHS support, private rehab, online recovery support, family intervention guidance, and treatment abroad where appropriate. The aim is to help you make a clear, informed decision based on need, risk, suitability, and longer-term recovery planning.",
+      },
+    ],
   },
   {
     slug: "how-to-choose-private-rehab-centre-uk",
@@ -661,6 +684,28 @@ Insight Recovery Network helps individuals and families make sense of the treatm
 For confidential support, contact Insight Recovery Network to discuss the most appropriate [treatment pathway](/treatment-placement) for you or someone you care about. There is no pressure, no obligation, and no need to have everything worked out before getting in touch.
 [/CTA]
     `.trim(),
+    faq: [
+      {
+        question: "How do I know if someone needs private rehab?",
+        answer: "Someone may need private rehab if their alcohol use, drug use, or addictive behaviour is causing serious consequences and they cannot stop despite wanting to. Warning signs may include repeated relapse, withdrawal symptoms, secrecy, relationship breakdown, work problems, declining mental health, unsafe behaviour, or family crisis. A professional assessment can help determine the right level of care.",
+      },
+      {
+        question: "Is private rehab better than NHS addiction treatment?",
+        answer: "Not always. NHS addiction services can be valuable and accessible, especially for community-based support. Private rehab may be more suitable when there is urgency, withdrawal risk, repeated relapse, complex mental health needs, family crisis, or a need for residential structure and discretion. The right choice depends on the person's needs, risk, and circumstances.",
+      },
+      {
+        question: "How long should someone stay in residential rehab?",
+        answer: "The appropriate length of stay depends on the person's clinical needs, substance use history, mental health, risk level, and recovery goals. Some people benefit from shorter stabilisation periods, while others need longer residential treatment. It is important to ask the rehab centre how they recommend length of stay and how progress is reviewed.",
+      },
+      {
+        question: "What should I ask before paying for rehab?",
+        answer: "Before paying for rehab, ask about detox safety, clinical leadership, therapy provision, staff qualifications, dual diagnosis support, family involvement, aftercare, relapse prevention, confidentiality, total cost, and what happens if the person wants to leave early. Do not rely only on brochures or website claims.",
+      },
+      {
+        question: "Can Insight Recovery Network help me choose a rehab centre?",
+        answer: "Yes. Insight Recovery Network provides confidential rehab placement guidance for individuals and families considering private rehab UK options or treatment abroad. We help clarify needs, ask the right questions, compare suitable routes, and identify treatment options that are clinically appropriate.",
+      },
+    ],
   },
   {
     slug: "why-cant-i-stop-how-addiction-works",

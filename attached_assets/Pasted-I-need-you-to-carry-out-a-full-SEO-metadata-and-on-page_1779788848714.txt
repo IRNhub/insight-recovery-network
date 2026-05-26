@@ -1,0 +1,43 @@
+I need you to carry out a full SEO metadata and on-page technical cleanup for insightrecoverynetwork.com.
+
+Context:
+Google Search Console is beginning to show impressions for relevant addiction and recovery queries, but Ubersuggest is flagging serious on-page SEO issues:
+- 29 pages with no <title> tag
+- 29 pages with no meta description
+- 29 pages with title tags that are too short
+- 29 pages with no content compression enabled
+- On-page SEO score around 59
+- Backlinks are currently showing as 0
+
+Please audit the current React/Vite site and fix the following:
+
+1. Ensure every public indexable page has a unique, keyword-relevant <title> tag.
+2. Ensure every public indexable page has a unique meta description.
+3. Ensure title tags are not too short and clearly describe the page.
+4. Ensure each route has proper SEO metadata rendered in the live DOM, not just stored in code.
+5. Check that canonical tags are correct and do not accidentally point different pages to the same canonical unless intentionally redirecting.
+6. Check that Open Graph and Twitter metadata exist for all major pages.
+7. Ensure blog/resource pages generate unique SEO metadata based on the article title, description, and slug.
+8. Ensure assessment pages generate unique SEO metadata based on the assessment topic.
+9. Enable content compression where possible for production responses, using gzip and/or brotli depending on the current server setup.
+10. Confirm sitemap.xml includes all correct public pages and excludes private/app/admin routes.
+11. Confirm robots.txt allows search engines to crawl the correct public pages and blocks private app/admin routes if needed.
+12. Add or verify structured data where appropriate:
+   - Organization schema
+   - LocalBusiness or ProfessionalService schema if suitable
+   - Article schema for blogs/resources
+   - FAQ schema where FAQ sections exist
+13. After changes, provide a list of every public route and its final:
+   - title
+   - meta description
+   - canonical URL
+   - indexability status
+   - sitemap inclusion status
+
+Important:
+Do not remove existing content or change the visual design unless required for SEO correctness.
+Do not create duplicate pages.
+Do not index private app routes, dashboards, admin areas, or user-specific pages.
+Make sure the SEO metadata works on the deployed production site, not only in development.
+
+Please implement the fixes and then give me a clear summary of what was changed and what I should check in Google Search Console after redeployment.

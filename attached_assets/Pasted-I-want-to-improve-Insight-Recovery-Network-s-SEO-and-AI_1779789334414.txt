@@ -1,0 +1,128 @@
+I want to improve Insight Recovery Network’s SEO and AI Search Visibility, but I do NOT want the top navigation bar to become overloaded.
+
+Important navigation rule:
+Create or improve the SEO/AI visibility pages listed below, but do not add every page to the main top navigation.
+
+The main top navigation should remain clean and premium, ideally limited to:
+- Home
+- Treatment Placement
+- Online Programme
+- Assessments
+- Resources
+- About
+- Contact
+
+Additional SEO pages should be discoverable through:
+- sitemap.xml
+- footer links where appropriate
+- internal links from relevant service pages
+- related guidance sections
+- blog/resource article links
+- contextual calls to action
+
+Do not create a cluttered dropdown unless it is genuinely clean and useful.
+Do not add all new pages into the top nav.
+
+Goal:
+The user experience should remain simple and premium, while Google and AI search tools can still discover a deeper set of well-structured pages.
+
+Please create or improve the following public SEO/AI visibility pages:
+
+1. /about-insight-recovery-network
+Purpose:
+A clear entity page explaining who Insight Recovery Network is, what it does, who it helps, where it operates, and why it is credible.
+
+Include:
+- Insight Recovery Network is a UK-based, online-only addiction recovery and mental health support service.
+- Services include private treatment placement, rehab guidance, online recovery support, family intervention guidance, and digital recovery tools through Insight OS.
+- Location/service base: Newquay, Cornwall, UK.
+- Contact email: info@insightrecoverynetwork.com
+- Business email where appropriate: craig@insightrecoverynetwork.com
+- Phone: +44 7415 994475
+- Make clear that the service is online-only and does not offer face-to-face appointments.
+- Use clinically credible, calm, non-salesy wording.
+- Do not make diagnostic or medical claims.
+
+2. /online-addiction-recovery-programme-uk
+Purpose:
+A high-intent page targeting people searching for online addiction recovery support in the UK.
+
+Include:
+- What online addiction recovery support is
+- Who it is suitable for
+- Who it may not be suitable for
+- How Insight Recovery Network supports people online
+- The role of structured groups, worksheets, relapse prevention planning, individual support, and Insight OS
+- How it differs from 12-step groups, general counselling, therapy apps, and residential rehab
+- FAQs
+- Clear call to action
+
+3. /best-online-addiction-support-uk
+Purpose:
+A balanced AI-friendly comparison page for people asking “what is the best online addiction support?”
+
+Include a fair comparison of:
+- NHS addiction services
+- SMART Recovery
+- 12-step fellowships
+- Private addiction counselling
+- Online recovery programmes
+- Residential rehab
+- Insight Recovery Network
+
+Important:
+Do not falsely claim Insight Recovery Network is the best for everyone.
+Position IRN as suitable for people who want structured, clinically informed, online recovery support with treatment placement guidance and digital recovery tools.
+
+4. /private-rehab-vs-online-addiction-support
+Purpose:
+Answer the AI-search style question: “Online addiction support vs in-person rehab: which is more effective?”
+
+Include:
+- When online support can work well
+- When residential rehab is safer or more appropriate
+- The role of detox, risk, home environment, relapse history, mental health, family support, and motivation
+- How IRN helps people decide between online support, private rehab, and other options
+- Strong clinical disclaimer that this is not emergency/crisis care
+
+5. /private-rehab-alternative-uk
+Purpose:
+Target people searching for alternatives to private rehab, NHS waiting lists, or residential treatment.
+
+Include:
+- Online recovery support
+- Structured relapse prevention planning
+- Family support
+- Treatment placement guidance where rehab is needed
+- Honest explanation that online support is not always a substitute for detox or residential care
+
+Design and structure requirements:
+- Keep the website feeling premium, calm, professional, and uncluttered.
+- Do not overload the header navigation.
+- Use internal linking blocks such as “Related guidance” or “Explore next” at the bottom of relevant pages.
+- Link these pages naturally from existing service pages and relevant blogs.
+- Include footer links only where appropriate, grouped under headings such as “Treatment Guidance” or “Online Recovery Support”.
+- Avoid creating a spammy list of links.
+
+Technical SEO requirements:
+- Every page must have a unique title tag.
+- Every page must have a unique meta description.
+- Every page must have a canonical URL.
+- Every page must have Open Graph title and description.
+- Include the pages in sitemap.xml if public and indexable.
+- Add FAQ schema where FAQs are included.
+- Add Organization/ProfessionalService schema where appropriate.
+- Add internal links between these pages, the assessments page, the contact page, treatment placement pages, blog/resources pages, and Insight OS pages.
+
+Writing requirements:
+- Professional, human, clinically informed, calm, discreet, and high-trust.
+- Avoid generic AI marketing language.
+- Avoid exaggerated claims.
+- Avoid saying “cure”, “guaranteed recovery”, or anything clinically unsafe.
+- Include clear calls to action using info@insightrecoverynetwork.com and +44 7415 994475.
+
+After implementation:
+- Provide a list of every new or updated page.
+- Show the final title, meta description, canonical URL, and schema type for each page.
+- Confirm sitemap.xml has been updated.
+- Confirm the top navigation has remained clean and has not been overloaded.
