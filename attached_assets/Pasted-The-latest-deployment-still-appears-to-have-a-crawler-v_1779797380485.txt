@@ -1,0 +1,80 @@
+The latest deployment still appears to have a crawler-visible HTML problem.
+
+I have tested the live deployed URLs externally. The browser may visually render the correct pages after React loads, but the server-delivered/crawler-visible HTML for these routes is still returning homepage content:
+
+https://www.insightrecoverynetwork.com/assessments
+https://www.insightrecoverynetwork.com/resources
+
+Observed live issue:
+- /assessments HTML still contains the homepage H1:
+  "Private Addiction and Mental Health Support, Online and Abroad"
+- /resources redirects to /resources/ and then also serves homepage-style HTML.
+- The body HTML shown to crawlers appears to be the homepage shell, not the route-specific prerendered page body.
+
+This means the previous SEO/prerender fix may exist in the build output but is not being served correctly in the live deployment.
+
+Please investigate the deployed production serving path, not just the local build.
+
+Check specifically:
+
+1. Confirm what command the live Replit deployment actually runs.
+   Is it definitely running the built production output from dist/public?
+   Is it definitely running the same vite preview/custom middleware setup that was tested locally?
+
+2. Use curl against the LIVE production URLs, not localhost:
+   curl -L https://www.insightrecoverynetwork.com/assessments
+   curl -L https://www.insightrecoverynetwork.com/resources
+   curl -L https://www.insightrecoverynetwork.com/resources/
+   curl -L https://www.insightrecoverynetwork.com/treatment-placement
+   curl -L https://www.insightrecoverynetwork.com/online-programme
+   curl -L https://www.insightrecoverynetwork.com/insight-os
+
+3. For each live route, verify the raw returned HTML contains the route-specific H1:
+   /assessments should contain:
+   "Free Confidential Addiction and Mental Health Assessments"
+
+   /resources should contain:
+   "Addiction and Mental Health Recovery Resources"
+
+   /treatment-placement should contain:
+   "Private Rehab and Detox Placement Guidance"
+
+   /online-programme should contain:
+   "Structured Online Addiction Recovery Programme"
+
+   /insight-os should contain:
+   "Digital Recovery Tools for Addiction and Mental Health"
+
+4. Check whether the live server is accidentally serving index.html or homepage HTML for all routes instead of the prerendered route HTML files.
+
+5. Check the generated dist/public structure:
+   - Is there a route-specific /assessments.html?
+   - Is there a route-specific /resources.html?
+   - Is there also a /resources/ directory?
+   - Is the server choosing the directory/index fallback instead of the .html file?
+
+6. Fix the serving priority:
+   For a direct request to /assessments, the server should serve /assessments.html or the correct prerendered route HTML, not homepage index.html.
+   For /resources, the server should serve /resources.html or the correct prerendered route HTML, not redirect to /resources/ and not serve homepage index.html.
+
+7. If directory conflicts exist, ensure route-specific HTML files take priority over same-named directories.
+
+8. Confirm canonical consistency:
+   /resources should canonicalise to https://www.insightrecoverynetwork.com/resources
+   not /resources/
+   unless we intentionally choose trailing slashes globally, which we currently are not doing.
+
+9. After fixing, provide a live-production verification report showing:
+   - final status code
+   - whether there is any redirect
+   - final URL
+   - title tag
+   - H1 found in raw HTML
+   - canonical URL
+   - whether the body HTML is route-specific
+   for all main public routes.
+
+Important:
+Do not rely only on React/browser visual rendering.
+Do not rely only on local build output.
+Verify the raw HTML returned by the live deployed domain.

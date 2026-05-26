@@ -1,59 +1,174 @@
 kind = "web"
-previewPath = "/"
-title = "Insight Recovery Network"
-version = "1.0.0"
-id = "artifacts/irn-website"
-router = "path"
+  previewPath = "/"
+  title = "Insight Recovery Network"
+  version = "1.0.0"
+  id = "artifacts/irn-website"
+  router = "path"
 
-[[integratedSkills]]
-name = "react-vite"
-version = "1.0.0"
+  [[integratedSkills]]
+  name = "react-vite"
+  version = "1.0.0"
 
-[[services]]
-name = "web"
-paths = [ "/" ]
-localPort = 18088
+  [[services]]
+  name = "web"
+  paths = [ "/" ]
+  localPort = 18088
 
-[services.development]
-run = "pnpm --filter @workspace/irn-website run dev"
+  [services.development]
+  run = "pnpm --filter @workspace/irn-website run dev"
 
-[services.production]
-build = [ "pnpm", "--filter", "@workspace/irn-website", "run", "build" ]
-publicDir = "artifacts/irn-website/dist/public"
-serve = "static"
+  [services.production]
+  build = [ "pnpm", "--filter", "@workspace/irn-website", "run", "build" ]
+  publicDir = "artifacts/irn-website/dist/public"
+  serve = "static"
 
-[[services.production.rewrites]]
-from = "/resources/why-cant-i-stop-how-addiction-works"
-to = "/resources/why-cant-i-stop-how-addiction-works.html"
+  # ── Top-level pages ──────────────────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/about"
+  to = "/about.html"
 
-[[services.production.rewrites]]
-from = "/resources/understanding-alcohol-dependency"
-to = "/resources/understanding-alcohol-dependency.html"
+  [[services.production.rewrites]]
+  from = "/about-insight-recovery-network"
+  to = "/about-insight-recovery-network.html"
 
-[[services.production.rewrites]]
-from = "/resources/what-happens-in-residential-rehabilitation"
-to = "/resources/what-happens-in-residential-rehabilitation.html"
+  [[services.production.rewrites]]
+  from = "/clinical-disclaimer"
+  to = "/clinical-disclaimer.html"
 
-[[services.production.rewrites]]
-from = "/resources/managing-relapse-part-of-recovery"
-to = "/resources/managing-relapse-part-of-recovery.html"
+  [[services.production.rewrites]]
+  from = "/contact"
+  to = "/contact.html"
 
-[[services.production.rewrites]]
-from = "/resources/supporting-a-loved-one-through-recovery"
-to = "/resources/supporting-a-loved-one-through-recovery.html"
+  [[services.production.rewrites]]
+  from = "/cookie-policy"
+  to = "/cookie-policy.html"
 
-[[services.production.rewrites]]
-from = "/resources/mental-health-and-addiction"
-to = "/resources/mental-health-and-addiction.html"
+  [[services.production.rewrites]]
+  from = "/insight-os"
+  to = "/insight-os.html"
 
-[[services.production.rewrites]]
-from = "/resources/online-recovery-programmes"
-to = "/resources/online-recovery-programmes.html"
+  [[services.production.rewrites]]
+  from = "/online-addiction-recovery-programme-uk"
+  to = "/online-addiction-recovery-programme-uk.html"
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+  [[services.production.rewrites]]
+  from = "/online-programme"
+  to = "/online-programme.html"
 
-[services.env]
-PORT = "18088"
-BASE_PATH = "/"
+  [[services.production.rewrites]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-alternative-uk"
+  to = "/private-rehab-alternative-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/terms-of-service"
+  to = "/terms-of-service.html"
+
+  [[services.production.rewrites]]
+  from = "/treatment-placement"
+  to = "/treatment-placement.html"
+
+  [[services.production.rewrites]]
+  from = "/what-we-offer"
+  to = "/what-we-offer.html"
+
+  # ── /assessments — explicit rewrite beats directory detection ─────────────────
+  [[services.production.rewrites]]
+  from = "/assessments"
+  to = "/assessments.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/"
+  to = "/assessments.html"
+
+  # ── /assessments sub-pages ────────────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/assessments/adhd-impulsivity"
+  to = "/assessments/adhd-impulsivity.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-detox"
+  to = "/assessments/alcohol-detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-use"
+  to = "/assessments/alcohol-use.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/anxiety"
+  to = "/assessments/anxiety.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/depression"
+  to = "/assessments/depression.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/detox"
+  to = "/assessments/detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/drug-use"
+  to = "/assessments/drug-use.html"
+
+  # ── /resources — explicit rewrite beats directory detection ───────────────────
+  [[services.production.rewrites]]
+  from = "/resources"
+  to = "/resources.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/"
+  to = "/resources.html"
+
+  # ── /resources article pages ──────────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/resources/how-to-choose-private-rehab-centre-uk"
+  to = "/resources/how-to-choose-private-rehab-centre-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/managing-relapse-part-of-recovery"
+  to = "/resources/managing-relapse-part-of-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/mental-health-and-addiction"
+  to = "/resources/mental-health-and-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-addiction-support-vs-residential-rehab"
+  to = "/resources/online-addiction-support-vs-residential-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-recovery-programmes"
+  to = "/resources/online-recovery-programmes.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/private-rehab-vs-nhs-addiction-treatment"
+  to = "/resources/private-rehab-vs-nhs-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/supporting-a-loved-one-through-recovery"
+  to = "/resources/supporting-a-loved-one-through-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/understanding-alcohol-dependency"
+  to = "/resources/understanding-alcohol-dependency.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-happens-in-residential-rehabilitation"
+  to = "/resources/what-happens-in-residential-rehabilitation.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-cant-i-stop-how-addiction-works"
+  to = "/resources/why-cant-i-stop-how-addiction-works.html"
+
+  # ── SPA fallback for any client-side route not matched above ──────────────────
+  [[services.production.rewrites]]
+  from = "/*"
+  to = "/index.html"
+
+  [services.env]
+  PORT = "18088"
+  BASE_PATH = "/"
+  
