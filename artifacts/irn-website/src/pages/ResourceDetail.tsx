@@ -278,8 +278,8 @@ export default function ResourceDetail() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: article.title,
-    description: article.excerpt,
+    headline: article.seoTitle ?? article.title,
+    description: article.metaDescription ?? article.excerpt,
     author: {
       "@type": "Person",
       name: article.author,
@@ -314,8 +314,8 @@ export default function ResourceDetail() {
   return (
     <Layout>
       <SEO
-        title={article.title}
-        description={article.excerpt}
+        title={article.seoTitle ?? article.title}
+        description={article.metaDescription ?? article.excerpt}
         canonical={canonicalPath}
         ogImage={ogImage}
         ogType="article"

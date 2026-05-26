@@ -1,2 +1,4 @@
 - [Assessment system architecture](assessment-system.md) — scoring is deterministic; Anchor AI only writes interpretation from a clinical brief, never raw Q&A.
 - [Anchor output format](anchor-output-format.md) — Anchor returns structured AnchorReport JSON (5 fields); fallbacks return same shape; never returns plain text string.
+- [IRN article content rules](irn-article-rules.md) — never auto-generate blog articles; only add when user supplies approved final text; use publishedStatus to hide drafts.
+- [IRN prerender pattern](irn-prerender-pattern.md) — new pages need entries in PAGES array (with body HTML) and SITEMAP_PAGE_META; exact title strings in file differ from what you expect — always grep first.

@@ -53,9 +53,10 @@ export default function ResourcesList() {
   });
 
   const filtered = articles.filter((a) => {
+    const isPublished = !a.publishedStatus || a.publishedStatus === "published";
     const categoryMatch = activeCategory === "All" || a.category === activeCategory;
     const searchMatch = matchesSearch(a, searchQuery);
-    return categoryMatch && searchMatch;
+    return isPublished && categoryMatch && searchMatch;
   });
 
   const hasActiveFilter = searchQuery.trim() !== "" || activeCategory !== "All";

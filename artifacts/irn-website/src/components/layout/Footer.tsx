@@ -26,22 +26,27 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-2 lg:col-start-7 flex flex-col gap-4">
-            <h4 className="font-serif text-lg text-primary-foreground/90">Pathways</h4>
+          <div className="lg:col-span-2 lg:col-start-5 flex flex-col gap-4">
+            <h4 className="font-serif text-lg text-primary-foreground/90">Treatment Guidance</h4>
             <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
-              <li>
-                <Link href="/assessments" className="hover:text-accent transition-colors">
-                  Assessments
-                </Link>
-              </li>
               <li>
                 <Link href="/treatment-placement" className="hover:text-accent transition-colors">
                   Treatment Placement
                 </Link>
               </li>
               <li>
-                <Link href="/online-programme" className="hover:text-accent transition-colors">
-                  Online Programme
+                <Link href="/online-addiction-recovery-programme-uk" className="hover:text-accent transition-colors">
+                  Online Recovery Programme UK
+                </Link>
+              </li>
+              <li>
+                <Link href="/private-rehab-alternative-uk" className="hover:text-accent transition-colors">
+                  Private Rehab Alternative
+                </Link>
+              </li>
+              <li>
+                <Link href="/assessments" className="hover:text-accent transition-colors">
+                  Self-Assessments
                 </Link>
               </li>
               <li>
@@ -52,12 +57,17 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="lg:col-span-2 lg:col-start-7 flex flex-col gap-4">
             <h4 className="font-serif text-lg text-primary-foreground/90">Organisation</h4>
             <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
               <li>
                 <Link href="/about" className="hover:text-accent transition-colors">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-insight-recovery-network" className="hover:text-accent transition-colors">
+                  About IRN
                 </Link>
               </li>
               <li>
@@ -73,7 +83,33 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-2 flex flex-col gap-4">
+          <div className="lg:col-span-2 lg:col-start-9 flex flex-col gap-4">
+            <h4 className="font-serif text-lg text-primary-foreground/90">Resources</h4>
+            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
+              <li>
+                <Link href="/resources" className="hover:text-accent transition-colors">
+                  All Articles
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/private-rehab-vs-nhs-addiction-treatment" className="hover:text-accent transition-colors">
+                  Private Rehab vs NHS
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/how-to-choose-private-rehab-centre-uk" className="hover:text-accent transition-colors">
+                  How to Choose Rehab
+                </Link>
+              </li>
+              <li>
+                <Link href="/resources/understanding-alcohol-dependency" className="hover:text-accent transition-colors">
+                  Alcohol Dependency
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2 lg:col-start-11 flex flex-col gap-4">
             <h4 className="font-serif text-lg text-primary-foreground/90">Legal</h4>
             <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
               <li>

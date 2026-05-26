@@ -475,6 +475,209 @@ const PAGES = [
       </main>
     `,
   },
+  // ── New service / entity pages ─────────────────────────────────────────────
+  {
+    route: "/about-insight-recovery-network",
+    file: "about-insight-recovery-network.html",
+    title: "About Insight Recovery Network | UK Addiction Recovery Support Service",
+    description:
+      "Insight Recovery Network is a UK-based online addiction recovery and mental health support service. Private treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">About Insight Recovery Network</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
+              A confidential addiction recovery and mental health support service.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
+              Insight Recovery Network is a UK-based, online-only service providing private treatment placement guidance, structured recovery programmes, family intervention support, and digital recovery tools for individuals and families navigating addiction and mental health challenges.
+            </p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Service details</h2>
+            <dl style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;color:#4a5568;max-width:600px;">
+              <dt style="font-weight:600;color:#162B3B;">Service type</dt><dd style="margin-bottom:0.75rem;">Private addiction recovery and mental health support</dd>
+              <dt style="font-weight:600;color:#162B3B;">Location</dt><dd style="margin-bottom:0.75rem;">Newquay, Cornwall, UK</dd>
+              <dt style="font-weight:600;color:#162B3B;">Service delivery</dt><dd style="margin-bottom:0.75rem;">Online only — telephone, video call, and Insight OS digital platform</dd>
+              <dt style="font-weight:600;color:#162B3B;">Face-to-face appointments</dt><dd style="margin-bottom:0.75rem;">Not available</dd>
+              <dt style="font-weight:600;color:#162B3B;">General enquiries</dt><dd style="margin-bottom:0.75rem;"><a href="mailto:info@insightrecoverynetwork.com" style="color:#162B3B;">info@insightrecoverynetwork.com</a></dd>
+              <dt style="font-weight:600;color:#162B3B;">Clinical enquiries</dt><dd style="margin-bottom:0.75rem;"><a href="mailto:craig@insightrecoverynetwork.com" style="color:#162B3B;">craig@insightrecoverynetwork.com</a></dd>
+              <dt style="font-weight:600;color:#162B3B;">Telephone</dt><dd><a href="tel:+447415994475" style="color:#162B3B;">+44 7415 994475</a></dd>
+            </dl>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What we offer</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li><a href="/treatment-placement" style="color:#162B3B;">Private Treatment Placement</a> — confidential guidance on private rehab, detox, and residential treatment in the UK and internationally</li>
+              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a> — structured group sessions, one-to-one therapy, and relapse prevention planning</li>
+              <li><a href="/what-we-offer" style="color:#162B3B;">Family Intervention Guidance</a> — support for families navigating addiction crises</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free Self-Assessments</a> — confidential assessments for alcohol use, drug use, anxiety, depression, and ADHD</li>
+              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a> — a structured digital recovery system for daily check-ins and relapse prevention</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <p style="font-family:sans-serif;font-size:0.875rem;line-height:1.8;max-width:680px;color:#4a5568;">
+              Insight Recovery Network is a private support and treatment guidance service. We are not a regulated healthcare provider or a medical treatment service. We do not provide clinical diagnoses, prescriptions, or emergency crisis support. If you or someone you know is in immediate danger, please contact 999 or attend your nearest A&amp;E.
+            </p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/online-addiction-recovery-programme-uk",
+    file: "online-addiction-recovery-programme-uk.html",
+    title: "Online Addiction Recovery Programme UK | Insight Recovery Network",
+    description:
+      "Structured online addiction recovery support for individuals in the UK. Group sessions, one-to-one therapy, relapse prevention planning, and Insight OS digital recovery tools. Professional support without residential treatment.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Support — UK</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
+              Structured online addiction recovery support, built around your life.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
+              Professional, clinically informed recovery support delivered online — for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
+            </p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Who online recovery support is suitable for</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Those who need structure but cannot step away from work or family responsibilities</li>
+              <li>Those who have completed residential treatment and need robust aftercare</li>
+              <li>Those wanting professional guidance without entering residential rehab</li>
+              <li>Those relapsing despite trying to manage alone</li>
+              <li>Families who need a structured approach for a loved one</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">When online support may not be appropriate</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Active dependency on alcohol, benzodiazepines, or opioids requiring medically supervised detox</li>
+              <li>Severe or unstable mental health conditions requiring a higher level of clinical care</li>
+              <li>Unsafe home environments where online support alone is insufficient</li>
+              <li>Repeated residential relapses indicating a need for more intensive intervention</li>
+              <li>Active crisis situations requiring emergency clinical intervention</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Frequently Asked Questions</h2>
+            <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;">
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is online addiction recovery as effective as residential rehab?</dt>
+              <dd>For some people and at certain stages, structured online support can be highly effective. For others with severe dependency or complex needs, residential treatment is safer and more appropriate.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">How is this different from a therapy app or 12-step group?</dt>
+              <dd>Insight Recovery Network's online programme is clinically structured and professionally led — not automated content or anonymous peer support. It provides clinical oversight, individual therapeutic work, and structured relapse prevention planning.</dd>
+            </dl>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/private-rehab-alternative-uk",
+    file: "private-rehab-alternative-uk.html",
+    title: "Private Rehab Alternative UK | Structured Online Recovery | Insight Recovery Network",
+    description:
+      "Exploring alternatives to private residential rehab in the UK? Structured online recovery support, relapse prevention planning, family guidance, and treatment placement where residential care is needed. Confidential and clinically informed.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab Alternatives — UK</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
+              Not ready for residential rehab — or not sure it is necessary?
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
+              Private residential rehab is not always the right answer. There are other routes — and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
+            </p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What Insight Recovery Network can offer</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li><a href="/online-programme" style="color:#162B3B;">Structured online recovery support</a> — clinically led group sessions, individual therapeutic work, and relapse prevention planning</li>
+              <li>Structured relapse prevention planning built around the individual's history, patterns, and goals</li>
+              <li><a href="/what-we-offer" style="color:#162B3B;">Family intervention guidance</a> — support for families navigating addiction crises</li>
+              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment placement guidance</a> — where residential detox or rehab is needed, confidential guidance on appropriate settings</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free self-assessments</a> — understand what you are experiencing without obligation</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">When residential treatment is still needed</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:1rem;">Online recovery support is not an appropriate substitute for residential treatment where:</p>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>There is significant physical dependency on alcohol, benzodiazepines, or opioids requiring medically supervised withdrawal</li>
+              <li>The home environment is unsafe, chaotic, or provides access to substances with no support network</li>
+              <li>Multiple residential relapses indicate a need for more intensive clinical intervention</li>
+              <li>Dual diagnosis involves severe and unstable mental health conditions</li>
+              <li>The person cannot maintain safety without around-the-clock support</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Frequently Asked Questions</h2>
+            <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;">
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is online support a genuine alternative to private rehab?</dt>
+              <dd>For some people, structured online recovery support can be clinically appropriate — particularly where physical dependency does not require medical detox and the home environment is stable. For others, residential rehab is the safer choice.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">When would you recommend treatment placement over online support?</dt>
+              <dd>Where there is significant physical dependency, an unsafe home environment, repeated residential relapse, or a need for around-the-clock support. We make this recommendation honestly when it is the right call.</dd>
+            </dl>
+          </section>
+        </div>
+      </main>
+    `,
+  },
   {
     route: "/assessments",
     file: "assessments.html",
@@ -1639,8 +1842,11 @@ const SITEMAP_EXTRA = [
  * Routes not listed here default to monthly / 0.8.
  */
 const SITEMAP_PAGE_META = {
-  "/what-we-offer":              { changefreq: "monthly", priority: "0.9" },
-  "/assessments/alcohol-detox":  { changefreq: "monthly", priority: "0.7" },
+  "/what-we-offer":                              { changefreq: "monthly", priority: "0.9" },
+  "/about-insight-recovery-network":             { changefreq: "monthly", priority: "0.9" },
+  "/online-addiction-recovery-programme-uk":     { changefreq: "monthly", priority: "0.9" },
+  "/private-rehab-alternative-uk":               { changefreq: "monthly", priority: "0.9" },
+  "/assessments/alcohol-detox":                  { changefreq: "monthly", priority: "0.7" },
   "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
   "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },
   "/assessments/detox":          { changefreq: "monthly", priority: "0.7" },

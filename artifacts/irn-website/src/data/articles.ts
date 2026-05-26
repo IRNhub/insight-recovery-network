@@ -10,6 +10,11 @@ export interface Article {
   content: string;
   image?: string;
   faq?: Array<{ question: string; answer: string }>;
+  seoTitle?: string;
+  metaDescription?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  publishedStatus?: "published" | "draft" | "unlisted";
 }
 
 export const CATEGORIES = [

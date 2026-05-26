@@ -22,6 +22,9 @@ const DetoxAssessmentPage = lazy(() => import("@/pages/assessments/DetoxAssessme
 const AnxietyAssessmentPage = lazy(() => import("@/pages/assessments/AnxietyAssessmentPage"));
 const DepressionAssessmentPage = lazy(() => import("@/pages/assessments/DepressionAssessmentPage"));
 const AdhdAssessmentPage = lazy(() => import("@/pages/assessments/AdhdAssessmentPage"));
+const AboutInsightRecoveryNetwork = lazy(() => import("@/pages/AboutInsightRecoveryNetwork"));
+const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionRecoveryUK"));
+const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
@@ -122,6 +125,9 @@ function Router() {
         <Route path="/online-programme" component={OnlineProgramme} />
         <Route path="/insight-os" component={InsightOS} />
         <Route path="/contact" component={Contact} />
+        <Route path="/about-insight-recovery-network" component={AboutInsightRecoveryNetwork} />
+        <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
+        <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/resources" component={ResourcesList} />
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/assessments" component={AssessmentsIndex} />

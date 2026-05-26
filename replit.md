@@ -52,3 +52,15 @@ Express 5 API server. Currently only has a health check endpoint. Will be extend
 - `pnpm --filter @workspace/irn-website run dev` — run IRN website locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## User Preferences
+
+### Blog / Resources content rules
+1. Never auto-generate blog articles. Only add articles when the user provides the final approved article text.
+2. Add supplied article text exactly as provided — do not shorten, summarise, rewrite, or replace any part.
+3. Preserve all headings, subheadings, paragraphs, FAQs, internal links, calls to action, and clinical disclaimers exactly as written.
+4. Each article must support: `seoTitle` (unique `<title>` tag), `metaDescription` (unique meta description), canonical URL, `ogTitle` and `ogDescription` (Open Graph), Article JSON-LD schema, and sitemap inclusion.
+5. If an existing article has thin content, flag it for review — do not silently replace it with more thin content.
+6. Article fields live in `artifacts/irn-website/src/data/articles.ts` (`Article` interface). Use `publishedStatus: "draft"` or `"unlisted"` to hide an article without deleting it. Default is published (no field = published).
+7. After any blog/article changes, always provide the direct URL so it can be manually reviewed.
+8. Writing tone: professional, human, clinically informed, calm, discreet, and specific to Insight Recovery Network. Avoid generic AI marketing language, exaggerated claims, and anything clinically unsafe.

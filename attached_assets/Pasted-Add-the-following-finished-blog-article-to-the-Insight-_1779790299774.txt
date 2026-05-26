@@ -1,0 +1,99 @@
+Add the following finished blog article to the Insight Recovery Network Resources/blog section.
+
+IMPORTANT CONTENT RULES:
+Do not rewrite the article.
+Do not shorten the article.
+Do not summarise the article.
+Do not regenerate the article.
+Do not replace it with a shorter version.
+Preserve the structure, headings, paragraphs, table, FAQs, CTA, and internal link section.
+
+However, before publishing, make the following small safety and quality edits only:
+
+1. Use this SEO title:
+Online Addiction Support vs Residential Rehab UK: Which Is Right?
+
+2. Keep this meta description:
+Online addiction support or residential rehab? A clinically informed UK guide to choosing the right level of care based on risk, fit, and recovery needs.
+
+3. Use this URL slug:
+ /resources/online-addiction-support-vs-residential-rehab
+
+4. In the detox section, replace this sentence:
+“Some substances can be reduced or stopped with reasonable safety in an outpatient setting, under appropriate guidance.”
+
+With this safer wording:
+“Some patterns of substance use may be managed in the community with appropriate medical or professional guidance, but this should never be assumed without proper assessment.”
+
+5. In the decision guide table, replace the row about active suicidal thoughts or severe mental health crisis with this safer row:
+
+Situation:
+Active suicidal thoughts or severe mental health crisis
+
+Online support may be suitable:
+No, not as primary care
+
+Residential rehab may be safer:
+Urgent medical or mental health assessment is needed before deciding on addiction treatment placement
+
+6. Add one short H2 section before “How Insight Recovery Network helps people decide” titled:
+Sometimes the answer is a staged pathway
+
+Include the following point in natural prose:
+The choice is not always online support or residential rehab. Some people need medical detox first, then residential treatment, then online aftercare. Others may start with online support and step up to residential care if risk increases. Families may also need a consultation first so they can understand the level of risk before making a decision. Insight Recovery Network helps people think through the whole pathway rather than treating rehab or online support as a one-off decision.
+
+SEO AND TECHNICAL REQUIREMENTS:
+- Add the article at:
+https://www.insightrecoverynetwork.com/resources/online-addiction-support-vs-residential-rehab
+
+- Set the title tag to:
+Online Addiction Support vs Residential Rehab UK: Which Is Right?
+
+- Set the meta description to:
+Online addiction support or residential rehab? A clinically informed UK guide to choosing the right level of care based on risk, fit, and recovery needs.
+
+- Set the canonical URL to:
+https://www.insightrecoverynetwork.com/resources/online-addiction-support-vs-residential-rehab
+
+- Add Open Graph title and description.
+- Add Article schema.
+- Add FAQ schema if the current website supports FAQ schema.
+- Include the article in sitemap.xml.
+- Make sure the article appears in the Resources/blog section.
+- Do not add this article to the top navigation.
+- It should be discoverable through Resources, sitemap.xml, and internal links.
+
+INTERNAL LINK REQUIREMENTS:
+Before publishing, check that all internal links exist.
+If any internal link does not exist, replace it with the closest correct existing route.
+Do not create broken links.
+
+Suggested internal links to check or correct:
+- Online Addiction Recovery Programme
+- Treatment Placement
+- Private Rehab Alternative UK
+- Assessments
+- Contact
+- Private Rehab vs NHS Addiction Treatment
+
+DESIGN REQUIREMENTS:
+- Keep the layout premium, calm, readable, and consistent with the Insight Recovery Network website.
+- Use clear H2 headings.
+- Keep paragraphs readable.
+- Format the comparison table properly on desktop and mobile.
+- Format FAQs clearly.
+- CTA section should stand out but not look pushy.
+- Do not clutter the navigation.
+
+AFTER IMPLEMENTATION:
+Provide a summary showing:
+1. Live article URL
+2. Final title tag
+3. Final meta description
+4. Canonical URL
+5. Schema used
+6. Sitemap inclusion confirmation
+7. Confirmation that internal links work
+8. Confirmation that the top navigation was not changed
+
+Now add this finished article exactly as supplied below:
