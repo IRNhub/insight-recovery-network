@@ -1491,7 +1491,7 @@ const ARTICLES = [
   {
     slug: "why-cant-i-stop-how-addiction-works",
     pageTitle:
-      "Why Can't I Stop Drinking or Using, Even When I Want To? | Insight Recovery Network",
+      "Why Can't I Stop Using? | Insight Recovery",
     ogTitle:
       "Why Can't I Stop Drinking or Using, Even When I Want To?",
     description:
@@ -1504,7 +1504,7 @@ const ARTICLES = [
   {
     slug: "understanding-alcohol-dependency",
     pageTitle:
-      "Understanding Alcohol Dependency: Signs, Stages and What to Do Next | Insight Recovery Network",
+      "Alcohol Dependency Signs | Insight Recovery",
     ogTitle:
       "Understanding Alcohol Dependency: Signs, Stages and What to Do Next",
     description:
@@ -1517,7 +1517,7 @@ const ARTICLES = [
   {
     slug: "what-happens-in-residential-rehabilitation",
     pageTitle:
-      "What Happens in Residential Rehabilitation? | Insight Recovery Network",
+      "What Happens in Rehab? | Insight Recovery",
     ogTitle: "What Happens in Residential Rehabilitation?",
     description:
       "Residential rehabilitation is often the most effective route for complex or severe addiction. Here is an honest account of what the process actually involves.",
@@ -1529,7 +1529,7 @@ const ARTICLES = [
   {
     slug: "managing-relapse-part-of-recovery",
     pageTitle:
-      "Managing Relapse: Why It Is Part of Recovery, Not the End of It | Insight Recovery Network",
+      "Managing Relapse in Recovery | Insight Recovery",
     ogTitle:
       "Managing Relapse: Why It Is Part of Recovery, Not the End of It",
     description:
@@ -1542,7 +1542,7 @@ const ARTICLES = [
   {
     slug: "supporting-a-loved-one-through-recovery",
     pageTitle:
-      "Supporting a Loved One Through Recovery: What Helps and What Does Not | Insight Recovery Network",
+      "Supporting a Loved One in Recovery | Insight Recovery",
     ogTitle:
       "Supporting a Loved One Through Recovery: What Helps and What Does Not",
     description:
@@ -1555,7 +1555,7 @@ const ARTICLES = [
   {
     slug: "mental-health-and-addiction",
     pageTitle:
-      "The Connection Between Mental Health and Addiction | Insight Recovery Network",
+      "Mental Health and Addiction | Insight Recovery",
     ogTitle: "The Connection Between Mental Health and Addiction",
     description:
       "Addiction and mental health conditions frequently co-occur. Understanding the relationship between them is essential to effective treatment.",
@@ -1567,7 +1567,7 @@ const ARTICLES = [
   {
     slug: "online-recovery-programmes",
     pageTitle:
-      "Online Recovery Programmes: Who Are They For and Do They Work? | Insight Recovery Network",
+      "Online Recovery Programmes UK | Insight Recovery",
     ogTitle:
       "Online Recovery Programmes: Who Are They For and Do They Work?",
     description:
