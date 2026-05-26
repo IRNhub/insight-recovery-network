@@ -782,7 +782,7 @@ const PAGES = [
   // ── Individual assessment intro pages ──────────────────────────────────────
   {
     route: "/assessments/alcohol-detox",
-    file: "assessments/alcohol-detox.html",
+    file: "_assessments/alcohol-detox.html",
     title: "Alcohol &amp; Detox Suitability Assessment | Insight Recovery Network",
     description:
       "Free confidential assessment to understand whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes. No registration required.",
@@ -834,7 +834,7 @@ const PAGES = [
   },
   {
     route: "/assessments/alcohol-use",
-    file: "assessments/alcohol-use.html",
+    file: "_assessments/alcohol-use.html",
     title: "Alcohol Use Self-Assessment | Insight Recovery Network",
     description:
       "Free confidential alcohol use self-assessment. Reflect on how drinking may be affecting your health, relationships, and daily life — personalised results sent to your email. No registration required.",
@@ -886,7 +886,7 @@ const PAGES = [
   },
   {
     route: "/assessments/drug-use",
-    file: "assessments/drug-use.html",
+    file: "_assessments/drug-use.html",
     title: "Drug Use &amp; Substance Self-Assessment | Insight Recovery Network",
     description:
       "Free confidential drug use and substance assessment. Explore your relationship with substances and understand whether professional support or treatment may be appropriate. No registration required.",
@@ -938,7 +938,7 @@ const PAGES = [
   },
   {
     route: "/assessments/detox",
-    file: "assessments/detox.html",
+    file: "_assessments/detox.html",
     title: "Detox Suitability Assessment | Insight Recovery Network",
     description:
       "Free confidential detox suitability assessment. Understand whether medical detox is advisable, what level of supervision may be needed, and how to approach stopping safely. No registration required.",
@@ -990,7 +990,7 @@ const PAGES = [
   },
   {
     route: "/assessments/anxiety",
-    file: "assessments/anxiety.html",
+    file: "_assessments/anxiety.html",
     title: "Anxiety Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
     description:
       "Free confidential anxiety self-assessment based on GAD-7 criteria. Understand how anxiety may be affecting your thoughts, physical symptoms, and daily functioning — results sent to your email.",
@@ -1042,7 +1042,7 @@ const PAGES = [
   },
   {
     route: "/assessments/depression",
-    file: "assessments/depression.html",
+    file: "_assessments/depression.html",
     title: "Depression Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
     description:
       "Free confidential depression self-assessment based on PHQ-9 criteria. Understand how low mood may be affecting your energy, motivation, and wellbeing — personalised results sent to your email.",
@@ -1094,7 +1094,7 @@ const PAGES = [
   },
   {
     route: "/assessments/adhd-impulsivity",
-    file: "assessments/adhd-impulsivity.html",
+    file: "_assessments/adhd-impulsivity.html",
     title: "ADHD &amp; Impulsivity Self-Assessment | Insight Recovery Network",
     description:
       "Free confidential ADHD and impulsivity self-assessment. Explore patterns of attention, focus, and impulsive behaviour that may be affecting your work, relationships, or recovery. No registration required.",
@@ -1783,7 +1783,7 @@ async function main() {
   console.log("\n▶  Pre-rendering main site pages…\n");
 
   // Ensure sub-directories used by PAGES entries exist before writing
-  mkdirSync(resolve(distPublic, "assessments"), { recursive: true });
+  mkdirSync(resolve(distPublic, "_assessments"), { recursive: true });
 
   let pageCount = 0;
   for (const page of PAGES) {
@@ -1801,18 +1801,23 @@ async function main() {
 
   // ── Step 3: Clean up old directory-based pre-rendered article files ───────
   // They cause 403s on static servers that disable directory listing.
-  const resourcesDir = resolve(distPublic, "resources");
-  if (existsSync(resourcesDir)) {
-    for (const article of ARTICLES) {
-      const oldDir = resolve(resourcesDir, article.slug);
-      if (existsSync(oldDir)) {
-        rmSync(oldDir, { recursive: true, force: true });
-        console.log(`  🗑  Removed old directory: resources/${article.slug}/`);
-      }
-    }
+  // Clean up old resources/ directory (previously caused directory conflict)
+  const oldResourcesDir = resolve(distPublic, "resources");
+  if (existsSync(oldResourcesDir)) {
+    rmSync(oldResourcesDir, { recursive: true, force: true });
+    console.log(`  🗑  Removed old conflicting directory: resources/`);
   }
 
-  // ── Step 4: Ensure resources/ directory exists ────────────────────────────
+  // Clean up old assessments/ directory (previously caused directory conflict)
+  const oldAssessmentsDir = resolve(distPublic, "assessments");
+  if (existsSync(oldAssessmentsDir)) {
+    rmSync(oldAssessmentsDir, { recursive: true, force: true });
+    console.log(`  🗑  Removed old conflicting directory: assessments/`);
+  }
+
+  const resourcesDir = resolve(distPublic, "_resources");
+
+  // ── Step 4: Ensure _resources/ directory exists ───────────────────────────
   mkdirSync(resourcesDir, { recursive: true });
 
   // ── Step 5: Pre-render per-article flat HTML files ────────────────────────
@@ -1822,7 +1827,7 @@ async function main() {
   for (const article of ARTICLES) {
     const html = injectArticleMeta(baseHtml, article);
     writeFileSync(resolve(resourcesDir, `${article.slug}.html`), html, "utf-8");
-    console.log(`  ✓ /resources/${article.slug}  →  resources/${article.slug}.html`);
+    console.log(`  ✓ /resources/${article.slug}  →  _resources/${article.slug}.html`);
     articleCount++;
   }
 

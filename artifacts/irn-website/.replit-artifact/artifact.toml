@@ -75,7 +75,7 @@ kind = "web"
   from = "/what-we-offer"
   to = "/what-we-offer.html"
 
-  # ── /assessments — explicit rewrite beats directory detection ─────────────────
+  # ── /assessments (no directory conflict after _assessments/ rename) ───────────
   [[services.production.rewrites]]
   from = "/assessments"
   to = "/assessments.html"
@@ -84,36 +84,36 @@ kind = "web"
   from = "/assessments/"
   to = "/assessments.html"
 
-  # ── /assessments sub-pages ────────────────────────────────────────────────────
+  # ── /assessments sub-pages → internal _assessments/ directory ────────────────
   [[services.production.rewrites]]
   from = "/assessments/adhd-impulsivity"
-  to = "/assessments/adhd-impulsivity.html"
+  to = "/_assessments/adhd-impulsivity.html"
 
   [[services.production.rewrites]]
   from = "/assessments/alcohol-detox"
-  to = "/assessments/alcohol-detox.html"
+  to = "/_assessments/alcohol-detox.html"
 
   [[services.production.rewrites]]
   from = "/assessments/alcohol-use"
-  to = "/assessments/alcohol-use.html"
+  to = "/_assessments/alcohol-use.html"
 
   [[services.production.rewrites]]
   from = "/assessments/anxiety"
-  to = "/assessments/anxiety.html"
+  to = "/_assessments/anxiety.html"
 
   [[services.production.rewrites]]
   from = "/assessments/depression"
-  to = "/assessments/depression.html"
+  to = "/_assessments/depression.html"
 
   [[services.production.rewrites]]
   from = "/assessments/detox"
-  to = "/assessments/detox.html"
+  to = "/_assessments/detox.html"
 
   [[services.production.rewrites]]
   from = "/assessments/drug-use"
-  to = "/assessments/drug-use.html"
+  to = "/_assessments/drug-use.html"
 
-  # ── /resources — explicit rewrite beats directory detection ───────────────────
+  # ── /resources (no directory conflict after _resources/ rename) ───────────────
   [[services.production.rewrites]]
   from = "/resources"
   to = "/resources.html"
@@ -122,46 +122,46 @@ kind = "web"
   from = "/resources/"
   to = "/resources.html"
 
-  # ── /resources article pages ──────────────────────────────────────────────────
+  # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
   from = "/resources/how-to-choose-private-rehab-centre-uk"
-  to = "/resources/how-to-choose-private-rehab-centre-uk.html"
+  to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
 
   [[services.production.rewrites]]
   from = "/resources/managing-relapse-part-of-recovery"
-  to = "/resources/managing-relapse-part-of-recovery.html"
+  to = "/_resources/managing-relapse-part-of-recovery.html"
 
   [[services.production.rewrites]]
   from = "/resources/mental-health-and-addiction"
-  to = "/resources/mental-health-and-addiction.html"
+  to = "/_resources/mental-health-and-addiction.html"
 
   [[services.production.rewrites]]
   from = "/resources/online-addiction-support-vs-residential-rehab"
-  to = "/resources/online-addiction-support-vs-residential-rehab.html"
+  to = "/_resources/online-addiction-support-vs-residential-rehab.html"
 
   [[services.production.rewrites]]
   from = "/resources/online-recovery-programmes"
-  to = "/resources/online-recovery-programmes.html"
+  to = "/_resources/online-recovery-programmes.html"
 
   [[services.production.rewrites]]
   from = "/resources/private-rehab-vs-nhs-addiction-treatment"
-  to = "/resources/private-rehab-vs-nhs-addiction-treatment.html"
+  to = "/_resources/private-rehab-vs-nhs-addiction-treatment.html"
 
   [[services.production.rewrites]]
   from = "/resources/supporting-a-loved-one-through-recovery"
-  to = "/resources/supporting-a-loved-one-through-recovery.html"
+  to = "/_resources/supporting-a-loved-one-through-recovery.html"
 
   [[services.production.rewrites]]
   from = "/resources/understanding-alcohol-dependency"
-  to = "/resources/understanding-alcohol-dependency.html"
+  to = "/_resources/understanding-alcohol-dependency.html"
 
   [[services.production.rewrites]]
   from = "/resources/what-happens-in-residential-rehabilitation"
-  to = "/resources/what-happens-in-residential-rehabilitation.html"
+  to = "/_resources/what-happens-in-residential-rehabilitation.html"
 
   [[services.production.rewrites]]
   from = "/resources/why-cant-i-stop-how-addiction-works"
-  to = "/resources/why-cant-i-stop-how-addiction-works.html"
+  to = "/_resources/why-cant-i-stop-how-addiction-works.html"
 
   # ── SPA fallback for any client-side route not matched above ──────────────────
   [[services.production.rewrites]]
