@@ -18,6 +18,121 @@ if (rawPort && (Number.isNaN(port) || port <= 0)) {
 // base as "" (root) regardless of build mode.
 const basePath = "/";
 
+/**
+ * Sets Cache-Control response headers:
+ * - /assets/*   → immutable (Vite content-hashed files)
+ * - HTML, sitemap, robots → no-store (always revalidate)
+ * - everything else → 1-hour public cache
+ */
+function cacheControlPlugin() {
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "/").split("?")[0];
+    if (/^\/assets\//.test(pathname)) {
+      res.setHeader("cache-control", "public, max-age=31536000, immutable");
+    } else if (
+      pathname === "/" ||
+      pathname.endsWith(".html") ||
+      pathname === "/sitemap.xml" ||
+      pathname === "/robots.txt"
+    ) {
+      res.setHeader("cache-control", "no-cache, no-store, must-revalidate");
+    } else {
+      res.setHeader("cache-control", "public, max-age=3600");
+    }
+    next();
+  }
+  return {
+    name: "cache-control",
+    configureServer(server: import("vite").ViteDevServer) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
+/**
+ * Serves pre-compressed (.br / .gz) static assets in preview mode.
+ *
+ * Intercepts requests for compressible files in dist/public/ and sends
+ * the matching .br or .gz variant (created by scripts/compress-assets.mjs)
+ * with the correct Content-Encoding and Vary headers.
+ *
+ * Only registered in configurePreviewServer — in dev mode, /assets/* are
+ * served by Vite's own transform pipeline from source, so we must not
+ * shadow them with pre-built files.  The homepage (/) is also handled
+ * here so sirv serves the compressed dist/public/index.html in preview.
+ */
+function serveCompressedStaticPlugin() {
+  const MIME: Record<string, string> = {
+    ".js":          "application/javascript; charset=utf-8",
+    ".mjs":         "application/javascript; charset=utf-8",
+    ".css":         "text/css; charset=utf-8",
+    ".json":        "application/json; charset=utf-8",
+    ".xml":         "application/xml; charset=utf-8",
+    ".svg":         "image/svg+xml; charset=utf-8",
+    ".txt":         "text/plain; charset=utf-8",
+    ".webmanifest": "application/manifest+json; charset=utf-8",
+    ".html":        "text/html; charset=utf-8",
+  };
+
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "/").split("?")[0];
+
+    // Resolve the disk path: "/" → index.html, others by pathname.
+    const diskPath =
+      pathname === "/"
+        ? path.join(import.meta.dirname, "dist/public", "index.html")
+        : path.join(import.meta.dirname, "dist/public", pathname);
+
+    const ext = path.extname(diskPath).toLowerCase();
+    const mime = MIME[ext];
+    if (!mime || !fs.existsSync(diskPath)) return next();
+
+    const ae = (req.headers["accept-encoding"] as string) ?? "";
+    const useBr = /\bbr\b/.test(ae);
+    const useGz = /\bgzip\b/.test(ae);
+
+    let serveFile = "";
+    let encoding = "";
+    if (useBr && fs.existsSync(diskPath + ".br")) {
+      serveFile = diskPath + ".br";
+      encoding  = "br";
+    } else if (useGz && fs.existsSync(diskPath + ".gz")) {
+      serveFile = diskPath + ".gz";
+      encoding  = "gzip";
+    }
+
+    if (!serveFile) return next(); // no pre-compressed version; let sirv handle
+
+    const content = fs.readFileSync(serveFile);
+    res.writeHead(200, {
+      "Content-Type":     mime,
+      "Content-Encoding": encoding,
+      "Content-Length":   content.length,
+      "Vary":             "Accept-Encoding",
+    });
+    res.end(content);
+  }
+
+  return {
+    name: "serve-compressed-static",
+    // Preview only — dev mode must use Vite's transform pipeline for source assets.
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
 function servePrerenderedHtmlPlugin() {
   function htmlMiddleware(
     req: import("http").IncomingMessage,
@@ -35,11 +150,29 @@ function servePrerenderedHtmlPlugin() {
       clean.replace(/^\//, "") + ".html",
     );
     if (fs.existsSync(htmlFile)) {
-      const content = fs.readFileSync(htmlFile);
-      res.writeHead(200, {
-        "Content-Type": "text/html; charset=utf-8",
+      const ae = (req.headers["accept-encoding"] as string) ?? "";
+      const useBr = /\bbr\b/.test(ae);
+      const useGz = /\bgzip\b/.test(ae);
+
+      let serveFile = htmlFile;
+      let encoding = "";
+      if (useBr && fs.existsSync(htmlFile + ".br")) {
+        serveFile = htmlFile + ".br";
+        encoding  = "br";
+      } else if (useGz && fs.existsSync(htmlFile + ".gz")) {
+        serveFile = htmlFile + ".gz";
+        encoding  = "gzip";
+      }
+
+      const content = fs.readFileSync(serveFile);
+      const headers: Record<string, string | number> = {
+        "Content-Type":   "text/html; charset=utf-8",
         "Content-Length": content.length,
-      });
+        "Vary":           "Accept-Encoding",
+      };
+      if (encoding) headers["Content-Encoding"] = encoding;
+
+      res.writeHead(200, headers);
       res.end(content);
       return;
     }
@@ -164,8 +297,10 @@ function serverRedirectsPlugin() {
 export default defineConfig({
   base: basePath,
   plugins: [
-    servePrerenderedHtmlPlugin(),
     serverRedirectsPlugin(),
+    cacheControlPlugin(),
+    serveCompressedStaticPlugin(),
+    servePrerenderedHtmlPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),
