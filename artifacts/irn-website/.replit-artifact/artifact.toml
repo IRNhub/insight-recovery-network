@@ -55,6 +55,11 @@ kind = "web"
   from = "/online-programme"
   to = "/online-programme.html"
 
+  # ── Legacy slug → canonical online programme page ────────────────────────────
+  [[services.production.rewrites]]
+  from = "/online-recovery-programme"
+  to = "/online-programme.html"
+
   [[services.production.rewrites]]
   from = "/privacy-policy"
   to = "/privacy-policy.html"
@@ -171,4 +176,3 @@ kind = "web"
   [services.env]
   PORT = "18088"
   BASE_PATH = "/"
-  

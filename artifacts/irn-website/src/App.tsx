@@ -58,6 +58,7 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/privacy":                            "/privacy-policy",
   "/terms":                              "/terms-of-service",
   "/terms-and-conditions":               "/terms-of-service",
+  "/online-recovery-programme":          "/online-programme",
   "/online-therapy":                     "/online-programme",
   "/online-recovery":                    "/online-programme",
   "/family-support":                     "/what-we-offer",
