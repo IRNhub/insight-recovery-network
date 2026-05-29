@@ -300,6 +300,23 @@ kind = "web"
   from = "/resources/why-willpower-is-not-a-recovery-plan/"
   to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
 
+  # ── Legacy redirects (static redirect pages, noindex) ────────────────────────
+  [[services.production.rewrites]]
+  from = "/about-us"
+  to = "/about-us.html"
+
+  [[services.production.rewrites]]
+  from = "/about-us/"
+  to = "/about-us.html"
+
+  [[services.production.rewrites]]
+  from = "/media"
+  to = "/media.html"
+
+  [[services.production.rewrites]]
+  from = "/media/"
+  to = "/media.html"
+
   # ── SPA fallback for any client-side route not matched above ──────────────────
   [[services.production.rewrites]]
   from = "/*"
