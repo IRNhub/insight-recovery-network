@@ -1,0 +1,327 @@
+kind = "web"
+  previewPath = "/"
+  title = "Insight Recovery Network"
+  version = "1.0.0"
+  id = "artifacts/irn-website"
+  router = "path"
+
+  [[integratedSkills]]
+  name = "react-vite"
+  version = "1.0.0"
+
+  [[services]]
+  name = "web"
+  paths = [ "/" ]
+  localPort = 18088
+
+  [services.development]
+  run = "pnpm --filter @workspace/irn-website run dev"
+
+  [services.production]
+  build = [ "pnpm", "--filter", "@workspace/irn-website", "run", "build" ]
+  publicDir = "artifacts/irn-website/dist/public"
+  serve = "static"
+
+  # ── Top-level pages (no trailing slash) ──────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/about"
+  to = "/about.html"
+
+  [[services.production.rewrites]]
+  from = "/about/"
+  to = "/about.html"
+
+  [[services.production.rewrites]]
+  from = "/about-insight-recovery-network"
+  to = "/about-insight-recovery-network.html"
+
+  [[services.production.rewrites]]
+  from = "/about-insight-recovery-network/"
+  to = "/about-insight-recovery-network.html"
+
+  [[services.production.rewrites]]
+  from = "/clinical-disclaimer"
+  to = "/clinical-disclaimer.html"
+
+  [[services.production.rewrites]]
+  from = "/clinical-disclaimer/"
+  to = "/clinical-disclaimer.html"
+
+  [[services.production.rewrites]]
+  from = "/contact"
+  to = "/contact.html"
+
+  [[services.production.rewrites]]
+  from = "/contact/"
+  to = "/contact.html"
+
+  [[services.production.rewrites]]
+  from = "/cookie-policy"
+  to = "/cookie-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/cookie-policy/"
+  to = "/cookie-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/insight-os"
+  to = "/insight-os.html"
+
+  [[services.production.rewrites]]
+  from = "/insight-os/"
+  to = "/insight-os.html"
+
+  [[services.production.rewrites]]
+  from = "/online-addiction-recovery-programme-uk"
+  to = "/online-addiction-recovery-programme-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/online-addiction-recovery-programme-uk/"
+  to = "/online-addiction-recovery-programme-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/online-programme"
+  to = "/online-programme.html"
+
+  [[services.production.rewrites]]
+  from = "/online-programme/"
+  to = "/online-programme.html"
+
+  # ── Legacy slug → canonical online programme page ────────────────────────────
+  [[services.production.rewrites]]
+  from = "/online-recovery-programme"
+  to = "/online-programme.html"
+
+  [[services.production.rewrites]]
+  from = "/online-recovery-programme/"
+  to = "/online-programme.html"
+
+  [[services.production.rewrites]]
+  from = "/privacy-policy"
+  to = "/privacy-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/privacy-policy/"
+  to = "/privacy-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-alternative-uk"
+  to = "/private-rehab-alternative-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-alternative-uk/"
+  to = "/private-rehab-alternative-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/terms-of-service"
+  to = "/terms-of-service.html"
+
+  [[services.production.rewrites]]
+  from = "/terms-of-service/"
+  to = "/terms-of-service.html"
+
+  [[services.production.rewrites]]
+  from = "/treatment-placement"
+  to = "/treatment-placement.html"
+
+  [[services.production.rewrites]]
+  from = "/treatment-placement/"
+  to = "/treatment-placement.html"
+
+  [[services.production.rewrites]]
+  from = "/what-we-offer"
+  to = "/what-we-offer.html"
+
+  [[services.production.rewrites]]
+  from = "/what-we-offer/"
+  to = "/what-we-offer.html"
+
+  # ── /assessments ─────────────────────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/assessments"
+  to = "/assessments.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/"
+  to = "/assessments.html"
+
+  # ── /assessments sub-pages → internal _assessments/ directory ────────────────
+  [[services.production.rewrites]]
+  from = "/assessments/adhd-impulsivity"
+  to = "/_assessments/adhd-impulsivity.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/adhd-impulsivity/"
+  to = "/_assessments/adhd-impulsivity.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-detox"
+  to = "/_assessments/alcohol-detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-detox/"
+  to = "/_assessments/alcohol-detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-use"
+  to = "/_assessments/alcohol-use.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/alcohol-use/"
+  to = "/_assessments/alcohol-use.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/anxiety"
+  to = "/_assessments/anxiety.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/anxiety/"
+  to = "/_assessments/anxiety.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/depression"
+  to = "/_assessments/depression.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/depression/"
+  to = "/_assessments/depression.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/detox"
+  to = "/_assessments/detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/detox/"
+  to = "/_assessments/detox.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/drug-use"
+  to = "/_assessments/drug-use.html"
+
+  [[services.production.rewrites]]
+  from = "/assessments/drug-use/"
+  to = "/_assessments/drug-use.html"
+
+  # ── /resources ───────────────────────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/resources"
+  to = "/resources.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/"
+  to = "/resources.html"
+
+  # ── /resources article pages → internal _resources/ directory ────────────────
+  [[services.production.rewrites]]
+  from = "/resources/how-to-choose-private-rehab-centre-uk"
+  to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-to-choose-private-rehab-centre-uk/"
+  to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/managing-relapse-part-of-recovery"
+  to = "/_resources/managing-relapse-part-of-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/managing-relapse-part-of-recovery/"
+  to = "/_resources/managing-relapse-part-of-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/mental-health-and-addiction"
+  to = "/_resources/mental-health-and-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/mental-health-and-addiction/"
+  to = "/_resources/mental-health-and-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-addiction-support-vs-residential-rehab"
+  to = "/_resources/online-addiction-support-vs-residential-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-addiction-support-vs-residential-rehab/"
+  to = "/_resources/online-addiction-support-vs-residential-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-recovery-programmes"
+  to = "/_resources/online-recovery-programmes.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-recovery-programmes/"
+  to = "/_resources/online-recovery-programmes.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/private-rehab-vs-nhs-addiction-treatment"
+  to = "/_resources/private-rehab-vs-nhs-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/private-rehab-vs-nhs-addiction-treatment/"
+  to = "/_resources/private-rehab-vs-nhs-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/supporting-a-loved-one-through-recovery"
+  to = "/_resources/supporting-a-loved-one-through-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/supporting-a-loved-one-through-recovery/"
+  to = "/_resources/supporting-a-loved-one-through-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/understanding-alcohol-dependency"
+  to = "/_resources/understanding-alcohol-dependency.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/understanding-alcohol-dependency/"
+  to = "/_resources/understanding-alcohol-dependency.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-happens-in-residential-rehabilitation"
+  to = "/_resources/what-happens-in-residential-rehabilitation.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-happens-in-residential-rehabilitation/"
+  to = "/_resources/what-happens-in-residential-rehabilitation.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-cant-i-stop-how-addiction-works"
+  to = "/_resources/why-cant-i-stop-how-addiction-works.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-cant-i-stop-how-addiction-works/"
+  to = "/_resources/why-cant-i-stop-how-addiction-works.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-willpower-is-not-a-recovery-plan"
+  to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-willpower-is-not-a-recovery-plan/"
+  to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
+
+  # ── Legacy redirects (static redirect pages, noindex) ────────────────────────
+  [[services.production.rewrites]]
+  from = "/about-us"
+  to = "/about-us.html"
+
+  [[services.production.rewrites]]
+  from = "/about-us/"
+  to = "/about-us.html"
+
+  [[services.production.rewrites]]
+  from = "/media"
+  to = "/media.html"
+
+  [[services.production.rewrites]]
+  from = "/media/"
+  to = "/media.html"
+
+  # ── SPA fallback for any client-side route not matched above ──────────────────
+  [[services.production.rewrites]]
+  from = "/*"
+  to = "/index.html"
+
+  [services.env]
+  PORT = "18088"
+  BASE_PATH = "/"
