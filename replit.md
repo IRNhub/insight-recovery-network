@@ -4,6 +4,10 @@
 
 pnpm workspace monorepo using TypeScript. Primary artifact is the Insight Recovery Network Phase 1 marketing website.
 
+## Tracking
+
+Google Tag Manager installed globally for public website tracking. Container ID: GTM-59F8HXNV.
+
 ## Artifacts
 
 ### IRN Website (`artifacts/irn-website`) — served at `/`

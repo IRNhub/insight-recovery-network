@@ -1,0 +1,58 @@
+Please install Google Tag Manager globally across the Insight Recovery Network website.
+
+GTM Container ID:
+GTM-59F8HXNV
+
+Important:
+This is a React/Vite website hosted on Replit. The Google Tag Manager code must load on every public website route, including the homepage, blog/resource pages, assessment pages, service pages, and any future public pages.
+
+Tasks:
+
+1. Add the Google Tag Manager <script> snippet as high in the <head> of the main HTML document as possible.
+
+Use this exact script:
+
+<!-- Google Tag Manager -->
+<script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59F8HXNV');
+</script>
+<!-- End Google Tag Manager -->
+
+2. Add the Google Tag Manager noscript snippet immediately after the opening <body> tag.
+
+Use this exact noscript code:
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59F8HXNV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+3. Make sure the implementation works correctly with Vite/React routing and is not placed inside a component that might fail to load on some routes.
+
+4. Do not duplicate any existing GTM, GA4, Google Analytics, or Google Tag code. Before adding it, search the codebase for:
+- GTM-
+- googletagmanager
+- gtag
+- G-
+- google-analytics
+- dataLayer
+
+If any existing Google tracking code exists, report it before making changes and avoid duplicate tracking.
+
+5. After installation, run the app and verify that the GTM script appears in the rendered HTML/source.
+
+6. Build the project and confirm there are no TypeScript, Vite, or deployment errors.
+
+7. Add a short note to the project documentation/replit.md saying:
+"Google Tag Manager installed globally for public website tracking. Container ID: GTM-59F8HXNV."
+
+8. Do not add GA4 manually yet unless it already exists. The next step will be to add GA4 inside Google Tag Manager using the Google Analytics Measurement ID.
+
+Expected result:
+Google Tag Manager should load globally on insightrecoverynetwork.com using container GTM-59F8HXNV, ready for GA4, newsletter UTM tracking, conversion events, Meta Pixel, and future marketing tags.
