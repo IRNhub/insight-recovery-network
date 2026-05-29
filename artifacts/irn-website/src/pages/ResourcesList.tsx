@@ -22,10 +22,13 @@ async function fetchArticles(): Promise<Article[]> {
     if (!res.ok) return staticArticles;
     const dbArticles: Article[] = await res.json();
     if (dbArticles.length === 0) return staticArticles;
-    // Merge: DB articles first (CMS edits win), then fill in any static-only ones
+    // Merge: DB articles win on same slug, then add any static-only ones
     const dbSlugs = new Set(dbArticles.map((a) => a.slug));
     const staticOnly = staticArticles.filter((a) => !dbSlugs.has(a.slug));
-    return [...dbArticles, ...staticOnly];
+    const merged = [...dbArticles, ...staticOnly];
+    // Sort by date descending so newest articles always appear first regardless of source
+    merged.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
+    return merged;
   } catch {
     return staticArticles;
   }
