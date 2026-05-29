@@ -1180,6 +1180,18 @@ const PAGES = [
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:2rem;">All Articles</h2>
             <div style="display:flex;flex-direction:column;gap:0;">
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Recovery &amp; Wellbeing</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/why-willpower-is-not-a-recovery-plan" style="color:#162B3B;text-decoration:none;">Why Willpower Is Not a Recovery Plan</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Willpower can help someone get through a difficult moment, but it is not the same as having a recovery plan. Lasting recovery needs structure, support, emotional regulation, accountability and a clear relapse prevention strategy.</p>
+                <a href="/resources/why-willpower-is-not-a-recovery-plan" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
+                <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/online-addiction-support-vs-residential-rehab" style="color:#162B3B;text-decoration:none;">Online Addiction Support vs Residential Rehab: Which Is More Effective?</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Online addiction support or residential rehab? A clinically informed UK guide to choosing the right level of care based on risk, fit, and recovery needs.</p>
+                <a href="/resources/online-addiction-support-vs-residential-rehab" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
+              </article>
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/private-rehab-vs-nhs-addiction-treatment" style="color:#162B3B;text-decoration:none;">Private Rehab vs NHS Addiction Treatment: What Is the Difference?</a></h3>
                 <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support — and understand which route may be more appropriate for your situation.</p>
@@ -1227,7 +1239,7 @@ const PAGES = [
                 <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Residential rehabilitation can feel like a significant step. Understanding what actually happens during a residential rehab stay can help individuals and families make a more informed decision.</p>
                 <a href="/resources/what-happens-in-residential-rehabilitation" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
-              <article style="padding:1.75rem 0;">
+              <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Addiction &amp; Substances</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/understanding-alcohol-dependency" style="color:#162B3B;text-decoration:none;">Understanding Alcohol Dependency</a></h3>
                 <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Alcohol dependency is a complex condition involving physical, psychological, and social factors. Understanding its nature is the first step towards making sense of what is happening and what level of support may be needed.</p>
@@ -1614,6 +1626,19 @@ const ARTICLES = [
     image: `${SITE_URL}/online-vs-residential-hero.png`,
     imageAlt: "A calm professional editorial photograph with a notebook, coffee cup and desk lamp in navy and gold, representing the considered choice between online addiction support and residential rehab",
     date: "2026-05-26",
+    type: "article",
+  },
+  {
+    slug: "why-willpower-is-not-a-recovery-plan",
+    pageTitle:
+      "Why Willpower Is Not a Recovery Plan | Addiction Recovery Support UK | Insight Recovery Network",
+    ogTitle:
+      "Why Willpower Is Not a Recovery Plan | Addiction Recovery Support UK",
+    description:
+      "Willpower alone is rarely enough for lasting addiction recovery. Learn why structure, support, relapse prevention planning and emotional regulation matter.",
+    image: `${SITE_URL}/article-willpower.png`,
+    imageAlt: "Why Willpower Is Not a Recovery Plan — Insight Recovery Network branded editorial image with navy and gold design showing a mug reading 'Recovery Is a Plan Not a Promise'",
+    date: "2026-05-29",
     type: "article",
   },
 ];

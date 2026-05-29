@@ -168,6 +168,10 @@ kind = "web"
   from = "/resources/why-cant-i-stop-how-addiction-works"
   to = "/_resources/why-cant-i-stop-how-addiction-works.html"
 
+  [[services.production.rewrites]]
+  from = "/resources/why-willpower-is-not-a-recovery-plan"
+  to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
+
   # ── SPA fallback for any client-side route not matched above ──────────────────
   [[services.production.rewrites]]
   from = "/*"
