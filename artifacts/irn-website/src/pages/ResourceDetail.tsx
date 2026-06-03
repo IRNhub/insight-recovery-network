@@ -10,7 +10,7 @@ import { formatDate, articles as staticArticles } from "@/data/articles";
 import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
-const SITE_URL = "https://insightrecoverynetwork.com";
+const SITE_URL = "https://www.insightrecoverynetwork.com";
 
 async function fetchArticle(slug: string): Promise<Article> {
   try {

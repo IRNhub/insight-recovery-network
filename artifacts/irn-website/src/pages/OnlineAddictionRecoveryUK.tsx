@@ -4,7 +4,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
 
-const SITE_URL = "https://insightrecoverynetwork.com";
+const SITE_URL = "https://www.insightrecoverynetwork.com";
 
 const faqs = [
   {
@@ -103,9 +103,9 @@ export default function OnlineAddictionRecoveryUK() {
   return (
     <Layout>
       <SEO
-        title="Online Addiction Recovery Programme UK"
-        fullTitle="Online Addiction Recovery Programme UK | Insight Recovery Network"
-        description="Structured online addiction recovery support for individuals in the UK. Group sessions, one-to-one therapy, relapse prevention planning, and Insight OS digital recovery tools. Professional, clinically informed support without residential treatment."
+        title="Online Addiction Recovery Support UK Guide"
+        fullTitle="Online Addiction Recovery Support UK Guide | Insight Recovery Network"
+        description="A plain-English guide to online addiction recovery support in the UK: who it suits, when rehab is safer, how it compares with therapy apps, counselling and 12-step groups."
         canonical="/online-addiction-recovery-programme-uk"
         ogImage={`${SITE_URL}/opengraph.jpg`}
       />
@@ -133,6 +133,14 @@ export default function OnlineAddictionRecoveryUK() {
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
                   Speak Confidentially
+                </button>
+              </Link>
+              <Link href="/online-programme">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-primary/25 text-sm font-medium hover:bg-primary/5 transition-colors"
+                >
+                  Compare Programme Options
                 </button>
               </Link>
               <Link href="/assessments">

@@ -31,11 +31,17 @@ router.get("/articles", async (_req: Request, res: Response) => {
 });
 
 router.get("/articles/:slug", async (req: Request, res: Response) => {
+  const slug = Array.isArray(req.params.slug) ? req.params.slug[0] : req.params.slug;
+  if (!slug) {
+    res.status(400).json({ error: "Invalid article slug" });
+    return;
+  }
+
   try {
     const [row] = await db
       .select()
       .from(articlesTable)
-      .where(eq(articlesTable.slug, req.params.slug));
+      .where(eq(articlesTable.slug, slug));
     if (!row || !row.published) {
       res.status(404).json({ error: "Article not found" });
       return;

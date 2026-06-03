@@ -138,8 +138,8 @@ export default function InsightOS() {
             "description": "A structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
             "applicationCategory": "HealthApplication",
             "operatingSystem": "Web",
-            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
-            "url": "https://insightrecoverynetwork.com/insight-os",
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
+            "url": "https://www.insightrecoverynetwork.com/insight-os",
           })}
         </script>
       </Helmet>

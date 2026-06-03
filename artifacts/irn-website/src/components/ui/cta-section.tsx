@@ -4,18 +4,39 @@ import { Button } from "./button";
 interface CTASectionProps {
   heading: string;
   description?: string;
-  primaryCta: { label: string; href: string };
+  body?: string;
+  primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
   isExternal?: boolean;
 }
 
 export function CTASection({
   heading,
   description,
+  body,
   primaryCta,
+  primaryLabel,
+  primaryHref,
   secondaryCta,
+  secondaryLabel,
+  secondaryHref,
   isExternal
 }: CTASectionProps) {
+  const resolvedPrimaryCta = primaryCta ?? {
+    label: primaryLabel ?? "Get in touch",
+    href: primaryHref ?? "/contact",
+  };
+  const resolvedSecondaryCta =
+    secondaryCta ??
+    (secondaryLabel && secondaryHref
+      ? { label: secondaryLabel, href: secondaryHref }
+      : undefined);
+  const resolvedDescription = description ?? body;
+
   return (
     <section className="py-8 md:py-14 lg:py-16 bg-primary relative overflow-hidden">
       {/* Abstract subtle background pattern */}
@@ -36,31 +57,31 @@ export function CTASection({
             {heading}
           </h2>
           
-          {description && (
+          {resolvedDescription && (
             <p className="text-base md:text-xl text-primary-foreground/80 mb-7 md:mb-10 max-w-2xl font-light">
-              {description}
+              {resolvedDescription}
             </p>
           )}
           
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal ? (
-              <a href={primaryCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a href={resolvedPrimaryCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
-                  {primaryCta.label}
+                  {resolvedPrimaryCta.label}
                 </Button>
               </a>
             ) : (
-              <Link href={primaryCta.href} className="w-full sm:w-auto">
+              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto">
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
-                  {primaryCta.label}
+                  {resolvedPrimaryCta.label}
                 </Button>
               </Link>
             )}
             
-            {secondaryCta && (
-              <Link href={secondaryCta.href} className="w-full sm:w-auto">
+            {resolvedSecondaryCta && (
+              <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
-                  {secondaryCta.label}
+                  {resolvedSecondaryCta.label}
                 </Button>
               </Link>
             )}

@@ -27,7 +27,46 @@ app.use(
   }),
 );
 app.use(compression());
-app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'",
+  );
+  if (req.path === "/api/admin" || req.path.startsWith("/api/admin/")) {
+    res.setHeader("X-Robots-Tag", "noindex, nofollow");
+  }
+  next();
+});
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const allowedOrigins = new Set([
+        "https://www.insightrecoverynetwork.com",
+        "https://insightrecoverynetwork.com",
+        "https://insight-recovery-network.replit.app",
+        process.env["PUBLIC_SITE_URL"],
+      ].filter(Boolean));
+
+      if (allowedOrigins.has(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Origin not allowed by CORS"));
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "x-admin-secret"],
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -56,6 +56,87 @@ function cacheControlPlugin() {
   };
 }
 
+function securityHeadersPlugin() {
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+    res.setHeader(
+      "Content-Security-Policy",
+      "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+    );
+
+    const pathname = (req.url ?? "/").split("?")[0];
+    const host = (req.headers.host ?? "").replace(/:\d+$/, "");
+    if (pathname === "/admin" || pathname.startsWith("/admin/") || host === "insight-recovery-network.replit.app") {
+      res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    }
+    next();
+  }
+  return {
+    name: "security-headers",
+    configureServer(server: import("vite").ViteDevServer) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
+function adminNoIndexHtmlPlugin() {
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "/").split("?")[0].split("#")[0];
+    if (pathname !== "/admin" && !pathname.startsWith("/admin/")) {
+      return next();
+    }
+
+    const builtIndex = path.resolve(import.meta.dirname, "dist/public/index.html");
+    const sourceIndex = path.resolve(import.meta.dirname, "index.html");
+    const indexFile = fs.existsSync(builtIndex) ? builtIndex : sourceIndex;
+    if (!fs.existsSync(indexFile)) return next();
+
+    const html = fs.readFileSync(indexFile, "utf8")
+      .replace(
+        /<meta name="robots" content="[^"]*" \/>/,
+        '<meta name="robots" content="noindex, nofollow" />',
+      )
+      .replace(
+        /<title>.*?<\/title>/,
+        "<title>IRN Admin | Insight Recovery Network</title>",
+      )
+      .replace(
+        /<link rel="canonical" href="[^"]*" \/>/,
+        '<link rel="canonical" href="https://www.insightrecoverynetwork.com/admin" />',
+      );
+
+    res.writeHead(200, {
+      "Content-Type": "text/html; charset=utf-8",
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "X-Robots-Tag": "noindex, nofollow",
+    });
+    res.end(html);
+  }
+  return {
+    name: "admin-noindex-html",
+    configureServer(server: import("vite").ViteDevServer) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
 /**
  * Serves pre-compressed (.br / .gz) static assets in preview mode.
  *
@@ -272,12 +353,13 @@ function serverRedirectsPlugin() {
       return;
     }
 
-    const raw = (req.url ?? "").split("?")[0].split("#")[0];
+    const [pathPart, queryPart] = (req.url ?? "").split("?");
+    const raw = pathPart.split("#")[0];
     // Normalise: strip trailing slash (except root), lowercase
     const pathname = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;
     const target = SERVER_REDIRECTS[pathname.toLowerCase()];
     if (target) {
-      res.writeHead(301, { Location: target });
+      res.writeHead(301, { Location: `${target}${queryPart ? `?${queryPart}` : ""}` });
       res.end();
       return;
     }
@@ -298,6 +380,8 @@ export default defineConfig({
   base: basePath,
   plugins: [
     serverRedirectsPlugin(),
+    securityHeadersPlugin(),
+    adminNoIndexHtmlPlugin(),
     cacheControlPlugin(),
     serveCompressedStaticPlugin(),
     servePrerenderedHtmlPlugin(),

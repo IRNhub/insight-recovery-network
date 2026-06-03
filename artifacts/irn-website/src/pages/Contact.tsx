@@ -55,7 +55,10 @@ export default function Contact() {
                     <Phone className="w-5 h-5 text-accent mt-0.5" />
                     <div>
                       <p className="text-sm font-semibold text-primary mb-1">Phone</p>
-                      <p className="text-muted-foreground text-sm">
+                      <a href="tel:+447415994475" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                        +44 7415 994475
+                      </a>
+                      <p className="text-muted-foreground/70 text-xs mt-1">
                         Available during standard business hours. Enquiries via form are monitored continuously.
                       </p>
                     </div>

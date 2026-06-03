@@ -26,6 +26,7 @@ const AdhdAssessmentPage = lazy(() => import("@/pages/assessments/AdhdAssessment
 const AboutInsightRecoveryNetwork = lazy(() => import("@/pages/AboutInsightRecoveryNetwork"));
 const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionRecoveryUK"));
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
+const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
@@ -132,6 +133,19 @@ function useNormalisedLocation(): ReturnType<typeof useBrowserLocation> {
 }
 
 function Router() {
+  useEffect(() => {
+    try {
+      if (!window.sessionStorage.getItem("irn_landing_page")) {
+        window.sessionStorage.setItem(
+          "irn_landing_page",
+          `${window.location.pathname}${window.location.search}`,
+        );
+      }
+    } catch {
+      // Source attribution is useful, but should never block the app.
+    }
+  }, []);
+
   // Enforce www canonical — redirect bare domain to www.
   // Only fires on the real production domain, never in dev (*.replit.dev).
   if (
@@ -165,6 +179,7 @@ function Router() {
         <Route path="/online-programme" component={OnlineProgramme} />
         <Route path="/insight-os" component={InsightOS} />
         <Route path="/contact" component={Contact} />
+        <Route path="/thank-you" component={ThankYou} />
         <Route path="/about-insight-recovery-network" component={AboutInsightRecoveryNetwork} />
         <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
