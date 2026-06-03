@@ -108,8 +108,9 @@ export default function OnlineProgramme() {
   return (
     <Layout>
       <SEO
-        title={onlineProgrammeOg.seoTitle ?? onlineProgrammeOg.title}
-        description="A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network."
+        title="Online Recovery Programme Options and Pricing"
+        fullTitle="Online Recovery Programme Options and Pricing | Insight Recovery Network"
+        description="Compare Insight Recovery Network's structured online recovery programme options, pricing, session levels, Insight OS access, relapse prevention planning and confidential enquiry route."
         canonical="/online-programme"
         ogImage={ogImageUrl(onlineProgrammeOg.file)}
       />
@@ -118,11 +119,11 @@ export default function OnlineProgramme() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Structured Online Addiction Recovery Programme",
-            "description": "A clinically guided online recovery programme with group therapy, one-to-one support, relapse prevention planning, and access to Insight OS. Available without residential care.",
-            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
+            "name": "Insight Recovery Network Online Programme Options",
+            "description": "Commercial programme page for Insight Recovery Network's online recovery support options, including monthly support levels, one-to-one sessions, group work, relapse prevention planning, and Insight OS access.",
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
             "serviceType": "Online Addiction Recovery Programme",
-            "url": "https://insightrecoverynetwork.com/online-programme",
+            "url": "https://www.insightrecoverynetwork.com/online-programme",
           })}
         </script>
       </Helmet>
@@ -142,19 +143,20 @@ export default function OnlineProgramme() {
             {/* Left: text */}
             <div className="lg:col-span-6 flex flex-col gap-5 md:gap-6">
               <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80">
-                Online Programme
+                Programme Options
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Structured Online Addiction Recovery Programme
+                Online Recovery Programme Options and Pricing
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                A clinically guided online recovery programme combining group support, one-to-one therapy, relapse prevention planning, structured worksheets, and access to Insight OS.
+                Choose the level of structured online recovery support that fits your situation, from essential monthly support through to enhanced clinical input, with Insight OS access included.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
                   "No need to step away from work or family",
                   "Clinical structure, not isolated counselling",
                   "Flexible — available from anywhere",
+                  "Three monthly support levels from £950",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
@@ -178,7 +180,14 @@ export default function OnlineProgramme() {
                 Private, structured, non-judgemental support.
               </p>
               <p className="text-[12px] text-muted-foreground/60 font-light leading-relaxed">
-                Not sure if this programme is right for you?{" "}
+                Not sure if this programme is right for you? Read the{" "}
+                <Link
+                  href="/online-addiction-recovery-programme-uk"
+                  className="underline underline-offset-2 hover:text-primary transition-colors"
+                >
+                  full guide to online addiction recovery support
+                </Link>
+                {" "}or use our{" "}
                 <Link
                   href="/assessments/alcohol-use"
                   className="underline underline-offset-2 hover:text-primary transition-colors"

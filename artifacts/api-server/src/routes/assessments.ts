@@ -126,7 +126,8 @@ router.post("/assessments/submit", async (req: Request, res: Response) => {
 });
 
 router.post("/assessments/:id/cta-clicked", async (req: Request, res: Response) => {
-  const id = parseInt(req.params.id ?? "", 10);
+  const idParam = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const id = parseInt(idParam ?? "", 10);
   if (isNaN(id)) {
     res.status(400).json({ error: "Invalid assessment id" });
     return;

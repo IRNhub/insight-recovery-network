@@ -10,7 +10,15 @@ interface EnquiryData {
   supportType: string;
   message: string;
   consent: boolean;
-  pageSource?: string;
+  landingPage?: string | null;
+  currentPage?: string | null;
+  referrer?: string | null;
+  pageSource?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  utmTerm?: string | null;
+  utmContent?: string | null;
   submittedAt: string;
 }
 
@@ -44,6 +52,14 @@ function buildNotificationHtml(data: EnquiryData): string {
     ["Enquiry Type", SUPPORT_TYPE_LABELS[data.supportType] ?? data.supportType],
     ["Consent Accepted", data.consent ? "Yes" : "No"],
     ["Page Source", data.pageSource ?? "Unknown"],
+    ["Landing Page", data.landingPage ?? "Unknown"],
+    ["Current Page", data.currentPage ?? "Unknown"],
+    ["Referrer", data.referrer ?? "Direct / unknown"],
+    ["UTM Source", data.utmSource ?? "None"],
+    ["UTM Medium", data.utmMedium ?? "None"],
+    ["UTM Campaign", data.utmCampaign ?? "None"],
+    ["UTM Term", data.utmTerm ?? "None"],
+    ["UTM Content", data.utmContent ?? "None"],
     ["Date / Time Submitted", data.submittedAt],
   ];
 
@@ -90,6 +106,14 @@ function buildNotificationText(data: EnquiryData): string {
     `Enquiry Type: ${SUPPORT_TYPE_LABELS[data.supportType] ?? data.supportType}`,
     `Consent Accepted: ${data.consent ? "Yes" : "No"}`,
     `Page Source: ${data.pageSource ?? "Unknown"}`,
+    `Landing Page: ${data.landingPage ?? "Unknown"}`,
+    `Current Page: ${data.currentPage ?? "Unknown"}`,
+    `Referrer: ${data.referrer ?? "Direct / unknown"}`,
+    `UTM Source: ${data.utmSource ?? "None"}`,
+    `UTM Medium: ${data.utmMedium ?? "None"}`,
+    `UTM Campaign: ${data.utmCampaign ?? "None"}`,
+    `UTM Term: ${data.utmTerm ?? "None"}`,
+    `UTM Content: ${data.utmContent ?? "None"}`,
     `Date / Time Submitted: ${data.submittedAt}`,
     "",
     "Message:",

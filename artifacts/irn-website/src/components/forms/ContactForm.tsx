@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -29,10 +29,10 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const API_BASE = "/api";
 
 export function ContactForm() {
-  const [location] = useLocation();
+  const [location, navigate] = useLocation();
   const [isPending, setIsPending] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const formStartedAt = useMemo(() => Date.now(), []);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -49,6 +49,19 @@ export function ContactForm() {
     setIsPending(true);
     setIsError(false);
     try {
+      const url = new URL(window.location.href);
+      const landingPage = (() => {
+        try {
+          const stored = window.sessionStorage.getItem("irn_landing_page");
+          if (stored) return stored;
+          const value = `${window.location.pathname}${window.location.search}`;
+          window.sessionStorage.setItem("irn_landing_page", value);
+          return value;
+        } catch {
+          return `${window.location.pathname}${window.location.search}`;
+        }
+      })();
+
       const response = await fetch(`${API_BASE}/enquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -61,6 +74,16 @@ export function ContactForm() {
           message: data.message,
           consent: data.consent,
           pageSource: location,
+          landingPage,
+          currentPage: `${window.location.pathname}${window.location.search}`,
+          referrer: document.referrer || "",
+          utmSource: url.searchParams.get("utm_source") || "",
+          utmMedium: url.searchParams.get("utm_medium") || "",
+          utmCampaign: url.searchParams.get("utm_campaign") || "",
+          utmTerm: url.searchParams.get("utm_term") || "",
+          utmContent: url.searchParams.get("utm_content") || "",
+          formStartedAt,
+          website: "",
         }),
       });
 
@@ -68,7 +91,7 @@ export function ContactForm() {
         throw new Error(`Server responded with ${response.status}`);
       }
 
-      setIsSuccess(true);
+      navigate("/thank-you");
     } catch {
       setIsError(true);
     } finally {
@@ -76,26 +99,19 @@ export function ContactForm() {
     }
   }
 
-  if (isSuccess) {
-    return (
-      <div className="bg-secondary/30 p-8 md:p-12 border border-border/50 text-center flex flex-col items-center justify-center min-h-[400px]">
-        <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-        </div>
-        <h3 className="font-serif text-2xl text-primary mb-3">Thank you.</h3>
-        <p className="text-muted-foreground text-lg max-w-md">
-          Your enquiry has been received securely. We will be in touch shortly.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <div className="bg-white p-8 md:p-12 border border-border shadow-sm">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+
           {isError && (
             <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
               We were unable to submit your enquiry at this time. Please try again, or contact us directly by email.

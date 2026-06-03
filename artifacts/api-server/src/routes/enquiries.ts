@@ -1,11 +1,58 @@
 import { Router, type IRouter, type Request, type Response } from "express";
 import { SubmitEnquiryBody } from "@workspace/api-zod";
-import { db, enquiriesTable } from "@workspace/db";
+import { db, enquiriesTable, pool } from "@workspace/db";
 import { eq, desc } from "drizzle-orm";
 import { logger } from "../lib/logger";
 import { sendEnquiryNotification, sendAcknowledgementEmail } from "../lib/email";
 
 const router: IRouter = Router();
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+let sourceColumnsReady: Promise<void> | null = null;
+
+const SOURCE_COLUMN_SQL = `
+ALTER TABLE enquiries
+  ADD COLUMN IF NOT EXISTS landing_page text,
+  ADD COLUMN IF NOT EXISTS current_page text,
+  ADD COLUMN IF NOT EXISTS referrer text,
+  ADD COLUMN IF NOT EXISTS page_source text,
+  ADD COLUMN IF NOT EXISTS utm_source text,
+  ADD COLUMN IF NOT EXISTS utm_medium text,
+  ADD COLUMN IF NOT EXISTS utm_campaign text,
+  ADD COLUMN IF NOT EXISTS utm_term text,
+  ADD COLUMN IF NOT EXISTS utm_content text;
+`;
+
+function ensureSourceColumns(): Promise<void> {
+  sourceColumnsReady ??= pool.query(SOURCE_COLUMN_SQL).then(() => undefined);
+  return sourceColumnsReady;
+}
+
+function getClientKey(req: Request): string {
+  const forwarded = req.headers["x-forwarded-for"];
+  const firstForwarded = Array.isArray(forwarded) ? forwarded[0] : forwarded;
+  return firstForwarded?.split(",")[0]?.trim() || req.ip || "unknown";
+}
+
+function isRateLimited(req: Request): boolean {
+  const key = getClientKey(req);
+  const now = Date.now();
+  const current = rateLimitBuckets.get(key);
+  if (!current || current.resetAt <= now) {
+    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  current.count += 1;
+  return current.count > RATE_LIMIT_MAX;
+}
+
+function optionalString(req: Request, field: string): string | null {
+  const value = req.body[field];
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed ? trimmed.slice(0, 2048) : null;
+}
 
 function requireAdmin(req: Request, res: Response): boolean {
   const secret = req.headers["x-admin-secret"];
@@ -18,6 +65,24 @@ function requireAdmin(req: Request, res: Response): boolean {
 }
 
 router.post("/enquiries", async (req: Request, res: Response) => {
+  if (isRateLimited(req)) {
+    res.status(429).json({ error: "Too many enquiries. Please try again later." });
+    return;
+  }
+
+  if (typeof req.body["website"] === "string" && req.body["website"].trim()) {
+    logger.info("Blocked enquiry submission with populated honeypot field");
+    res.status(204).end();
+    return;
+  }
+
+  const formStartedAt = Number(req.body["formStartedAt"]);
+  if (Number.isFinite(formStartedAt) && Date.now() - formStartedAt < 2000) {
+    logger.info("Blocked enquiry submission that completed too quickly");
+    res.status(204).end();
+    return;
+  }
+
   const parseResult = SubmitEnquiryBody.safeParse(req.body);
 
   if (!parseResult.success) {
@@ -39,12 +104,23 @@ router.post("/enquiries", async (req: Request, res: Response) => {
     return;
   }
 
-  const pageSource =
-    typeof req.body["pageSource"] === "string" ? req.body["pageSource"] : undefined;
+  const sourceFields = {
+    landingPage: optionalString(req, "landingPage"),
+    currentPage: optionalString(req, "currentPage"),
+    referrer: optionalString(req, "referrer"),
+    pageSource: optionalString(req, "pageSource"),
+    utmSource: optionalString(req, "utmSource"),
+    utmMedium: optionalString(req, "utmMedium"),
+    utmCampaign: optionalString(req, "utmCampaign"),
+    utmTerm: optionalString(req, "utmTerm"),
+    utmContent: optionalString(req, "utmContent"),
+  };
 
   const submittedAt = new Date().toUTCString();
 
   try {
+    await ensureSourceColumns();
+
     const [enquiry] = await db
       .insert(enquiriesTable)
       .values({
@@ -55,6 +131,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
         supportType: data.supportType,
         message: data.message,
         consent: data.consent,
+        ...sourceFields,
       })
       .returning({ id: enquiriesTable.id, createdAt: enquiriesTable.createdAt });
 
@@ -69,7 +146,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
       supportType: data.supportType,
       message: data.message,
       consent: data.consent,
-      pageSource,
+      ...sourceFields,
       submittedAt,
     })
       .then(() => {

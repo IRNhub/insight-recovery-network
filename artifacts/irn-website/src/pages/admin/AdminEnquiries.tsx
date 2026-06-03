@@ -11,6 +11,15 @@ interface AdminEnquiry {
   supportType: string;
   message: string;
   consent: boolean;
+  landingPage?: string | null;
+  currentPage?: string | null;
+  referrer?: string | null;
+  pageSource?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  utmTerm?: string | null;
+  utmContent?: string | null;
   status: string;
   notificationSent: boolean;
   createdAt: string;
@@ -179,10 +188,13 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                       <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden lg:table-cell">
                         Submitted
                       </th>
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden xl:table-cell">
+                        Source
+                      </th>
                       <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70">
                         Notification
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden xl:table-cell">
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden 2xl:table-cell">
                         Message
                       </th>
                     </tr>
@@ -226,6 +238,30 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                             {formatDateTime(enquiry.createdAt)}
                           </span>
                         </td>
+                        <td className="px-4 py-4 hidden xl:table-cell">
+                          <div className="text-[11px] text-muted-foreground/70 leading-relaxed max-w-[260px]">
+                            <p>
+                              <span className="font-semibold text-primary/70">Current:</span>{" "}
+                              {enquiry.currentPage ?? enquiry.pageSource ?? "Unknown"}
+                            </p>
+                            <p>
+                              <span className="font-semibold text-primary/70">Landing:</span>{" "}
+                              {enquiry.landingPage ?? "Unknown"}
+                            </p>
+                            <p>
+                              <span className="font-semibold text-primary/70">Referrer:</span>{" "}
+                              {enquiry.referrer || "Direct / unknown"}
+                            </p>
+                            {(enquiry.utmSource || enquiry.utmMedium || enquiry.utmCampaign) && (
+                              <p>
+                                <span className="font-semibold text-primary/70">UTM:</span>{" "}
+                                {[enquiry.utmSource, enquiry.utmMedium, enquiry.utmCampaign]
+                                  .filter(Boolean)
+                                  .join(" / ")}
+                              </p>
+                            )}
+                          </div>
+                        </td>
                         <td className="px-4 py-4">
                           {enquiry.notificationSent ? (
                             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-green-50 text-green-700 border border-green-200">
@@ -239,7 +275,7 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                             </span>
                           )}
                         </td>
-                        <td className="px-4 py-4 hidden xl:table-cell">
+                        <td className="px-4 py-4 hidden 2xl:table-cell">
                           <p className="text-xs text-muted-foreground font-light line-clamp-2 max-w-xs">
                             {enquiry.message}
                           </p>

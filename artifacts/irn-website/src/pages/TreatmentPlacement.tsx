@@ -61,13 +61,13 @@ export default function TreatmentPlacement() {
             "@type": "Service",
             "name": "Private Rehab and Detox Placement",
             "description": "Independent, confidential guidance on private rehab, detox, and residential treatment placement in the UK and internationally.",
-            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://insightrecoverynetwork.com" },
+            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
             "serviceType": "Addiction Treatment Placement",
             "areaServed": [
               { "@type": "Country", "name": "United Kingdom" },
               { "@type": "Place", "name": "International" },
             ],
-            "url": "https://insightrecoverynetwork.com/treatment-placement",
+            "url": "https://www.insightrecoverynetwork.com/treatment-placement",
           })}
         </script>
       </Helmet>
