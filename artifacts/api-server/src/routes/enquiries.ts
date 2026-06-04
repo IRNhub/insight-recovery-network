@@ -4,6 +4,7 @@ import { db, enquiriesTable, pool } from "@workspace/db";
 import { eq, desc } from "drizzle-orm";
 import { logger } from "../lib/logger";
 import { sendEnquiryNotification, sendAcknowledgementEmail } from "../lib/email";
+import { forwardEnquiryToIrnOs } from "../lib/irn-os";
 
 const router: IRouter = Router();
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
@@ -164,12 +165,32 @@ router.post("/enquiries", async (req: Request, res: Response) => {
         logger.warn({ dbErr }, "Failed to update notificationSent flag on enquiry");
       });
 
-    await sendAcknowledgementEmail({
+    const crmForwardResult = await forwardEnquiryToIrnOs({
+      enquiryId: String(enquiry.id),
+      createdAt: enquiry.createdAt,
       name: data.name,
       email: data.email,
-    }).catch((err) => {
-      logger.warn({ err }, "Acknowledgement email failed — enquiry still saved");
+      phone: data.phone,
+      preferredContact: data.preferredContact,
+      supportType: data.supportType,
+      message: data.message,
+      consent: data.consent,
+      ...sourceFields,
+      submittedAt,
     });
+    if (crmForwardResult.forwarded) {
+      logger.info(
+        { enquiryId: enquiry.id, leadId: crmForwardResult.leadId, duplicate: crmForwardResult.duplicate },
+        "Enquiry forwarded to IRN OS",
+      );
+    } else {
+      await sendAcknowledgementEmail({
+        name: data.name,
+        email: data.email,
+      }).catch((err) => {
+        logger.warn({ err }, "Fallback acknowledgement email failed — enquiry still saved");
+      });
+    }
 
     res.status(201).json({ id: enquiry.id, createdAt: enquiry.createdAt });
   } catch (err) {
