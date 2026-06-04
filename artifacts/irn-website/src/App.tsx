@@ -27,6 +27,7 @@ const AboutInsightRecoveryNetwork = lazy(() => import("@/pages/AboutInsightRecov
 const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionRecoveryUK"));
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
+const ServicesPricingGuide = lazy(() => import("@/pages/ServicesPricingGuide"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
@@ -180,6 +181,7 @@ function Router() {
         <Route path="/insight-os" component={InsightOS} />
         <Route path="/contact" component={Contact} />
         <Route path="/thank-you" component={ThankYou} />
+        <Route path="/services-pricing-guide" component={ServicesPricingGuide} />
         <Route path="/about-insight-recovery-network" component={AboutInsightRecoveryNetwork} />
         <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
