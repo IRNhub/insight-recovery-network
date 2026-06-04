@@ -39,7 +39,6 @@ export function CTASection({
 
   return (
     <section className="py-8 md:py-14 lg:py-16 bg-primary relative overflow-hidden">
-      {/* Abstract subtle background pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -56,13 +55,13 @@ export function CTASection({
           <h2 className="text-2xl md:text-5xl font-serif text-primary-foreground leading-tight mb-5 md:mb-6">
             {heading}
           </h2>
-          
+
           {resolvedDescription && (
             <p className="text-base md:text-xl text-primary-foreground/80 mb-7 md:mb-10 max-w-2xl font-light">
               {resolvedDescription}
             </p>
           )}
-          
+
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal ? (
               <a href={resolvedPrimaryCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
@@ -77,7 +76,7 @@ export function CTASection({
                 </Button>
               </Link>
             )}
-            
+
             {resolvedSecondaryCta && (
               <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
