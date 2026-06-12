@@ -7,6 +7,7 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import NotFound from "@/pages/not-found";
 import { formatDate, articles as staticArticles } from "@/data/articles";
+import { fetchMergedArticles } from "@/lib/article-loader";
 import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
@@ -33,20 +34,6 @@ async function fetchArticle(slug: string): Promise<Article> {
     const staticMatch = staticArticles.find((a) => a.slug === slug);
     if (staticMatch) return staticMatch;
     throw err;
-  }
-}
-
-async function fetchAllArticles(): Promise<Article[]> {
-  try {
-    const res = await fetch("/api/articles");
-    if (!res.ok) return staticArticles;
-    const dbArticles: Article[] = await res.json();
-    if (dbArticles.length === 0) return staticArticles;
-    const dbSlugs = new Set(dbArticles.map((a) => a.slug));
-    const staticOnly = staticArticles.filter((a) => !dbSlugs.has(a.slug));
-    return [...dbArticles, ...staticOnly];
-  } catch {
-    return staticArticles;
   }
 }
 
@@ -263,7 +250,7 @@ export default function ResourceDetail() {
 
   const { data: allArticles = [] } = useQuery({
     queryKey: ["articles"],
-    queryFn: fetchAllArticles,
+    queryFn: fetchMergedArticles,
     staleTime: 60_000,
     enabled: !!article,
   });

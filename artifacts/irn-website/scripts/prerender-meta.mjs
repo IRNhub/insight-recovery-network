@@ -1538,6 +1538,86 @@ function injectPageMeta(baseHtml, page) {
  */
 const ARTICLES = [
   {
+      slug: "relapse-meaning",
+      pageTitle: "Relapse Meaning in Addiction Recovery",
+      ogTitle: "Relapse Meaning: What Relapse Really Means in Addiction Recovery",
+      description: "Understand what relapse really means in addiction recovery, why it happens, and how to respond without shame or denial.",
+      image: `${SITE_URL}/relapse-meaning-addiction-recovery.png`,
+      imageAlt: "Recovery roadmap showing relapse as part of a wider addiction recovery journey",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "relapsing-does-not-mean-you-have-failed",
+      pageTitle: "Relapsing Does Not Mean You Have Failed",
+      ogTitle: "Relapsing Does Not Mean You Have Failed",
+      description: "Relapse is serious, but it does not mean recovery has failed. Learn how to respond, reset, and rebuild support quickly.",
+      image: `${SITE_URL}/relapsing-does-not-mean-you-have-failed.png`,
+      imageAlt: "Person standing calmly on a recovery path after a setback with warm light ahead",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "slip-lapse-relapse-difference",
+      pageTitle: "Slip, Lapse and Relapse: Key Differences",
+      ogTitle: "Slip, Lapse and Relapse: What Is the Difference?",
+      description: "Learn the difference between a slip, lapse, and relapse, and why the way you respond can shape your recovery.",
+      image: `${SITE_URL}/slip-lapse-relapse-difference.png`,
+      imageAlt: "Three connected stages explaining the difference between a slip, lapse and relapse",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "why-relapse-happens-before-substance-use",
+      pageTitle: "Why Relapse Starts Before Substance Use",
+      ogTitle: "Why Relapse Happens Before the Substance Is Used",
+      description: "Relapse often begins before drinking, drug use, or addictive behaviour. Learn the emotional and mental stages that come first.",
+      image: `${SITE_URL}/why-relapse-happens-before-substance-use.png`,
+      imageAlt: "Iceberg metaphor showing emotions, thoughts, triggers and behaviours beneath relapse",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "relapse-prevention-plan",
+      pageTitle: "Relapse Prevention Plan: What to Include",
+      ogTitle: "Relapse Prevention Plan: What Should Actually Be Included?",
+      description: "Learn what a relapse prevention plan should include, from warning signs and triggers to support, structure, and clear action steps.",
+      image: `${SITE_URL}/relapse-prevention-plan-what-to-include.png`,
+      imageAlt: "Structured relapse prevention plan with warning signs, triggers, coping strategies and support contacts",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "addiction-warning-signs",
+      pageTitle: "Addiction Warning Signs: Spot Relapse Risk Early",
+      ogTitle: "Addiction Warning Signs: How to Spot Relapse Risk Early",
+      description: "Learn how to spot early addiction warning signs, identify relapse risk, and respond before things escalate, for yourself or a loved one.",
+      image: `${SITE_URL}/addiction-warning-signs-relapse-risk.png`,
+      imageAlt: "Recovery dashboard showing early warning signs, mood tracking and relapse risk indicators",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "what-to-do-after-relapse",
+      pageTitle: "What to Do After a Relapse",
+      ogTitle: "What to Do After a Relapse",
+      description: "A calm, practical guide to what to do after a relapse: stay safe, reduce harm, rebuild support, and get back on track quickly.",
+      image: `${SITE_URL}/what-to-do-after-a-relapse.png`,
+      imageAlt: "Person creating a recovery action plan after relapse with support phone nearby",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
+      slug: "how-structured-support-prevents-relapse",
+      pageTitle: "How Structured Recovery Support Prevents Relapse",
+      ogTitle: "How Structured Recovery Support Helps Prevent Relapse",
+      description: "Learn how routine, accountability, groups, one-to-one support, and recovery planning work together to reduce relapse risk.",
+      image: `${SITE_URL}/structured-recovery-support-prevent-relapse.png`,
+      imageAlt: "Structured recovery support system showing journaling, groups, accountability and progress tracking",
+      date: "2026-06-12",
+      type: "article"
+  },
+  {
     slug: "detoxing-from-alcohol-symptoms-when-dangerous",
     pageTitle: "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
     ogTitle: "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
