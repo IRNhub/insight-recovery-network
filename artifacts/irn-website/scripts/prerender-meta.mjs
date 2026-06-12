@@ -1840,6 +1840,27 @@ const ARTICLES = [
   },
 ];
 
+let LOADED_ARTICLES = ARTICLES;
+
+function siteImageUrl(image) {
+  if (!image) return DEFAULT_OG_IMAGE;
+  if (/^https?:\/\//i.test(image)) return image;
+  return `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`;
+}
+
+function articleToPrerenderMeta(article) {
+  return {
+    slug: article.slug,
+    pageTitle: article.seoTitle ?? article.title,
+    ogTitle: article.ogTitle ?? article.title,
+    description: article.metaDescription ?? article.ogDescription ?? article.excerpt,
+    image: siteImageUrl(article.image),
+    imageAlt: article.imageAlt ?? SITE_NAME,
+    date: article.date,
+    type: "article",
+  };
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 2b. FULL ARTICLE BODY PRE-RENDERING + STRUCTURED DATA (JSON-LD)
 //
@@ -2638,10 +2659,14 @@ async function main() {
   const fullArticles = await loadFullArticles();
   if (!fullArticles) {
     console.warn("  ⚠ Full article data unavailable — article pages will be meta-only.\n");
+  } else {
+    LOADED_ARTICLES = fullArticles
+      .filter((article) => article.publishedStatus !== "draft")
+      .map(articleToPrerenderMeta);
   }
 
   let articleCount = 0;
-  for (const article of ARTICLES) {
+  for (const article of LOADED_ARTICLES) {
     const full = fullArticles?.find((a) => a.slug === article.slug) ?? null;
     const html = injectArticleMeta(baseHtml, article, full);
     writeFileSync(resolve(resourcesDir, `${article.slug}.html`), html, "utf-8");
@@ -2658,7 +2683,7 @@ async function main() {
   const today = new Date().toISOString().split("T")[0];
   const sitemapXml = generateSitemap(today);
   const totalUrls =
-    SITEMAP_EXTRA.length + PAGES.length + ARTICLES.length + LOADED_DESTINATIONS.length;
+    SITEMAP_EXTRA.length + PAGES.length + LOADED_ARTICLES.length + LOADED_DESTINATIONS.length;
   writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
   console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, lastmod ${today})\n`);
 }
@@ -2725,7 +2750,7 @@ function generateSitemap(today) {
     return urlEntry(p.route, meta.changefreq, meta.priority);
   });
 
-  const articleEntries = ARTICLES.map((a) =>
+  const articleEntries = LOADED_ARTICLES.map((a) =>
     urlEntry(`/resources/${a.slug}`, "monthly", "0.7")
   );
 

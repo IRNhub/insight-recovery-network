@@ -326,6 +326,8 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/resources/relapse-prevention-plan-what-to-include": "/resources/relapse-prevention-plan",
   "/resources/addiction-warning-signs-relapse-risk": "/resources/addiction-warning-signs",
   "/resources/structured-recovery-support-prevent-relapse": "/resources/how-structured-support-prevents-relapse",
+  "/resources/what-does-enabler-mean-in-addiction": "/resources/what-does-enabler-mean",
+  "/resources/addiction-intervention-uk": "/resources/how-to-stage-addiction-intervention-uk",
   "/drug-treatment":                     "/treatment-placement",
   "/drug-detox":                         "/treatment-placement",
   "/drug-rehabilitation":                "/treatment-placement",

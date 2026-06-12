@@ -1,211 +1,224 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  This file is overwritten at build time by scripts/prerender-meta.mjs.
-  To add or remove URLs, edit SITEMAP_EXTRA / SITEMAP_PAGE_META in that script.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://www.insightrecoverynetwork.com/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-detox</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-use</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/drug-use</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/detox</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/anxiety</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/depression</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments/adhd-impulsivity</loc>
-    <lastmod>2026-05-20</lastmod>
+    <loc>https://www.insightrecoverynetwork.com/services-pricing-guide</loc>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/about</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/what-we-offer</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/treatment-placement</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/online-programme</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/insight-os</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/contact</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/assessments</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.insightrecoverynetwork.com/recovery-plan-checklist</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/understanding-alcohol-dependency</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/what-happens-in-residential-rehabilitation</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/managing-relapse-part-of-recovery</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/supporting-a-loved-one-through-recovery</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/mental-health-and-addiction</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/online-recovery-programmes</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/how-to-choose-private-rehab-centre-uk</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/detoxing-from-alcohol-symptoms-when-dangerous</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help</loc>
+    <loc>https://www.insightrecoverynetwork.com/about-insight-recovery-network</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/online-addiction-recovery-programme-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/private-rehab-alternative-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/assessments</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-detox</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/how-long-does-alcohol-stay-in-your-system</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/alcohol-use</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/can-i-stop-drinking-without-rehab</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/drug-use</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/do-i-need-alcohol-rehab-or-online-support</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/detox</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/private-alcohol-rehab-uk-costs-options-alternatives</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/anxiety</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/alcohol-rehab-alternatives-uk</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/depression</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.insightrecoverynetwork.com/resources/online-alcohol-recovery-programme-uk</loc>
+    <loc>https://www.insightrecoverynetwork.com/assessments/adhd-impulsivity</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/privacy-policy</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/terms-of-service</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/cookie-policy</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/clinical-disclaimer</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/private-rehab-thailand</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/private-rehab-south-africa</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/private-rehab-spain</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/private-rehab-sri-lanka</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/what-does-enabler-mean</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/help-someone-with-addiction-without-enabling</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/what-to-do-when-someone-refuses-treatment</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/how-to-stage-addiction-intervention-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/family-boundaries-addiction-recovery</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/how-to-talk-to-someone-about-drinking-drug-use</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/when-should-family-consider-rehab</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/addiction-support-for-families</loc>
     <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -258,4 +271,119 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/detoxing-from-alcohol-symptoms-when-dangerous</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/how-long-does-alcohol-stay-in-your-system</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/can-i-stop-drinking-without-rehab</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/do-i-need-alcohol-rehab-or-online-support</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/private-alcohol-rehab-uk-costs-options-alternatives</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/alcohol-rehab-alternatives-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/online-alcohol-recovery-programme-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/private-rehab-vs-nhs-addiction-treatment</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/how-to-choose-private-rehab-centre-uk</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/why-cant-i-stop-how-addiction-works</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/understanding-alcohol-dependency</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/what-happens-in-residential-rehabilitation</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/managing-relapse-part-of-recovery</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/supporting-a-loved-one-through-recovery</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/mental-health-and-addiction</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/online-recovery-programmes</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/online-addiction-support-vs-residential-rehab</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.insightrecoverynetwork.com/resources/why-willpower-is-not-a-recovery-plan</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
