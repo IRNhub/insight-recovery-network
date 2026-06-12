@@ -300,6 +300,48 @@ kind = "web"
   from = "/resources/why-willpower-is-not-a-recovery-plan/"
   to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
 
+  # ── Destination placement pages ──────────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/private-rehab-thailand"
+  to = "/private-rehab-thailand.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-thailand/"
+  to = "/private-rehab-thailand.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-south-africa"
+  to = "/private-rehab-south-africa.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-south-africa/"
+  to = "/private-rehab-south-africa.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-spain"
+  to = "/private-rehab-spain.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-spain/"
+  to = "/private-rehab-spain.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-sri-lanka"
+  to = "/private-rehab-sri-lanka.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-sri-lanka/"
+  to = "/private-rehab-sri-lanka.html"
+
+  # ── Recovery plan checklist landing ──────────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/recovery-plan-checklist"
+  to = "/recovery-plan-checklist.html"
+
+  [[services.production.rewrites]]
+  from = "/recovery-plan-checklist/"
+  to = "/recovery-plan-checklist.html"
+
   # ── Legacy redirects (static redirect pages, noindex) ────────────────────────
   [[services.production.rewrites]]
   from = "/about-us"

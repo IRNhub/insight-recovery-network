@@ -2036,8 +2036,7 @@ function buildDestinationBodyHtml(d) {
             <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
           </section>
         </div>
-      </main>
-${STATIC_FOOTER}`;
+      </main>`;
 }
 
 function buildDestinationJsonLd(d) {
