@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import AdminLogin from "./AdminLogin";
 import AdminArticles from "./AdminArticles";
 import AdminEnquiries from "./AdminEnquiries";
+import AdminResourceLeads from "./AdminResourceLeads";
 import ArticleEditor from "./ArticleEditor";
 
 const STORAGE_KEY = "irn_admin_secret";
@@ -62,6 +63,9 @@ export default function AdminApp() {
       </Route>
       <Route path="/admin/enquiries">
         <AdminEnquiries secret={secret} onLogout={handleLogout} />
+      </Route>
+      <Route path="/admin/leads">
+        <AdminResourceLeads secret={secret} onLogout={handleLogout} />
       </Route>
       <Route path="/admin/articles">
         <AdminArticles secret={secret} onLogout={handleLogout} />

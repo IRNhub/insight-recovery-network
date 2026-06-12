@@ -73,7 +73,13 @@ function securityHeadersPlugin() {
 
     const pathname = (req.url ?? "/").split("?")[0];
     const host = (req.headers.host ?? "").replace(/:\d+$/, "");
-    if (pathname === "/admin" || pathname.startsWith("/admin/") || host === "insight-recovery-network.replit.app") {
+    if (
+      pathname === "/admin" ||
+      pathname.startsWith("/admin/") ||
+      pathname === "/craig-bilton" ||
+      pathname === "/recovery-plan-checklist/checklist" ||
+      host === "insight-recovery-network.replit.app"
+    ) {
       res.setHeader("X-Robots-Tag", "noindex, nofollow");
     }
     next();
@@ -89,14 +95,24 @@ function securityHeadersPlugin() {
   };
 }
 
-function adminNoIndexHtmlPlugin() {
+function noIndexHtmlPlugin() {
+  const noIndexTitles: Record<string, string> = {
+    "/admin": "IRN Admin | Insight Recovery Network",
+    "/craig-bilton": "Craig Bilton | Insight Recovery Network",
+    "/recovery-plan-checklist/checklist": "Recovery Plan Checklist | Insight Recovery Network",
+  };
+
+  function isNoIndexPath(pathname: string): boolean {
+    return pathname === "/admin" || pathname.startsWith("/admin/") || pathname in noIndexTitles;
+  }
+
   function middleware(
     req: import("http").IncomingMessage,
     res: import("http").ServerResponse,
     next: () => void,
   ) {
     const pathname = (req.url ?? "/").split("?")[0].split("#")[0];
-    if (pathname !== "/admin" && !pathname.startsWith("/admin/")) {
+    if (!isNoIndexPath(pathname)) {
       return next();
     }
 
@@ -112,11 +128,11 @@ function adminNoIndexHtmlPlugin() {
       )
       .replace(
         /<title>.*?<\/title>/,
-        "<title>IRN Admin | Insight Recovery Network</title>",
+        `<title>${noIndexTitles[pathname] ?? noIndexTitles["/admin"]}</title>`,
       )
       .replace(
         /<link rel="canonical" href="[^"]*" \/>/,
-        '<link rel="canonical" href="https://www.insightrecoverynetwork.com/admin" />',
+        `<link rel="canonical" href="https://www.insightrecoverynetwork.com${pathname}" />`,
       );
 
     res.writeHead(200, {
@@ -127,7 +143,7 @@ function adminNoIndexHtmlPlugin() {
     res.end(html);
   }
   return {
-    name: "admin-noindex-html",
+    name: "noindex-html",
     configureServer(server: import("vite").ViteDevServer) {
       server.middlewares.use(middleware);
     },
@@ -381,7 +397,7 @@ export default defineConfig({
   plugins: [
     serverRedirectsPlugin(),
     securityHeadersPlugin(),
-    adminNoIndexHtmlPlugin(),
+    noIndexHtmlPlugin(),
     cacheControlPlugin(),
     serveCompressedStaticPlugin(),
     servePrerenderedHtmlPlugin(),

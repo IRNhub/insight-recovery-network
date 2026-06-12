@@ -148,6 +148,12 @@ export default function AdminArticles({ secret, onLogout }: AdminArticlesProps) 
               </span>
             )}
           </Link>
+          <Link
+            href="/admin/leads"
+            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors"
+          >
+            Leads
+          </Link>
         </div>
       </header>
 

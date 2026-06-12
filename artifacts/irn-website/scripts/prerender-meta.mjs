@@ -255,7 +255,7 @@ const PAGES = [
               <li>Drug detox and residential rehabilitation</li>
               <li>Dual-diagnosis treatment (addiction and mental health)</li>
               <li>Private facilities across the UK</li>
-              <li>International treatment centres in Thailand, Spain, South Africa, and Sri Lanka</li>
+              <li>International treatment centres in <a href="/private-rehab-thailand" style="color:#162B3B;">Thailand</a>, <a href="/private-rehab-spain" style="color:#162B3B;">Spain</a>, <a href="/private-rehab-south-africa" style="color:#162B3B;">South Africa</a>, and <a href="/private-rehab-sri-lanka" style="color:#162B3B;">Sri Lanka</a></li>
               <li>Continuing care and structured aftercare planning</li>
             </ul>
           </section>
@@ -1698,33 +1698,39 @@ const ARTICLES = [
  * falls back to transforming via vite's bundled esbuild. Returns null on
  * failure so the build degrades gracefully to meta-only prerendering.
  */
-async function loadFullArticles() {
-  const articlesTsPath = resolve(root, "src/data/articles.ts");
+async function loadTsModule(relPath) {
+  const tsPath = resolve(root, relPath);
   try {
-    const mod = await import(pathToFileURL(articlesTsPath).href);
-    if (mod.articles?.length) return mod.articles;
+    return await import(pathToFileURL(tsPath).href);
   } catch {
     /* fall through to esbuild transform */
   }
   try {
     const { transformWithEsbuild } = await import("vite");
-    const src = readFileSync(articlesTsPath, "utf-8");
-    const { code } = await transformWithEsbuild(src, articlesTsPath, {
+    const src = readFileSync(tsPath, "utf-8");
+    const { code } = await transformWithEsbuild(src, tsPath, {
       loader: "ts",
       format: "esm",
     });
-    const tmpPath = resolve(distPublic, ".articles-data.mjs");
+    const tmpPath = resolve(distPublic, `.tmp-${relPath.replace(/[^a-z0-9]/gi, "_")}.mjs`);
     writeFileSync(tmpPath, code, "utf-8");
     const mod = await import(pathToFileURL(tmpPath).href);
     rmSync(tmpPath, { force: true });
-    if (mod.articles?.length) return mod.articles;
+    return mod;
   } catch (err) {
-    console.warn(
-      `  ⚠ Could not load src/data/articles.ts for full-body prerendering (${err?.message}). ` +
-        `Falling back to meta-only article prerendering.`
-    );
+    console.warn(`  ⚠ Could not load ${relPath} (${err?.message}).`);
+    return null;
   }
-  return null;
+}
+
+async function loadFullArticles() {
+  const mod = await loadTsModule("src/data/articles.ts");
+  return mod?.articles?.length ? mod.articles : null;
+}
+
+async function loadDestinations() {
+  const mod = await loadTsModule("src/data/destinations.ts");
+  return mod?.destinations?.length ? mod.destinations : null;
 }
 
 /** Escape HTML text content (not attributes). */
@@ -1970,6 +1976,101 @@ function buildArticleBodyHtml(meta, full) {
         </div>
       </main>
 ${STATIC_FOOTER}`;
+}
+
+/** Build the full static body HTML for a destination placement page. */
+function buildDestinationBodyHtml(d) {
+  const li = (item) =>
+    `<li style="margin-bottom:0.5rem;">${inlineMd(item)}</li>`;
+  const ul = (items) =>
+    `<ul style="font-family:sans-serif;font-size:0.95rem;line-height:1.9;color:#4a5568;padding-left:1.25rem;margin:1rem 0;max-width:680px;">${items.map(li).join("")}</ul>`;
+  const h2 = (text) =>
+    `<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.75rem;font-weight:500;color:#162B3B;margin-bottom:1.25rem;">${escText(text)}</h2>`;
+  const p = (text, style = "") =>
+    `<p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:1rem;max-width:680px;${style}">${escText(text)}</p>`;
+
+  return `${STATIC_HEADER}
+      <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(d.heroEyebrow)}</p>
+            <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">${escText(d.heroHeading)}</h1>
+            ${p(d.heroIntro)}
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-top:1rem;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">How Placement Works</a>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            ${h2(d.whyHeading)}
+            ${p(d.whyIntro)}
+            ${ul(d.whyPoints)}
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            ${h2(d.costHeading)}
+            ${p(d.costIntro, "font-size:1.05rem;color:#162B3B;")}
+            ${p(d.costNote, "font-size:0.85rem;")}
+            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:500;color:#162B3B;margin:1.5rem 0 0.75rem;">What treatment typically includes</h3>
+            ${ul(d.costIncludes)}
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            ${h2(d.whoHeading)}
+            ${ul(d.whoPoints)}
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            ${h2("Frequently asked questions")}
+            ${d.faqs
+              .map(
+                (f) => `
+            <div style="margin-bottom:1.5rem;max-width:680px;">
+              <h3 style="font-family:sans-serif;font-size:1rem;font-weight:600;color:#162B3B;margin-bottom:0.5rem;">${escText(f.question)}</h3>
+              <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;">${escText(f.answer)}</p>
+            </div>`
+              )
+              .join("")}
+          </section>
+          <section style="padding:3rem 0;">
+            ${h2(`Considering treatment in ${d.country}?`)}
+            ${p("A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. Independent guidance, no pressure, no commercial ties to any facility.")}
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Speak Confidentially</a>
+            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+          </section>
+        </div>
+      </main>
+${STATIC_FOOTER}`;
+}
+
+function buildDestinationJsonLd(d) {
+  const canonicalUrl = `${SITE_URL}/${d.slug}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${canonicalUrl}#service`,
+      name: `Private Rehab Placement — ${d.country}`,
+      serviceType: "Addiction treatment placement guidance",
+      description: d.metaDescription,
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: { "@type": "Country", name: d.country },
+      offers: {
+        "@type": "AggregateOffer",
+        priceCurrency: "GBP",
+        lowPrice: d.costLow,
+        highPrice: d.costHigh,
+        description: d.costIntro,
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${canonicalUrl}#faq`,
+      mainEntity: d.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    },
+  ];
 }
 
 // ── JSON-LD builders ─────────────────────────────────────────────────────────
@@ -2313,6 +2414,33 @@ async function main() {
 
   console.log(`\n  Pre-rendered ${pageCount} site pages.\n`);
 
+  // ── Step 1a: Pre-render destination placement pages ───────────────────────
+  const destinations = await loadDestinations();
+  if (destinations) {
+    LOADED_DESTINATIONS = destinations;
+    console.log("▶  Pre-rendering destination placement pages…\n");
+    for (const d of destinations) {
+      const page = {
+        route: `/${d.slug}`,
+        file: `${d.slug}.html`,
+        title: esc(d.seoTitle),
+        description: d.metaDescription,
+        ogImage: `${SITE_URL}/opengraph.jpg`,
+        body: buildDestinationBodyHtml(d),
+      };
+      const html = injectJsonLd(injectPageMeta(baseHtml, page), [
+        ...buildDestinationJsonLd(d),
+        ORGANIZATION_JSONLD,
+        PERSON_JSONLD,
+      ]);
+      writeFileSync(resolve(distPublic, page.file), html, "utf-8");
+      console.log(`  ✓ ${page.route}  →  ${page.file}  (full body + Service/FAQ JSON-LD)`);
+    }
+    console.log("");
+  } else {
+    console.warn("  ⚠ Destination data unavailable — skipping destination pages.\n");
+  }
+
   // ── Step 1b: Inject Organization + Person JSON-LD into the home page ──────
   if (!baseHtml.includes("#organization")) {
     const homeHtml = injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]);
@@ -2370,7 +2498,8 @@ async function main() {
   console.log("▶  Generating sitemap.xml…\n");
   const today = new Date().toISOString().split("T")[0];
   const sitemapXml = generateSitemap(today);
-  const totalUrls = SITEMAP_EXTRA.length + PAGES.length + ARTICLES.length;
+  const totalUrls =
+    SITEMAP_EXTRA.length + PAGES.length + ARTICLES.length + LOADED_DESTINATIONS.length;
   writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
   console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, lastmod ${today})\n`);
 }
@@ -2390,6 +2519,9 @@ const SITEMAP_EXTRA = [
   // NOTE: add "/craig-bilton" here once the Craig Bilton profile page
   // (src/pages/CraigBilton.tsx, currently uncommitted) is deployed.
 ];
+
+/** Destination pages loaded at runtime from src/data/destinations.ts. */
+let LOADED_DESTINATIONS = [];
 
 /**
  * Priority and changefreq overrides for routes in PAGES.
@@ -2438,7 +2570,11 @@ function generateSitemap(today) {
     urlEntry(`/resources/${a.slug}`, "monthly", "0.7")
   );
 
-  const allEntries = [...extraEntries, ...pageEntries, ...articleEntries];
+  const destinationEntries = LOADED_DESTINATIONS.map((d) =>
+    urlEntry(`/${d.slug}`, "monthly", "0.9")
+  );
+
+  const allEntries = [...extraEntries, ...pageEntries, ...destinationEntries, ...articleEntries];
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,

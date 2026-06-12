@@ -28,6 +28,10 @@ const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionReco
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const ServicesPricingGuide = lazy(() => import("@/pages/ServicesPricingGuide"));
+const RecoveryPlanChecklistLanding = lazy(() => import("@/pages/RecoveryPlanChecklistLanding"));
+const RecoveryPlanChecklist = lazy(() => import("@/pages/RecoveryPlanChecklist"));
+const CraigBilton = lazy(() => import("@/pages/CraigBilton"));
+const DestinationRehab = lazy(() => import("@/pages/DestinationRehab"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
@@ -182,9 +186,16 @@ function Router() {
         <Route path="/contact" component={Contact} />
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/services-pricing-guide" component={ServicesPricingGuide} />
+        <Route path="/recovery-plan-checklist" component={RecoveryPlanChecklistLanding} />
+        <Route path="/recovery-plan-checklist/checklist" component={RecoveryPlanChecklist} />
+        <Route path="/craig-bilton" component={CraigBilton} />
         <Route path="/about-insight-recovery-network" component={AboutInsightRecoveryNetwork} />
         <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
+        <Route path="/private-rehab-thailand">{() => <DestinationRehab slug="private-rehab-thailand" />}</Route>
+        <Route path="/private-rehab-south-africa">{() => <DestinationRehab slug="private-rehab-south-africa" />}</Route>
+        <Route path="/private-rehab-spain">{() => <DestinationRehab slug="private-rehab-spain" />}</Route>
+        <Route path="/private-rehab-sri-lanka">{() => <DestinationRehab slug="private-rehab-sri-lanka" />}</Route>
         <Route path="/resources" component={ResourcesList} />
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/assessments" component={AssessmentsIndex} />

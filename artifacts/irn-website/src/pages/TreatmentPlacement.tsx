@@ -41,7 +41,13 @@ const indications = [
   "Previous treatment ended without strong aftercare",
 ];
 
-const locations = ["United Kingdom", "South Africa", "Thailand", "Spain", "Sri Lanka"];
+const locations: Array<{ label: string; href?: string }> = [
+  { label: "United Kingdom" },
+  { label: "South Africa", href: "/private-rehab-south-africa" },
+  { label: "Thailand", href: "/private-rehab-thailand" },
+  { label: "Spain", href: "/private-rehab-spain" },
+  { label: "Sri Lanka", href: "/private-rehab-sri-lanka" },
+];
 
 const treatmentOg = getOgConfig("/treatment-placement")!;
 
@@ -223,19 +229,34 @@ export default function TreatmentPlacement() {
 
               {/* Location pill tags */}
               <div className="flex flex-wrap gap-2 mb-8">
-                {locations.map((loc) => (
-                  <span
-                    key={loc}
-                    className="text-[12px] font-light px-3.5 py-1.5 rounded-full border"
-                    style={{
-                      color: "rgba(22,43,59,0.75)",
-                      borderColor: "rgba(201,169,110,0.35)",
-                      background: "rgba(201,169,110,0.07)",
-                    }}
-                  >
-                    {loc}
-                  </span>
-                ))}
+                {locations.map((loc) =>
+                  loc.href ? (
+                    <Link
+                      key={loc.label}
+                      href={loc.href}
+                      className="text-[12px] font-light px-3.5 py-1.5 rounded-full border hover:border-accent/60 transition-colors"
+                      style={{
+                        color: "rgba(22,43,59,0.75)",
+                        borderColor: "rgba(201,169,110,0.35)",
+                        background: "rgba(201,169,110,0.07)",
+                      }}
+                    >
+                      {loc.label}
+                    </Link>
+                  ) : (
+                    <span
+                      key={loc.label}
+                      className="text-[12px] font-light px-3.5 py-1.5 rounded-full border"
+                      style={{
+                        color: "rgba(22,43,59,0.75)",
+                        borderColor: "rgba(201,169,110,0.35)",
+                        background: "rgba(201,169,110,0.07)",
+                      }}
+                    >
+                      {loc.label}
+                    </span>
+                  )
+                )}
               </div>
 
               <div className="w-full h-px mb-6" style={{ background: "rgba(22,43,59,0.08)" }} />

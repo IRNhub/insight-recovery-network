@@ -419,6 +419,181 @@ export async function sendAcknowledgementEmail(data: AcknowledgementData): Promi
   logger.info({ to: data.email }, "Acknowledgement email sent to visitor");
 }
 
+interface ResourceLeadEmailData {
+  firstName: string;
+  email: string;
+  resourceSlug: string;
+  checklistUrl: string;
+  landingPage?: string | null;
+  currentPage?: string | null;
+  referrer?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  utmTerm?: string | null;
+  utmContent?: string | null;
+  submittedAt: string;
+}
+
+function resourceTitle(resourceSlug: string): string {
+  if (resourceSlug === "recovery-plan-checklist") return "Recovery Plan Checklist";
+  return resourceSlug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function buildResourceLeadVisitorHtml(data: ResourceLeadEmailData): string {
+  const title = resourceTitle(data.resourceSlug);
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family:Georgia,serif;color:#1a1a2e;background:#f9f8f6;padding:32px;">
+  <div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e0ddd8;padding:40px 44px;">
+    <div style="border-left:3px solid #C9A96E;padding-left:14px;margin-bottom:32px;">
+      <p style="margin:0;font-size:11px;font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:2px;color:#C9A96E;">Insight Recovery Network</p>
+    </div>
+    <h1 style="color:#162B3B;font-size:24px;font-weight:normal;margin:0 0 20px;line-height:1.3;">Your ${escapeHtml(title)} is ready.</h1>
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 18px;">Dear ${escapeHtml(data.firstName)},</p>
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 18px;">Thank you for requesting the checklist. It is designed to help you think through whether a recovery plan, treatment programme, or aftercare structure is actually fit for the person using it.</p>
+    <p style="font-size:15px;line-height:1.8;color:#444;margin:0 0 28px;">You can open it here:</p>
+    <p style="margin:0 0 30px;"><a href="${escapeHtml(data.checklistUrl)}" style="display:inline-block;background:#162B3B;color:#ffffff;text-decoration:none;padding:14px 22px;font-family:Arial,sans-serif;font-size:14px;">Open the checklist</a></p>
+    <p style="font-size:14px;line-height:1.8;color:#555;margin:0 0 18px;">If anything in the checklist raises questions, you are welcome to reply or contact us for a confidential conversation.</p>
+    <hr style="border:none;border-top:1px solid #e0ddd8;margin:30px 0 18px;" />
+    <p style="font-size:14px;line-height:1.8;color:#162B3B;font-weight:bold;margin:0 0 4px;">Insight Recovery Network</p>
+    <a href="https://www.insightrecoverynetwork.com" style="font-size:13px;color:#888;text-decoration:none;">www.insightrecoverynetwork.com</a>
+  </div>
+</body>
+</html>`.trim();
+}
+
+function buildResourceLeadVisitorText(data: ResourceLeadEmailData): string {
+  const title = resourceTitle(data.resourceSlug);
+  return [
+    `Your ${title} is ready`,
+    "",
+    `Dear ${data.firstName},`,
+    "",
+    "Thank you for requesting the checklist. It is designed to help you think through whether a recovery plan, treatment programme, or aftercare structure is actually fit for the person using it.",
+    "",
+    `Open the checklist: ${data.checklistUrl}`,
+    "",
+    "If anything in the checklist raises questions, you are welcome to reply or contact us for a confidential conversation.",
+    "",
+    "Insight Recovery Network",
+    "www.insightrecoverynetwork.com",
+  ].join("\n");
+}
+
+function buildResourceLeadNotificationHtml(data: ResourceLeadEmailData): string {
+  const rows: Array<[string, string]> = [
+    ["First Name", data.firstName],
+    ["Email", data.email],
+    ["Resource", resourceTitle(data.resourceSlug)],
+    ["Landing Page", data.landingPage ?? "Unknown"],
+    ["Current Page", data.currentPage ?? "Unknown"],
+    ["Referrer", data.referrer ?? "Direct / unknown"],
+    ["UTM Source", data.utmSource ?? "None"],
+    ["UTM Medium", data.utmMedium ?? "None"],
+    ["UTM Campaign", data.utmCampaign ?? "None"],
+    ["UTM Term", data.utmTerm ?? "None"],
+    ["UTM Content", data.utmContent ?? "None"],
+    ["Date / Time Submitted", data.submittedAt],
+  ];
+
+  const tableRows = rows
+    .map(
+      ([label, value], i) => `
+      <tr${i % 2 === 1 ? ' style="background:#f9f8f6;"' : ""}>
+        <td style="padding:10px 0;color:#666;width:180px;vertical-align:top;font-weight:bold;">${escapeHtml(label)}</td>
+        <td style="padding:10px 0;">${label === "Email" ? `<a href="mailto:${escapeHtml(value)}" style="color:#2c3e6b;">${escapeHtml(value)}</a>` : escapeHtml(value)}</td>
+      </tr>`,
+    )
+    .join("");
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<body style="font-family:Georgia,serif;color:#1a1a2e;background:#f9f8f6;padding:32px;">
+  <div style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e0ddd8;padding:40px;">
+    <h2 style="color:#2c3e6b;font-size:22px;margin-top:0;">New Resource Lead</h2>
+    <hr style="border:none;border-top:1px solid #e0ddd8;margin:24px 0;" />
+    <table style="width:100%;border-collapse:collapse;font-size:15px;">
+      ${tableRows}
+    </table>
+    <hr style="border:none;border-top:1px solid #e0ddd8;margin:32px 0 16px;" />
+    <p style="color:#999;font-size:12px;margin:0;">Submitted via the Insight Recovery Network resource lead form.</p>
+  </div>
+</body>
+</html>`.trim();
+}
+
+function buildResourceLeadNotificationText(data: ResourceLeadEmailData): string {
+  return [
+    "New Resource Lead",
+    "",
+    `First Name: ${data.firstName}`,
+    `Email: ${data.email}`,
+    `Resource: ${resourceTitle(data.resourceSlug)}`,
+    `Landing Page: ${data.landingPage ?? "Unknown"}`,
+    `Current Page: ${data.currentPage ?? "Unknown"}`,
+    `Referrer: ${data.referrer ?? "Direct / unknown"}`,
+    `UTM Source: ${data.utmSource ?? "None"}`,
+    `UTM Medium: ${data.utmMedium ?? "None"}`,
+    `UTM Campaign: ${data.utmCampaign ?? "None"}`,
+    `UTM Term: ${data.utmTerm ?? "None"}`,
+    `UTM Content: ${data.utmContent ?? "None"}`,
+    `Date / Time Submitted: ${data.submittedAt}`,
+  ].join("\n");
+}
+
+export async function sendResourceLeadEmails(data: ResourceLeadEmailData): Promise<void> {
+  const apiKey = process.env["RESEND_API_KEY"];
+  const fromEmail = process.env["ENQUIRY_FROM_EMAIL"];
+  const teamEmail = process.env["GENERAL_ENQUIRY_TO"];
+
+  if (!apiKey || !fromEmail) {
+    logger.info("Resend not configured — skipping resource lead emails");
+    return;
+  }
+
+  const resend = new Resend(apiKey);
+
+  const visitorResult = await resend.emails.send({
+    from: fromEmail,
+    to: data.email,
+    ...(teamEmail ? { replyTo: teamEmail } : {}),
+    subject: "Your Recovery Plan Checklist — Insight Recovery Network",
+    html: buildResourceLeadVisitorHtml(data),
+    text: buildResourceLeadVisitorText(data),
+  });
+
+  if (visitorResult.error) {
+    throw new Error(`Resend error: ${visitorResult.error.message}`);
+  }
+
+  if (teamEmail) {
+    try {
+      const teamResult = await resend.emails.send({
+        from: fromEmail,
+        to: teamEmail,
+        subject: "New IRN resource lead",
+        html: buildResourceLeadNotificationHtml(data),
+        text: buildResourceLeadNotificationText(data),
+      });
+
+      if (teamResult.error) {
+        logger.warn({ error: teamResult.error.message, teamEmail }, "Resource lead team notification failed");
+      }
+    } catch (error) {
+      logger.warn({ error, teamEmail }, "Resource lead team notification failed");
+    }
+  }
+
+  logger.info({ to: data.email, teamEmail }, "Resource lead emails sent");
+}
+
 export async function sendEnquiryNotification(data: EnquiryData): Promise<void> {
   const apiKey = process.env["RESEND_API_KEY"];
   const toEmail = process.env["GENERAL_ENQUIRY_TO"];

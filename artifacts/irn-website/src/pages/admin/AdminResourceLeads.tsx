@@ -1,53 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link, useLocation } from "wouter";
-import { Loader2, LogOut, AlertTriangle, CheckCircle2, Mail, Phone } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Loader2, LogOut, Mail } from "lucide-react";
 
-interface AdminEnquiry {
+interface AdminResourceLead {
   id: number;
-  name: string;
+  firstName: string;
   email: string;
-  phone: string;
-  preferredContact: string;
-  supportType: string;
-  message: string;
+  resourceSlug: string;
   consent: boolean;
   landingPage?: string | null;
   currentPage?: string | null;
   referrer?: string | null;
-  pageSource?: string | null;
   utmSource?: string | null;
   utmMedium?: string | null;
   utmCampaign?: string | null;
   utmTerm?: string | null;
   utmContent?: string | null;
-  status: string;
-  notificationSent: boolean;
+  emailSent: boolean;
   createdAt: string;
 }
 
-interface AdminEnquiriesProps {
+interface AdminResourceLeadsProps {
   secret: string;
   onLogout: () => void;
 }
 
-const SUPPORT_TYPE_LABELS: Record<string, string> = {
-  myself: "For myself",
-  "someone-else": "For someone else",
-  professional: "Professional",
-  general: "General",
-};
-
-const CONTACT_ICONS: Record<string, React.ReactNode> = {
-  email: <Mail className="w-3 h-3" />,
-  phone: <Phone className="w-3 h-3" />,
-  whatsapp: <Phone className="w-3 h-3" />,
-};
-
-async function fetchAdminEnquiries(secret: string): Promise<AdminEnquiry[]> {
-  const res = await fetch("/api/admin/enquiries", {
+async function fetchAdminResourceLeads(secret: string): Promise<AdminResourceLead[]> {
+  const res = await fetch("/api/admin/resource-leads", {
     headers: { "x-admin-secret": secret },
   });
-  if (!res.ok) throw new Error("Failed to load enquiries");
+  if (!res.ok) throw new Error("Failed to load leads");
   return res.json();
 }
 
@@ -62,19 +44,23 @@ function formatDateTime(iso: string): string {
   });
 }
 
-export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps) {
+function resourceLabel(slug: string): string {
+  if (slug === "recovery-plan-checklist") return "Recovery Plan Checklist";
+  return slug;
+}
+
+export default function AdminResourceLeads({ secret, onLogout }: AdminResourceLeadsProps) {
   const [location] = useLocation();
 
-  const { data: enquiries = [], isLoading, isError } = useQuery({
-    queryKey: ["admin-enquiries", secret],
-    queryFn: () => fetchAdminEnquiries(secret),
+  const { data: leads = [], isLoading, isError } = useQuery({
+    queryKey: ["admin-resource-leads", secret],
+    queryFn: () => fetchAdminResourceLeads(secret),
   });
 
-  const missedCount = enquiries.filter((e) => !e.notificationSent).length;
+  const missedCount = leads.filter((lead) => !lead.emailSent).length;
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <header
         className="border-b border-border/40 sticky top-0 z-40 bg-background"
         style={{ borderBottom: "1px solid rgba(201,169,110,0.2)" }}
@@ -84,50 +70,43 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
             <div className="w-5 h-px" style={{ background: "#C9A96E" }} />
             <span className="font-serif text-primary text-lg">IRN Admin</span>
           </div>
-          <div className="flex items-center gap-3">
-            <button
-              onClick={onLogout}
-              className="inline-flex items-center gap-1.5 h-9 px-3 text-xs text-muted-foreground hover:text-primary transition-colors border border-border/50"
-              title="Sign out"
-            >
-              <LogOut className="w-3.5 h-3.5" />
-              Sign out
-            </button>
-          </div>
+          <button
+            onClick={onLogout}
+            className="inline-flex items-center gap-1.5 h-9 px-3 text-xs text-muted-foreground hover:text-primary transition-colors border border-border/50"
+            title="Sign out"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            Sign out
+          </button>
         </div>
 
-        {/* Tab nav */}
         <div className="container mx-auto px-6 md:px-12 flex gap-0 border-t border-border/20">
           <Link
             href="/admin/articles"
-            className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 transition-colors ${
-              location === "/admin/articles" || location === "/admin"
-                ? "border-primary text-primary"
-                : "border-transparent text-muted-foreground hover:text-primary"
-            }`}
+            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors"
           >
             Articles
           </Link>
           <Link
             href="/admin/enquiries"
+            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors"
+          >
+            Enquiries
+          </Link>
+          <Link
+            href="/admin/leads"
             className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 transition-colors flex items-center gap-2 ${
-              location === "/admin/enquiries"
+              location === "/admin/leads"
                 ? "border-primary text-primary"
                 : "border-transparent text-muted-foreground hover:text-primary"
             }`}
           >
-            Enquiries
+            Leads
             {missedCount > 0 && (
               <span className="bg-red-500 text-white text-[9px] font-bold rounded-full px-1.5 py-px leading-tight">
                 {missedCount}
               </span>
             )}
-          </Link>
-          <Link
-            href="/admin/leads"
-            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors"
-          >
-            Leads
           </Link>
         </div>
       </header>
@@ -136,29 +115,27 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
         {isLoading && (
           <div className="flex items-center gap-3 text-muted-foreground py-20 justify-center">
             <Loader2 className="w-5 h-5 animate-spin" />
-            <span className="text-sm font-light">Loading enquiries…</span>
+            <span className="text-sm font-light">Loading leads...</span>
           </div>
         )}
 
         {isError && (
           <div className="text-center py-20">
-            <p className="text-muted-foreground font-light">Failed to load enquiries.</p>
+            <p className="text-muted-foreground font-light">Failed to load leads.</p>
           </div>
         )}
 
         {!isLoading && !isError && (
           <>
-            {/* Missed notification alert */}
             {missedCount > 0 && (
               <div className="mb-6 flex items-start gap-3 px-4 py-3.5 border border-red-200 bg-red-50">
                 <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-semibold text-red-800">
-                    {missedCount} enquir{missedCount === 1 ? "y" : "ies"} without a team notification
+                    {missedCount} lead{missedCount === 1 ? "" : "s"} without a visitor email
                   </p>
                   <p className="text-xs text-red-600 mt-0.5 font-light">
-                    The email notification failed for {missedCount === 1 ? "this enquiry" : "these enquiries"}.
-                    Please review and follow up manually.
+                    The checklist email failed for {missedCount === 1 ? "this lead" : "these leads"}.
                   </p>
                 </div>
               </div>
@@ -166,16 +143,16 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
 
             <div className="flex items-center justify-between mb-6">
               <h2 className="font-serif text-xl text-primary">
-                All enquiries
+                Resource leads
                 <span className="text-muted-foreground/50 font-light text-base ml-2">
-                  ({enquiries.length})
+                  ({leads.length})
                 </span>
               </h2>
             </div>
 
-            {enquiries.length === 0 ? (
+            {leads.length === 0 ? (
               <div className="text-center py-24 border border-dashed border-border/60">
-                <p className="text-muted-foreground font-light">No enquiries yet.</p>
+                <p className="text-muted-foreground font-light">No resource leads yet.</p>
               </div>
             ) : (
               <div className="border border-border/40 overflow-hidden">
@@ -189,7 +166,7 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                         Contact
                       </th>
                       <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden md:table-cell">
-                        Enquiry Type
+                        Resource
                       </th>
                       <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden lg:table-cell">
                         Submitted
@@ -198,19 +175,16 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                         Source
                       </th>
                       <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70">
-                        Notification
-                      </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden 2xl:table-cell">
-                        Message
+                        Email
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {enquiries.map((enquiry, idx) => (
+                    {leads.map((lead, idx) => (
                       <tr
-                        key={enquiry.id}
+                        key={lead.id}
                         className={`border-b border-border/30 last:border-0 ${
-                          !enquiry.notificationSent
+                          !lead.emailSent
                             ? "bg-red-50/60"
                             : idx % 2 === 0
                             ? ""
@@ -218,50 +192,45 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                         }`}
                       >
                         <td className="px-5 py-4">
-                          <div>
-                            <p className="font-medium text-primary text-sm leading-snug">
-                              {enquiry.name}
-                            </p>
-                            <a
-                              href={`mailto:${enquiry.email}`}
-                              className="text-xs text-muted-foreground/70 font-light hover:text-primary transition-colors"
-                            >
-                              {enquiry.email}
-                            </a>
-                            <div className="flex items-center gap-1 mt-0.5 text-xs text-muted-foreground/60">
-                              {CONTACT_ICONS[enquiry.preferredContact]}
-                              <span className="font-light">{enquiry.phone}</span>
-                            </div>
-                          </div>
+                          <p className="font-medium text-primary text-sm leading-snug">
+                            {lead.firstName}
+                          </p>
+                          <a
+                            href={`mailto:${lead.email}`}
+                            className="text-xs text-muted-foreground/70 font-light hover:text-primary transition-colors inline-flex items-center gap-1 mt-0.5"
+                          >
+                            <Mail className="w-3 h-3" />
+                            {lead.email}
+                          </a>
                         </td>
                         <td className="px-4 py-4 hidden md:table-cell">
                           <span className="text-xs text-muted-foreground">
-                            {SUPPORT_TYPE_LABELS[enquiry.supportType] ?? enquiry.supportType}
+                            {resourceLabel(lead.resourceSlug)}
                           </span>
                         </td>
                         <td className="px-4 py-4 hidden lg:table-cell">
                           <span className="text-xs text-muted-foreground">
-                            {formatDateTime(enquiry.createdAt)}
+                            {formatDateTime(lead.createdAt)}
                           </span>
                         </td>
                         <td className="px-4 py-4 hidden xl:table-cell">
                           <div className="text-[11px] text-muted-foreground/70 leading-relaxed max-w-[260px]">
                             <p>
                               <span className="font-semibold text-primary/70">Current:</span>{" "}
-                              {enquiry.currentPage ?? enquiry.pageSource ?? "Unknown"}
+                              {lead.currentPage ?? "Unknown"}
                             </p>
                             <p>
                               <span className="font-semibold text-primary/70">Landing:</span>{" "}
-                              {enquiry.landingPage ?? "Unknown"}
+                              {lead.landingPage ?? "Unknown"}
                             </p>
                             <p>
                               <span className="font-semibold text-primary/70">Referrer:</span>{" "}
-                              {enquiry.referrer || "Direct / unknown"}
+                              {lead.referrer || "Direct / unknown"}
                             </p>
-                            {(enquiry.utmSource || enquiry.utmMedium || enquiry.utmCampaign) && (
+                            {(lead.utmSource || lead.utmMedium || lead.utmCampaign) && (
                               <p>
                                 <span className="font-semibold text-primary/70">UTM:</span>{" "}
-                                {[enquiry.utmSource, enquiry.utmMedium, enquiry.utmCampaign]
+                                {[lead.utmSource, lead.utmMedium, lead.utmCampaign]
                                   .filter(Boolean)
                                   .join(" / ")}
                               </p>
@@ -269,22 +238,17 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                           </div>
                         </td>
                         <td className="px-4 py-4">
-                          {enquiry.notificationSent ? (
-                            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-green-50 text-green-700 border border-green-200">
+                          {lead.emailSent ? (
+                            <span className="inline-flex items-center gap-1.5 text-xs text-green-700 bg-green-50 px-2 py-1 border border-green-200">
                               <CheckCircle2 className="w-3 h-3" />
                               Sent
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-red-50 text-red-700 border border-red-200">
+                            <span className="inline-flex items-center gap-1.5 text-xs text-red-700 bg-red-50 px-2 py-1 border border-red-200">
                               <AlertTriangle className="w-3 h-3" />
-                              Missed
+                              Failed
                             </span>
                           )}
-                        </td>
-                        <td className="px-4 py-4 hidden 2xl:table-cell">
-                          <p className="text-xs text-muted-foreground font-light line-clamp-2 max-w-xs">
-                            {enquiry.message}
-                          </p>
                         </td>
                       </tr>
                     ))}
