@@ -1497,7 +1497,7 @@ function injectPageMeta(baseHtml, page) {
   // The comment "React mounts here" immediately follows the root </div>.
   const bodyReplaced = out.replace(
     /(<div id="root">)[\s\S]*(<\/div>)(\s*\n\s*<!-- React mounts here)/,
-    `$1\n${page.body}\n    $2$3`
+    `$1\n${page.body}\n${STATIC_FOOTER}\n    $2$3`
   );
 
   // ── Assertions: fail hard if critical replacements did not apply ──────────
@@ -1807,8 +1807,34 @@ function markdownToHtml(content) {
     tableRows = null;
   };
 
-  for (const rawLine of lines) {
+  for (let idx = 0; idx < lines.length; idx++) {
+    const rawLine = lines[idx];
     const line = rawLine.trim();
+
+    // [CTA:/path:Button Label] ... [/CTA] — inline CTA callout block
+    // (mirrors the block parser in src/pages/ResourceDetail.tsx)
+    if (line.startsWith("[CTA:")) {
+      flushList();
+      flushTable();
+      const tagMatch = line.match(/^\[CTA:([^:\]]+):([^\]]+)\]$/);
+      const ctaHref = tagMatch ? tagMatch[1] : "/contact";
+      const ctaLabel = tagMatch ? tagMatch[2] : "Speak Confidentially";
+      const ctaLines = [];
+      idx++;
+      while (idx < lines.length && lines[idx].trim() !== "[/CTA]") {
+        if (lines[idx].trim()) ctaLines.push(lines[idx].trim());
+        idx++;
+      }
+      html.push(
+        `<div style="margin:2.5rem 0;padding:1.75rem 2rem;border-left:4px solid #C9A96E;background:linear-gradient(135deg,rgba(246,244,240,0.95),rgba(242,237,227,0.7));max-width:680px;">` +
+          ctaLines
+            .map((l) => `<p style="${P_STYLE}">${inlineMd(l)}</p>`)
+            .join("") +
+          `<a href="${ctaHref}" style="display:inline-block;margin-top:0.5rem;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">${escText(ctaLabel)}</a>` +
+          `</div>`
+      );
+      continue;
+    }
 
     if (line.includes("|") && line.split("|").filter(Boolean).length >= 2) {
       flushList();
@@ -1866,6 +1892,37 @@ const STATIC_HEADER = `
         </nav>
       </header>`;
 
+/**
+ * Shared static footer appended to every prerendered page and article.
+ * Gives crawlers and LLMs a consistent sitewide internal-link block,
+ * contact details, and the regulatory disclaimer.
+ */
+const STATIC_FOOTER = `
+      <footer style="background:#162B3B;color:#F6F4F0;padding:3rem 2rem 2rem;font-family:sans-serif;">
+        <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;">
+          <div>
+            <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;margin-bottom:0.75rem;">Insight Recovery Network</p>
+            <p style="font-size:0.8rem;line-height:1.7;opacity:0.75;">Private addiction and mental health support — online programmes, assessments and treatment placement. Based in Newquay, Cornwall, UK. Supporting clients across the UK and internationally.</p>
+          </div>
+          <div>
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Services</p>
+            <p style="font-size:0.85rem;line-height:2.1;"><a href="/treatment-placement" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a><br><a href="/online-programme" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Recovery Programme</a><br><a href="/insight-os" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a><br><a href="/what-we-offer" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Family &amp; Intervention Guidance</a></p>
+          </div>
+          <div>
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Free Assessments</p>
+            <p style="font-size:0.85rem;line-height:2.1;"><a href="/assessments/alcohol-use" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Alcohol Use</a><br><a href="/assessments/drug-use" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Drug Use</a><br><a href="/assessments/detox" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Detox Suitability</a><br><a href="/assessments" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">All Assessments</a></p>
+          </div>
+          <div>
+            <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Contact</p>
+            <p style="font-size:0.85rem;line-height:2.1;"><a href="tel:+447415994475" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">+44 7415 994475</a><br><a href="mailto:info@insightrecoverynetwork.com" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">info@insightrecoverynetwork.com</a><br><a href="/contact" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Speak Confidentially</a><br><a href="/resources" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources &amp; Articles</a></p>
+          </div>
+        </div>
+        <div style="max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(246,244,240,0.15);">
+          <p style="font-size:0.75rem;line-height:1.7;opacity:0.6;">Insight Recovery Network is a private support and treatment guidance service. We are not a regulated healthcare provider and do not provide clinical diagnoses, prescriptions, or emergency crisis support. If you or someone you know is in immediate danger, call 999 or attend your nearest A&amp;E.</p>
+          <p style="font-size:0.75rem;margin-top:0.75rem;"><a href="/privacy-policy" style="color:#F6F4F0;opacity:0.6;text-decoration:none;">Privacy Policy</a> · <a href="/terms-of-service" style="color:#F6F4F0;opacity:0.6;text-decoration:none;">Terms of Service</a> · <a href="/cookie-policy" style="color:#F6F4F0;opacity:0.6;text-decoration:none;">Cookie Policy</a> · <a href="/clinical-disclaimer" style="color:#F6F4F0;opacity:0.6;text-decoration:none;">Clinical Disclaimer</a></p>
+        </div>
+      </footer>`;
+
 /** Build the full static body HTML for an article page. */
 function buildArticleBodyHtml(meta, full) {
   const canonicalUrl = `${SITE_URL}/resources/${full.slug}`;
@@ -1911,7 +1968,8 @@ function buildArticleBodyHtml(meta, full) {
             <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
           </section>
         </div>
-      </main>`;
+      </main>
+${STATIC_FOOTER}`;
 }
 
 // ── JSON-LD builders ─────────────────────────────────────────────────────────

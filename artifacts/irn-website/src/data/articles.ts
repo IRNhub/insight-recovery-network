@@ -1358,7 +1358,7 @@ Willpower can help someone survive a moment. It can help them say no once. It ca
 
 At [Insight Recovery Network](/contact), we often speak with people who are exhausted from trying harder. They are not short on effort. They are not short on shame. They are not short on promises. What they are usually short on is a system that helps them understand what keeps pulling them back into the same cycle.
 
-That is why effective addiction recovery support needs to move beyond motivation. Whether someone is looking for alcohol recovery support, drug addiction recovery, an [online addiction recovery programme](/online-recovery-programme), private addiction support, [treatment placement](/treatment-placement), or structured recovery coaching in the UK, the starting point is the same: recovery needs more than intention.
+That is why effective addiction recovery support needs to move beyond motivation. Whether someone is looking for alcohol recovery support, drug addiction recovery, an [online addiction recovery programme](/online-programme), private addiction support, [treatment placement](/treatment-placement), or structured recovery coaching in the UK, the starting point is the same: recovery needs more than intention.
 
 It needs a plan.
 
@@ -1416,7 +1416,7 @@ Recovery structure is not about making life rigid or clinical. It is about reduc
 
 A strong recovery structure may include daily check-ins, journalling, therapy, recovery coaching, group support, accountability conversations, relapse prevention planning, healthy routines, sleep consistency, trigger tracking, and honest review of warning signs.
 
-For some people, that structure may come through residential rehab. For others, it may come through an [online recovery programme](/online-recovery-programme), private therapy, outpatient addiction support, or a recovery coaching model. Some people need medical detox before they can safely engage in psychological work. Others need [treatment placement](/treatment-placement) because their environment, risk level, or history of relapse makes home-based support insufficient.
+For some people, that structure may come through residential rehab. For others, it may come through an [online recovery programme](/online-programme), private therapy, outpatient addiction support, or a recovery coaching model. Some people need medical detox before they can safely engage in psychological work. Others need [treatment placement](/treatment-placement) because their environment, risk level, or history of relapse makes home-based support insufficient.
 
 There is no single route that fits everyone. But there is one principle that applies across recovery: the less structure someone has, the more they are relying on mood, motivation, and memory.
 
@@ -1512,7 +1512,7 @@ Not everyone needs rehab. But some people absolutely do. Not everyone needs medi
 
 This is why [assessment](/assessments) matters. The right level of addiction recovery support depends on risk, substance use history, mental health, physical health, home environment, previous relapse patterns, support systems, safety concerns, and the person's ability to engage honestly.
 
-For some, an [online addiction recovery programme](/online-recovery-programme) may be the right fit. For others, private addiction support or recovery coaching may provide enough structure. Some may benefit from therapy alongside recovery planning. Others may need [treatment placement](/treatment-placement) into a residential addiction treatment centre, either in the UK or abroad.
+For some, an [online addiction recovery programme](/online-programme) may be the right fit. For others, private addiction support or recovery coaching may provide enough structure. Some may benefit from therapy alongside recovery planning. Others may need [treatment placement](/treatment-placement) into a residential addiction treatment centre, either in the UK or abroad.
 
 The key is not to choose the option that sounds easiest. The key is to choose the level of support that matches the level of risk.
 
@@ -1548,7 +1548,7 @@ Many people imagine recovery is decided in dramatic moments: the crisis, the con
 
 It is built when someone tells the truth before they have to. It is built when they notice a warning sign and take it seriously. It is built when they attend support even though they feel fine. It is built when they write the journal entry they would rather avoid. It is built when they ask for help before they are desperate. It is built when they choose structure over chaos.
 
-This is why [online recovery support](/online-recovery-programme) and digital recovery tools like [Insight OS](/insight-os) can be powerful when used properly. They help bring recovery into daily life — not just into appointments. A weekly session may be useful, but the person still has to live the other six days and twenty-three hours.
+This is why [online recovery support](/online-programme) and digital recovery tools like [Insight OS](/insight-os) can be powerful when used properly. They help bring recovery into daily life — not just into appointments. A weekly session may be useful, but the person still has to live the other six days and twenty-three hours.
 
 Recovery support needs to meet people in real life, not just in theory.
 
@@ -1574,7 +1574,7 @@ If someone has repeatedly tried to stop drinking, using drugs, or returning to d
 
 Addiction recovery is not just about saying no. It is about building a life where the old behaviour is no longer the main way to cope, escape, regulate, or survive. That requires honesty, support, emotional regulation, accountability, relapse prevention planning, daily structure, and a system.
 
-At Insight Recovery Network, we support individuals and families to understand what level of help is needed and how to build a more sustainable recovery plan. This may include [online addiction recovery support](/online-recovery-programme), recovery coaching, [Insight OS](/insight-os) digital recovery tools, relapse prevention planning, family guidance, or [treatment placement](/treatment-placement) into trusted addiction treatment services.
+At Insight Recovery Network, we support individuals and families to understand what level of help is needed and how to build a more sustainable recovery plan. This may include [online addiction recovery support](/online-programme), recovery coaching, [Insight OS](/insight-os) digital recovery tools, relapse prevention planning, family guidance, or [treatment placement](/treatment-placement) into trusted addiction treatment services.
 
 If you are unsure whether you need online support, structured recovery coaching, residential rehab, or simply a clearer plan, the first step is not to shame yourself into trying harder.
 
@@ -1587,7 +1587,7 @@ Need help understanding what level of support is right? Insight Recovery Network
 ## Explore Next Steps
 
 - [Take a self-assessment](/assessments) — understand your risk level confidentially
-- [Explore the online recovery programme](/online-recovery-programme) — structured group and one-to-one support
+- [Explore the online recovery programme](/online-programme) — structured group and one-to-one support
 - [Learn about treatment placement](/treatment-placement) — when a higher level of care is needed
 - [Contact Insight Recovery Network](/contact) — speak confidentially about your situation
     `.trim(),
