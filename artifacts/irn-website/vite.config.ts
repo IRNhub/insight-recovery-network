@@ -311,6 +311,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/terms-and-conditions":               "/terms-of-service",
   "/online-therapy":                     "/online-programme",
   "/online-recovery":                    "/online-programme",
+  "/insightos":                          "/insight-os",
   "/family-support":                     "/what-we-offer",
   "/family-intervention":                "/what-we-offer",
   "/intervention":                       "/what-we-offer",

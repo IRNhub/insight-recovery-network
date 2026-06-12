@@ -14,7 +14,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
         {article.image ? (
           <img
             src={article.image}
-            alt={article.title}
+            alt={article.imageAlt ?? article.title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
         ) : (

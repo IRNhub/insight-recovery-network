@@ -442,7 +442,7 @@ export default function ResourceDetail() {
               >
                 <img
                   src={article.image}
-                  alt={article.title}
+                  alt={article.imageAlt ?? article.title}
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="eager"
                 />
