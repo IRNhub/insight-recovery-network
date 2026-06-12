@@ -2,17 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Search, X } from "lucide-react";
+import { fetchMergedArticles } from "@/lib/article-loader";
 import type { Article } from "@/data/articles";
 
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-}
-
-async function fetchArticles(): Promise<Article[]> {
-  const res = await fetch("/api/articles");
-  if (!res.ok) throw new Error("Failed to load articles");
-  return res.json();
 }
 
 function scoreArticle(article: Article, query: string): number {
@@ -31,7 +26,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
   const { data: articles = [] } = useQuery<Article[]>({
     queryKey: ["articles"],
-    queryFn: fetchArticles,
+    queryFn: fetchMergedArticles,
     staleTime: 5 * 60_000,
   });
 

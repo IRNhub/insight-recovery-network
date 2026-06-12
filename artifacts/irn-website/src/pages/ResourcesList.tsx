@@ -6,33 +6,10 @@ import { ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { CATEGORIES, articles as staticArticles } from "@/data/articles";
+import { fetchMergedArticles } from "@/lib/article-loader";
 import { BookOpen, Loader2, Search, X } from "lucide-react";
 import resourcesHero from "../assets/resources-hero.png";
 import type { Article } from "@/data/articles";
-
-/**
- * Fetch published articles from the API and merge with the bundled static
- * articles so the page always shows content even if the production database
- * has not been seeded yet.  DB articles take precedence (same slug wins),
- * and any articles added only via the admin CMS are appended to the list.
- */
-async function fetchArticles(): Promise<Article[]> {
-  try {
-    const res = await fetch("/api/articles");
-    if (!res.ok) return staticArticles;
-    const dbArticles: Article[] = await res.json();
-    if (dbArticles.length === 0) return staticArticles;
-    // Merge: DB articles win on same slug, then add any static-only ones
-    const dbSlugs = new Set(dbArticles.map((a) => a.slug));
-    const staticOnly = staticArticles.filter((a) => !dbSlugs.has(a.slug));
-    const merged = [...dbArticles, ...staticOnly];
-    // Sort by date descending so newest articles always appear first regardless of source
-    merged.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
-    return merged;
-  } catch {
-    return staticArticles;
-  }
-}
 
 function matchesSearch(article: Article, query: string): boolean {
   const q = query.toLowerCase().trim();
@@ -51,7 +28,7 @@ export default function ResourcesList() {
 
   const { data: articles = staticArticles, isLoading, isError } = useQuery({
     queryKey: ["articles"],
-    queryFn: fetchArticles,
+    queryFn: fetchMergedArticles,
     staleTime: 5 * 60_000,
     refetchOnWindowFocus: false,
   });
