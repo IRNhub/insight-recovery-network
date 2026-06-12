@@ -5,13 +5,10 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { mockupPreviewPlugin } from "./mockupPreviewPlugin";
 
-const rawPort = process.env.PORT;
-
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
+// Default to 5180 so non-serving tasks (e.g. `pnpm run build` from the
+// workspace root) don't fail when PORT isn't set. The dev/preview server
+// still respects an explicit PORT when provided.
+const rawPort = process.env.PORT ?? "5180";
 
 const port = Number(rawPort);
 
