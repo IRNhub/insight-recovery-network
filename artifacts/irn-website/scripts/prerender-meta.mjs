@@ -27,8 +27,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
 import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
-import sharp from "sharp";
+import { fileURLToPath, pathToFileURL } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -450,6 +449,7 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Contact Details</h2>
             <p style="font-family:sans-serif;font-size:1rem;color:#4a5568;line-height:2;">
+              Telephone: <a href="tel:+447415994475" style="color:#162B3B;">+44 7415 994475</a><br>
               Email: <a href="mailto:info@insightrecoverynetwork.com" style="color:#162B3B;">info@insightrecoverynetwork.com</a><br>
               Based in Newquay, Cornwall, UK<br>
               Supporting clients across the UK and internationally
@@ -470,6 +470,43 @@ const PAGES = [
               <li><a href="/what-we-offer" style="color:#162B3B;">Family Guidance</a> — Support for families navigating addiction</li>
               <li><a href="/assessments" style="color:#162B3B;">Free Assessments</a> — Confidential self-assessments for alcohol, drugs, and mental health</li>
             </ul>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/recovery-plan-checklist",
+    file: "recovery-plan-checklist.html",
+    title: "Recovery Plan Checklist | Insight Recovery Network",
+    description:
+      "A practical one-page checklist to help you assess whether a recovery plan, treatment programme, or aftercare structure is the right fit.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:4rem 2rem;">
+          <section style="max-width:760px;padding:2rem 0 3rem;">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free checklist</p>
+            <h1 style="font-size:clamp(2.25rem,5vw,4rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">
+              A good plan can still be the wrong fit.
+            </h1>
+            <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
+              The Recovery Plan Checklist helps you assess whether a recovery plan, treatment programme, or aftercare structure has enough daily support, relapse planning, family clarity, and accountability to match real risk.
+            </p>
+            <a href="/recovery-plan-checklist" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get the checklist</a>
           </section>
         </div>
       </main>
@@ -1643,6 +1680,360 @@ const ARTICLES = [
   },
 ];
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 2b. FULL ARTICLE BODY PRE-RENDERING + STRUCTURED DATA (JSON-LD)
+//
+// Previously article pages only had their <meta> tags swapped, which meant
+// crawlers without JavaScript (Google first-pass, Bing, ChatGPT, Claude,
+// Perplexity, etc.) saw the home-page body on every /resources/* URL —
+// i.e. 11 duplicates of the home page. The functions below render the full
+// article content statically and embed Article / FAQPage / BreadcrumbList /
+// Organization / Person JSON-LD so both search engines and LLMs can read
+// the real content without executing JS.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Load the full article data (content, faq, author, readingTime) from
+ * src/data/articles.ts. Tries native TS import first (Node >= 23), then
+ * falls back to transforming via vite's bundled esbuild. Returns null on
+ * failure so the build degrades gracefully to meta-only prerendering.
+ */
+async function loadFullArticles() {
+  const articlesTsPath = resolve(root, "src/data/articles.ts");
+  try {
+    const mod = await import(pathToFileURL(articlesTsPath).href);
+    if (mod.articles?.length) return mod.articles;
+  } catch {
+    /* fall through to esbuild transform */
+  }
+  try {
+    const { transformWithEsbuild } = await import("vite");
+    const src = readFileSync(articlesTsPath, "utf-8");
+    const { code } = await transformWithEsbuild(src, articlesTsPath, {
+      loader: "ts",
+      format: "esm",
+    });
+    const tmpPath = resolve(distPublic, ".articles-data.mjs");
+    writeFileSync(tmpPath, code, "utf-8");
+    const mod = await import(pathToFileURL(tmpPath).href);
+    rmSync(tmpPath, { force: true });
+    if (mod.articles?.length) return mod.articles;
+  } catch (err) {
+    console.warn(
+      `  ⚠ Could not load src/data/articles.ts for full-body prerendering (${err?.message}). ` +
+        `Falling back to meta-only article prerendering.`
+    );
+  }
+  return null;
+}
+
+/** Escape HTML text content (not attributes). */
+function escText(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+/** Render inline markdown (**bold**, [text](url)) inside an escaped line. */
+function inlineMd(line) {
+  let out = escText(line);
+  out = out.replace(/\*\*([^*]+)\*\*/g, "<strong style=\"color:#162B3B;\">$1</strong>");
+  out = out.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" style="color:#162B3B;text-decoration:underline;">$1</a>'
+  );
+  return out;
+}
+
+/**
+ * Convert the article markdown-ish content (same dialect rendered by
+ * src/pages/ResourceDetail.tsx: ## / ### headings, "- " lists, | tables |,
+ * **bold**, [links](url), paragraphs) into static inline-styled HTML.
+ */
+function markdownToHtml(content) {
+  const lines = content.split("\n");
+  const html = [];
+  let listItems = null;
+  let tableRows = null;
+
+  const P_STYLE =
+    "font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin:1rem 0;max-width:680px;";
+  const H2_STYLE =
+    "font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin:2.5rem 0 1rem;max-width:680px;";
+  const H3_STYLE =
+    "font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:500;color:#162B3B;margin:2rem 0 0.75rem;max-width:680px;";
+
+  const flushList = () => {
+    if (listItems?.length) {
+      html.push(
+        `<ul style="font-family:sans-serif;font-size:0.95rem;line-height:1.9;color:#4a5568;padding-left:1.25rem;margin:1rem 0;max-width:680px;">${listItems
+          .map((li) => `<li style="margin-bottom:0.35rem;">${li}</li>`)
+          .join("")}</ul>`
+      );
+    }
+    listItems = null;
+  };
+
+  const flushTable = () => {
+    if (tableRows?.length >= 2) {
+      const cells = (row) =>
+        row.split("|").map((s) => s.trim()).filter(Boolean);
+      const isSeparator = (row) =>
+        cells(row).every((c) => /^[-: ]+$/.test(c));
+      const headers = cells(tableRows[0]);
+      const dataRows = tableRows.slice(1).filter((r) => !isSeparator(r));
+      html.push(
+        `<div style="overflow-x:auto;margin:1.5rem 0;max-width:680px;"><table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:0.875rem;color:#4a5568;">` +
+          `<thead><tr>${headers
+            .map(
+              (h) =>
+                `<th style="text-align:left;padding:0.6rem 0.75rem;border-bottom:2px solid rgba(201,169,110,0.5);color:#162B3B;">${inlineMd(h)}</th>`
+            )
+            .join("")}</tr></thead>` +
+          `<tbody>${dataRows
+            .map(
+              (r) =>
+                `<tr>${cells(r)
+                  .map(
+                    (c) =>
+                      `<td style="padding:0.6rem 0.75rem;border-bottom:1px solid rgba(201,169,110,0.25);vertical-align:top;">${inlineMd(c)}</td>`
+                  )
+                  .join("")}</tr>`
+            )
+            .join("")}</tbody></table></div>`
+      );
+    }
+    tableRows = null;
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+
+    if (line.includes("|") && line.split("|").filter(Boolean).length >= 2) {
+      flushList();
+      (tableRows ??= []).push(line);
+      continue;
+    }
+    flushTable();
+
+    if (!line) {
+      flushList();
+      continue;
+    }
+    if (line.startsWith("### ")) {
+      flushList();
+      html.push(`<h3 style="${H3_STYLE}">${inlineMd(line.slice(4))}</h3>`);
+      continue;
+    }
+    if (line.startsWith("## ")) {
+      flushList();
+      html.push(`<h2 style="${H2_STYLE}">${inlineMd(line.slice(3))}</h2>`);
+      continue;
+    }
+    if (line.startsWith("- ")) {
+      (listItems ??= []).push(inlineMd(line.slice(2)));
+      continue;
+    }
+    if (/^\*\*[^*]+\*\*$/.test(line)) {
+      flushList();
+      html.push(
+        `<p style="font-family:sans-serif;font-weight:600;color:#162B3B;margin:1.5rem 0 0.5rem;max-width:680px;">${escText(line.replace(/^\*\*|\*\*$/g, ""))}</p>`
+      );
+      continue;
+    }
+    flushList();
+    html.push(`<p style="${P_STYLE}">${inlineMd(line)}</p>`);
+  }
+  flushList();
+  flushTable();
+  return html.join("\n");
+}
+
+/** Shared site header used in statically rendered article bodies. */
+const STATIC_HEADER = `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>`;
+
+/** Build the full static body HTML for an article page. */
+function buildArticleBodyHtml(meta, full) {
+  const canonicalUrl = `${SITE_URL}/resources/${full.slug}`;
+  const dateFormatted = new Date(full.date).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  const faqHtml = full.faq?.length
+    ? `
+          <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+            ${full.faq
+              .map(
+                (f) => `
+            <div style="margin-bottom:1.5rem;max-width:680px;">
+              <h3 style="font-family:sans-serif;font-size:1rem;font-weight:600;color:#162B3B;margin-bottom:0.5rem;">${escText(f.question)}</h3>
+              <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;">${inlineMd(f.answer)}</p>
+            </div>`
+              )
+              .join("")}
+          </section>`
+    : "";
+
+  return `${STATIC_HEADER}
+      <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <nav aria-label="Breadcrumb" style="font-family:sans-serif;font-size:0.8rem;color:#4a5568;margin-bottom:2rem;">
+            <a href="/" style="color:#4a5568;">Home</a> › <a href="/resources" style="color:#4a5568;">Resources</a> › <span>${escText(full.title)}</span>
+          </nav>
+          <article>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
+            <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
+            <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/about" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${dateFormatted} · ${full.readingTime} min read</p>
+            ${markdownToHtml(full.content)}
+          </article>
+          ${faqHtml}
+          <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Get in Touch</a>
+            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+          </section>
+        </div>
+      </main>`;
+}
+
+// ── JSON-LD builders ─────────────────────────────────────────────────────────
+
+const ORGANIZATION_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/icon-512.png`,
+  image: DEFAULT_OG_IMAGE,
+  description:
+    "Private addiction and mental health support service providing online recovery programmes, confidential treatment placement guidance in the UK and internationally, family intervention support, free self-assessments, and the Insight OS digital recovery platform.",
+  email: "info@insightrecoverynetwork.com",
+  telephone: "+447415994475",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Newquay",
+    addressRegion: "Cornwall",
+    addressCountry: "GB",
+  },
+  areaServed: [{ "@type": "Country", name: "United Kingdom" }, "Worldwide"],
+  founder: { "@id": `${SITE_URL}/#craig-bilton` },
+  knowsAbout: [
+    "Addiction recovery",
+    "Private rehab placement",
+    "Alcohol and drug detox guidance",
+    "Online addiction recovery programmes",
+    "Family intervention",
+    "Relapse prevention",
+  ],
+};
+
+const PERSON_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE_URL}/#craig-bilton`,
+  name: "Craig Bilton",
+  jobTitle: "Founder & Clinical Director",
+  worksFor: { "@id": `${SITE_URL}/#organization` },
+  url: `${SITE_URL}/about`,
+  description:
+    "Addiction treatment specialist with over 20 years of international experience spanning residential rehabilitation, online recovery support, and complex case management across the UK and internationally.",
+  knowsAbout: [
+    "Addiction treatment",
+    "Recovery planning",
+    "Relapse prevention",
+    "Residential rehabilitation",
+    "Dual diagnosis",
+    "Family intervention",
+  ],
+};
+
+function buildArticleJsonLd(meta, full) {
+  const canonicalUrl = `${SITE_URL}/resources/${meta.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${canonicalUrl}#article`,
+    headline: full?.title ?? meta.ogTitle,
+    description: meta.description,
+    image: meta.image,
+    datePublished: `${meta.date}T00:00:00+00:00`,
+    dateModified: `${meta.date}T00:00:00+00:00`,
+    inLanguage: "en-GB",
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#craig-bilton`,
+      name: "Craig Bilton",
+      jobTitle: "Founder & Clinical Director",
+      url: `${SITE_URL}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+  };
+}
+
+function buildFaqJsonLd(meta, full) {
+  if (!full?.faq?.length) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/resources/${meta.slug}#faq`,
+    mainEntity: full.faq.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+}
+
+function buildBreadcrumbJsonLd(meta, full) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Resources", item: `${SITE_URL}/resources` },
+      { "@type": "ListItem", position: 3, name: full?.title ?? meta.ogTitle, item: `${SITE_URL}/resources/${meta.slug}` },
+    ],
+  };
+}
+
+/** Inject JSON-LD script tags before </head>. Skips null entries. */
+function injectJsonLd(html, jsonLdObjects) {
+  const scripts = jsonLdObjects
+    .filter(Boolean)
+    .map(
+      (obj) =>
+        `<script type="application/ld+json">${JSON.stringify(obj).replace(/<\//g, "<\\/")}</script>`
+    )
+    .join("\n    ");
+  if (!scripts) return html;
+  return html.replace("</head>", `    ${scripts}\n  </head>`);
+}
+
 /**
  * Replace a single meta tag attribute value.
  * Matches:  <meta property="og:title" content="...OLD...">
@@ -1663,8 +2054,13 @@ function replaceMeta2(html, attr, attrValue, newContent) {
   return html.replace(re, `$1${newContent}$2`);
 }
 
-/** Inject article-specific meta tags into the base index.html. */
-function injectArticleMeta(html, article) {
+/**
+ * Inject article-specific meta tags into the base index.html.
+ * When `full` (the matching entry from src/data/articles.ts) is provided,
+ * also replaces the static home-page body with the full article body and
+ * embeds Article / FAQPage / BreadcrumbList JSON-LD.
+ */
+function injectArticleMeta(html, article, full = null) {
   let out = html;
   const canonicalUrl = `${SITE_URL}/resources/${article.slug}`;
 
@@ -1760,6 +2156,32 @@ function injectArticleMeta(html, article) {
     );
   }
 
+  // Replace the static home-page body with the full article body so
+  // crawlers and LLMs without JS see the real article, not the home page.
+  if (full) {
+    const articleBody = buildArticleBodyHtml(article, full);
+    const bodyReplaced = out.replace(
+      /(<div id="root">)[\s\S]*(<\/div>)(\s*\n\s*<!-- React mounts here)/,
+      `$1\n${articleBody}\n    $2$3`
+    );
+    if (bodyReplaced === out) {
+      console.warn(
+        `  ⚠ Body replacement failed for /resources/${article.slug} — root marker not found.`
+      );
+    } else {
+      out = bodyReplaced;
+    }
+  }
+
+  // Structured data: Article + Breadcrumb (+ FAQ where present) + entity graph
+  out = injectJsonLd(out, [
+    buildArticleJsonLd(article, full),
+    buildFaqJsonLd(article, full),
+    buildBreadcrumbJsonLd(article, full),
+    ORGANIZATION_JSONLD,
+    PERSON_JSONLD,
+  ]);
+
   return out;
 }
 
@@ -1772,6 +2194,16 @@ async function generateArticleOgImage() {
   const src = resolve(publicDir, "article-why-cant-i-stop.png");
   if (!existsSync(src)) {
     console.warn("  ⚠ article-why-cant-i-stop.png not found, skipping OG image generation.");
+    return;
+  }
+
+  // sharp is loaded lazily so the prerender can still run in environments
+  // where sharp's native binaries are unavailable (e.g. CI on another OS).
+  let sharp;
+  try {
+    sharp = (await import("sharp")).default;
+  } catch {
+    console.warn("  ⚠ sharp unavailable on this platform — skipping OG image generation.");
     return;
   }
 
@@ -1812,13 +2244,23 @@ async function main() {
 
   let pageCount = 0;
   for (const page of PAGES) {
-    const html = injectPageMeta(baseHtml, page);
+    const html = injectJsonLd(injectPageMeta(baseHtml, page), [
+      ORGANIZATION_JSONLD,
+      PERSON_JSONLD,
+    ]);
     writeFileSync(resolve(distPublic, page.file), html, "utf-8");
     console.log(`  ✓ ${page.route}  →  ${page.file}`);
     pageCount++;
   }
 
   console.log(`\n  Pre-rendered ${pageCount} site pages.\n`);
+
+  // ── Step 1b: Inject Organization + Person JSON-LD into the home page ──────
+  if (!baseHtml.includes("#organization")) {
+    const homeHtml = injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]);
+    writeFileSync(indexPath, homeHtml, "utf-8");
+    console.log("  ✓ index.html — injected Organization + Person JSON-LD\n");
+  }
 
   // ── Step 2: Generate 1200×630 OG image for the new article ───────────────
   console.log("▶  Generating article OG images…\n");
@@ -1846,13 +2288,21 @@ async function main() {
   mkdirSync(resourcesDir, { recursive: true });
 
   // ── Step 5: Pre-render per-article flat HTML files ────────────────────────
-  console.log("\n▶  Pre-rendering article OG meta tags…\n");
+  console.log("\n▶  Pre-rendering full article pages…\n");
+
+  const fullArticles = await loadFullArticles();
+  if (!fullArticles) {
+    console.warn("  ⚠ Full article data unavailable — article pages will be meta-only.\n");
+  }
 
   let articleCount = 0;
   for (const article of ARTICLES) {
-    const html = injectArticleMeta(baseHtml, article);
+    const full = fullArticles?.find((a) => a.slug === article.slug) ?? null;
+    const html = injectArticleMeta(baseHtml, article, full);
     writeFileSync(resolve(resourcesDir, `${article.slug}.html`), html, "utf-8");
-    console.log(`  ✓ /resources/${article.slug}  →  _resources/${article.slug}.html`);
+    console.log(
+      `  ✓ /resources/${article.slug}  →  _resources/${article.slug}.html${full ? "  (full body + JSON-LD)" : "  (meta only)"}`
+    );
     articleCount++;
   }
 
@@ -1878,6 +2328,9 @@ async function main() {
  */
 const SITEMAP_EXTRA = [
   { url: "/", changefreq: "weekly", priority: "1.0" },
+  { url: "/services-pricing-guide", changefreq: "monthly", priority: "0.7" },
+  // NOTE: add "/craig-bilton" here once the Craig Bilton profile page
+  // (src/pages/CraigBilton.tsx, currently uncommitted) is deployed.
 ];
 
 /**
@@ -1900,6 +2353,7 @@ const SITEMAP_PAGE_META = {
   "/online-programme":   { changefreq: "monthly", priority: "0.9" },
   "/insight-os":         { changefreq: "monthly", priority: "0.8" },
   "/about":              { changefreq: "monthly", priority: "0.8" },
+  "/recovery-plan-checklist": { changefreq: "monthly", priority: "0.7" },
   "/resources":          { changefreq: "weekly",  priority: "0.8" },
   "/contact":            { changefreq: "monthly", priority: "0.8" },
   "/assessments":        { changefreq: "monthly", priority: "0.8" },
