@@ -195,7 +195,7 @@ export default function PrivateRehabUK() {
                   src="/private-rehab-uk-hero.png"
                   alt="Couple reviewing private rehab and treatment options with independent guidance"
                   className="block w-full h-full object-cover aspect-[4/3] lg:aspect-[5/4]"
-                  style={{ objectPosition: "72% 32%" }}
+                  style={{ objectPosition: "center" }}
                   width={1536}
                   height={1024}
                   loading="eager"
