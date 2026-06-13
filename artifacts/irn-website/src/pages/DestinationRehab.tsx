@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
@@ -14,36 +13,11 @@ interface DestinationRehabProps {
 export default function DestinationRehab({ slug }: DestinationRehabProps) {
   const d = getDestination(slug);
   if (!d) return null;
-  const canonicalUrl = `${SITE_URL}/${d.slug}`;
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: d.faqs.map((f) => ({
-      "@type": "Question",
-      name: f.question,
-      acceptedAnswer: { "@type": "Answer", text: f.answer },
-    })),
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${canonicalUrl}#service`,
-    name: `Private Rehab Placement: ${d.country}`,
-    serviceType: "Addiction treatment placement guidance",
-    description: d.metaDescription,
-    image: `${SITE_URL}${d.heroImage}`,
-    provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: { "@type": "Country", name: d.country },
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "GBP",
-      lowPrice: d.costLow,
-      highPrice: d.costHigh,
-      description: d.costIntro,
-    },
-  };
+  // NOTE: Service + FAQPage JSON-LD for this route are emitted once, server-side,
+  // by scripts/prerender-meta.mjs (buildDestinationJsonLd) into the static HTML.
+  // We deliberately do NOT also inject them here via Helmet, to avoid a duplicate
+  // FAQPage on the rendered page (which Google Search Console flags as invalid).
 
   return (
     <Layout>
@@ -54,10 +28,6 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         canonical={`/${d.slug}`}
         ogImage={`${SITE_URL}${d.heroImage}`}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-      </Helmet>
 
       {/* Hero */}
       <section className="border-b border-border/40 bg-secondary/20">
