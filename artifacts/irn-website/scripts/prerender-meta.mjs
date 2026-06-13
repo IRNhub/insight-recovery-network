@@ -716,6 +716,84 @@ const PAGES = [
     `,
   },
   {
+    route: "/private-rehab-uk",
+    file: "private-rehab-uk.html",
+    title: "Private Rehab UK | Independent Guidance Before Choosing Treatment | Insight Recovery Network",
+    description:
+      "Considering private rehab in the UK? Insight Recovery Network helps individuals and families compare UK rehab, overseas treatment, detox needs, online recovery support and aftercare before committing to a treatment route.",
+    ogImage: `${SITE_URL}/private-rehab-uk-hero.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
+          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
+          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab UK: Independent Guidance</p>
+            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
+              Private Rehab UK: Independent Guidance Before You Choose
+            </h1>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
+              Many people begin by searching for private rehab in the UK. Before committing to a costly admission, it is worth understanding whether UK rehab, overseas residential treatment, medically supervised detox, structured online support, family intervention or aftercare planning is the right fit. Insight Recovery Network provides independent guidance to help individuals and families make a safer, clearer and more informed decision, with no commercial ties to any facility.
+            </p>
+            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">When residential rehab may be appropriate</h2>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li>Alcohol dependence where a medically supervised detox may be required</li>
+              <li>Drug dependence, including prescription, stimulant, or opioid use</li>
+              <li>Relapse after previous attempts to stop or after community treatment</li>
+              <li>Co-occurring anxiety, depression, trauma, or chronic stress alongside substance use</li>
+              <li>A family crisis where a rapid, structured assessment is needed</li>
+              <li>A need for treatment close to home or close to family</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What does private rehab cost in the UK?</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:1rem;">There is no single price. Costs vary significantly depending on detox needs, location, clinical intensity, accommodation, length of stay, and whether specialist mental health input is required. Private UK rehab can range from several thousand pounds for shorter admissions to considerably higher costs for premium or specialist programmes. We provide independent guidance and will tell you honestly when a less expensive option, including <a href="/treatment-placement" style="color:#162B3B;">overseas treatment</a>, is clinically appropriate.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">UK or overseas rehab?</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:1rem;">UK private rehab can be appropriate for proximity, family involvement, ease of travel and continuity with existing care. Overseas treatment may be more appropriate when longer treatment duration, better value, privacy, distance from triggers or extended care is needed. The right decision depends on clinical need, risk, budget, family situation and recovery history. Consider whether <a href="/online-programme" style="color:#162B3B;">structured online recovery support</a> could meet the need, or explore international options:</p>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
+              <li><a href="/private-rehab-south-africa" style="color:#162B3B;">Private rehab in South Africa</a>: best value for longer-term and secondary care</li>
+              <li><a href="/private-rehab-spain" style="color:#162B3B;">Private rehab in Spain</a>: close to the UK, easy family involvement</li>
+              <li><a href="/private-rehab-thailand" style="color:#162B3B;">Private rehab in Thailand</a>: established centres, distance from triggers</li>
+              <li><a href="/private-rehab-sri-lanka" style="color:#162B3B;">Private rehab in Sri Lanka</a>: intimate, highly personalised settings</li>
+            </ul>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Frequently Asked Questions</h2>
+            <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;">
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">How much does private rehab cost in the UK?</dt>
+              <dd>There is no single figure. Costs depend on detox needs, location, clinical intensity, accommodation, length of stay, and specialist input. We help you understand what a given level of care involves rather than quoting a fixed price.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is UK private rehab always the best option?</dt>
+              <dd>No. UK rehab suits some situations, but overseas residential treatment, medically supervised detox, structured online recovery support or family intervention may be more appropriate for others. An independent view helps work out which route fits before money is committed.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Should I choose UK rehab or overseas rehab?</dt>
+              <dd>It depends on clinical need, safety, budget, family situation, and recovery history. UK suits proximity and continuity; overseas can offer better value, longer duration, or more distance from triggers. An independent comparison is worth having first.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Can Insight Recovery Network help me understand my options before contacting a rehab?</dt>
+              <dd>Yes. We give an independent, clinically informed view and help you compare the realistic routes before you contact treatment centres directly. We do not refer into UK facilities or work on commission from them.</dd>
+            </dl>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
     route: "/assessments",
     file: "assessments.html",
     title: "Free Addiction &amp; Mental Health Assessments | Insight Recovery Network",
@@ -2720,6 +2798,7 @@ const SITEMAP_PAGE_META = {
   "/about-insight-recovery-network":             { changefreq: "monthly", priority: "0.9" },
   "/online-addiction-recovery-programme-uk":     { changefreq: "monthly", priority: "0.9" },
   "/private-rehab-alternative-uk":               { changefreq: "monthly", priority: "0.9" },
+  "/private-rehab-uk":                           { changefreq: "monthly", priority: "0.9" },
   "/assessments/alcohol-detox":                  { changefreq: "monthly", priority: "0.7" },
   "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
   "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },

@@ -184,7 +184,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
 
       {/* Intro */}
       <section
-        className="py-20 md:py-28"
+        className="py-14 md:py-20"
         style={{
           background:
             "linear-gradient(160deg, #F2EDE3 0%, #F6F4EF 50%, #EEE9DF 100%)",

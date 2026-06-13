@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
-import { getDestination } from "@/data/destinations";
+import { getDestination, destinations } from "@/data/destinations";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 
@@ -30,7 +30,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${canonicalUrl}#service`,
-    name: `Private Rehab Placement — ${d.country}`,
+    name: `Private Rehab Placement: ${d.country}`,
     serviceType: "Addiction treatment placement guidance",
     description: d.metaDescription,
     image: `${SITE_URL}${d.heroImage}`,
@@ -104,7 +104,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       </section>
 
       {/* Why this destination */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-10">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
@@ -124,7 +124,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       </section>
 
       {/* Costs */}
-      <section className="py-16 md:py-24 border-b border-border/40 bg-secondary/20">
+      <section className="py-12 md:py-20 border-b border-border/40 bg-secondary/20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
@@ -151,8 +151,46 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         </div>
       </section>
 
+      {/* Mid-page CTA: speak with Craig before contacting facilities */}
+      <section className="py-12 md:py-16 border-b border-border/40 bg-primary">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/90 mb-4">
+              Before you contact facilities directly
+            </p>
+            <h2 className="font-serif text-2xl md:text-3xl font-medium leading-tight text-primary-foreground mb-4">
+              Not sure whether {d.country} is clinically appropriate?
+            </h2>
+            <p className="text-primary-foreground/80 leading-relaxed font-light mb-7 max-w-2xl">
+              Speak confidentially with Craig Bilton first. Facilities are naturally focused on their
+              own programmes; our role is different. A short, independent conversation can tell you
+              whether {d.country} fits your situation clinically and practically before you commit to
+              anyone.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/contact">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary text-sm font-medium hover:bg-white/90 transition-colors w-full sm:w-auto"
+                >
+                  Speak Confidentially with Craig
+                </button>
+              </Link>
+              <Link href="/assessments">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/25 text-primary-foreground text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto"
+                >
+                  Take a Free Assessment
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who it suits */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-10">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary">
@@ -167,8 +205,15 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
               </li>
             ))}
           </ul>
+          {d.clinicalNote && (
+            <blockquote className="max-w-3xl border-l-2 border-accent pl-5 md:pl-6 mb-8">
+              <p className="font-serif text-lg md:text-xl text-primary leading-relaxed italic">
+                {d.clinicalNote}
+              </p>
+            </blockquote>
+          )}
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
-            Not sure whether {d.country} is the right setting — or whether residential treatment is
+            Not sure whether {d.country} is the right setting, or whether residential treatment is
             needed at all? Start with a{" "}
             <Link
               href="/assessments"
@@ -189,7 +234,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary">
@@ -207,9 +252,60 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         </div>
       </section>
 
+      {/* Explore other destinations: internal linking */}
+      <section className="py-12 md:py-20 border-b border-border/40 bg-secondary/20">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-2xl mb-8">
+            <h2 className="font-serif text-2xl md:text-3xl font-medium leading-tight text-primary mb-4">
+              Compare other treatment destinations
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              The right setting depends on clinical need, budget, family situation, and how much
+              distance from home is helpful. Explore the alternatives, or start with{" "}
+              <Link
+                href="/treatment-placement"
+                className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors"
+              >
+                our placement overview
+              </Link>
+              .
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {destinations
+              .filter((o) => o.slug !== d.slug)
+              .map((o) => (
+                <Link
+                  key={o.slug}
+                  href={`/${o.slug}`}
+                  className="group border border-border/40 bg-white rounded-sm p-5 hover:border-accent/50 transition-colors block"
+                >
+                  <h3 className="font-serif text-lg font-medium text-primary group-hover:text-accent/90 transition-colors mb-1">
+                    Private Rehab in {o.country}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    From around £{o.costLow.toLocaleString()} · guide range
+                  </p>
+                </Link>
+              ))}
+            <Link
+              href="/private-rehab-uk"
+              className="group border border-border/40 bg-white rounded-sm p-5 hover:border-accent/50 transition-colors block"
+            >
+              <h3 className="font-serif text-lg font-medium text-primary group-hover:text-accent/90 transition-colors mb-1">
+                Private Rehab in the UK
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Detox, residential treatment &amp; placement guidance
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CTASection
         heading={`Considering treatment in ${d.country}?`}
-        body="A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. Independent guidance, no pressure, no commercial ties to any facility."
+        body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. Independent guidance, no pressure, no commercial ties to any facility."
         primaryLabel="Speak confidentially"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"

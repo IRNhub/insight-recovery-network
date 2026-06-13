@@ -163,7 +163,7 @@ export default function AlcoholDetoxAssessment() {
 
       {/* Intro / landing */}
       <section
-        className="py-20 md:py-28"
+        className="py-14 md:py-20"
         style={{
           background: "linear-gradient(160deg, #F2EDE3 0%, #F6F4EF 50%, #EEE9DF 100%)",
           borderBottom: "1px solid rgba(201,169,110,0.2)",

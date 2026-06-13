@@ -30,7 +30,7 @@ export default function ThankYou() {
         canonical="/thank-you"
         noIndex
       />
-      <section className="py-20 md:py-28 bg-secondary/20">
+      <section className="py-14 md:py-20 bg-secondary/20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl">
             <div className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center mb-6">

@@ -15,7 +15,7 @@ export default function Contact() {
         canonical="/contact"
         ogImage={ogImageUrl(contactOg.file)}
       />
-      <section className="bg-secondary/20 py-16 md:py-24">
+      <section className="bg-secondary/20 py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-serif text-primary mb-6 leading-tight">
@@ -33,7 +33,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 -mt-10">
+      <section className="py-12 md:py-20 -mt-10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             <div className="lg:col-span-4 flex flex-col gap-10">

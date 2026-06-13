@@ -483,7 +483,7 @@ export default function Home() {
       </section>
 
       {/* ── Why IRN (dark trust section) ── */}
-      <section className="py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+      <section className="py-12 md:py-20 lg:py-20 bg-primary text-primary-foreground relative overflow-hidden">
 
         {/* Subtle corner linework */}
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none">

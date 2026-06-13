@@ -23,7 +23,7 @@ export default function ServicesPricingGuide() {
         noIndex
       />
 
-      <section className="relative overflow-hidden bg-background py-16 md:py-24">
+      <section className="relative overflow-hidden bg-background py-12 md:py-20">
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{

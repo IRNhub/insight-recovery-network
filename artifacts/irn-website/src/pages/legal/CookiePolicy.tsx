@@ -30,7 +30,7 @@ export default function CookiePolicy() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24" style={{ background: "#FAFAF8" }}>
+      <section className="py-12 md:py-20" style={{ background: "#FAFAF8" }}>
         <div className="container mx-auto px-6 md:px-12 max-w-3xl">
           <div className="flex flex-col gap-10 text-sm font-light leading-relaxed text-muted-foreground">
 

@@ -229,7 +229,7 @@ export default function InsightOS() {
       </section>
 
       {/* ── Built for the daily work of recovery ── */}
-      <section id="platform-features" className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section id="platform-features" className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -273,7 +273,7 @@ export default function InsightOS() {
       </section>
 
       {/* ── Meet Anchor ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -339,7 +339,7 @@ export default function InsightOS() {
       </section>
 
       {/* ── What Insight OS helps you do ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -374,7 +374,7 @@ export default function InsightOS() {
       </section>
 
       {/* ── Not just content, an active recovery system — split layout ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -476,7 +476,7 @@ export default function InsightOS() {
 
       {/* ── Included with our recovery pathways ── */}
       <section
-        className="py-14 md:py-24 relative overflow-hidden"
+        className="py-12 md:py-20 relative overflow-hidden"
         style={{ background: "rgba(22,43,59,1)" }}
       >
         <div

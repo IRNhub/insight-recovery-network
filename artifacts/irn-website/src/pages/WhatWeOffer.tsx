@@ -220,7 +220,7 @@ export default function WhatWeOffer() {
       </div>
 
       {/* ── Core Services ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -293,7 +293,7 @@ export default function WhatWeOffer() {
       </section>
 
       {/* ── Who We Support ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -328,7 +328,7 @@ export default function WhatWeOffer() {
       </section>
 
       {/* ── How We Help You Find the Right Path ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -374,7 +374,7 @@ export default function WhatWeOffer() {
       </section>
 
       {/* ── Specialised Guidance ── */}
-      <section className="py-14 md:py-24 bg-primary text-primary-foreground relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-primary text-primary-foreground relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{

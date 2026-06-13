@@ -42,11 +42,55 @@ const indications = [
 ];
 
 const locations: Array<{ label: string; href?: string }> = [
-  { label: "United Kingdom" },
+  { label: "United Kingdom", href: "/private-rehab-uk" },
   { label: "South Africa", href: "/private-rehab-south-africa" },
   { label: "Thailand", href: "/private-rehab-thailand" },
   { label: "Spain", href: "/private-rehab-spain" },
   { label: "Sri Lanka", href: "/private-rehab-sri-lanka" },
+];
+
+const comparison: Array<{
+  country: string;
+  href: string;
+  bestFor: string;
+  cost: string;
+  advantage: string;
+}> = [
+  {
+    country: "South Africa",
+    href: "/private-rehab-south-africa",
+    bestFor: "Longer treatment, relapse history, extended care, budget-sensitive families",
+    cost: "From around £1,800/month up to around £10,000",
+    advantage: "Best value for longer-term treatment and secondary care",
+  },
+  {
+    country: "Spain",
+    href: "/private-rehab-spain",
+    bestFor: "UK proximity, family involvement, treatment close to home",
+    cost: "Around £4,000 to £28,000 for 28 days",
+    advantage: "Easy travel from the UK with a wide range of clinical and private options",
+  },
+  {
+    country: "Thailand",
+    href: "/private-rehab-thailand",
+    bestFor: "Privacy, distance from triggers, established international centres",
+    cost: "Around £8,000 to £15,000 for a standard 28-day stay",
+    advantage: "Well-established international rehab market with structured residential care",
+  },
+  {
+    country: "Sri Lanka",
+    href: "/private-rehab-sri-lanka",
+    bestFor: "Smaller, discreet, highly personalised treatment settings",
+    cost: "Around £12,000 to £18,000 for a standard stay",
+    advantage: "More intimate, individualised treatment environment",
+  },
+  {
+    country: "United Kingdom",
+    href: "/private-rehab-uk",
+    bestFor: "Proximity, family involvement, ease of travel, NHS/private continuity",
+    cost: "Varies widely by detox needs, length of stay and clinical intensity",
+    advantage: "Closest to home, with detox and residential options nationwide",
+  },
 ];
 
 const treatmentOg = getOgConfig("/treatment-placement")!;
@@ -56,7 +100,7 @@ export default function TreatmentPlacement() {
     <Layout>
       <SEO
         title={treatmentOg.seoTitle ?? treatmentOg.title}
-        description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure."
+        description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition, confidentially and without pressure."
         canonical="/treatment-placement"
         ogImage={ogImageUrl(treatmentOg.file)}
       />
@@ -161,7 +205,7 @@ export default function TreatmentPlacement() {
       </section>
 
       {/* ── Not all facilities section ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start max-w-6xl mx-auto">
 
@@ -270,8 +314,99 @@ export default function TreatmentPlacement() {
         </div>
       </section>
 
+      {/* ── International options comparison ── */}
+      <section className="py-12 md:py-20 bg-background">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 md:mb-12 max-w-3xl">
+            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
+              Comparing destinations
+            </span>
+            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight mb-4">
+              International treatment options at a glance.
+            </h2>
+            <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
+              A starting point, not a recommendation. The right destination depends on clinical need,
+              detox and mental health risk, budget, and family circumstances, which is exactly what a
+              confidential assessment works through. All costs are typical guide ranges only.
+            </p>
+          </div>
+
+          {/* Desktop / tablet table */}
+          <div className="hidden md:block overflow-hidden border border-border/40 rounded-xl bg-white" style={{ boxShadow: "0 2px 12px rgba(22,43,59,0.06)" }}>
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="bg-primary text-primary-foreground">
+                  <th className="font-serif font-medium text-[15px] px-5 py-4 w-[18%]">Destination</th>
+                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[30%] text-primary-foreground/80">Best suited for</th>
+                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[26%] text-primary-foreground/80">Typical guide cost</th>
+                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[26%] text-primary-foreground/80">Key advantage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, i) => (
+                  <tr
+                    key={row.country}
+                    className={`border-t border-border/40 align-top transition-colors hover:bg-secondary/30 ${i % 2 === 1 ? "bg-secondary/15" : ""}`}
+                  >
+                    <td className="px-5 py-5">
+                      <Link
+                        href={row.href}
+                        className="font-serif text-[17px] text-primary hover:text-accent transition-colors inline-flex items-center gap-1.5"
+                      >
+                        {row.country}
+                        <ArrowRight className="w-3.5 h-3.5 text-accent" />
+                      </Link>
+                    </td>
+                    <td className="px-5 py-5 text-[13.5px] text-muted-foreground font-light leading-relaxed">{row.bestFor}</td>
+                    <td className="px-5 py-5 text-[13.5px] text-primary/85 font-light leading-relaxed">{row.cost}</td>
+                    <td className="px-5 py-5 text-[13.5px] text-muted-foreground font-light leading-relaxed">{row.advantage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile stacked cards */}
+          <div className="md:hidden flex flex-col gap-4">
+            {comparison.map((row) => (
+              <Link
+                key={row.country}
+                href={row.href}
+                className="group block border border-border/40 rounded-xl bg-white p-5"
+                style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-serif text-lg text-primary group-hover:text-accent transition-colors">{row.country}</h3>
+                  <ArrowRight className="w-4 h-4 text-accent flex-shrink-0" />
+                </div>
+                <dl className="flex flex-col gap-2.5">
+                  <div>
+                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Best suited for</dt>
+                    <dd className="text-[13px] text-muted-foreground font-light leading-relaxed">{row.bestFor}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Typical guide cost</dt>
+                    <dd className="text-[13px] text-primary/85 font-light leading-relaxed">{row.cost}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Key advantage</dt>
+                    <dd className="text-[13px] text-muted-foreground font-light leading-relaxed">{row.advantage}</dd>
+                  </div>
+                </dl>
+              </Link>
+            ))}
+          </div>
+
+          <p className="text-[11.5px] text-muted-foreground/60 font-light leading-relaxed italic mt-5 max-w-3xl">
+            Guide ranges only. Actual costs depend on the facility, length of stay, level of medical
+            care required, and accommodation. Where detox is needed, withdrawal risk must be assessed
+            before any placement or travel.
+          </p>
+        </div>
+      </section>
+
       {/* ── How placement guidance works ── */}
-      <section className="py-14 md:py-24 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -283,7 +418,7 @@ export default function TreatmentPlacement() {
           </div>
 
           <div className="relative">
-            {/* Horizontal connector — desktop only */}
+            {/* Horizontal connector: desktop only */}
             <div
               className="hidden md:block absolute top-[1.625rem] left-[calc(12.5%+1.25rem)] right-[calc(12.5%+1.25rem)] h-px pointer-events-none"
               style={{ background: "rgba(201,169,110,0.25)" }}
@@ -316,7 +451,7 @@ export default function TreatmentPlacement() {
       </section>
 
       {/* ── When treatment placement may be appropriate ── */}
-      <section className="py-14 md:py-24" style={{ background: "rgba(246,244,240,0.55)" }}>
+      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-10 md:mb-14">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">

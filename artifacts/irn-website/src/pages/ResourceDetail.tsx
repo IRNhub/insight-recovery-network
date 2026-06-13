@@ -370,7 +370,7 @@ export default function ResourceDetail() {
       </Helmet>
 
       {/* ── Article header ── */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto">
             <Link
@@ -440,7 +440,7 @@ export default function ResourceDetail() {
       )}
 
       {/* ── Article body ── */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
             {parseContent(article.content)}

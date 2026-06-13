@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground py-16 md:py-24 border-t border-primary/20">
+    <footer className="bg-primary text-primary-foreground py-12 md:py-20 border-t border-primary/20">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4 flex flex-col gap-6">
@@ -32,6 +32,11 @@ export function Footer() {
               <li>
                 <Link href="/treatment-placement" className="hover:text-accent transition-colors">
                   Treatment Placement
+                </Link>
+              </li>
+              <li>
+                <Link href="/private-rehab-uk" className="hover:text-accent transition-colors">
+                  Private Rehab UK Guidance
                 </Link>
               </li>
               <li>

@@ -95,7 +95,7 @@ export default function PrivateRehabAlternativeUK() {
       </Helmet>
 
       {/* Hero */}
-      <section className="py-20 md:py-28 border-b border-border/40">
+      <section className="py-14 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
@@ -130,7 +130,7 @@ export default function PrivateRehabAlternativeUK() {
       </section>
 
       {/* Who this is for / When rehab is needed */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
@@ -180,7 +180,7 @@ export default function PrivateRehabAlternativeUK() {
       </section>
 
       {/* Options */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
@@ -208,7 +208,7 @@ export default function PrivateRehabAlternativeUK() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 md:py-24 border-b border-border/40">
+      <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary">
