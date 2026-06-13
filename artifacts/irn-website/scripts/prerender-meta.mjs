@@ -2174,12 +2174,15 @@ function buildDestinationBodyHtml(d) {
       <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(d.heroEyebrow)}</p>
-            <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">${escText(d.heroHeading)}</h1>
-            ${p(d.heroIntro)}
-            <div style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-top:1rem;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
-              <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">How Placement Works</a>
+            <img src="${escText(d.heroImage)}" alt="${escText(d.heroImageAlt)}" style="display:block;width:100%;height:auto;border:1px solid rgba(22,43,59,0.12);background:#162B3B;margin-bottom:2rem;" />
+            <div style="max-width:760px;">
+              <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(d.heroEyebrow)}</p>
+              <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">${escText(d.heroHeading)}</h1>
+              ${p(d.heroIntro)}
+              <div style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-top:1rem;">
+                <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+                <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">How Placement Works</a>
+              </div>
             </div>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -2230,6 +2233,7 @@ function buildDestinationJsonLd(d) {
       name: `Private Rehab Placement — ${d.country}`,
       serviceType: "Addiction treatment placement guidance",
       description: d.metaDescription,
+      image: `${SITE_URL}${d.heroImage}`,
       provider: { "@id": `${SITE_URL}/#organization` },
       areaServed: { "@type": "Country", name: d.country },
       offers: {
@@ -2605,7 +2609,7 @@ async function main() {
         file: `${d.slug}.html`,
         title: esc(d.seoTitle),
         description: d.metaDescription,
-        ogImage: `${SITE_URL}/opengraph.jpg`,
+        ogImage: `${SITE_URL}${d.heroImage}`,
         body: buildDestinationBodyHtml(d),
       };
       const html = injectJsonLd(injectPageMeta(baseHtml, page), [

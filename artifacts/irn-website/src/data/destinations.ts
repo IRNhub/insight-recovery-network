@@ -9,6 +9,8 @@ export interface Destination {
   title: string;
   seoTitle: string;
   metaDescription: string;
+  heroImage: string;
+  heroImageAlt: string;
   heroEyebrow: string;
   heroHeading: string;
   heroIntro: string;
@@ -37,6 +39,9 @@ export const destinations: Destination[] = [
     seoTitle: "Private Rehab in Thailand | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
       "Considering private rehab in Thailand? Independent guidance on residential addiction treatment in Thailand — typical costs from £8,000 to £15,000, what to expect, and confidential placement support from Insight Recovery Network.",
+    heroImage: "/private-rehab-thailand-hero.png",
+    heroImageAlt:
+      "Private treatment placement hero image for Thailand with a tranquil residential rehab setting",
     heroEyebrow: "Treatment Placement — Thailand",
     heroHeading: "Private Rehab in Thailand",
     heroIntro:
@@ -101,6 +106,9 @@ export const destinations: Destination[] = [
     seoTitle: "Private Rehab in South Africa | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
       "Considering rehab in South Africa? Independent guidance on residential addiction treatment in South Africa — long-term programmes from around £1,800 per month up to around £10,000 for premium facilities. Confidential placement support.",
+    heroImage: "/private-rehab-south-africa-hero.png",
+    heroImageAlt:
+      "Private treatment placement hero image for South Africa with a residential rehab setting beneath mountains",
     heroEyebrow: "Treatment Placement — South Africa",
     heroHeading: "Private Rehab in South Africa",
     heroIntro:
@@ -165,6 +173,9 @@ export const destinations: Destination[] = [
     seoTitle: "Private Rehab in Spain | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
       "Considering private rehab in Spain? Independent guidance on residential addiction treatment in Spain — from around £4,000 to £28,000 depending on facility, close to the UK with discreet, high-quality options. Confidential placement support.",
+    heroImage: "/private-rehab-spain-hero.png",
+    heroImageAlt:
+      "Private treatment placement hero image for Spain with a Mediterranean residential rehab setting",
     heroEyebrow: "Treatment Placement — Spain",
     heroHeading: "Private Rehab in Spain",
     heroIntro:
@@ -229,6 +240,9 @@ export const destinations: Destination[] = [
     seoTitle: "Private Rehab in Sri Lanka | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
       "Considering rehab in Sri Lanka? Independent guidance on residential addiction treatment in Sri Lanka — typical costs from £12,000 to £18,000, intimate high-quality facilities, and confidential placement support from Insight Recovery Network.",
+    heroImage: "/private-rehab-sri-lanka-hero.png",
+    heroImageAlt:
+      "Private treatment placement hero image for Sri Lanka with a tropical residential rehab setting",
     heroEyebrow: "Treatment Placement — Sri Lanka",
     heroHeading: "Private Rehab in Sri Lanka",
     heroIntro:

@@ -33,6 +33,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
     name: `Private Rehab Placement — ${d.country}`,
     serviceType: "Addiction treatment placement guidance",
     description: d.metaDescription,
+    image: `${SITE_URL}${d.heroImage}`,
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: d.country },
     offers: {
@@ -51,7 +52,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         fullTitle={d.seoTitle}
         description={d.metaDescription}
         canonical={`/${d.slug}`}
-        ogImage={`${SITE_URL}/opengraph.jpg`}
+        ogImage={`${SITE_URL}${d.heroImage}`}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -59,35 +60,44 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       </Helmet>
 
       {/* Hero */}
-      <section className="py-20 md:py-28 border-b border-border/40">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
-              {d.heroEyebrow}
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              {d.heroHeading}
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
-              {d.heroIntro}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
-                >
-                  Speak Confidentially
-                </button>
-              </Link>
-              <Link href="/treatment-placement">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors"
-                >
-                  How Placement Works
-                </button>
-              </Link>
+      <section className="border-b border-border/40 bg-secondary/20">
+        <div className="container mx-auto px-6 md:px-12 py-10 md:py-14">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] gap-8 lg:gap-12 items-center">
+            <div className="overflow-hidden border border-border/40 bg-primary shadow-sm">
+              <img
+                src={d.heroImage}
+                alt={d.heroImageAlt}
+                className="block w-full aspect-[16/9] object-cover"
+              />
+            </div>
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
+                {d.heroEyebrow}
+              </p>
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.08] tracking-tight mb-6 text-primary">
+                {d.heroHeading}
+              </h1>
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
+                {d.heroIntro}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                  >
+                    Speak Confidentially
+                  </button>
+                </Link>
+                <Link href="/treatment-placement">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors"
+                  >
+                    How Placement Works
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
