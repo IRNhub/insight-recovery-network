@@ -27,6 +27,7 @@ const AboutInsightRecoveryNetwork = lazy(() => import("@/pages/AboutInsightRecov
 const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionRecoveryUK"));
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const PrivateRehabUK = lazy(() => import("@/pages/PrivateRehabUK"));
+const GetHelp = lazy(() => import("@/pages/GetHelp"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const ServicesPricingGuide = lazy(() => import("@/pages/ServicesPricingGuide"));
 const RecoveryPlanChecklistLanding = lazy(() => import("@/pages/RecoveryPlanChecklistLanding"));
@@ -201,6 +202,7 @@ function Router() {
         <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/private-rehab-uk" component={PrivateRehabUK} />
+        <Route path="/get-help" component={GetHelp} />
         <Route path="/private-rehab-thailand">{() => <DestinationRehab slug="private-rehab-thailand" />}</Route>
         <Route path="/private-rehab-south-africa">{() => <DestinationRehab slug="private-rehab-south-africa" />}</Route>
         <Route path="/private-rehab-spain">{() => <DestinationRehab slug="private-rehab-spain" />}</Route>
