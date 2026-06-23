@@ -155,6 +155,11 @@ function EnquiryForm() {
       });
 
       if (!response.ok) throw new Error(`Server responded with ${response.status}`);
+      // Meta Pixel: report a successful enquiry as a Lead for ad optimisation.
+      const w = window as unknown as { fbq?: (...args: unknown[]) => void };
+      if (typeof w.fbq === "function") {
+        w.fbq("track", "Lead", { content_name: "get-help enquiry" });
+      }
       navigate("/thank-you");
     } catch {
       setIsError(true);
