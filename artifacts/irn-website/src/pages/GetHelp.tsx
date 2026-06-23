@@ -33,6 +33,11 @@ const PROGRAMME_PRICE = "£950 to £1,950 a month"; // online recovery programme
 const PLACEMENT_FROM = "£1,800 a month"; // budget long-term placement abroad (entry point)
 const PLACEMENT_28DAY = "£4,500 to £28,000"; // standard 28-day residential range
 
+// Monetary value attached to each Lead event, so Meta treats these as high-value
+// conversions. Representative figure — change this single number to your real
+// typical deal value if different.
+const LEAD_VALUE_GBP = 75;
+
 const API_BASE = "/api";
 
 const READINESS_LABEL: Record<string, string> = {
@@ -158,7 +163,11 @@ function EnquiryForm() {
       // Meta Pixel: report a successful enquiry as a Lead for ad optimisation.
       const w = window as unknown as { fbq?: (...args: unknown[]) => void };
       if (typeof w.fbq === "function") {
-        w.fbq("track", "Lead", { content_name: "get-help enquiry" });
+        w.fbq("track", "Lead", {
+          value: LEAD_VALUE_GBP,
+          currency: "GBP",
+          content_name: "get-help enquiry",
+        });
       }
       navigate("/thank-you");
     } catch {
