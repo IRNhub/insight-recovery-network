@@ -5,12 +5,14 @@ export interface Article {
   author: string;
   authorRole: string;
   date: string;
+  updatedDate?: string;
   readingTime: number;
   category: string;
   content: string;
   image?: string;
   imageAlt?: string;
   faq?: Array<{ question: string; answer: string }>;
+  sources?: Array<{ title: string; publisher: string; url: string }>;
   seoTitle?: string;
   metaDescription?: string;
   ogTitle?: string;
@@ -38,6 +40,7 @@ export const articles: Article[] = [
       "author": "Craig Bilton",
       "authorRole": "Founder & Clinical Director",
       "date": "2026-06-12",
+      "updatedDate": "2026-06-30",
       "readingTime": 12,
       "category": "Family Support",
       "image": "/what-does-enabler-mean-in-addiction.png",
@@ -46,6 +49,18 @@ export const articles: Article[] = [
       "metaDescription": "Learn what enabling means in addiction, why families do it, and how to support someone without protecting the addiction.",
       "ogTitle": "What Does Enabler Mean in Addiction?",
       "ogDescription": "Learn what enabling means in addiction, why families do it, and how to support someone without protecting the addiction.",
+      "sources": [
+          {
+              "title": "Clinical guidelines for alcohol treatment: principles of care and family involvement",
+              "publisher": "Department of Health and Social Care",
+              "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/2-principles-of-care"
+          },
+          {
+              "title": "Advice for the families of people who use drugs",
+              "publisher": "NHS",
+              "url": "https://www.nhs.uk/live-well/addiction-support/advice-for-the-families-of-drug-users/"
+          }
+      ],
       "faq": [
           {
               "question": "What does enabler mean in addiction?",
@@ -602,6 +617,7 @@ export const articles: Article[] = [
       author: "Craig Bilton",
       authorRole: "Founder & Clinical Director",
       date: "2026-06-12",
+      updatedDate: "2026-06-30",
       readingTime: 11,
       category: "Relapse Prevention",
       image: "/relapse-prevention-plan-what-to-include.png",
@@ -610,6 +626,18 @@ export const articles: Article[] = [
       metaDescription: "Learn what a relapse prevention plan should include, from warning signs and triggers to support, structure, and clear action steps.",
       ogTitle: "Relapse Prevention Plan: What Should Actually Be Included?",
       ogDescription: "Learn what a relapse prevention plan should include, from warning signs and triggers to support, structure, and clear action steps.",
+      sources: [
+          {
+              title: "Clinical guidelines for alcohol treatment: psychosocial interventions and relapse prevention",
+              publisher: "Department of Health and Social Care",
+              url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/5-psychosocial-interventions",
+          },
+          {
+              title: "Alcohol-use disorders: diagnosis, assessment and management",
+              publisher: "NICE",
+              url: "https://www.nice.org.uk/guidance/cg115/chapter/Recommendations",
+          },
+      ],
       faq: [
           {
               question: "What should a relapse prevention plan include?",
@@ -837,6 +865,7 @@ export const articles: Article[] = [
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-06-12",
+    updatedDate: "2026-06-30",
     readingTime: 9,
     category: "Alcohol Recovery",
     image: "/article-alcohol-withdrawal-symptoms-medical-help.png",
@@ -845,6 +874,23 @@ export const articles: Article[] = [
     metaDescription: "A clear guide to alcohol withdrawal symptoms, from mild to severe, and how to know when you need medical help or urgent care.",
     ogTitle: "Alcohol Withdrawal Symptoms: When You Need Medical Help",
     ogDescription: "A clear guide to alcohol withdrawal symptoms, from mild to severe, and how to know when you need medical help or urgent care.",
+    sources: [
+      {
+        title: "Alcohol-use disorder",
+        publisher: "NHS",
+        url: "https://www.nhs.uk/conditions/alcohol-use-disorder/",
+      },
+      {
+        title: "Alcohol support: withdrawal symptoms and when to call 999",
+        publisher: "NHS",
+        url: "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
+      },
+      {
+        title: "Clinical guidelines for alcohol treatment: specialist inpatient medically assisted withdrawal",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/12-specialist-inpatient-medically-assisted-withdrawal",
+      },
+    ],
     faq: [
       {
         question: "What are the most common alcohol withdrawal symptoms?",
@@ -978,6 +1024,7 @@ export const articles: Article[] = [
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-06-12",
+    updatedDate: "2026-06-30",
     readingTime: 9,
     category: "Alcohol Recovery",
     image: "/article-do-i-need-alcohol-rehab-or-online-support.png",
@@ -986,6 +1033,23 @@ export const articles: Article[] = [
     metaDescription: "Not sure whether you need residential rehab or online recovery support? Learn the signs that point to each, and how to choose the right level of help.",
     ogTitle: "Do I Need Alcohol Rehab or Online Support?",
     ogDescription: "Not sure whether you need residential rehab or online recovery support? Learn the signs that point to each, and how to choose the right level of help.",
+    sources: [
+      {
+        title: "Clinical guidelines for alcohol treatment: residential treatment and intensive structured day programmes",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/14-residential-treatment-and-intensive-structured-day-programmes",
+      },
+      {
+        title: "Alcohol support and intensive rehabilitation",
+        publisher: "NHS",
+        url: "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
+      },
+      {
+        title: "Alcohol-use disorders: assessment and treatment recommendations",
+        publisher: "NICE",
+        url: "https://www.nice.org.uk/guidance/cg115/chapter/Recommendations",
+      },
+    ],
     faq: [
       {
         question: "Do I need rehab or can online support work for me?",
@@ -1025,6 +1089,7 @@ export const articles: Article[] = [
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-06-12",
+    updatedDate: "2026-06-30",
     readingTime: 9,
     category: "Alcohol Recovery",
     image: "/article-private-alcohol-rehab-uk-costs-options-alternatives.png",
@@ -1033,6 +1098,23 @@ export const articles: Article[] = [
     metaDescription: "What private alcohol rehab costs in the UK, what drives the price, and the alternatives, including international placement and online recovery.",
     ogTitle: "Private Alcohol Rehab UK: Costs, Options and Alternatives",
     ogDescription: "What private alcohol rehab costs in the UK, what drives the price, and the alternatives, including international placement and online recovery.",
+    sources: [
+      {
+        title: "Find care services and inspection reports",
+        publisher: "Care Quality Commission",
+        url: "https://www.cqc.org.uk/care-services",
+      },
+      {
+        title: "Clinical guidelines for alcohol treatment: residential treatment and intensive structured day programmes",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/14-residential-treatment-and-intensive-structured-day-programmes",
+      },
+      {
+        title: "Alcohol support and routes into residential rehabilitation",
+        publisher: "NHS",
+        url: "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
+      },
+    ],
     faq: [
       {
         question: "How much does private alcohol rehab cost in the UK?",

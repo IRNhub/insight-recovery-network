@@ -44,6 +44,19 @@ function parseInlineLinks(text: string): React.ReactNode[] {
   return parts.map((part, idx) => {
     const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (m) {
+      if (/^https?:\/\//.test(m[2])) {
+        return (
+          <a
+            key={idx}
+            href={m[2]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-accent transition-colors duration-200"
+          >
+            {m[1]}
+          </a>
+        );
+      }
       return (
         <Link
           key={idx}
@@ -208,6 +221,19 @@ function parseContent(content: string) {
         }
         const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (linkMatch) {
+          if (/^https?:\/\//.test(linkMatch[2])) {
+            return (
+              <a
+                key={idx}
+                href={linkMatch[2]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline underline-offset-2 hover:text-accent transition-colors duration-200"
+              >
+                {linkMatch[1]}
+              </a>
+            );
+          }
           return (
             <Link
               key={idx}
@@ -335,7 +361,7 @@ export default function ResourceDetail() {
       },
     },
     datePublished: article.date,
-    dateModified: article.date,
+    dateModified: article.updatedDate ?? article.date,
     url: `${SITE_URL}${canonicalPath}`,
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -405,7 +431,9 @@ export default function ResourceDetail() {
               <div className="flex items-center gap-5 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1.5">
                   <Calendar size={13} strokeWidth={1.5} />
-                  {formatDate(article.date)}
+                  {article.updatedDate
+                    ? `Updated ${formatDate(article.updatedDate)}`
+                    : formatDate(article.date)}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Clock size={13} strokeWidth={1.5} />
@@ -447,6 +475,37 @@ export default function ResourceDetail() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
             {parseContent(article.content)}
+            {article.sources && article.sources.length > 0 && (
+              <aside className="mt-14 pt-8 border-t border-border/50" aria-labelledby="article-sources">
+                <h2 id="article-sources" className="font-serif text-2xl text-primary mb-3">
+                  Sources and further reading
+                </h2>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed mb-5">
+                  We use current clinical guidance and authoritative public-health information to support factual claims. Sources are checked when the article is updated.
+                </p>
+                <ul className="space-y-3">
+                  {article.sources.map((source) => (
+                    <li key={source.url} className="text-sm leading-relaxed">
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary underline underline-offset-2 hover:text-accent transition-colors"
+                      >
+                        {source.title}
+                      </a>
+                      <span className="text-muted-foreground"> — {source.publisher}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-xs text-muted-foreground mt-6">
+                  This article provides general information, not a diagnosis or individual medical advice. See our{" "}
+                  <Link href="/clinical-disclaimer" className="underline underline-offset-2 hover:text-primary">
+                    clinical disclaimer
+                  </Link>.
+                </p>
+              </aside>
+            )}
           </div>
         </div>
       </section>

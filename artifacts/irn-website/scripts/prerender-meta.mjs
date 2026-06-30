@@ -1462,6 +1462,35 @@ const PAGES = [
     `,
   },
   {
+    route: "/editorial-policy",
+    file: "editorial-policy.html",
+    title: "Editorial Policy | Insight Recovery Network",
+    description:
+      "How Insight Recovery Network researches, writes, sources, reviews and updates addiction and mental health information.",
+    ogImage: DEFAULT_OG_IMAGE,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:780px;margin:0 auto;padding:3rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Trust and transparency</p>
+          <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Editorial Policy</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:680px;">Insight Recovery Network publishes addiction, recovery and treatment information under Craig Bilton's authorship. Factual claims are checked against authoritative NHS, NICE, government, regulatory and research sources wherever possible.</p>
+          <h2 style="font-size:1.5rem;font-weight:500;margin:2rem 0 0.75rem;">Research and sources</h2>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;">Priority health articles display their principal sources. Safety-critical information is revisited when guidance changes or a reliable new source becomes available.</p>
+          <h2 style="font-size:1.5rem;font-weight:500;margin:2rem 0 0.75rem;">Corrections and transparency</h2>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;">Digital or AI-assisted tools may support research organisation, drafting and quality checks, but they do not replace editorial responsibility. To report an error, email <a href="mailto:info@insightrecoverynetwork.com" style="color:#162B3B;">info@insightrecoverynetwork.com</a>.</p>
+        </div>
+      </main>
+    `,
+  },
+  {
     route: "/clinical-disclaimer",
     file: "clinical-disclaimer.html",
     title: "Clinical Disclaimer | Insight Recovery Network",
@@ -2044,6 +2073,7 @@ function articleToPrerenderMeta(article) {
     image: siteImageUrl(article.image),
     imageAlt: article.imageAlt ?? SITE_NAME,
     date: article.date,
+    updatedDate: article.updatedDate ?? article.date,
     type: "article",
   };
 }
@@ -2305,6 +2335,13 @@ function buildArticleBodyHtml(meta, full) {
     month: "long",
     year: "numeric",
   });
+  const updatedDateFormatted = full.updatedDate
+    ? new Date(full.updatedDate).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })
+    : null;
 
   const faqHtml = full.faq?.length
     ? `
@@ -2322,6 +2359,22 @@ function buildArticleBodyHtml(meta, full) {
           </section>`
     : "";
 
+  const sourcesHtml = full.sources?.length
+    ? `
+          <aside style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);" aria-labelledby="article-sources">
+            <h2 id="article-sources" style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:0.75rem;">Sources and further reading</h2>
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;color:#4a5568;max-width:680px;margin-bottom:1rem;">We use current clinical guidance and authoritative public-health information to support factual claims. Sources are checked when the article is updated.</p>
+            <ul style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;color:#4a5568;padding-left:1.25rem;max-width:680px;">
+              ${full.sources
+                .map(
+                  (source) => `<li style="margin-bottom:0.6rem;"><a href="${escText(source.url)}" rel="noopener noreferrer" style="color:#162B3B;text-decoration:underline;">${escText(source.title)}</a> — ${escText(source.publisher)}</li>`
+                )
+                .join("")}
+            </ul>
+            <p style="font-family:sans-serif;font-size:0.75rem;line-height:1.6;color:#4a5568;margin-top:1.25rem;max-width:680px;">This article provides general information, not a diagnosis or individual medical advice. See our <a href="/clinical-disclaimer" style="color:#162B3B;text-decoration:underline;">clinical disclaimer</a>.</p>
+          </aside>`
+    : "";
+
   return `${STATIC_HEADER}
       <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
@@ -2331,10 +2384,11 @@ function buildArticleBodyHtml(meta, full) {
           <article>
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
-            <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${dateFormatted} · ${full.readingTime} min read</p>
+            <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
             ${markdownToHtml(full.content)}
           </article>
           ${faqHtml}
+          ${sourcesHtml}
           <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
@@ -2506,7 +2560,7 @@ function buildArticleJsonLd(meta, full) {
     description: meta.description,
     image: meta.image,
     datePublished: `${meta.date}T00:00:00+00:00`,
-    dateModified: `${meta.date}T00:00:00+00:00`,
+    dateModified: `${full?.updatedDate ?? meta.updatedDate ?? meta.date}T00:00:00+00:00`,
     inLanguage: "en-GB",
     author: {
       "@type": "Person",
@@ -2927,6 +2981,7 @@ const SITEMAP_PAGE_META = {
   "/terms-of-service":   { changefreq: "yearly",  priority: "0.4" },
   "/cookie-policy":      { changefreq: "yearly",  priority: "0.4" },
   "/clinical-disclaimer":{ changefreq: "yearly",  priority: "0.4" },
+  "/editorial-policy":   { changefreq: "yearly",  priority: "0.5" },
 };
 
 function generateSitemap(today) {

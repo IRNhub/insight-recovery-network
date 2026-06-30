@@ -137,6 +137,11 @@ export function Footer() {
                   Clinical Disclaimer
                 </Link>
               </li>
+              <li>
+                <Link href="/editorial-policy" className="hover:text-accent transition-colors">
+                  Editorial Policy
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
