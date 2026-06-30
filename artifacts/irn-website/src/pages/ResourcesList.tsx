@@ -46,7 +46,7 @@ export default function ResourcesList() {
     <Layout>
       <SEO
         title="Resources — Addiction, Recovery & Mental Health Articles"
-        description="Expert articles on addiction, recovery, mental health, and treatment options — written by clinical specialists to help individuals and families make informed decisions."
+        description="Expert articles on addiction, recovery, mental health, and treatment options — written by Craig Bilton to help individuals and families make informed decisions."
         canonical="/resources"
         ogImage={ogImageUrl("og-resources.png")}
       />

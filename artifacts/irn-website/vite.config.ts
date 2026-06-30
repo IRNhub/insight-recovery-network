@@ -76,7 +76,6 @@ function securityHeadersPlugin() {
     if (
       pathname === "/admin" ||
       pathname.startsWith("/admin/") ||
-      pathname === "/craig-bilton" ||
       pathname === "/recovery-plan-checklist/checklist" ||
       host === "insight-recovery-network.replit.app"
     ) {
@@ -98,7 +97,6 @@ function securityHeadersPlugin() {
 function noIndexHtmlPlugin() {
   const noIndexTitles: Record<string, string> = {
     "/admin": "IRN Admin | Insight Recovery Network",
-    "/craig-bilton": "Craig Bilton | Insight Recovery Network",
     "/recovery-plan-checklist/checklist": "Recovery Plan Checklist | Insight Recovery Network",
   };
 

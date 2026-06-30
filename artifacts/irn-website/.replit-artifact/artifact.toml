@@ -113,6 +113,14 @@ kind = "web"
   to = "/private-rehab-alternative-uk.html"
 
   [[services.production.rewrites]]
+  from = "/private-rehab-uk"
+  to = "/private-rehab-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/private-rehab-uk/"
+  to = "/private-rehab-uk.html"
+
+  [[services.production.rewrites]]
   from = "/terms-of-service"
   to = "/terms-of-service.html"
 
@@ -300,6 +308,12 @@ kind = "web"
   from = "/resources/why-willpower-is-not-a-recovery-plan/"
   to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
 
+  # Catch all current and future canonical article URLs. Exact entries above
+  # remain for backwards-compatible trailing-slash handling of older articles.
+  [[services.production.rewrites]]
+  from = "/resources/*"
+  to = "/_resources/*.html"
+
   # ── Destination placement pages ──────────────────────────────────────────────
   [[services.production.rewrites]]
   from = "/private-rehab-thailand"
@@ -342,6 +356,45 @@ kind = "web"
   from = "/recovery-plan-checklist/"
   to = "/recovery-plan-checklist.html"
 
+  # ── Explicit client-rendered utility routes ─────────────────────────────────
+  # Keep these before removing the global SPA fallback so arbitrary URLs can
+  # return the generated 404.html with a real HTTP 404 response.
+  [[services.production.rewrites]]
+  from = "/services-pricing-guide"
+  to = "/services-pricing-guide.html"
+
+  [[services.production.rewrites]]
+  from = "/services-pricing-guide/"
+  to = "/services-pricing-guide.html"
+
+  [[services.production.rewrites]]
+  from = "/craig-bilton"
+  to = "/craig-bilton.html"
+
+  [[services.production.rewrites]]
+  from = "/craig-bilton/"
+  to = "/craig-bilton.html"
+
+  [[services.production.rewrites]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+
+  [[services.production.rewrites]]
+  from = "/recovery-plan-checklist/checklist"
+  to = "/recovery-plan-checklist-app.html"
+
+  [[services.production.rewrites]]
+  from = "/get-help"
+  to = "/get-help.html"
+
+  [[services.production.rewrites]]
+  from = "/admin"
+  to = "/admin.html"
+
+  [[services.production.rewrites]]
+  from = "/admin/*"
+  to = "/admin.html"
+
   # ── Legacy redirects (static redirect pages, noindex) ────────────────────────
   [[services.production.rewrites]]
   from = "/about-us"
@@ -358,11 +411,6 @@ kind = "web"
   [[services.production.rewrites]]
   from = "/media/"
   to = "/media.html"
-
-  # ── SPA fallback for any client-side route not matched above ──────────────────
-  [[services.production.rewrites]]
-  from = "/*"
-  to = "/index.html"
 
   [services.env]
   PORT = "18088"

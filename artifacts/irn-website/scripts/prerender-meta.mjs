@@ -1490,6 +1490,108 @@ const PAGES = [
       </main>
     `,
   },
+  {
+    route: "/services-pricing-guide",
+    file: "services-pricing-guide.html",
+    title: "Services &amp; Pricing Guide | Insight Recovery Network",
+    description:
+      "A private guide to Insight Recovery Network services, treatment placement, online recovery programme options, and support pricing.",
+    ogImage: `${SITE_URL}/og-what-we-offer.png`,
+    noIndex: true,
+    body: `
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:900px;margin:0 auto;padding:4rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">Private guide</p>
+          <h1 style="font-size:clamp(2rem,5vw,3.75rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">Services &amp; Pricing Guide</h1>
+          <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:2rem;">A clear overview of treatment placement, online recovery programmes, family guidance, assessment and ongoing support.</p>
+          <p style="margin-bottom:2.5rem;"><a href="/services-pricing-guide-2026.pdf" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">View the guide</a></p>
+          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What is inside</h2>
+          <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;margin-bottom:2.5rem;">
+            <li>Treatment placement, detox, residential rehab and longer-term care options</li>
+            <li>Online recovery programme levels and monthly pricing</li>
+            <li>Family guidance, assessment, crisis support and ongoing case support</li>
+          </ul>
+          <a href="/contact" style="font-family:sans-serif;color:#162B3B;">Contact Insight Recovery Network</a>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/craig-bilton",
+    file: "craig-bilton.html",
+    title: "Craig Bilton | Founder of Insight Recovery Network",
+    description:
+      "Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, supporting individuals and families with addiction recovery, treatment placement, and structured online support.",
+    ogImage: `${SITE_URL}/og-about.png`,
+    body: `
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:900px;margin:0 auto;padding:4rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">Founder &amp; Clinical Director</p>
+          <h1 style="font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;">Craig Bilton</h1>
+          <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:2rem;">Craig Bilton founded Insight Recovery Network to provide clear, practical and confidential guidance for individuals and families navigating addiction, treatment decisions, relapse risk and long-term recovery structure.</p>
+          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Experience and approach</h2>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1rem;">His background spans more than 20 years across addiction treatment, mental health support, residential rehabilitation, programme leadership, intervention work and international treatment placement.</p>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:2.5rem;">His work focuses on treatment suitability, family guidance, relapse prevention, aftercare structure and recovery support that fits the person rather than a single rigid model.</p>
+          <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Contact Craig</a>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/thank-you",
+    file: "thank-you.html",
+    title: "Enquiry Received | Insight Recovery Network",
+    description: "Thank you for contacting Insight Recovery Network. Your confidential enquiry has been received.",
+    ogImage: DEFAULT_OG_IMAGE,
+    noIndex: true,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Enquiry received</h1><p style="line-height:1.8;color:#4a5568;">Thank you for contacting Insight Recovery Network. We will review your enquiry and respond confidentially.</p></div></main>`,
+  },
+  {
+    route: "/recovery-plan-checklist/checklist",
+    file: "recovery-plan-checklist-app.html",
+    title: "Recovery Plan Checklist | Insight Recovery Network",
+    description: "A private checklist for assessing whether a recovery plan, treatment programme, or aftercare structure is the right fit.",
+    ogImage: DEFAULT_OG_IMAGE,
+    noIndex: true,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Recovery Plan Checklist</h1><p style="line-height:1.8;color:#4a5568;">A private interactive checklist for reviewing recovery planning and aftercare structure.</p></div></main>`,
+  },
+  {
+    route: "/get-help",
+    file: "get-help.html",
+    title: "Free, Confidential Addiction Support | Insight Recovery Network",
+    description: "Confidential guidance for people affected by their own or a loved one's addiction.",
+    ogImage: `${SITE_URL}/get-help-hero.png`,
+    noIndex: true,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Free, confidential addiction support</h1><p style="line-height:1.8;color:#4a5568;margin-bottom:2rem;">Clear guidance for you or someone you love, without pressure or judgement.</p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Speak Confidentially</a></div></main>`,
+  },
+  {
+    route: "/admin",
+    file: "admin.html",
+    title: "IRN Admin | Insight Recovery Network",
+    description: "Private administration area.",
+    ogImage: DEFAULT_OG_IMAGE,
+    noIndex: true,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:100vh;padding:4rem 2rem;"><div style="max-width:420px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2rem;margin-bottom:1rem;">Article Management</h1><p style="line-height:1.8;color:#4a5568;">Sign in to continue.</p></div></main>`,
+  },
+  {
+    route: "/404",
+    file: "404.html",
+    title: "Page Not Found | Insight Recovery Network",
+    description: "The requested page could not be found.",
+    ogImage: `${SITE_URL}/og-home.png`,
+    noIndex: true,
+    body: `
+      <main style="font-family:'Playfair Display',Georgia,serif;background:#F6F4F0;color:#162B3B;min-height:70vh;display:flex;align-items:center;">
+        <div style="max-width:680px;margin:0 auto;padding:4rem 2rem;text-align:center;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#6B7280;margin-bottom:1rem;">404 — Page Not Found</p>
+          <h1 style="font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">We couldn't find that page.</h1>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;">The page may have moved or no longer exists. You can return to the homepage or contact us for help.</p>
+          <a href="/" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Back to Homepage</a>
+          <a href="/contact" style="font-family:sans-serif;color:#162B3B;">Contact Us</a>
+        </div>
+      </main>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1521,6 +1623,13 @@ function injectPageMeta(baseHtml, page) {
     /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
     `$1${canonicalUrl}$2`
   );
+
+  if (page.noIndex) {
+    out = out.replace(
+      /(<meta\s+name="robots"\s+content=")[^"]*(")/,
+      "$1noindex, nofollow$2"
+    );
+  }
 
   // og:title
   out = out.replace(
@@ -2222,7 +2331,7 @@ function buildArticleBodyHtml(meta, full) {
           <article>
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
-            <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/about" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${dateFormatted} · ${full.readingTime} min read</p>
+            <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${dateFormatted} · ${full.readingTime} min read</p>
             ${markdownToHtml(full.content)}
           </article>
           ${faqHtml}
@@ -2374,7 +2483,7 @@ const PERSON_JSONLD = {
   name: "Craig Bilton",
   jobTitle: "Founder & Clinical Director",
   worksFor: { "@id": `${SITE_URL}/#organization` },
-  url: `${SITE_URL}/about`,
+  url: `${SITE_URL}/craig-bilton`,
   description:
     "Addiction treatment specialist with over 20 years of international experience spanning residential rehabilitation, online recovery support, and complex case management across the UK and internationally.",
   knowsAbout: [
@@ -2404,7 +2513,7 @@ function buildArticleJsonLd(meta, full) {
       "@id": `${SITE_URL}/#craig-bilton`,
       name: "Craig Bilton",
       jobTitle: "Founder & Clinical Director",
-      url: `${SITE_URL}/about`,
+      url: `${SITE_URL}/craig-bilton`,
     },
     publisher: {
       "@type": "Organization",
@@ -2765,7 +2874,10 @@ async function main() {
   const today = new Date().toISOString().split("T")[0];
   const sitemapXml = generateSitemap(today);
   const totalUrls =
-    SITEMAP_EXTRA.length + PAGES.length + LOADED_ARTICLES.length + LOADED_DESTINATIONS.length;
+    SITEMAP_EXTRA.length +
+    PAGES.filter((page) => !page.noIndex).length +
+    LOADED_ARTICLES.length +
+    LOADED_DESTINATIONS.length;
   writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
   console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, lastmod ${today})\n`);
 }
@@ -2781,9 +2893,6 @@ async function main() {
  */
 const SITEMAP_EXTRA = [
   { url: "/", changefreq: "weekly", priority: "1.0" },
-  { url: "/services-pricing-guide", changefreq: "monthly", priority: "0.7" },
-  // NOTE: add "/craig-bilton" here once the Craig Bilton profile page
-  // (src/pages/CraigBilton.tsx, currently uncommitted) is deployed.
 ];
 
 /** Destination pages loaded at runtime from src/data/destinations.ts. */
@@ -2828,7 +2937,7 @@ function generateSitemap(today) {
     urlEntry(p.url, p.changefreq, p.priority)
   );
 
-  const pageEntries = PAGES.map((p) => {
+  const pageEntries = PAGES.filter((p) => !p.noIndex).map((p) => {
     const meta = SITEMAP_PAGE_META[p.route] ?? { changefreq: "monthly", priority: "0.8" };
     return urlEntry(p.route, meta.changefreq, meta.priority);
   });
