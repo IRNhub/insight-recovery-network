@@ -48,6 +48,14 @@ kind = "web"
   to = "/clinical-disclaimer.html"
 
   [[services.production.rewrites]]
+  from = "/editorial-policy"
+  to = "/editorial-policy.html"
+
+  [[services.production.rewrites]]
+  from = "/editorial-policy/"
+  to = "/editorial-policy.html"
+
+  [[services.production.rewrites]]
   from = "/contact"
   to = "/contact.html"
 
