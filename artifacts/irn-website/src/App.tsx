@@ -87,6 +87,7 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/resources/structured-recovery-support-prevent-relapse": "/resources/how-structured-support-prevents-relapse",
   "/resources/what-does-enabler-mean-in-addiction": "/resources/what-does-enabler-mean",
   "/resources/addiction-intervention-uk": "/resources/how-to-stage-addiction-intervention-uk",
+  "/resources/detoxing-from-alcohol-symptoms-when-dangerous": "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help",
   "/drug-treatment":                     "/treatment-placement",
   "/drug-detox":                         "/treatment-placement",
   "/drug-rehabilitation":                "/treatment-placement",

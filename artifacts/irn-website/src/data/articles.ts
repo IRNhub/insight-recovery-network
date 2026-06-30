@@ -826,6 +826,7 @@ export const articles: Article[] = [
     metaDescription: "Alcohol detox symptoms can be mild or life-threatening. Learn the warning signs, when it is dangerous, and when to get urgent medical help.",
     ogTitle: "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
     ogDescription: "Alcohol detox symptoms can be mild or life-threatening. Learn the warning signs, when it is dangerous, and when to get urgent medical help.",
+    publishedStatus: "draft",
     faq: [
       {
         question: "Is alcohol detox dangerous?",
@@ -886,9 +887,19 @@ export const articles: Article[] = [
         url: "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
       },
       {
-        title: "Clinical guidelines for alcohol treatment: specialist inpatient medically assisted withdrawal",
+        title: "Clinical guidelines for alcohol treatment: pharmacological interventions",
         publisher: "Department of Health and Social Care",
-        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/12-specialist-inpatient-medically-assisted-withdrawal",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/10-pharmacological-interventions",
+      },
+      {
+        title: "Clinical guidelines for alcohol treatment: alcohol care in acute hospitals",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/16-alcohol-care-in-acute-hospitals",
+      },
+      {
+        title: "Alcohol-use disorders: diagnosis and management of physical complications",
+        publisher: "NICE",
+        url: "https://www.nice.org.uk/guidance/cg100",
       },
     ],
     faq: [
@@ -918,7 +929,7 @@ export const articles: Article[] = [
       },
       {
         question: "Should I stop drinking suddenly to get the symptoms over with?",
-        answer: "If you are physically dependent, no. Stopping suddenly can trigger dangerous withdrawal, including seizures. A planned, supported approach is far safer. Speak to your GP, a local alcohol service, or contact us before you stop.",
+        answer: "If you may be physically dependent, seek medical advice before making a sudden change. Stopping abruptly can cause serious withdrawal complications, including seizures. Speak to your GP or a local alcohol service about a medically informed plan; Insight Recovery Network can help you understand and locate support options but does not provide detoxification or medical advice.",
       },
     ],
     content: "When you stop drinking after a period of heavy use, your body does not simply switch off. It reacts. That reaction is what we call alcohol withdrawal, and the symptoms it produces can range from mildly unpleasant to genuinely dangerous.\n\nIf you are reading this because you are feeling shaky, anxious, or unwell after cutting down, or because you are worried about someone who is, this article will help you make sense of what is happening. It explains the full range of alcohol withdrawal symptoms, why they happen, roughly when they appear, and the part that matters most: how to know when you need medical help.\n\nOne thing to hold onto as you read. The point here is not to frighten you. Most withdrawal symptoms are uncomfortable rather than dangerous. But because the serious end of the scale can be life-threatening, it is worth understanding the warning signs clearly, so you can act calmly and quickly if you need to.\n\nIf you would like to understand the danger side of detox in more depth, our companion guide on [when alcohol detox is dangerous](/resources) goes further. This article focuses on recognising symptoms and judging when to get help.\n\n## Why Alcohol Withdrawal Happens\n\nTo understand the symptoms, it helps to understand the cause.\n\nAlcohol is a depressant. It slows down the nervous system. When someone drinks heavily over time, the brain adapts by becoming more excitable to keep things balanced. As long as alcohol keeps arriving, the two roughly cancel each other out.\n\nWhen the alcohol stops, that balance is suddenly lost. The nervous system is left in an overactive state, and there is nothing to calm it down. That overactivity is what produces withdrawal symptoms, from the trembling hands and racing heart through to, in severe cases, seizures.\n\nThis is also why the heavier and longer someone has been drinking, the stronger the withdrawal tends to be. The body has adapted more, so it has further to travel back to normal.\n\n## The Full Range of Alcohol Withdrawal Symptoms\n\nWithdrawal symptoms sit on a spectrum. Below are the most common ones people experience, grouped roughly by how serious they are. Most people will recognise some, but not all, of these.\n\n### Anxiety and restlessness\n\nAnxiety is one of the earliest and most common symptoms. It can feel like a constant unease, a sense of dread, or full physical panic. This happens because the overactive nervous system drives the body into a state of high alert. For many people this is the symptom that most tempts them back to drinking, simply to make the feeling stop.\n\n### Insomnia and disturbed sleep\n\nPoor sleep is almost universal in early withdrawal. You may struggle to fall asleep, wake repeatedly, or have vivid and disturbing dreams. Alcohol disrupts normal sleep architecture, and when it is removed, the brain takes time to relearn how to sleep properly. Sleep often remains poor for a while even after other symptoms settle.\n\n### Shaking and tremor\n\nTrembling, often in the hands, is a classic withdrawal sign. People sometimes call them the shakes. It is the visible result of an overstimulated nervous system, and it often appears first thing in the morning after a night without alcohol.\n\n### Sweating\n\nHeavy sweating, particularly at night or on the palms, is common. It reflects the body being in an overactive, stressed state. Sweating combined with vomiting can also lead to dehydration, which is worth keeping in mind.\n\n### Nausea and loss of appetite\n\nAn unsettled stomach, nausea, and sometimes vomiting are frequent in early withdrawal. Appetite often disappears at the same time, which can leave people poorly nourished at exactly the point their body needs support.\n\n### A fast or pounding heartbeat\n\nA racing heart and raised blood pressure are signs that the body is under real strain. Mild increases are common, but a heartbeat that feels very fast or irregular is a sign to seek medical advice rather than wait it out.\n\n### Confusion and difficulty concentrating\n\nAs symptoms intensify, some people find it hard to think clearly, hold a conversation, or remember things. This is a more serious sign, and a clear cue that medical input is needed.\n\n### Hallucinations\n\nIn more severe withdrawal, people may see, hear, or feel things that are not there. This is frightening and is a strong warning sign. Anyone experiencing hallucinations during withdrawal needs urgent medical assessment.\n\n### Seizures\n\nWithdrawal seizures are a medical emergency. They usually occur in the early part of withdrawal and are more likely in people who are heavily dependent or who have had withdrawal seizures before. A seizure always means calling 999.\n\nThe most severe form of withdrawal, delirium tremens, brings together several of these serious symptoms at once, severe confusion, hallucinations, a racing heart, and high temperature. It is a life-threatening emergency that needs hospital treatment.\n\n## A Rough Timeline of Symptoms\n\nPeople often want to know when symptoms will start, when they will be worst, and when they will ease. Everyone is different, but withdrawal tends to follow a broad shape.\n\nSymptoms usually begin within several hours of the last drink. Anxiety, shaking, sweating, and nausea tend to come first. Over the first day or two they often build and intensify.\n\nFor most people, symptoms peak somewhere in the first two to three days. This is also the period when the risk of seizures and serious complications is highest, which is why the early days are the ones to take most seriously.\n\nAfter the peak, symptoms generally start to settle. Physical symptoms often ease within roughly a week, although psychological symptoms such as poor sleep, anxiety, low mood, and cravings can linger for several weeks. This longer tail is one reason that getting through withdrawal is only the beginning, not the end, of the process.\n\n## How to Know When You Need Medical Help\n\nThis is the question that matters most, so let us be direct about it.\n\nYou should seek medical advice before you stop drinking, not just during withdrawal, if any of the following are true:\n\n- You drink heavily every day, or nearly every day\n- You have been drinking heavily for a long time\n- You drink in the morning, or feel you need a drink to function or steady your nerves\n- You have had withdrawal symptoms before when you cut down\n- You have ever had a withdrawal seizure or delirium tremens\n- You have other health problems, especially affecting the heart, liver, or brain\n\nIf these apply, please do not stop suddenly on your own. Your GP, a local alcohol service, or our team can help you plan a safe approach. Getting advice first is not an overreaction. It is the sensible thing to do.\n\nDuring withdrawal itself, contact NHS 111 for advice if symptoms are worrying you but are not severe, for example persistent vomiting, a fast heartbeat, or rising anxiety you cannot manage.\n\nCall 999 or go to A and E immediately if you or someone with you has any of these:\n\n- A seizure or fit\n- Severe confusion or not knowing where they are\n- Hallucinations\n- Chest pain or trouble breathing\n- A very high temperature\n- Loss of consciousness\n- Severe agitation or distress\n\nThere is never any shame in seeking help, and you will not be wasting anyone's time. Withdrawal can change quickly, and acting early is always the safer choice.\n\n## Why You Should Not Simply Push Through It\n\nThere is a common belief that withdrawal is just something to grit your teeth and get through. For some people that is true. For others it is a serious risk.\n\nThe problem is that people routinely underestimate their own level of dependence. The drinking has become so normal that they do not realise how much their body has adapted to it. They decide to stop, push through, and only discover how dependent they were when withdrawal turns severe.\n\nThis is exactly why a proper assessment matters. Knowing where you sit on the spectrum, before you stop, lets you make a safe choice rather than a risky guess. Our [assessment](/assessments) is a straightforward way to get that clarity.\n\nIf the assessment suggests you may need medical detox or residential care, our [treatment placement service](/treatment-placement) can help you find a safe and appropriate setting, in the UK or internationally, and talk you through the options.\n\n## After the Symptoms Pass\n\nWhen the physical symptoms ease, it is tempting to think the hard part is over. In reality, this is where the real work begins.\n\nWithdrawal clears alcohol from the body, but it does nothing to address why the drinking took hold in the first place, the stress, the habits, the emotional patterns, the triggers. Without addressing those, the risk of returning to drinking is high. This is not a personal weakness. It is simply what happens when the underlying causes are left untouched.\n\nFor people who are medically stable and ready to build something lasting, our [online recovery programme](/online-programme) provides structure, therapy, and accountability through group and one-to-one support. Alongside it, the [InsightOS](/insight-os) app gives you practical tools for managing cravings, mood, and relapse prevention day to day.\n\nThe goal is not just to survive the symptoms. It is to reach a point where you no longer need alcohol at all.\n\n## How Insight Recovery Network Can Help\n\nWherever you are with this, there is a clear next step.\n\nIf you may be physically dependent and need medical detox, do not stop on your own. Speak to your GP or contact us about [treatment placement](/treatment-placement).\n\nIf you are medically stable and want structure and support to stay well, our [online recovery programme](/online-programme) is designed for exactly that.\n\nAnd if you are not sure what you need, that is completely understandable. Start with an [assessment](/assessments) or [get in touch](/contact) for a confidential, judgement-free conversation.\n\n## Suggested Call to Action\n\n**If you are experiencing withdrawal symptoms, you do not have to manage this alone.**\n\nRecognising the symptoms is the first step. Knowing what to do next is the one that keeps you safe. Whether you need a safe medical detox, a structured programme to stay well, or simply a clear conversation about your options, Insight Recovery Network can help.\n\nComplete a confidential [assessment](/assessments) or [contact us today](/contact) for compassionate, clinically informed guidance.",
@@ -2085,61 +2096,216 @@ We are here to help you understand the most appropriate pathway forward. A priva
     slug: "what-happens-in-residential-rehabilitation",
     title: "What Happens in Residential Rehabilitation?",
     excerpt:
-      "Residential rehabilitation is often the most effective route for complex or severe addiction. Here is an honest account of what the process actually involves.",
+      "A stage-by-stage guide to residential rehabilitation, including assessment, detox where needed, therapy, daily structure, discharge planning and aftercare.",
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-04-14",
-    readingTime: 8,
+    updatedDate: "2026-06-30",
+    readingTime: 11,
     category: "Treatment Options",
+    seoTitle: "What Happens in Residential Rehab? A UK Guide",
+    metaDescription: "What happens in residential rehab? Understand assessment, detox, therapy, daily routines, programme length, discharge and aftercare in the UK.",
+    ogTitle: "What Happens in Residential Rehabilitation?",
+    ogDescription: "A practical UK guide to assessment, detox where needed, therapeutic programmes, daily routines, discharge planning and continuing care.",
+    sources: [
+      {
+        title: "Clinical guidelines for alcohol treatment: residential treatment and intensive structured day programmes",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/14-residential-treatment-and-intensive-structured-day-programmes",
+      },
+      {
+        title: "Clinical guidelines for alcohol treatment: psychosocial interventions",
+        publisher: "Department of Health and Social Care",
+        url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/5-psychosocial-interventions",
+      },
+      {
+        title: "Treatments for adults who misuse alcohol",
+        publisher: "NICE",
+        url: "https://www.nice.org.uk/guidance/cg115/ifp/chapter/treatments-for-adults-who-misuse-alcohol",
+      },
+      {
+        title: "Accommodation for persons who require treatment for substance misuse",
+        publisher: "Care Quality Commission",
+        url: "https://www.cqc.org.uk/guidance-regulation/providers/registration/scope-registration/regulated-activities/accommodation-persons-who-require-treatment-substance-misuse",
+      },
+    ],
+    faq: [
+      {
+        question: "What happens when someone first arrives at residential rehab?",
+        answer: "The service should confirm the person's needs, current substance use, withdrawal risk, physical and mental health, medication, safeguarding concerns and treatment goals. The exact admission process varies, but it should result in an individual plan rather than a standard programme being applied without assessment.",
+      },
+      {
+        question: "Does everyone entering rehab need a detox?",
+        answer: "No. Detoxification is needed when there is physical dependence and withdrawal requires medical management. It is separate from rehabilitation, although some registered services provide both. Detox decisions should be made by appropriately qualified medical professionals after assessment.",
+      },
+      {
+        question: "How long does residential rehabilitation last?",
+        answer: "There is no universally correct duration. UK guidance says length should reflect individual need rather than an arbitrary fixed period; residential alcohol programmes may run for several weeks and NICE guidance refers to programmes lasting up to 12 weeks in relevant circumstances. The discharge and continuing-care plan matter as much as the number of days in residence.",
+      },
+      {
+        question: "What therapy happens in residential rehab?",
+        answer: "Programmes vary, but may combine structured group work, individual psychological support, psychoeducation, recovery planning, peer or mutual-aid involvement and family work where appropriate and consented to. Ask who delivers each intervention, what training and supervision they receive, and how progress is reviewed.",
+      },
+      {
+        question: "How can I check a private rehab in England?",
+        answer: "Check whether the service and relevant regulated activities are registered with the Care Quality Commission, then read the current profile, registration details and inspection or assessment reports. Registration or a good rating does not replace an individual suitability assessment, but it is an essential due-diligence step.",
+      },
+      {
+        question: "What happens after residential rehab?",
+        answer: "A responsible service should begin discharge planning before the person leaves. The plan may include ongoing therapy or keyworking, medical follow-up where needed, peer support, family roles, relapse-response steps, accommodation and work considerations, and clear responsibility for coordinating continuing care.",
+      },
+    ],
     content: `
-Residential rehabilitation — commonly referred to as 'rehab' — remains one of the most clinically effective environments for treating moderate to severe addiction. Yet it is also one of the most misunderstood, often shaped in public perception by dramatic portrayals rather than clinical reality.
+Residential rehabilitation, usually shortened to rehab, is a period of structured addiction treatment in which a person lives at the service rather than attending appointments from home. It can provide distance from immediate pressures, a consistent daily routine and access to more intensive support than many community or online pathways can offer.
 
-This article offers a clear, honest account of what the process involves.
+It is not automatically the right option for everyone, and it is not a guarantee of recovery. The appropriate setting should follow an individual assessment of dependence, withdrawal risk, physical and mental health, other substance use, safeguarding, home circumstances, previous treatment and the person's own goals.
+
+This guide explains the usual stages, the questions worth asking and the distinction between medical detoxification, rehabilitation and continuing care.
 
 ## What Is Residential Rehabilitation?
 
-Residential rehabilitation is a structured, immersive treatment programme in which an individual lives within a clinical or therapeutic setting — typically for 28 days, although programmes of 60 or 90 days are common for more complex presentations. During this time, the individual is removed from their usual environment and supported through a combination of medical, therapeutic, and psychoeducational interventions.
+Residential rehabilitation is an intensive therapeutic programme delivered in a live-in setting. UK clinical guidance describes residential programmes as structured treatment that may include individual and group psychological interventions, psychoeducation, recovery-oriented activities, peer support, family involvement and case management.
 
-## The First Phase: Detoxification
+Residential rehabilitation is not the same thing as a holiday retreat, supported accommodation or medical detoxification. Some facilities provide detox and rehabilitation on the same site, while others admit people only after withdrawal has been completed elsewhere. The provider should explain exactly which regulated services it offers and who is clinically responsible for each stage.
 
-For individuals with physical dependence — whether to alcohol, opioids, benzodiazepines or other substances — the first phase of residential treatment is medically supervised detoxification. This is not the same as rehabilitation itself, though they are often provided sequentially within the same facility.
+## Before Admission: Assessment and Preparation
 
-Medically supervised detox involves the careful management of withdrawal symptoms using pharmaceutical protocols, monitoring of vital signs, and 24-hour clinical oversight. The duration of detox varies depending on the substance and severity of dependence but typically lasts between 5 and 10 days.
+A safe placement begins before arrival. The referring professional and receiving service should establish whether the programme can meet the person's needs and manage foreseeable risks.
+
+Assessment commonly considers:
+
+- Current alcohol, drug and prescribed-medication use
+- Previous withdrawal symptoms, seizures or delirium
+- Physical health and medication needs
+- Mental health, self-harm or suicide risk
+- Other substance use and interactions
+- Mobility, nutrition, cognitive or communication needs
+- Safeguarding and family circumstances
+- Previous treatment and what did or did not help
+- Housing, work, caring responsibilities and likely discharge environment
+
+This information helps determine whether the person needs hospital or specialist inpatient withdrawal, residential detoxification, rehabilitation without detox, or a different level of support. Insight Recovery Network can help families compare pathways and providers, but it does not diagnose, prescribe or decide medical detoxification protocols.
+
+## Detoxification, Where Clinically Required
+
+Detoxification manages withdrawal from alcohol or drugs. Rehabilitation addresses the behavioural, psychological, social and practical work of recovery. They are related but separate processes.
+
+Not everyone entering rehab needs a detox. Where physical dependence is present, a qualified medical professional should assess the risks and select an appropriate setting. The plan may involve monitoring, medication and escalation arrangements, but the exact approach and duration depend on the substance, withdrawal history, health and complexity of need. A reputable service should not promise a standard detox timetable before assessment.
+
+Alcohol, benzodiazepine and some other withdrawal situations can be dangerous. Anyone experiencing seizures, hallucinations, severe confusion, loss of consciousness, breathing difficulty or another acute crisis needs emergency medical care rather than an ordinary admission conversation. Call 999 in an emergency.
+
+## Arrival and the First Few Days
+
+On arrival, the service normally confirms consent, medication, belongings, contact arrangements and the treatment plan. There may be physical-health observations and further clinical assessment where the provider is registered and staffed to deliver them.
+
+The first days are also an adjustment. A person may be tired, anxious, ambivalent or unfamiliar with group living. Good services explain the routine, introduce key staff, identify immediate risks and agree early goals without expecting instant disclosure or progress.
+
+Rules around phones, visitors, money, leave and outside contact vary. These should be explained before admission, including the clinical or safeguarding reason for any restriction and how family contact will work.
 
 ## The Therapeutic Phase
 
-Once stabilised, the individual enters the substantive therapeutic component of the programme. This typically includes:
+The therapeutic programme should be personalised and reviewed, even when everyone follows a shared timetable. Depending on the service and the person's formulation, it may include:
 
-**Individual psychotherapy:** One-to-one sessions with a therapist or counsellor to explore the underlying drivers of addictive behaviour, address trauma, and develop personalised relapse prevention strategies.
+**Structured group work:** Facilitated groups may focus on motivation, coping skills, triggers, relationships, emotional regulation, relapse prevention and rebuilding daily life.
 
-**Group therapy:** Daily structured group sessions provide an opportunity to develop peer connection, challenge distorted thinking, and build communication skills in a safe environment.
+**Individual sessions:** One-to-one work may help the person understand their own patterns, review goals and address issues that are not suitable for a group. Ask whether this is counselling, psychotherapy, keyworking or another intervention, and who is qualified to deliver it.
 
-**Psychoeducation:** Educational sessions covering topics such as the neuroscience of addiction, triggers and craving management, family dynamics, and the process of recovery.
+**Psychoeducation and practical planning:** Sessions may cover alcohol and drug effects, cravings, high-risk situations, sleep, relationships, work, finances and recovery-support options.
 
-**Complementary therapies:** Many high-quality facilities offer trauma-focused adjuncts such as EMDR, yoga, mindfulness, equine therapy, or art therapy. These are not frivolous additions — for many people, trauma is at the root of their addiction.
+**Peer and mutual-aid support:** Some services use 12-step approaches, while others use SMART Recovery or different peer-support models. No single model suits everyone; the provider should explain its approach before admission.
 
-**Family involvement:** Where appropriate, family members are invited into the treatment process through sessions designed to repair relationships and equip those around the individual with the knowledge to provide appropriate support post-discharge.
+**Family work:** With appropriate consent and safeguards, families may receive education, structured meetings or help planning boundaries and support after discharge. Family involvement should not be used to pressure unsafe contact.
+
+**Health and wider-needs coordination:** A programme may need to coordinate with GPs, mental-health teams, prescribers, social care or other services. Residential treatment does not make unrelated medical or psychiatric needs disappear.
+
+Complementary activities such as exercise, mindfulness, creative work or time outdoors may support wellbeing, but they should not be presented as substitutes for appropriately delivered treatment.
 
 ## What Does a Typical Day Look Like?
 
-Structure is itself therapeutic. Days in residential treatment are carefully designed to re-establish routine, which is often absent in the lives of those struggling with addiction. A typical day might begin with a morning check-in or mindfulness practice, move through several group and individual sessions, include peer mealtimes and supervised recreation, and end with an evening reflection group.
+A typical day varies between providers. It may include a morning check-in, group sessions, individual appointments on selected days, shared meals, recovery assignments, exercise or wellbeing activities, peer-support meetings and an evening review.
 
-The absence of phones and external stressors — while potentially difficult at first — creates the contained environment that deep therapeutic work requires.
+Structure can help re-establish sleep, meals, attendance and accountability. However, a full timetable is not proof of quality. Ask what each activity is intended to achieve, who leads it, how staff are supervised and how the programme changes when someone's needs change.
+
+## How Long Does Residential Rehab Last?
+
+There is no universally correct number of days. UK guidance advises against arbitrary treatment lengths because need and complexity vary. NICE guidance for alcohol dependence refers to residential programmes lasting up to 12 weeks in relevant circumstances, while real-world programmes may be shorter or longer depending on the service and funding.
+
+Rather than choosing solely by a familiar label such as 28 days, ask:
+
+- What goals should be achievable in the proposed period?
+- Is detox included, and is it counted as programme time?
+- How often is progress and risk reviewed?
+- What happens if the person needs more or less time?
+- What continuing care begins immediately after discharge?
+
+The quality of assessment, treatment and transition planning matters more than a round number.
 
 ## After Residential Treatment
 
-The transition from residential care to everyday life is a critical juncture. Quality facilities invest significant time in aftercare planning, which typically includes:
+The period immediately after residential treatment can involve significant risk. The protected environment changes quickly, while family, work, access to substances, relationships and unresolved practical problems return. Discharge planning should therefore begin during treatment, not on the final day.
 
-- Establishing an ongoing therapeutic relationship (counsellor, psychotherapist, or psychiatrist)
-- Engagement with community-based support such as 12-step or SMART Recovery meetings
-- A structured relapse prevention plan
-- Regular check-ins or digital recovery tools to maintain accountability and structure
+A continuing-care plan may include:
+
+- Named follow-up professionals and appointment dates
+- Medical or prescribing follow-up where applicable
+- Ongoing individual, group or structured online support
+- Peer or mutual-aid meetings chosen by the person
+- A relapse-prevention and rapid-response plan
+- Family roles, boundaries and emergency contacts
+- Accommodation, employment, finance and safeguarding actions
+- Clear responsibility for coordinating the plan
+
+Our [online recovery programme](/online-programme) may provide continuing structure for people who are medically stable and suitable for remote support. It is not a replacement for medical care, crisis support or a higher level of treatment where those are needed.
+
+## How to Check a Residential Provider
+
+For services in England, confirm the provider and relevant regulated activities on the Care Quality Commission website. Read the current profile, registration details and inspection or assessment reports rather than relying only on testimonials or a sales conversation.
+
+The UK alcohol treatment guidelines advise practitioners making residential referrals to obtain the latest inspection report and refer only to services rated good quality or higher. Also ask about:
+
+- Who completes medical and psychiatric assessments
+- Whether detox is provided, and under which registration
+- Staff qualifications, staffing levels and clinical supervision
+- Medication management and emergency arrangements
+- Safeguarding, complaints and incident procedures
+- Evidence supporting the core programme
+- Family involvement and consent
+- Discharge planning and responsibility for aftercare
+- Total costs and what is not included
+
+International placements require equivalent checks against the regulator, licensing system and clinical governance of that country. A destination should never be chosen on setting or price alone.
 
 ## Is Residential Rehabilitation Right for Everyone?
 
-Not necessarily. Residential treatment is most appropriate for those with moderate to severe dependency, complex presentations, or those for whom previous outpatient attempts have been unsuccessful. Others may do well with structured online support, intensive outpatient treatment, or a combination of approaches.
+No. Many people receive appropriate alcohol or drug support in community, outpatient or online settings. Residential treatment may be considered where dependence or complexity is greater, the home environment is unsafe or unstable, previous less-intensive support has not been sufficient, or the person needs a contained therapeutic setting.
 
-The most important thing is matching the right level of care to the individual's specific needs. We help people and families navigate exactly this question.
+The decision should not be made from a website article alone. A suitably qualified professional should assess clinical needs and withdrawal risk. Insight Recovery Network can help individuals and families understand questions to ask, compare appropriate providers and coordinate placement; it is not a regulated healthcare provider and does not diagnose, prescribe or deliver emergency care.
+
+Explore [Private Rehab UK](/private-rehab-uk), compare [residential and online alternatives](/private-rehab-alternative-uk), or read about our independent [treatment placement service](/treatment-placement).
+
+## Frequently Asked Questions
+
+**What happens when someone first arrives at residential rehab?**
+The service should confirm the person's needs, current substance use, withdrawal risk, physical and mental health, medication, safeguarding concerns and treatment goals. The exact admission process varies, but it should result in an individual plan rather than a standard programme being applied without assessment.
+
+**Does everyone entering rehab need a detox?**
+No. Detoxification is needed when there is physical dependence and withdrawal requires medical management. It is separate from rehabilitation, although some registered services provide both. Detox decisions should be made by appropriately qualified medical professionals after assessment.
+
+**How long does residential rehabilitation last?**
+There is no universally correct duration. UK guidance says length should reflect individual need rather than an arbitrary fixed period; residential alcohol programmes may run for several weeks and NICE guidance refers to programmes lasting up to 12 weeks in relevant circumstances. The discharge and continuing-care plan matter as much as the number of days in residence.
+
+**What therapy happens in residential rehab?**
+Programmes vary, but may combine structured group work, individual psychological support, psychoeducation, recovery planning, peer or mutual-aid involvement and family work where appropriate and consented to. Ask who delivers each intervention, what training and supervision they receive, and how progress is reviewed.
+
+**How can I check a private rehab in England?**
+Check whether the service and relevant regulated activities are registered with the Care Quality Commission, then read the current profile, registration details and inspection or assessment reports. Registration or a good rating does not replace an individual suitability assessment, but it is an essential due-diligence step.
+
+**What happens after residential rehab?**
+A responsible service should begin discharge planning before the person leaves. The plan may include ongoing therapy or keyworking, medical follow-up where needed, peer support, family roles, relapse-response steps, accommodation and work considerations, and clear responsibility for coordinating continuing care.
+
+[CTA:/contact:Book a confidential call]
+If you are comparing residential treatment options, a confidential conversation can help you organise the questions, understand the available pathways and decide what professional assessment is needed next.
+[/CTA]
     `.trim(),
   },
   {

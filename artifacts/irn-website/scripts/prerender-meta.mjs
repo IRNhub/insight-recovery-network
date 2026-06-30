@@ -1915,16 +1915,6 @@ const ARTICLES = [
       type: "article"
   },
   {
-    slug: "detoxing-from-alcohol-symptoms-when-dangerous",
-    pageTitle: "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
-    ogTitle: "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
-    description: "Alcohol detox symptoms can be mild or life-threatening. Learn the warning signs, when it is dangerous, and when to get urgent medical help.",
-    image: `${SITE_URL}/article-detoxing-from-alcohol-symptoms-when-dangerous.png`,
-    imageAlt: "Calm person at a kitchen table representing alcohol detox symptoms and the need for safe support",
-    date: "2026-06-12",
-    type: "article",
-  },
-  {
     slug: "alcohol-withdrawal-symptoms-when-you-need-medical-help",
     pageTitle: "Alcohol Withdrawal Symptoms: When You Need Medical Help",
     ogTitle: "Alcohol Withdrawal Symptoms: When You Need Medical Help",
@@ -2022,14 +2012,13 @@ const ARTICLES = [
   },
   {
     slug: "what-happens-in-residential-rehabilitation",
-    pageTitle:
-      "What Happens in Rehab? | Insight Recovery",
+    pageTitle: "What Happens in Residential Rehab? A UK Guide",
     ogTitle: "What Happens in Residential Rehabilitation?",
-    description:
-      "Residential rehabilitation is often the most effective route for complex or severe addiction. Here is an honest account of what the process actually involves.",
+    description: "What happens in residential rehab? Understand assessment, detox, therapy, daily routines, programme length, discharge and aftercare in the UK.",
     image: `${SITE_URL}/opengraph.jpg`,
     imageAlt: "Insight Recovery Network",
     date: "2026-04-14",
+    updatedDate: "2026-06-30",
     type: "article",
   },
   {
