@@ -308,11 +308,199 @@ kind = "web"
   from = "/resources/why-willpower-is-not-a-recovery-plan/"
   to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
 
-  # Catch all current and future canonical article URLs. Exact entries above
-  # remain for backwards-compatible trailing-slash handling of older articles.
+  # Replit's static router does not substitute wildcards in rewrite targets.
+  # Keep every article explicit so crawler requests resolve to prerendered HTML.
   [[services.production.rewrites]]
-  from = "/resources/*"
-  to = "/_resources/*.html"
+  from = "/resources/what-does-enabler-mean"
+  to = "/_resources/what-does-enabler-mean.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-does-enabler-mean/"
+  to = "/_resources/what-does-enabler-mean.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/help-someone-with-addiction-without-enabling"
+  to = "/_resources/help-someone-with-addiction-without-enabling.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/help-someone-with-addiction-without-enabling/"
+  to = "/_resources/help-someone-with-addiction-without-enabling.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-to-do-when-someone-refuses-treatment"
+  to = "/_resources/what-to-do-when-someone-refuses-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-to-do-when-someone-refuses-treatment/"
+  to = "/_resources/what-to-do-when-someone-refuses-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-to-stage-addiction-intervention-uk"
+  to = "/_resources/how-to-stage-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-to-stage-addiction-intervention-uk/"
+  to = "/_resources/how-to-stage-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/family-boundaries-addiction-recovery"
+  to = "/_resources/family-boundaries-addiction-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/family-boundaries-addiction-recovery/"
+  to = "/_resources/family-boundaries-addiction-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-to-talk-to-someone-about-drinking-drug-use"
+  to = "/_resources/how-to-talk-to-someone-about-drinking-drug-use.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-to-talk-to-someone-about-drinking-drug-use/"
+  to = "/_resources/how-to-talk-to-someone-about-drinking-drug-use.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/when-should-family-consider-rehab"
+  to = "/_resources/when-should-family-consider-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/when-should-family-consider-rehab/"
+  to = "/_resources/when-should-family-consider-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-support-for-families"
+  to = "/_resources/addiction-support-for-families.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-support-for-families/"
+  to = "/_resources/addiction-support-for-families.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapse-meaning"
+  to = "/_resources/relapse-meaning.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapse-meaning/"
+  to = "/_resources/relapse-meaning.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapsing-does-not-mean-you-have-failed"
+  to = "/_resources/relapsing-does-not-mean-you-have-failed.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapsing-does-not-mean-you-have-failed/"
+  to = "/_resources/relapsing-does-not-mean-you-have-failed.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/slip-lapse-relapse-difference"
+  to = "/_resources/slip-lapse-relapse-difference.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/slip-lapse-relapse-difference/"
+  to = "/_resources/slip-lapse-relapse-difference.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-relapse-happens-before-substance-use"
+  to = "/_resources/why-relapse-happens-before-substance-use.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-relapse-happens-before-substance-use/"
+  to = "/_resources/why-relapse-happens-before-substance-use.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapse-prevention-plan"
+  to = "/_resources/relapse-prevention-plan.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/relapse-prevention-plan/"
+  to = "/_resources/relapse-prevention-plan.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-warning-signs"
+  to = "/_resources/addiction-warning-signs.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-warning-signs/"
+  to = "/_resources/addiction-warning-signs.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-to-do-after-relapse"
+  to = "/_resources/what-to-do-after-relapse.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/what-to-do-after-relapse/"
+  to = "/_resources/what-to-do-after-relapse.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-structured-support-prevents-relapse"
+  to = "/_resources/how-structured-support-prevents-relapse.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-structured-support-prevents-relapse/"
+  to = "/_resources/how-structured-support-prevents-relapse.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/detoxing-from-alcohol-symptoms-when-dangerous"
+  to = "/_resources/detoxing-from-alcohol-symptoms-when-dangerous.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/detoxing-from-alcohol-symptoms-when-dangerous/"
+  to = "/_resources/detoxing-from-alcohol-symptoms-when-dangerous.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help"
+  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help/"
+  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-long-does-alcohol-stay-in-your-system"
+  to = "/_resources/how-long-does-alcohol-stay-in-your-system.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-long-does-alcohol-stay-in-your-system/"
+  to = "/_resources/how-long-does-alcohol-stay-in-your-system.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/can-i-stop-drinking-without-rehab"
+  to = "/_resources/can-i-stop-drinking-without-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/can-i-stop-drinking-without-rehab/"
+  to = "/_resources/can-i-stop-drinking-without-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/do-i-need-alcohol-rehab-or-online-support"
+  to = "/_resources/do-i-need-alcohol-rehab-or-online-support.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/do-i-need-alcohol-rehab-or-online-support/"
+  to = "/_resources/do-i-need-alcohol-rehab-or-online-support.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/private-alcohol-rehab-uk-costs-options-alternatives"
+  to = "/_resources/private-alcohol-rehab-uk-costs-options-alternatives.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/private-alcohol-rehab-uk-costs-options-alternatives/"
+  to = "/_resources/private-alcohol-rehab-uk-costs-options-alternatives.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/alcohol-rehab-alternatives-uk"
+  to = "/_resources/alcohol-rehab-alternatives-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/alcohol-rehab-alternatives-uk/"
+  to = "/_resources/alcohol-rehab-alternatives-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-alcohol-recovery-programme-uk"
+  to = "/_resources/online-alcohol-recovery-programme-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/online-alcohol-recovery-programme-uk/"
+  to = "/_resources/online-alcohol-recovery-programme-uk.html"
 
   # ── Destination placement pages ──────────────────────────────────────────────
   [[services.production.rewrites]]

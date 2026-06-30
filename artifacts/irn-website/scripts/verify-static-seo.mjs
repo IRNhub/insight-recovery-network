@@ -69,6 +69,9 @@ for (const url of urls) {
   const pathname = parsed.pathname;
   const target = targetForPath(pathname);
   if (!target) fail(`${pathname} has no production rewrite or static target.`);
+  if (pathname.startsWith("/resources/") && !rewrites.some((rule) => rule.from === pathname)) {
+    fail(`${pathname} needs an explicit Replit rewrite; wildcard target substitution is unsupported.`);
+  }
 
   const targetPath = resolve(dist, target.replace(/^\//, ""));
   const html = read(targetPath);
