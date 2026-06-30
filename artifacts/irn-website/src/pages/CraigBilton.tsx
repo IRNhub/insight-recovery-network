@@ -28,7 +28,6 @@ export default function CraigBilton() {
         fullTitle="Craig Bilton | Founder of Insight Recovery Network"
         description="Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, supporting individuals and families with addiction recovery, treatment placement, and structured online support."
         canonical="/craig-bilton"
-        noIndex
       />
 
       <section className="relative overflow-hidden bg-background py-12 md:py-20">

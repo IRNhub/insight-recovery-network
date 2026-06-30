@@ -54,7 +54,7 @@ const PERSON_SCHEMA = {
   },
   description:
     "Addiction recovery specialist with over 20 years of international experience in residential rehabilitation, online recovery support, and complex case management.",
-  url: "https://www.insightrecoverynetwork.com/about",
+  url: "https://www.insightrecoverynetwork.com/craig-bilton",
 };
 
 export function Layout({ children }: LayoutProps) {

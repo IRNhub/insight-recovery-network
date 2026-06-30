@@ -323,6 +323,7 @@ export default function ResourceDetail() {
       "@type": "Person",
       name: article.author,
       jobTitle: article.authorRole,
+      url: `${SITE_URL}/craig-bilton`,
     },
     publisher: {
       "@type": "Organization",
@@ -396,7 +397,9 @@ export default function ResourceDetail() {
 
             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-border/40">
               <div className="flex flex-col gap-0.5">
-                <span className="text-sm font-medium text-primary">{article.author}</span>
+                <Link href="/craig-bilton" className="text-sm font-medium text-primary hover:text-accent transition-colors">
+                  {article.author}
+                </Link>
                 <span className="text-xs text-muted-foreground font-light">{article.authorRole}</span>
               </div>
               <div className="flex items-center gap-5 text-xs text-muted-foreground">
