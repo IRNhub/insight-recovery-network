@@ -4,6 +4,7 @@ import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
 import { Button } from "@/components/ui/button";
 import { Fragment } from "react";
 import { Shield, BookOpen, Map, Monitor, ArrowRight } from "lucide-react";
@@ -156,12 +157,12 @@ export default function Home() {
               <div className="flex flex-wrap gap-3 mb-7">
                 <Link href="/contact" data-testid="button-hero-primary">
                   <Button className="rounded-none h-12 px-7 text-sm">
-                    Speak Confidentially
+                    Book a confidential call
                   </Button>
                 </Link>
-                <Link href="/what-we-offer" data-testid="button-hero-secondary">
+                <Link href="/assessments" data-testid="button-hero-secondary">
                   <Button variant="outline" className="rounded-none h-12 px-7 text-sm border-primary/20 hover:bg-primary/5">
-                    Explore Support Options
+                    Take a free assessment
                   </Button>
                 </Link>
               </div>
@@ -402,6 +403,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="Individuals, families and professionals seeking clear addiction and recovery guidance."
+        problem="Clarifies the appropriate level of support, from online recovery to detox or residential treatment placement."
+        applies="Online across the UK and internationally, with treatment placement in the UK and selected overseas destinations."
+      />
 
       {/* ── Services — image-led 2×2 grid ── */}
       <section className="py-10 md:py-16 lg:py-20">
@@ -652,7 +659,7 @@ export default function Home() {
             </p>
             <Link href="/assessments">
               <button className="inline-flex items-center gap-3 px-7 h-12 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
-                View Free Assessments
+                Take a free assessment
                 <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
@@ -689,9 +696,10 @@ export default function Home() {
 
       {/* ── Final CTA ── */}
       <CTASection
-        heading="Speak Confidentially"
+        heading="Talk through the next step confidentially"
         description="You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family."
-        primaryCta={{ label: "Speak Confidentially", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );

@@ -3,8 +3,25 @@ import { Layout } from "@/components/layout/Layout";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Shield, Mail, Phone } from "lucide-react";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
 
 const contactOg = getOgConfig("/contact")!;
+
+const contactFaqs: FAQItem[] = [
+  {
+    question: "What happens after I submit an enquiry?",
+    answer: "We review the information you choose to share and respond to arrange a private conversation. That conversation is used to understand the situation and explain possible next steps without pressure or obligation.",
+  },
+  {
+    question: "Is contacting Insight Recovery Network confidential?",
+    answer: "Enquiries are handled discreetly and the information you provide is used to respond to your request. Please avoid sending unnecessary medical records or highly sensitive documents through the general form.",
+  },
+  {
+    question: "Can you help in an emergency or prescribe medication?",
+    answer: "No. Insight Recovery Network is not an emergency service and does not diagnose or prescribe. If someone is in immediate danger, call 999 or attend A&E; for urgent non-emergency medical advice use NHS 111.",
+  },
+];
 
 export default function Contact() {
   return (
@@ -19,7 +36,7 @@ export default function Contact() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-serif text-primary mb-6 leading-tight">
-              Speak Confidentially With Insight Recovery Network
+              Book a Confidential Call With Insight Recovery Network
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-light mb-8">
               We understand that making contact can be difficult. Your enquiry is completely confidential. We will only use your information to respond to your request for support.
@@ -32,6 +49,12 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="Individuals, families and professionals who want a private conversation about addiction, recovery or treatment options."
+        problem="Creates a clear, low-pressure starting point when the right next step is uncertain."
+        applies="Online and by telephone across the UK and internationally during standard business hours."
+      />
 
       <section className="py-12 md:py-20 -mt-10">
         <div className="container mx-auto px-6 md:px-12">
@@ -73,6 +96,8 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <FAQSection items={contactFaqs} heading="Before you make contact" />
     </Layout>
   );
 }

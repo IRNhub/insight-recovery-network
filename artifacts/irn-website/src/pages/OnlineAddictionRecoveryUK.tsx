@@ -132,7 +132,7 @@ export default function OnlineAddictionRecoveryUK() {
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Speak Confidentially
+                  Book a confidential call
                 </button>
               </Link>
               <Link href="/online-programme">
@@ -148,7 +148,7 @@ export default function OnlineAddictionRecoveryUK() {
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Take a Free Assessment
+                  Take a free assessment
                 </button>
               </Link>
             </div>
@@ -268,7 +268,7 @@ export default function OnlineAddictionRecoveryUK() {
       <CTASection
         heading="Find out whether online recovery support is right for you."
         body="A confidential conversation can help clarify whether online recovery support, treatment placement, or another level of care is most appropriate for your situation. No obligation, no pressure."
-        primaryLabel="Speak confidentially"
+        primaryLabel="Book a confidential call"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"

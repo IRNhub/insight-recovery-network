@@ -3,6 +3,9 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Users, User, Shield, CalendarCheck, Laptop, HeartHandshake } from "lucide-react";
@@ -102,6 +105,21 @@ const moreThanBullets = [
   "Clear accountability and review",
 ];
 
+const onlineProgrammeFaqs: FAQItem[] = [
+  {
+    question: "Who is the online recovery programme for?",
+    answer: "It is designed for adults who are medically stable and want structured support, accountability and relapse-prevention work without entering residential treatment. A confidential conversation helps establish whether this level of support fits the person's circumstances.",
+  },
+  {
+    question: "Does the online programme provide detox or emergency support?",
+    answer: "No. Insight Recovery Network does not provide medical detox, diagnosis, prescribing or emergency care. Anyone experiencing withdrawal symptoms or immediate risk should seek urgent medical advice; call 999 in an emergency.",
+  },
+  {
+    question: "Can online support be used after residential rehab?",
+    answer: "Yes. Structured online support can provide continuity, routine and relapse-prevention planning after discharge. The timing and level of support should reflect the person's discharge plan and current needs.",
+  },
+];
+
 const onlineProgrammeOg = getOgConfig("/online-programme")!;
 
 export default function OnlineProgramme() {
@@ -167,14 +185,14 @@ export default function OnlineProgramme() {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <Link href="/contact">
                   <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto">
-                    Enquire Now
+                    Book a confidential call
                   </Button>
                 </Link>
-                <a href="#whats-included">
+                <Link href="/assessments">
                   <Button variant="outline" size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
-                    View What's Included
+                    Take a free assessment
                   </Button>
-                </a>
+                </Link>
               </div>
               <p className="text-[11.5px] text-muted-foreground/55 font-light tracking-wide">
                 Private, structured, non-judgemental support.
@@ -250,6 +268,12 @@ export default function OnlineProgramme() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="Adults who are medically stable and want structured recovery support while remaining at home, at work or with family."
+        problem="Provides routine, accountability, practical recovery work and relapse-prevention support in everyday life."
+        applies="Delivered online across the UK and internationally; detox and emergency care are not provided."
+      />
 
       {/* ── Who this programme is for ── */}
       <section className="py-7 md:py-10" style={{ background: "rgba(246,244,240,0.55)" }}>
@@ -518,7 +542,7 @@ export default function OnlineProgramme() {
                     className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
                   >
-                    Enquire About Essential
+                    Book a confidential call
                   </button>
                 </Link>
               </div>
@@ -594,7 +618,7 @@ export default function OnlineProgramme() {
                       (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,169,110,0.15)";
                     }}
                   >
-                    Enquire About Structured
+                    Book a confidential call
                   </button>
                 </Link>
               </div>
@@ -645,7 +669,7 @@ export default function OnlineProgramme() {
                     className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
                   >
-                    Enquire About Enhanced
+                    Book a confidential call
                   </button>
                 </Link>
               </div>
@@ -667,11 +691,24 @@ export default function OnlineProgramme() {
         </div>
       </section>
 
+      <RelatedServiceLinks
+        links={[
+          { title: "Private Rehab Alternative UK", description: "Compare online support with residential and community options.", href: "/private-rehab-alternative-uk" },
+          { title: "Treatment Placement", description: "Explore a higher level of care when detox or residential support may be required.", href: "/treatment-placement" },
+          { title: "Private Rehab UK", description: "Understand when UK residential treatment may be appropriate.", href: "/private-rehab-uk" },
+          { title: "Family Guidance", description: "Help for families supporting someone through addiction or recovery.", href: "/what-we-offer#family-guidance" },
+          { title: "Detox Suitability Assessment", description: "Consider withdrawal risk before attempting to stop alcohol or drugs.", href: "/assessments/detox" },
+        ]}
+      />
+
+      <FAQSection items={onlineProgrammeFaqs} />
+
       {/* ── CTA ── */}
       <CTASection
         heading="Ready to build recovery with structure?"
         description="Start with a confidential consultation. We will help you understand whether the online programme is the right level of support for your situation."
-        primaryCta={{ label: "Enquire About the Programme", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );

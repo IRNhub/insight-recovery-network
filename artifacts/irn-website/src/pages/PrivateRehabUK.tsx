@@ -3,6 +3,8 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { ArrowRight } from "lucide-react";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
@@ -170,7 +172,7 @@ export default function PrivateRehabUK() {
                     type="button"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto"
                   >
-                    Speak Confidentially
+                    Book a confidential call
                   </button>
                 </Link>
                 <Link href="/assessments">
@@ -178,7 +180,7 @@ export default function PrivateRehabUK() {
                     type="button"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors w-full sm:w-auto"
                   >
-                    Take a Free Assessment
+                    Take a free assessment
                   </button>
                 </Link>
               </div>
@@ -207,6 +209,12 @@ export default function PrivateRehabUK() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="People considering private detox or residential addiction treatment in the United Kingdom, and families helping them decide."
+        problem="Explains when UK residential care may be appropriate and how to compare regulated providers carefully."
+        applies="Private treatment settings across the UK; provider assessment and availability vary."
+      />
 
       {/* When UK private rehab may be appropriate */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -431,7 +439,7 @@ export default function PrivateRehabUK() {
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary text-sm font-medium hover:bg-white/90 transition-colors w-full sm:w-auto"
                 >
-                  Speak Confidentially
+                  Book a confidential call
                 </button>
               </Link>
               <Link href="/assessments">
@@ -439,13 +447,23 @@ export default function PrivateRehabUK() {
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/25 text-primary-foreground text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto"
                 >
-                  Take a Free Assessment
+                  Take a free assessment
                 </button>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <RelatedServiceLinks
+        links={[
+          { title: "Treatment Placement", description: "See how independent placement guidance works from first conversation to admission.", href: "/treatment-placement" },
+          { title: "Private Rehab Alternatives", description: "Compare residential care with online and community-based support.", href: "/private-rehab-alternative-uk" },
+          { title: "Online Recovery Programme", description: "Structured support for people who do not need round-the-clock care.", href: "/online-programme" },
+          { title: "Detox Suitability Assessment", description: "Consider withdrawal risk before attempting to stop alcohol or drugs.", href: "/assessments/detox" },
+          { title: "International Rehab Options", description: "Compare treatment destinations in South Africa, Spain, Thailand and Sri Lanka.", href: "/treatment-placement#international-options" },
+        ]}
+      />
 
       {/* How IRN helps */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -492,9 +510,9 @@ export default function PrivateRehabUK() {
       <CTASection
         heading="Considering private rehab in the UK?"
         body="Compare your options first. A confidential conversation can clarify whether UK rehab, overseas treatment, detox, structured online support or family intervention is the most appropriate next step. Independent guidance, no pressure, no commercial ties to any facility."
-        primaryLabel="Speak Confidentially"
+        primaryLabel="Book a confidential call"
         primaryHref="/contact"
-        secondaryLabel="Take a Free Assessment"
+        secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
       />
     </Layout>

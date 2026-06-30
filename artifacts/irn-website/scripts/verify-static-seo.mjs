@@ -116,6 +116,45 @@ for (const utilityPath of [
   if (!/noindex, nofollow/i.test(html)) fail(`${utilityPath} must be noindex, nofollow.`);
 }
 
+const conversionPriorityPaths = [
+  "/treatment-placement",
+  "/private-rehab-uk",
+  "/private-rehab-alternative-uk",
+  "/online-programme",
+  "/what-we-offer",
+  "/contact",
+  "/private-rehab-south-africa",
+  "/private-rehab-spain",
+  "/private-rehab-thailand",
+  "/private-rehab-sri-lanka",
+];
+
+for (const pathname of conversionPriorityPaths) {
+  const target = targetForPath(pathname);
+  if (!target) fail(`Priority conversion route is unmapped: ${pathname}`);
+  const html = read(resolve(dist, target.replace(/^\//, "")));
+  for (const requiredText of [
+    "Who this is for",
+    "What it helps solve",
+    "Where it applies",
+    "Book a confidential call",
+    "Craig Bilton",
+    "not a regulated healthcare provider",
+  ]) {
+    if (!html.toLowerCase().includes(requiredText.toLowerCase())) {
+      fail(`${pathname} is missing conversion/trust content: ${requiredText}`);
+    }
+  }
+}
+
+for (const pathname of ["/treatment-placement", "/online-programme", "/what-we-offer", "/contact"]) {
+  const target = targetForPath(pathname);
+  const html = read(resolve(dist, target.replace(/^\//, "")));
+  if (!/Frequently asked questions|Before you make contact/i.test(html)) {
+    fail(`${pathname} is missing a visible FAQ section.`);
+  }
+}
+
 const notFound = read(resolve(dist, "404.html"));
 if (!/noindex, nofollow/i.test(notFound)) fail("404.html must be noindex, nofollow.");
 if (!/Page Not Found/i.test(notFound)) fail("404.html does not contain a clear not-found title.");

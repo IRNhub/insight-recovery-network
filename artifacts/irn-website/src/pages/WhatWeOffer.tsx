@@ -1,7 +1,11 @@
 import { SEO } from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
 import { ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 
@@ -115,6 +119,21 @@ const specialised = [
   },
 ];
 
+const servicesFaqs: FAQItem[] = [
+  {
+    question: "Where should I start if I do not know what support is needed?",
+    answer: "Start with a confidential call or one of the free assessments. We can then explain whether online support, family guidance, treatment placement or a regulated medical service appears to be the most appropriate next route.",
+  },
+  {
+    question: "Does Insight Recovery Network provide medical treatment?",
+    answer: "No. We are not a regulated healthcare provider and do not diagnose, prescribe or provide emergency care. Where medical detox or regulated treatment is required, we help people identify an appropriate provider.",
+  },
+  {
+    question: "Can families ask for guidance before their loved one agrees to treatment?",
+    answer: "Yes. Families can seek support to understand boundaries, communication, safety and realistic treatment options even when the person they are worried about is not ready to engage.",
+  },
+];
+
 export default function WhatWeOffer() {
   return (
     <Layout>
@@ -124,6 +143,19 @@ export default function WhatWeOffer() {
         canonical="/what-we-offer"
         ogImage={ogImageUrl("og-what-we-offer.png")}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Addiction Recovery Support and Treatment Guidance",
+            description: "Private treatment placement guidance, structured online recovery support, family guidance and digital recovery tools.",
+            provider: { "@type": "Organization", name: "Insight Recovery Network", url: "https://www.insightrecoverynetwork.com" },
+            areaServed: [{ "@type": "Country", name: "United Kingdom" }, { "@type": "Place", name: "International" }],
+            url: "https://www.insightrecoverynetwork.com/what-we-offer",
+          })}
+        </script>
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-14">
@@ -194,6 +226,12 @@ export default function WhatWeOffer() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="Individuals, families and professionals looking for private addiction recovery guidance and structured support."
+        problem="Clarifies which support route fits the situation and provides continuity from first enquiry through ongoing recovery."
+        applies="Online across the UK and internationally, with placement guidance for UK and overseas treatment."
+      />
 
       {/* ── Assessments callout ── */}
       <div
@@ -374,7 +412,7 @@ export default function WhatWeOffer() {
       </section>
 
       {/* ── Specialised Guidance ── */}
-      <section className="py-12 md:py-20 bg-primary text-primary-foreground relative overflow-hidden">
+      <section id="family-guidance" className="py-12 md:py-20 bg-primary text-primary-foreground relative overflow-hidden scroll-mt-28">
         <div
           className="absolute inset-0 opacity-[0.04] pointer-events-none"
           style={{
@@ -431,11 +469,24 @@ export default function WhatWeOffer() {
         </div>
       </section>
 
+      <RelatedServiceLinks
+        links={[
+          { title: "Treatment Placement", description: "Independent guidance for detox and residential rehabilitation options.", href: "/treatment-placement" },
+          { title: "Private Rehab UK", description: "Understand UK residential treatment and provider checks.", href: "/private-rehab-uk" },
+          { title: "Private Rehab Alternatives", description: "Compare online, community and residential support routes.", href: "/private-rehab-alternative-uk" },
+          { title: "Online Recovery Programme", description: "Structured recovery support delivered around everyday life.", href: "/online-programme" },
+          { title: "Detox Suitability Assessment", description: "Consider whether withdrawal may require medical support.", href: "/assessments/detox" },
+        ]}
+      />
+
+      <FAQSection items={servicesFaqs} />
+
       {/* ── CTA ── */}
       <CTASection
         heading="Unsure which route is right?"
         description="Start with a confidential conversation. We will help you understand the options without pressure, judgement, or obligation."
-        primaryCta={{ label: "Speak Confidentially", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );
