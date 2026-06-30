@@ -128,7 +128,7 @@ export default function RecoveryPlanChecklist() {
             </p>
             <Link href="/contact">
               <Button variant="secondary" size="lg" className="rounded-none h-12 px-8">
-                Speak confidentially
+                Book a confidential call
               </Button>
             </Link>
           </div>

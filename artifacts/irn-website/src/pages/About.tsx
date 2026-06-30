@@ -2,6 +2,7 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
+import { EditorialTrustNote } from "@/components/ui/service-summary";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
@@ -289,7 +290,7 @@ export default function About() {
                 <div>
                   <Link href="/contact">
                     <Button className="rounded-none h-11 px-7 text-sm">
-                      Speak Confidentially
+                      Book a confidential call
                     </Button>
                   </Link>
                 </div>
@@ -387,11 +388,18 @@ export default function About() {
         </div>
       </section>
 
+      <section className="py-8 md:py-10 border-t border-border/40 bg-secondary/15">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <EditorialTrustNote />
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <CTASection
         heading="Speak confidentially about your situation."
         description="There is no pressure, no obligation, and no need to have everything worked out. A private conversation can help clarify the most appropriate next step for you or your family."
-        primaryCta={{ label: "Arrange a confidential consultation", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );

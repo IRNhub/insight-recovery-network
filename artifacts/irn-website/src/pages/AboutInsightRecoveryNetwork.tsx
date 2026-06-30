@@ -249,7 +249,7 @@ export default function AboutInsightRecoveryNetwork() {
       <CTASection
         heading="Speak with us confidentially."
         body="If you would like to understand more about what Insight Recovery Network offers, or would like guidance on the most appropriate support for your situation, please get in touch. There is no obligation and no pressure."
-        primaryLabel="Get in touch"
+        primaryLabel="Book a confidential call"
         primaryHref="/contact"
         secondaryLabel="View all services"
         secondaryHref="/what-we-offer"

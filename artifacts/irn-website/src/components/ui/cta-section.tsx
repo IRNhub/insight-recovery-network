@@ -27,13 +27,13 @@ export function CTASection({
   isExternal
 }: CTASectionProps) {
   const resolvedPrimaryCta = primaryCta ?? {
-    label: primaryLabel ?? "Get in touch",
+    label: primaryLabel ?? "Book a confidential call",
     href: primaryHref ?? "/contact",
   };
   const resolvedSecondaryCta =
     secondaryCta ??
-    (secondaryLabel && secondaryHref
-      ? { label: secondaryLabel, href: secondaryHref }
+    (secondaryHref
+      ? { label: secondaryLabel ?? "Take a free assessment", href: secondaryHref }
       : undefined);
   const resolvedDescription = description ?? body;
 

@@ -536,7 +536,7 @@ export default function InsightOS() {
         heading="Ready to use Insight OS?"
         description="Access the platform or speak with us about how Insight OS can support your recovery pathway."
         primaryCta={{ label: "Open Insight OS", href: "https://irnonline.app" }}
-        secondaryCta={{ label: "Speak Confidentially", href: "/contact" }}
+        secondaryCta={{ label: "Book a confidential call", href: "/contact" }}
         isExternal={true}
       />
     </Layout>

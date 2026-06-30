@@ -99,7 +99,7 @@ function parseContent(content: string) {
     } else if (line.startsWith("[CTA:")) {
       const tagMatch = line.match(/^\[CTA:([^:]+):([^\]]+)\]$/);
       const ctaHref = tagMatch ? tagMatch[1] : "/contact";
-      const ctaLabel = tagMatch ? tagMatch[2] : "Speak Confidentially";
+      const ctaLabel = tagMatch ? tagMatch[2] : "Book a confidential call";
       const ctaLines: string[] = [];
       i++;
       while (i < lines.length && lines[i] !== "[/CTA]") {
@@ -534,7 +534,8 @@ export default function ResourceDetail() {
       <CTASection
         heading="Need guidance for your specific situation?"
         description="Our articles offer general information, but every person's situation is different. A confidential conversation can help clarify the most appropriate next step."
-        primaryCta={{ label: "Speak Confidentially", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );

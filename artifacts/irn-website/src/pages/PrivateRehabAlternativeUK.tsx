@@ -3,6 +3,8 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 
@@ -42,6 +44,16 @@ const faqSchema = {
     name: f.question,
     acceptedAnswer: { "@type": "Answer", text: f.answer },
   })),
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Private Rehab Alternatives and Online Recovery Support",
+  description: "Guidance on structured online recovery support, family support and treatment placement when residential care may be required.",
+  provider: { "@type": "Organization", name: "Insight Recovery Network", url: SITE_URL },
+  areaServed: { "@type": "Country", name: "United Kingdom" },
+  url: `${SITE_URL}/private-rehab-alternative-uk`,
 };
 
 const options = [
@@ -92,6 +104,7 @@ export default function PrivateRehabAlternativeUK() {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
       </Helmet>
 
       {/* Hero */}
@@ -113,7 +126,7 @@ export default function PrivateRehabAlternativeUK() {
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Speak Confidentially
+                  Book a confidential call
                 </button>
               </Link>
               <Link href="/assessments">
@@ -121,13 +134,19 @@ export default function PrivateRehabAlternativeUK() {
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors"
                 >
-                  Take a Free Assessment
+                  Take a free assessment
                 </button>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="People seeking structured addiction recovery support who may not need, want or be ready for residential rehabilitation."
+        problem="Compares realistic alternatives while keeping detox safety and the need for a proper assessment clear."
+        applies="Online across the UK and internationally; regulated detox or residential care is arranged separately when required."
+      />
 
       {/* Who this is for / When rehab is needed */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -179,6 +198,16 @@ export default function PrivateRehabAlternativeUK() {
         </div>
       </section>
 
+      <RelatedServiceLinks
+        links={[
+          { title: "Online Recovery Programme", description: "See how structured online recovery support works in everyday life.", href: "/online-programme" },
+          { title: "Private Rehab UK", description: "Understand when residential treatment may be the more appropriate route.", href: "/private-rehab-uk" },
+          { title: "Treatment Placement", description: "Get guidance when detox or residential care may be needed.", href: "/treatment-placement" },
+          { title: "Family Guidance", description: "Support for families navigating uncertainty, boundaries and treatment decisions.", href: "/what-we-offer#family-guidance" },
+          { title: "Detox Suitability Assessment", description: "Check whether stopping alcohol or drugs could require medical input.", href: "/assessments/detox" },
+        ]}
+      />
+
       {/* Options */}
       <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
@@ -229,10 +258,10 @@ export default function PrivateRehabAlternativeUK() {
       <CTASection
         heading="Not sure which route is right for you?"
         body="A confidential conversation can help clarify whether structured online support, treatment placement, or another approach is most appropriate. No obligation, no pressure."
-        primaryLabel="Speak confidentially"
+        primaryLabel="Book a confidential call"
         primaryHref="/contact"
-        secondaryLabel="View treatment placement options"
-        secondaryHref="/treatment-placement"
+        secondaryLabel="Take a free assessment"
+        secondaryHref="/assessments"
       />
     </Layout>
   );

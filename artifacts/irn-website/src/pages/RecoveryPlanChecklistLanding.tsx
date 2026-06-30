@@ -131,7 +131,7 @@ export default function RecoveryPlanChecklistLanding() {
                     </p>
                     <Link href="/contact">
                       <Button variant="outline" className="rounded-none h-11 px-6">
-                        Speak confidentially
+                        Book a confidential call
                       </Button>
                     </Link>
                   </div>

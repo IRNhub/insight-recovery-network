@@ -268,7 +268,7 @@ export function AssessmentResult({
                 className="rounded-none h-11 px-6 bg-white text-primary hover:bg-white/90 font-medium w-full sm:w-auto"
               >
                 <Calendar className="w-4 h-4 mr-2" />
-                Book a confidential consultation
+                Book a confidential call
               </Button>
             </Link>
             <Link href="/services" onClick={handleCtaClick}>

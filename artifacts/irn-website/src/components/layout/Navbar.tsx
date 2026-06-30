@@ -109,7 +109,7 @@ export function Navbar() {
                   variant="default"
                   className="rounded-none font-medium h-10 px-6"
                 >
-                  Speak Confidentially
+                  Book a confidential call
                 </Button>
               </Link>
             </nav>
@@ -180,7 +180,7 @@ export function Navbar() {
                     variant="default"
                     className="w-full rounded-none font-medium h-12"
                   >
-                    Speak Confidentially
+                    Book a confidential call
                   </Button>
                 </Link>
               </div>

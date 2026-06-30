@@ -240,7 +240,8 @@ export default function ResourcesList() {
       <CTASection
         heading="Speak with a clinical specialist."
         description="Our articles provide information, but every situation is different. A confidential conversation can help clarify the right next step for you or your loved one."
-        primaryCta={{ label: "Speak Confidentially", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
       />
     </Layout>
   );

@@ -2,6 +2,8 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { getDestination, destinations } from "@/data/destinations";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
@@ -13,6 +15,7 @@ interface DestinationRehabProps {
 export default function DestinationRehab({ slug }: DestinationRehabProps) {
   const d = getDestination(slug);
   if (!d) return null;
+  const otherDestinations = destinations.filter((destination) => destination.slug !== d.slug);
 
   // NOTE: Service + FAQPage JSON-LD for this route are emitted once, server-side,
   // by scripts/prerender-meta.mjs (buildDestinationJsonLd) into the static HTML.
@@ -56,15 +59,15 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                     type="button"
                     className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                   >
-                    Speak Confidentially
+                    Book a confidential call
                   </button>
                 </Link>
-                <Link href="/treatment-placement">
+                <Link href="/assessments">
                   <button
                     type="button"
                     className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-sm font-medium hover:bg-muted transition-colors"
                   >
-                    How Placement Works
+                    Take a free assessment
                   </button>
                 </Link>
               </div>
@@ -72,6 +75,12 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who={`People comparing private residential addiction treatment in ${d.country}, and families supporting that decision.`}
+        problem="Explains likely fit, practical considerations and questions to ask before approaching a facility."
+        applies={`Private treatment in ${d.country}; final suitability, admission and medical decisions remain with the chosen provider.`}
+      />
 
       {/* Why this destination */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -143,7 +152,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary text-sm font-medium hover:bg-white/90 transition-colors w-full sm:w-auto"
                 >
-                  Speak Confidentially with Craig
+                  Book a confidential call
                 </button>
               </Link>
               <Link href="/assessments">
@@ -151,13 +160,27 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/25 text-primary-foreground text-sm font-medium hover:bg-white/10 transition-colors w-full sm:w-auto"
                 >
-                  Take a Free Assessment
+                  Take a free assessment
                 </button>
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <RelatedServiceLinks
+        heading="Compare treatment routes"
+        links={[
+          { title: "Treatment Placement", description: "See how independent placement guidance works.", href: "/treatment-placement" },
+          { title: "Private Rehab UK", description: "Compare treatment closer to home in the United Kingdom.", href: "/private-rehab-uk" },
+          { title: "Private Rehab Alternatives", description: "Consider structured non-residential support where appropriate.", href: "/private-rehab-alternative-uk" },
+          ...otherDestinations.map((destination) => ({
+            title: `Private Rehab ${destination.country}`,
+            description: `Review treatment considerations for ${destination.country}.`,
+            href: `/${destination.slug}`,
+          })),
+        ]}
+      />
 
       {/* Who it suits */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -276,7 +299,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       <CTASection
         heading={`Considering treatment in ${d.country}?`}
         body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. Independent guidance, no pressure, no commercial ties to any facility."
-        primaryLabel="Speak confidentially"
+        primaryLabel="Book a confidential call"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"

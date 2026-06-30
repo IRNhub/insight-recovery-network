@@ -78,7 +78,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -93,7 +93,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.
             </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">About Craig Bilton, Founder</h2>
@@ -117,11 +117,11 @@ const PAGES = [
             </ul>
           </section>
           <section style="padding:3rem 0;">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">
               All enquiries are handled with complete discretion. You do not need to have everything worked out before reaching out.
             </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
         </div>
       </main>
@@ -145,7 +145,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -194,9 +194,9 @@ const PAGES = [
             </div>
           </section>
           <section style="padding:3rem 0;">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Not sure where to start? A private conversation can help clarify the most appropriate pathway for you or your family.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
         </div>
       </main>
@@ -220,7 +220,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -234,8 +234,8 @@ const PAGES = [
               Choosing the right treatment facility is one of the most consequential decisions a person or family can make. We assess your needs, identify the most appropriate options, and manage the transition — without commercial ties to any provider.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
-              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -260,11 +260,11 @@ const PAGES = [
             </ul>
           </section>
           <section style="padding:3rem 0;">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">
               All enquiries are handled with complete discretion. There is no obligation and no pressure.
             </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
         </div>
       </main>
@@ -288,7 +288,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -301,7 +301,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning — wherever you are in the world.
             </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">Who Is the Programme For?</h2>
@@ -335,9 +335,9 @@ const PAGES = [
             </div>
           </section>
           <section style="padding:3rem 0;">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Ready to take the next step? A private conversation can help clarify whether the online programme is the right fit.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
         </div>
       </main>
@@ -361,7 +361,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -408,7 +408,7 @@ const PAGES = [
           <section style="padding:3rem 0;">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Get Started with Insight OS</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Insight OS is available as part of the Online Recovery Programme or as a standalone digital recovery tool. Contact us to find out more.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
         </div>
       </main>
@@ -417,7 +417,7 @@ const PAGES = [
   {
     route: "/contact",
     file: "contact.html",
-    title: "Contact Us — Speak Confidentially | Insight Recovery Network",
+    title: "Contact Us — Book a confidential call | Insight Recovery Network",
     description:
       "Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families.",
     ogImage: `${SITE_URL}/og-contact.png`,
@@ -432,7 +432,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -440,7 +440,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Contact</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:640px;">
-              Speak Confidentially With Insight Recovery Network
+              Book a Confidential Call With Insight Recovery Network
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;margin-bottom:2rem;">
               You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.
@@ -493,7 +493,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -531,7 +531,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -594,7 +594,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -608,8 +608,8 @@ const PAGES = [
               Professional, clinically informed recovery support delivered online — for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
-              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -663,7 +663,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -677,8 +677,8 @@ const PAGES = [
               Private residential rehab is not always the right answer. There are other routes — and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
-              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -733,7 +733,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -747,8 +747,8 @@ const PAGES = [
               Many people begin by searching for private rehab in the UK. Before committing to a costly admission, it is worth understanding whether UK rehab, overseas residential treatment, medically supervised detox, structured online support, family intervention or aftercare planning is the right fit. Insight Recovery Network provides independent guidance to help individuals and families make a safer, clearer and more informed decision, with no commercial ties to any facility.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
-              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -811,7 +811,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -827,7 +827,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               These tools are for informational purposes only and do not constitute medical advice. If you are in crisis or require urgent support, please contact your GP or emergency services.
             </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially Instead</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call Instead</a>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:2rem;">Available Assessments</h2>
@@ -886,7 +886,7 @@ const PAGES = [
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Not sure where to start?</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">A private conversation with Craig Bilton can help clarify the most appropriate level of support for you or your family — without pressure or obligation.</p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
               <a href="/resources" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Browse Resources</a>
             </div>
           </section>
@@ -913,7 +913,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -965,7 +965,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1017,7 +1017,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1069,7 +1069,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1121,7 +1121,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1173,7 +1173,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1225,7 +1225,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1277,7 +1277,7 @@ const PAGES = [
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1363,11 +1363,11 @@ const PAGES = [
             </div>
           </section>
           <section style="padding:3rem 0;">
-            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">You do not need to have everything worked out before reaching out. A private conversation can help clarify the most appropriate support for you or your family.</p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get in Touch</a>
-              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
         </div>
@@ -1388,7 +1388,7 @@ const PAGES = [
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
           <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
           <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1417,7 +1417,7 @@ const PAGES = [
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
           <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
           <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1446,7 +1446,7 @@ const PAGES = [
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
           <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
           <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1474,7 +1474,7 @@ const PAGES = [
         <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1504,7 +1504,7 @@ const PAGES = [
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
           <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
           <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -1514,7 +1514,7 @@ const PAGES = [
           <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:1.5rem;max-width:640px;">
             Insight Recovery Network is not a regulated medical provider, not registered with the CQC, and not an emergency service. If you are in immediate danger, call <strong>999</strong> or go to your nearest A&amp;E. For 24/7 emotional support, contact the Samaritans on <strong>116 123</strong>.
           </p>
-          <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+          <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
         </div>
       </main>
     `,
@@ -1591,7 +1591,7 @@ const PAGES = [
     description: "Confidential guidance for people affected by their own or a loved one's addiction.",
     ogImage: `${SITE_URL}/get-help-hero.png`,
     noIndex: true,
-    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Free, confidential addiction support</h1><p style="line-height:1.8;color:#4a5568;margin-bottom:2rem;">Clear guidance for you or someone you love, without pressure or judgement.</p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Speak Confidentially</a></div></main>`,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Free, confidential addiction support</h1><p style="line-height:1.8;color:#4a5568;margin-bottom:2rem;">Clear guidance for you or someone you love, without pressure or judgement.</p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Book a confidential call</a></div></main>`,
   },
   {
     route: "/admin",
@@ -1626,6 +1626,86 @@ const PAGES = [
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: inject page-specific meta tags into index.html
 // ─────────────────────────────────────────────────────────────────────────────
+
+const STATIC_SERVICE_SUMMARIES = {
+  "/treatment-placement": [
+    "Individuals or families considering private detox or residential rehabilitation.",
+    "Clarifies treatment choices and supports an appropriate placement decision.",
+    "Across the UK and selected international treatment destinations.",
+  ],
+  "/private-rehab-uk": [
+    "People considering private detox or residential addiction treatment in the UK.",
+    "Explains when residential care may fit and how to compare regulated providers.",
+    "Private treatment settings across the United Kingdom.",
+  ],
+  "/private-rehab-alternative-uk": [
+    "People seeking structured support who may not need or want residential rehab.",
+    "Compares online, community and residential routes while keeping detox safety clear.",
+    "Online across the UK and internationally; regulated care is arranged separately.",
+  ],
+  "/online-programme": [
+    "Adults who are medically stable and want structured recovery support at home.",
+    "Provides routine, accountability and relapse-prevention support in everyday life.",
+    "Delivered online across the UK and internationally; detox is not provided.",
+  ],
+  "/what-we-offer": [
+    "Individuals, families and professionals seeking private recovery guidance.",
+    "Clarifies the appropriate support route and provides continuity through recovery.",
+    "Online across the UK and internationally, with UK and overseas placement guidance.",
+  ],
+  "/contact": [
+    "Individuals, families and professionals who want a private first conversation.",
+    "Creates a clear, low-pressure starting point when the next step is uncertain.",
+    "Online and by telephone across the UK and internationally.",
+  ],
+};
+
+const STATIC_VISIBLE_FAQS = {
+  "/treatment-placement": [
+    ["How does treatment placement work?", "We clarify needs, risks, preferences, location and budget, then explain suitable options and support the practical steps towards admission. The chosen provider remains responsible for its own assessment and care."],
+    ["Can you arrange medical detox?", "Insight Recovery Network does not provide or prescribe detox. Where medically assisted withdrawal may be needed, we help identify an appropriately regulated provider and encourage medical assessment."],
+  ],
+  "/online-programme": [
+    ["Who is the online recovery programme for?", "It is designed for adults who are medically stable and want structured support without entering residential treatment. A confidential conversation helps establish whether this level of support fits."],
+    ["Does the programme provide detox or emergency care?", "No. Insight Recovery Network does not provide medical detox, diagnosis, prescribing or emergency care. Call 999 in an emergency."],
+  ],
+  "/what-we-offer": [
+    ["Where should I start?", "Start with a confidential call or a free assessment. We can explain whether online support, family guidance, treatment placement or a regulated service appears to be the most appropriate route."],
+    ["Can families ask for guidance?", "Yes. Families can seek support around boundaries, communication, safety and realistic options even when the person they are worried about is not ready to engage."],
+  ],
+  "/contact": [
+    ["What happens after I submit an enquiry?", "We review the information you choose to share and respond to arrange a private conversation. There is no pressure or obligation."],
+    ["Can you help in an emergency or prescribe medication?", "No. Insight Recovery Network is not an emergency service and does not diagnose or prescribe. Call 999 or attend A&E in an emergency."],
+  ],
+};
+
+function buildStaticServiceEnhancement(route) {
+  const summary = STATIC_SERVICE_SUMMARIES[route];
+  if (!summary) return "";
+  const labels = ["Who this is for", "What it helps solve", "Where it applies"];
+  const links = [
+    ["Treatment Placement", "/treatment-placement"],
+    ["Private Rehab UK", "/private-rehab-uk"],
+    ["Private Rehab Alternatives", "/private-rehab-alternative-uk"],
+    ["Online Recovery Programme", "/online-programme"],
+    ["Family Guidance", "/what-we-offer#family-guidance"],
+    ["Detox Suitability Assessment", "/assessments/detox"],
+  ];
+  const faqs = STATIC_VISIBLE_FAQS[route] ?? [];
+  return `
+    <section aria-label="Service summary" style="font-family:sans-serif;background:#F6F4F0;border-top:1px solid rgba(22,43,59,0.12);border-bottom:1px solid rgba(22,43,59,0.12);padding:2rem;">
+      <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">
+        ${summary.map((value, index) => `<div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">${labels[index]}</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">${value}</p></div>`).join("")}
+        <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Next step</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Book a confidential call</p></div>
+      </div>
+      <div style="max-width:1200px;margin:1.25rem auto 0;font-size:0.78rem;line-height:1.7;color:#4a5568;"><p>Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 30 June 2026.</p><p>Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. In an emergency call 999 or attend A&amp;E.</p></div>
+    </section>
+    <section style="font-family:sans-serif;max-width:1200px;margin:0 auto;padding:2.5rem 2rem;">
+      <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:1rem;">Related support and guidance</h2>
+      <p style="line-height:2;">${links.filter(([, href]) => href !== route).map(([title, href]) => `<a href="${href}" style="color:#162B3B;margin-right:1.25rem;">${title}</a>`).join("")}</p>
+      ${faqs.length ? `<h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin:2.5rem 0 1rem;">Frequently asked questions</h2>${faqs.map(([question, answer]) => `<div style="margin-bottom:1.25rem;max-width:720px;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:500;color:#162B3B;margin-bottom:0.4rem;">${question}</h3><p style="font-size:0.9rem;line-height:1.7;color:#4a5568;">${answer}</p></div>`).join("")}` : ""}
+    </section>`;
+}
 
 /**
  * Replace all key meta tags and body content in the built index.html
@@ -1711,9 +1791,10 @@ function injectPageMeta(baseHtml, page) {
   // Replace the static body content inside <div id="root">...</div>
   // Uses greedy matching so the outer closing </div> is matched (not an inner one).
   // The comment "React mounts here" immediately follows the root </div>.
+  const staticEnhancement = buildStaticServiceEnhancement(page.route);
   const bodyReplaced = out.replace(
     /(<div id="root">)[\s\S]*(<\/div>)(\s*\n\s*<!-- React mounts here)/,
-    `$1\n${page.body}\n${STATIC_FOOTER}\n    $2$3`
+    `$1\n${page.body}\n${staticEnhancement}\n${STATIC_FOOTER}\n    $2$3`
   );
 
   // ── Assertions: fail hard if critical replacements did not apply ──────────
@@ -2222,7 +2303,7 @@ function markdownToHtml(content) {
       flushTable();
       const tagMatch = line.match(/^\[CTA:([^:\]]+):([^\]]+)\]$/);
       const ctaHref = tagMatch ? tagMatch[1] : "/contact";
-      const ctaLabel = tagMatch ? tagMatch[2] : "Speak Confidentially";
+      const ctaLabel = tagMatch ? tagMatch[2] : "Book a confidential call";
       const ctaLines = [];
       idx++;
       while (idx < lines.length && lines[idx].trim() !== "[/CTA]") {
@@ -2292,7 +2373,7 @@ const STATIC_HEADER = `
           <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
           <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak Confidentially</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
         </nav>
       </header>`;
 
@@ -2318,7 +2399,7 @@ const STATIC_FOOTER = `
           </div>
           <div>
             <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Contact</p>
-            <p style="font-size:0.85rem;line-height:2.1;"><a href="tel:+447415994475" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">+44 7415 994475</a><br><a href="mailto:info@insightrecoverynetwork.com" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">info@insightrecoverynetwork.com</a><br><a href="/contact" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Speak Confidentially</a><br><a href="/resources" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources &amp; Articles</a></p>
+            <p style="font-size:0.85rem;line-height:2.1;"><a href="tel:+447415994475" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">+44 7415 994475</a><br><a href="mailto:info@insightrecoverynetwork.com" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">info@insightrecoverynetwork.com</a><br><a href="/contact" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Book a confidential call</a><br><a href="/resources" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources &amp; Articles</a></p>
           </div>
         </div>
         <div style="max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(246,244,240,0.15);">
@@ -2390,10 +2471,10 @@ function buildArticleBodyHtml(meta, full) {
           ${faqHtml}
           ${sourcesHtml}
           <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Speak Confidentially</h2>
+            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Get in Touch</a>
-            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
+            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
           </section>
         </div>
       </main>
@@ -2414,6 +2495,15 @@ function buildDestinationBodyHtml(d) {
   return `${STATIC_HEADER}
       <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section aria-label="Service summary" style="font-family:sans-serif;margin-bottom:2rem;border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.5rem;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">
+              <div><strong>Who this is for</strong><p>People comparing private residential addiction treatment in ${escText(d.country)}, and families supporting that decision.</p></div>
+              <div><strong>What it helps solve</strong><p>Clarifies likely fit, practical considerations and questions to ask before contacting a facility.</p></div>
+              <div><strong>Where it applies</strong><p>Private treatment in ${escText(d.country)}; the chosen provider makes final admission and medical decisions.</p></div>
+              <div><strong>Next step</strong><p>Book a confidential call</p></div>
+            </div>
+            <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1rem;">Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency service.</p>
+          </section>
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <img src="${escText(d.heroImage)}" alt="${escText(d.heroImageAlt)}" style="display:block;width:100%;height:auto;border:1px solid rgba(22,43,59,0.12);background:#162B3B;margin-bottom:2rem;" />
             <div style="max-width:760px;">
@@ -2421,7 +2511,7 @@ function buildDestinationBodyHtml(d) {
               <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">${escText(d.heroHeading)}</h1>
               ${p(d.heroIntro)}
               <div style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-top:1rem;">
-                <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Speak Confidentially</a>
+                <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
                 <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">How Placement Works</a>
               </div>
             </div>
@@ -2455,10 +2545,12 @@ function buildDestinationBodyHtml(d) {
               .join("")}
           </section>
           <section style="padding:3rem 0;">
+            ${h2("Related support and treatment routes")}
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Detox Suitability Assessment</a></p>
             ${h2(`Considering treatment in ${d.country}?`)}
             ${p("A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. Independent guidance, no pressure, no commercial ties to any facility.")}
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Speak Confidentially</a>
-            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a Free Assessment</a>
+            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
+            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
           </section>
         </div>
       </main>`;

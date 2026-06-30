@@ -3,6 +3,9 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
+import { ServiceSummary } from "@/components/ui/service-summary";
+import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
@@ -47,6 +50,21 @@ const locations: Array<{ label: string; href?: string }> = [
   { label: "Thailand", href: "/private-rehab-thailand" },
   { label: "Spain", href: "/private-rehab-spain" },
   { label: "Sri Lanka", href: "/private-rehab-sri-lanka" },
+];
+
+const placementFaqs: FAQItem[] = [
+  {
+    question: "How does treatment placement work?",
+    answer: "We first clarify the person's needs, risks, preferences, location and budget. We then explain suitable detox or residential options and support the practical steps towards admission; the treatment provider remains responsible for its own clinical assessment and care.",
+  },
+  {
+    question: "Do you only place people in UK rehab facilities?",
+    answer: "No. We provide guidance on options in the UK and selected international destinations including South Africa, Spain, Thailand and Sri Lanka. The right location depends on safety, treatment needs, travel, family involvement and affordability.",
+  },
+  {
+    question: "Can Insight Recovery Network arrange medical detox?",
+    answer: "We do not provide or prescribe detox. Where medically assisted withdrawal may be needed, we help people identify an appropriately regulated provider and encourage assessment by a qualified medical professional.",
+  },
 ];
 
 const comparison: Array<{
@@ -163,7 +181,7 @@ export default function TreatmentPlacement() {
                     size="lg"
                     className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto"
                   >
-                    Request Guidance
+                    Book a confidential call
                   </Button>
                 </Link>
                 <p className="text-[11.5px] text-muted-foreground/60 font-light tracking-wide">
@@ -203,6 +221,12 @@ export default function TreatmentPlacement() {
           </div>
         </div>
       </section>
+
+      <ServiceSummary
+        who="Individuals or families considering private detox, residential rehabilitation or a more intensive treatment setting."
+        problem="Makes complex treatment choices clearer and supports a safer, more appropriate placement decision."
+        applies="Across the UK and selected international treatment destinations."
+      />
 
       {/* ── Not all facilities section ── */}
       <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
@@ -315,7 +339,7 @@ export default function TreatmentPlacement() {
       </section>
 
       {/* ── International options comparison ── */}
-      <section className="py-12 md:py-20 bg-background">
+      <section id="international-options" className="py-12 md:py-20 bg-background scroll-mt-28">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-8 md:mb-12 max-w-3xl">
             <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
@@ -508,11 +532,24 @@ export default function TreatmentPlacement() {
         </div>
       </section>
 
+      <RelatedServiceLinks
+        links={[
+          { title: "Private Rehab UK", description: "Understand UK detox and residential rehabilitation options.", href: "/private-rehab-uk" },
+          { title: "Private Rehab Alternatives", description: "Compare structured online support and other non-residential routes.", href: "/private-rehab-alternative-uk" },
+          { title: "Online Recovery Programme", description: "Explore structured support for people who are medically stable.", href: "/online-programme" },
+          { title: "Family Guidance", description: "Practical support for families deciding what to do next.", href: "/what-we-offer#family-guidance" },
+          { title: "Detox Suitability Assessment", description: "Reflect on withdrawal risk before making changes to alcohol or drug use.", href: "/assessments/detox" },
+        ]}
+      />
+
+      <FAQSection items={placementFaqs} />
+
       {/* ── CTA ── */}
       <CTASection
         heading="Need help choosing the right treatment setting?"
-        description="Speak confidentially with our clinical team. We will help you understand the safest and most appropriate options without pressure or obligation."
-        primaryCta={{ label: "Request Placement Guidance", href: "/contact" }}
+        description="Speak confidentially with our team. We will help you understand the available options without pressure or obligation."
+        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        secondaryCta={{ label: "Take a free assessment", href: "/assessments/detox" }}
       />
     </Layout>
   );
