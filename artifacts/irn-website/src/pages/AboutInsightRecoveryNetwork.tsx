@@ -5,6 +5,7 @@ import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const HERO_IMAGE = "/about-insight-recovery-network-hero.webp";
 
 const services = [
   {
@@ -43,7 +44,7 @@ const organizationSchema = {
     "UK-based online addiction recovery and mental health support service providing private treatment placement guidance, structured online recovery programmes, family intervention support, relapse prevention planning, and digital recovery tools.",
   url: SITE_URL,
   logo: `${SITE_URL}/icon-512.png`,
-  image: `${SITE_URL}/opengraph.jpg`,
+  image: `${SITE_URL}${HERO_IMAGE}`,
   email: "info@insightrecoverynetwork.com",
   telephone: "+447415994475",
   address: {
@@ -90,14 +91,14 @@ export default function AboutInsightRecoveryNetwork() {
         fullTitle="About Insight Recovery Network | UK Addiction Recovery Support Service"
         description="Insight Recovery Network is a UK-based online addiction recovery and mental health support service. Private treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools."
         canonical="/about-insight-recovery-network"
-        ogImage={`${SITE_URL}/opengraph.jpg`}
+        ogImage={`${SITE_URL}${HERO_IMAGE}`}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
 
       {/* Hero */}
-      <section className="py-14 md:py-20 border-b border-border/40">
+      <section className="py-12 md:py-16 lg:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
@@ -109,6 +110,26 @@ export default function AboutInsightRecoveryNetwork() {
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
               Insight Recovery Network is a UK-based, online-only service providing private treatment placement guidance, structured recovery programmes, family intervention support, and digital recovery tools for individuals and families navigating addiction and mental health challenges.
             </p>
+          </div>
+
+          <div
+            className="relative mt-9 md:mt-12 overflow-hidden rounded-xl bg-[#07182f]"
+            style={{
+              aspectRatio: "1717 / 916",
+              boxShadow: "0 18px 50px -16px rgba(22,43,59,0.28), 0 0 0 1px rgba(22,43,59,0.08)",
+            }}
+          >
+            <img
+              src={HERO_IMAGE}
+              alt="Insight Recovery Network brand mark beside a calm private room overlooking a sunlit coastline"
+              className="block h-full w-full object-cover object-center"
+              width={1717}
+              height={916}
+              sizes="(min-width: 1280px) 1152px, (min-width: 768px) calc(100vw - 6rem), calc(100vw - 3rem)"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
