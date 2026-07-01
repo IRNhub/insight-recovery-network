@@ -448,11 +448,11 @@ kind = "web"
 
   [[services.production.rewrites]]
   from = "/resources/detoxing-from-alcohol-symptoms-when-dangerous"
-  to = "/_resources/detoxing-from-alcohol-symptoms-when-dangerous.html"
+  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
 
   [[services.production.rewrites]]
   from = "/resources/detoxing-from-alcohol-symptoms-when-dangerous/"
-  to = "/_resources/detoxing-from-alcohol-symptoms-when-dangerous.html"
+  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
 
   [[services.production.rewrites]]
   from = "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help"
