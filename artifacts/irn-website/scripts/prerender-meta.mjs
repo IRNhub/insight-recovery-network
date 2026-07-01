@@ -519,7 +519,7 @@ const PAGES = [
     title: "About Insight Recovery Network | UK Addiction Recovery Support Service",
     description:
       "Insight Recovery Network is a UK-based online addiction recovery and mental health support service. Private treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools.",
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}/about-insight-recovery-network-hero.webp`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -544,6 +544,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
               Insight Recovery Network is a UK-based, online-only service providing private treatment placement guidance, structured recovery programmes, family intervention support, and digital recovery tools for individuals and families navigating addiction and mental health challenges.
             </p>
+            <img src="/about-insight-recovery-network-hero.webp" width="1717" height="916" alt="Insight Recovery Network brand mark beside a calm private room overlooking a sunlit coastline" style="display:block;width:100%;height:auto;margin-top:2.5rem;border-radius:0.75rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Service details</h2>
@@ -1551,13 +1552,14 @@ const PAGES = [
     title: "Craig Bilton | Founder of Insight Recovery Network",
     description:
       "Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, supporting individuals and families with addiction recovery, treatment placement, and structured online support.",
-    ogImage: `${SITE_URL}/og-about.png`,
+    ogImage: `${SITE_URL}/craig-bilton-hero.webp`,
     body: `
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:900px;margin:0 auto;padding:4rem 2rem;">
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">Founder &amp; Clinical Director</p>
           <h1 style="font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;">Craig Bilton</h1>
           <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:2rem;">Craig Bilton founded Insight Recovery Network to provide clear, practical and confidential guidance for individuals and families navigating addiction, treatment decisions, relapse risk and long-term recovery structure.</p>
+          <img src="/craig-bilton-hero.webp" width="1693" height="929" alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network" style="display:block;width:100%;height:auto;margin:2.5rem 0;border-radius:0.75rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
           <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Experience and approach</h2>
           <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1rem;">His background spans more than 20 years across addiction treatment, mental health support, residential rehabilitation, programme leadership, intervention work and international treatment placement.</p>
           <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:2.5rem;">His work focuses on treatment suitability, family guidance, relapse prevention, aftercare structure and recovery support that fits the person rather than a single rigid model.</p>
@@ -2619,6 +2621,7 @@ const PERSON_JSONLD = {
   jobTitle: "Founder & Clinical Director",
   worksFor: { "@id": `${SITE_URL}/#organization` },
   url: `${SITE_URL}/craig-bilton`,
+  image: `${SITE_URL}/craig-bilton-hero.webp`,
   description:
     "Addiction treatment specialist with over 20 years of international experience spanning residential rehabilitation, online recovery support, and complex case management across the UK and internationally.",
   knowsAbout: [

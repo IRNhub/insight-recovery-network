@@ -4,6 +4,9 @@ import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 
+const SITE_URL = "https://www.insightrecoverynetwork.com";
+const HERO_IMAGE = "/craig-bilton-hero.webp";
+
 const experiencePoints = [
   "More than 20 years' experience across addiction treatment, mental health support, residential rehabilitation, programme leadership, intervention work, and international treatment placement.",
   "Founder and Clinical Director of Insight Recovery Network, supporting individuals and families across the UK with treatment decisions, structured online recovery, relapse prevention, and aftercare.",
@@ -28,9 +31,10 @@ export default function CraigBilton() {
         fullTitle="Craig Bilton | Founder of Insight Recovery Network"
         description="Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, supporting individuals and families with addiction recovery, treatment placement, and structured online support."
         canonical="/craig-bilton"
+        ogImage={`${SITE_URL}${HERO_IMAGE}`}
       />
 
-      <section className="relative overflow-hidden bg-background py-12 md:py-20">
+      <section className="relative overflow-hidden bg-background py-12 md:py-16 lg:py-20 border-b border-border/40">
         <div
           className="absolute inset-0 opacity-[0.025] pointer-events-none"
           style={{
@@ -49,6 +53,26 @@ export default function CraigBilton() {
             <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl">
               Craig Bilton founded Insight Recovery Network to provide clear, practical, confidential guidance for individuals and families navigating addiction, treatment decisions, relapse risk, and long-term recovery structure.
             </p>
+          </div>
+
+          <div
+            className="relative mt-9 md:mt-12 overflow-hidden rounded-xl bg-[#07182f]"
+            style={{
+              aspectRatio: "1693 / 929",
+              boxShadow: "0 18px 50px -16px rgba(22,43,59,0.28), 0 0 0 1px rgba(22,43,59,0.08)",
+            }}
+          >
+            <img
+              src={HERO_IMAGE}
+              alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network"
+              className="block h-full w-full object-cover object-center"
+              width={1693}
+              height={929}
+              sizes="(min-width: 1280px) 1152px, (min-width: 768px) calc(100vw - 6rem), calc(100vw - 3rem)"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
