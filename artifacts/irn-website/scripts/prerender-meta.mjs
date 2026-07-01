@@ -1526,7 +1526,7 @@ const PAGES = [
     title: "Media &amp; Expert Commentary | Craig Bilton",
     description:
       "Media enquiries and expert commentary from Craig Bilton on addiction, recovery, treatment, families and crypto-trading addiction.",
-    ogImage: `${SITE_URL}/craig-bilton-hero.webp`,
+    ogImage: `${SITE_URL}/media-hero.webp`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
@@ -1541,6 +1541,7 @@ const PAGES = [
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">Media enquiries</p>
           <h1 style="font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;">Clear, responsible commentary on addiction and recovery.</h1>
           <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:2.5rem;">Craig Bilton is available to journalists seeking practical, evidence-conscious context on addiction, treatment decisions, family impact, relapse risk and emerging behavioural addictions.</p>
+          <img src="/media-hero.webp" width="1693" height="929" alt="Insight Recovery Network media and expert commentary studio" style="display:block;width:100%;height:auto;margin:2.5rem 0;border-radius:0.75rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
           <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Topics Craig can discuss</h2>
           <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;margin-bottom:2.5rem;">
             <li>Addiction, recovery and relapse risk</li>
