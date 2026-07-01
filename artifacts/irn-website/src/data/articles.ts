@@ -34,6 +34,210 @@ export const CATEGORIES = [
 
 export const articles: Article[] = [
   {
+    slug: "crypto-trading-addiction-warning-signs-help",
+    title: "Crypto Trading Addiction: Warning Signs, Family Impact and Getting Help",
+    excerpt: "Crypto trading can become compulsive and harmful. Learn the warning signs, how families are affected, and practical steps towards appropriate support.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-07-01",
+    readingTime: 12,
+    category: "Addiction & Substances",
+    image: "/og-resources.png",
+    imageAlt: "Insight Recovery Network guidance on problematic crypto trading and recovery support",
+    seoTitle: "Crypto Trading Addiction: Signs, Impact & Help",
+    metaDescription: "Understand crypto trading addiction, including warning signs, chasing losses, family impact and practical routes to confidential support in the UK.",
+    ogTitle: "Crypto Trading Addiction: Warning Signs and Getting Help",
+    ogDescription: "A clinically informed guide to problematic crypto trading, its impact on families and practical next steps towards support.",
+    publishedStatus: "published",
+    sources: [
+      {
+        title: "Help for problems with gambling",
+        publisher: "NHS",
+        url: "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/",
+      },
+      {
+        title: "FCA warns consumers of the risks of investments advertising high returns based on cryptoassets",
+        publisher: "Financial Conduct Authority",
+        url: "https://www.fca.org.uk/news/news-stories/fca-warns-consumers-risks-investments-advertising-high-returns-based-cryptoassets",
+      },
+      {
+        title: "Cryptocurrency and links or impact to gambling addiction",
+        publisher: "Gambling Commission",
+        url: "https://www.gamblingcommission.gov.uk/about-us/freedomofinformation/cryptocurrency-and-links-or-impact-to-gambling-addiction",
+      },
+      {
+        title: "Problematic cryptoasset trading is associated with greater depressive symptoms, anxiety symptoms, and social isolation",
+        publisher: "PLOS ONE",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13210369/",
+      },
+      {
+        title: "Cryptocurrency Trading in Emerging Adulthood: An Adaptation of the Gambling Epidemiological Model",
+        publisher: "Journal of Gambling Studies",
+        url: "https://link.springer.com/article/10.1007/s10899-026-10526-y",
+      },
+      {
+        title: "Development and Verification of Problematic Cryptocurrency Trading Scale",
+        publisher: "Psychiatry and Clinical Psychopharmacology",
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11079698/",
+      },
+    ],
+    faq: [
+      {
+        question: "Is crypto trading addiction a real condition?",
+        answer: "Problematic crypto trading is an emerging area of research rather than a universally defined standalone diagnosis. Studies have identified patterns resembling gambling-related harm, including loss chasing, preoccupation, secrecy, loss of control and impairment in work or relationships. A qualified professional should assess the person and the wider context rather than relying on a label alone.",
+      },
+      {
+        question: "What are the warning signs of crypto trading addiction?",
+        answer: "Warning signs include checking markets compulsively, increasing the size or frequency of trades, chasing losses, hiding activity or debt, repeatedly failing to stop, and allowing trading to disrupt sleep, work, relationships or essential finances. The clearest signal is not simply how much someone trades, but whether control is being lost and harm is continuing despite attempts to stop.",
+      },
+      {
+        question: "Is crypto trading the same as gambling?",
+        answer: "They are not identical. Cryptoassets can be bought and held as investments, while gambling is based on wagering on an uncertain outcome. However, rapid speculative trading can share gambling-like features, including high volatility, frequent decisions, excitement, chasing losses and the belief that skill will reverse mounting harm.",
+      },
+      {
+        question: "How can I stop compulsive crypto trading?",
+        answer: "Begin by creating distance from trading: remove apps and alerts, pause new deposits, protect essential bills, tell someone you trust and arrange an appropriate professional assessment. If debt, anxiety, depression or thoughts of self-harm are involved, seek specialist help promptly rather than trying to manage the situation through willpower alone.",
+      },
+      {
+        question: "How does problematic crypto trading affect families?",
+        answer: "Families may experience hidden debt, broken trust, emotional absence, conflict and repeated promises followed by further trading. Partners can become drawn into monitoring accounts or rescuing finances. Support should address both financial safety and the relationship impact, without blaming family members for causing the behaviour.",
+      },
+      {
+        question: "Where can someone in the UK get help?",
+        answer: "A GP or NHS specialist gambling clinic can help assess gambling-related harm and associated mental health needs. NHS guidance also lists practical gambling-support routes. Insight Recovery Network can provide confidential guidance and recovery planning, but it is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency service.",
+      },
+    ],
+    content: `Crypto trading can look very different from traditional gambling. It uses the language of markets, research, strategy and investment. Some people trade without losing control. For others, however, rapid speculative trading becomes compulsive: markets are checked throughout the day and night, losses are chased, risk increases, and relationships, work and financial security begin to suffer.
+
+That distinction matters. This article is not an argument that every person who buys cryptocurrency has an addiction, nor that all crypto trading is gambling. It is a guide to recognising when trading has stopped being a controlled financial activity and has become a pattern of harm that the person feels unable to interrupt.
+
+Research into problematic cryptoasset trading is still developing. Recent studies have found gambling-like characteristics and associations with depression, anxiety and social isolation, but association does not prove that trading caused those difficulties. There is no single online checklist that can diagnose a person. What can be identified is a pattern of lost control, continuing harm and repeated unsuccessful efforts to change.
+
+## When Does Crypto Trading Become a Problem?
+
+The amount of money involved is not the only measure. Someone can make large trades without being compulsive, while another person may experience serious harm at a lower level of spending.
+
+The more useful questions are about control, function and consequences.
+
+Can the person choose not to trade? Do they repeatedly break limits they set for themselves? Are they hiding losses or borrowing to continue? Has trading begun to dominate their attention, mood and daily routine? Are they continuing despite damage to their finances, sleep, work or relationships?
+
+When the answer to several of those questions is yes, the issue deserves to be taken seriously, even if the person still describes the activity as investing.
+
+## Warning Signs of Problematic Crypto Trading
+
+No single sign proves addiction. A pattern across several areas is more significant.
+
+### Constant preoccupation
+
+The person checks prices, charts, social media and trading accounts repeatedly, including during work, family time or the night. Conversations return constantly to the market. Even when they are not trading, they are mentally occupied by the next move or the last loss.
+
+### Chasing losses
+
+After losing money, the person increases activity or risk in an attempt to get back to even. A trade that was meant to repair the damage creates another loss, which then feels as though it must be recovered. The goal quietly shifts from making a considered decision to escaping the emotional and financial meaning of what has already happened.
+
+### Escalating risk
+
+Trade sizes increase, more volatile assets are chosen, leverage is used, or essential money is moved into the market. What once created excitement no longer feels sufficient. Greater exposure is needed to produce the same sense of possibility or relief.
+
+### Repeated failed attempts to stop
+
+The person deletes an app, promises to take a break or sets a limit, but returns quickly. They may genuinely mean each promise. Repeatedly being unable to follow through is more informative than the promise itself.
+
+### Secrecy and distorted accounting
+
+Losses, loans, transfers or the true size of the portfolio are hidden. The person may show family members winning trades while omitting the wider position. Language can become defensive: losses are described as temporary, unrealised or certain to reverse, even while household finances are deteriorating.
+
+### Trading to change how they feel
+
+Trading becomes a way to escape anxiety, low mood, boredom, shame or pressure. A win may briefly produce relief or confidence; a loss may trigger panic and an urgent need to trade again. The activity is no longer only about money. It has acquired an emotional job.
+
+### Harm to ordinary life
+
+Sleep, concentration, work performance and relationships begin to suffer. Bills are delayed, debt grows, or money intended for housing, tax, education or family needs is put at risk. The person becomes emotionally unavailable or irritable when they cannot check the market.
+
+## Why Rapid Crypto Trading Can Be So Absorbing
+
+Crypto markets are available around the clock. There is no natural closing bell requiring the trader to stop. Price volatility can produce rapid gains and losses, while alerts, social media predictions and online communities create a constant stream of cues to return.
+
+The combination of uncertainty and occasional reward can be powerfully reinforcing. A large win may strengthen the belief that another win is possible if the person acts quickly enough. A loss can create the opposite but equally compelling pressure: the belief that one more trade will repair everything.
+
+Skill and research do play a role in financial decision-making, which is one reason this activity can be harder for families to recognise than conventional gambling. The person can always find more analysis, another explanation or a new market signal. Knowledge does not, however, protect someone from compulsive behaviour. A person can understand markets and still lose control of how they engage with them.
+
+The Financial Conduct Authority describes cryptoasset investments as very high risk and warns that consumers should be prepared to lose all the money they invest. That financial risk becomes more dangerous when decisions are driven by urgency, shame or the need to recover previous losses.
+
+## Crypto Trading, Gambling and Diagnosis
+
+Problematic crypto trading and gambling are not identical, and it is important not to collapse every form of investment into a psychiatric label.
+
+The overlap lies in behaviour and harm. Both can involve uncertain outcomes, rapid repeated decisions, chasing losses, increasing stakes, secrecy and continuing despite damage. The Gambling Commission has reported a correlation between investing in risky products such as cryptocurrencies and problem gambling, while also noting reports of more people seeking help for day-trading problems.
+
+Current research supports taking the problem seriously, but the evidence base remains younger and smaller than the literature on gambling disorder. A responsible assessment should therefore consider the whole person: their trading pattern, financial harm, mood, sleep, relationships, previous gambling, substance use and any co-occurring mental health difficulties.
+
+## How Families Are Affected
+
+The financial loss is often only the visible part of the problem.
+
+Partners may discover hidden borrowing, unpaid tax or money moved from joint savings. Trust can be damaged by secrecy and by repeated assurances that the next trade will put things right. Family members can become trapped in monitoring accounts, checking devices, paying debts or trying to control access to money.
+
+There is also an emotional absence. A person may be physically present but continuously watching the market, irritable when interrupted and unavailable to ordinary family life. Arguments then focus on money while the deeper injuries are fear, betrayal and disconnection.
+
+Families do not cause compulsive trading. They also should not be expected to solve it by policing every transaction. Helpful family support usually combines financial boundaries, honest communication, safety planning and an invitation to appropriate assessment.
+
+Our guides on [helping someone with addiction without enabling](/resources/help-someone-with-addiction-without-enabling) and [family boundaries in addiction recovery](/resources/family-boundaries-addiction-recovery) explain these principles in more detail.
+
+## Practical First Steps
+
+### Create immediate distance from the market
+
+Remove trading apps and price alerts, leave promotional channels and pause new deposits. The purpose is to interrupt the constant cue-response cycle and create enough space to think. Because crypto markets do not offer the same universal self-exclusion arrangements as regulated gambling, practical barriers may need to be arranged across several devices, platforms and payment methods.
+
+Do not give anyone a wallet seed phrase or private key. If another person is helping with financial safeguards, use reputable, transparent arrangements and obtain regulated financial or legal advice where necessary.
+
+### Protect essential finances
+
+Prioritise housing, food, utilities, tax and other essential commitments. Consider separating day-to-day household money from funds the person can access impulsively. If debt has developed, speak to a recognised debt-advice service rather than attempting to trade out of it.
+
+### Tell someone the full position
+
+Secrecy allows the problem to continue. Choose a trusted person and disclose the accounts, losses, debts and current risks as accurately as possible. This may feel exposing, but it replaces private panic with shared reality.
+
+### Record the pattern
+
+Note when urges arise, what happened immediately before them and what trading is expected to provide emotionally. Record time spent, deposits, withdrawals, borrowing and the effect on sleep, work and relationships. This information can make an assessment far more useful.
+
+### Seek an appropriate assessment
+
+A GP or NHS specialist gambling clinic can assess gambling-related harm and associated mental health needs. NHS guidance lists specialist treatment and practical support for people affected by gambling harm. Although crypto trading is not identical to gambling, these services may be relevant where the pattern resembles gambling disorder.
+
+Insight Recovery Network can help someone think through the pattern, level of risk and appropriate next steps through a confidential [assessment](/assessments). We do not diagnose, prescribe or provide regulated medical treatment.
+
+## What Recovery May Need to Address
+
+Stopping access is important, but access alone is rarely the whole story. If trading has been providing excitement, identity, hope, escape or relief from distress, recovery needs safer ways to meet those needs.
+
+Useful support may include work on urges and triggers, financial boundaries, sleep and routine, shame, relationship repair, relapse planning and co-occurring anxiety or depression. Some people may need specialist gambling treatment. Others may benefit from broader addiction and mental health support. The right plan depends on assessment rather than a one-size-fits-all label.
+
+A return to trading should not be treated as proof that recovery is impossible. It is information that the current plan did not adequately contain the risk or address the function the behaviour was serving. Our guide to [why relapse can begin before the behaviour itself](/resources/why-relapse-happens-before-substance-use) explains how emotional and behavioural changes can appear before the visible event.
+
+## When Help Is Urgent
+
+Financial loss and shame can produce an acute mental health crisis. Take any mention of suicide, self-harm, disappearance, violence or hopelessness seriously.
+
+If someone is in immediate danger, call 999 or attend the nearest A&E. For urgent mental health help in the UK, use NHS urgent mental health services or call 111 and select the mental health option where available. Samaritans can be contacted free, 24 hours a day, on 116 123.
+
+Do not leave a person alone with an immediate risk while trying to resolve the financial details. Safety comes first.
+
+## How Insight Recovery Network Can Help
+
+If crypto trading is no longer under control, you do not need to decide on a diagnosis before asking for help.
+
+Insight Recovery Network offers confidential guidance, structured recovery planning, family support and help identifying the most appropriate level of care. Depending on need, that may include specialist gambling services, mental health support, a structured [online recovery programme](/online-programme) or more intensive treatment guidance.
+
+Start with a [free confidential assessment](/assessments) or [book a confidential call](/contact). We will help you look at the pattern clearly and decide what the next step should be.
+
+Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service.`,
+  },
+  {
       "slug": "what-does-enabler-mean",
       "title": "What Does Enabler Mean in Addiction?",
       "excerpt": "Learn what enabling means in addiction, why families do it, and how to support someone without protecting the addiction.",

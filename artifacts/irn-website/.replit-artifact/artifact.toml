@@ -229,6 +229,14 @@ kind = "web"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
+  from = "/resources/crypto-trading-addiction-warning-signs-help"
+  to = "/_resources/crypto-trading-addiction-warning-signs-help.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/crypto-trading-addiction-warning-signs-help/"
+  to = "/_resources/crypto-trading-addiction-warning-signs-help.html"
+
+  [[services.production.rewrites]]
   from = "/resources/how-to-choose-private-rehab-centre-uk"
   to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
 
