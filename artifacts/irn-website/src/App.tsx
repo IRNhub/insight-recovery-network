@@ -40,6 +40,7 @@ const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
 const CookiePolicy = lazy(() => import("@/pages/legal/CookiePolicy"));
 const ClinicalDisclaimer = lazy(() => import("@/pages/legal/ClinicalDisclaimer"));
 const EditorialPolicy = lazy(() => import("@/pages/EditorialPolicy"));
+const Media = lazy(() => import("@/pages/Media"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
@@ -227,6 +228,7 @@ function Router() {
         <Route path="/cookie-policy" component={CookiePolicy} />
         <Route path="/clinical-disclaimer" component={ClinicalDisclaimer} />
         <Route path="/editorial-policy" component={EditorialPolicy} />
+        <Route path="/media" component={Media} />
         {/* Admin */}
         <Route path="/admin" component={AdminApp} />
         <Route path="/admin/:rest*" component={AdminApp} />

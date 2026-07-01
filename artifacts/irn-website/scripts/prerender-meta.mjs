@@ -1521,6 +1521,43 @@ const PAGES = [
     `,
   },
   {
+    route: "/media",
+    file: "media.html",
+    title: "Media &amp; Expert Commentary | Craig Bilton",
+    description:
+      "Media enquiries and expert commentary from Craig Bilton on addiction, recovery, treatment, families and crypto-trading addiction.",
+    ogImage: `${SITE_URL}/craig-bilton-hero.webp`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/craig-bilton" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Craig Bilton</a>
+          <a href="mailto:craig@insightrecoverynetwork.com?subject=Media%20enquiry" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Request expert comment</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:900px;margin:0 auto;padding:4rem 2rem;">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">Media enquiries</p>
+          <h1 style="font-size:clamp(2.25rem,6vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;">Clear, responsible commentary on addiction and recovery.</h1>
+          <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:2.5rem;">Craig Bilton is available to journalists seeking practical, evidence-conscious context on addiction, treatment decisions, family impact, relapse risk and emerging behavioural addictions.</p>
+          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Topics Craig can discuss</h2>
+          <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;margin-bottom:2.5rem;">
+            <li>Addiction, recovery and relapse risk</li>
+            <li>Crypto trading, day trading and gambling-like behaviour</li>
+            <li>The impact of addiction on partners and families</li>
+            <li>Treatment suitability, online recovery and continuity of support</li>
+          </ul>
+          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Selected media contributions</h2>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;margin-bottom:0.75rem;"><a href="https://www.businessinsider.com/crypto-trading-addicts-gambling-therapy-marriage-conflicts-financial-losses-lawsuits-2025-2" style="color:#162B3B;">Business Insider: crypto-trading addiction, relationships and financial harm</a></p>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;margin-bottom:2.5rem;"><a href="https://www.sbs.com.au/news/insight/article/there-is-a-part-of-crypto-which-is-so-dark-bobs-trading-addiction-cost-him-800-000/bkm938fgi" style="color:#162B3B;">SBS Insight: hidden harm and treatment needs associated with crypto-trading addiction</a></p>
+          <p style="margin-bottom:2rem;"><a href="mailto:craig@insightrecoverynetwork.com?subject=Media%20enquiry" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Request expert comment</a></p>
+          <p style="font-family:sans-serif;font-size:0.78rem;line-height:1.7;color:#4a5568;max-width:760px;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. Media commentary is general information and does not replace individual clinical assessment or medical advice.</p>
+        </div>
+      </main>
+    `,
+  },
+  {
     route: "/services-pricing-guide",
     file: "services-pricing-guide.html",
     title: "Services &amp; Pricing Guide | Insight Recovery Network",
@@ -3066,6 +3103,7 @@ const SITEMAP_PAGE_META = {
   "/cookie-policy":      { changefreq: "yearly",  priority: "0.4" },
   "/clinical-disclaimer":{ changefreq: "yearly",  priority: "0.4" },
   "/editorial-policy":   { changefreq: "yearly",  priority: "0.5" },
+  "/media":              { changefreq: "monthly", priority: "0.7" },
 };
 
 function generateSitemap(today) {

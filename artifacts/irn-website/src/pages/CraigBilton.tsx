@@ -120,6 +120,26 @@ export default function CraigBilton() {
         </div>
       </section>
 
+      <section className="py-12 md:py-16 border-b border-border/40">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl">
+            <p className="text-[10px] font-semibold tracking-[0.22em] uppercase text-accent/80 mb-4">
+              Media and expert commentary
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl text-primary leading-tight mb-5">
+              Available for responsible reporting on addiction and recovery.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Craig is available for background briefings and on-record comment on addiction, family impact, treatment decisions, relapse risk, online recovery and crypto-trading addiction.
+            </p>
+            <Link href="/media" className="inline-flex items-center text-sm font-medium text-primary underline underline-offset-4">
+              View media information
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 md:py-18">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
