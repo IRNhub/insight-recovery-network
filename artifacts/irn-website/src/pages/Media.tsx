@@ -6,6 +6,7 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const HERO_IMAGE = "/media-hero.webp";
 
 const topics = [
   "Addiction, recovery and relapse risk",
@@ -37,6 +38,12 @@ const mediaSchema = {
   name: "Media and expert commentary | Insight Recovery Network",
   description:
     "Media enquiries and expert commentary from Craig Bilton on addiction, recovery, treatment, families and crypto-trading addiction.",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}${HERO_IMAGE}`,
+    width: 1693,
+    height: 929,
+  },
   mainEntity: {
     "@type": "Person",
     "@id": `${SITE_URL}/#craig-bilton`,
@@ -62,6 +69,7 @@ export default function Media() {
         fullTitle="Media & Expert Commentary | Craig Bilton"
         description="Media enquiries and expert commentary from Craig Bilton on addiction, recovery, treatment, families and crypto-trading addiction."
         canonical="/media"
+        ogImage={`${SITE_URL}${HERO_IMAGE}`}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(mediaSchema)}</script>
@@ -91,6 +99,26 @@ export default function Media() {
                 Request expert comment
               </Button>
             </a>
+          </div>
+
+          <div
+            className="relative mt-9 md:mt-12 overflow-hidden rounded-xl bg-[#07182f]"
+            style={{
+              aspectRatio: "1693 / 929",
+              boxShadow: "0 18px 50px -16px rgba(22,43,59,0.28), 0 0 0 1px rgba(22,43,59,0.08)",
+            }}
+          >
+            <img
+              src={HERO_IMAGE}
+              alt="Insight Recovery Network media and expert commentary studio"
+              className="block h-full w-full object-cover object-center"
+              width={1693}
+              height={929}
+              sizes="(min-width: 1280px) 1152px, (min-width: 768px) calc(100vw - 6rem), calc(100vw - 3rem)"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
