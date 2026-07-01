@@ -85,6 +85,11 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/media" className="hover:text-accent transition-colors">
+                  Media Enquiries
+                </Link>
+              </li>
             </ul>
           </div>
 
