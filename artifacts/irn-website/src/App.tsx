@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const About = lazy(() => import("@/pages/About"));
 const WhatWeOffer = lazy(() => import("@/pages/WhatWeOffer"));
@@ -244,6 +245,7 @@ function App() {
       <TooltipProvider>
         <WouterRouter hook={useNormalisedLocation}>
           <Router />
+          <WhatsAppFloat />
         </WouterRouter>
         <Toaster />
       </TooltipProvider>
