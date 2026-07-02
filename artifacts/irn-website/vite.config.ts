@@ -36,6 +36,10 @@ function cacheControlPlugin() {
     } else if (
       pathname === "/" ||
       pathname.endsWith(".html") ||
+      // Clean page URLs (/about, /private-rehab-thailand, /resources/<slug>)
+      // resolve to pre-rendered HTML — must never be CDN-cached, otherwise
+      // stale copies from a previous deploy are served for up to an hour.
+      !pathname.includes(".") ||
       pathname === "/sitemap.xml" ||
       pathname === "/robots.txt"
     ) {
