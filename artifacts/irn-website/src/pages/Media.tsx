@@ -17,7 +17,16 @@ const topics = [
   "Addiction and co-occurring mental health difficulties",
 ];
 
-const coverage = [
+interface MediaCoverageItem {
+  publication: string;
+  title: string;
+  href: string;
+  author?: string;
+  description?: string;
+  schemaType?: "Article" | "NewsArticle";
+}
+
+const coverage: MediaCoverageItem[] = [
   {
     publication: "Business Insider",
     title: "How crypto-trading addiction can affect finances, relationships and recovery",
@@ -27,6 +36,15 @@ const coverage = [
     publication: "SBS Insight",
     title: "The hidden harm and treatment needs associated with crypto-trading addiction",
     href: "https://www.sbs.com.au/news/insight/article/there-is-a-part-of-crypto-which-is-so-dark-bobs-trading-addiction-cost-him-800-000/bkm938fgi",
+  },
+  {
+    publication: "Psychreg",
+    title: "When Families Are Trying to Hold Recovery Together Before Treatment",
+    author: "Craig Bilton",
+    description:
+      "Craig Bilton contributed an article exploring how families often try to hold recovery together before formal treatment begins, and why support, boundaries and professional guidance matter during this stage.",
+    href: "https://www.psychreg.org/when-families-are-trying-hold-recovery-together-before-treatment/",
+    schemaType: "Article",
   },
 ];
 
@@ -53,10 +71,20 @@ const mediaSchema = {
     worksFor: { "@id": `${SITE_URL}/#organization` },
     knowsAbout: topics,
     subjectOf: coverage.map((item) => ({
-      "@type": "NewsArticle",
+      "@type": item.schemaType ?? "NewsArticle",
       headline: item.title,
       url: item.href,
       publisher: { "@type": "Organization", name: item.publication },
+      ...(item.author
+        ? {
+            author: {
+              "@type": "Person",
+              "@id": `${SITE_URL}/#craig-bilton`,
+              name: item.author,
+              url: `${SITE_URL}/craig-bilton`,
+            },
+          }
+        : {}),
     })),
   },
 };
@@ -166,8 +194,11 @@ export default function Media() {
               Selected commentary
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-primary leading-tight">
-              Previous media contributions
+              External publications and media contributions
             </h2>
+            <p className="text-muted-foreground leading-relaxed mt-4">
+              External articles and media contributions from Craig Bilton and Insight Recovery Network.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl">
             {coverage.map((item) => (
@@ -182,8 +213,16 @@ export default function Media() {
                   {item.publication}
                 </p>
                 <h3 className="font-serif text-xl text-primary leading-snug mb-4">{item.title}</h3>
+                {item.author && (
+                  <p className="text-sm font-medium text-primary/80 mb-3">By {item.author}</p>
+                )}
+                {item.description && (
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    {item.description}
+                  </p>
+                )}
                 <span className="inline-flex items-center text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                  Read the coverage
+                  {item.schemaType === "Article" ? "Read the article" : "Read the coverage"}
                   <ArrowUpRight className="w-4 h-4 ml-1.5" />
                 </span>
               </a>
