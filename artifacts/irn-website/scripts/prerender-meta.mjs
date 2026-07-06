@@ -1549,9 +1549,16 @@ const PAGES = [
             <li>The impact of addiction on partners and families</li>
             <li>Treatment suitability, online recovery and continuity of support</li>
           </ul>
-          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Selected media contributions</h2>
+          <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">External publications and media contributions</h2>
+          <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;margin-bottom:1.5rem;">External articles and media contributions from Craig Bilton and Insight Recovery Network.</p>
           <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;margin-bottom:0.75rem;"><a href="https://www.businessinsider.com/crypto-trading-addicts-gambling-therapy-marriage-conflicts-financial-losses-lawsuits-2025-2" style="color:#162B3B;">Business Insider: crypto-trading addiction, relationships and financial harm</a></p>
           <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;margin-bottom:2.5rem;"><a href="https://www.sbs.com.au/news/insight/article/there-is-a-part-of-crypto-which-is-so-dark-bobs-trading-addiction-cost-him-800-000/bkm938fgi" style="color:#162B3B;">SBS Insight: hidden harm and treatment needs associated with crypto-trading addiction</a></p>
+          <div style="font-family:sans-serif;border:1px solid rgba(22,43,59,0.15);background:#fff;padding:1.5rem;margin-bottom:2.5rem;">
+            <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#9B7844;margin-bottom:0.75rem;">Psychreg</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;font-weight:500;line-height:1.4;margin-bottom:0.5rem;"><a href="https://www.psychreg.org/when-families-are-trying-hold-recovery-together-before-treatment/" target="_blank" rel="noopener noreferrer" style="color:#162B3B;">When Families Are Trying to Hold Recovery Together Before Treatment</a></h3>
+            <p style="font-size:0.85rem;font-weight:600;color:#4a5568;margin-bottom:0.75rem;">By Craig Bilton</p>
+            <p style="font-size:0.9rem;line-height:1.7;color:#4a5568;">Craig Bilton contributed an article exploring how families often try to hold recovery together before formal treatment begins, and why support, boundaries and professional guidance matter during this stage.</p>
+          </div>
           <p style="margin-bottom:2rem;"><a href="mailto:craig@insightrecoverynetwork.com?subject=Media%20enquiry" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Request expert comment</a></p>
           <p style="font-family:sans-serif;font-size:0.78rem;line-height:1.7;color:#4a5568;max-width:760px;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. Media commentary is general information and does not replace individual clinical assessment or medical advice.</p>
         </div>
