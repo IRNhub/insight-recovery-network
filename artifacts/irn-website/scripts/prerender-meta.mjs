@@ -55,6 +55,83 @@ function escapeRegex(str) {
 // 1. MAIN SITE PAGES
 // ─────────────────────────────────────────────────────────────────────────────
 
+const REHAB_COST_FAQS = [
+  [
+    "How much does private rehab cost in the UK?",
+    "Private rehab in the UK often ranges from around £8,000 to £20,000+ for a 28-day stay, with longer or more clinically intensive admissions costing more. The final cost depends on detox needs, location, accommodation, clinical complexity and length of stay.",
+  ],
+  [
+    "How much does alcohol rehab cost?",
+    "Alcohol rehab costs vary because some people need medically supervised detox before residential therapy begins. Alcohol withdrawal can carry medical risk, so families should not choose a programme on price alone where dependency, previous seizures, delirium tremens or significant physical health concerns are present.",
+  ],
+  [
+    "Is detox included in rehab cost?",
+    "Sometimes, but not always. Some rehabs include detox in the package price, while others charge separately for medical assessment, medication, blood tests or additional clinical monitoring. Always ask what is included before committing.",
+  ],
+  [
+    "Is overseas rehab cheaper than UK rehab?",
+    "Overseas rehab can sometimes offer a longer residential stay at a lower monthly cost than UK private rehab. It is not suitable for everyone, and clinical risk, detox needs, travel, medication, mental health risk, family dynamics and legal or work issues must be considered first.",
+  ],
+  [
+    "Can I get rehab through the NHS?",
+    "Some people can access support through NHS or local authority-commissioned drug and alcohol services, though access to funded residential rehab can vary by area and assessment outcome. If there is immediate medical risk, contact a GP, NHS 111, 999 or A&E as appropriate.",
+  ],
+  [
+    "How long should someone stay in rehab?",
+    "There is no universal answer. A 28-day admission may suit some people, while others need 60–90 days or a stepped pathway including detox, residential treatment, secondary care and aftercare. The right duration depends on severity, risk, relapse history and support at home.",
+  ],
+  [
+    "What is the lowest-cost private rehab option?",
+    "The lowest-cost private route may be a shorter admission, detox-only pathway, structured online support, or overseas treatment where clinically appropriate. Lower cost is not automatically unsafe, but families should check governance, staffing, detox safety, therapeutic structure and aftercare before deciding.",
+  ],
+  [
+    "Is online rehab a good alternative?",
+    "Structured online recovery support can be a good alternative for people who are medically stable, have a safe home environment and do not need residential detox or 24-hour support. It is not a replacement for medically supervised detox or residential care where risk is high.",
+  ],
+  [
+    "How do I know which rehab is right?",
+    "The right option depends on clinical risk, substance use history, mental health, withdrawal risk, budget, family context and what has or has not worked before. A clinically informed assessment can help separate unsuitable options from those that genuinely fit.",
+  ],
+  [
+    "Can Insight Recovery Network help me compare options?",
+    "Yes. Insight Recovery Network helps individuals and families compare UK rehab, overseas treatment, online recovery support and family guidance options, with attention to safety, suitability and budget. We do not diagnose, prescribe or provide emergency care.",
+  ],
+];
+
+const REHAB_COST_JSONLD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/how-much-does-rehab-cost-uk#service`,
+    name: "UK Rehab Cost and Treatment Options Guidance",
+    serviceType: "Private rehab cost guidance and treatment placement support",
+    description:
+      "Clinically informed guidance for individuals and families comparing private rehab costs in the UK, alcohol detox costs, overseas treatment options and structured online recovery support.",
+    provider: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    areaServed: [
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "South Africa" },
+      { "@type": "Country", name: "Thailand" },
+      { "@type": "Country", name: "Spain" },
+      { "@type": "Country", name: "Sri Lanka" },
+    ],
+    url: `${SITE_URL}/how-much-does-rehab-cost-uk`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: REHAB_COST_FAQS.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  },
+];
+
 /**
  * Metadata for each pre-rendered page route.
  * Keep title/description in sync with the SEO component props in each page.
@@ -789,6 +866,103 @@ const PAGES = [
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Can Insight Recovery Network help me understand my options before contacting a rehab?</dt>
               <dd>Yes. We give an independent, clinically informed view and help you compare the realistic routes before you contact treatment centres directly. We do not refer into UK facilities or work on commission from them.</dd>
             </dl>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/how-much-does-rehab-cost-uk",
+    file: "how-much-does-rehab-cost-uk.html",
+    title: "How Much Does Rehab Cost in the UK? Private Rehab Prices Explained",
+    description:
+      "Private alcohol rehab in the UK can vary widely depending on detox, length of stay and clinical support. Learn typical costs, what affects price, and how to compare safe treatment options.",
+    ogImage: `${SITE_URL}/how-much-does-rehab-cost-uk-hero.webp`,
+    jsonLd: REHAB_COST_JSONLD,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
+          <a href="/private-rehab-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Private Rehab UK</a>
+          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
+          <a href="/online-addiction-recovery-programme-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Recovery</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Speak to us</a>
+        </nav>
+      </header>
+      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
+        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1.25rem;">Rehab cost guide — UK</p>
+            <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;max-width:760px;">How Much Does Rehab Cost in the UK?</h1>
+            <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:1.25rem;">Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.</p>
+            <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:2rem;">Insight Recovery Network helps you understand the real cost, what is included, what level of care is needed, and which options are clinically appropriate before you commit.</p>
+            <p style="margin-bottom:2rem;"><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Speak to us about treatment options</a><a href="#uk-vs-overseas" style="font-family:sans-serif;color:#162B3B;">Compare UK and overseas rehab options</a></p>
+            <img src="/how-much-does-rehab-cost-uk-hero.webp" width="1717" height="916" alt="Insight Recovery Network private rehab cost guide for the UK" style="display:block;width:100%;height:auto;margin:2.5rem 0;border-radius:0.5rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
+          </section>
+          <section style="padding:2rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;font-family:sans-serif;">
+              <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Who this is for</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Individuals and families comparing private alcohol rehab, detox, residential treatment, online support or overseas options.</p></div>
+              <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">What it helps solve</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Explains realistic cost ranges, what affects price and how to compare options without choosing on price alone.</p></div>
+              <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Where it applies</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">UK private rehab, alcohol detox, overseas residential treatment and structured online recovery support.</p></div>
+              <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Next step</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Speak to us about treatment options.</p></div>
+            </div>
+            <p style="font-family:sans-serif;font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 9 July 2026. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Families often search for rehab costs under pressure.</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">Cost searches usually happen at a difficult moment: someone is worried about safety, the family is unsure how serious the situation is, and treatment options all seem to use different language.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">We help you understand the real cost of care, what is included, whether detox is needed, what level of support is appropriate, and how UK, overseas and online options compare. The aim is not to find the lowest price. It is to avoid unsuitable placements and make a calm, informed decision.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Private rehab price ranges in the UK and overseas</h2>
+            <div style="overflow-x:auto;border:1px solid rgba(22,43,59,0.15);background:#fff;">
+              <table style="width:100%;min-width:760px;border-collapse:collapse;font-family:sans-serif;font-size:0.9rem;">
+                <thead style="background:#162B3B;color:#fff;"><tr><th style="text-align:left;padding:1rem;">Treatment option</th><th style="text-align:left;padding:1rem;">Typical cost range</th><th style="text-align:left;padding:1rem;">What it usually includes</th><th style="text-align:left;padding:1rem;">Best suited for</th></tr></thead>
+                <tbody>
+                  <tr><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">UK alcohol detox only</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">£2,000–£6,000</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Medical assessment and supervised withdrawal planning.</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">People who need withdrawal managed safely before therapy or aftercare.</td></tr>
+                  <tr><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">28-day UK private rehab</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">£8,000–£20,000+</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Accommodation, meals, group programme, individual sessions and recovery planning.</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">People needing a structured residential reset close to home or existing care.</td></tr>
+                  <tr><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">60–90 day UK residential treatment</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">£18,000–£45,000+</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Longer residential care, extended therapy and more time for stabilisation.</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Complex cases, repeated relapse or dual-diagnosis needs.</td></tr>
+                  <tr><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Overseas residential rehab</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">From around £2,200–£8,000+ per month</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Residential treatment abroad; inclusions vary by country and provider.</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">People who may benefit from longer stays, privacy or distance from triggers.</td></tr>
+                  <tr><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Online recovery programme</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">£950–£1,950 per month</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Structured online support, accountability and relapse prevention planning.</td><td style="padding:1rem;border-bottom:1px solid rgba(22,43,59,0.12);">Medically stable clients who do not need residential treatment or who need aftercare.</td></tr>
+                  <tr><td style="padding:1rem;">Treatment placement support</td><td style="padding:1rem;">Enquire for guidance</td><td style="padding:1rem;">Assessment-led guidance to compare suitable UK, overseas, online and family support options.</td><td style="padding:1rem;">Individuals and families who need help understanding fit, budget and next steps.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="font-family:sans-serif;font-size:0.8rem;line-height:1.7;color:#4a5568;margin-top:1rem;">These figures are broad guide prices only. Actual costs depend on clinical needs, detox requirements, risk, location, accommodation level and length of stay.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">What affects the cost of rehab?</h2>
+            <p style="font-family:sans-serif;line-height:2;color:#4a5568;">Detox requirements · Length of stay · Clinical complexity · Level of accommodation · Location · Staff-to-client ratio · Medical and psychiatric involvement · Aftercare and family support</p>
+          </section>
+          <section id="uk-vs-overseas" style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Why UK private rehab costs more, and when overseas rehab may cost less</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">UK rehab can be more expensive because safe residential care is staff-intensive, often involving 24-hour staffing, clinical governance, regulated facilities, detox capacity, accommodation, food, therapy and medical input where required.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">Overseas treatment can sometimes offer longer stays at a lower monthly cost, but it is not suitable for everyone. Travel, detox needs, medication, mental health risk, family dynamics, safeguarding and legal issues all matter.</p>
+            <p style="font-family:sans-serif;line-height:2;"><a href="/private-rehab-south-africa" style="color:#162B3B;margin-right:1rem;">South Africa treatment placement</a><a href="/private-rehab-thailand" style="color:#162B3B;margin-right:1rem;">Thailand rehab options</a><a href="/private-rehab-spain" style="color:#162B3B;margin-right:1rem;">Spain rehab options</a><a href="/private-rehab-sri-lanka" style="color:#162B3B;">Sri Lanka rehab options</a></p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">How much does alcohol rehab cost?</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">Alcohol rehab costs vary because alcohol dependence may require medically supervised detox before therapy begins. Costs are influenced by severity of dependence, withdrawal history, previous seizures or delirium tremens, physical health, psychiatric risk and medication needs. Families should not choose alcohol rehab based only on price if detox risk is present.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">What is usually included, and what may cost extra?</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;">Common inclusions: accommodation, meals, assessment, group therapy, individual therapy, recovery planning, relapse prevention, psychoeducation, family communication where appropriate and aftercare planning. Medical detox may or may not be included.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;">Ask about: detox fees, psychiatric appointments, medication, blood tests, airport transfers, family sessions, aftercare, extended stay fees, private room upgrades, travel insurance and flights for overseas placements.</p>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">How Insight Recovery Network helps</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">We help individuals and families understand what level of care is needed, compare UK and overseas options, avoid unsuitable placements, consider clinical risk, match budget with appropriate care, coordinate assessment and placement, and support families before, during and after treatment.</p>
+            <p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Request a confidential treatment options call</a></p>
+          </section>
+          <section style="padding:3rem 0;">
+            <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Frequently asked questions about rehab cost</h2>
+            <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:820px;">
+              ${REHAB_COST_FAQS.map(([question, answer]) => `<dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">${question}</dt><dd>${answer}</dd>`).join("")}
+            </dl>
+          </section>
+          <section style="padding:2rem 0;">
+            <h2 style="font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Related rehab cost and treatment guidance</h2>
+            <p style="font-family:sans-serif;line-height:2;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment placement support</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private rehab in the UK</a><a href="/online-addiction-recovery-programme-uk" style="color:#162B3B;margin-right:1rem;">Online recovery programme</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private rehab alternative UK</a><a href="/assessments/detox" style="color:#162B3B;margin-right:1rem;">Detox suitability assessment</a><a href="/contact" style="color:#162B3B;">Speak to Insight Recovery Network</a></p>
           </section>
         </div>
       </main>
@@ -1731,6 +1905,7 @@ function buildStaticServiceEnhancement(route) {
   if (!summary) return "";
   const labels = ["Who this is for", "What it helps solve", "Where it applies"];
   const links = [
+    ["Rehab Cost UK Guide", "/how-much-does-rehab-cost-uk"],
     ["Treatment Placement", "/treatment-placement"],
     ["Private Rehab UK", "/private-rehab-uk"],
     ["Private Rehab Alternatives", "/private-rehab-alternative-uk"],
@@ -2958,6 +3133,7 @@ async function main() {
   let pageCount = 0;
   for (const page of PAGES) {
     const html = injectJsonLd(injectPageMeta(baseHtml, page), [
+      ...(page.jsonLd ?? []),
       ORGANIZATION_JSONLD,
       PERSON_JSONLD,
     ]);
@@ -3091,6 +3267,7 @@ const SITEMAP_PAGE_META = {
   "/online-addiction-recovery-programme-uk":     { changefreq: "monthly", priority: "0.9" },
   "/private-rehab-alternative-uk":               { changefreq: "monthly", priority: "0.9" },
   "/private-rehab-uk":                           { changefreq: "monthly", priority: "0.9" },
+  "/how-much-does-rehab-cost-uk":                { changefreq: "monthly", priority: "0.9" },
   "/assessments/alcohol-detox":                  { changefreq: "monthly", priority: "0.7" },
   "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
   "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },

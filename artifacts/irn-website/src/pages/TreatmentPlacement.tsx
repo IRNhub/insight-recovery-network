@@ -534,6 +534,7 @@ export default function TreatmentPlacement() {
 
       <RelatedServiceLinks
         links={[
+          { title: "Rehab Cost UK Guide", description: "Compare typical UK rehab, detox, overseas treatment and online recovery costs.", href: "/how-much-does-rehab-cost-uk" },
           { title: "Private Rehab UK", description: "Understand UK detox and residential rehabilitation options.", href: "/private-rehab-uk" },
           { title: "Private Rehab Alternatives", description: "Compare structured online support and other non-residential routes.", href: "/private-rehab-alternative-uk" },
           { title: "Online Recovery Programme", description: "Explore structured support for people who are medically stable.", href: "/online-programme" },

@@ -129,6 +129,14 @@ kind = "web"
   to = "/private-rehab-uk.html"
 
   [[services.production.rewrites]]
+  from = "/how-much-does-rehab-cost-uk"
+  to = "/how-much-does-rehab-cost-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/how-much-does-rehab-cost-uk/"
+  to = "/how-much-does-rehab-cost-uk.html"
+
+  [[services.production.rewrites]]
   from = "/terms-of-service"
   to = "/terms-of-service.html"
 
