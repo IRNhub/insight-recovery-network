@@ -158,16 +158,16 @@ export default function TreatmentPlacement() {
                 Treatment Placement
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Private Rehab and Detox Placement Guidance
+                Find a suitable private rehab or detox provider without making a rushed decision.
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                Independent, confidential guidance to find the right detox, rehabilitation facility, or specialised care setting worldwide.
+                We assess the situation, compare suitable treatment routes and support the practical move into care across the UK, South Africa, Thailand, Spain and Sri Lanka.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
-                  "Independent of all treatment providers",
+                  "Recommendations guided by clinical fit and safety",
                   "Clinically matched to individual need",
-                  "Access to vetted international facilities",
+                  "Commercial relationships explained transparently",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
@@ -181,11 +181,11 @@ export default function TreatmentPlacement() {
                     size="lg"
                     className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto"
                   >
-                    Book a confidential call
+                    Request a treatment-options call
                   </Button>
                 </Link>
                 <p className="text-[11.5px] text-muted-foreground/60 font-light tracking-wide">
-                  Private, discreet, clinically informed.
+                  Confidential · No obligation · Individuals and families welcome
                 </p>
               </div>
             </div>
@@ -253,7 +253,7 @@ export default function TreatmentPlacement() {
                   {
                     Icon: Shield,
                     title: "Independent Assessment",
-                    body: "We evaluate the clinical appropriateness of facilities without bias or commercial incentive.",
+                    body: "We assess suitability using risk, treatment need, location, budget and aftercare. Any relevant provider or commercial relationship should be explained before you decide.",
                   },
                   {
                     Icon: HeartHandshake,

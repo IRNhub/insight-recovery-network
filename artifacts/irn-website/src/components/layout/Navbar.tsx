@@ -42,13 +42,12 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { href: "/about", label: "About" },
-    { href: "/what-we-offer", label: "What We Offer" },
-    { href: "/assessments", label: "Assessments" },
     { href: "/treatment-placement", label: "Treatment Placement" },
-    { href: "/online-programme", label: "Online Programme" },
-    { href: "/insight-os", label: "Insight OS" },
+    { href: "/family-addiction-intervention-uk", label: "Family Help" },
+    { href: "/how-much-does-rehab-cost-uk", label: "Rehab Costs" },
+    { href: "/online-programme", label: "Online Support" },
     { href: "/resources", label: "Resources" },
+    { href: "/about", label: "About" },
   ];
 
   return (
@@ -73,8 +72,8 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-6 ml-10">
-              <ul className="flex items-center gap-5 text-sm font-medium">
+            <nav className="hidden lg:flex items-center gap-4 ml-6 xl:ml-10 xl:gap-6">
+              <ul className="flex items-center gap-3.5 text-xs font-medium xl:gap-5 xl:text-sm">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -107,9 +106,9 @@ export function Navbar() {
               <Link href="/contact" data-testid="link-nav-contact">
                 <Button
                   variant="default"
-                  className="rounded-none font-medium h-10 px-6"
+                  className="rounded-none font-medium h-10 px-4 text-xs xl:px-6 xl:text-sm"
                 >
-                  Book a confidential call
+                  Discuss treatment options
                 </Button>
               </Link>
             </nav>
@@ -180,7 +179,7 @@ export function Navbar() {
                     variant="default"
                     className="w-full rounded-none font-medium h-12"
                   >
-                    Book a confidential call
+                    Discuss treatment options
                   </Button>
                 </Link>
               </div>

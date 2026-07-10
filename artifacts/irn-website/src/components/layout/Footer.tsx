@@ -14,7 +14,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed text-sm">
-              Confidential addiction and mental health support. Treatment placement, digital tools, and ongoing recovery programmes.
+              Confidential guidance for private rehab, detox, family intervention and structured online addiction recovery support.
             </p>
             <div className="flex flex-col gap-2 text-sm text-primary-foreground/60">
               <a href="mailto:info@insightrecoverynetwork.com" className="hover:text-accent transition-colors">
@@ -40,8 +40,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/online-addiction-recovery-programme-uk" className="hover:text-accent transition-colors">
-                  Online Recovery Programme UK
+                <Link href="/family-addiction-intervention-uk" className="hover:text-accent transition-colors">
+                  Family &amp; Intervention Help
+                </Link>
+              </li>
+              <li>
+                <Link href="/how-much-does-rehab-cost-uk" className="hover:text-accent transition-colors">
+                  Rehab Costs UK
+                </Link>
+              </li>
+              <li>
+                <Link href="/confidential-addiction-help-professionals" className="hover:text-accent transition-colors">
+                  Confidential Professional Help
                 </Link>
               </li>
               <li>
@@ -68,11 +78,6 @@ export function Footer() {
               <li>
                 <Link href="/about" className="hover:text-accent transition-colors">
                   About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/about-insight-recovery-network" className="hover:text-accent transition-colors">
-                  About IRN
                 </Link>
               </li>
               <li>

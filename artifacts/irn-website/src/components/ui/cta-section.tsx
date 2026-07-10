@@ -36,6 +36,7 @@ export function CTASection({
       ? { label: secondaryLabel ?? "Take a free assessment", href: secondaryHref }
       : undefined);
   const resolvedDescription = description ?? body;
+  const isDirectHref = (href: string) => /^(https?:|tel:|mailto:)/.test(href);
 
   return (
     <section className="py-8 md:py-14 lg:py-16 bg-primary relative overflow-hidden">
@@ -63,8 +64,8 @@ export function CTASection({
           )}
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            {isExternal ? (
-              <a href={resolvedPrimaryCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+            {isExternal || isDirectHref(resolvedPrimaryCta.href) ? (
+              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto">
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {resolvedPrimaryCta.label}
                 </Button>
@@ -77,13 +78,19 @@ export function CTASection({
               </Link>
             )}
 
-            {resolvedSecondaryCta && (
+            {resolvedSecondaryCta && (isDirectHref(resolvedSecondaryCta.href) ? (
+              <a href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
+                  {resolvedSecondaryCta.label}
+                </Button>
+              </a>
+            ) : (
               <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
                   {resolvedSecondaryCta.label}
                 </Button>
               </Link>
-            )}
+            ))}
           </div>
         </div>
       </div>

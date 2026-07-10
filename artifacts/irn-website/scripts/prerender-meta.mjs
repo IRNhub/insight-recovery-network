@@ -148,14 +148,13 @@ const PAGES = [
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
         <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
-          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
-          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
-          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
           <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
-          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
-          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/family-addiction-intervention-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Family Help</a>
+          <a href="/how-much-does-rehab-cost-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Rehab Costs</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Support</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Discuss treatment options</a>
         </nav>
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
@@ -308,7 +307,7 @@ const PAGES = [
               Private Rehab and Detox Placement Guidance
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
-              Choosing the right treatment facility is one of the most consequential decisions a person or family can make. We assess your needs, identify the most appropriate options, and manage the transition — without commercial ties to any provider.
+              Choosing the right treatment facility is one of the most consequential decisions a person or family can make. We assess your needs, compare suitable options and support the transition, with any relevant provider or commercial relationship explained transparently.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
@@ -517,10 +516,10 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Contact</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:640px;">
-              Book a Confidential Call With Insight Recovery Network
+              Tell us what is happening. We will help you identify the next step.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;margin-bottom:2rem;">
-              You do not need to have everything worked out before making contact. A private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.
+              Contact us privately about rehab placement, family concerns, detox, online recovery support or an urgent treatment decision. You do not need to know which service you need before making contact.
             </p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -544,9 +543,74 @@ const PAGES = [
               <li><a href="/treatment-placement" style="color:#162B3B;">Treatment Placement</a> — Private rehab and detox guidance, UK and internationally</li>
               <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a> — Structured group and one-to-one support</li>
               <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a> — Digital recovery tools and daily structure</li>
-              <li><a href="/what-we-offer" style="color:#162B3B;">Family Guidance</a> — Support for families navigating addiction</li>
+              <li><a href="/family-addiction-intervention-uk" style="color:#162B3B;">Family &amp; Intervention Guidance</a> — A practical plan when someone is refusing help</li>
               <li><a href="/assessments" style="color:#162B3B;">Free Assessments</a> — Confidential self-assessments for alcohol, drugs, and mental health</li>
             </ul>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/family-addiction-intervention-uk",
+    file: "family-addiction-intervention-uk.html",
+    title: "Family Addiction Help &amp; Intervention UK | Insight Recovery Network",
+    description:
+      "Confidential family addiction consultations and intervention guidance in the UK. Get a clear plan when someone you love is drinking, using drugs, refusing help or may need private treatment.",
+    ogImage: `${SITE_URL}/addiction-intervention-uk.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;color:#fff;">
+        <a href="/" style="color:#fff;text-decoration:none;font-family:Georgia,serif;font-size:1.1rem;">Insight Recovery Network</a>
+        <nav style="margin-top:0.75rem;display:flex;gap:1rem;flex-wrap:wrap;font-family:sans-serif;font-size:0.85rem;">
+          <a href="/treatment-placement" style="color:#fff;">Treatment Placement</a>
+          <a href="/family-addiction-intervention-uk" style="color:#fff;">Family Help</a>
+          <a href="/how-much-does-rehab-cost-uk" style="color:#fff;">Rehab Costs</a>
+          <a href="/contact" style="color:#fff;">Contact</a>
+        </nav>
+      </header>
+      <main style="font-family:sans-serif;background:#F6F4EF;color:#162B3B;padding:3rem 2rem;">
+        <div style="max-width:900px;margin:0 auto;">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.18em;color:#9A7440;">Confidential help for families</p>
+          <h1 style="font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;max-width:760px;">You do not have to wait for them to ask for help.</h1>
+          <p style="font-size:1.1rem;line-height:1.8;max-width:720px;">When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan—not another argument. Speak confidentially about risk, boundaries, treatment options and how to approach the next conversation.</p>
+          <p><a href="/contact" style="display:inline-block;background:#162B3B;color:#fff;padding:0.9rem 1.5rem;text-decoration:none;">Discuss your family situation</a></p>
+          <section style="margin-top:3rem;border-top:1px solid #ddd;padding-top:2rem;">
+            <h2 style="font-family:Georgia,serif;font-size:2rem;">A clear plan before the next crisis</h2>
+            <ul style="line-height:2;max-width:760px;">
+              <li>Understand immediate risk, withdrawal and safeguarding priorities</li>
+              <li>Create one consistent family plan</li>
+              <li>Prepare a calm, non-confrontational conversation</li>
+              <li>Clarify suitable detox, rehab or online treatment routes</li>
+              <li>Support the practical move into treatment where appropriate</li>
+            </ul>
+          </section>
+          <section style="margin-top:3rem;border-top:1px solid #ddd;padding-top:2rem;">
+            <h2 style="font-family:Georgia,serif;font-size:2rem;">Can I call before they agree?</h2>
+            <p style="line-height:1.8;max-width:720px;">Yes. Families are often the first to make contact. A consultation can help you plan the next step before the person has agreed to treatment.</p>
+          </section>
+        </div>
+      </main>
+    `,
+  },
+  {
+    route: "/confidential-addiction-help-professionals",
+    file: "confidential-addiction-help-professionals.html",
+    title: "Confidential Addiction Help for Professionals UK | Insight Recovery Network",
+    description:
+      "Discreet addiction treatment guidance for executives, professionals and business owners. Compare structured online support, private detox and residential rehab confidentially.",
+    ogImage: `${SITE_URL}/og-treatment-placement.png`,
+    body: `
+      <header style="background:#162B3B;padding:1rem 2rem;color:#fff;"><a href="/" style="color:#fff;text-decoration:none;font-family:Georgia,serif;">Insight Recovery Network</a></header>
+      <main style="font-family:sans-serif;background:#F6F4EF;color:#162B3B;padding:3rem 2rem;">
+        <div style="max-width:900px;margin:0 auto;">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.18em;color:#9A7440;">Private support for professionals</p>
+          <h1 style="font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;max-width:760px;">Get help before the problem decides for you.</h1>
+          <p style="font-size:1.1rem;line-height:1.8;max-width:720px;">Confidential addiction guidance for professionals, executives and business owners who need a credible plan without unnecessary exposure. Compare online support, medically supervised detox and discreet residential treatment.</p>
+          <p><a href="/contact" style="display:inline-block;background:#162B3B;color:#fff;padding:0.9rem 1.5rem;text-decoration:none;">Arrange a discreet consultation</a></p>
+          <section style="margin-top:3rem;border-top:1px solid #ddd;padding-top:2rem;">
+            <h2 style="font-family:Georgia,serif;font-size:2rem;">High-functioning does not mean low-risk</h2>
+            <p style="line-height:1.8;max-width:720px;">We consider safety, confidentiality, work and family responsibilities together, then identify the least disruptive route that remains clinically appropriate.</p>
+            <p><a href="/online-programme">Structured online support</a> · <a href="/treatment-placement">Private treatment placement</a></p>
           </section>
         </div>
       </main>
@@ -822,7 +886,7 @@ const PAGES = [
               Private Rehab UK: Independent Guidance Before You Choose
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
-              Many people begin by searching for private rehab in the UK. Before committing to a costly admission, it is worth understanding whether UK rehab, overseas residential treatment, medically supervised detox, structured online support, family intervention or aftercare planning is the right fit. Insight Recovery Network provides independent guidance to help individuals and families make a safer, clearer and more informed decision, with no commercial ties to any facility.
+              Many people begin by searching for private rehab in the UK. Before committing to a costly admission, it is worth understanding whether UK rehab, overseas residential treatment, medically supervised detox, structured online support, family intervention or aftercare planning is the right fit. Insight Recovery Network provides clinically informed guidance, with any relevant provider or commercial relationship explained transparently.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
@@ -864,7 +928,7 @@ const PAGES = [
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Should I choose UK rehab or overseas rehab?</dt>
               <dd>It depends on clinical need, safety, budget, family situation, and recovery history. UK suits proximity and continuity; overseas can offer better value, longer duration, or more distance from triggers. An independent comparison is worth having first.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Can Insight Recovery Network help me understand my options before contacting a rehab?</dt>
-              <dd>Yes. We give an independent, clinically informed view and help you compare the realistic routes before you contact treatment centres directly. We do not refer into UK facilities or work on commission from them.</dd>
+              <dd>Yes. We give a clinically informed view and help you compare realistic routes before you decide. We explain any relevant provider or commercial relationship transparently.</dd>
             </dl>
           </section>
         </div>
@@ -2577,14 +2641,13 @@ const STATIC_HEADER = `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
         <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
-          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
-          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
-          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
           <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
-          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
-          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
+          <a href="/family-addiction-intervention-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Family Help</a>
+          <a href="/how-much-does-rehab-cost-uk" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Rehab Costs</a>
+          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Support</a>
           <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
+          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Discuss treatment options</a>
         </nav>
       </header>`;
 
@@ -2598,11 +2661,11 @@ const STATIC_FOOTER = `
         <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;">
           <div>
             <p style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;margin-bottom:0.75rem;">Insight Recovery Network</p>
-            <p style="font-size:0.8rem;line-height:1.7;opacity:0.75;">Private addiction and mental health support — online programmes, assessments and treatment placement. Based in Newquay, Cornwall, UK. Supporting clients across the UK and internationally.</p>
+            <p style="font-size:0.8rem;line-height:1.7;opacity:0.75;">Confidential guidance for private rehab, detox, family intervention and structured online recovery support. Based in Newquay, Cornwall, UK.</p>
           </div>
           <div>
             <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Services</p>
-            <p style="font-size:0.85rem;line-height:2.1;"><a href="/treatment-placement" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a><br><a href="/online-programme" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Recovery Programme</a><br><a href="/insight-os" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a><br><a href="/what-we-offer" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Family &amp; Intervention Guidance</a></p>
+            <p style="font-size:0.85rem;line-height:2.1;"><a href="/treatment-placement" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a><br><a href="/family-addiction-intervention-uk" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Family &amp; Intervention Help</a><br><a href="/how-much-does-rehab-cost-uk" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Rehab Costs UK</a><br><a href="/online-programme" style="color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Recovery Programme</a></p>
           </div>
           <div>
             <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#C9A96E;margin-bottom:0.75rem;">Free Assessments</p>
@@ -2759,7 +2822,7 @@ function buildDestinationBodyHtml(d) {
             ${h2("Related support and treatment routes")}
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Detox Suitability Assessment</a></p>
             ${h2(`Considering treatment in ${d.country}?`)}
-            ${p("A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. Independent guidance, no pressure, no commercial ties to any facility.")}
+            ${p("A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. No pressure, with relevant provider relationships explained transparently.")}
             <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
             <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
           </section>

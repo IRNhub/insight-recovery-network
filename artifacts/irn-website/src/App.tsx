@@ -29,6 +29,8 @@ const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionReco
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const PrivateRehabUK = lazy(() => import("@/pages/PrivateRehabUK"));
 const RehabCostUK = lazy(() => import("@/pages/RehabCostUK"));
+const FamilyInterventionUK = lazy(() => import("@/pages/FamilyInterventionUK"));
+const ProfessionalAddictionSupport = lazy(() => import("@/pages/ProfessionalAddictionSupport"));
 const GetHelp = lazy(() => import("@/pages/GetHelp"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const ServicesPricingGuide = lazy(() => import("@/pages/ServicesPricingGuide"));
@@ -74,9 +76,9 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/insightos":                          "/insight-os",
   "/online-therapy":                     "/online-programme",
   "/online-recovery":                    "/online-programme",
-  "/family-support":                     "/what-we-offer",
-  "/family-intervention":                "/what-we-offer",
-  "/intervention":                       "/what-we-offer",
+  "/family-support":                     "/family-addiction-intervention-uk",
+  "/family-intervention":                "/family-addiction-intervention-uk",
+  "/intervention":                       "/family-addiction-intervention-uk",
   "/rehab":                              "/treatment-placement",
   "/rehabilitation":                     "/treatment-placement",
   "/alcohol-detox":                      "/treatment-placement",
@@ -117,7 +119,7 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/blog/rehabilitation":                "/treatment-placement",
   "/blog/mental-health":                 "/what-we-offer",
   "/blog/online-recovery":               "/online-programme",
-  "/blog/family-support":                "/what-we-offer",
+  "/blog/family-support":                "/family-addiction-intervention-uk",
 };
 
 /**
@@ -208,6 +210,8 @@ function Router() {
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/private-rehab-uk" component={PrivateRehabUK} />
         <Route path="/how-much-does-rehab-cost-uk" component={RehabCostUK} />
+        <Route path="/family-addiction-intervention-uk" component={FamilyInterventionUK} />
+        <Route path="/confidential-addiction-help-professionals" component={ProfessionalAddictionSupport} />
         <Route path="/get-help" component={GetHelp} />
         <Route path="/private-rehab-thailand">{() => <DestinationRehab slug="private-rehab-thailand" />}</Route>
         <Route path="/private-rehab-south-africa">{() => <DestinationRehab slug="private-rehab-south-africa" />}</Route>

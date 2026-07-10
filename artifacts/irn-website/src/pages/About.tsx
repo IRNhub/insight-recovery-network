@@ -21,7 +21,7 @@ const whatWeHelpWith = [
   { label: "Cocaine and stimulant use", href: "/assessments/drug-use" },
   { label: "Private rehab and detox decisions", href: "/treatment-placement" },
   { label: "Treatment placement in the UK and internationally", href: "/treatment-placement" },
-  { label: "Family intervention and crisis guidance", href: "/what-we-offer" },
+  { label: "Family intervention and crisis guidance", href: "/family-addiction-intervention-uk" },
   { label: "Online addiction recovery support", href: "/online-programme" },
   { label: "Relapse prevention and aftercare planning", href: "/online-programme" },
   { label: "Mental health and dual-diagnosis considerations", href: "/assessments/anxiety" },
