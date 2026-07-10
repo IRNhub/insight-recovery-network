@@ -14,7 +14,7 @@ const ORGANIZATION_SCHEMA = {
   url: "https://www.insightrecoverynetwork.com",
   logo: "https://www.insightrecoverynetwork.com/og-about.png",
   description:
-    "A UK-based private addiction recovery and mental health support service providing treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools.",
+    "A UK-based private addiction support service providing rehab and detox placement guidance, family intervention consultations, structured online recovery programmes and continuing-care tools.",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Newquay",
@@ -39,7 +39,7 @@ const WEBSITE_SCHEMA = {
   name: "Insight Recovery Network",
   url: "https://www.insightrecoverynetwork.com",
   description:
-    "Private addiction recovery and mental health support — treatment placement, online recovery programmes, and digital recovery tools.",
+    "Private rehab placement, family addiction guidance and structured online recovery support in the UK and selected international destinations.",
 };
 
 const PERSON_SCHEMA = {

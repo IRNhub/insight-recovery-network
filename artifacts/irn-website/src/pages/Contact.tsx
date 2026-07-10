@@ -36,15 +36,15 @@ export default function Contact() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-serif text-primary mb-6 leading-tight">
-              Book a Confidential Call With Insight Recovery Network
+              Tell us what is happening. We will help you identify the next step.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground font-light mb-8">
-              We understand that making contact can be difficult. Your enquiry is completely confidential. We will only use your information to respond to your request for support.
+              Contact us privately about rehab placement, family concerns, detox, online recovery support or an urgent treatment decision. You do not need to know which service you need before making contact.
             </p>
             
             <div className="flex items-center gap-2 text-primary font-medium text-sm">
               <Shield className="w-4 h-4 text-accent" />
-              Secure and discreet communication
+              Confidential · No obligation · Individuals and families welcome
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function Contact() {
                         +44 7415 994475
                       </a>
                       <p className="text-muted-foreground/70 text-xs mt-1">
-                        Available during standard business hours. Enquiries via form are monitored continuously.
+                        Calls are answered during standard business hours. You can submit the form at any time.
                       </p>
                     </div>
                   </div>

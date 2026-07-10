@@ -70,7 +70,7 @@ const options = [
   {
     title: "Family intervention guidance",
     body: "Support for families navigating addiction crises — including how to approach the person, how to reduce enabling, and how to coordinate a structured response. Families are often the first to ask for help, and their involvement significantly affects outcomes.",
-    href: "/what-we-offer",
+    href: "/family-addiction-intervention-uk",
   },
   {
     title: "Treatment placement guidance",

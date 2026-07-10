@@ -102,6 +102,8 @@ const specialised = [
     img: familyImg,
     imgAlt: "Family consultation in a calm private room",
     imgPos: "center 30%",
+    href: "/family-addiction-intervention-uk",
+    cta: "Get family guidance",
   },
   {
     title: "Professional Partnerships",
@@ -109,6 +111,8 @@ const specialised = [
     img: professionalImg,
     imgAlt: "Professionals reviewing notes in a private office",
     imgPos: "center 25%",
+    href: "/confidential-addiction-help-professionals",
+    cta: "Explore professional support",
   },
   {
     title: "Aftercare & Continuity Planning",
@@ -116,6 +120,8 @@ const specialised = [
     img: aftercareImg,
     imgAlt: "Calm planning scene with notebook and weekly plan tablet",
     imgPos: "center 40%",
+    href: "/insight-os",
+    cta: "Explore continuing care",
   },
 ];
 
@@ -434,9 +440,10 @@ export default function WhatWeOffer() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
             {specialised.map((item) => (
-              <div
+              <Link
                 key={item.title}
-                className="flex flex-col rounded-xl border overflow-hidden"
+                href={item.href}
+                className="group flex flex-col rounded-xl border overflow-hidden transition hover:-translate-y-1 hover:border-accent/40"
                 style={{
                   background: "rgba(255,255,255,0.04)",
                   borderColor: "rgba(255,255,255,0.10)",
@@ -462,8 +469,11 @@ export default function WhatWeOffer() {
                   <div className="w-6 h-px mb-5" style={{ background: "rgba(201,169,110,0.70)" }} />
                   <h3 className="font-serif text-white text-[19px] leading-snug mb-3">{item.title}</h3>
                   <p className="text-[13.5px] text-primary-foreground/65 font-light leading-relaxed">{item.body}</p>
+                  <span className="mt-5 inline-flex items-center text-[11px] font-semibold uppercase tracking-wide text-accent">
+                    {item.cta}<ArrowRight className="ml-2 h-3.5 w-3.5 transition group-hover:translate-x-1" />
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -476,6 +486,7 @@ export default function WhatWeOffer() {
           { title: "Private Rehab Alternatives", description: "Compare online, community and residential support routes.", href: "/private-rehab-alternative-uk" },
           { title: "Online Recovery Programme", description: "Structured recovery support delivered around everyday life.", href: "/online-programme" },
           { title: "Detox Suitability Assessment", description: "Consider whether withdrawal may require medical support.", href: "/assessments/detox" },
+          { title: "Family & Intervention Help", description: "Get a plan when someone you love is refusing treatment.", href: "/family-addiction-intervention-uk" },
         ]}
       />
 

@@ -21,7 +21,7 @@ const services = [
   {
     title: "Family Intervention Guidance",
     body: "Support for families navigating addiction crises, including guidance on how to approach the person, what to say, what boundaries to consider, and how to coordinate a structured response where needed.",
-    href: "/what-we-offer",
+    href: "/family-addiction-intervention-uk",
   },
   {
     title: "Self-Assessments",

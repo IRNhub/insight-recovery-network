@@ -314,9 +314,9 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/online-therapy":                     "/online-programme",
   "/online-recovery":                    "/online-programme",
   "/insightos":                          "/insight-os",
-  "/family-support":                     "/what-we-offer",
-  "/family-intervention":                "/what-we-offer",
-  "/intervention":                       "/what-we-offer",
+  "/family-support":                     "/family-addiction-intervention-uk",
+  "/family-intervention":                "/family-addiction-intervention-uk",
+  "/intervention":                       "/family-addiction-intervention-uk",
   "/rehab":                              "/treatment-placement",
   "/rehabilitation":                     "/treatment-placement",
   "/alcohol-detox":                      "/treatment-placement",
@@ -357,7 +357,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/blog/rehabilitation":                "/treatment-placement",
   "/blog/mental-health":                 "/what-we-offer",
   "/blog/online-recovery":               "/online-programme",
-  "/blog/family-support":                "/what-we-offer",
+  "/blog/family-support":                "/family-addiction-intervention-uk",
 };
 
 function serverRedirectsPlugin() {
