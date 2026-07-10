@@ -66,7 +66,7 @@ export default function CookiePolicy() {
                     <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
                       <td className="px-4 py-3 font-mono text-foreground/60">irn_admin_secret</td>
                       <td className="px-4 py-3">Session storage</td>
-                      <td className="px-4 py-3">Maintains an authenticated admin session. Only set for logged-in admin users — never set for regular visitors.</td>
+                      <td className="px-4 py-3">Maintains an authenticated admin session. Only set for logged-in admin users, never set for regular visitors.</td>
                       <td className="px-4 py-3">Browser session</td>
                     </tr>
                   </tbody>

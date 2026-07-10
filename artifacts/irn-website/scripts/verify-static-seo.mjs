@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -6,6 +6,8 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const dist = resolve(root, "dist/public");
 const artifactConfig = resolve(root, ".replit-artifact/artifact.toml");
 const siteUrl = "https://www.insightrecoverynetwork.com";
+const textExtensions = new Set([".html", ".js", ".mjs", ".ts", ".tsx", ".txt", ".xml", ".svg", ".toml"]);
+const emDash = String.fromCodePoint(0x2014);
 
 function fail(message) {
   throw new Error(`[static-seo] ${message}`);
@@ -15,6 +17,24 @@ function read(path) {
   if (!existsSync(path)) fail(`Missing required file: ${path}`);
   return readFileSync(path, "utf8");
 }
+
+function assertNoEmDashes(directory) {
+  for (const entry of readdirSync(directory)) {
+    if (entry === "dist" || entry === "node_modules") continue;
+    const path = resolve(directory, entry);
+    if (statSync(path).isDirectory()) {
+      assertNoEmDashes(path);
+      continue;
+    }
+    const extension = entry.slice(entry.lastIndexOf("."));
+    if (!textExtensions.has(extension)) continue;
+    if (readFileSync(path, "utf8").includes(emDash)) {
+      fail(`Em dash found in ${path}. Use natural sentence punctuation instead.`);
+    }
+  }
+}
+
+assertNoEmDashes(root);
 
 const config = read(artifactConfig);
 const rewrites = [];

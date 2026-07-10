@@ -14,7 +14,7 @@ export const alcoholUseAssessment: AssessmentConfig = {
   sections: [
     {
       id: "drinking-pattern",
-      title: "Section 1 of 4 — Drinking Pattern",
+      title: "Section 1 of 4: Drinking Pattern",
       description:
         "These questions help us understand the current pattern of your drinking.",
       questions: [
@@ -75,7 +75,7 @@ export const alcoholUseAssessment: AssessmentConfig = {
     },
     {
       id: "control-dependence",
-      title: "Section 2 of 4 — Control and Dependence",
+      title: "Section 2 of 4: Control and Dependence",
       description:
         "These questions explore your relationship with alcohol and how much control you feel you have over your drinking.",
       questions: [
@@ -118,7 +118,7 @@ export const alcoholUseAssessment: AssessmentConfig = {
     },
     {
       id: "consequences",
-      title: "Section 3 of 4 — Consequences and Impact",
+      title: "Section 3 of 4: Consequences and Impact",
       description:
         "These questions help us understand the impact drinking has had on your life and relationships.",
       questions: [
@@ -162,7 +162,7 @@ export const alcoholUseAssessment: AssessmentConfig = {
     },
     {
       id: "wellbeing-safety",
-      title: "Section 4 of 4 — Your Wellbeing",
+      title: "Section 4 of 4: Your Wellbeing",
       description:
         "This final section asks about your overall mental and emotional wellbeing.",
       questions: [
@@ -193,9 +193,9 @@ export const alcoholUseAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 5 of 5 — Your Details",
+      title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

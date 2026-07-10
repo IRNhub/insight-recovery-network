@@ -173,7 +173,7 @@ export default function OnlineProgramme() {
                 {[
                   "No need to step away from work or family",
                   "Clinical structure, not isolated counselling",
-                  "Flexible — available from anywhere",
+                  "Flexible, available from anywhere",
                   "Three monthly support levels from £950",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -392,7 +392,7 @@ export default function OnlineProgramme() {
         </div>
       </section>
 
-      {/* ── More than online counselling — split layout ── */}
+      {/* ── More than online counselling, split layout ── */}
       <section className="py-7 md:py-10 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -548,7 +548,7 @@ export default function OnlineProgramme() {
               </div>
             </div>
 
-            {/* Structured Support — highlighted */}
+            {/* Structured Support, highlighted */}
             <div
               className="flex flex-col rounded-xl overflow-hidden transition-all duration-300 relative"
               style={{

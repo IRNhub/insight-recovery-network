@@ -10,12 +10,12 @@ const faqs = [
   {
     question: "What is an online addiction recovery programme?",
     answer:
-      "An online addiction recovery programme is structured, professionally guided recovery support delivered via video call and digital tools rather than in person. At its best, it includes group sessions, individual therapeutic work, relapse prevention planning, educational resources, and accountability support. A clinical online programme is different from a self-help app or informal peer group — it is structured, professionally delivered, and clinically informed.",
+      "An online addiction recovery programme is structured, professionally guided recovery support delivered via video call and digital tools rather than in person. At its best, it includes group sessions, individual therapeutic work, relapse prevention planning, educational resources, and accountability support. A clinical online programme is different from a self-help app or informal peer group, it is structured, professionally delivered, and clinically informed.",
   },
   {
     question: "Is online addiction recovery as effective as residential rehab?",
     answer:
-      "For some people and at certain stages of recovery, structured online support can be highly effective. For others — particularly those with severe physical dependency, high relapse risk, poor home environments, or significant mental health complexity — residential treatment is safer and more appropriate. The right approach depends on individual clinical needs, risk level, home circumstances, and stage of recovery. Insight Recovery Network can help you understand which level of support is most appropriate for your situation.",
+      "For some people and at certain stages of recovery, structured online support can be highly effective. For others, particularly those with severe physical dependency, high relapse risk, poor home environments, or significant mental health complexity, residential treatment is safer and more appropriate. The right approach depends on individual clinical needs, risk level, home circumstances, and stage of recovery. Insight Recovery Network can help you understand which level of support is most appropriate for your situation.",
   },
   {
     question: "Who is online addiction recovery support suitable for?",
@@ -25,12 +25,12 @@ const faqs = [
   {
     question: "Is the programme suitable if I am still drinking or using?",
     answer:
-      "This depends on the individual situation. Some people engage with online recovery support while actively reducing use, working towards abstinence, or following a structured tapering plan. Others are already abstinent and seeking structure to protect their recovery. Where there is active dependency, significant withdrawal risk, or clinical complexity, a more intensive level of support — including medically supervised detox or residential treatment — may be recommended first.",
+      "This depends on the individual situation. Some people engage with online recovery support while actively reducing use, working towards abstinence, or following a structured tapering plan. Others are already abstinent and seeking structure to protect their recovery. Where there is active dependency, significant withdrawal risk, or clinical complexity, a more intensive level of support, including medically supervised detox or residential treatment, may be recommended first.",
   },
   {
     question: "How is this different from a therapy app or 12-step group?",
     answer:
-      "Insight Recovery Network's online programme is clinically structured and professionally led. It is not an app with automated responses or gamified content. It is not an anonymous peer-support group. It provides clinical oversight, individual therapeutic work, structured relapse prevention planning, and professional accountability — closer to an intensive outpatient programme delivered online than to self-help or peer support.",
+      "Insight Recovery Network's online programme is clinically structured and professionally led. It is not an app with automated responses or gamified content. It is not an anonymous peer-support group. It provides clinical oversight, individual therapeutic work, structured relapse prevention planning, and professional accountability, closer to an intensive outpatient programme delivered online than to self-help or peer support.",
   },
   {
     question: "What does the online programme cost?",
@@ -52,7 +52,7 @@ const faqSchema = {
 const whoFor = [
   {
     heading: "You need structure but cannot step away from work or family",
-    body: "The online programme provides a clinical rhythm of structured support without requiring you to leave your responsibilities — or your life — behind.",
+    body: "The online programme provides a clinical rhythm of structured support without requiring you to leave your responsibilities, or your life, behind.",
   },
   {
     heading: "You have completed residential treatment and need robust aftercare",
@@ -60,7 +60,7 @@ const whoFor = [
   },
   {
     heading: "You want professional guidance without entering residential rehab",
-    body: "Not everyone needs — or is ready for — residential care. For those who are not yet at that point, structured online support offers a serious, clinically informed alternative.",
+    body: "Not everyone needs, or is ready for, residential care. For those who are not yet at that point, structured online support offers a serious, clinically informed alternative.",
   },
   {
     heading: "You are relapsing despite trying to manage alone",
@@ -118,13 +118,13 @@ export default function OnlineAddictionRecoveryUK() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
-              Online Recovery Support — UK
+              Online Recovery Support, UK
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
               Structured online addiction recovery support, built around your life.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
-              Professional, clinically informed recovery support delivered online — for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
+              Professional, clinically informed recovery support delivered online, for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -169,7 +169,7 @@ export default function OnlineAddictionRecoveryUK() {
                   Online addiction recovery support is structured, professionally delivered recovery work carried out via video call and digital tools. At its best, it is clinically rigorous, individually tailored, and sustained over time.
                 </p>
                 <p>
-                  Insight Recovery Network's online recovery support is not an app with automated check-ins. It is not a peer-support chatroom. It is not an informal weekly group. It is a structured, professionally led programme providing individual therapeutic work, clinical guidance, relapse prevention planning, and ongoing accountability — delivered flexibly to fit around work, family, and daily life.
+                  Insight Recovery Network's online recovery support is not an app with automated check-ins. It is not a peer-support chatroom. It is not an informal weekly group. It is a structured, professionally led programme providing individual therapeutic work, clinical guidance, relapse prevention planning, and ongoing accountability, delivered flexibly to fit around work, family, and daily life.
                 </p>
                 <p>
                   The programme makes use of{" "}
@@ -227,7 +227,7 @@ export default function OnlineAddictionRecoveryUK() {
             <ul className="space-y-3 mb-6">
               {notSuitable.map((item, i) => (
                 <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                  <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                  <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                   <span>{item}</span>
                 </li>
               ))}

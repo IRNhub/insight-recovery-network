@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "Is online support a genuine alternative to private rehab?",
     answer:
-      "For some people, structured online recovery support can be a clinically appropriate alternative to private residential rehab — particularly where physical dependency does not require medical detox, where the home environment is stable, and where the level of need can be met without 24-hour residential care. For others, residential rehab is the safer or more appropriate choice. The right answer depends on the individual's clinical needs, risk, and circumstances. Insight Recovery Network will always be honest about which route is more appropriate.",
+      "For some people, structured online recovery support can be a clinically appropriate alternative to private residential rehab, particularly where physical dependency does not require medical detox, where the home environment is stable, and where the level of need can be met without 24-hour residential care. For others, residential rehab is the safer or more appropriate choice. The right answer depends on the individual's clinical needs, risk, and circumstances. Insight Recovery Network will always be honest about which route is more appropriate.",
   },
   {
     question: "What if I have been waiting for NHS addiction treatment?",
@@ -22,12 +22,12 @@ const faqs = [
   {
     question: "What is included in structured online recovery support?",
     answer:
-      "Insight Recovery Network's online recovery support includes professional clinical oversight, group recovery sessions, one-to-one therapeutic work, relapse prevention planning, recovery worksheets, and access to Insight OS — a digital recovery system providing daily structure, check-ins, and anchor practices.",
+      "Insight Recovery Network's online recovery support includes professional clinical oversight, group recovery sessions, one-to-one therapeutic work, relapse prevention planning, recovery worksheets, and access to Insight OS, a digital recovery system providing daily structure, check-ins, and anchor practices.",
   },
   {
     question: "When would you recommend treatment placement over online support?",
     answer:
-      "We would recommend treatment placement — including private detox or residential rehab — where there is significant physical dependency requiring medically supervised withdrawal, where the home environment is unsafe or unsupportive, where repeated relapse has occurred in community or online settings, where dual diagnosis requires more intensive clinical intervention, or where the person cannot maintain safety without around-the-clock support. We make this recommendation honestly when it is the right call.",
+      "We would recommend treatment placement, including private detox or residential rehab, where there is significant physical dependency requiring medically supervised withdrawal, where the home environment is unsafe or unsupportive, where repeated relapse has occurred in community or online settings, where dual diagnosis requires more intensive clinical intervention, or where the person cannot maintain safety without around-the-clock support. We make this recommendation honestly when it is the right call.",
   },
   {
     question: "Can family members access support through Insight Recovery Network?",
@@ -69,17 +69,17 @@ const options = [
   },
   {
     title: "Family intervention guidance",
-    body: "Support for families navigating addiction crises — including how to approach the person, how to reduce enabling, and how to coordinate a structured response. Families are often the first to ask for help, and their involvement significantly affects outcomes.",
+    body: "Support for families navigating addiction crises, including how to approach the person, how to reduce enabling, and how to coordinate a structured response. Families are often the first to ask for help, and their involvement significantly affects outcomes.",
     href: "/family-addiction-intervention-uk",
   },
   {
     title: "Treatment placement guidance",
-    body: "Where residential treatment, detox, or a higher level of clinical care is needed, we provide confidential guidance on private rehab and detox options in the UK and internationally — helping individuals and families identify the most clinically appropriate setting.",
+    body: "Where residential treatment, detox, or a higher level of clinical care is needed, we provide confidential guidance on private rehab and detox options in the UK and internationally, helping individuals and families identify the most clinically appropriate setting.",
     href: "/treatment-placement",
   },
   {
     title: "Free self-assessments",
-    body: "Free confidential assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Designed to help individuals understand what they are experiencing and whether professional support is appropriate — without obligation.",
+    body: "Free confidential assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Designed to help individuals understand what they are experiencing and whether professional support is appropriate, without obligation.",
     href: "/assessments",
   },
 ];
@@ -112,13 +112,13 @@ export default function PrivateRehabAlternativeUK() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
-              Private Rehab Alternatives — UK
+              Private Rehab Alternatives, UK
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              Not ready for residential rehab — or not sure it is necessary?
+              Not ready for residential rehab, or not sure it is necessary?
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
-              Private residential rehab is not always the right answer. There are other routes — and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
+              Private residential rehab is not always the right answer. There are other routes, and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -161,7 +161,7 @@ export default function PrivateRehabAlternativeUK() {
                   You may be considering your options if you are concerned about alcohol or drug use but are not sure whether residential rehab is necessary. You may have looked at the cost of private rehab and are wondering whether there is another way. You may be on an NHS waiting list and need support in the meantime. You may have completed residential treatment and need ongoing support to protect your recovery.
                 </p>
                 <p>
-                  Not everyone needs residential rehab. Some people can achieve and maintain recovery through structured online support, relapse prevention planning, and appropriate professional guidance. Others — particularly those with severe physical dependency, unsafe home environments, or complex clinical needs — need a more intensive level of care.
+                  Not everyone needs residential rehab. Some people can achieve and maintain recovery through structured online support, relapse prevention planning, and appropriate professional guidance. Others, particularly those with severe physical dependency, unsafe home environments, or complex clinical needs, need a more intensive level of care.
                 </p>
                 <p>
                   Insight Recovery Network helps you work out which situation you are actually in, rather than directing everyone down the same path.
@@ -178,7 +178,7 @@ export default function PrivateRehabAlternativeUK() {
               <ul className="space-y-3 mb-6">
                 {whenRehabNeeded.map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                     <span>{item}</span>
                   </li>
                 ))}

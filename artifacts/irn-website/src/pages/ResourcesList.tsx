@@ -45,13 +45,13 @@ export default function ResourcesList() {
   return (
     <Layout>
       <SEO
-        title="Resources — Addiction, Recovery & Mental Health Articles"
-        description="Expert articles on addiction, recovery, mental health, and treatment options — written by Craig Bilton to help individuals and families make informed decisions."
+        title="Resources, Addiction, Recovery & Mental Health Articles"
+        description="Expert articles on addiction, recovery, mental health, and treatment options, written by Craig Bilton to help individuals and families make informed decisions."
         canonical="/resources"
         ogImage={ogImageUrl("og-resources.png")}
       />
 
-      {/* ── Hero — two-column ── */}
+      {/* ── Hero, two-column ── */}
       <section
         style={{
           background:
@@ -75,7 +75,7 @@ export default function ResourcesList() {
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-3 max-w-xl">
                 Authoritative articles on addiction, recovery, mental health and
-                treatment — written to help individuals and families navigate
+                treatment, written to help individuals and families navigate
                 complex decisions with clarity.
               </p>
               <p className="text-xs text-muted-foreground/55 font-light leading-relaxed max-w-xl">
@@ -96,7 +96,7 @@ export default function ResourcesList() {
               >
                 <img
                   src={resourcesHero}
-                  alt="Clinical resource library — laptop showing the Insight Recovery Network resources page on a desk with clinical books and a notebook"
+                  alt="Clinical resource library, laptop showing the Insight Recovery Network resources page on a desk with clinical books and a notebook"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div

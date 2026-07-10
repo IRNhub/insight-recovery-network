@@ -50,7 +50,7 @@ const NotFound = lazy(() => import("@/pages/not-found"));
 const queryClient = new QueryClient();
 
 /**
- * Client-side redirect map — mirrors the server-side SERVER_REDIRECTS in vite.config.ts.
+ * Client-side redirect map, mirrors the server-side SERVER_REDIRECTS in vite.config.ts.
  * Handles in-app navigation to old/legacy URLs (belt-and-suspenders alongside server 301s).
  * Trailing slashes are already stripped by useNormalisedLocation before this map is checked.
  */
@@ -139,7 +139,7 @@ function useNormalisedLocation(): ReturnType<typeof useBrowserLocation> {
 
   const normLoc = loc !== "/" && loc.endsWith("/") ? loc.slice(0, -1) : loc;
 
-  // Sync the address bar after render — replaceState, no reload, no popstate
+  // Sync the address bar after render, replaceState, no reload, no popstate
   useEffect(() => {
     if (loc !== normLoc) {
       window.history.replaceState(
@@ -167,7 +167,7 @@ function Router() {
     }
   }, []);
 
-  // Enforce www canonical — redirect bare domain to www.
+  // Enforce www canonical, redirect bare domain to www.
   // Only fires on the real production domain, never in dev (*.replit.dev).
   if (
     typeof window !== "undefined" &&

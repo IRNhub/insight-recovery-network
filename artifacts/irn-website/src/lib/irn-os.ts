@@ -35,7 +35,7 @@ export async function submitLeadToIrnOs(payload: IrnOsLeadPayload): Promise<void
 
   if (!endpoint) {
     if (import.meta.env.DEV) {
-      console.info("[IRN OS] Placeholder — no VITE_IRN_OS_ENDPOINT set. Lead payload:", {
+      console.info("[IRN OS] Placeholder, no VITE_IRN_OS_ENDPOINT set. Lead payload:", {
         ...payload,
         email: "[redacted]",
         phone: "[redacted]",

@@ -14,7 +14,7 @@ export const drugUseAssessment: AssessmentConfig = {
   sections: [
     {
       id: "substance-use-patterns",
-      title: "Section 1 of 4 — Substance Use Patterns",
+      title: "Section 1 of 4: Substance Use Patterns",
       description:
         "These questions help us understand the pattern of your substance use. This includes recreational drugs, cannabis, prescription medications used not as prescribed, or any other substances.",
       questions: [
@@ -72,7 +72,7 @@ export const drugUseAssessment: AssessmentConfig = {
     },
     {
       id: "control-dependence",
-      title: "Section 2 of 4 — Control and Dependence",
+      title: "Section 2 of 4: Control and Dependence",
       description:
         "These questions explore how much control you feel you have over your substance use.",
       questions: [
@@ -119,7 +119,7 @@ export const drugUseAssessment: AssessmentConfig = {
     },
     {
       id: "consequences",
-      title: "Section 3 of 4 — Consequences and Impact",
+      title: "Section 3 of 4: Consequences and Impact",
       description:
         "These questions help us understand how substance use may be affecting your life.",
       questions: [
@@ -161,7 +161,7 @@ export const drugUseAssessment: AssessmentConfig = {
     },
     {
       id: "wellbeing-safety",
-      title: "Section 4 of 4 — Your Wellbeing",
+      title: "Section 4 of 4: Your Wellbeing",
       description:
         "This final section asks about your overall mental and emotional wellbeing.",
       questions: [
@@ -192,9 +192,9 @@ export const drugUseAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 5 of 5 — Your Details",
+      title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

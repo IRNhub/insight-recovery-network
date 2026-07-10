@@ -52,7 +52,7 @@ async function main() {
   writeFileSync(resolve(publicDir, "favicon-32x32.png"), px32);
   console.log("✓ favicon-32x32.png");
 
-  // 48x48 (used as ICO payload — saved as .ico, browsers accept PNG-encoded ICO)
+  // 48x48 (used as ICO payload, saved as .ico, browsers accept PNG-encoded ICO)
   const px48 = await compositeLogoOntoNavy(48, 0.06);
   writeFileSync(resolve(publicDir, "favicon.ico"), px48);
   console.log("✓ favicon.ico (48x48 PNG-encoded)");

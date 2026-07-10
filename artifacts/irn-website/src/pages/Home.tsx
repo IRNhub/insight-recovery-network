@@ -52,7 +52,7 @@ const services = [
   {
     image: familyImage,
     title: "Family consultation and intervention",
-    body: "Create a calm, practical plan for risk, communication, boundaries and treatment—even before your loved one agrees to help.",
+    body: "Create a calm, practical plan for risk, communication, boundaries and treatment, even before your loved one agrees to help.",
     href: "/family-addiction-intervention-uk",
     cta: "Get family guidance",
   },
@@ -89,10 +89,10 @@ export default function Home() {
         <div className="container relative mx-auto grid min-h-[650px] grid-cols-1 items-center gap-10 px-6 py-10 md:px-12 md:py-16 lg:grid-cols-12 lg:gap-14 lg:py-20">
           <div className="lg:col-span-6">
             <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-              Private rehab placement and addiction guidance — UK and international
+              Private rehab placement and addiction guidance for the UK and abroad
             </p>
             <h1 className="mb-6 max-w-2xl font-serif text-[2.55rem] font-medium leading-[1.04] tracking-tight text-primary md:text-6xl lg:text-[4rem]">
-              Find the right rehab, detox or recovery support—without guessing.
+              Find the right rehab, detox or recovery support without guessing.
             </h1>
             <p className="mb-5 max-w-xl text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
               Confidential guidance for individuals and families making urgent, expensive and deeply personal treatment decisions.
@@ -227,7 +227,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-8">
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">Experienced, direct and transparent</p>
-            <h2 className="max-w-3xl font-serif text-3xl leading-tight md:text-5xl">A treatment decision should be based on fit—not fear, photographs or pressure.</h2>
+            <h2 className="max-w-3xl font-serif text-3xl leading-tight text-primary-foreground md:text-5xl">A treatment decision should be based on fit, not fear, photographs or pressure.</h2>
             <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-primary-foreground/70">
               Craig Bilton has worked across residential treatment, complex case management, family support and continuing care in the UK and internationally for more than two decades.
             </p>
@@ -239,7 +239,7 @@ export default function Home() {
               ].map(({ Icon, title, body }) => (
                 <div key={title} className="border-t border-white/15 pt-5">
                   <Icon className="h-5 w-5 text-accent" strokeWidth={1.5} />
-                  <h3 className="mt-4 font-serif text-lg">{title}</h3>
+                  <h3 className="mt-4 font-serif text-lg text-primary-foreground">{title}</h3>
                   <p className="mt-2 text-xs leading-relaxed text-white/55">{body}</p>
                 </div>
               ))}

@@ -4,7 +4,7 @@ export const detoxAssessment: AssessmentConfig = {
   id: "detox-suitability",
   title: "Detox Suitability Assessment",
   subtitle:
-    "If you are considering stopping or significantly reducing your use of alcohol or other substances, this assessment helps identify the safest pathway. Please answer as honestly as you can — your answers help us understand your level of risk.",
+    "If you are considering stopping or significantly reducing your use of alcohol or other substances, this assessment helps identify the safest pathway. Please answer as honestly as you can, your answers help us understand your level of risk.",
   estimatedMinutes: 10,
   scoreThresholds: {
     moderateConcern: 10,
@@ -14,7 +14,7 @@ export const detoxAssessment: AssessmentConfig = {
   sections: [
     {
       id: "current-use",
-      title: "Section 1 of 4 — Current Use",
+      title: "Section 1 of 4: Current Use",
       description:
         "These questions help us understand your current level of alcohol or substance use.",
       questions: [
@@ -61,7 +61,7 @@ export const detoxAssessment: AssessmentConfig = {
     },
     {
       id: "withdrawal-history",
-      title: "Section 2 of 4 — Withdrawal and Safety History",
+      title: "Section 2 of 4: Withdrawal and Safety History",
       description:
         "This section asks about previous withdrawal experiences. This is the most clinically important part of the assessment.",
       questions: [
@@ -94,7 +94,7 @@ export const detoxAssessment: AssessmentConfig = {
         },
         {
           id: "hallucinations",
-          text: "Have you ever experienced hallucinations — seeing, hearing, or feeling things that were not there — during or after stopping use?",
+          text: "Have you ever experienced hallucinations, seeing, hearing, or feeling things that were not there, during or after stopping use?",
           type: "radio",
           required: true,
           redFlagKey: "hallucinations",
@@ -134,7 +134,7 @@ export const detoxAssessment: AssessmentConfig = {
     },
     {
       id: "medical-context",
-      title: "Section 3 of 4 — Medical and Substance Context",
+      title: "Section 3 of 4: Medical and Substance Context",
       description:
         "These questions help us understand any additional medical factors relevant to safe withdrawal.",
       questions: [
@@ -193,7 +193,7 @@ export const detoxAssessment: AssessmentConfig = {
     },
     {
       id: "readiness",
-      title: "Section 4 of 4 — Readiness",
+      title: "Section 4 of 4: Readiness",
       description:
         "This section helps us understand your current circumstances and motivation.",
       questions: [
@@ -216,7 +216,7 @@ export const detoxAssessment: AssessmentConfig = {
           options: [
             {
               value: "ready",
-              label: "I am ready — I want to do whatever it takes",
+              label: "I am ready, I want to do whatever it takes",
               score: 0,
             },
             {
@@ -235,9 +235,9 @@ export const detoxAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 5 of 5 — Your Details",
+      title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

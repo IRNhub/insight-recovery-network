@@ -50,7 +50,7 @@ export function HeroCarousel({ slides, intervalMs = 5500 }: HeroCarouselProps) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      {/* Champagne ambient glow — behind everything */}
+      {/* Champagne ambient glow, behind everything */}
       <div
         className="absolute -inset-4 rounded-3xl pointer-events-none"
         style={{
@@ -59,10 +59,10 @@ export function HeroCarousel({ slides, intervalMs = 5500 }: HeroCarouselProps) {
         }}
       />
 
-      {/* Second depth layer — offset back panel */}
+      {/* Second depth layer, offset back panel */}
       <div className="absolute inset-0 translate-x-3 translate-y-3 md:translate-x-5 md:translate-y-5 rounded-2xl bg-primary/10 border border-primary/8" />
 
-      {/* Third layer — thin champagne frame offset */}
+      {/* Third layer, thin champagne frame offset */}
       <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 md:translate-x-2.5 md:translate-y-2.5 rounded-2xl border border-accent/20" />
 
       {/* Main image card */}
@@ -97,7 +97,7 @@ export function HeroCarousel({ slides, intervalMs = 5500 }: HeroCarouselProps) {
                   draggable={false}
                 />
 
-                {/* Gradient vignette — bottom only, for overlay legibility */}
+                {/* Gradient vignette, bottom only, for overlay legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/10 to-transparent" />
 
                 {/* Slide overlay card */}
@@ -124,7 +124,7 @@ export function HeroCarousel({ slides, intervalMs = 5500 }: HeroCarouselProps) {
           {/* Inner ring highlight */}
           <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 pointer-events-none z-20" />
 
-          {/* Prev / Next arrow buttons — subtle, appear on hover */}
+          {/* Prev / Next arrow buttons, subtle, appear on hover */}
           <button
             onClick={prev}
             className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-8 h-8 flex items-center justify-center rounded-full bg-primary/40 border border-white/10 text-white/80 opacity-0 group-hover:opacity-100 hover:bg-primary/60 transition-all duration-200 backdrop-blur-sm"

@@ -1,11 +1,11 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Navy background -->
   <rect width="32" height="32" rx="6" fill="#162B3B"/>
-  <!-- Outer gold circle ring — IRN brushstroke circle mark -->
+  <!-- Outer gold circle ring, IRN brushstroke circle mark -->
   <circle cx="16" cy="16" r="11.5" stroke="#C9A96E" stroke-width="1.6" fill="none"/>
   <!-- Inner ghost ring for depth -->
   <circle cx="16" cy="16" r="9" stroke="#C9A96E" stroke-width="0.5" stroke-opacity="0.45" fill="none"/>
-  <!-- Serif "I" — top bar -->
+  <!-- Serif "I", top bar -->
   <rect x="12.5" y="10" width="7" height="1" rx="0.5" fill="#C9A96E"/>
   <!-- I stem -->
   <rect x="15.2" y="11" width="1.6" height="10" rx="0.8" fill="#C9A96E"/>

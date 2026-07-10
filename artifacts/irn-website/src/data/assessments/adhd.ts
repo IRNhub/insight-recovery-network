@@ -14,13 +14,13 @@ export const adhdAssessment: AssessmentConfig = {
   sections: [
     {
       id: "attention-focus",
-      title: "Section 1 of 3 — Attention and Focus",
+      title: "Section 1 of 3: Attention and Focus",
       description:
         "These questions explore how attention and concentration show up for you day-to-day.",
       questions: [
         {
           id: "sustaining-attention",
-          text: "How often do you have difficulty sustaining attention on tasks or activities that require prolonged mental effort — such as reading, completing work, or following conversations?",
+          text: "How often do you have difficulty sustaining attention on tasks or activities that require prolonged mental effort, such as reading, completing work, or following conversations?",
           type: "radio",
           required: true,
           options: [
@@ -44,7 +44,7 @@ export const adhdAssessment: AssessmentConfig = {
         },
         {
           id: "losing-things",
-          text: "How often do you lose important items, forget appointments, or fail to follow through on commitments — despite intending to?",
+          text: "How often do you lose important items, forget appointments, or fail to follow through on commitments, despite intending to?",
           type: "radio",
           required: true,
           options: [
@@ -70,7 +70,7 @@ export const adhdAssessment: AssessmentConfig = {
     },
     {
       id: "hyperactivity-restlessness",
-      title: "Section 2 of 3 — Hyperactivity, Impulsivity and Emotional Regulation",
+      title: "Section 2 of 3: Hyperactivity, Impulsivity and Emotional Regulation",
       description:
         "These questions explore restlessness, impulsive behaviour, and emotional responses.",
       questions: [
@@ -100,7 +100,7 @@ export const adhdAssessment: AssessmentConfig = {
         },
         {
           id: "impulsive-decisions",
-          text: "How often do you make impulsive decisions — acting without fully thinking through the consequences?",
+          text: "How often do you make impulsive decisions, acting without fully thinking through the consequences?",
           type: "radio",
           required: true,
           options: [
@@ -126,7 +126,7 @@ export const adhdAssessment: AssessmentConfig = {
     },
     {
       id: "impact-and-context",
-      title: "Section 3 of 3 — Impact and Wellbeing",
+      title: "Section 3 of 3: Impact and Wellbeing",
       description:
         "These questions help us understand the impact these patterns have on your life and how long they have been present.",
       questions: [
@@ -148,7 +148,7 @@ export const adhdAssessment: AssessmentConfig = {
           type: "radio",
           required: true,
           options: [
-            { value: "lifelong", label: "For most of my life — since childhood or early adulthood", score: 3 },
+            { value: "lifelong", label: "For most of my life, since childhood or early adulthood", score: 3 },
             { value: "several-years", label: "For several years", score: 2 },
             { value: "recent", label: "Only in the past year or two", score: 1 },
             { value: "not-sure", label: "I am not sure", score: 1 },
@@ -181,9 +181,9 @@ export const adhdAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 4 of 4 — Your Details",
+      title: "Section 4 of 4: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

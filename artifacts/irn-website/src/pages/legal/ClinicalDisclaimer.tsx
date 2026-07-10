@@ -8,7 +8,7 @@ export default function ClinicalDisclaimer() {
       <SEO
         title="Clinical Disclaimer"
         fullTitle="Clinical Disclaimer | Insight Recovery Network"
-        description="Insight Recovery Network provides private online support and guidance — not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts."
+        description="Insight Recovery Network provides private online support and guidance, not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts."
         canonical="/clinical-disclaimer"
       />
 
@@ -67,7 +67,7 @@ export default function ClinicalDisclaimer() {
                 <li>Nursing, medical, or therapeutic services as defined under health regulation.</li>
                 <li>NHS-funded services of any kind.</li>
               </ul>
-              <p className="mt-3">Where clinical or regulated treatment is required — including medically supervised detox — we will guide you towards the appropriate regulated providers.</p>
+              <p className="mt-3">Where clinical or regulated treatment is required, including medically supervised detox, we will guide you towards the appropriate regulated providers.</p>
             </div>
 
             <div>
@@ -78,9 +78,9 @@ export default function ClinicalDisclaimer() {
               <p className="mb-2">If you are in a mental health crisis, experiencing suicidal thoughts, or need urgent support, please contact:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Emergency services:</strong> 999 (or 112 within the EU)</li>
-                <li><strong className="font-medium text-foreground/70">Samaritans:</strong> 116 123 — free, 24 hours a day, 7 days a week</li>
-                <li><strong className="font-medium text-foreground/70">Shout:</strong> text 85258 — free crisis text service, 24/7</li>
-                <li><strong className="font-medium text-foreground/70">CALM:</strong> 0800 58 58 58 — open 5pm to midnight daily</li>
+                <li><strong className="font-medium text-foreground/70">Samaritans:</strong> 116 123, free, 24 hours a day, 7 days a week</li>
+                <li><strong className="font-medium text-foreground/70">Shout:</strong> text 85258, free crisis text service, 24/7</li>
+                <li><strong className="font-medium text-foreground/70">CALM:</strong> 0800 58 58 58, open 5pm to midnight daily</li>
                 <li><strong className="font-medium text-foreground/70">Your GP or NHS 111:</strong> for urgent but non-emergency medical situations</li>
                 <li><strong className="font-medium text-foreground/70">A&amp;E:</strong> attend your nearest emergency department for immediate risk situations</li>
               </ul>
@@ -88,7 +88,7 @@ export default function ClinicalDisclaimer() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">4. Assessment tools</h2>
-              <p>The self-assessment tools available on this website are informational aids designed to help you reflect on your current situation. They are <strong className="font-medium text-foreground/70">not diagnostic instruments</strong> and must not be used as a substitute for a full clinical assessment by a qualified medical professional, psychiatrist, or psychologist. Results indicate areas worth exploring with a professional — they do not constitute a diagnosis, clinical recommendation, or treatment plan.</p>
+              <p>The self-assessment tools available on this website are informational aids designed to help you reflect on your current situation. They are <strong className="font-medium text-foreground/70">not diagnostic instruments</strong> and must not be used as a substitute for a full clinical assessment by a qualified medical professional, psychiatrist, or psychologist. Results indicate areas worth exploring with a professional, they do not constitute a diagnosis, clinical recommendation, or treatment plan.</p>
             </div>
 
             <div>
@@ -110,7 +110,7 @@ export default function ClinicalDisclaimer() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">8. No clinical relationship</h2>
-              <p>Contacting Insight Recovery Network — whether through a form, email, phone, or assessment — does not create a regulated clinical relationship. Craig Bilton and any other individuals associated with Insight Recovery Network act in an advisory and supportive capacity, not in a regulated clinical capacity unless explicitly and separately agreed in writing.</p>
+              <p>Contacting Insight Recovery Network, whether through a form, email, phone, or assessment, does not create a regulated clinical relationship. Craig Bilton and any other individuals associated with Insight Recovery Network act in an advisory and supportive capacity, not in a regulated clinical capacity unless explicitly and separately agreed in writing.</p>
             </div>
 
             <div className="pt-6 border-t" style={{ borderColor: "rgba(201,169,110,0.2)" }}>

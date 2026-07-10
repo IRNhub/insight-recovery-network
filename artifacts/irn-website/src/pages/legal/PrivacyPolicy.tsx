@@ -86,8 +86,8 @@ export default function PrivacyPolicy() {
               <h2 className="font-serif text-xl font-medium text-primary mb-3">5. Third-party processors</h2>
               <p className="mb-3">We use a small number of trusted third-party services to operate our website. Each is bound by appropriate data processing agreements:</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Resend</strong> (email delivery service) — used to send notification and acknowledgement emails. Resend may transiently process your name and email address as part of email delivery. Resend is GDPR-compliant.</li>
-                <li><strong className="font-medium text-foreground/70">Replit</strong> (hosting infrastructure) — our website and database are hosted on Replit&rsquo;s infrastructure, which is SOC 2 compliant.</li>
+                <li><strong className="font-medium text-foreground/70">Resend</strong> (email delivery service), used to send notification and acknowledgement emails. Resend may transiently process your name and email address as part of email delivery. Resend is GDPR-compliant.</li>
+                <li><strong className="font-medium text-foreground/70">Replit</strong> (hosting infrastructure), our website and database are hosted on Replit&rsquo;s infrastructure, which is SOC 2 compliant.</li>
               </ul>
               <p className="mt-3">We do not use Google Analytics, Facebook Pixel, or any other advertising or behavioural tracking service.</p>
             </div>
@@ -96,13 +96,13 @@ export default function PrivacyPolicy() {
               <h2 className="font-serif text-xl font-medium text-primary mb-3">6. Your rights</h2>
               <p className="mb-3">Under UK GDPR you have the right to:</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Access</strong> — request a copy of the personal data we hold about you.</li>
-                <li><strong className="font-medium text-foreground/70">Rectification</strong> — ask us to correct inaccurate data.</li>
-                <li><strong className="font-medium text-foreground/70">Erasure</strong> — ask us to delete your personal data (&ldquo;right to be forgotten&rdquo;).</li>
-                <li><strong className="font-medium text-foreground/70">Restriction</strong> — ask us to limit how we use your data.</li>
-                <li><strong className="font-medium text-foreground/70">Portability</strong> — receive your data in a structured, machine-readable format.</li>
-                <li><strong className="font-medium text-foreground/70">Objection</strong> — object to processing based on legitimate interests.</li>
-                <li><strong className="font-medium text-foreground/70">Withdraw consent</strong> — at any time, without affecting the lawfulness of prior processing.</li>
+                <li><strong className="font-medium text-foreground/70">Access</strong>, request a copy of the personal data we hold about you.</li>
+                <li><strong className="font-medium text-foreground/70">Rectification</strong>, ask us to correct inaccurate data.</li>
+                <li><strong className="font-medium text-foreground/70">Erasure</strong>, ask us to delete your personal data (&ldquo;right to be forgotten&rdquo;).</li>
+                <li><strong className="font-medium text-foreground/70">Restriction</strong>, ask us to limit how we use your data.</li>
+                <li><strong className="font-medium text-foreground/70">Portability</strong>, receive your data in a structured, machine-readable format.</li>
+                <li><strong className="font-medium text-foreground/70">Objection</strong>, object to processing based on legitimate interests.</li>
+                <li><strong className="font-medium text-foreground/70">Withdraw consent</strong>, at any time, without affecting the lawfulness of prior processing.</li>
               </ul>
               <p className="mt-3">
                 To exercise any of these rights, email us at{" "}

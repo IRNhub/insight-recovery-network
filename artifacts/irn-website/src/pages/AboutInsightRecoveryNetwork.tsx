@@ -147,10 +147,10 @@ export default function AboutInsightRecoveryNetwork() {
                   Insight Recovery Network is an online-only private addiction recovery and mental health support service based in Newquay, Cornwall, UK. We work with individuals and families across the United Kingdom who need professional support in navigating addiction, seeking treatment, managing relapse risk, or understanding the options available to them.
                 </p>
                 <p>
-                  We do not offer face-to-face appointments. All services are delivered online — by telephone, video call, and through our digital recovery platform, Insight OS. This is a deliberate choice: it allows us to support people discreetly, without the need to travel, attend a clinic, or disclose more than is necessary.
+                  We do not offer face-to-face appointments. All services are delivered online, by telephone, video call, and through our digital recovery platform, Insight OS. This is a deliberate choice: it allows us to support people discreetly, without the need to travel, attend a clinic, or disclose more than is necessary.
                 </p>
                 <p>
-                  Insight Recovery Network was founded by Craig Bilton, Clinical Director, with over 20 years of international addiction treatment experience in senior clinical roles. The service is designed to provide support that is genuinely useful — not generic, not sales-driven, and not dependent on a single treatment pathway.
+                  Insight Recovery Network was founded by Craig Bilton, Clinical Director, with over 20 years of international addiction treatment experience in senior clinical roles. The service is designed to provide support that is genuinely useful, not generic, not sales-driven, and not dependent on a single treatment pathway.
                 </p>
               </div>
             </div>
@@ -168,7 +168,7 @@ export default function AboutInsightRecoveryNetwork() {
                   </div>
                   <div>
                     <dt className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Service delivery</dt>
-                    <dd className="text-foreground">Online only — telephone, video call, and Insight OS digital platform</dd>
+                    <dd className="text-foreground">Online only, telephone, video call, and Insight OS digital platform</dd>
                   </div>
                   <div>
                     <dt className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Face-to-face appointments</dt>
@@ -213,7 +213,7 @@ export default function AboutInsightRecoveryNetwork() {
               What we offer
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Insight Recovery Network provides a range of support services, designed to meet individuals and families at different points in the recovery process — from initial assessment and treatment decisions through to structured ongoing support and relapse prevention.
+              Insight Recovery Network provides a range of support services, designed to meet individuals and families at different points in the recovery process, from initial assessment and treatment decisions through to structured ongoing support and relapse prevention.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

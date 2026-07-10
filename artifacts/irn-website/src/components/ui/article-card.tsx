@@ -9,7 +9,7 @@ interface ArticleCardProps {
 export function ArticleCard({ article }: ArticleCardProps) {
   return (
     <article className="group flex flex-col border border-border/50 bg-background hover:border-accent/40 transition-colors duration-300">
-      {/* Image area — consistent 16:9 crop across all cards */}
+      {/* Image area, consistent 16:9 crop across all cards */}
       <div className="relative overflow-hidden flex-shrink-0" style={{ aspectRatio: "16/9" }}>
         {article.image ? (
           <img

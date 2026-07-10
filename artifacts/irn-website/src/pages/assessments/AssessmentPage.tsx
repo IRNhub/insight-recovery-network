@@ -75,7 +75,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
         }
       }
     } catch {
-      // Anchor unavailable — result still shown with deterministic content
+      // Anchor unavailable, result still shown with deterministic content
     } finally {
       setIsLoadingAnchor(false);
     }
@@ -88,7 +88,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
         method: "POST",
       });
     } catch {
-      // Non-fatal — tracking failure should not interrupt navigation
+      // Non-fatal, tracking failure should not interrupt navigation
     }
   }
 
@@ -253,7 +253,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
                 </span>
                 <div>
                   <p className="font-medium text-primary text-sm">
-                    {section.title.replace(/Section \d+ of \d+ — /, "")}
+                    {section.title.replace(/Section \d+ of \d+, /, "")}
                   </p>
                   {section.description && (
                     <p className="text-muted-foreground font-light text-sm mt-1 leading-relaxed">
@@ -277,7 +277,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
             How results are calculated
           </h2>
           <p className="text-muted-foreground font-light mb-8 leading-relaxed">
-            Scores are calculated using fixed clinical logic — not AI. Your
+            Scores are calculated using fixed clinical logic, not AI. Your
             result level is determined by your total score and the presence of
             any specific risk indicators.
           </p>
@@ -298,8 +298,8 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
             ))}
           </div>
           <p className="text-xs text-muted-foreground font-light mt-6 leading-relaxed">
-            After your score is calculated, Anchor — our AI-assisted recovery
-            guidance system — will generate a personalised interpretation. Anchor
+            After your score is calculated, Anchor, our AI-assisted recovery
+            guidance system, will generate a personalised interpretation. Anchor
             does not diagnose or give medical instructions.
           </p>
         </div>

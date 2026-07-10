@@ -120,7 +120,7 @@ export function AssessmentResult({
             <div className="flex items-center gap-3 mb-4 p-3 bg-red-100 border border-red-200">
               <AlertTriangle className="w-5 h-5 text-red-700 flex-shrink-0" />
               <p className="text-sm font-semibold text-red-800">
-                Do not stop drinking suddenly — please speak with a clinician first.
+                Do not stop drinking suddenly, please speak with a clinician first.
               </p>
             </div>
           )}
@@ -159,7 +159,7 @@ export function AssessmentResult({
             </div>
             <div>
               <p className="font-semibold text-primary text-sm">What This May Suggest</p>
-              <p className="text-xs text-muted-foreground font-light">Anchor — Insight Recovery Network</p>
+              <p className="text-xs text-muted-foreground font-light">Anchor, Insight Recovery Network</p>
             </div>
           </div>
           {isLoading ? (

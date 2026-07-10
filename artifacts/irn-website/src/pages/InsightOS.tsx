@@ -34,7 +34,7 @@ const features = [
   {
     Icon: Activity,
     title: "Mood & Trigger Tracking",
-    body: "Notice emotional and behavioural patterns before they escalate. Tracking creates visibility — and visibility creates choice.",
+    body: "Notice emotional and behavioural patterns before they escalate. Tracking creates visibility, and visibility creates choice.",
   },
   {
     Icon: BookOpen,
@@ -91,7 +91,7 @@ const outcomes = [
   {
     Icon: Users,
     title: "Stay connected to support",
-    body: "Between sessions, groups, and appointments — Insight OS keeps recovery active and supported.",
+    body: "Between sessions, groups, and appointments, Insight OS keeps recovery active and supported.",
   },
   {
     Icon: RefreshCw,
@@ -114,7 +114,7 @@ const pathways = [
   {
     label: "Relapse Prevention Planning",
     href: "/what-we-offer",
-    body: "The relapse prevention tools inside Insight OS make abstract plans concrete — accessible in real time, updated as recovery develops.",
+    body: "The relapse prevention tools inside Insight OS make abstract plans concrete, accessible in real time, updated as recovery develops.",
   },
 ];
 
@@ -239,7 +239,7 @@ export default function InsightOS() {
               Built for the daily work of recovery.
             </h2>
             <p className="text-[14.5px] text-muted-foreground/75 font-light leading-relaxed mt-4 max-w-2xl">
-              Recovery is built through repeated daily actions — not only during therapy or treatment. Insight OS provides the tools to keep recovery active between every session, group, and appointment.
+              Recovery is built through repeated daily actions, not only during therapy or treatment. Insight OS provides the tools to keep recovery active between every session, group, and appointment.
             </p>
           </div>
 
@@ -373,7 +373,7 @@ export default function InsightOS() {
         </div>
       </section>
 
-      {/* ── Not just content, an active recovery system — split layout ── */}
+      {/* ── Not just content, an active recovery system, split layout ── */}
       <section className="py-12 md:py-20 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -384,7 +384,7 @@ export default function InsightOS() {
                 How it works
               </span>
               <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
-                Not just content — an active recovery system.
+                Not just content, an active recovery system.
               </h2>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
                 Insight OS is designed to help users <em>do</em> the work of recovery, not simply read about it. The platform combines daily engagement, structured reflection, tracking, planning, and guided support into a single connected experience.
@@ -446,7 +446,7 @@ export default function InsightOS() {
                 />
                 <img
                   src={recoveryToolsImg}
-                  alt="Insight OS recovery tools — journaling, grounding, and reflection"
+                  alt="Insight OS recovery tools, journaling, grounding, and reflection"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
                   style={{ objectPosition: "center 25%" }}
                   loading="lazy"
@@ -463,7 +463,7 @@ export default function InsightOS() {
                 Tools for the moments that matter.
               </h2>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                Insight OS includes grounding techniques, breathing exercises, guided reflection, and journaling tools — accessible in the moments where support is most needed.
+                Insight OS includes grounding techniques, breathing exercises, guided reflection, and journaling tools, accessible in the moments where support is most needed.
               </p>
               <p className="text-[14px] text-muted-foreground/75 font-light leading-relaxed">
                 These are not passive resources. They are interactive, structured tools that guide users through evidence-based techniques in real time.

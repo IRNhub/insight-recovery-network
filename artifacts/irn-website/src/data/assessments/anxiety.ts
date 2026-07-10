@@ -14,7 +14,7 @@ export const anxietyAssessment: AssessmentConfig = {
   sections: [
     {
       id: "anxiety-symptoms",
-      title: "Section 1 of 3 — Anxiety Symptoms",
+      title: "Section 1 of 3: Anxiety Symptoms",
       description:
         "Over the past two weeks, how often have the following affected you?",
       questions: [
@@ -56,7 +56,7 @@ export const anxietyAssessment: AssessmentConfig = {
         },
         {
           id: "racing-thoughts",
-          text: "Racing thoughts or difficulty switching off mentally — even when trying to rest",
+          text: "Racing thoughts or difficulty switching off mentally, even when trying to rest",
           type: "radio",
           required: true,
           options: [
@@ -70,7 +70,7 @@ export const anxietyAssessment: AssessmentConfig = {
     },
     {
       id: "physical-behavioural",
-      title: "Section 2 of 3 — Physical and Behavioural Responses",
+      title: "Section 2 of 3: Physical and Behavioural Responses",
       description:
         "These questions explore how anxiety affects you physically and what strategies you use to manage it.",
       questions: [
@@ -114,7 +114,7 @@ export const anxietyAssessment: AssessmentConfig = {
     },
     {
       id: "impact-and-safety",
-      title: "Section 3 of 3 — Impact and Wellbeing",
+      title: "Section 3 of 3: Impact and Wellbeing",
       description:
         "These questions help us understand the overall impact of anxiety on your life.",
       questions: [
@@ -180,9 +180,9 @@ export const anxietyAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 4 of 4 — Your Details",
+      title: "Section 4 of 4: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

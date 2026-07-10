@@ -30,7 +30,7 @@ function buildTemplate(
         overflow: "hidden",
       },
       children: [
-        // Subtle gold radial glow — top-right corner
+        // Subtle gold radial glow, top-right corner
         {
           type: "div",
           props: {
@@ -75,7 +75,7 @@ function buildTemplate(
               position: "relative",
             },
             children: [
-              // Logo — top left
+              // Logo, top left
               {
                 type: "img",
                 props: {
@@ -142,7 +142,7 @@ function buildTemplate(
                   ],
                 },
               },
-              // Footer — domain
+              // Footer, domain
               {
                 type: "div",
                 props: {
@@ -167,7 +167,7 @@ function buildTemplate(
 async function main() {
   console.log("Generating OG social share images…");
 
-  // Logo — project-controlled asset in src/assets/
+  // Logo, project-controlled asset in src/assets/
   // White/near-white pixels are stripped to transparent so the logo mark
   // renders cleanly on the navy card background.
   const logoPath = resolve(root, "src/assets/irn-logo.png");
@@ -208,7 +208,7 @@ async function main() {
     .toBuffer();
   const logoDataUrl = `data:image/png;base64,${logoBg.toString("base64")}`;
 
-  // Fonts — read from @fontsource/playfair-display (no network dependency).
+  // Fonts, read from @fontsource/playfair-display (no network dependency).
   // satori's opentype.js does not support WOFF2, so we use WOFF.
   const fontsDir = resolve(
     root,
@@ -231,7 +231,7 @@ async function main() {
     },
   ];
 
-  // OG_PAGES is the single source of truth — imported from src/config/og-pages.ts
+  // OG_PAGES is the single source of truth, imported from src/config/og-pages.ts
   const publicDir = resolve(root, "public");
   for (const page of OG_PAGES) {
     const svg = await satori(buildTemplate(logoDataUrl, page), {

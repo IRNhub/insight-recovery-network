@@ -14,7 +14,7 @@ export const depressionAssessment: AssessmentConfig = {
   sections: [
     {
       id: "mood-emotional-wellbeing",
-      title: "Section 1 of 3 — Mood and Emotional Wellbeing",
+      title: "Section 1 of 3: Mood and Emotional Wellbeing",
       description:
         "Over the past two weeks, how often have the following affected you?",
       questions: [
@@ -75,7 +75,7 @@ export const depressionAssessment: AssessmentConfig = {
     },
     {
       id: "energy-physical",
-      title: "Section 2 of 3 — Energy, Sleep and Concentration",
+      title: "Section 2 of 3: Energy, Sleep and Concentration",
       description:
         "Over the past two weeks, how often have the following affected you?",
       questions: [
@@ -93,7 +93,7 @@ export const depressionAssessment: AssessmentConfig = {
         },
         {
           id: "sleep",
-          text: "Trouble sleeping — either too little, too much, or waking in the early hours and being unable to get back to sleep",
+          text: "Trouble sleeping, either too little, too much, or waking in the early hours and being unable to get back to sleep",
           type: "radio",
           required: true,
           options: [
@@ -117,7 +117,7 @@ export const depressionAssessment: AssessmentConfig = {
         },
         {
           id: "appetite",
-          text: "Noticeable changes in appetite — eating much less or much more than usual",
+          text: "Noticeable changes in appetite, eating much less or much more than usual",
           type: "radio",
           required: true,
           options: [
@@ -131,7 +131,7 @@ export const depressionAssessment: AssessmentConfig = {
     },
     {
       id: "safety-coping",
-      title: "Section 3 of 3 — Coping and Safety",
+      title: "Section 3 of 3: Coping and Safety",
       description:
         "These questions help us understand how you are currently coping and whether any urgent support may be needed.",
       questions: [
@@ -188,9 +188,9 @@ export const depressionAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 4 of 4 — Your Details",
+      title: "Section 4 of 4: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

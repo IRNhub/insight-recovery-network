@@ -94,7 +94,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
           <ul className="max-w-3xl space-y-3">
             {d.whyPoints.map((item, i) => (
               <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
-                <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                 <span>{item}</span>
               </li>
             ))}
@@ -120,7 +120,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
               <ul className="space-y-3">
                 {d.costIncludes.map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -193,7 +193,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
           <ul className="max-w-3xl space-y-3 mb-8">
             {d.whoPoints.map((item, i) => (
               <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
-                <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                 <span>{item}</span>
               </li>
             ))}
