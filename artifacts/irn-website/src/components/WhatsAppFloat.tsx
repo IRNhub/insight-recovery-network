@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 /**
  * Floating WhatsApp button, shown on every public page.
  * Opens a chat to the IRN WhatsApp Business line (+44 7723 486235) with a
- * prefilled message — the visitor initiates contact, which opens the 24-hour
+ * prefilled message, the visitor initiates contact, which opens the 24-hour
  * free-form reply window so staff can respond from IRN OS.
  * Fires a `whatsapp_click` dataLayer event for GTM / Meta Pixel lead tracking.
  */

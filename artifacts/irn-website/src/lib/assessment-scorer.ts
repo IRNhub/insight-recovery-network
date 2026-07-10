@@ -34,32 +34,32 @@ const BAND_NAMES: Record<string, Partial<Record<ScoreLevel, string>>> = {
     "lower-concern": "Minimal to mild indication",
     "moderate-concern": "Moderate indication",
     "higher-concern": "Moderately severe to severe",
-    "urgent-medical-advice": "Severe — urgent support recommended",
+    "urgent-medical-advice": "Severe, urgent support recommended",
   },
   anxiety: {
     "lower-concern": "Minimal to mild indication",
     "moderate-concern": "Moderate indication",
     "higher-concern": "Severe indication",
-    "urgent-medical-advice": "Severe — urgent support recommended",
+    "urgent-medical-advice": "Severe, urgent support recommended",
   },
   "alcohol-use": {
     "lower-concern": "Low risk",
     "moderate-concern": "Increasing risk",
     "higher-concern": "Higher risk",
     "possible-detox-risk": "Possible dependence",
-    "urgent-medical-advice": "High dependence — urgent support recommended",
+    "urgent-medical-advice": "High dependence, urgent support recommended",
   },
   adhd: {
     "lower-concern": "Low indication",
     "moderate-concern": "Moderate indication",
     "higher-concern": "High indication",
-    "urgent-medical-advice": "High indication — urgent support recommended",
+    "urgent-medical-advice": "High indication, urgent support recommended",
   },
   "drug-use": {
     "lower-concern": "Low risk indication",
     "moderate-concern": "Moderate concern",
     "higher-concern": "High concern",
-    "urgent-medical-advice": "High concern — urgent support recommended",
+    "urgent-medical-advice": "High concern, urgent support recommended",
   },
   "alcohol-detox": {
     "lower-concern": "Lower Concern",
@@ -147,8 +147,7 @@ export function scoreAssessment(
 
 /**
  * Builds a structured clinical brief for Anchor AI.
- * Sends domain-level analysis with only elevated/notable responses —
- * NOT a verbatim Q&A transcript. This prevents Anchor from simply
+ * Sends domain-level analysis with only elevated/notable responses,  * NOT a verbatim Q&A transcript. This prevents Anchor from simply
  * repeating answers back to the user.
  */
 export function buildClinicalBrief(
@@ -216,7 +215,7 @@ export function buildClinicalBrief(
       }
     }
 
-    const sectionTitle = section.title.replace(/Section \d+ of \d+ — /, "");
+    const sectionTitle = section.title.replace(/Section \d+ of \d+: /, "");
     const scoreStr = sectionMax > 0 ? ` (${sectionScore}/${sectionMax})` : "";
     if (notableFindings.length > 0) {
       lines.push(`\n  ${sectionTitle}${scoreStr}:`);

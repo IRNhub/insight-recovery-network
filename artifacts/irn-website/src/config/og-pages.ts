@@ -7,7 +7,7 @@
  */
 
 export interface OgPageConfig {
-  /** Route path — used to look up a page's config */
+  /** Route path, used to look up a page's config */
   path: string;
   /** Output filename in public/, e.g. "og-home.png" */
   file: string;
@@ -44,14 +44,14 @@ export const OG_PAGES: OgPageConfig[] = [
     path: "/contact",
     file: "og-contact.png",
     title: "Speak Confidentially",
-    seoTitle: "Contact Us — Speak Confidentially",
+    seoTitle: "Contact Us | Speak Confidentially",
   },
   {
     path: "/treatment-placement",
     file: "og-treatment-placement.png",
     title: "Private Rehab Placement",
     subtitle: "UK & International",
-    seoTitle: "Private Rehab Placement — UK & International",
+    seoTitle: "Private Rehab Placement | UK & International",
   },
   {
     path: "/online-programme",
@@ -63,7 +63,7 @@ export const OG_PAGES: OgPageConfig[] = [
     file: "og-insight-os.png",
     title: "Insight OS",
     subtitle: "The Operating System for Your Recovery",
-    seoTitle: "Insight OS — The Operating System for Your Recovery",
+    seoTitle: "Insight OS: The Operating System for Your Recovery",
   },
   {
     path: "/what-we-offer",

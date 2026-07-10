@@ -88,7 +88,7 @@ export default function AssessmentsIndex() {
         ogImage={ogImageUrl("og-assessments.png")}
       />
 
-      {/* ── Hero — two-column layout ── */}
+      {/* ── Hero, two-column layout ── */}
       <section
         style={{
           background: "linear-gradient(160deg, #F2EDE3 0%, #F6F4EF 50%, #EEE9DF 100%)",
@@ -108,7 +108,7 @@ export default function AssessmentsIndex() {
                 Free Confidential Addiction and Mental Health Assessments
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-3 max-w-xl">
-                Clinically informed self-reflection tools to help you understand your current situation — whether that involves alcohol, substances, mental health, or patterns of attention and impulsivity.
+                Clinically informed self-reflection tools to help you understand your current situation, whether that involves alcohol, substances, mental health, or patterns of attention and impulsivity.
               </p>
               <p className="text-xs text-muted-foreground/60 font-light leading-relaxed max-w-xl mb-6">
                 These assessments are not diagnostic tools. They are designed to help you reflect and identify whether professional support may be helpful.

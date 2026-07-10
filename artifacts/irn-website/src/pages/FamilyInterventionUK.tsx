@@ -118,7 +118,7 @@ export default function FamilyInterventionUK() {
               You do not have to wait for them to ask for help.
             </h1>
             <p className="mb-5 max-w-xl text-lg font-light leading-relaxed text-muted-foreground">
-              When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan—not another argument.
+              When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan, not another argument.
             </p>
             <p className="mb-8 max-w-xl leading-relaxed text-muted-foreground">
               Speak confidentially with Craig Bilton about risk, boundaries, how to approach the conversation and which treatment options should be ready if the person agrees.

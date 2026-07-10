@@ -177,7 +177,7 @@ const PAGES = [
               With over 20 years of international addiction treatment experience, Craig Bilton founded Insight Recovery Network to provide genuinely independent, clinically informed guidance. His background spans residential rehabilitation, online recovery support, and complex case management across the UK and internationally.
             </p>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;">
-              Craig's approach is built on three principles: clarity, continuity, and practical support — providing honest guidance, long-term recovery planning, and tangible tools rather than generic advice.
+              Craig's approach is built on three principles: clarity, continuity, and practical support, providing honest guidance, long-term recovery planning, and tangible tools rather than generic advice.
             </p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -208,7 +208,7 @@ const PAGES = [
     file: "what-we-offer.html",
     title: "Addiction Counselling &amp; Recovery Services | Insight Recovery Network",
     description:
-      "Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs.",
+      "Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools, tailored to each individual's needs.",
     ogImage: `${SITE_URL}/og-what-we-offer.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -259,7 +259,7 @@ const PAGES = [
               </article>
               <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
                 <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Professional Partnerships</h2>
-                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">A discreet, expert resource for professionals, EAPs, HR teams, and legal counsel — assessing, advising, and coordinating a clinical response to sensitive substance or mental health issues.</p>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">A discreet, expert resource for professionals, EAPs, HR teams, and legal counsel, assessing, advising, and coordinating a clinical response to sensitive substance or mental health issues.</p>
                 <a href="/contact" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Enquire about Professional Partnerships</a>
               </article>
               <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
@@ -281,9 +281,9 @@ const PAGES = [
   {
     route: "/treatment-placement",
     file: "treatment-placement.html",
-    title: "Private Rehab Placement — UK &amp; International | Insight Recovery Network",
+    title: "Private Rehab Placement | UK &amp; International | Insight Recovery Network",
     description:
-      "Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition — confidentially and without pressure.",
+      "Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition, confidentially and without pressure.",
     ogImage: `${SITE_URL}/og-treatment-placement.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -317,11 +317,11 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">How the Placement Process Works</h2>
             <ol style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
-              <li><strong style="color:#162B3B;">Understand the situation</strong> — Assess urgency, risk, substance use history, mental health needs, family context, and practical requirements.</li>
-              <li><strong style="color:#162B3B;">Identify suitable options</strong> — Match needs against trusted providers, considering clinical fit, location, budget, length of stay, and environment.</li>
-              <li><strong style="color:#162B3B;">Present and clarify</strong> — Share a clear shortlist of appropriate facilities with honest assessments of each, without pressure or sales tactics.</li>
-              <li><strong style="color:#162B3B;">Manage the transition</strong> — Coordinate directly with the chosen facility to ensure a smooth and structured admission.</li>
-              <li><strong style="color:#162B3B;">Aftercare planning</strong> — Ensure a clear plan is in place before discharge, including ongoing support through Insight OS and the Online Recovery Programme.</li>
+              <li><strong style="color:#162B3B;">Understand the situation</strong>, Assess urgency, risk, substance use history, mental health needs, family context, and practical requirements.</li>
+              <li><strong style="color:#162B3B;">Identify suitable options</strong>, Match needs against trusted providers, considering clinical fit, location, budget, length of stay, and environment.</li>
+              <li><strong style="color:#162B3B;">Present and clarify</strong>, Share a clear shortlist of appropriate facilities with honest assessments of each, without pressure or sales tactics.</li>
+              <li><strong style="color:#162B3B;">Manage the transition</strong>, Coordinate directly with the chosen facility to ensure a smooth and structured admission.</li>
+              <li><strong style="color:#162B3B;">Aftercare planning</strong>, Ensure a clear plan is in place before discharge, including ongoing support through Insight OS and the Online Recovery Programme.</li>
             </ol>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -351,7 +351,7 @@ const PAGES = [
     file: "online-programme.html",
     title: "Online Addiction Recovery Programme | Insight Recovery Network",
     description:
-      "A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning — available without residential care. Delivered by Insight Recovery Network.",
+      "A structured online addiction recovery programme with group therapy, one-to-one support, daily accountability, and relapse prevention planning, available without residential care. Delivered by Insight Recovery Network.",
     ogImage: `${SITE_URL}/og-online-programme.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -375,7 +375,7 @@ const PAGES = [
               Structured Online Addiction Recovery Programme
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
-              For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning — wherever you are in the world.
+              For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning, wherever you are in the world.
             </p>
             <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
@@ -406,7 +406,7 @@ const PAGES = [
               </article>
               <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
                 <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Insight OS Digital Tools</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Daily check-ins, mood tracking, journaling, and Anchor recovery guidance — integrated throughout the programme.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Daily check-ins, mood tracking, journaling, and Anchor recovery guidance, integrated throughout the programme.</p>
               </article>
             </div>
           </section>
@@ -422,7 +422,7 @@ const PAGES = [
   {
     route: "/insight-os",
     file: "insight-os.html",
-    title: "Insight OS — The Operating System for Your Recovery | Insight Recovery Network",
+    title: "Insight OS: The Operating System for Your Recovery | Insight Recovery Network",
     description:
       "Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
     ogImage: `${SITE_URL}/og-insight-os.png`,
@@ -493,7 +493,7 @@ const PAGES = [
   {
     route: "/contact",
     file: "contact.html",
-    title: "Contact Us — Book a confidential call | Insight Recovery Network",
+    title: "Contact Us | Book a confidential call | Insight Recovery Network",
     description:
       "Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families.",
     ogImage: `${SITE_URL}/og-contact.png`,
@@ -534,17 +534,17 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What to Expect</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:580px;color:#4a5568;">
-              Your first contact will be a confidential, no-obligation conversation. We will listen carefully, ask relevant questions, and help you understand the most appropriate pathway forward — whether that is treatment placement, an online programme, Insight OS, or simply more information.
+              Your first contact will be a confidential, no-obligation conversation. We will listen carefully, ask relevant questions, and help you understand the most appropriate pathway forward, whether that is treatment placement, an online programme, Insight OS, or simply more information.
             </p>
           </section>
           <section style="padding:3rem 0;">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Our Services</h2>
             <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
-              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment Placement</a> — Private rehab and detox guidance, UK and internationally</li>
-              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a> — Structured group and one-to-one support</li>
-              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a> — Digital recovery tools and daily structure</li>
-              <li><a href="/family-addiction-intervention-uk" style="color:#162B3B;">Family &amp; Intervention Guidance</a> — A practical plan when someone is refusing help</li>
-              <li><a href="/assessments" style="color:#162B3B;">Free Assessments</a> — Confidential self-assessments for alcohol, drugs, and mental health</li>
+              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment Placement</a>, Private rehab and detox guidance, UK and internationally</li>
+              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a>, Structured group and one-to-one support</li>
+              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a>, Digital recovery tools and daily structure</li>
+              <li><a href="/family-addiction-intervention-uk" style="color:#162B3B;">Family &amp; Intervention Guidance</a>, A practical plan when someone is refusing help</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free Assessments</a>, Confidential self-assessments for alcohol, drugs, and mental health</li>
             </ul>
           </section>
         </div>
@@ -572,7 +572,7 @@ const PAGES = [
         <div style="max-width:900px;margin:0 auto;">
           <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.18em;color:#9A7440;">Confidential help for families</p>
           <h1 style="font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08;max-width:760px;">You do not have to wait for them to ask for help.</h1>
-          <p style="font-size:1.1rem;line-height:1.8;max-width:720px;">When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan—not another argument. Speak confidentially about risk, boundaries, treatment options and how to approach the next conversation.</p>
+          <p style="font-size:1.1rem;line-height:1.8;max-width:720px;">When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan, not another argument. Speak confidentially about risk, boundaries, treatment options and how to approach the next conversation.</p>
           <p><a href="/contact" style="display:inline-block;background:#162B3B;color:#fff;padding:0.9rem 1.5rem;text-decoration:none;">Discuss your family situation</a></p>
           <section style="margin-top:3rem;border-top:1px solid #ddd;padding-top:2rem;">
             <h2 style="font-family:Georgia,serif;font-size:2rem;">A clear plan before the next crisis</h2>
@@ -692,7 +692,7 @@ const PAGES = [
             <dl style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;color:#4a5568;max-width:600px;">
               <dt style="font-weight:600;color:#162B3B;">Service type</dt><dd style="margin-bottom:0.75rem;">Private addiction recovery and mental health support</dd>
               <dt style="font-weight:600;color:#162B3B;">Location</dt><dd style="margin-bottom:0.75rem;">Newquay, Cornwall, UK</dd>
-              <dt style="font-weight:600;color:#162B3B;">Service delivery</dt><dd style="margin-bottom:0.75rem;">Online only — telephone, video call, and Insight OS digital platform</dd>
+              <dt style="font-weight:600;color:#162B3B;">Service delivery</dt><dd style="margin-bottom:0.75rem;">Online only, telephone, video call, and Insight OS digital platform</dd>
               <dt style="font-weight:600;color:#162B3B;">Face-to-face appointments</dt><dd style="margin-bottom:0.75rem;">Not available</dd>
               <dt style="font-weight:600;color:#162B3B;">General enquiries</dt><dd style="margin-bottom:0.75rem;"><a href="mailto:info@insightrecoverynetwork.com" style="color:#162B3B;">info@insightrecoverynetwork.com</a></dd>
               <dt style="font-weight:600;color:#162B3B;">Clinical enquiries</dt><dd style="margin-bottom:0.75rem;"><a href="mailto:craig@insightrecoverynetwork.com" style="color:#162B3B;">craig@insightrecoverynetwork.com</a></dd>
@@ -702,11 +702,11 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What we offer</h2>
             <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
-              <li><a href="/treatment-placement" style="color:#162B3B;">Private Treatment Placement</a> — confidential guidance on private rehab, detox, and residential treatment in the UK and internationally</li>
-              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a> — structured group sessions, one-to-one therapy, and relapse prevention planning</li>
-              <li><a href="/what-we-offer" style="color:#162B3B;">Family Intervention Guidance</a> — support for families navigating addiction crises</li>
-              <li><a href="/assessments" style="color:#162B3B;">Free Self-Assessments</a> — confidential assessments for alcohol use, drug use, anxiety, depression, and ADHD</li>
-              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a> — a structured digital recovery system for daily check-ins and relapse prevention</li>
+              <li><a href="/treatment-placement" style="color:#162B3B;">Private Treatment Placement</a>, confidential guidance on private rehab, detox, and residential treatment in the UK and internationally</li>
+              <li><a href="/online-programme" style="color:#162B3B;">Online Recovery Programme</a>, structured group sessions, one-to-one therapy, and relapse prevention planning</li>
+              <li><a href="/what-we-offer" style="color:#162B3B;">Family Intervention Guidance</a>, support for families navigating addiction crises</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free Self-Assessments</a>, confidential assessments for alcohol use, drug use, anxiety, depression, and ADHD</li>
+              <li><a href="/insight-os" style="color:#162B3B;">Insight OS</a>, a structured digital recovery system for daily check-ins and relapse prevention</li>
             </ul>
           </section>
           <section style="padding:3rem 0;">
@@ -742,12 +742,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Support — UK</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Support, UK</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
               Structured online addiction recovery support, built around your life.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
-              Professional, clinically informed recovery support delivered online — for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
+              Professional, clinically informed recovery support delivered online, for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
@@ -780,7 +780,7 @@ const PAGES = [
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is online addiction recovery as effective as residential rehab?</dt>
               <dd>For some people and at certain stages, structured online support can be highly effective. For others with severe dependency or complex needs, residential treatment is safer and more appropriate.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">How is this different from a therapy app or 12-step group?</dt>
-              <dd>Insight Recovery Network's online programme is clinically structured and professionally led — not automated content or anonymous peer support. It provides clinical oversight, individual therapeutic work, and structured relapse prevention planning.</dd>
+              <dd>Insight Recovery Network's online programme is clinically structured and professionally led, not automated content or anonymous peer support. It provides clinical oversight, individual therapeutic work, and structured relapse prevention planning.</dd>
             </dl>
           </section>
         </div>
@@ -811,12 +811,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab Alternatives — UK</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab Alternatives, UK</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
-              Not ready for residential rehab — or not sure it is necessary?
+              Not ready for residential rehab, or not sure it is necessary?
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
-              Private residential rehab is not always the right answer. There are other routes — and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
+              Private residential rehab is not always the right answer. There are other routes, and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
@@ -826,11 +826,11 @@ const PAGES = [
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What Insight Recovery Network can offer</h2>
             <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
-              <li><a href="/online-programme" style="color:#162B3B;">Structured online recovery support</a> — clinically led group sessions, individual therapeutic work, and relapse prevention planning</li>
+              <li><a href="/online-programme" style="color:#162B3B;">Structured online recovery support</a>, clinically led group sessions, individual therapeutic work, and relapse prevention planning</li>
               <li>Structured relapse prevention planning built around the individual's history, patterns, and goals</li>
-              <li><a href="/what-we-offer" style="color:#162B3B;">Family intervention guidance</a> — support for families navigating addiction crises</li>
-              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment placement guidance</a> — where residential detox or rehab is needed, confidential guidance on appropriate settings</li>
-              <li><a href="/assessments" style="color:#162B3B;">Free self-assessments</a> — understand what you are experiencing without obligation</li>
+              <li><a href="/what-we-offer" style="color:#162B3B;">Family intervention guidance</a>, support for families navigating addiction crises</li>
+              <li><a href="/treatment-placement" style="color:#162B3B;">Treatment placement guidance</a>, where residential detox or rehab is needed, confidential guidance on appropriate settings</li>
+              <li><a href="/assessments" style="color:#162B3B;">Free self-assessments</a>, understand what you are experiencing without obligation</li>
             </ul>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -848,7 +848,7 @@ const PAGES = [
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Frequently Asked Questions</h2>
             <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;">
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is online support a genuine alternative to private rehab?</dt>
-              <dd>For some people, structured online recovery support can be clinically appropriate — particularly where physical dependency does not require medical detox and the home environment is stable. For others, residential rehab is the safer choice.</dd>
+              <dd>For some people, structured online recovery support can be clinically appropriate, particularly where physical dependency does not require medical detox and the home environment is stable. For others, residential rehab is the safer choice.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">When would you recommend treatment placement over online support?</dt>
               <dd>Where there is significant physical dependency, an unsafe home environment, repeated residential relapse, or a need for around-the-clock support. We make this recommendation honestly when it is the right call.</dd>
             </dl>
@@ -956,7 +956,7 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1.25rem;">Rehab cost guide — UK</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1.25rem;">Rehab cost guide, UK</p>
             <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;max-width:760px;">How Much Does Rehab Cost in the UK?</h1>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:1.25rem;">Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.</p>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:2rem;">Insight Recovery Network helps you understand the real cost, what is included, what level of care is needed, and which options are clinically appropriate before you commit.</p>
@@ -1037,7 +1037,7 @@ const PAGES = [
     file: "assessments.html",
     title: "Free Addiction &amp; Mental Health Assessments | Insight Recovery Network",
     description:
-      "Confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Start a free clinical assessment and receive personalised guidance — no registration required.",
+      "Confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Start a free clinical assessment and receive personalised guidance, no registration required.",
     ogImage: `${SITE_URL}/og-assessments.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1061,7 +1061,7 @@ const PAGES = [
               Free Confidential Addiction and Mental Health Assessments
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:1rem;">
-              These assessments are designed to help individuals and families understand their situation more clearly. Each one takes 7–15 minutes, is completely confidential, and requires no registration. Results are designed to provide personalised guidance — not a diagnosis.
+              These assessments are designed to help individuals and families understand their situation more clearly. Each one takes 7–15 minutes, is completely confidential, and requires no registration. Results are designed to provide personalised guidance, not a diagnosis.
             </p>
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               These tools are for informational purposes only and do not constitute medical advice. If you are in crisis or require urgent support, please contact your GP or emergency services.
@@ -1123,7 +1123,7 @@ const PAGES = [
           </section>
           <section style="padding:3rem 0;">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">Not sure where to start?</h2>
-            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">A private conversation with Craig Bilton can help clarify the most appropriate level of support for you or your family — without pressure or obligation.</p>
+            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">A private conversation with Craig Bilton can help clarify the most appropriate level of support for you or your family, without pressure or obligation.</p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
               <a href="/resources" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Browse Resources</a>
@@ -1160,7 +1160,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Alcohol &amp; Detox Suitability Assessment — free and confidential.
+              Alcohol &amp; Detox Suitability Assessment, free and confidential.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               Designed for individuals drinking heavily who are considering stopping or reducing. This assessment explores whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes and requires no registration.
@@ -1191,7 +1191,7 @@ const PAGES = [
     file: "_assessments/alcohol-use.html",
     title: "Alcohol Use Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential alcohol use self-assessment. Reflect on how drinking may be affecting your health, relationships, and daily life — personalised results sent to your email. No registration required.",
+      "Free confidential alcohol use self-assessment. Reflect on how drinking may be affecting your health, relationships, and daily life, personalised results sent to your email. No registration required.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1212,7 +1212,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Alcohol Use Assessment — understand your relationship with alcohol.
+              Alcohol Use Assessment, understand your relationship with alcohol.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               This free assessment explores current drinking patterns and helps you understand whether alcohol may be affecting your health, relationships, work, or daily life. Based on clinically validated screening criteria. Takes 7–10 minutes and requires no registration.
@@ -1264,10 +1264,10 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Drug Use &amp; Substance Assessment — free and confidential.
+              Drug Use &amp; Substance Assessment, free and confidential.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This free assessment explores your relationship with substances — including recreational drugs, prescription medications, and stimulants — and helps you understand whether the level of use may be causing harm or whether professional support is appropriate. Takes 7–10 minutes and requires no registration.
+              This free assessment explores your relationship with substances, including recreational drugs, prescription medications, and stimulants, and helps you understand whether the level of use may be causing harm or whether professional support is appropriate. Takes 7–10 minutes and requires no registration.
             </p>
             <a href="/assessments/drug-use" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Drug Use Assessment</a>
           </section>
@@ -1316,7 +1316,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Detox Suitability Assessment — understand what level of support you may need.
+              Detox Suitability Assessment, understand what level of support you may need.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               This assessment explores your substance use, medical history, and withdrawal risk to help determine whether detox is appropriate and what level of medical supervision may be advisable. Detox from alcohol, benzodiazepines, or opioids can carry serious risk without proper guidance. Takes 8–12 minutes and requires no registration.
@@ -1345,9 +1345,9 @@ const PAGES = [
   {
     route: "/assessments/anxiety",
     file: "_assessments/anxiety.html",
-    title: "Anxiety Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
+    title: "Anxiety Screening Assessment | Free &amp; Confidential | Insight Recovery Network",
     description:
-      "Free confidential anxiety self-assessment based on GAD-7 criteria. Understand how anxiety may be affecting your thoughts, physical symptoms, and daily functioning — results sent to your email.",
+      "Free confidential anxiety self-assessment based on GAD-7 criteria. Understand how anxiety may be affecting your thoughts, physical symptoms, and daily functioning, results sent to your email.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1368,7 +1368,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Anxiety Screening Assessment — free and confidential.
+              Anxiety Screening Assessment, free and confidential.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               This assessment explores anxiety patterns including worry, physical tension, sleep disruption, and avoidance behaviour. Based on clinically validated GAD-7 screening criteria. Designed to help individuals understand whether anxiety may be contributing to addictive behaviour or recovery difficulty. Takes 7–10 minutes and requires no registration.
@@ -1397,9 +1397,9 @@ const PAGES = [
   {
     route: "/assessments/depression",
     file: "_assessments/depression.html",
-    title: "Depression Screening Assessment — Free &amp; Confidential | Insight Recovery Network",
+    title: "Depression Screening Assessment | Free &amp; Confidential | Insight Recovery Network",
     description:
-      "Free confidential depression self-assessment based on PHQ-9 criteria. Understand how low mood may be affecting your energy, motivation, and wellbeing — personalised results sent to your email.",
+      "Free confidential depression self-assessment based on PHQ-9 criteria. Understand how low mood may be affecting your energy, motivation, and wellbeing, personalised results sent to your email.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1420,7 +1420,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Depression Screening Assessment — free and confidential.
+              Depression Screening Assessment, free and confidential.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               This assessment explores low mood, reduced motivation, sleep difficulties, and changes in energy and outlook. Based on PHQ-9 screening criteria. Designed to help individuals understand whether depression may be a factor in their wellbeing or recovery. Takes 7–10 minutes and requires no registration.
@@ -1472,7 +1472,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              ADHD &amp; Impulsivity Assessment — free and confidential.
+              ADHD &amp; Impulsivity Assessment, free and confidential.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               This assessment explores patterns of attention, focus, restlessness, and impulsive behaviour that may be contributing to addictive behaviour, relapse, or difficulty engaging with structured treatment. Designed for individuals exploring whether ADHD may be a factor in their recovery. Takes 10–12 minutes and requires no registration.
@@ -1501,9 +1501,9 @@ const PAGES = [
   {
     route: "/resources",
     file: "resources.html",
-    title: "Addiction &amp; Recovery Resources — Clinical Articles | Insight Recovery Network",
+    title: "Addiction &amp; Recovery Resources | Clinical Articles | Insight Recovery Network",
     description:
-      "Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families make informed decisions about addiction support and treatment.",
+      "Authoritative articles on addiction, recovery, treatment options, and mental health, written by Craig Bilton to help individuals and families make informed decisions about addiction support and treatment.",
     ogImage: `${SITE_URL}/og-resources.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1527,7 +1527,7 @@ const PAGES = [
               Addiction and Mental Health Recovery Resources
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;">
-              Authoritative articles on addiction, recovery, treatment options, and mental health — written by Craig Bilton to help individuals and families understand their situation and make informed decisions.
+              Authoritative articles on addiction, recovery, treatment options, and mental health, written by Craig Bilton to help individuals and families understand their situation and make informed decisions.
             </p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
@@ -1548,7 +1548,7 @@ const PAGES = [
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Treatment Options</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/private-rehab-vs-nhs-addiction-treatment" style="color:#162B3B;text-decoration:none;">Private Rehab vs NHS Addiction Treatment: What Is the Difference?</a></h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support — and understand which route may be more appropriate for your situation.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support, and understand which route may be more appropriate for your situation.</p>
                 <a href="/resources/private-rehab-vs-nhs-addiction-treatment" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
@@ -1560,7 +1560,7 @@ const PAGES = [
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Addiction &amp; Substances</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/why-cant-i-stop-how-addiction-works" style="color:#162B3B;text-decoration:none;">Why Can't I Stop? How Addiction Works</a></h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Addiction is not a moral failing or a lack of willpower. Understanding the neuroscience and psychology of compulsive use can help individuals and families make sense of what is happening — and why change is often so difficult without support.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Addiction is not a moral failing or a lack of willpower. Understanding the neuroscience and psychology of compulsive use can help individuals and families make sense of what is happening, and why change is often so difficult without support.</p>
                 <a href="/resources/why-cant-i-stop-how-addiction-works" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
@@ -1578,13 +1578,13 @@ const PAGES = [
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Family &amp; Relationships</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/supporting-a-loved-one-through-recovery" style="color:#162B3B;text-decoration:none;">Supporting a Loved One Through Recovery</a></h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">When someone close to you is in recovery, knowing how to help — and how not to — can make a significant difference to their long-term wellbeing and your own.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">When someone close to you is in recovery, knowing how to help, and how not to, can make a significant difference to their long-term wellbeing and your own.</p>
                 <a href="/resources/supporting-a-loved-one-through-recovery" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Recovery &amp; Wellbeing</p>
                 <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/managing-relapse-part-of-recovery" style="color:#162B3B;text-decoration:none;">Managing Relapse as Part of Recovery</a></h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Relapse does not mean failure. Understanding how and why relapse happens — and how to respond to it — is one of the most important parts of sustainable recovery.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Relapse does not mean failure. Understanding how and why relapse happens, and how to respond to it, is one of the most important parts of sustainable recovery.</p>
                 <a href="/resources/managing-relapse-part-of-recovery" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
@@ -1647,7 +1647,7 @@ const PAGES = [
     file: "terms-of-service.html",
     title: "Terms of Service | Insight Recovery Network",
     description:
-      "Terms governing use of the Insight Recovery Network website and services. We provide private online support and guidance — not regulated medical treatment or emergency care.",
+      "Terms governing use of the Insight Recovery Network website and services. We provide private online support and guidance, not regulated medical treatment or emergency care.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1734,7 +1734,7 @@ const PAGES = [
     file: "clinical-disclaimer.html",
     title: "Clinical Disclaimer | Insight Recovery Network",
     description:
-      "Insight Recovery Network provides private online support and guidance — not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts.",
+      "Insight Recovery Network provides private online support and guidance, not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1897,7 +1897,7 @@ const PAGES = [
     body: `
       <main style="font-family:'Playfair Display',Georgia,serif;background:#F6F4F0;color:#162B3B;min-height:70vh;display:flex;align-items:center;">
         <div style="max-width:680px;margin:0 auto;padding:4rem 2rem;text-align:center;">
-          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#6B7280;margin-bottom:1rem;">404 — Page Not Found</p>
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#6B7280;margin-bottom:1rem;">404, Page Not Found</p>
           <h1 style="font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">We couldn't find that page.</h1>
           <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;">The page may have moved or no longer exists. You can return to the homepage or contact us for help.</p>
           <a href="/" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Back to Homepage</a>
@@ -2279,7 +2279,7 @@ const ARTICLES = [
     description:
       "If you have tried to stop and willpower was never enough, the problem was never your character. Here is how addiction actually works, and how recovery is possible.",
     image: `${SITE_URL}/article-why-cant-i-stop-og.jpg`,
-    imageAlt: "A person sitting at a desk torn between the pull of addiction and the life they want — freedom, connection, purpose, peace.",
+    imageAlt: "A person sitting at a desk torn between the pull of addiction and the life they want, freedom, connection, purpose, peace.",
     date: "2026-05-19",
     type: "article",
   },
@@ -2314,7 +2314,7 @@ const ARTICLES = [
     ogTitle:
       "Managing Relapse: Why It Is Part of Recovery, Not the End of It",
     description:
-      "Relapse is one of the most misunderstood aspects of addiction. Understanding it clinically — rather than morally — changes everything about how we respond to it.",
+      "Relapse is one of the most misunderstood aspects of addiction. Understanding it clinically, rather than morally, changes everything about how we respond to it.",
     image: `${SITE_URL}/opengraph.jpg`,
     imageAlt: "Insight Recovery Network",
     date: "2026-03-31",
@@ -2406,7 +2406,7 @@ const ARTICLES = [
     description:
       "Willpower alone is rarely enough for lasting addiction recovery. Learn why structure, support, relapse prevention planning and emotional regulation matter.",
     image: `${SITE_URL}/article-willpower.png`,
-    imageAlt: "Why Willpower Is Not a Recovery Plan — Insight Recovery Network branded editorial image with navy and gold design showing a mug reading 'Recovery Is a Plan Not a Promise'",
+    imageAlt: "Why Willpower Is Not a Recovery Plan, Insight Recovery Network branded editorial image with navy and gold design showing a mug reading 'Recovery Is a Plan Not a Promise'",
     date: "2026-05-29",
     type: "article",
   },
@@ -2439,8 +2439,7 @@ function articleToPrerenderMeta(article) {
 //
 // Previously article pages only had their <meta> tags swapped, which meant
 // crawlers without JavaScript (Google first-pass, Bing, ChatGPT, Claude,
-// Perplexity, etc.) saw the home-page body on every /resources/* URL —
-// i.e. 11 duplicates of the home page. The functions below render the full
+// Perplexity, etc.) saw the home-page body on every /resources/* URL, // i.e. 11 duplicates of the home page. The functions below render the full
 // article content statically and embed Article / FAQPage / BreadcrumbList /
 // Organization / Person JSON-LD so both search engines and LLMs can read
 // the real content without executing JS.
@@ -2571,7 +2570,7 @@ function markdownToHtml(content) {
     const rawLine = lines[idx];
     const line = rawLine.trim();
 
-    // [CTA:/path:Button Label] ... [/CTA] — inline CTA callout block
+    // [CTA:/path:Button Label] ... [/CTA], inline CTA callout block
     // (mirrors the block parser in src/pages/ResourceDetail.tsx)
     if (line.startsWith("[CTA:")) {
       flushList();
@@ -2722,7 +2721,7 @@ function buildArticleBodyHtml(meta, full) {
             <ul style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;color:#4a5568;padding-left:1.25rem;max-width:680px;">
               ${full.sources
                 .map(
-                  (source) => `<li style="margin-bottom:0.6rem;"><a href="${escText(source.url)}" rel="noopener noreferrer" style="color:#162B3B;text-decoration:underline;">${escText(source.title)}</a> — ${escText(source.publisher)}</li>`
+                  (source) => `<li style="margin-bottom:0.6rem;"><a href="${escText(source.url)}" rel="noopener noreferrer" style="color:#162B3B;text-decoration:underline;">${escText(source.title)}</a>, ${escText(source.publisher)}</li>`
                 )
                 .join("")}
             </ul>
@@ -2822,7 +2821,7 @@ function buildDestinationBodyHtml(d) {
             ${h2("Related support and treatment routes")}
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Detox Suitability Assessment</a></p>
             ${h2(`Considering treatment in ${d.country}?`)}
-            ${p("A confidential conversation can clarify whether this is the right setting for your situation — clinically and practically. No pressure, with relevant provider relationships explained transparently.")}
+            ${p("A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently.")}
             <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
             <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
           </section>
@@ -2837,7 +2836,7 @@ function buildDestinationJsonLd(d) {
       "@context": "https://schema.org",
       "@type": "Service",
       "@id": `${canonicalUrl}#service`,
-      name: `Private Rehab Placement — ${d.country}`,
+      name: `Private Rehab Placement, ${d.country}`,
       serviceType: "Addiction treatment placement guidance",
       description: d.metaDescription,
       image: `${SITE_URL}${d.heroImage}`,
@@ -3051,13 +3050,13 @@ function injectArticleMeta(html, article, full = null) {
     `$1${esc(article.image)}$2`
   );
 
-  // og:image:width — set to 1200
+  // og:image:width, set to 1200
   out = out.replace(
     /(<meta\s+property="og:image:width"\s+content=")[^"]*(")/,
     `$11200$2`
   );
 
-  // og:image:height — set to 630
+  // og:image:height, set to 630
   out = out.replace(
     /(<meta\s+property="og:image:height"\s+content=")[^"]*(")/,
     `$1630$2`
@@ -3075,7 +3074,7 @@ function injectArticleMeta(html, article, full = null) {
     `$1${SITE_URL}/resources/${article.slug}$2`
   );
 
-  // og:type — website → article
+  // og:type, website → article
   out = out.replace(
     /(<meta\s+property="og:type"\s+content=")[^"]*(")/,
     `$1${esc(article.type)}$2`
@@ -3117,7 +3116,7 @@ function injectArticleMeta(html, article, full = null) {
     );
     if (bodyReplaced === out) {
       console.warn(
-        `  ⚠ Body replacement failed for /resources/${article.slug} — root marker not found.`
+        `  ⚠ Body replacement failed for /resources/${article.slug}, root marker not found.`
       );
     } else {
       out = bodyReplaced;
@@ -3154,7 +3153,7 @@ async function generateArticleOgImage() {
   try {
     sharp = (await import("sharp")).default;
   } catch {
-    console.warn("  ⚠ sharp unavailable on this platform — skipping OG image generation.");
+    console.warn("  ⚠ sharp unavailable on this platform, skipping OG image generation.");
     return;
   }
 
@@ -3231,14 +3230,14 @@ async function main() {
     }
     console.log("");
   } else {
-    console.warn("  ⚠ Destination data unavailable — skipping destination pages.\n");
+    console.warn("  ⚠ Destination data unavailable, skipping destination pages.\n");
   }
 
   // ── Step 1b: Inject Organization + Person JSON-LD into the home page ──────
   if (!baseHtml.includes("#organization")) {
     const homeHtml = injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]);
     writeFileSync(indexPath, homeHtml, "utf-8");
-    console.log("  ✓ index.html — injected Organization + Person JSON-LD\n");
+    console.log("  ✓ index.html, injected Organization + Person JSON-LD\n");
   }
 
   // ── Step 2: Generate 1200×630 OG image for the new article ───────────────
@@ -3271,7 +3270,7 @@ async function main() {
 
   const fullArticles = await loadFullArticles();
   if (!fullArticles) {
-    console.warn("  ⚠ Full article data unavailable — article pages will be meta-only.\n");
+    console.warn("  ⚠ Full article data unavailable, article pages will be meta-only.\n");
   } else {
     LOADED_ARTICLES = fullArticles
       .filter((article) => article.publishedStatus !== "draft")

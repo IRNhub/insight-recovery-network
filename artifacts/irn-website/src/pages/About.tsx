@@ -47,7 +47,7 @@ const values = [
   },
   {
     title: "Practical Support",
-    body: "We offer tangible tools and structured guidance — not just abstract concepts or generic advice.",
+    body: "We offer tangible tools and structured guidance, not just abstract concepts or generic advice.",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function About() {
         ogImage={ogImageUrl(aboutOg.file)}
       />
 
-      {/* ── Hero — two-column ── */}
+      {/* ── Hero, two-column ── */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -86,7 +86,7 @@ export default function About() {
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-14 py-12 md:py-16 lg:py-20">
 
-            {/* Left — copy */}
+            {/* Left, copy */}
             <div className="lg:w-[52%]">
               <span className="text-[9.5px] font-semibold tracking-[0.22em] uppercase text-accent/70 font-sans block mb-5">
                 About Insight Recovery Network
@@ -102,7 +102,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Right — consultation image */}
+            {/* Right, consultation image */}
             <div className="lg:flex-1 min-w-0">
               <div
                 className="relative w-full overflow-hidden rounded-xl"
@@ -246,7 +246,7 @@ export default function About() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-              {/* Craig Bilton image — new filming/editorial shot */}
+              {/* Craig Bilton image, new filming/editorial shot */}
               <div className="md:col-span-4">
                 <div
                   className="relative w-full max-w-[280px] mx-auto md:mx-0"

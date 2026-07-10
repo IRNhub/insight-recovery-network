@@ -8,7 +8,7 @@ export default function TermsOfService() {
       <SEO
         title="Terms of Service"
         fullTitle="Terms of Service | Insight Recovery Network"
-        description="Terms governing use of the Insight Recovery Network website and services. We provide private online support and guidance — not regulated medical treatment or emergency care."
+        description="Terms governing use of the Insight Recovery Network website and services. We provide private online support and guidance, not regulated medical treatment or emergency care."
         canonical="/terms-of-service"
       />
 
@@ -74,7 +74,7 @@ export default function TermsOfService() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Assessment tools</h2>
-              <p>The self-assessment tools on this website are for informational and educational purposes only. They are not diagnostic tools, they do not constitute a clinical assessment, and they do not replace professional medical, psychiatric, or psychological evaluation. Results are intended to help you reflect on your situation and identify whether professional support may be appropriate — not to provide a diagnosis or treatment recommendation.</p>
+              <p>The self-assessment tools on this website are for informational and educational purposes only. They are not diagnostic tools, they do not constitute a clinical assessment, and they do not replace professional medical, psychiatric, or psychological evaluation. Results are intended to help you reflect on your situation and identify whether professional support may be appropriate, not to provide a diagnosis or treatment recommendation.</p>
             </div>
 
             <div>
@@ -100,7 +100,7 @@ export default function TermsOfService() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">7. Intellectual property</h2>
-              <p>All content on this website — including text, images, logos, assessment tools, and programme materials — is the intellectual property of Insight Recovery Network and is protected by UK copyright law. You may not reproduce, distribute, or republish any content without our prior written consent.</p>
+              <p>All content on this website, including text, images, logos, assessment tools, and programme materials, is the intellectual property of Insight Recovery Network and is protected by UK copyright law. You may not reproduce, distribute, or republish any content without our prior written consent.</p>
             </div>
 
             <div>

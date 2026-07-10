@@ -1460,7 +1460,7 @@ Insight Recovery Network is not a regulated healthcare provider, does not diagno
     slug: "private-rehab-vs-nhs-addiction-treatment",
     title: "Private Rehab vs NHS Addiction Treatment: What Is the Difference?",
     excerpt:
-      "Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support — and understand which route may be more appropriate for your situation.",
+      "Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support, and understand which route may be more appropriate for your situation.",
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-05-20",
@@ -1963,7 +1963,7 @@ Private rehab costs can vary significantly. Ask what is included and what may be
 Confidential rehab guidance and treatment are especially important for professionals, public-facing individuals, executives, parents, and those worried about stigma. Ask how information is protected, who receives updates, and what consent is required.
 
 [CTA:/contact:Speak to Insight Recovery Network]
-Insight Recovery Network provides confidential [rehab placement guidance](/treatment-placement) for individuals and families. We help clarify what is needed and identify treatment routes that are clinically appropriate — without pressure or sales tactics.
+Insight Recovery Network provides confidential [rehab placement guidance](/treatment-placement) for individuals and families. We help clarify what is needed and identify treatment routes that are clinically appropriate, without pressure or sales tactics.
 [/CTA]
 
 ## Warning Signs That a Rehab May Not Be the Right Fit
@@ -2226,7 +2226,7 @@ The healing work is the rest of it. Understanding the mechanism. Meeting the leg
 That is good news, not bad. If you have stopped and still do not feel free, you are not failing. You have stopped the bleeding. The healing is a different process, and it is the one that actually gives you your life back.
 
 [CTA:/contact:Speak Confidentially]
-If this describes where you are, Insight Recovery Network can help you understand what is happening and what kind of support is appropriate — whether that is [online recovery support](/online-programme), [treatment placement](/treatment-placement), or [family guidance](/what-we-offer). You do not need to have the perfect words or a fully formed plan. You just need an honest starting point.
+If this describes where you are, Insight Recovery Network can help you understand what is happening and what kind of support is appropriate, whether that is [online recovery support](/online-programme), [treatment placement](/treatment-placement), or [family guidance](/what-we-offer). You do not need to have the perfect words or a fully formed plan. You just need an honest starting point.
 [/CTA]
 
 ## You Do Not Have to Work This Out Alone
@@ -2238,7 +2238,7 @@ At Insight Recovery Network, this is the work. A [structured online recovery pro
 If you would like to understand more about [treatment placement](/treatment-placement), explore [digital recovery tools with Insight OS](/insight-os), or simply have a private conversation about where you are, the next step does not have to be dramatic. It just has to be a step.
 
 [CTA:/contact:Speak Confidentially]
-The need was always legitimate. There is a better way to meet it. A direct, honest conversation — no judgement, no script, no pressure — about where you are and what genuine recovery could look like for you. Reach out today.
+The need was always legitimate. There is a better way to meet it. A direct, honest conversation, no judgement, no script, no pressure, about where you are and what genuine recovery could look like for you. Reach out today.
 [/CTA]
     `.trim(),
   },
@@ -2253,11 +2253,11 @@ The need was always legitimate. There is a better way to meet it. A direct, hone
     readingTime: 7,
     category: "Addiction & Substances",
     content: `
-Alcohol dependency is one of the most prevalent and least understood forms of addiction. Unlike illicit drug use, alcohol exists within the fabric of social life — making it uniquely difficult to recognise when consumption has crossed from habit into dependence.
+Alcohol dependency is one of the most prevalent and least understood forms of addiction. Unlike illicit drug use, alcohol exists within the fabric of social life, making it uniquely difficult to recognise when consumption has crossed from habit into dependence.
 
 ## What Is Alcohol Dependency?
 
-Alcohol dependency — also referred to as alcohol use disorder (AUD) — is a chronic condition characterised by an inability to control drinking despite negative consequences. It exists on a spectrum, ranging from mild to severe, and involves both physical and psychological components.
+Alcohol dependency, also referred to as alcohol use disorder (AUD), is a chronic condition characterised by an inability to control drinking despite negative consequences. It exists on a spectrum, ranging from mild to severe, and involves both physical and psychological components.
 
 Physical dependence means the body has adapted to the presence of alcohol and will produce withdrawal symptoms in its absence. Psychological dependence reflects the emotional reliance on alcohol to manage stress, anxiety, or emotional pain.
 
@@ -2270,7 +2270,7 @@ Early recognition is critical. Common indicators include:
 - Significant time spent drinking or recovering from its effects
 - Cravings or strong urges to drink
 - Continued drinking despite relationship, occupational, or health problems
-- Tolerance — needing more alcohol to achieve the same effect
+- Tolerance, needing more alcohol to achieve the same effect
 - Withdrawal symptoms such as anxiety, tremors, sweating, or insomnia when not drinking
 
 It is important to note that someone can be physically dependent on alcohol without appearing to behave in ways that others would recognise as problematic. High-functioning dependency is common, particularly among professionals.
@@ -2287,11 +2287,11 @@ It is important to note that someone can be physically dependent on alcohol with
 
 ## What To Do Next
 
-If you recognise these signs in yourself or someone close to you, the most important thing to understand is that dependency is a medical condition — not a moral failure.
+If you recognise these signs in yourself or someone close to you, the most important thing to understand is that dependency is a medical condition, not a moral failure.
 
 The next steps depend on the severity of dependency. For those with physical dependence, medically supervised detoxification is essential before any further treatment. Attempting to stop abruptly without medical oversight carries genuine health risks.
 
-Following detox, structured treatment — whether residential or outpatient — addresses the underlying patterns and provides the tools to build a sustainable recovery.
+Following detox, structured treatment, whether residential or outpatient, addresses the underlying patterns and provides the tools to build a sustainable recovery.
 
 We are here to help you understand the most appropriate pathway forward. A private and confidential conversation can be the first step.
     `.trim(),
@@ -2516,20 +2516,20 @@ If you are comparing residential treatment options, a confidential conversation 
     slug: "managing-relapse-part-of-recovery",
     title: "Managing Relapse: Why It Is Part of Recovery, Not the End of It",
     excerpt:
-      "Relapse is one of the most misunderstood aspects of addiction. Understanding it clinically — rather than morally — changes everything about how we respond to it.",
+      "Relapse is one of the most misunderstood aspects of addiction. Understanding it clinically, rather than morally, changes everything about how we respond to it.",
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-03-31",
     readingTime: 6,
     category: "Recovery & Wellbeing",
     content: `
-Relapse is perhaps the most emotionally charged word in the language of addiction. For the person in recovery, it can feel like complete failure. For family members, it can bring overwhelming despair. And yet, clinically speaking, relapse is a well-understood feature of a chronic condition — not a sign that recovery is impossible.
+Relapse is perhaps the most emotionally charged word in the language of addiction. For the person in recovery, it can feel like complete failure. For family members, it can bring overwhelming despair. And yet, clinically speaking, relapse is a well-understood feature of a chronic condition, not a sign that recovery is impossible.
 
 ## Relapse as a Medical Reality
 
 Addiction shares features with other chronic medical conditions such as hypertension, diabetes, and asthma. All of these conditions involve periods of symptom management, occasional deterioration, and the need for ongoing treatment adjustment. We do not consider someone a failure for requiring medication adjustments when their blood pressure rises again. The same framework must apply to addiction.
 
-According to published research, relapse rates for substance use disorders range from 40 to 60 per cent — comparable to those of other chronic illnesses. This is not a statement about inevitable failure. It is a clinical acknowledgement that recovery is rarely a straight line.
+According to published research, relapse rates for substance use disorders range from 40 to 60 per cent, comparable to those of other chronic illnesses. This is not a statement about inevitable failure. It is a clinical acknowledgement that recovery is rarely a straight line.
 
 ## The Stages of Relapse
 
@@ -2543,7 +2543,7 @@ Relapse does not happen in an instant. It typically unfolds across three stages,
 
 ## Why Recognising the Stages Matters
 
-One of the most valuable skills developed in recovery is the ability to identify early warning signs — in oneself and, for families, in a loved one. Catching relapse at the emotional or mental stage, before physical use occurs, allows for meaningful intervention.
+One of the most valuable skills developed in recovery is the ability to identify early warning signs, in oneself and, for families, in a loved one. Catching relapse at the emotional or mental stage, before physical use occurs, allows for meaningful intervention.
 
 This is one reason structured aftercare and ongoing therapeutic support is so important. Regular check-ins, journalling, and digital recovery tools can help identify drifting patterns before they reach crisis point.
 
@@ -2555,7 +2555,7 @@ For some people, a short return to residential or intensive outpatient treatment
 
 ## The Role of Shame
 
-Shame is one of the most powerful drivers of continued use following a relapse. The internal narrative of 'I've blown it, so I might as well continue' is dangerously common. Treatment approaches that address shame directly — including certain trauma-focused therapies — are essential in breaking this cycle.
+Shame is one of the most powerful drivers of continued use following a relapse. The internal narrative of 'I've blown it, so I might as well continue' is dangerously common. Treatment approaches that address shame directly, including certain trauma-focused therapies, are essential in breaking this cycle.
 
 Families, too, can inadvertently amplify shame through reactions that, though understandable, communicate disappointment, anger, or withdrawal of support at the moment they are most needed.
 
@@ -2563,49 +2563,49 @@ Families, too, can inadvertently amplify shame through reactions that, though un
 
 Understanding relapse as a clinical event rather than a moral failing does not mean minimising its consequences. It means responding to it in the way most likely to support a return to recovery. That requires compassion, structure, and appropriate clinical support.
 
-We are here to help you navigate exactly this — whether you are the person who has relapsed, or someone supporting them through it.
+We are here to help you navigate exactly this, whether you are the person who has relapsed, or someone supporting them through it.
     `.trim(),
   },
   {
     slug: "supporting-a-loved-one-through-recovery",
     title: "Supporting a Loved One Through Recovery: What Helps and What Does Not",
     excerpt:
-      "Watching someone you care about struggle with addiction is one of the most distressing experiences a family can face. Knowing how to respond — and what to avoid — can make a real difference.",
+      "Watching someone you care about struggle with addiction is one of the most distressing experiences a family can face. Knowing how to respond, and what to avoid, can make a real difference.",
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-03-17",
     readingTime: 7,
     category: "Family & Relationships",
     content: `
-When someone you love is struggling with addiction, your instinct is to help. Yet the ways in which family members respond — however well-intentioned — can sometimes make the situation harder. This article offers a practical and compassionate guide to what actually helps, and what tends to create additional difficulty.
+When someone you love is struggling with addiction, your instinct is to help. Yet the ways in which family members respond, however well-intentioned, can sometimes make the situation harder. This article offers a practical and compassionate guide to what actually helps, and what tends to create additional difficulty.
 
 ## Understanding Your Own Position First
 
-Before addressing how to support someone else, it is worth acknowledging the position you are in. Loving someone with an addiction is exhausting. It involves sustained emotional strain, uncertainty, and often significant disruption to your own life. Recognising this — and seeking support for yourself — is not secondary to helping your loved one. It is essential to it.
+Before addressing how to support someone else, it is worth acknowledging the position you are in. Loving someone with an addiction is exhausting. It involves sustained emotional strain, uncertainty, and often significant disruption to your own life. Recognising this, and seeking support for yourself, is not secondary to helping your loved one. It is essential to it.
 
-Family members who are burned out, overwhelmed, or themselves psychologically depleted are less able to provide the calm, consistent support that recovery requires. Many people find that working with a therapist or counsellor — independently of their loved one — makes a meaningful difference.
+Family members who are burned out, overwhelmed, or themselves psychologically depleted are less able to provide the calm, consistent support that recovery requires. Many people find that working with a therapist or counsellor, independently of their loved one, makes a meaningful difference.
 
 ## What Helps
 
-**Educating yourself:** Addiction is a complex condition with a neurobiological basis. Understanding how it works — including concepts such as tolerance, withdrawal, craving, and relapse — significantly shifts how you interpret behaviour. Many things that feel like choices or deliberate acts of cruelty are better understood as symptoms of a condition.
+**Educating yourself:** Addiction is a complex condition with a neurobiological basis. Understanding how it works, including concepts such as tolerance, withdrawal, craving, and relapse, significantly shifts how you interpret behaviour. Many things that feel like choices or deliberate acts of cruelty are better understood as symptoms of a condition.
 
-**Maintaining boundaries:** Boundaries are not punishments. They are clear statements of what you are able to do and not do, and they protect both you and your loved one. A boundary might be: "I will not give you money if I believe it will be used to purchase alcohol." Communicating this clearly and calmly — and maintaining it consistently — is more helpful than inconsistent responses.
+**Maintaining boundaries:** Boundaries are not punishments. They are clear statements of what you are able to do and not do, and they protect both you and your loved one. A boundary might be: "I will not give you money if I believe it will be used to purchase alcohol." Communicating this clearly and calmly, and maintaining it consistently, is more helpful than inconsistent responses.
 
-**Expressing concern without ultimatums:** Telling someone how you feel — "I am frightened for you and I love you" — is more likely to open dialogue than confrontational ultimatums. Framing concern in terms of your own experience, rather than accusations, tends to be better received.
+**Expressing concern without ultimatums:** Telling someone how you feel, "I am frightened for you and I love you", is more likely to open dialogue than confrontational ultimatums. Framing concern in terms of your own experience, rather than accusations, tends to be better received.
 
-**Encouraging professional support:** Rather than attempting to manage everything yourself, gently and persistently encourage your loved one to engage with appropriate clinical or therapeutic support. Offer to help practically — researching options, making phone calls, accompanying them to an initial appointment.
+**Encouraging professional support:** Rather than attempting to manage everything yourself, gently and persistently encourage your loved one to engage with appropriate clinical or therapeutic support. Offer to help practically, researching options, making phone calls, accompanying them to an initial appointment.
 
-**Celebrating progress:** Recovery involves incremental gains. Acknowledging effort and progress — even when imperfect — builds the self-efficacy that sustains long-term change.
+**Celebrating progress:** Recovery involves incremental gains. Acknowledging effort and progress, even when imperfect, builds the self-efficacy that sustains long-term change.
 
 ## What Does Not Help
 
-**Enabling behaviour:** Enabling refers to actions that protect someone from the consequences of their addiction — paying off debts incurred through substance use, providing money without conditions, covering for their behaviour at work or with other family members. While these actions feel caring in the moment, they often remove the natural pressure that can motivate change.
+**Enabling behaviour:** Enabling refers to actions that protect someone from the consequences of their addiction, paying off debts incurred through substance use, providing money without conditions, covering for their behaviour at work or with other family members. While these actions feel caring in the moment, they often remove the natural pressure that can motivate change.
 
-**Controlling or monitoring:** Attempting to police someone's behaviour — checking their phone, searching their belongings, issuing constant warnings — is rarely effective and damages trust. It also places an enormous burden on you.
+**Controlling or monitoring:** Attempting to police someone's behaviour, checking their phone, searching their belongings, issuing constant warnings, is rarely effective and damages trust. It also places an enormous burden on you.
 
 **Threatening consequences you will not follow through on:** Ultimatums that are not maintained undermine your credibility and reduce the likelihood of future ultimatums being taken seriously. Only state what you are genuinely prepared to act on.
 
-**Taking responsibility for their recovery:** You can support someone's recovery, but you cannot do it for them. Taking on full responsibility for their wellbeing — and experiencing their relapses as your personal failures — is unsustainable and counterproductive.
+**Taking responsibility for their recovery:** You can support someone's recovery, but you cannot do it for them. Taking on full responsibility for their wellbeing, and experiencing their relapses as your personal failures, is unsustainable and counterproductive.
 
 **Engaging during intoxication:** Important conversations, confrontations, and expressions of concern should take place when your loved one is sober. Attempting to resolve conflict during intoxication rarely achieves anything and can escalate the situation.
 
@@ -2613,7 +2613,7 @@ Family members who are burned out, overwhelmed, or themselves psychologically de
 
 If you are unsure what to do, or if the situation is deteriorating, seeking professional guidance is appropriate. Family intervention specialists, addiction counsellors, and organisations such as Al-Anon can all provide structured support.
 
-We work with families throughout this process — from the initial conversation about what is happening, through to supporting someone into treatment and helping families adjust to life in recovery.
+We work with families throughout this process, from the initial conversation about what is happening, through to supporting someone into treatment and helping families adjust to life in recovery.
     `.trim(),
   },
   {
@@ -2627,7 +2627,7 @@ We work with families throughout this process — from the initial conversation 
     readingTime: 6,
     category: "Mental Health",
     content: `
-Addiction and mental health conditions do not exist in separate compartments. The relationship between them is complex, bidirectional, and clinically significant — and understanding it is central to designing effective treatment.
+Addiction and mental health conditions do not exist in separate compartments. The relationship between them is complex, bidirectional, and clinically significant, and understanding it is central to designing effective treatment.
 
 ## The Prevalence of Co-occurring Conditions
 
@@ -2658,19 +2658,19 @@ Over time, the substance that initially appeared to provide relief begins to wor
 
 A treatment approach that addresses only the substance use, without attending to co-occurring mental health conditions, is unlikely to be fully effective. If someone is using alcohol to manage untreated panic attacks, removing the alcohol without addressing the panic attacks leaves the person without a coping mechanism and at high risk of relapse.
 
-Similarly, treatment that focuses exclusively on the mental health presentation without addressing the substance use is unlikely to succeed — active addiction profoundly affects neurological functioning, mood regulation, and therapeutic capacity.
+Similarly, treatment that focuses exclusively on the mental health presentation without addressing the substance use is unlikely to succeed, active addiction profoundly affects neurological functioning, mood regulation, and therapeutic capacity.
 
-This is why integrated treatment — approaches that address both presentations simultaneously — represents the current clinical standard. It is also why thorough clinical assessment at the outset of treatment is essential: the picture needs to be understood comprehensively before an appropriate pathway can be identified.
+This is why integrated treatment, approaches that address both presentations simultaneously, represents the current clinical standard. It is also why thorough clinical assessment at the outset of treatment is essential: the picture needs to be understood comprehensively before an appropriate pathway can be identified.
 
 ## Trauma as a Central Factor
 
-For many people, trauma sits at the intersection of mental health and addiction. Early adverse experiences — including neglect, abuse, loss, and exposure to violence — significantly increase the risk of both PTSD and substance use disorder. Trauma-informed approaches to treatment acknowledge this and incorporate interventions specifically designed to address traumatic experiences safely.
+For many people, trauma sits at the intersection of mental health and addiction. Early adverse experiences, including neglect, abuse, loss, and exposure to violence, significantly increase the risk of both PTSD and substance use disorder. Trauma-informed approaches to treatment acknowledge this and incorporate interventions specifically designed to address traumatic experiences safely.
 
 EMDR (Eye Movement Desensitisation and Reprocessing), trauma-focused cognitive behavioural therapy (TF-CBT), and somatic approaches are among the evidence-based interventions increasingly integrated into addiction treatment for individuals with trauma histories.
 
 ## Seeking an Integrated Assessment
 
-If you are seeking support for yourself or a loved one, we would strongly encourage pursuing an assessment that considers both substance use and mental health comprehensively. The pathway that follows needs to be based on an accurate picture of the whole person — not just one dimension of their presentation.
+If you are seeking support for yourself or a loved one, we would strongly encourage pursuing an assessment that considers both substance use and mental health comprehensively. The pathway that follows needs to be based on an accurate picture of the whole person, not just one dimension of their presentation.
 
 We can help you navigate this, and identify the most appropriate treatment environment for your specific situation.
     `.trim(),
@@ -2686,13 +2686,13 @@ We can help you navigate this, and identify the most appropriate treatment envir
     readingTime: 5,
     category: "Treatment Options",
     content: `
-Online recovery programmes have evolved considerably. What was once a fringe option — often dismissed as a poor substitute for 'real' treatment — is now a well-evidenced, clinically structured pathway that suits a substantial proportion of people seeking support for addiction and mental health challenges.
+Online recovery programmes have evolved considerably. What was once a fringe option, often dismissed as a poor substitute for 'real' treatment, is now a well-evidenced, clinically structured pathway that suits a substantial proportion of people seeking support for addiction and mental health challenges.
 
 ## What Has Changed
 
 The shift has been driven by several converging factors. The acceleration of digital health during the pandemic demonstrated that therapeutic relationships can be effectively maintained at a distance. Research into telehealth outcomes has consistently shown that for many presentations, outcomes are comparable to in-person delivery.
 
-Simultaneously, the quality and structure of online recovery programmes has improved. The best programmes are not simply virtual replicas of in-person treatment — they are thoughtfully designed to leverage the specific advantages of digital delivery while compensating for its limitations.
+Simultaneously, the quality and structure of online recovery programmes has improved. The best programmes are not simply virtual replicas of in-person treatment, they are thoughtfully designed to leverage the specific advantages of digital delivery while compensating for its limitations.
 
 ## Who Are Online Programmes Suited To?
 
@@ -2700,7 +2700,7 @@ Online recovery support is most appropriate for individuals who:
 
 **Do not have significant physical dependence:** Online programmes are not designed to manage acute withdrawal. Anyone with physical dependence on alcohol, benzodiazepines, or opioids will require medically supervised detoxification before engaging with a structured programme.
 
-**Have a degree of stability in their environment:** Effective engagement with online therapeutic content requires a reasonably stable physical environment — somewhere private, consistent, and free from immediate crisis.
+**Have a degree of stability in their environment:** Effective engagement with online therapeutic content requires a reasonably stable physical environment, somewhere private, consistent, and free from immediate crisis.
 
 **Have professional or family commitments that make residential treatment impractical:** One of the most significant advantages of online delivery is that it does not require an individual to step out of their life. Parents, working professionals, and individuals with caring responsibilities often find residential treatment logistically impossible. Structured online support allows treatment to be integrated into daily life.
 
@@ -2712,19 +2712,19 @@ Online recovery support is most appropriate for individuals who:
 
 Quality online programmes share several characteristics:
 
-**Clinical oversight:** There should be qualified clinicians — addiction specialists, psychologists, or psychiatrists — involved in programme design and, where appropriate, individual care.
+**Clinical oversight:** There should be qualified clinicians, addiction specialists, psychologists, or psychiatrists, involved in programme design and, where appropriate, individual care.
 
-**Structured therapeutic content:** Effective programmes draw on evidence-based therapeutic modalities, including cognitive behavioural therapy (CBT), motivational enhancement, and relapse prevention frameworks — not simply peer sharing or unstructured discussion.
+**Structured therapeutic content:** Effective programmes draw on evidence-based therapeutic modalities, including cognitive behavioural therapy (CBT), motivational enhancement, and relapse prevention frameworks, not simply peer sharing or unstructured discussion.
 
 **Group connection:** Peer support remains one of the most powerful components of recovery. Well-designed online programmes incorporate facilitated group sessions that create genuine connection and mutual accountability.
 
-**Individual support:** Access to one-to-one support — whether through scheduled sessions or responsive check-ins — is important for addressing the specific needs and challenges that arise for each individual.
+**Individual support:** Access to one-to-one support, whether through scheduled sessions or responsive check-ins, is important for addressing the specific needs and challenges that arise for each individual.
 
 **Digital recovery tools:** Features such as journalling, mood tracking, trigger mapping, and structured goal-setting help individuals maintain insight and engagement between sessions.
 
 ## Our Online Programme and Insight OS
 
-Insight Recovery Network offers a structured online recovery programme that incorporates facilitated group sessions, individual support, and psychoeducational content — alongside Insight OS, our dedicated digital recovery platform for daily check-ins, journalling, and recovery planning.
+Insight Recovery Network offers a structured online recovery programme that incorporates facilitated group sessions, individual support, and psychoeducational content, alongside Insight OS, our dedicated digital recovery platform for daily check-ins, journalling, and recovery planning.
 
 If you would like to understand whether an online programme is appropriate for your situation, we would be glad to speak with you confidentially.
     `.trim(),
@@ -3006,7 +3006,7 @@ There is no single route that fits everyone. But there is one principle that app
 
 A structured recovery programme helps someone build habits before they feel ready. It gives them somewhere to take difficult thoughts before those thoughts become actions. It creates a rhythm of reflection. It makes relapse warning signs easier to spot. It helps turn recovery from an emotional reaction into a daily practice.
 
-At Insight Recovery Network, this is one of the reasons we developed [Insight OS](/insight-os) as a digital recovery support system. Recovery does not only happen in therapy sessions or group work. It happens in the small decisions between sessions — when someone tracks a trigger, writes honestly in a journal, notices a warning sign, reviews their relapse prevention plan, or reaches for support before things escalate.
+At Insight Recovery Network, this is one of the reasons we developed [Insight OS](/insight-os) as a digital recovery support system. Recovery does not only happen in therapy sessions or group work. It happens in the small decisions between sessions, when someone tracks a trigger, writes honestly in a journal, notices a warning sign, reviews their relapse prevention plan, or reaches for support before things escalate.
 
 Willpower says, "I hope I can handle this." Structure says, "I know what to do when this happens."
 
@@ -3042,7 +3042,7 @@ In effective addiction recovery support, accountability should help someone beco
 
 This distinction matters because shame is one of the most common relapse drivers. When someone feels deeply ashamed, they may isolate, avoid support, lie, minimise, or seek relief from the very behaviour they are trying to stop.
 
-That is why recovery needs an environment where truth can be spoken early — not only after a relapse, not only after everything has gone wrong, but early, when the warning signs first appear.
+That is why recovery needs an environment where truth can be spoken early, not only after a relapse, not only after everything has gone wrong, but early, when the warning signs first appear.
 
 The goal is not to make someone feel worse. The goal is to help them become honest enough to interrupt the cycle.
 
@@ -3050,7 +3050,7 @@ The goal is not to make someone feel worse. The goal is to help them become hone
 
 Many people focus on the substance or behaviour without giving enough attention to emotional regulation. But in practice, emotional dysregulation is often one of the biggest relapse risks.
 
-If someone cannot tolerate anxiety, loneliness, anger, shame, boredom, conflict, rejection, or disappointment, they are more likely to reach for something that changes their state quickly. This is one of the reasons addiction can become so powerful — it offers fast state change, even when the consequences are severe.
+If someone cannot tolerate anxiety, loneliness, anger, shame, boredom, conflict, rejection, or disappointment, they are more likely to reach for something that changes their state quickly. This is one of the reasons addiction can become so powerful, it offers fast state change, even when the consequences are severe.
 
 Recovery asks the person to develop slower, healthier ways of regulating themselves. That may include breathing techniques, grounding, movement, journalling, talking honestly, pausing before reacting, creating routine, improving sleep, and learning to sit with discomfort without immediately escaping it.
 
@@ -3132,7 +3132,7 @@ Many people imagine recovery is decided in dramatic moments: the crisis, the con
 
 It is built when someone tells the truth before they have to. It is built when they notice a warning sign and take it seriously. It is built when they attend support even though they feel fine. It is built when they write the journal entry they would rather avoid. It is built when they ask for help before they are desperate. It is built when they choose structure over chaos.
 
-This is why [online recovery support](/online-programme) and digital recovery tools like [Insight OS](/insight-os) can be powerful when used properly. They help bring recovery into daily life — not just into appointments. A weekly session may be useful, but the person still has to live the other six days and twenty-three hours.
+This is why [online recovery support](/online-programme) and digital recovery tools like [Insight OS](/insight-os) can be powerful when used properly. They help bring recovery into daily life, not just into appointments. A weekly session may be useful, but the person still has to live the other six days and twenty-three hours.
 
 Recovery support needs to meet people in real life, not just in theory.
 
@@ -3170,10 +3170,10 @@ Need help understanding what level of support is right? Insight Recovery Network
 
 ## Explore Next Steps
 
-- [Take a self-assessment](/assessments) — understand your risk level confidentially
-- [Explore the online recovery programme](/online-programme) — structured group and one-to-one support
-- [Learn about treatment placement](/treatment-placement) — when a higher level of care is needed
-- [Contact Insight Recovery Network](/contact) — speak confidentially about your situation
+- [Take a self-assessment](/assessments), understand your risk level confidentially
+- [Explore the online recovery programme](/online-programme), structured group and one-to-one support
+- [Learn about treatment placement](/treatment-placement), when a higher level of care is needed
+- [Contact Insight Recovery Network](/contact), speak confidentially about your situation
     `.trim(),
   },
 ];

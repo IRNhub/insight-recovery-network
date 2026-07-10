@@ -95,7 +95,7 @@ function parseContent(content: string) {
         </h3>
       );
 
-    // [CTA:/path:Button Label] ... [/CTA]  — inline CTA callout block
+    // [CTA:/path:Button Label] ... [/CTA], inline CTA callout block
     } else if (line.startsWith("[CTA:")) {
       const tagMatch = line.match(/^\[CTA:([^:]+):([^\]]+)\]$/);
       const ctaHref = tagMatch ? tagMatch[1] : "/contact";
@@ -156,7 +156,7 @@ function parseContent(content: string) {
       );
       continue;
 
-    // Markdown table — lines starting with |
+    // Markdown table, lines starting with |
     } else if (line.startsWith("| ")) {
       const tableLines: string[] = [];
       while (i < lines.length && lines[i].startsWith("|")) {
@@ -208,7 +208,7 @@ function parseContent(content: string) {
       );
       continue;
 
-    // Regular paragraph — handles **inline bold** and [text](url) inline links
+    // Regular paragraph, handles **inline bold** and [text](url) inline links
     } else if (line.trim() !== "") {
       const rawParts = line.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
       const parts = rawParts.map((part, idx) => {
@@ -527,7 +527,7 @@ export default function ResourceDetail() {
                       >
                         {source.title}
                       </a>
-                      <span className="text-muted-foreground"> — {source.publisher}</span>
+                      <span className="text-muted-foreground">, {source.publisher}</span>
                     </li>
                   ))}
                 </ul>

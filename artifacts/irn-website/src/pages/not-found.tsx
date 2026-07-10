@@ -15,7 +15,7 @@ export default function NotFound() {
         <div className="container mx-auto px-6 md:px-12 max-w-lg text-center">
           <div className="w-8 h-px mx-auto mb-8" style={{ background: "#C9A96E" }} />
           <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 font-sans">
-            404 — Page Not Found
+            404, Page Not Found
           </p>
           <h1 className="font-serif text-primary text-3xl md:text-4xl leading-tight mb-6">
             We couldn't find that page.

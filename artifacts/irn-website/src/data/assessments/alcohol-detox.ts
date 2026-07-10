@@ -14,7 +14,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
   sections: [
     {
       id: "current-use",
-      title: "Section 1 of 5 — Current Alcohol Use",
+      title: "Section 1 of 5: Current Alcohol Use",
       description:
         "The following questions help us understand the current pattern of your drinking.",
       questions: [
@@ -94,7 +94,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
     },
     {
       id: "control-consequences",
-      title: "Section 2 of 5 — Control and Consequences",
+      title: "Section 2 of 5: Control and Consequences",
       description:
         "These questions explore the impact your drinking has had on your daily life and your relationship with alcohol.",
       questions: [
@@ -158,7 +158,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
         },
         {
           id: "cravings",
-          text: "Do you experience strong urges or cravings for alcohol — particularly when you haven't had a drink for a while?",
+          text: "Do you experience strong urges or cravings for alcohol, particularly when you haven't had a drink for a while?",
           type: "radio",
           required: true,
           options: [
@@ -172,7 +172,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
     },
     {
       id: "detox-safety",
-      title: "Section 3 of 5 — Detox and Safety",
+      title: "Section 3 of 5: Detox and Safety",
       description:
         "This section asks about physical symptoms and previous experiences. This information is essential for assessing the safest way to reduce or stop drinking.",
       questions: [
@@ -210,7 +210,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
         },
         {
           id: "hallucinations",
-          text: "Have you ever experienced hallucinations — seeing, hearing, or feeling things that were not there — when stopping or reducing alcohol?",
+          text: "Have you ever experienced hallucinations, seeing, hearing, or feeling things that were not there, when stopping or reducing alcohol?",
           type: "radio",
           required: true,
           redFlagKey: "hallucinations",
@@ -236,7 +236,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
         },
         {
           id: "ghb-use",
-          text: "Do you use GHB, GBL, or ketamine — with or without alcohol?",
+          text: "Do you use GHB, GBL, or ketamine, with or without alcohol?",
           subtext:
             "These substances carry significant additional risks during alcohol withdrawal and require specialist assessment.",
           type: "radio",
@@ -252,7 +252,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
     },
     {
       id: "mental-health-readiness",
-      title: "Section 4 of 5 — Health and Recovery Readiness",
+      title: "Section 4 of 5: Health and Recovery Readiness",
       description:
         "This section helps us understand your overall health context and how ready you feel to make a change.",
       questions: [
@@ -327,7 +327,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
           options: [
             {
               value: "ready",
-              label: "I am ready — I want to do whatever it takes",
+              label: "I am ready, I want to do whatever it takes",
               score: 0,
             },
             {
@@ -351,9 +351,9 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
     },
     {
       id: "contact-consent",
-      title: "Section 5 of 5 — Your Details",
+      title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also send a brief, personalised note from Anchor — our recovery guidance system — reflecting what you have shared.",
+        "Your results will be sent to you securely. We will also send a brief, personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
       questions: [
         {
           id: "name",

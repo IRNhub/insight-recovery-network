@@ -204,7 +204,7 @@ export default function RehabCostUK() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
-                Rehab cost guide — UK
+                Rehab cost guide, UK
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.08] tracking-tight mb-7 text-primary">
                 How Much Does Rehab Cost in the UK?

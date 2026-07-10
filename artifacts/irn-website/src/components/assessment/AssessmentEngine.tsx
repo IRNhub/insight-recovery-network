@@ -107,7 +107,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
           <h2 className="text-2xl md:text-3xl font-serif text-primary leading-snug mb-3">
             {section.id === "contact-consent"
               ? "Where should we send your results?"
-              : "Please answer honestly — your responses are completely confidential."}
+              : "Please answer honestly, your responses are completely confidential."}
           </h2>
           {section.description && (
             <p className="text-muted-foreground font-light leading-relaxed">

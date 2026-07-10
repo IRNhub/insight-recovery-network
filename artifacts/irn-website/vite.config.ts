@@ -12,7 +12,7 @@ if (rawPort && (Number.isNaN(port) || port <= 0)) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
-// The app is always served at the domain root ("/") — both in production
+// The app is always served at the domain root ("/"), both in production
 // (custom domain) and in the Replit dev proxy.  Hard-coding "/" removes
 // any dependency on the BASE_PATH env-var and keeps the wouter Router
 // base as "" (root) regardless of build mode.
@@ -37,7 +37,7 @@ function cacheControlPlugin() {
       pathname === "/" ||
       pathname.endsWith(".html") ||
       // Clean page URLs (/about, /private-rehab-thailand, /resources/<slug>)
-      // resolve to pre-rendered HTML — must never be CDN-cached, otherwise
+      // resolve to pre-rendered HTML, must never be CDN-cached, otherwise
       // stale copies from a previous deploy are served for up to an hour.
       !pathname.includes(".") ||
       pathname === "/sitemap.xml" ||
@@ -162,7 +162,7 @@ function noIndexHtmlPlugin() {
  * the matching .br or .gz variant (created by scripts/compress-assets.mjs)
  * with the correct Content-Encoding and Vary headers.
  *
- * Only registered in configurePreviewServer — in dev mode, /assets/* are
+ * Only registered in configurePreviewServer, in dev mode, /assets/* are
  * served by Vite's own transform pipeline from source, so we must not
  * shadow them with pre-built files.  The homepage (/) is also handled
  * here so sirv serves the compressed dist/public/index.html in preview.
@@ -225,7 +225,7 @@ function serveCompressedStaticPlugin() {
 
   return {
     name: "serve-compressed-static",
-    // Preview only — dev mode must use Vite's transform pipeline for source assets.
+    // Preview only, dev mode must use Vite's transform pipeline for source assets.
     configurePreviewServer(server: import("vite").PreviewServer) {
       server.middlewares.use(middleware);
     },

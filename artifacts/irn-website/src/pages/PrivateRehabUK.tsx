@@ -95,7 +95,7 @@ const faqs = [
   {
     question: "Can Insight Recovery Network help me understand my options before contacting a rehab?",
     answer:
-      "Yes. That is the core of what we do. We give a clinically informed view of the situation and help you compare realistic routes—UK rehab, overseas treatment, detox, online recovery support or family intervention—so you can make a clearer decision. We explain any relevant provider or commercial relationship before a decision is made.",
+      "Yes. That is the core of what we do. We give a clinically informed view of the situation and help you compare realistic routes, UK rehab, overseas treatment, detox, online recovery support or family intervention, so you can make a clearer decision. We explain any relevant provider or commercial relationship before a decision is made.",
   },
 ];
 
@@ -232,7 +232,7 @@ export default function PrivateRehabUK() {
           <ul className="max-w-3xl space-y-3">
             {whenAppropriate.map((item, i) => (
               <li key={i} className="flex gap-3 text-muted-foreground leading-relaxed">
-                <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                 <span>{item}</span>
               </li>
             ))}
@@ -313,7 +313,7 @@ export default function PrivateRehabUK() {
                   "Aftercare and ongoing support arrangements",
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -352,7 +352,7 @@ export default function PrivateRehabUK() {
                   "Continuity with existing NHS or private care is valuable",
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -368,7 +368,7 @@ export default function PrivateRehabUK() {
                   "Privacy away from local social and professional circles matters",
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">—</span>
+                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
                     <span>{item}</span>
                   </li>
                 ))}

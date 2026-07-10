@@ -26,7 +26,7 @@ const services = [
     img: treatmentImg,
     imgAlt: "Private treatment facility",
     imgPos: "center 55%",
-    body: "Confidential guidance in identifying and securing the right detox or residential rehabilitation facility — from first conversation to admission, with access to our network of trusted international providers.",
+    body: "Confidential guidance in identifying and securing the right detox or residential rehabilitation facility, from first conversation to admission, with access to our network of trusted international providers.",
     tags: ["Detox", "Residential Care", "International Options", "Family Guidance"],
   },
   {
@@ -60,7 +60,7 @@ const audiences = [
   },
   {
     title: "Families unsure what to do next",
-    body: "Addiction rarely affects just one person. We help families understand what is happening, what is possible, and how to act with care and firm boundaries — even when the person they love is not yet ready.",
+    body: "Addiction rarely affects just one person. We help families understand what is happening, what is possible, and how to act with care and firm boundaries, even when the person they love is not yet ready.",
   },
   {
     title: "Professionals managing complex situations",
@@ -76,7 +76,7 @@ const steps = [
   {
     n: "1",
     title: "Confidential conversation",
-    body: "Speak with one of our clinical team in complete confidence. No forms, no pressure — just a calm conversation to understand your situation.",
+    body: "Speak with one of our clinical team in complete confidence. No forms, no pressure, just a calm conversation to understand your situation.",
   },
   {
     n: "2",
@@ -86,7 +86,7 @@ const steps = [
   {
     n: "3",
     title: "Coordinated support",
-    body: "We manage the logistics — from placement coordination to programme onboarding — so you can focus entirely on what matters.",
+    body: "We manage the logistics, from placement coordination to programme onboarding, so you can focus entirely on what matters.",
   },
   {
     n: "4",
@@ -145,7 +145,7 @@ export default function WhatWeOffer() {
     <Layout>
       <SEO
         title="Addiction Counselling &amp; Recovery Services"
-        description="Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools — tailored to each individual's needs."
+        description="Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools, tailored to each individual's needs."
         canonical="/what-we-offer"
         ogImage={ogImageUrl("og-what-we-offer.png")}
       />
@@ -384,7 +384,7 @@ export default function WhatWeOffer() {
           </div>
 
           <div className="relative">
-            {/* Horizontal connector — desktop only */}
+            {/* Horizontal connector, desktop only */}
             <div
               className="hidden md:block absolute top-[1.625rem] left-[calc(12.5%+1.25rem)] right-[calc(12.5%+1.25rem)] h-px pointer-events-none"
               style={{ background: "rgba(201,169,110,0.25)" }}
