@@ -320,6 +320,39 @@ export default function ResourceDetail() {
   const relatedArticles = [...related, ...moreRelated].slice(0, 2);
 
   const canonicalPath = `/resources/${article.slug}`;
+  const contextualCta = (() => {
+    const slug = article.slug;
+    if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(slug)) {
+      return {
+        heading: "Worried about someone you love?",
+        description: "You can ask for family guidance before they agree to treatment. A confidential consultation can help you plan the conversation, boundaries and realistic treatment options.",
+        primaryCta: { label: "Get family guidance", href: "/family-addiction-intervention-uk" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
+    if (/(online|residential-rehab|willpower|relapse)/.test(slug)) {
+      return {
+        heading: "Need more structure than an article can provide?",
+        description: "Compare structured online recovery support with residential treatment and understand which level of care fits your current situation.",
+        primaryCta: { label: "Check online programme suitability", href: "/online-programme" },
+        secondaryCta: { label: "Compare treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (/(rehab|detox|withdrawal|alcohol-dependency)/.test(slug)) {
+      return {
+        heading: "Need help making a treatment decision?",
+        description: "A confidential conversation can clarify detox risk, private rehab, cost, location and whether residential care is the right next step.",
+        primaryCta: { label: "Discuss treatment options", href: "/treatment-placement" },
+        secondaryCta: { label: "Compare rehab costs", href: "/how-much-does-rehab-cost-uk" },
+      };
+    }
+    return {
+      heading: "Need guidance for your specific situation?",
+      description: "Our articles offer general information, but every person's situation is different. A confidential conversation can help clarify the most appropriate next step.",
+      primaryCta: { label: "Discuss your situation", href: "/contact" },
+      secondaryCta: { label: "Take a free assessment", href: "/assessments" },
+    };
+  })();
   const ogImage = article.image
     ? `${SITE_URL}${article.image}`
     : `${SITE_URL}/opengraph.jpg`;
@@ -532,10 +565,10 @@ export default function ResourceDetail() {
       )}
 
       <CTASection
-        heading="Need guidance for your specific situation?"
-        description="Our articles offer general information, but every person's situation is different. A confidential conversation can help clarify the most appropriate next step."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
-        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        heading={contextualCta.heading}
+        description={contextualCta.description}
+        primaryCta={contextualCta.primaryCta}
+        secondaryCta={contextualCta.secondaryCta}
       />
     </Layout>
   );

@@ -34,7 +34,7 @@ const whatWeAssess = [
 const howWeHelp = [
   {
     title: "Independent assessment",
-    body: "An independent view of the situation, free of any commercial tie to a facility, so guidance is based on clinical fit, safety, budget and recovery needs.",
+    body: "A clinically informed view of the situation, with guidance based on fit, safety, budget and recovery needs and any relevant provider relationship explained transparently.",
   },
   {
     title: "Is residential treatment appropriate?",
@@ -95,7 +95,7 @@ const faqs = [
   {
     question: "Can Insight Recovery Network help me understand my options before contacting a rehab?",
     answer:
-      "Yes. That is the core of what we do. We give an independent, clinically informed view of the situation and help you compare the realistic routes, UK rehab, overseas treatment, detox, online recovery support, or family intervention, so you can make a clearer decision before contacting treatment centres directly. We do not refer into UK facilities or work on commission from them.",
+      "Yes. That is the core of what we do. We give a clinically informed view of the situation and help you compare realistic routes—UK rehab, overseas treatment, detox, online recovery support or family intervention—so you can make a clearer decision. We explain any relevant provider or commercial relationship before a decision is made.",
   },
 ];
 
@@ -164,7 +164,7 @@ export default function PrivateRehabUK() {
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-9">
                 Insight Recovery Network provides independent guidance to help individuals and families
-                make a safer, clearer and more informed decision, with no commercial ties to any facility.
+                make a safer, clearer and more informed decision, with any relevant provider or commercial relationship explained transparently.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <Link href="/contact">
@@ -510,7 +510,7 @@ export default function PrivateRehabUK() {
 
       <CTASection
         heading="Considering private rehab in the UK?"
-        body="Compare your options first. A confidential conversation can clarify whether UK rehab, overseas treatment, detox, structured online support or family intervention is the most appropriate next step. Independent guidance, no pressure, no commercial ties to any facility."
+        body="Compare your options first. A confidential conversation can clarify whether UK rehab, overseas treatment, detox, structured online support or family intervention is the most appropriate next step. No pressure, with relevant provider relationships explained transparently."
         primaryLabel="Book a confidential call"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"

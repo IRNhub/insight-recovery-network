@@ -298,7 +298,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
 
       <CTASection
         heading={`Considering treatment in ${d.country}?`}
-        body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. Independent guidance, no pressure, no commercial ties to any facility."
+        body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently."
         primaryLabel="Book a confidential call"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"

@@ -64,6 +64,46 @@ kind = "web"
   to = "/contact.html"
 
   [[services.production.rewrites]]
+  from = "/family-addiction-intervention-uk"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/family-addiction-intervention-uk/"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/family-support"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/family-support/"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/family-intervention"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/family-intervention/"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/intervention"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/intervention/"
+  to = "/family-addiction-intervention-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/confidential-addiction-help-professionals"
+  to = "/confidential-addiction-help-professionals.html"
+
+  [[services.production.rewrites]]
+  from = "/confidential-addiction-help-professionals/"
+  to = "/confidential-addiction-help-professionals.html"
+
+  [[services.production.rewrites]]
   from = "/cookie-policy"
   to = "/cookie-policy.html"
 
