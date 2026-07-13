@@ -41,7 +41,7 @@ export interface Destination {
 }
 
 const COST_DISCLAIMER =
-  "All figures are typical guide ranges only. Actual costs depend on the facility, length of stay, level of medical care required, and accommodation type, and are always confirmed transparently before any decision is made. Insight Recovery Network provides independent guidance and will tell you honestly when a less expensive option is clinically appropriate.";
+  "All figures are typical guide ranges only. Actual costs depend on the facility, length of stay, level of medical care required, and accommodation type, and are always confirmed transparently before any decision is made. Insight Recovery Network provides assessment-led guidance and will tell you honestly when a less expensive option is clinically appropriate.";
 
 export const destinations: Destination[] = [
   {
@@ -50,7 +50,7 @@ export const destinations: Destination[] = [
     title: "Private Rehab Thailand",
     seoTitle: "Private Rehab Thailand: Costs & Treatment Placement | IRN",
     metaDescription:
-      "Compare private rehab in Thailand, guide costs from £8,000 to £15,000, detox, trauma-informed care, programme lengths and independent placement support.",
+      "Compare private rehab in Thailand, guide costs from £8,000 to £15,000, detox, trauma-informed care, programme lengths and assessment-led placement support.",
     heroImage: "/private-rehab-thailand-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for Thailand with a tranquil residential rehab setting",
@@ -134,7 +134,7 @@ export const destinations: Destination[] = [
       {
         question: "Is rehab in Thailand clinically safe and properly regulated?",
         answer:
-          "Standards, staffing and medical capability vary between facilities. Independent placement guidance helps check who provides care, how detox and mental-health risk are managed, what is outside the programme's scope and whether the setting fits the person. IRN explains any relevant provider relationship transparently before a recommendation.",
+          "Standards, staffing and medical capability vary between facilities. Assessment-led placement guidance helps check who provides care, how detox and mental-health risk are managed, what is outside the programme's scope and whether the setting fits the person. IRN explains any relevant provider relationship transparently before a recommendation.",
       },
       {
         question: "How long do people usually stay?",
@@ -169,7 +169,7 @@ export const destinations: Destination[] = [
     title: "Private Rehab in South Africa",
     seoTitle: "Private Rehab in South Africa | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
-      "Considering rehab in South Africa? Independent guidance on residential addiction treatment in South Africa, long-term programmes from around £1,800 per month up to around £10,000 for premium facilities. Confidential placement support.",
+      "Considering rehab in South Africa? Assessment-led guidance on residential addiction treatment, with long-term programmes from around £1,800 per month up to around £10,000 for premium facilities.",
     heroImage: "/private-rehab-south-africa-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for South Africa with a residential rehab setting beneath mountains",
@@ -223,7 +223,7 @@ export const destinations: Destination[] = [
       {
         question: "Why is treatment in South Africa so much more affordable?",
         answer:
-          "Favourable exchange rates and lower operating costs, not lower clinical standards at reputable facilities. South Africa has one of the most established addiction treatment cultures outside the UK and US. As with any destination, quality varies between providers, which is why independent guidance and honest facility selection matter.",
+          "Favourable exchange rates and lower operating costs, not lower clinical standards at reputable facilities. South Africa has one of the most established addiction treatment cultures outside the UK and US. As with any destination, quality varies between providers, which is why assessment-led guidance and honest facility selection matter.",
       },
       {
         question: "Is a longer, cheaper programme better than a short premium one?",
@@ -248,7 +248,7 @@ export const destinations: Destination[] = [
     title: "Private Rehab in Spain",
     seoTitle: "Private Rehab in Spain | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
-      "Considering private rehab in Spain? Independent guidance on residential addiction treatment in Spain, from around £4,000 to £28,000 depending on facility, close to the UK with discreet, high-quality options. Confidential placement support.",
+      "Considering private rehab in Spain? Assessment-led guidance on residential addiction treatment, from around £4,000 to £28,000 depending on facility, close to the UK with discreet options.",
     heroImage: "/private-rehab-spain-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for Spain with a Mediterranean residential rehab setting",
@@ -325,7 +325,7 @@ export const destinations: Destination[] = [
     title: "Private Rehab in Sri Lanka",
     seoTitle: "Private Rehab in Sri Lanka | Costs, Placement & Guidance | Insight Recovery Network",
     metaDescription:
-      "Considering rehab in Sri Lanka? Independent guidance on residential addiction treatment in Sri Lanka, typical costs from £12,000 to £18,000, intimate high-quality facilities, and confidential placement support from Insight Recovery Network.",
+      "Considering rehab in Sri Lanka? Assessment-led guidance on residential addiction treatment, typical costs from £12,000 to £18,000, smaller facilities and confidential placement support.",
     heroImage: "/private-rehab-sri-lanka-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for Sri Lanka with a tropical residential rehab setting",

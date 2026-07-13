@@ -66,7 +66,7 @@ const signs = [
   "You are repeatedly managing crises, covering consequences or feeling responsible for keeping everything together",
   "There are concerns about withdrawal, mental health, self-neglect, children or other safeguarding risks",
   "A treatment opportunity exists, but the family does not know how to present it safely",
-  "You need an experienced, independent view before paying for private treatment",
+  "You need an experienced, assessment-led view before paying for private treatment",
 ];
 
 const process = [

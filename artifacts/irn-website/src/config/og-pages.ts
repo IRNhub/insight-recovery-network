@@ -51,7 +51,7 @@ export const OG_PAGES: OgPageConfig[] = [
     file: "og-treatment-placement.png",
     title: "Private Rehab Placement",
     subtitle: "UK & International",
-    seoTitle: "Help Choosing a Rehab | Independent Treatment Placement",
+    seoTitle: "Help Choosing a Rehab | Assessment-Led Placement",
   },
   {
     path: "/online-programme",

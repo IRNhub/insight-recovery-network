@@ -52,7 +52,7 @@ export default function ClinicalDisclaimer() {
               <p className="mb-3">Insight Recovery Network is a private, online-only support and guidance service based in Newquay, Cornwall, UK. We provide:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li>Confidential guidance on addiction, recovery, and mental health support options.</li>
-                <li>Independent treatment placement guidance for private detox and residential rehabilitation.</li>
+                <li>Assessment-led treatment placement guidance for private detox and residential rehabilitation.</li>
                 <li>Online recovery programmes and digital recovery tools.</li>
                 <li>Informational self-assessment tools to help individuals reflect on their situation.</li>
               </ul>
@@ -98,7 +98,7 @@ export default function ClinicalDisclaimer() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">6. Treatment placement guidance</h2>
-              <p>Where we assist with treatment placement, our role is to provide independent, informational guidance on available options. We do not endorse specific treatment facilities, accept referral fees, or make clinical placement decisions. The ultimate choice of treatment provider is yours, and you should carry out your own due diligence including verifying CQC registration, staff qualifications, and programme structure with the provider directly.</p>
+              <p>Where we assist with treatment placement, our role is to provide assessment-led, informational guidance on available options. IRN may have partner, referral or commercial relationships with some providers, and any relevant relationship will be explained before you decide. IRN does not own or operate the facilities and does not make the provider's clinical or admission decision. The ultimate choice of treatment provider is yours, and you should carry out your own due diligence, including verifying CQC registration where applicable, staff qualifications and programme structure with the provider directly.</p>
             </div>
 
             <div>

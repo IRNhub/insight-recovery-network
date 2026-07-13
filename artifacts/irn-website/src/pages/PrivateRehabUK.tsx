@@ -33,7 +33,7 @@ const whatWeAssess = [
 
 const howWeHelp = [
   {
-    title: "Independent assessment",
+    title: "Suitability assessment",
     body: "A clinically informed view of the situation, with guidance based on fit, safety, budget and recovery needs and any relevant provider relationship explained transparently.",
   },
   {
@@ -80,12 +80,12 @@ const faqs = [
   {
     question: "Is UK private rehab always the best option?",
     answer:
-      "No. UK private rehab suits some situations well, particularly where proximity, family involvement, or continuity with existing care matters. For others, overseas residential treatment, medically supervised detox, structured online recovery support, or family intervention may be more appropriate. The point of an independent view is to work out which route fits before money is committed, rather than assuming a UK admission is automatically the answer.",
+      "No. UK private rehab suits some situations well, particularly where proximity, family involvement, or continuity with existing care matters. For others, overseas residential treatment, medically supervised detox, structured online recovery support, or family intervention may be more appropriate. The point of an assessment-led view is to work out which route fits before money is committed, rather than assuming a UK admission is automatically the answer.",
   },
   {
     question: "Should I choose UK rehab or overseas rehab?",
     answer:
-      "It depends on clinical need, risk, budget, family situation, and recovery history. UK treatment can be better for proximity, family involvement, ease of travel, and continuity with NHS or private care. Overseas options may offer better value, longer treatment duration, more privacy, or greater distance from triggers. There is no universal answer, which is exactly why an independent comparison is worth having first.",
+      "It depends on clinical need, risk, budget, family situation, and recovery history. UK treatment can be better for proximity, family involvement, ease of travel, and continuity with NHS or private care. Overseas options may offer better value, longer treatment duration, more privacy, or greater distance from triggers. There is no universal answer, which is exactly why an assessment-led comparison is worth having first.",
   },
   {
     question: "Can families contact Insight Recovery Network before the person agrees to treatment?",
@@ -116,7 +116,7 @@ const serviceSchema = {
   name: "Private Rehab UK Guidance",
   serviceType: "Addiction treatment guidance and recovery planning",
   description:
-    "Independent guidance for individuals and families considering private rehab in the UK, including detox considerations, comparison with overseas treatment, online recovery support and aftercare planning.",
+    "Assessment-led guidance for individuals and families considering private rehab in the UK, including detox considerations, comparison with overseas treatment, online recovery support and aftercare planning.",
   provider: { "@type": "Organization", name: "Insight Recovery Network", url: SITE_URL },
   areaServed: { "@type": "Country", name: "United Kingdom" },
 };
@@ -133,7 +133,7 @@ export default function PrivateRehabUK() {
     <Layout>
       <SEO
         title="Private Rehab UK"
-        fullTitle="Private Rehab UK | Independent Guidance Before Choosing Treatment | Insight Recovery Network"
+        fullTitle="Private Rehab UK | Assessment-Led Guidance Before Choosing Treatment | Insight Recovery Network"
         description="Considering private rehab in the UK? Insight Recovery Network helps individuals and families compare UK rehab, overseas treatment, detox needs, online recovery support and aftercare before committing to a treatment route."
         canonical={CANONICAL}
         ogImage={`${SITE_URL}/private-rehab-uk-hero.png`}
@@ -151,10 +151,10 @@ export default function PrivateRehabUK() {
             {/* Left: copy */}
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
-                Private Rehab UK: Independent Guidance
+                Private Rehab UK: Assessment-Led Guidance
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.08] tracking-tight mb-7 text-primary">
-                Private Rehab UK: Independent Guidance Before You Choose
+                Private Rehab UK: Assessment-Led Guidance Before You Choose
               </h1>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Many people begin by searching for private rehab in the UK. Before committing to a costly
@@ -163,7 +163,7 @@ export default function PrivateRehabUK() {
                 planning is the right fit.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-9">
-                Insight Recovery Network provides independent guidance to help individuals and families
+                Insight Recovery Network provides assessment-led guidance to help individuals and families
                 make a safer, clearer and more informed decision, with any relevant provider or commercial relationship explained transparently.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4">
@@ -195,7 +195,7 @@ export default function PrivateRehabUK() {
               <div className="relative overflow-hidden rounded-xl border border-border/40 bg-primary shadow-sm">
                 <img
                   src="/private-rehab-uk-hero.png"
-                  alt="Couple reviewing private rehab and treatment options with independent guidance"
+                  alt="Couple reviewing private rehab and treatment options with assessment-led guidance"
                   className="block w-full h-full object-cover aspect-[4/3] lg:aspect-[5/4]"
                   style={{ objectPosition: "center" }}
                   width={1536}
@@ -293,7 +293,7 @@ export default function PrivateRehabUK() {
                   sometimes the more clinically useful option.
                 </p>
                 <p>
-                  Before committing to any admission, it is worth getting an independent view. We can
+                  Before committing to any admission, it is worth getting an assessment-led view. We can
                   help you understand what a given level of care actually involves, and whether a UK or
                   overseas option represents better value for the clinical need.
                 </p>
@@ -319,7 +319,7 @@ export default function PrivateRehabUK() {
                 ))}
               </ul>
               <p className="text-xs text-muted-foreground/70 leading-relaxed italic mt-6">
-                We provide independent guidance and will tell you honestly when a less expensive option
+                We provide assessment-led guidance and will tell you honestly when a less expensive option
                 is clinically appropriate.
               </p>
             </div>
@@ -426,7 +426,7 @@ export default function PrivateRehabUK() {
               Before you contact treatment centres directly
             </p>
             <h2 className="font-serif text-2xl md:text-3xl font-medium leading-tight text-primary-foreground mb-4">
-              Get an independent view first.
+              Get an assessment-led view first.
             </h2>
             <p className="text-primary-foreground/80 leading-relaxed font-light mb-7 max-w-2xl">
               Before you contact treatment centres directly, a short confidential conversation can help
@@ -458,7 +458,7 @@ export default function PrivateRehabUK() {
       <RelatedServiceLinks
         links={[
           { title: "Rehab Cost UK Guide", description: "Understand typical private rehab, detox, overseas and online recovery costs before deciding.", href: "/how-much-does-rehab-cost-uk" },
-          { title: "Treatment Placement", description: "See how independent placement guidance works from first conversation to admission.", href: "/treatment-placement" },
+          { title: "Treatment Placement", description: "See how assessment-led placement guidance works from first conversation to admission.", href: "/treatment-placement" },
           { title: "Private Rehab Alternatives", description: "Compare residential care with online and community-based support.", href: "/private-rehab-alternative-uk" },
           { title: "Online Recovery Programme", description: "Structured support for people who do not need round-the-clock care.", href: "/online-programme" },
           { title: "Detox Suitability Assessment", description: "Consider withdrawal risk before attempting to stop alcohol or drugs.", href: "/assessments/detox" },
@@ -474,7 +474,7 @@ export default function PrivateRehabUK() {
               How Insight Recovery Network helps
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We are an independent guide, not a treatment facility. Our role is to help individuals
+              We are an assessment-led guide, not a treatment facility. Our role is to help individuals
               and families make a clear, informed decision and access the right level of support.
             </p>
           </div>

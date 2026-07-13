@@ -296,6 +296,25 @@ function parseContent(content: string) {
   return elements;
 }
 
+function withoutEmbeddedFaq(content: string) {
+  const lines = content.split("\n");
+  const faqStart = lines.findIndex((line) =>
+    /^## Frequently Asked Questions(?:\b.*)?$/i.test(line.trim())
+  );
+
+  if (faqStart === -1) return content;
+
+  let nextSection = faqStart + 1;
+  while (nextSection < lines.length && !lines[nextSection].startsWith("## ")) {
+    nextSection++;
+  }
+
+  return [...lines.slice(0, faqStart), ...lines.slice(nextSection)]
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 export default function ResourceDetail() {
   const params = useParams<{ slug: string }>();
   const slug = params.slug ?? "";
@@ -378,7 +397,7 @@ export default function ResourceDetail() {
     }
     if (/(rehab|detox|withdrawal|alcohol-dependency)/.test(article.slug)) {
       return [
-        { title: "Independent treatment placement", description: "Compare suitable UK and international detox or residential options.", href: "/treatment-placement" },
+        { title: "Assessment-led treatment placement", description: "Compare suitable UK and international detox or residential options.", href: "/treatment-placement" },
         { title: "Private rehab costs UK", description: "Review guide prices, inclusions and lower-cost treatment routes.", href: "/how-much-does-rehab-cost-uk" },
         { title: "Private rehab Thailand", description: "Compare costs, clinical considerations and long-haul placement.", href: "/private-rehab-thailand" },
         { title: "Services and pricing guide", description: "Review IRN service routes and current pricing information.", href: "/services-pricing-guide" },
@@ -596,7 +615,26 @@ export default function ResourceDetail() {
       <section className="py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
-            {parseContent(article.content)}
+            {parseContent(withoutEmbeddedFaq(article.content))}
+            {article.faq && article.faq.length > 0 && (
+              <section className="mt-14 pt-9 border-t border-border/50" aria-labelledby="article-faq">
+                <h2 id="article-faq" className="font-serif text-2xl md:text-3xl text-primary mb-6">
+                  Frequently asked questions
+                </h2>
+                <div className="space-y-4">
+                  {article.faq.map((item) => (
+                    <details key={item.question} className="group border border-border/50 bg-secondary/10 px-5 py-4">
+                      <summary className="cursor-pointer list-none font-medium text-primary leading-relaxed marker:content-none">
+                        {item.question}
+                      </summary>
+                      <p className="mt-3 text-sm md:text-base text-muted-foreground font-light leading-relaxed">
+                        {parseInlineLinks(item.answer)}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            )}
             {article.sources && article.sources.length > 0 && (
               <aside className="mt-14 pt-8 border-t border-border/50" aria-labelledby="article-sources">
                 <h2 id="article-sources" className="font-serif text-2xl text-primary mb-3">

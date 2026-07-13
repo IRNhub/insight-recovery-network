@@ -140,9 +140,9 @@ const PAGES = [
   {
     route: "/about",
     file: "about.html",
-    title: "About Insight Recovery Network | Private Addiction Recovery Support",
+    title: "About Craig Bilton | Founder, Insight Recovery Network",
     description:
-      "Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes.",
+      "Meet Craig Bilton, Founder and Clinical Director of Insight Recovery Network, and learn how his 20+ years in addiction treatment shaped IRN's approach.",
     ogImage: `${SITE_URL}/og-about.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -161,20 +161,20 @@ const PAGES = [
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">
-              About Insight Recovery Network
+              About the founder
             </p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              About Insight Recovery Network
+              Craig Bilton, Founder of Insight Recovery Network
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
-              Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.
+              Craig Bilton founded Insight Recovery Network after more than 20 years working across addiction treatment, recovery support, intervention and international placement. His aim is to help individuals and families make difficult recovery decisions with more clarity, dignity and continuity.
             </p>
             <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">About Craig Bilton, Founder</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:1.5rem;">
-              With over 20 years of international addiction treatment experience, Craig Bilton founded Insight Recovery Network to provide genuinely independent, clinically informed guidance. His background spans residential rehabilitation, online recovery support, and complex case management across the UK and internationally.
+              With over 20 years of international addiction treatment experience, Craig Bilton founded Insight Recovery Network to provide clinically informed, assessment-led guidance. His background spans residential rehabilitation, online recovery support, and complex case management across the UK and internationally.
             </p>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;">
               Craig's approach is built on three principles: clarity, continuity, and practical support, providing honest guidance, long-term recovery planning, and tangible tools rather than generic advice.
@@ -208,7 +208,7 @@ const PAGES = [
     file: "what-we-offer.html",
     title: "Addiction Recovery Services | Placement, Online &amp; Family Support",
     description:
-      "Compare independent rehab placement, structured online recovery, family guidance and Insight OS tools from Insight Recovery Network.",
+      "Compare assessment-led rehab placement, structured online recovery, family guidance and Insight OS tools from Insight Recovery Network.",
     ogImage: `${SITE_URL}/og-what-we-offer.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -232,14 +232,14 @@ const PAGES = [
               Addiction Recovery Services for Individuals and Families
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
-              Compare independent treatment placement, structured online recovery, family guidance and digital continuing-care tools, with a clear explanation of who each route is for.
+              Compare assessment-led treatment placement, structured online recovery, family guidance and digital continuing-care tools, with a clear explanation of who each route is for.
             </p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;">
               <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
                 <h2 style="font-size:1.15rem;font-weight:500;margin-bottom:0.75rem;">Treatment Placement</h2>
-                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Confidential, independent guidance for finding the right detox or residential rehabilitation facility in the UK or internationally, matched to individual clinical need.</p>
+                <p style="font-family:sans-serif;font-size:0.9rem;color:#4a5568;line-height:1.7;margin-bottom:1rem;">Confidential, assessment-led guidance for finding a suitable detox or residential rehabilitation facility in the UK or internationally, matched to individual need and risk.</p>
                 <a href="/treatment-placement" style="color:#162B3B;font-family:sans-serif;font-size:0.85rem;text-decoration:underline;">Learn more about Treatment Placement</a>
               </article>
               <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
@@ -281,9 +281,9 @@ const PAGES = [
   {
     route: "/treatment-placement",
     file: "treatment-placement.html",
-    title: "Help Choosing a Rehab | Independent Treatment Placement",
+    title: "Help Choosing a Rehab | Assessment-Led Placement",
     description:
-      "Independent help choosing a private rehab or detox provider. We assess needs, compare suitable UK and international options and support admission planning.",
+      "Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning.",
     ogImage: `${SITE_URL}/og-treatment-placement.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -309,6 +309,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Insight Recovery Network helps individuals and families assess their needs, compare appropriate treatment options and access suitable programmes in the UK and internationally.
             </p>
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">IRN may have partner or referral relationships with some providers. Any relevant relationship is explained before a decision, and the provider retains responsibility for its clinical assessment and admission decision.</p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
               <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
               <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
@@ -657,9 +658,9 @@ const PAGES = [
   {
     route: "/about-insight-recovery-network",
     file: "about-insight-recovery-network.html",
-    title: "About Insight Recovery Network | Independent Addiction Support",
+    title: "About Insight Recovery Network | Addiction Support Model",
     description:
-      "IRN is an independent UK treatment-placement, online recovery and advisory network for individuals and families navigating addiction and mental health needs.",
+      "Learn how IRN provides assessment-led treatment placement, online recovery and family guidance, including its scope, provider relationships and clinical boundaries.",
     ogImage: `${SITE_URL}/about-insight-recovery-network-hero.webp`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -680,10 +681,10 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">About Insight Recovery Network</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
-              Independent addiction treatment guidance and online recovery support.
+              How Insight Recovery Network supports recovery decisions.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
-              Insight Recovery Network is an independent treatment-placement, online recovery and advisory network. We help individuals and families assess needs, compare suitable programmes and build continuing recovery support without claiming to own or operate the treatment centres we recommend.
+              Insight Recovery Network is a UK-based treatment-placement, online recovery and advisory service. We help individuals and families assess needs, compare suitable programmes and build continuing recovery support. We do not own or operate the treatment centres we discuss, and any relevant provider or referral relationship is explained before a decision is made.
             </p>
             <img src="/about-insight-recovery-network-hero.webp" width="1717" height="916" alt="Insight Recovery Network brand mark beside a calm private room overlooking a sunlit coastline" style="display:block;width:100%;height:auto;margin-top:2.5rem;border-radius:0.75rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
           </section>
@@ -860,7 +861,7 @@ const PAGES = [
   {
     route: "/private-rehab-uk",
     file: "private-rehab-uk.html",
-    title: "Private Rehab UK | Independent Guidance Before Choosing Treatment | Insight Recovery Network",
+    title: "Private Rehab UK | Assessment-Led Guidance Before Choosing Treatment | Insight Recovery Network",
     description:
       "Considering private rehab in the UK? Insight Recovery Network helps individuals and families compare UK rehab, overseas treatment, detox needs, online recovery support and aftercare before committing to a treatment route.",
     ogImage: `${SITE_URL}/private-rehab-uk-hero.png`,
@@ -881,9 +882,9 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab UK: Independent Guidance</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab UK: Assessment-Led Guidance</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
-              Private Rehab UK: Independent Guidance Before You Choose
+              Private Rehab UK: Assessment-Led Guidance Before You Choose
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
               Many people begin by searching for private rehab in the UK. Before committing to a costly admission, it is worth understanding whether UK rehab, overseas residential treatment, medically supervised detox, structured online support, family intervention or aftercare planning is the right fit. Insight Recovery Network provides clinically informed guidance, with any relevant provider or commercial relationship explained transparently.
@@ -906,7 +907,7 @@ const PAGES = [
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What does private rehab cost in the UK?</h2>
-            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:1rem;">There is no single price. Costs vary significantly depending on detox needs, location, clinical intensity, accommodation, length of stay, and whether specialist mental health input is required. Private UK rehab can range from several thousand pounds for shorter admissions to considerably higher costs for premium or specialist programmes. We provide independent guidance and will tell you honestly when a less expensive option, including <a href="/treatment-placement" style="color:#162B3B;">overseas treatment</a>, is clinically appropriate.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:680px;margin-bottom:1rem;">There is no single price. Costs vary significantly depending on detox needs, location, clinical intensity, accommodation, length of stay, and whether specialist mental health input is required. Private UK rehab can range from several thousand pounds for shorter admissions to considerably higher costs for premium or specialist programmes. We provide assessment-led guidance and will tell you honestly when a less expensive option, including <a href="/treatment-placement" style="color:#162B3B;">overseas treatment</a>, is clinically appropriate.</p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">UK or overseas rehab?</h2>
@@ -924,9 +925,9 @@ const PAGES = [
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">How much does private rehab cost in the UK?</dt>
               <dd>There is no single figure. Costs depend on detox needs, location, clinical intensity, accommodation, length of stay, and specialist input. We help you understand what a given level of care involves rather than quoting a fixed price.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Is UK private rehab always the best option?</dt>
-              <dd>No. UK rehab suits some situations, but overseas residential treatment, medically supervised detox, structured online recovery support or family intervention may be more appropriate for others. An independent view helps work out which route fits before money is committed.</dd>
+              <dd>No. UK rehab suits some situations, but overseas residential treatment, medically supervised detox, structured online recovery support or family intervention may be more appropriate for others. An assessment-led view helps work out which route fits before money is committed.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Should I choose UK rehab or overseas rehab?</dt>
-              <dd>It depends on clinical need, safety, budget, family situation, and recovery history. UK suits proximity and continuity; overseas can offer better value, longer duration, or more distance from triggers. An independent comparison is worth having first.</dd>
+              <dd>It depends on clinical need, safety, budget, family situation, and recovery history. UK suits proximity and continuity; overseas can offer better value, longer duration, or more distance from triggers. An assessment-led comparison is worth having first.</dd>
               <dt style="font-weight:600;color:#162B3B;margin-top:1.5rem;">Can Insight Recovery Network help me understand my options before contacting a rehab?</dt>
               <dd>Yes. We give a clinically informed view and help you compare realistic routes before you decide. We explain any relevant provider or commercial relationship transparently.</dd>
             </dl>
@@ -1809,7 +1810,7 @@ const PAGES = [
     file: "addiction-help-cornwall.html",
     title: "Addiction Help in Cornwall: Online Support &amp; Rehab Placement",
     description:
-      "Confidential addiction help in Cornwall, including online assessment, recovery support, family guidance and independent UK or international rehab placement.",
+      "Confidential addiction help in Cornwall, including online assessment, recovery support, family guidance and assessment-led UK or international rehab placement.",
     ogImage: DEFAULT_OG_IMAGE,
     jsonLd: [
       {
@@ -1818,7 +1819,7 @@ const PAGES = [
         "@id": `${SITE_URL}/addiction-help-cornwall#service`,
         name: "Addiction Help in Cornwall",
         serviceType: "Addiction assessment, online recovery support and treatment placement guidance",
-        description: "Confidential addiction assessment, online recovery support, family guidance and independent rehab placement for people in Cornwall.",
+        description: "Confidential addiction assessment, online recovery support, family guidance and assessment-led rehab placement for people in Cornwall.",
         provider: { "@id": `${SITE_URL}/#organization` },
         areaServed: { "@type": "AdministrativeArea", name: "Cornwall" },
         url: `${SITE_URL}/addiction-help-cornwall`,
@@ -1835,7 +1836,7 @@ const PAGES = [
         "@context": "https://schema.org",
         "@type": "FAQPage",
         mainEntity: [
-          ["Does Insight Recovery Network operate a rehab centre in Cornwall?", "No. Insight Recovery Network is an independent online support, treatment-placement and advisory network based in Newquay. We do not claim to own or operate a residential rehab centre in Cornwall."],
+          ["Does Insight Recovery Network operate a rehab centre in Cornwall?", "No. Insight Recovery Network is an online support, treatment-placement and advisory network based in Newquay. We do not claim to own or operate a residential rehab centre in Cornwall, and we explain any relevant provider relationship before a placement decision."],
           ["Can I get addiction support online from Cornwall?", "Yes, if online support is appropriate for your needs and you can remain medically and psychologically safe at home. Structured online support is not a substitute for medically supervised detox or round-the-clock residential care where those are needed."],
           ["How do I find alcohol or drug rehab from Cornwall?", "Begin with an assessment of substance use, withdrawal risk, mental health, previous treatment, home circumstances and budget. IRN can then help compare clinically suitable UK, overseas, residential and online routes."],
           ["Can you help families in Truro, Redruth or elsewhere in Cornwall?", "Yes. Assessment, family guidance and online recovery support are delivered remotely across Newquay, Truro, Redruth, Falmouth, St Austell and surrounding areas."],
@@ -1855,13 +1856,13 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;">Cornwall addiction support</p>
             <h1 style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.08;font-weight:500;max-width:800px;">Addiction Help in Cornwall: Assessment, Online Support and Rehab Placement</h1>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;color:#4a5568;max-width:760px;">Insight Recovery Network helps individuals and families across Cornwall understand what level of addiction support may be appropriate, access structured online recovery and compare suitable detox or residential treatment options in the UK and internationally.</p>
-            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">We are an independent, online-only advisory and recovery network based in Newquay. We do not own or operate a residential rehab centre in Cornwall.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">We are an online-only advisory and recovery network based in Newquay. We do not own or operate a residential rehab centre in Cornwall, and we explain any relevant provider relationship before a placement decision.</p>
             <p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;">Book a confidential call</a></p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;">What support is available from Cornwall?</h2>
             <p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:760px;">The right route depends on medical safety, severity, home circumstances, previous relapse, mental health and the support already around the person.</p>
-            <ul style="font-family:sans-serif;line-height:2;color:#4a5568;"><li><a href="/assessments">Confidential online assessment</a></li><li><a href="/online-programme">Structured online recovery support</a></li><li><a href="/treatment-placement">Independent rehab and detox placement</a></li><li><a href="/family-addiction-intervention-uk">Family and intervention guidance</a></li></ul>
+            <ul style="font-family:sans-serif;line-height:2;color:#4a5568;"><li><a href="/assessments">Confidential online assessment</a></li><li><a href="/online-programme">Structured online recovery support</a></li><li><a href="/treatment-placement">Assessment-led rehab and detox placement</a></li><li><a href="/family-addiction-intervention-uk">Family and intervention guidance</a></li></ul>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:2rem;font-weight:500;">Online support or residential care?</h2>
@@ -1870,7 +1871,7 @@ const PAGES = [
           </section>
           <section style="padding:3rem 0;">
             <h2 style="font-size:2rem;font-weight:500;">Questions about addiction help in Cornwall</h2>
-            <h3>Does Insight Recovery Network operate a rehab centre in Cornwall?</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">No. IRN is an independent online support, treatment-placement and advisory network based in Newquay.</p>
+            <h3>Does Insight Recovery Network operate a rehab centre in Cornwall?</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">No. IRN is an online support, treatment-placement and advisory network based in Newquay. We explain any relevant provider relationship before a placement decision.</p>
             <h3>Can I get addiction support online from Cornwall?</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">Yes, where online support is appropriate and the person can remain medically and psychologically safe at home.</p>
             <h3>How do I find alcohol or drug rehab from Cornwall?</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">Begin with an assessment. IRN can then help compare clinically suitable UK, overseas, residential and online routes.</p>
             <h3>Can you help families across Cornwall?</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">Yes. Remote services are available in Newquay, Truro, Redruth, Falmouth, St Austell and surrounding areas.</p>
@@ -2712,6 +2713,25 @@ function markdownToHtml(content) {
   return html.join("\n");
 }
 
+/** Remove a legacy FAQ block from article copy before the canonical FAQ array is rendered. */
+function withoutEmbeddedFaq(content) {
+  const lines = content.split("\n");
+  const faqStart = lines.findIndex((line) =>
+    /^## Frequently Asked Questions(?:\b.*)?$/i.test(line.trim())
+  );
+  if (faqStart === -1) return content;
+
+  let nextSection = faqStart + 1;
+  while (nextSection < lines.length && !lines[nextSection].startsWith("## ")) {
+    nextSection++;
+  }
+
+  return [...lines.slice(0, faqStart), ...lines.slice(nextSection)]
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 /** Shared site header used in statically rendered article bodies. */
 const STATIC_HEADER = `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -2816,7 +2836,7 @@ function buildArticleBodyHtml(meta, full) {
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
-            ${markdownToHtml(full.content)}
+            ${markdownToHtml(withoutEmbeddedFaq(full.content))}
           </article>
           ${faqHtml}
           ${sourcesHtml}
@@ -3380,15 +3400,14 @@ async function main() {
 
   // ── Step 6: Generate sitemap.xml ─────────────────────────────────────────
   console.log("▶  Generating sitemap.xml…\n");
-  const today = new Date().toISOString().split("T")[0];
-  const sitemapXml = generateSitemap(today);
+  const sitemapXml = generateSitemap();
   const totalUrls =
     SITEMAP_EXTRA.length +
     PAGES.filter((page) => !page.noIndex).length +
     LOADED_ARTICLES.length +
     LOADED_DESTINATIONS.length;
   writeFileSync(resolve(distPublic, "sitemap.xml"), sitemapXml, "utf-8");
-  console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, lastmod ${today})\n`);
+  console.log(`  ✓ sitemap.xml  (${totalUrls} URLs, content-aware lastmod values)\n`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -3442,26 +3461,47 @@ const SITEMAP_PAGE_META = {
   "/media":              { changefreq: "monthly", priority: "0.7" },
 };
 
-function generateSitemap(today) {
-  const urlEntry = (loc, changefreq, priority) =>
-    `  <url>\n    <loc>${SITE_URL}${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+/**
+ * Explicit content-update dates for non-article routes. Unknown dates are
+ * omitted rather than being changed on every deployment.
+ */
+const SITEMAP_LASTMOD = {
+  "/": "2026-07-13",
+  "/about": "2026-07-13",
+  "/about-insight-recovery-network": "2026-07-13",
+  "/what-we-offer": "2026-07-13",
+  "/treatment-placement": "2026-07-13",
+  "/private-rehab-uk": "2026-07-13",
+  "/private-rehab-alternative-uk": "2026-07-13",
+  "/how-much-does-rehab-cost-uk": "2026-07-13",
+  "/addiction-help-cornwall": "2026-07-13",
+  "/private-rehab-thailand": "2026-07-13",
+  "/clinical-disclaimer": "2026-07-13",
+};
+
+function generateSitemap() {
+  const urlEntry = (loc, changefreq, priority, lastmod) => {
+    const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
+    return `  <url>\n    <loc>${SITE_URL}${loc}</loc>${lastmodTag}\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  };
 
   const extraEntries = SITEMAP_EXTRA.map((p) =>
-    urlEntry(p.url, p.changefreq, p.priority)
+    urlEntry(p.url, p.changefreq, p.priority, SITEMAP_LASTMOD[p.url])
   );
 
   const pageEntries = PAGES.filter((p) => !p.noIndex).map((p) => {
     const meta = SITEMAP_PAGE_META[p.route] ?? { changefreq: "monthly", priority: "0.8" };
-    return urlEntry(p.route, meta.changefreq, meta.priority);
+    return urlEntry(p.route, meta.changefreq, meta.priority, SITEMAP_LASTMOD[p.route]);
   });
 
   const articleEntries = LOADED_ARTICLES.map((a) =>
-    urlEntry(`/resources/${a.slug}`, "monthly", "0.7")
+    urlEntry(`/resources/${a.slug}`, "monthly", "0.7", a.updatedDate ?? a.date)
   );
 
-  const destinationEntries = LOADED_DESTINATIONS.map((d) =>
-    urlEntry(`/${d.slug}`, "monthly", "0.9")
-  );
+  const destinationEntries = LOADED_DESTINATIONS.map((d) => {
+    const route = `/${d.slug}`;
+    return urlEntry(route, "monthly", "0.9", SITEMAP_LASTMOD[route]);
+  });
 
   const allEntries = [...extraEntries, ...pageEntries, ...destinationEntries, ...articleEntries];
   return [

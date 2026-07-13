@@ -8,7 +8,7 @@ import { ArticleCard } from "@/components/ui/article-card";
 import { CATEGORIES, articles as staticArticles } from "@/data/articles";
 import { fetchMergedArticles } from "@/lib/article-loader";
 import { BookOpen, Loader2, Search, X } from "lucide-react";
-import resourcesHero from "../assets/resources-hero.png";
+import resourcesHero from "../assets/resources-hero.webp";
 import type { Article } from "@/data/articles";
 
 function matchesSearch(article: Article, query: string): boolean {

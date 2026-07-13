@@ -25,7 +25,7 @@ const pathways = [
     label: "Explore online support",
   },
   {
-    title: "Independent rehab placement",
+    title: "Assessment-led rehab placement",
     body: "When detox or residential treatment is appropriate, we help compare suitable providers in the UK and selected international destinations and coordinate the next steps.",
     href: "/treatment-placement",
     label: "See placement support",
@@ -41,7 +41,7 @@ const pathways = [
 const faqs: FAQItem[] = [
   {
     question: "Does Insight Recovery Network operate a rehab centre in Cornwall?",
-    answer: "No. Insight Recovery Network is an independent online support, treatment-placement and advisory network based in Newquay. We do not claim to own or operate a residential rehab centre in Cornwall. Where residential care is appropriate, we help people compare suitable independent providers in the UK or internationally.",
+    answer: "No. Insight Recovery Network is an online support, treatment-placement and advisory network based in Newquay. We do not claim to own or operate a residential rehab centre in Cornwall. Where residential care is appropriate, we help people compare suitable external providers in the UK or internationally and explain any relevant provider relationship.",
   },
   {
     question: "Can I get addiction support online from Cornwall?",
@@ -67,7 +67,7 @@ const serviceSchema = {
   "@id": `${SITE_URL}${CANONICAL}#service`,
   name: "Addiction Help in Cornwall",
   serviceType: "Addiction assessment, online recovery support and treatment placement guidance",
-  description: "Confidential addiction assessment, online recovery support, family guidance and independent rehab placement for people in Cornwall.",
+  description: "Confidential addiction assessment, online recovery support, family guidance and assessment-led rehab placement for people in Cornwall.",
   provider: { "@id": `${SITE_URL}/#organization` },
   areaServed: {
     "@type": "AdministrativeArea",
@@ -91,7 +91,7 @@ export default function AddictionHelpCornwall() {
       <SEO
         title="Addiction Help Cornwall"
         fullTitle="Addiction Help in Cornwall: Online Support & Rehab Placement"
-        description="Confidential addiction help in Cornwall, including online assessment, recovery support, family guidance and independent UK or international rehab placement."
+        description="Confidential addiction help in Cornwall, including online assessment, recovery support, family guidance and assessment-led UK or international rehab placement."
         canonical={CANONICAL}
       />
       <Helmet>
@@ -112,7 +112,7 @@ export default function AddictionHelpCornwall() {
               Insight Recovery Network helps individuals and families across Cornwall understand what level of addiction support may be appropriate, access structured online recovery and compare suitable detox or residential treatment options in the UK and internationally.
             </p>
             <p className="mb-9 max-w-3xl leading-relaxed text-muted-foreground">
-              We are an independent, online-only advisory and recovery network based in Newquay. We do not own or operate a residential rehab centre in Cornwall.
+              We are an online-only advisory and recovery network based in Newquay. We do not own or operate a residential rehab centre in Cornwall, and we explain any relevant provider relationship before a placement decision.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
@@ -129,7 +129,7 @@ export default function AddictionHelpCornwall() {
       <ServiceSummary
         who="Adults and families in Newquay, Truro, Redruth, Falmouth, St Austell and surrounding areas who need confidential addiction guidance."
         problem="Clarifies whether local, online, detox or residential support may fit, and helps families compare realistic next steps."
-        applies="Remote assessment and support across Cornwall, with independent placement into suitable UK or international providers where needed."
+        applies="Remote assessment and support across Cornwall, with assessment-led placement into suitable UK or international providers where needed."
         nextStep="Book a confidential call"
         updated="13 July 2026"
       />
@@ -185,7 +185,7 @@ export default function AddictionHelpCornwall() {
       <RelatedServiceLinks
         heading="Compare support from Cornwall"
         links={[
-          { title: "Treatment placement", description: "Independent help comparing detox and residential programmes.", href: "/treatment-placement" },
+          { title: "Treatment placement", description: "Assessment-led help comparing detox and residential programmes.", href: "/treatment-placement" },
           { title: "Private rehab UK", description: "Understand UK residential treatment and the questions to ask.", href: "/private-rehab-uk" },
           { title: "Online recovery programme", description: "Structured support available without leaving Cornwall.", href: "/online-programme" },
           { title: "Rehab costs UK", description: "Compare guide prices, inclusions and lower-cost routes.", href: "/how-much-does-rehab-cost-uk" },

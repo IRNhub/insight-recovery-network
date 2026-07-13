@@ -505,9 +505,10 @@ export default function GetHelp() {
                   Private treatment placement
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Independent guidance on private residential treatment in carefully chosen facilities
-                  in South Africa, Thailand, Spain and Sri Lanka. We are independent of the facilities
-                  we discuss, so the advice is based on what is right, not who pays us.
+                  Assessment-led guidance on private residential treatment in carefully chosen facilities
+                  in South Africa, Thailand, Spain and Sri Lanka. IRN may have partner or referral relationships
+                  with some providers. We explain any relevant relationship before a decision and base guidance
+                  on assessed suitability.
                 </p>
               </div>
             </div>
