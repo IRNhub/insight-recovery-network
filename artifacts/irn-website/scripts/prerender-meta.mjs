@@ -28,6 +28,10 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
+import {
+  premiumTreatmentPages,
+  PREMIUM_TREATMENT_REVIEW_DATE,
+} from "../src/data/premium-treatment-pages.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -1986,6 +1990,125 @@ const PAGES = [
   },
 ];
 
+function buildPremiumTreatmentJsonLd(page) {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${SITE_URL}${page.route}#service`,
+      name: page.h1,
+      serviceType: "Assessment-led private addiction treatment placement guidance",
+      description: page.metaDescription,
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: [
+        "United Kingdom",
+        "Thailand",
+        "South Africa",
+        "Spain",
+        "Sri Lanka",
+      ].map((name) => ({ "@type": "Country", name })),
+      url: `${SITE_URL}${page.route}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Treatment Placement",
+          item: `${SITE_URL}/treatment-placement`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: page.title,
+          item: `${SITE_URL}${page.route}`,
+        },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    },
+  ];
+}
+
+function buildPremiumTreatmentBody(page) {
+  const sectionHtml = page.sections
+    .map(
+      (section) => `
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);">
+          <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.25rem;">${esc(section.title)}</h2>
+          ${section.paragraphs.map((paragraph) => `<p style="font-family:sans-serif;font-size:0.95rem;line-height:1.85;color:#4a5568;max-width:800px;margin-bottom:1rem;">${esc(paragraph)}</p>`).join("")}
+          ${section.bullets?.length ? `<ul style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;color:#4a5568;padding-left:1.25rem;columns:2;column-gap:2rem;">${section.bullets.map((item) => `<li style="margin-bottom:0.5rem;break-inside:avoid;">${esc(item)}</li>`).join("")}</ul>` : ""}
+        </section>`
+    )
+    .join("");
+
+  return `
+    <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <a href="/" style="font-family:Georgia,serif;color:#F6F4F0;text-decoration:none;font-size:1.1rem;">Insight Recovery Network</a>
+      <nav aria-label="Main navigation" style="display:flex;gap:1rem;flex-wrap:wrap;"><a href="/treatment-placement" style="color:#F6F4F0;font-family:sans-serif;font-size:0.85rem;">Treatment Placement</a><a href="/how-much-does-rehab-cost-uk" style="color:#F6F4F0;font-family:sans-serif;font-size:0.85rem;">Rehab Costs</a><a href="/contact" style="color:#fff;font-family:sans-serif;font-size:0.85rem;">Discuss treatment options</a></nav>
+    </header>
+    <main style="font-family:Georgia,serif;background:#F6F4F0;color:#162B3B;">
+      <div style="max-width:1200px;margin:0 auto;padding:2rem;">
+        <img src="${esc(page.heroImage)}" width="1600" height="900" alt="${esc(page.heroAlt)}" style="display:block;width:100%;height:auto;background:#162B3B;" fetchpriority="high" decoding="async" />
+        <p style="font-family:sans-serif;font-size:0.72rem;color:#6B7280;margin:0.65rem 0 2rem;">Illustrative setting. Insight Recovery Network does not claim to own or operate the depicted property.</p>
+        <nav aria-label="Breadcrumb" style="font-family:sans-serif;font-size:0.75rem;margin-bottom:2rem;"><a href="/">Home</a> / <a href="/treatment-placement">Treatment placement</a> / ${esc(page.title)}</nav>
+        <section style="padding:1rem 0 3rem;border-bottom:1px solid rgba(22,43,59,0.12);">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;">${esc(page.eyebrow)}</p>
+          <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;font-weight:500;max-width:900px;">${esc(page.h1)}</h1>
+          ${page.intro.map((paragraph) => `<p style="font-family:sans-serif;font-size:1rem;line-height:1.85;color:#4a5568;max-width:820px;">${esc(paragraph)}</p>`).join("")}
+          <p><a href="/contact" style="display:inline-block;padding:0.875rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;">Discuss treatment options</a> <a href="/assessments" style="display:inline-block;padding:0.875rem 1.5rem;color:#162B3B;font-family:sans-serif;">Request a confidential assessment</a></p>
+        </section>
+        <section aria-label="Service summary" style="padding:2rem 0;border-bottom:1px solid rgba(22,43,59,0.12);font-family:sans-serif;">
+          <h2 style="position:absolute;left:-9999px;">Service summary</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">${[
+            ["Who this is for", page.summary.who],
+            ["What it helps solve", page.summary.problem],
+            ["Where it applies", page.summary.applies],
+            ["Next step", page.summary.nextStep],
+          ].map(([label, value]) => `<div style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.25rem;"><strong style="display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:#9B7844;margin-bottom:0.5rem;">${esc(label)}</strong><span style="font-size:0.9rem;line-height:1.6;">${esc(value)}</span></div>`).join("")}</div>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/craig-bilton">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed ${esc(PREMIUM_TREATMENT_REVIEW_DATE)}.</p>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. In an emergency call 999 or attend A&amp;E.</p>
+        </section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.highlights.map((item) => `<article style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.5rem;"><h2 style="font-size:1.25rem;font-weight:500;">${esc(item.title)}</h2><p style="font-family:sans-serif;font-size:0.9rem;line-height:1.75;color:#4a5568;">${esc(item.body)}</p></article>`).join("")}</section>
+        ${sectionHtml}
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);">
+          <h2 style="font-size:2rem;font-weight:500;">${esc(page.comparison.title)}</h2>
+          <p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:800px;">${esc(page.comparison.introduction)}</p>
+          <table style="width:100%;border-collapse:collapse;font-family:sans-serif;font-size:0.85rem;"><thead><tr>${page.comparison.columns.map((column) => `<th style="text-align:left;padding:0.85rem;border:1px solid rgba(22,43,59,0.15);background:#162B3B;color:#fff;">${esc(column)}</th>`).join("")}</tr></thead><tbody>${page.comparison.rows.map((row) => `<tr>${row.map((cell) => `<td style="vertical-align:top;padding:0.85rem;border:1px solid rgba(22,43,59,0.15);line-height:1.6;">${esc(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table>
+        </section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">From assessment to a practical treatment plan</h2><ol style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${page.process.map(([title, body]) => `<li style="margin-bottom:0.85rem;"><strong style="color:#162B3B;">${esc(title)}:</strong> ${esc(body)}</li>`).join("")}</ol><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;border-left:4px solid #C9A96E;padding:1rem 1.25rem;">${esc(page.transparency)}</p></section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Compare related private treatment routes</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.relatedLinks.map(([title, description, href]) => `<article style="border:1px solid rgba(22,43,59,0.12);padding:1.25rem;background:#fff;"><h3 style="font-size:1.15rem;font-weight:500;"><a href="${esc(href)}">${esc(title)}</a></h3><p style="font-family:sans-serif;font-size:0.85rem;line-height:1.7;color:#4a5568;">${esc(description)}</p></article>`).join("")}</div></section>
+        <section style="padding:3rem 0;"><h2 style="font-size:2rem;font-weight:500;">Questions about ${esc(page.title.toLowerCase())}</h2>${page.faqs.map(([question, answer]) => `<article style="max-width:820px;margin-bottom:1.5rem;"><h3 style="font-size:1.2rem;font-weight:500;">${esc(question)}</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${esc(answer)}</p></article>`).join("")}</section>
+        <section style="padding:3rem 2rem;background:#162B3B;color:#fff;text-align:center;"><h2 style="font-size:2rem;font-weight:500;">${esc(page.cta.heading)}</h2><p style="font-family:sans-serif;line-height:1.8;color:rgba(255,255,255,0.75);">${esc(page.cta.description)}</p><a href="${esc(page.cta.primary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;background:#fff;color:#162B3B;text-decoration:none;font-family:sans-serif;">${esc(page.cta.primary[0])}</a> <a href="${esc(page.cta.secondary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;color:#fff;font-family:sans-serif;">${esc(page.cta.secondary[0])}</a></section>
+      </div>
+    </main>`;
+}
+
+PAGES.push(
+  ...premiumTreatmentPages.map((page) => ({
+    route: page.route,
+    file: `${page.slug}.html`,
+    title: page.fullTitle,
+    description: page.metaDescription,
+    ogImage: `${SITE_URL}${page.heroImage}`,
+    ogImageWidth: 1600,
+    ogImageHeight: 900,
+    ogImageAlt: page.heroAlt,
+    jsonLd: buildPremiumTreatmentJsonLd(page),
+    body: buildPremiumTreatmentBody(page),
+  })),
+);
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: inject page-specific meta tags into index.html
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2051,6 +2174,9 @@ function buildStaticServiceEnhancement(route) {
     ["Treatment Placement", "/treatment-placement"],
     ["Private Rehab UK", "/private-rehab-uk"],
     ["Private Rehab Alternatives", "/private-rehab-alternative-uk"],
+    ["Luxury Rehab", "/luxury-rehab"],
+    ["Executive Rehab", "/executive-rehab"],
+    ["Destination Rehab", "/destination-rehab"],
     ["Online Recovery Programme", "/online-programme"],
     ["Family Guidance", "/what-we-offer#family-guidance"],
     ["Detox Suitability Assessment", "/assessments/detox"],
@@ -2122,10 +2248,24 @@ function injectPageMeta(baseHtml, page) {
     `$1${esc(page.ogImage)}$2`
   );
 
+  if (page.ogImageWidth) {
+    out = out.replace(
+      /(<meta\s+property="og:image:width"\s+content=")[^"]*(")/,
+      `$1${page.ogImageWidth}$2`
+    );
+  }
+
+  if (page.ogImageHeight) {
+    out = out.replace(
+      /(<meta\s+property="og:image:height"\s+content=")[^"]*(")/,
+      `$1${page.ogImageHeight}$2`
+    );
+  }
+
   // og:image:alt
   out = out.replace(
     /(<meta\s+property="og:image:alt"\s+content=")[^"]*(")/,
-    `$1${esc(SITE_NAME)}$2`
+    `$1${esc(page.ogImageAlt ?? SITE_NAME)}$2`
   );
 
   // og:url
@@ -2927,7 +3067,7 @@ function buildDestinationBodyHtml(d) {
           </section>
           <section style="padding:3rem 0;">
             ${h2("Related support and treatment routes")}
-            <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Detox Suitability Assessment</a></p>
+            <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/luxury-rehab" style="color:#162B3B;margin-right:1rem;">Luxury Rehab</a><a href="/executive-rehab" style="color:#162B3B;margin-right:1rem;">Executive Rehab</a><a href="/destination-rehab" style="color:#162B3B;margin-right:1rem;">Destination Rehab Guide</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Detox Suitability Assessment</a></p>
             ${h2(`Considering treatment in ${d.country}?`)}
             ${p("A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently.")}
             <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
@@ -3454,6 +3594,9 @@ const SITEMAP_PAGE_META = {
   "/private-rehab-uk":                           { changefreq: "monthly", priority: "0.9" },
   "/how-much-does-rehab-cost-uk":                { changefreq: "monthly", priority: "0.9" },
   "/addiction-help-cornwall":                    { changefreq: "monthly", priority: "0.9" },
+  "/luxury-rehab":                              { changefreq: "monthly", priority: "0.9" },
+  "/executive-rehab":                           { changefreq: "monthly", priority: "0.9" },
+  "/destination-rehab":                         { changefreq: "monthly", priority: "0.9" },
   "/assessments/alcohol-detox":                  { changefreq: "monthly", priority: "0.7" },
   "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
   "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },
@@ -3493,6 +3636,9 @@ const SITEMAP_LASTMOD = {
   "/addiction-help-cornwall": "2026-07-13",
   "/private-rehab-thailand": "2026-07-13",
   "/clinical-disclaimer": "2026-07-13",
+  "/luxury-rehab": "2026-07-13",
+  "/executive-rehab": "2026-07-13",
+  "/destination-rehab": "2026-07-13",
 };
 
 function generateSitemap() {

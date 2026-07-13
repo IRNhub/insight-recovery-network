@@ -147,6 +147,9 @@ const conversionPriorityPaths = [
   "/private-rehab-spain",
   "/private-rehab-thailand",
   "/private-rehab-sri-lanka",
+  "/luxury-rehab",
+  "/executive-rehab",
+  "/destination-rehab",
 ];
 
 for (const pathname of conversionPriorityPaths) {
@@ -167,10 +170,18 @@ for (const pathname of conversionPriorityPaths) {
   }
 }
 
-for (const pathname of ["/treatment-placement", "/online-programme", "/what-we-offer", "/contact"]) {
+for (const pathname of [
+  "/treatment-placement",
+  "/online-programme",
+  "/what-we-offer",
+  "/contact",
+  "/luxury-rehab",
+  "/executive-rehab",
+  "/destination-rehab",
+]) {
   const target = targetForPath(pathname);
   const html = read(resolve(dist, target.replace(/^\//, "")));
-  if (!/Frequently asked questions|Before you make contact/i.test(html)) {
+  if (!/Frequently asked questions|Before you make contact|Questions about/i.test(html)) {
     fail(`${pathname} is missing a visible FAQ section.`);
   }
 }

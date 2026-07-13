@@ -205,6 +205,8 @@ export default function PrivateRehabAlternativeUK() {
           { title: "Treatment Placement", description: "Get guidance when detox or residential care may be needed.", href: "/treatment-placement" },
           { title: "Family Guidance", description: "Support for families navigating uncertainty, boundaries and treatment decisions.", href: "/what-we-offer#family-guidance" },
           { title: "Detox Suitability Assessment", description: "Check whether stopping alcohol or drugs could require medical input.", href: "/assessments/detox" },
+          { title: "Luxury Rehab", description: "Understand when premium residential care may add meaningful privacy or individual attention.", href: "/luxury-rehab" },
+          { title: "Destination Rehab", description: "Compare private residential care abroad with UK and non-residential routes.", href: "/destination-rehab" },
         ]}
       />
 

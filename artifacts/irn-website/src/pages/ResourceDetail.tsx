@@ -395,6 +395,14 @@ export default function ResourceDetail() {
 
   const canonicalPath = `/resources/${article.slug}`;
   const commercialLinks = (() => {
+    if (article.slug === "how-to-choose-private-rehab-centre-uk") {
+      return [
+        { title: "Luxury rehab", description: "Compare premium treatment against clinical quality, privacy and aftercare.", href: "/luxury-rehab" },
+        { title: "Executive rehab", description: "Review confidential treatment considerations for professionals.", href: "/executive-rehab" },
+        { title: "Destination rehab", description: "Consider travel safety and the complete overseas treatment pathway.", href: "/destination-rehab" },
+        { title: "Treatment placement", description: "Get assessment-led help comparing suitable providers.", href: "/treatment-placement" },
+      ];
+    }
     if (/(relapse|willpower|structured-support)/.test(article.slug)) {
       return [
         { title: "Online recovery programme", description: "Build ongoing structure, accountability and relapse-prevention support.", href: "/online-programme" },

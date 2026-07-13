@@ -10,6 +10,9 @@ interface SEOProps {
   description: string;
   canonical: string;
   ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageAlt?: string;
   noIndex?: boolean;
   ogType?: "website" | "article";
   datePublished?: string;
@@ -24,6 +27,9 @@ export function SEO({
   description,
   canonical,
   ogImage = DEFAULT_OG_IMAGE,
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
+  ogImageAlt = SITE_NAME,
   noIndex = false,
   ogType = "website",
   datePublished,
@@ -44,9 +50,9 @@ export function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content={SITE_NAME} />
+      <meta property="og:image:width" content={String(ogImageWidth)} />
+      <meta property="og:image:height" content={String(ogImageHeight)} />
+      <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={SITE_NAME} />

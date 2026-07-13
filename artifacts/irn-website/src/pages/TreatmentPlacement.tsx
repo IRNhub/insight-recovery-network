@@ -552,6 +552,9 @@ export default function TreatmentPlacement() {
           { title: "Online Recovery Programme", description: "Explore structured support for people who are medically stable.", href: "/online-programme" },
           { title: "Family Guidance", description: "Practical support for families deciding what to do next.", href: "/what-we-offer#family-guidance" },
           { title: "Detox Suitability Assessment", description: "Reflect on withdrawal risk before making changes to alcohol or drug use.", href: "/assessments/detox" },
+          { title: "Luxury Rehab", description: "Compare premium private treatment without mistaking accommodation for clinical quality.", href: "/luxury-rehab" },
+          { title: "Executive Rehab", description: "Review discreet treatment options for professionals and business leaders.", href: "/executive-rehab" },
+          { title: "Destination Rehab", description: "Compare private treatment abroad, travel safety and return-home planning.", href: "/destination-rehab" },
         ]}
       />
 

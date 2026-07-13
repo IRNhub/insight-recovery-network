@@ -12,6 +12,7 @@ interface CTASectionProps {
   secondaryLabel?: string;
   secondaryHref?: string;
   isExternal?: boolean;
+  analyticsEvent?: string;
 }
 
 export function CTASection({
@@ -24,7 +25,8 @@ export function CTASection({
   secondaryCta,
   secondaryLabel,
   secondaryHref,
-  isExternal
+  isExternal,
+  analyticsEvent,
 }: CTASectionProps) {
   const resolvedPrimaryCta = primaryCta ?? {
     label: primaryLabel ?? "Book a confidential call",
@@ -65,13 +67,13 @@ export function CTASection({
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal || isDirectHref(resolvedPrimaryCta.href) ? (
-              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto">
+              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto" data-analytics-event={analyticsEvent}>
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {resolvedPrimaryCta.label}
                 </Button>
               </a>
             ) : (
-              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto">
+              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto" data-analytics-event={analyticsEvent}>
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {resolvedPrimaryCta.label}
                 </Button>

@@ -178,6 +178,9 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
           { title: "Treatment Placement", description: "See how assessment-led placement guidance works.", href: "/treatment-placement" },
           { title: "Private Rehab UK", description: "Compare treatment closer to home in the United Kingdom.", href: "/private-rehab-uk" },
           { title: "Private Rehab Alternatives", description: "Consider structured non-residential support where appropriate.", href: "/private-rehab-alternative-uk" },
+          { title: "Luxury Rehab", description: "Compare premium treatment settings against clinical quality and aftercare.", href: "/luxury-rehab" },
+          { title: "Executive Rehab", description: "Review discreet private treatment for professionals and business leaders.", href: "/executive-rehab" },
+          { title: "Destination Rehab Guide", description: "Compare travel safety, costs and return-home planning across destinations.", href: "/destination-rehab" },
           ...otherDestinations.map((destination) => ({
             title: `Private Rehab ${destination.country}`,
             description: `Review treatment considerations for ${destination.country}.`,

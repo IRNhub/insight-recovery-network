@@ -180,6 +180,11 @@ export default function ProfessionalAddictionSupport() {
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">May be safer where there is physical dependence, repeated relapse, significant risk, an unstable environment or a need to step away completely.</p>
                 <Link href="/treatment-placement" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:text-accent">Compare treatment options <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </div>
+              <div className="border-l-2 border-accent/60 bg-secondary/20 p-6 md:col-span-2">
+                <h3 className="font-serif text-xl text-primary">Executive treatment</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Review how confidentiality, work contact, treatment length and return-to-work planning can be handled without compromising clinical safety.</p>
+                <Link href="/executive-rehab" className="mt-5 inline-flex items-center text-sm font-semibold text-primary hover:text-accent">Read the executive rehab guide <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              </div>
             </div>
           </div>
         </div>

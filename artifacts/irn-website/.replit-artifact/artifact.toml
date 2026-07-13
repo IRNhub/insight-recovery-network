@@ -177,6 +177,30 @@ kind = "web"
   to = "/private-rehab-uk.html"
 
   [[services.production.rewrites]]
+  from = "/luxury-rehab"
+  to = "/luxury-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/luxury-rehab/"
+  to = "/luxury-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/executive-rehab"
+  to = "/executive-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/executive-rehab/"
+  to = "/executive-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/destination-rehab"
+  to = "/destination-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/destination-rehab/"
+  to = "/destination-rehab.html"
+
+  [[services.production.rewrites]]
   from = "/how-much-does-rehab-cost-uk"
   to = "/how-much-does-rehab-cost-uk.html"
 
