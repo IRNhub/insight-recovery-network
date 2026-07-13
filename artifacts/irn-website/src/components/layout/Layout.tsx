@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "wouter";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 
@@ -58,6 +59,33 @@ const PERSON_SCHEMA = {
 };
 
 export function Layout({ children }: LayoutProps) {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const headElements = Array.from(
+      document.head.querySelectorAll<HTMLTitleElement | HTMLLinkElement | HTMLMetaElement>(
+        'title, link[rel="canonical"], meta[name], meta[property]',
+      ),
+    );
+    const grouped = new Map<string, Element[]>();
+
+    headElements.forEach((element) => {
+      const key =
+        element.tagName === "TITLE"
+          ? "title"
+          : element.tagName === "LINK"
+            ? `link:${element.getAttribute("rel")}`
+            : element.hasAttribute("name")
+              ? `meta:name:${element.getAttribute("name")}`
+              : `meta:property:${element.getAttribute("property")}`;
+      grouped.set(key, [...(grouped.get(key) ?? []), element]);
+    });
+
+    grouped.forEach((elements) => {
+      elements.slice(0, -1).forEach((element) => element.remove());
+    });
+  }, [location]);
+
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
       <Helmet>
