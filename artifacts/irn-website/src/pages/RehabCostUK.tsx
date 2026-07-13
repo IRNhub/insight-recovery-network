@@ -574,6 +574,16 @@ export default function RehabCostUK() {
             description: "Book a confidential call to compare treatment options calmly and privately.",
             href: "/contact",
           },
+          {
+            title: "Luxury rehab costs and quality",
+            description: "Understand what premium fees should provide beyond accommodation and amenities.",
+            href: "/luxury-rehab",
+          },
+          {
+            title: "Destination rehab",
+            description: "Compare the full cost of overseas treatment, travel and support after returning home.",
+            href: "/destination-rehab",
+          },
         ]}
       />
     </Layout>

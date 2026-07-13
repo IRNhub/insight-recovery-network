@@ -30,6 +30,7 @@ const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionReco
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
 const PrivateRehabUK = lazy(() => import("@/pages/PrivateRehabUK"));
 const RehabCostUK = lazy(() => import("@/pages/RehabCostUK"));
+const PremiumTreatmentPage = lazy(() => import("@/pages/PremiumTreatmentPage"));
 const FamilyInterventionUK = lazy(() => import("@/pages/FamilyInterventionUK"));
 const ProfessionalAddictionSupport = lazy(() => import("@/pages/ProfessionalAddictionSupport"));
 const GetHelp = lazy(() => import("@/pages/GetHelp"));
@@ -214,6 +215,9 @@ function Router() {
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/private-rehab-uk" component={PrivateRehabUK} />
         <Route path="/how-much-does-rehab-cost-uk" component={RehabCostUK} />
+        <Route path="/luxury-rehab">{() => <PremiumTreatmentPage slug="luxury-rehab" />}</Route>
+        <Route path="/executive-rehab">{() => <PremiumTreatmentPage slug="executive-rehab" />}</Route>
+        <Route path="/destination-rehab">{() => <PremiumTreatmentPage slug="destination-rehab" />}</Route>
         <Route path="/addiction-help-cornwall" component={AddictionHelpCornwall} />
         <Route path="/family-addiction-intervention-uk" component={FamilyInterventionUK} />
         <Route path="/confidential-addiction-help-professionals" component={ProfessionalAddictionSupport} />

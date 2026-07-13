@@ -463,6 +463,9 @@ export default function PrivateRehabUK() {
           { title: "Online Recovery Programme", description: "Structured support for people who do not need round-the-clock care.", href: "/online-programme" },
           { title: "Detox Suitability Assessment", description: "Consider withdrawal risk before attempting to stop alcohol or drugs.", href: "/assessments/detox" },
           { title: "International Rehab Options", description: "Compare treatment destinations in South Africa, Spain, Thailand and Sri Lanka.", href: "/treatment-placement#international-options" },
+          { title: "Luxury Rehab", description: "Compare clinical quality, privacy and accommodation in premium private treatment.", href: "/luxury-rehab" },
+          { title: "Executive Rehab", description: "Consider confidential residential treatment around professional responsibilities.", href: "/executive-rehab" },
+          { title: "Destination Rehab", description: "Review the benefits, travel risks and aftercare needs of treatment abroad.", href: "/destination-rehab" },
         ]}
       />
 

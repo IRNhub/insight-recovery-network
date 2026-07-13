@@ -309,6 +309,9 @@ export default function Home() {
               <Link href="/how-much-does-rehab-cost-uk" className="group flex items-center justify-between border border-accent/40 bg-accent/10 px-5 py-4 text-sm font-semibold text-primary hover:bg-accent/15">
                 Compare treatment costs<ArrowRight className="h-4 w-4 text-accent transition group-hover:translate-x-1" />
               </Link>
+              <Link href="/luxury-rehab" className="group flex items-center justify-between border border-border/40 bg-secondary/15 px-5 py-4 text-sm font-medium text-primary hover:border-accent/50 hover:bg-white">
+                Luxury, executive and destination rehab<ArrowRight className="h-4 w-4 text-accent transition group-hover:translate-x-1" />
+              </Link>
             </div>
           </div>
         </div>

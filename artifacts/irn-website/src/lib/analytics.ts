@@ -24,7 +24,11 @@ const CTA_EVENTS: Record<string, string> = {
   "/online-programme": "online_programme_cta_click",
   "/online-addiction-recovery-programme-uk": "online_programme_cta_click",
   "/services-pricing-guide": "services_pricing_guide_click",
+  "/contact": "contact_cta_click",
   "/insight-os": "insight_os_cta_click",
+  "/luxury-rehab": "luxury_rehab_cta_click",
+  "/executive-rehab": "executive_rehab_cta_click",
+  "/destination-rehab": "destination_rehab_cta_click",
 };
 
 function normaliseText(value: string | null) {
@@ -48,6 +52,11 @@ export function installLeadClickTracking() {
       link_url: anchor.href,
       link_text: normaliseText(anchor.textContent),
     };
+
+    const explicitEvent = anchor.dataset.analyticsEvent;
+    if (explicitEvent) {
+      trackEvent(explicitEvent, shared);
+    }
 
     if (rawHref.startsWith("tel:")) {
       trackEvent("phone_link_click", shared);

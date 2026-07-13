@@ -488,6 +488,8 @@ export default function WhatWeOffer() {
           { title: "Online Recovery Programme", description: "Structured recovery support delivered around everyday life.", href: "/online-programme" },
           { title: "Detox Suitability Assessment", description: "Consider whether withdrawal may require medical support.", href: "/assessments/detox" },
           { title: "Family & Intervention Help", description: "Get a plan when someone you love is refusing treatment.", href: "/family-addiction-intervention-uk" },
+          { title: "Luxury & Executive Rehab", description: "Compare premium, discreet and professionally appropriate private treatment.", href: "/luxury-rehab" },
+          { title: "Destination Rehab", description: "Explore assessment-led private treatment abroad.", href: "/destination-rehab" },
         ]}
       />
 
