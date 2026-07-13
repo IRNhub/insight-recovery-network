@@ -3085,7 +3085,7 @@ function injectJsonLd(html, jsonLdObjects) {
     .filter(Boolean)
     .map(
       (obj) =>
-        `<script type="application/ld+json">${JSON.stringify(obj).replace(/<\//g, "<\\/")}</script>`
+        `<script type="application/ld+json" data-prerendered-jsonld="true">${JSON.stringify(obj).replace(/<\//g, "<\\/")}</script>`
     )
     .join("\n    ");
   if (!scripts) return html;
