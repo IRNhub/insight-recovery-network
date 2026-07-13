@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
@@ -319,6 +320,12 @@ export default function ResourceDetail() {
   const params = useParams<{ slug: string }>();
   const slug = params.slug ?? "";
   const bundledArticle = staticArticles.find((candidate) => candidate.slug === slug);
+
+  useEffect(() => {
+    document
+      .querySelectorAll('script[data-prerendered-jsonld="true"]')
+      .forEach((script) => script.remove());
+  }, [slug]);
 
   const {
     data: article,
