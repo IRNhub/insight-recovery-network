@@ -104,56 +104,92 @@ export default function PremiumTreatmentPage({ slug }: { slug: string }) {
         ))}
       </Helmet>
 
-      <section className="border-b border-border/40 bg-primary pt-24 md:pt-28">
-        <div className="container mx-auto px-0 md:px-12">
-          <figure className="overflow-hidden bg-primary">
-            <img
-              src={page.heroImage}
-              alt={page.heroAlt}
-              width={1600}
-              height={900}
-              className="block h-auto w-full"
-              fetchPriority="high"
-              decoding="async"
-            />
-            <figcaption className="px-6 py-3 text-[11px] leading-relaxed text-primary-foreground/60 md:px-0">
-              Illustrative setting. Insight Recovery Network does not claim to own or operate the depicted property.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="border-b border-border/40 bg-background py-12 md:py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <nav aria-label="Breadcrumb" className="mb-8 text-xs text-muted-foreground">
+      <section className="relative overflow-hidden border-y border-accent/15 bg-[linear-gradient(155deg,#F2EDE3_0%,#F8F6F1_54%,#ECE6DB_100%)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(201,169,110,0.2),transparent_42%)]" />
+        <div className="container relative mx-auto px-6 py-8 md:px-12 md:py-12 lg:py-14">
+          <nav aria-label="Breadcrumb" className="mb-8 text-xs text-muted-foreground md:mb-10">
             <Link href="/" className="hover:text-primary">Home</Link>
             <span aria-hidden="true" className="mx-2">/</span>
             <Link href="/treatment-placement" className="hover:text-primary">Treatment placement</Link>
             <span aria-hidden="true" className="mx-2">/</span>
             <span aria-current="page" className="text-primary">{page.title}</span>
           </nav>
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
-            <div className="max-w-3xl">
-              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-accent/80">
+
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-6">
+              <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                 {page.eyebrow}
               </p>
-              <h1 className="mb-7 font-serif text-4xl font-medium leading-[1.08] tracking-tight text-primary md:text-5xl lg:text-[3.6rem]">
+              <h1 className="mb-6 max-w-2xl font-serif text-[2.55rem] font-medium leading-[1.04] tracking-tight text-primary md:text-6xl lg:text-[3.65rem]">
                 {page.h1}
               </h1>
-              <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
-                {page.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <p className="max-w-xl text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
+                {page.intro[0]}
+              </p>
+
+              <div className="mt-7 flex flex-col gap-2.5">
+                {page.highlights.map((item) => (
+                  <div key={item.title} className="flex items-center gap-3">
+                    <div className="h-px w-5 flex-shrink-0 bg-accent/70" />
+                    <span className="text-[13px] font-light text-muted-foreground/80">{item.title}</span>
+                  </div>
+                ))}
               </div>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact" data-analytics-event={`${page.slug.replaceAll("-", "_")}_cta_click`}>
-                  <Button size="lg" className="h-12 w-full rounded-none px-7 sm:w-auto">
+                  <Button size="lg" className="h-12 w-full rounded-none px-7 text-sm sm:w-auto">
                     Discuss treatment options
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/assessments">
-                  <Button variant="outline" size="lg" className="h-12 w-full rounded-none px-7 sm:w-auto">
-                    Request a confidential assessment
+                <Link href="/treatment-placement">
+                  <Button variant="outline" size="lg" className="h-12 w-full rounded-none border-primary/25 bg-white/40 px-7 text-sm hover:bg-white/70 sm:w-auto">
+                    How placement works
                   </Button>
                 </Link>
+              </div>
+              <p className="mt-4 text-[11.5px] font-light tracking-wide text-muted-foreground/65">
+                Confidential · No obligation · UK and international options
+              </p>
+            </div>
+
+            <figure className="relative lg:col-span-6">
+              <div className="absolute -inset-3 rounded-2xl border border-accent/20 bg-accent/10" />
+              <div className="relative aspect-square overflow-hidden rounded-xl shadow-2xl">
+                <img
+                  src={page.heroImage}
+                  alt={page.heroAlt}
+                  width={1600}
+                  height={900}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: "right center" }}
+                  fetchPriority="high"
+                  decoding="async"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/75 via-primary/15 to-transparent px-5 pb-5 pt-20 text-primary-foreground">
+                  <p className="font-serif text-base">Private treatment, compared carefully</p>
+                  <p className="mt-1 text-[11px] text-white/70">Clinical fit · Privacy · Cost · Continuing care</p>
+                </div>
+              </div>
+              <figcaption className="relative mt-3 text-[10.5px] leading-relaxed text-muted-foreground/65">
+                Illustrative setting. IRN does not claim to own or operate the depicted property.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-border/40 bg-background py-10 md:py-14">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-accent/80">Assessment before admission</p>
+              <h2 className="mb-5 font-serif text-3xl font-medium leading-tight text-primary md:text-4xl">
+                A private treatment decision built around fit, not presentation.
+              </h2>
+              <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+                {page.intro.slice(1).map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
             </div>
             <aside className="border border-border/50 bg-secondary/20 p-6 lg:self-start" aria-label="Important guidance">
