@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import craigImg from "@assets/craig-bilton-founder-crop-4x5_1779191279403.jpg";
-import heroImg from "@assets/About_US_Hero_1779191456783.png";
+import heroImg from "@assets/About_US_Hero_1779191456783.webp";
 
 const trustPoints = [
   "20+ years' international addiction treatment experience",
@@ -58,8 +58,8 @@ export default function About() {
     <Layout>
       <SEO
         title={aboutOg.seoTitle ?? aboutOg.title}
-        fullTitle="About Insight Recovery Network | Private Addiction Recovery Support"
-        description="Learn about Insight Recovery Network, founded by Craig Bilton, providing discreet addiction recovery support, treatment placement guidance, family intervention, and online recovery programmes."
+        fullTitle="About Craig Bilton | Founder, Insight Recovery Network"
+        description="Meet Craig Bilton, Founder and Clinical Director of Insight Recovery Network, and learn how his 20+ years in addiction treatment shaped IRN's approach."
         canonical="/about"
         ogImage={ogImageUrl(aboutOg.file)}
       />
@@ -89,16 +89,16 @@ export default function About() {
             {/* Left, copy */}
             <div className="lg:w-[52%]">
               <span className="text-[9.5px] font-semibold tracking-[0.22em] uppercase text-accent/70 font-sans block mb-5">
-                About Insight Recovery Network
+                About the founder
               </span>
               <h1
                 className="font-serif text-primary leading-[1.08] tracking-tight mb-5"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.6rem)" }}
               >
-                About Insight Recovery Network
+                Craig Bilton, Founder of Insight Recovery Network
               </h1>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                Insight Recovery Network provides confidential guidance for people facing addiction, mental health, treatment placement, relapse risk, and family crisis situations. We help individuals and families understand the options, make informed decisions, and access the right level of support.
+                Craig Bilton founded Insight Recovery Network after more than 20 years working across addiction treatment, recovery support, intervention and international placement. His aim is to help individuals and families make difficult recovery decisions with more clarity, dignity and continuity.
               </p>
             </div>
 
@@ -163,12 +163,12 @@ export default function About() {
                 Why we exist
               </span>
               <h2 className="font-serif text-primary text-[1.75rem] md:text-[2rem] leading-tight">
-                Why Insight Recovery Network exists
+                Why Craig founded Insight Recovery Network
               </h2>
             </div>
             <div className="lg:col-span-7">
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed mb-4">
-                Addiction and mental health crises rarely arrive neatly. Families are often left trying to make urgent decisions while overwhelmed, frightened, or unsure who to trust. Insight Recovery Network was created to bring clarity, dignity, and clinical judgement into that process.
+                Addiction and mental health crises rarely arrive neatly. Craig saw families trying to make urgent decisions while overwhelmed, frightened or unsure who to trust, and created Insight Recovery Network to bring clarity, dignity and experienced judgement into that process.
               </p>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
                 We help people understand what level of support is needed, whether that means structured online recovery support, private detox, residential treatment, family intervention, relapse prevention planning, or longer-term recovery guidance.
@@ -287,11 +287,12 @@ export default function About() {
                   Insight Recovery Network was created to offer families and individuals a more joined-up, discreet, and clinically informed route into support, whether that means finding the right treatment environment, accessing structured online recovery support, or receiving guidance during a crisis point.
                 </p>
 
-                <div>
+                <div className="flex flex-wrap gap-3">
                   <Link href="/contact">
-                    <Button className="rounded-none h-11 px-7 text-sm">
-                      Book a confidential call
-                    </Button>
+                    <Button className="rounded-none h-11 px-7 text-sm">Book a confidential call</Button>
+                  </Link>
+                  <Link href="/about-insight-recovery-network">
+                    <Button variant="outline" className="rounded-none h-11 px-7 text-sm">How IRN works</Button>
                   </Link>
                 </div>
               </div>

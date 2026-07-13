@@ -546,7 +546,7 @@ export default function RehabCostUK() {
         links={[
           {
             title: "Treatment placement support",
-            description: "Independent guidance to compare suitable detox, rehab, online and overseas treatment routes.",
+            description: "Assessment-led guidance to compare suitable detox, rehab, online and overseas treatment routes.",
             href: "/treatment-placement",
           },
           {

@@ -146,7 +146,7 @@ export default function WhatWeOffer() {
       <SEO
         title="Addiction Recovery Services"
         fullTitle="Addiction Recovery Services | Placement, Online & Family Support"
-        description="Compare independent rehab placement, structured online recovery, family guidance and Insight OS tools from Insight Recovery Network."
+        description="Compare assessment-led rehab placement, structured online recovery, family guidance and Insight OS tools from Insight Recovery Network."
         canonical="/what-we-offer"
         ogImage={ogImageUrl("og-what-we-offer.png")}
       />
@@ -186,7 +186,7 @@ export default function WhatWeOffer() {
                 Addiction Recovery Services for Individuals and Families
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                Compare independent treatment placement, structured online recovery, family guidance and digital continuing-care tools, with a clear explanation of who each route is for.
+                Compare assessment-led treatment placement, structured online recovery, family guidance and digital continuing-care tools, with a clear explanation of who each route is for.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
@@ -482,7 +482,7 @@ export default function WhatWeOffer() {
 
       <RelatedServiceLinks
         links={[
-          { title: "Treatment Placement", description: "Independent guidance for detox and residential rehabilitation options.", href: "/treatment-placement" },
+          { title: "Treatment Placement", description: "Assessment-led guidance for detox and residential rehabilitation options.", href: "/treatment-placement" },
           { title: "Private Rehab UK", description: "Understand UK residential treatment and provider checks.", href: "/private-rehab-uk" },
           { title: "Private Rehab Alternatives", description: "Compare online, community and residential support routes.", href: "/private-rehab-alternative-uk" },
           { title: "Online Recovery Programme", description: "Structured recovery support delivered around everyday life.", href: "/online-programme" },

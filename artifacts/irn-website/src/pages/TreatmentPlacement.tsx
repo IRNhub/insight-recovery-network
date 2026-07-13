@@ -127,7 +127,7 @@ export default function TreatmentPlacement() {
       <SEO
         title={treatmentOg.title}
         fullTitle={treatmentOg.seoTitle ?? treatmentOg.title}
-        description="Independent help choosing a private rehab or detox provider. We assess needs, compare suitable UK and international options and support admission planning."
+        description="Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning."
         canonical="/treatment-placement"
         ogImage={ogImageUrl(treatmentOg.file)}
       />
@@ -137,7 +137,7 @@ export default function TreatmentPlacement() {
             "@context": "https://schema.org",
             "@type": "Service",
             "name": "Private Rehab and Detox Placement",
-            "description": "Independent, confidential guidance on private rehab, detox, and residential treatment placement in the UK and internationally.",
+            "description": "Assessment-led, clinically informed guidance on private rehab, detox and residential treatment placement in the UK and internationally.",
             "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
             "serviceType": "Addiction Treatment Placement",
             "areaServed": [
@@ -222,7 +222,7 @@ export default function TreatmentPlacement() {
                   style={{ background: "rgba(22,43,59,0.82)", backdropFilter: "blur(8px)" }}
                 >
                   <p className="font-serif text-white text-[12px] leading-tight">Vetted international providers</p>
-                  <p className="text-white/55 text-[10.5px] font-light">Independent placement guidance</p>
+                  <p className="text-white/55 text-[10.5px] font-light">Assessment-led placement guidance</p>
                 </div>
               </div>
             </div>
@@ -254,15 +254,15 @@ export default function TreatmentPlacement() {
                 Finding a reputable rehab facility is difficult. Marketing materials often obscure clinical realities, and making the wrong choice at a critical moment can be detrimental to recovery.
               </p>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                We provide independent, objective placement advice. We assess the clinical need, the individual's background, and the family's requirements, then map these against our vetted network of treatment providers.
+                We provide assessment-led, clinically informed placement guidance. We assess the individual's needs, risks, background and family circumstances, then compare these with suitable treatment providers. IRN may have partner or referral relationships with some providers, and any relevant relationship is explained transparently before a decision is made.
               </p>
 
               <div className="flex flex-col gap-5 mt-2">
                 {[
                   {
                     Icon: Shield,
-                    title: "Independent Assessment",
-                    body: "We assess suitability using risk, treatment need, location, budget and aftercare. Any relevant provider or commercial relationship should be explained before you decide.",
+                    title: "Suitability Assessment",
+                    body: "We assess suitability using risk, treatment need, location, budget and aftercare. Recommendations are based on assessed fit rather than pressure to choose a particular facility.",
                   },
                   {
                     Icon: HeartHandshake,
@@ -339,7 +339,7 @@ export default function TreatmentPlacement() {
               <div className="w-full h-px mb-6" style={{ background: "rgba(22,43,59,0.08)" }} />
 
               <p className="text-[11.5px] text-muted-foreground/60 font-light leading-relaxed italic">
-                Placement recommendations are made solely on clinical appropriateness and individual requirements. We offer careful, measured guidance without guarantees of specific outcomes.
+                Recommendations are based on assessed suitability and individual requirements. IRN does not own or operate the facilities, and the chosen provider retains responsibility for its clinical assessment, admission decision and care.
               </p>
             </div>
 
@@ -539,7 +539,7 @@ export default function TreatmentPlacement() {
             </div>
           </div>
           <div className="mt-8 max-w-3xl border-l-4 border-accent bg-background p-6 text-sm leading-relaxed text-muted-foreground">
-            Treatment placement advice is independent of the provider's final clinical and admission decision. IRN fees, treatment-provider costs and any relevant commercial relationship are explained before you proceed. Review the <Link href="/services-pricing-guide" className="font-semibold text-primary underline underline-offset-4">services and pricing guide</Link>, or ask us to explain the likely costs during a confidential call.
+            IRN's guidance is separate from the provider's final clinical and admission decision. IRN fees, treatment-provider costs and any relevant partner, referral or commercial relationship are explained before you proceed. Review the <Link href="/services-pricing-guide" className="font-semibold text-primary underline underline-offset-4">services and pricing guide</Link>, or ask us to explain the likely costs during a confidential call.
           </div>
         </div>
       </section>

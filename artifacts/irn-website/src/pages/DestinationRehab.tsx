@@ -146,7 +146,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
             </h2>
             <p className="text-primary-foreground/80 leading-relaxed font-light mb-7 max-w-2xl">
               Speak confidentially with Craig Bilton first. Facilities are naturally focused on their
-              own programmes; our role is different. A short, independent conversation can tell you
+              own programmes; our role is different. A short, assessment-led conversation can tell you
               whether {d.country} fits your situation clinically and practically before you commit to
               anyone.
             </p>
@@ -175,7 +175,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       <RelatedServiceLinks
         heading="Compare treatment routes"
         links={[
-          { title: "Treatment Placement", description: "See how independent placement guidance works.", href: "/treatment-placement" },
+          { title: "Treatment Placement", description: "See how assessment-led placement guidance works.", href: "/treatment-placement" },
           { title: "Private Rehab UK", description: "Compare treatment closer to home in the United Kingdom.", href: "/private-rehab-uk" },
           { title: "Private Rehab Alternatives", description: "Consider structured non-residential support where appropriate.", href: "/private-rehab-alternative-uk" },
           ...otherDestinations.map((destination) => ({

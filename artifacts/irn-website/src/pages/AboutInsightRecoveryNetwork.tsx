@@ -41,7 +41,7 @@ const organizationSchema = {
   name: "Insight Recovery Network",
   alternateName: "IRN",
   description:
-    "UK-based online addiction recovery and mental health support service providing private treatment placement guidance, structured online recovery programmes, family intervention support, relapse prevention planning, and digital recovery tools.",
+    "UK-based addiction recovery support service providing assessment-led treatment placement guidance, structured online programmes, family support and digital recovery tools.",
   url: SITE_URL,
   logo: `${SITE_URL}/icon-512.png`,
   image: `${SITE_URL}${HERO_IMAGE}`,
@@ -88,8 +88,8 @@ export default function AboutInsightRecoveryNetwork() {
     <Layout>
       <SEO
         title="About Insight Recovery Network"
-        fullTitle="About Insight Recovery Network | Independent Addiction Support"
-        description="IRN is an independent UK treatment-placement, online recovery and advisory network for individuals and families navigating addiction and mental health needs."
+        fullTitle="About Insight Recovery Network | Addiction Support Model"
+        description="Learn how IRN provides assessment-led treatment placement, online recovery and family guidance, including its scope, provider relationships and clinical boundaries."
         canonical="/about-insight-recovery-network"
         ogImage={`${SITE_URL}${HERO_IMAGE}`}
       />
@@ -105,10 +105,10 @@ export default function AboutInsightRecoveryNetwork() {
               About Insight Recovery Network
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              Independent addiction treatment guidance and online recovery support.
+              How Insight Recovery Network supports recovery decisions.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              Insight Recovery Network is an independent treatment-placement, online recovery and advisory network. We help individuals and families assess needs, compare suitable programmes and build continuing recovery support without claiming to own or operate the treatment centres we recommend.
+              Insight Recovery Network is a UK-based treatment-placement, online recovery and advisory service. We help individuals and families assess needs, compare suitable programmes and build continuing recovery support. We do not own or operate the treatment centres we discuss, and any relevant provider or referral relationship is explained before a decision is made.
             </p>
           </div>
 
@@ -150,7 +150,7 @@ export default function AboutInsightRecoveryNetwork() {
                   We do not offer face-to-face appointments. All services are delivered online, by telephone, video call, and through our digital recovery platform, Insight OS. This is a deliberate choice: it allows us to support people discreetly, without the need to travel, attend a clinic, or disclose more than is necessary.
                 </p>
                 <p>
-                  Insight Recovery Network was founded by Craig Bilton, Clinical Director, with over 20 years of international addiction treatment experience in senior clinical roles. The service is designed to provide support that is genuinely useful, not generic, not sales-driven, and not dependent on a single treatment pathway.
+                  Insight Recovery Network was founded by Craig Bilton, Clinical Director, with over 20 years of international addiction treatment experience in senior clinical roles. The service is designed to provide useful, assessment-led support rather than direct clinical care or a single treatment pathway.
                 </p>
               </div>
             </div>

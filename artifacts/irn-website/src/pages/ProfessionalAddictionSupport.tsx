@@ -51,7 +51,7 @@ const pressures = [
   "Stress, anxiety, trauma, sleep or burnout are interacting with substance use",
   "You cannot simply disappear from work or family life without a clear plan",
   "Previous attempts to moderate, stop or manage the problem privately have not lasted",
-  "You need an independent view of online, outpatient, detox and residential options",
+  "You need an assessment-led view of online, outpatient, detox and residential options",
 ];
 
 export default function ProfessionalAddictionSupport() {
