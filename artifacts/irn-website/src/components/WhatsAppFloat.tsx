@@ -5,7 +5,7 @@ import { useLocation } from "wouter";
  * Opens a chat to the IRN WhatsApp Business line (+44 7723 486235) with a
  * prefilled message, the visitor initiates contact, which opens the 24-hour
  * free-form reply window so staff can respond from IRN OS.
- * Fires a `whatsapp_click` dataLayer event for GTM / Meta Pixel lead tracking.
+ * Click tracking is handled centrally so every WhatsApp link uses the same GTM event.
  */
 
 const WA_URL =
@@ -18,20 +18,11 @@ export default function WhatsAppFloat() {
   // Keep the button off internal/admin screens
   if (location.startsWith("/admin")) return null;
 
-  const handleClick = () => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "whatsapp_click",
-      page_path: window.location.pathname,
-    });
-  };
-
   return (
     <a
       href={WA_URL}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
       aria-label="Chat privately with us on WhatsApp"
       data-testid="button-whatsapp-float"
       className="group fixed z-[60] flex items-center gap-2.5 rounded-full bg-[#25D366] p-3.5 text-white shadow-lg transition-transform duration-150 hover:scale-105 hover:shadow-xl motion-reduce:transition-none"

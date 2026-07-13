@@ -11,6 +11,7 @@ import craigImage from "@/assets/craig-bilton.jpg";
 import familyImage from "@/assets/hero-family-guidance.webp";
 import onlineImage from "@/assets/hero-online-programme.webp";
 import treatmentImage from "@/assets/hero-treatment-placement.webp";
+import digitalToolsImage from "@/assets/hero-digital-tools.webp";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 
@@ -44,6 +45,7 @@ const pathways = [
 const services = [
   {
     image: treatmentImage,
+    imageAlt: "Private residential treatment setting used to illustrate treatment placement",
     title: "Private treatment placement",
     body: "Clarify detox needs, compare suitable private rehab options and coordinate the move into treatment in the UK or selected international destinations.",
     href: "/treatment-placement",
@@ -51,6 +53,7 @@ const services = [
   },
   {
     image: familyImage,
+    imageAlt: "Private family consultation for addiction support",
     title: "Family consultation and intervention",
     body: "Create a calm, practical plan for risk, communication, boundaries and treatment, even before your loved one agrees to help.",
     href: "/family-addiction-intervention-uk",
@@ -58,10 +61,19 @@ const services = [
   },
   {
     image: onlineImage,
+    imageAlt: "Person accessing structured online addiction recovery support",
     title: "Structured online recovery support",
     body: "A private, structured route for medically stable people who need recovery support around work, family or aftercare responsibilities.",
     href: "/online-programme",
     cta: "Check online suitability",
+  },
+  {
+    image: digitalToolsImage,
+    imageAlt: "Insight OS digital recovery planning and check-in tools",
+    title: "Insight OS recovery tools",
+    body: "Daily check-ins, journalling, recovery planning and pattern tracking that help turn a treatment plan into repeatable everyday actions.",
+    href: "/insight-os",
+    cta: "Explore Insight OS",
   },
 ];
 
@@ -77,9 +89,9 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Private Rehab Placement & Addiction Guidance UK"
-        fullTitle="Private Rehab Placement & Addiction Guidance UK | Insight Recovery Network"
-        description="Confidential help choosing private rehab, detox, family intervention or structured online addiction support. UK and selected international treatment guidance led by Craig Bilton."
+        title="Private Rehab Placement UK"
+        fullTitle="Private Rehab Placement UK | Insight Recovery Network"
+        description="Confidential help comparing private rehab, detox, family intervention and structured online addiction support in the UK and selected destinations."
         canonical="/"
         ogImage={`${SITE_URL}/og-home-v2.png`}
       />
@@ -195,12 +207,12 @@ export default function Home() {
               Every route starts with understanding risk, substance use, mental health, previous treatment, family context, budget and what is realistically possible now.
             </p>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
               <Link key={service.title} href={service.href}>
                 <article className="group h-full overflow-hidden rounded-xl border border-border/40 bg-white transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl">
                   <div className="h-52 overflow-hidden">
-                    <img src={service.image} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
+                    <img src={service.image} alt={service.imageAlt} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="lazy" width={800} height={520} />
                   </div>
                   <div className="p-6">
                     <div className="mb-4 h-px w-7 bg-accent" />
@@ -213,6 +225,11 @@ export default function Home() {
                 </article>
               </Link>
             ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 border-t border-border/40 pt-6 text-sm">
+            <Link href="/services-pricing-guide" className="font-semibold text-primary underline decoration-border underline-offset-4 hover:text-accent">View services and pricing</Link>
+            <Link href="/contact" className="font-semibold text-primary underline decoration-border underline-offset-4 hover:text-accent">Contact IRN confidentially</Link>
+            <Link href="/addiction-help-cornwall" className="font-semibold text-primary underline decoration-border underline-offset-4 hover:text-accent">Addiction help in Cornwall</Link>
           </div>
         </div>
       </section>

@@ -97,8 +97,8 @@ export default function PrivateRehabAlternativeUK() {
     <Layout>
       <SEO
         title="Private Rehab Alternative UK"
-        fullTitle="Private Rehab Alternative UK | Structured Online Recovery | Insight Recovery Network"
-        description="Exploring alternatives to private residential rehab in the UK? Structured online recovery support, relapse prevention planning, family guidance, and treatment placement where residential care is needed. Confidential and clinically informed."
+        fullTitle="Private Rehab Alternatives UK | Online, Outpatient & NHS Options"
+        description="Compare private rehab alternatives in the UK, including structured online recovery, outpatient, NHS and family support, plus when residential care is safer."
         canonical="/private-rehab-alternative-uk"
         ogImage={`${SITE_URL}/opengraph.jpg`}
       />
@@ -115,10 +115,10 @@ export default function PrivateRehabAlternativeUK() {
               Private Rehab Alternatives, UK
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              Not ready for residential rehab, or not sure it is necessary?
+              Private Rehab Alternatives in the UK: What Can Work Instead?
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
-              Private residential rehab is not always the right answer. There are other routes, and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
+              If someone is medically stable and can remain safe at home, structured online recovery, outpatient care, therapy, peer support or NHS services may be appropriate alternatives. Residential detox or rehab remains important where withdrawal, safety or clinical complexity requires it.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">

@@ -40,6 +40,14 @@ kind = "web"
   to = "/about-insight-recovery-network.html"
 
   [[services.production.rewrites]]
+  from = "/addiction-help-cornwall"
+  to = "/addiction-help-cornwall.html"
+
+  [[services.production.rewrites]]
+  from = "/addiction-help-cornwall/"
+  to = "/addiction-help-cornwall.html"
+
+  [[services.production.rewrites]]
   from = "/clinical-disclaimer"
   to = "/clinical-disclaimer.html"
 

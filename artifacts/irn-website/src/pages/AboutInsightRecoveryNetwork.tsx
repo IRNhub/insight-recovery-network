@@ -88,8 +88,8 @@ export default function AboutInsightRecoveryNetwork() {
     <Layout>
       <SEO
         title="About Insight Recovery Network"
-        fullTitle="About Insight Recovery Network | UK Addiction Recovery Support Service"
-        description="Insight Recovery Network is a UK-based online addiction recovery and mental health support service. Private treatment placement guidance, online recovery programmes, family intervention, and digital recovery tools."
+        fullTitle="About Insight Recovery Network | Independent Addiction Support"
+        description="IRN is an independent UK treatment-placement, online recovery and advisory network for individuals and families navigating addiction and mental health needs."
         canonical="/about-insight-recovery-network"
         ogImage={`${SITE_URL}${HERO_IMAGE}`}
       />
@@ -105,10 +105,10 @@ export default function AboutInsightRecoveryNetwork() {
               About Insight Recovery Network
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              A confidential addiction recovery and mental health support service.
+              Independent addiction treatment guidance and online recovery support.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              Insight Recovery Network is a UK-based, online-only service providing private treatment placement guidance, structured recovery programmes, family intervention support, and digital recovery tools for individuals and families navigating addiction and mental health challenges.
+              Insight Recovery Network is an independent treatment-placement, online recovery and advisory network. We help individuals and families assess needs, compare suitable programmes and build continuing recovery support without claiming to own or operate the treatment centres we recommend.
             </p>
           </div>
 

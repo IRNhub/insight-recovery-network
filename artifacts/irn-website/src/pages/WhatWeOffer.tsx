@@ -144,8 +144,9 @@ export default function WhatWeOffer() {
   return (
     <Layout>
       <SEO
-        title="Addiction Counselling &amp; Recovery Services"
-        description="Insight Recovery Network offers addiction counselling, private rehab placement, online recovery programmes, family intervention support, and relapse prevention tools, tailored to each individual's needs."
+        title="Addiction Recovery Services"
+        fullTitle="Addiction Recovery Services | Placement, Online & Family Support"
+        description="Compare independent rehab placement, structured online recovery, family guidance and Insight OS tools from Insight Recovery Network."
         canonical="/what-we-offer"
         ogImage={ogImageUrl("og-what-we-offer.png")}
       />
@@ -182,10 +183,10 @@ export default function WhatWeOffer() {
                 Our Services
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Addiction Counselling and Recovery Services
+                Addiction Recovery Services for Individuals and Families
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                From the moment of crisis through to long-term wellbeing, we provide structured pathways for individuals, families, and professionals.
+                Compare independent treatment placement, structured online recovery, family guidance and digital continuing-care tools, with a clear explanation of who each route is for.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[

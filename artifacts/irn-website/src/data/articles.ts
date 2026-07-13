@@ -633,12 +633,13 @@ Insight Recovery Network is not a regulated healthcare provider, does not diagno
       author: "Craig Bilton",
       authorRole: "Founder & Clinical Director",
       date: "2026-06-12",
+      updatedDate: "2026-07-13",
       readingTime: 9,
       category: "Relapse Prevention",
       image: "/relapse-meaning-addiction-recovery.png",
       imageAlt: "Recovery roadmap showing relapse as part of a wider addiction recovery journey",
-      seoTitle: "Relapse Meaning in Addiction Recovery",
-      metaDescription: "Understand what relapse really means in addiction recovery, why it happens, and how to respond without shame or denial.",
+      seoTitle: "Relapse Meaning: Signs, Stages and What to Do Next",
+      metaDescription: "What relapse means in addiction recovery, its emotional, mental and physical stages, warning signs and what to do next without shame or delay.",
       ogTitle: "Relapse Meaning: What Relapse Really Means in Addiction Recovery",
       ogDescription: "Understand what relapse really means in addiction recovery, why it happens, and how to respond without shame or denial.",
       faq: [
@@ -727,12 +728,13 @@ Insight Recovery Network is not a regulated healthcare provider, does not diagno
       author: "Craig Bilton",
       authorRole: "Founder & Clinical Director",
       date: "2026-06-12",
+      updatedDate: "2026-07-13",
       readingTime: 11,
       category: "Relapse Prevention",
       image: "/slip-lapse-relapse-difference.png",
       imageAlt: "Three connected stages explaining the difference between a slip, lapse and relapse",
-      seoTitle: "Slip, Lapse and Relapse: Key Differences",
-      metaDescription: "Learn the difference between a slip, lapse, and relapse, and why the way you respond can shape your recovery.",
+      seoTitle: "Slip vs Lapse vs Relapse: What Is the Difference?",
+      metaDescription: "A slip is brief; relapse is a sustained return to old patterns. Learn the practical differences, warning signs and how to respond quickly.",
       ogTitle: "Slip, Lapse and Relapse: What Is the Difference?",
       ogDescription: "Learn the difference between a slip, lapse, and relapse, and why the way you respond can shape your recovery.",
       faq: [
@@ -1304,13 +1306,13 @@ Insight Recovery Network is not a regulated healthcare provider, does not diagno
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-06-12",
-    updatedDate: "2026-06-30",
+    updatedDate: "2026-07-13",
     readingTime: 9,
     category: "Alcohol Recovery",
     image: "/article-private-alcohol-rehab-uk-costs-options-alternatives.png",
     imageAlt: "Desk with recovery plan and cost comparison representing private alcohol rehab options in the UK",
-    seoTitle: "Private Alcohol Rehab UK: Costs, Options and Alternatives",
-    metaDescription: "What private alcohol rehab costs in the UK, what drives the price, and the alternatives, including international placement and online recovery.",
+    seoTitle: "Private Alcohol Rehab Cost UK: Options & Alternatives",
+    metaDescription: "Private alcohol rehab cost in the UK, what fees may include, how detox and duration affect price, and residential, online, NHS and overseas options.",
     ogTitle: "Private Alcohol Rehab UK: Costs, Options and Alternatives",
     ogDescription: "What private alcohol rehab costs in the UK, what drives the price, and the alternatives, including international placement and online recovery.",
     sources: [
@@ -1836,13 +1838,19 @@ Unsure whether NHS support or private rehab is the right route? Insight Recovery
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-05-19",
+    updatedDate: "2026-07-13",
     readingTime: 18,
     category: "Treatment Options",
     image: "/rehab-options.png",
+    imageAlt: "Calm residential treatment setting representing how to compare private rehab centres in the UK",
+    seoTitle: "How to Choose a Private Rehab Centre UK: 12 Checks",
+    metaDescription: "Compare private rehab centres in the UK using 12 checks covering detox safety, therapy, mental health, family work, costs, aftercare and regulation.",
     content: `
-Choosing rehab UK can feel overwhelming, especially when the situation has become urgent or emotionally charged. For many individuals and families, the decision is not simply about finding a treatment centre. It is about safety, trust, cost, confidentiality, hope, and fear.
+The right private rehab centre is the one that can safely meet the person's assessed needs, not necessarily the closest, most expensive or most luxurious. Check detox capability, clinical leadership, therapy, co-occurring mental-health support, family involvement, costs, aftercare, regulation and what the service cannot manage before committing.
 
-You may be wondering whether things are "bad enough" for residential rehab. You may be trying to compare [private rehab UK](/treatment-placement) options while under pressure from family members, employers, partners, or the person struggling. You may also be asking a difficult question: how do I choose the right private rehab centre in the UK when every website seems to promise the same thing?
+Choosing private rehab in the UK can feel overwhelming, especially when the situation has become urgent or emotionally charged. For many individuals and families, the decision is not simply about finding a treatment centre. It is about safety, trust, cost, confidentiality, hope, and fear.
+
+You may be wondering whether things are "bad enough" for residential rehab. You may be trying to compare [private rehab in the UK](/private-rehab-uk) while under pressure from family members, employers, partners, or the person struggling. You may also be asking a difficult question: how do I choose the right private rehab centre in the UK when every website seems to promise the same thing?
 
 The truth is that choosing the right rehab centre requires more than looking at photographs, prices, location, or availability. A good placement should be based on clinical need, risk, substance use history, mental health, family dynamics, previous treatment experiences, and the level of support required after discharge.
 
@@ -2149,10 +2157,16 @@ For confidential support, contact Insight Recovery Network to discuss the most a
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-05-19",
+    updatedDate: "2026-07-13",
     readingTime: 12,
     category: "Addiction & Substances",
     image: "/article-why-cant-i-stop.png",
+    imageAlt: "Person reflecting on repeated attempts to stop an addictive behaviour",
+    seoTitle: "Why Can't I Stop? How Addiction Overrides Willpower",
+    metaDescription: "Why addiction can continue despite sincere attempts to stop, how craving and relief cycles work, and what support can interrupt the pattern.",
     content: `
+If you cannot stop despite genuinely wanting to, it does not mean that you lack character. Addiction trains attention, reward and relief-seeking around a substance or behaviour, so intention alone is repeatedly overwhelmed by craving, habit, distress and environment. Recovery becomes more likely when those mechanisms are addressed with safety, structure, support and a plan.
+
 If you have ever sworn you would stop, meant it completely, and then watched yourself do the exact thing you swore off, you already know the most confusing part of addiction. It is not that you do not want to stop. It is that wanting to stop, even badly, often does not seem to be enough.
 
 That experience leaves most people with a quiet, corrosive conclusion: there must be something wrong with me. Weak. Broken. Lacking whatever other people have.
@@ -2250,10 +2264,15 @@ The need was always legitimate. There is a better way to meet it. A direct, hone
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-04-28",
+    updatedDate: "2026-07-13",
     readingTime: 7,
     category: "Addiction & Substances",
+    seoTitle: "Alcohol Dependency: Signs, Stages and Safe Next Steps",
+    metaDescription: "Understand alcohol dependency, including early and severe signs, tolerance, withdrawal risk and when to seek detox, residential or online support.",
     content: `
-Alcohol dependency is one of the most prevalent and least understood forms of addiction. Unlike illicit drug use, alcohol exists within the fabric of social life, making it uniquely difficult to recognise when consumption has crossed from habit into dependence.
+Alcohol dependency means that drinking has become difficult to control and may involve tolerance, craving, withdrawal or continued use despite harm. If you feel shaky, sweaty, anxious or unwell without alcohol, or drink to relieve withdrawal, seek medical advice before stopping suddenly because alcohol withdrawal can be dangerous.
+
+Alcohol dependency is common and often difficult to recognise. Alcohol sits within everyday social life, which can make it harder to see when consumption has crossed from habit into dependence.
 
 ## What Is Alcohol Dependency?
 

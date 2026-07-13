@@ -13,6 +13,7 @@ interface SEOProps {
   noIndex?: boolean;
   ogType?: "website" | "article";
   datePublished?: string;
+  dateModified?: string;
   author?: string;
   section?: string;
 }
@@ -26,6 +27,7 @@ export function SEO({
   noIndex = false,
   ogType = "website",
   datePublished,
+  dateModified,
   author,
   section,
 }: SEOProps) {
@@ -52,6 +54,9 @@ export function SEO({
 
       {ogType === "article" && datePublished && (
         <meta property="article:published_time" content={datePublished} />
+      )}
+      {ogType === "article" && dateModified && (
+        <meta property="article:modified_time" content={dateModified} />
       )}
       {ogType === "article" && author && (
         <meta property="article:author" content={author} />

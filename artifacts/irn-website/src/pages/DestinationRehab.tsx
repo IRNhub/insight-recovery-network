@@ -40,7 +40,11 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
               <img
                 src={d.heroImage}
                 alt={d.heroImageAlt}
+                width={1717}
+                height={916}
                 className="block w-full aspect-[16/9] object-cover"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
             <div className="max-w-2xl">
@@ -181,6 +185,44 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
           })),
         ]}
       />
+
+      {d.detailSections?.length ? (
+        <section className="py-12 md:py-20 border-b border-border/40 bg-secondary/10">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="max-w-3xl mb-10">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-4">
+                Treatment details
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary mb-5">
+                What to check before choosing rehab in {d.country}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                A suitable placement depends on the clinical programme, medical boundaries and practical plan, not the destination alone.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              {d.detailSections.map((section) => (
+                <article key={section.heading} className="border border-border/40 bg-background p-7 md:p-8">
+                  <h3 className="font-serif text-xl md:text-2xl font-medium text-primary mb-4">{section.heading}</h3>
+                  <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+                    {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
+                  {section.points?.length ? (
+                    <ul className="mt-5 space-y-2">
+                      {section.points.map((point) => (
+                        <li key={point} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                          <span className="text-accent mt-0.5 flex-shrink-0">, </span>
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Who it suits */}
       <section className="py-12 md:py-20 border-b border-border/40">

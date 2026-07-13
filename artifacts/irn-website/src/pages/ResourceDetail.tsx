@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
+import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import NotFound from "@/pages/not-found";
 import { formatDate, articles as staticArticles } from "@/data/articles";
 import { fetchMergedArticles } from "@/lib/article-loader";
@@ -12,6 +13,42 @@ import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+
+const ARTICLE_CLUSTERS = [
+  [
+    "relapse-meaning",
+    "slip-lapse-relapse-difference",
+    "why-relapse-happens-before-substance-use",
+    "relapse-prevention-plan",
+    "addiction-warning-signs",
+    "what-to-do-after-relapse",
+    "how-structured-support-prevents-relapse",
+    "relapsing-does-not-mean-you-have-failed",
+  ],
+  [
+    "private-alcohol-rehab-uk-costs-options-alternatives",
+    "how-to-choose-private-rehab-centre-uk",
+    "private-rehab-vs-nhs-addiction-treatment",
+    "alcohol-rehab-alternatives-uk",
+    "do-i-need-alcohol-rehab-or-online-support",
+    "what-happens-in-residential-rehabilitation",
+  ],
+  [
+    "understanding-alcohol-dependency",
+    "alcohol-withdrawal-symptoms-when-you-need-medical-help",
+    "how-long-does-alcohol-stay-in-your-system",
+    "can-i-stop-drinking-without-rehab",
+    "online-alcohol-recovery-programme-uk",
+  ],
+  [
+    "addiction-support-for-families",
+    "how-to-stage-addiction-intervention-uk",
+    "family-boundaries-addiction-recovery",
+    "help-someone-with-addiction-without-enabling",
+    "what-to-do-when-someone-refuses-treatment",
+    "how-to-talk-to-someone-about-drinking-drug-use",
+  ],
+];
 
 async function fetchArticle(slug: string): Promise<Article> {
   try {
@@ -261,6 +298,8 @@ function parseContent(content: string) {
 
 export default function ResourceDetail() {
   const params = useParams<{ slug: string }>();
+  const slug = params.slug ?? "";
+  const bundledArticle = staticArticles.find((candidate) => candidate.slug === slug);
 
   const {
     data: article,
@@ -268,8 +307,10 @@ export default function ResourceDetail() {
     isError,
     error,
   } = useQuery({
-    queryKey: ["article", params.slug],
-    queryFn: () => fetchArticle(params.slug),
+    queryKey: ["article", slug],
+    queryFn: () => fetchArticle(slug),
+    initialData: bundledArticle,
+    enabled: Boolean(slug),
     retry: false,
     staleTime: 60_000,
   });
@@ -306,9 +347,16 @@ export default function ResourceDetail() {
 
   if (!article) return <NotFound />;
 
-  const related = allArticles
-    .filter((a) => a.slug !== article.slug && a.category === article.category)
-    .slice(0, 2);
+  const cluster = ARTICLE_CLUSTERS.find((items) => items.includes(article.slug));
+  const related = cluster
+    ? cluster
+        .filter((slug) => slug !== article.slug)
+        .map((slug) => allArticles.find((candidate) => candidate.slug === slug))
+        .filter((candidate): candidate is Article => Boolean(candidate))
+        .slice(0, 2)
+    : allArticles
+        .filter((a) => a.slug !== article.slug && a.category === article.category)
+        .slice(0, 2);
 
   const moreRelated =
     related.length < 2
@@ -320,6 +368,35 @@ export default function ResourceDetail() {
   const relatedArticles = [...related, ...moreRelated].slice(0, 2);
 
   const canonicalPath = `/resources/${article.slug}`;
+  const commercialLinks = (() => {
+    if (/(relapse|willpower|structured-support)/.test(article.slug)) {
+      return [
+        { title: "Online recovery programme", description: "Build ongoing structure, accountability and relapse-prevention support.", href: "/online-programme" },
+        { title: "Treatment placement", description: "Assess whether detox or residential treatment may now be appropriate.", href: "/treatment-placement" },
+        { title: "Confidential assessment", description: "Clarify risk and the right level of support for the current situation.", href: "/assessments" },
+      ];
+    }
+    if (/(rehab|detox|withdrawal|alcohol-dependency)/.test(article.slug)) {
+      return [
+        { title: "Independent treatment placement", description: "Compare suitable UK and international detox or residential options.", href: "/treatment-placement" },
+        { title: "Private rehab costs UK", description: "Review guide prices, inclusions and lower-cost treatment routes.", href: "/how-much-does-rehab-cost-uk" },
+        { title: "Private rehab Thailand", description: "Compare costs, clinical considerations and long-haul placement.", href: "/private-rehab-thailand" },
+        { title: "Services and pricing guide", description: "Review IRN service routes and current pricing information.", href: "/services-pricing-guide" },
+      ];
+    }
+    if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(article.slug)) {
+      return [
+        { title: "Family addiction guidance", description: "Plan conversations, boundaries and realistic next steps.", href: "/family-addiction-intervention-uk" },
+        { title: "Treatment placement", description: "Prepare a suitable treatment option before a moment of willingness.", href: "/treatment-placement" },
+        { title: "Addiction help in Cornwall", description: "Access remote assessment and support from across Cornwall.", href: "/addiction-help-cornwall" },
+      ];
+    }
+    return [
+      { title: "What we offer", description: "Compare IRN's placement, online and continuing-care pathways.", href: "/what-we-offer" },
+      { title: "Confidential assessment", description: "Start with a private assessment of the current situation.", href: "/assessments" },
+      { title: "Contact IRN", description: "Ask a question privately, without obligation or pressure.", href: "/contact" },
+    ];
+  })();
   const contextualCta = (() => {
     const slug = article.slug;
     if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(slug)) {
@@ -409,6 +486,15 @@ export default function ResourceDetail() {
     articleSection: article.category,
     inLanguage: "en-GB",
   };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Resources", item: `${SITE_URL}/resources` },
+      { "@type": "ListItem", position: 3, name: article.title, item: `${SITE_URL}${canonicalPath}` },
+    ],
+  };
 
   return (
     <Layout>
@@ -419,11 +505,13 @@ export default function ResourceDetail() {
         ogImage={ogImage}
         ogType="article"
         datePublished={article.date}
+        dateModified={article.updatedDate ?? article.date}
         author={article.author}
         section={article.category}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         )}
@@ -433,14 +521,15 @@ export default function ResourceDetail() {
       <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto">
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors mb-10"
-              data-testid="link-back-to-resources"
-            >
-              <ArrowLeft size={14} strokeWidth={1.5} />
-              All resources
-            </Link>
+            <nav aria-label="Breadcrumb" className="mb-10 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              <Link href="/" className="hover:text-primary">Home</Link>
+              <span aria-hidden="true">/</span>
+              <Link href="/resources" className="inline-flex items-center gap-2 hover:text-primary" data-testid="link-back-to-resources">
+                <ArrowLeft size={14} strokeWidth={1.5} /> All resources
+              </Link>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page" className="normal-case tracking-normal">{article.title}</span>
+            </nav>
 
             <span className="block text-[10px] font-semibold tracking-widest uppercase text-accent/80 mb-5">
               {article.category}
@@ -563,6 +652,8 @@ export default function ResourceDetail() {
           </div>
         </section>
       )}
+
+      <RelatedServiceLinks heading="Related support and next steps" links={commercialLinks} />
 
       <CTASection
         heading={contextualCta.heading}

@@ -50,6 +50,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/addiction-help-cornwall" className="hover:text-accent transition-colors">
+                  Addiction Help Cornwall
+                </Link>
+              </li>
+              <li>
                 <Link href="/confidential-addiction-help-professionals" className="hover:text-accent transition-colors">
                   Confidential Professional Help
                 </Link>

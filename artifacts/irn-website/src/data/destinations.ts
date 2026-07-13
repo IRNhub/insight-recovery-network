@@ -32,6 +32,11 @@ export interface Destination {
    * of longer treatment duration in South Africa).
    */
   clinicalNote?: string;
+  detailSections?: Array<{
+    heading: string;
+    paragraphs: string[];
+    points?: string[];
+  }>;
   faqs: DestinationFaq[];
 }
 
@@ -42,25 +47,25 @@ export const destinations: Destination[] = [
   {
     slug: "private-rehab-thailand",
     country: "Thailand",
-    title: "Private Rehab in Thailand",
-    seoTitle: "Private Rehab in Thailand | Costs, Placement & Guidance | Insight Recovery Network",
+    title: "Private Rehab Thailand",
+    seoTitle: "Private Rehab Thailand: Costs & Treatment Placement | IRN",
     metaDescription:
-      "Considering private rehab in Thailand? Independent guidance on residential addiction treatment in Thailand, typical costs from £8,000 to £15,000, what to expect, and confidential placement support from Insight Recovery Network.",
+      "Compare private rehab in Thailand, guide costs from £8,000 to £15,000, detox, trauma-informed care, programme lengths and independent placement support.",
     heroImage: "/private-rehab-thailand-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for Thailand with a tranquil residential rehab setting",
     heroEyebrow: "Treatment Placement: Thailand",
-    heroHeading: "Private Rehab in Thailand",
+    heroHeading: "Private Rehab in Thailand: Costs and Treatment Placement",
     heroIntro:
-      "Thailand has become one of the world's most established destinations for residential addiction treatment, combining internationally trained clinical teams, strong programme structure, genuine privacy away from home, and significantly lower costs than comparable UK facilities. We help you identify the right Thai facility for your clinical needs, and manage the admission from first conversation to arrival.",
+      "Private rehab in Thailand can provide residential addiction treatment at a lower guide cost than many UK programmes, with distance from home and options for stays beyond 28 days. Suitability depends on withdrawal risk, mental health, trauma needs, medication, family circumstances and whether long-haul travel is safe. Insight Recovery Network assesses these factors and recommends appropriate partner programmes; we do not own or operate the facilities.",
     whyHeading: "Why people choose Thailand for rehab",
     whyIntro:
       "Thailand is often the right choice for people who want high-quality residential treatment with complete distance from their daily environment:",
     whyPoints: [
-      "Established international treatment centres with Western-trained clinical teams and English-speaking programmes",
-      "Significantly lower costs than UK private rehab of a comparable standard",
+      "A range of English-speaking residential programmes for international clients",
+      "Guide costs that may be lower than many UK private rehab programmes",
       "Complete separation from home triggers, work pressure, and social circles, often clinically valuable in early recovery",
-      "Strong programme structure: individual therapy, group work, fitness, mindfulness, and relapse prevention planning",
+      "Programmes may combine individual therapy, group work, wellbeing activity and relapse prevention planning",
       "Genuine privacy: you are highly unlikely to encounter anyone you know",
     ],
     costHeading: "How much does rehab in Thailand cost?",
@@ -72,7 +77,7 @@ export const destinations: Destination[] = [
     costIncludes: [
       "Full residential accommodation and meals",
       "Structured clinical programme: individual and group therapy",
-      "Psychiatric and medical oversight appropriate to the facility",
+      "Clinical and medical input according to the selected provider and assessed needs",
       "Wellness and fitness programmes",
       "Aftercare planning before discharge",
     ],
@@ -83,11 +88,53 @@ export const destinations: Destination[] = [
       "Those seeking a high standard of care at a materially lower cost than UK equivalents",
       "People who respond well to structured, routine-led residential settings",
     ],
+    detailSections: [
+      {
+        heading: "Programme length, residential care and what is included",
+        paragraphs: [
+          "Many international programmes are organised around an initial 28-day stay, with 60- and 90-day options considered where longer containment, repetition and relapse-prevention work may be useful. Length should follow assessment rather than a standard sales package.",
+          "A quoted residential fee may include accommodation, meals, the core therapy timetable and some wellbeing activities. Detox, psychiatric review, medication, specialist investigations, flights, transfers and extended aftercare may be separate. IRN checks the written inclusions before a placement decision.",
+        ],
+        points: [
+          "Residential accommodation and a structured daily programme",
+          "Individual and group therapeutic work, depending on provider",
+          "Recovery and discharge planning before returning home",
+          "Clear confirmation of medical, travel and additional costs",
+        ],
+      },
+      {
+        heading: "Detox, trauma-informed care and co-occurring needs",
+        paragraphs: [
+          "Alcohol, benzodiazepine and opioid withdrawal can be medically dangerous. Detox availability and capability vary by provider, so a medical assessment is needed before travel. Some people should detox in the UK or use a different service before entering a Thai residential programme.",
+          "Trauma-informed care should mean that staff recognise how trauma can affect safety, trust, emotional regulation and substance use. It does not mean that every centre provides specialist PTSD treatment. Where PTSD, depression, anxiety, eating difficulties, self-harm risk or another mental-health need is present, IRN asks what the provider can safely manage and where its limits sit.",
+        ],
+        points: [
+          "Withdrawal history, current use and physical health",
+          "Medication and psychiatric or psychological support needs",
+          "Trauma history, triggers and the required therapeutic approach",
+          "Clear escalation plans if risk changes during treatment",
+        ],
+      },
+      {
+        heading: "Family involvement, travel and admission planning",
+        paragraphs: [
+          "Family involvement can range from scheduled updates and education to remote family sessions, subject to consent and the provider's programme. It should be confirmed before admission, especially when relatives will be central to the return-home plan.",
+          "Long-haul travel requires practical planning. Passport and entry requirements, insurance, medication documentation, airport support, transfers, time away from work and the plan for returning to the UK all matter. IRN coordinates the placement and handover with the chosen provider, while the provider retains responsibility for admission and clinical decisions.",
+        ],
+      },
+      {
+        heading: "Who Thailand may not be suitable for",
+        paragraphs: [
+          "Thailand may not be the right setting where someone is medically unstable, cannot safely fly, needs a level of acute psychiatric or hospital care that the proposed programme cannot provide, must remain close to dependent family members, or would be poorly served by being far from their UK support network.",
+          "Distance and a calm setting can help, but they do not make a programme clinically suitable on their own. IRN compares Thailand with UK and other international options and will recommend a different route when the assessment points elsewhere.",
+        ],
+      },
+    ],
     faqs: [
       {
         question: "Is rehab in Thailand clinically safe and properly regulated?",
         answer:
-          "Reputable Thai treatment centres operate with licensed medical teams, internationally trained therapists, and established clinical governance. Standards vary between facilities, which is exactly why independent placement guidance matters. We only recommend facilities we trust and that match your clinical needs, and we are not tied commercially to any provider.",
+          "Standards, staffing and medical capability vary between facilities. Independent placement guidance helps check who provides care, how detox and mental-health risk are managed, what is outside the programme's scope and whether the setting fits the person. IRN explains any relevant provider relationship transparently before a recommendation.",
       },
       {
         question: "How long do people usually stay?",
@@ -107,7 +154,7 @@ export const destinations: Destination[] = [
       {
         question: "Is rehab in Thailand cheaper than the UK?",
         answer:
-          "For comparable standards of residential care, yes. Thailand is typically less expensive than UK private rehab, largely due to lower operating costs rather than lower clinical standards at reputable facilities. That said, cost should never be the only factor. Detox safety, mental health needs, and the suitability of being far from home all matter, and we assess these honestly before recommending any destination.",
+          "Thailand can cost less than many UK private rehab programmes, but like-for-like comparison is difficult because staffing, medical cover, accommodation, programme length and included services vary. Cost should never be the only factor. Detox safety, mental health needs and the suitability of being far from home all matter.",
       },
       {
         question: "Can I travel to Thailand for alcohol or drug treatment?",
