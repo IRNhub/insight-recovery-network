@@ -79,7 +79,7 @@ const duplicateUrls = urls.filter((url, index) => urls.indexOf(url) !== index);
 if (duplicateUrls.length) fail(`Sitemap contains duplicate URLs: ${[...new Set(duplicateUrls)].join(", ")}`);
 
 const homepage = read(resolve(dist, "index.html"));
-const homepageTitle = firstMatch(homepage, /<title>([^<]+)<\/title>/, "title", "/");
+const homepageTitle = firstMatch(homepage, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", "/");
 let checked = 0;
 
 for (const url of urls) {
@@ -95,10 +95,10 @@ for (const url of urls) {
 
   const targetPath = resolve(dist, target.replace(/^\//, ""));
   const html = read(targetPath);
-  const title = firstMatch(html, /<title>([^<]+)<\/title>/, "title", pathname);
+  const title = firstMatch(html, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", pathname);
   const canonical = firstMatch(
     html,
-    /<link\s+rel="canonical"\s+href="([^"]+)"/,
+    /<link\b(?=[^>]*\brel="canonical")(?=[^>]*\bhref="([^"]+)")[^>]*>/,
     "canonical link",
     pathname,
   );

@@ -2185,7 +2185,7 @@ function injectPageMeta(baseHtml, page) {
     }
   }
 
-  return bodyReplaced;
+  return markPrerenderedMetadata(bodyReplaced);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -3092,6 +3092,20 @@ function injectJsonLd(html, jsonLdObjects) {
   return html.replace("</head>", `    ${scripts}\n  </head>`);
 }
 
+/** Mark static SEO elements so React can replace them cleanly after hydration. */
+function markPrerenderedMetadata(html) {
+  return html
+    .replace("<title>", '<title data-prerendered-meta="true">')
+    .replace(
+      '<link rel="canonical"',
+      '<link data-prerendered-meta="true" rel="canonical"',
+    )
+    .replace(
+      /<meta\s+(?=(?:name="description"|name="twitter:[^"]+"|property="(?:og|article):[^"]+"))/g,
+      '<meta data-prerendered-meta="true" ',
+    );
+}
+
 /**
  * Replace a single meta tag attribute value.
  * Matches:  <meta property="og:title" content="...OLD...">
@@ -3240,7 +3254,7 @@ function injectArticleMeta(html, article, full = null) {
     PERSON_JSONLD,
   ]);
 
-  return out;
+  return markPrerenderedMetadata(out);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -3343,7 +3357,9 @@ async function main() {
 
   // ── Step 1b: Inject Organization + Person JSON-LD into the home page ──────
   if (!baseHtml.includes("#organization")) {
-    const homeHtml = injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]);
+    const homeHtml = markPrerenderedMetadata(
+      injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]),
+    );
     writeFileSync(indexPath, homeHtml, "utf-8");
     console.log("  ✓ index.html, injected Organization + Person JSON-LD\n");
   }
