@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -33,6 +34,7 @@ export function ContactForm() {
   const [isPending, setIsPending] = useState(false);
   const [isError, setIsError] = useState(false);
   const formStartedAt = useMemo(() => Date.now(), []);
+  const hasTrackedStart = useRef(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -91,6 +93,9 @@ export function ContactForm() {
         throw new Error(`Server responded with ${response.status}`);
       }
 
+      trackEvent("contact_form_submit_success", {
+        form_name: "confidential_enquiry",
+      });
       navigate("/thank-you");
     } catch {
       setIsError(true);
@@ -102,7 +107,17 @@ export function ContactForm() {
   return (
     <div className="bg-white p-8 md:p-12 border border-border shadow-sm">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          onFocusCapture={() => {
+            if (hasTrackedStart.current) return;
+            hasTrackedStart.current = true;
+            trackEvent("contact_form_started", {
+              form_name: "confidential_enquiry",
+            });
+          }}
+          className="space-y-6"
+        >
           <input
             type="text"
             name="website"

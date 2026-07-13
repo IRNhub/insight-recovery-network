@@ -51,7 +51,7 @@ export const OG_PAGES: OgPageConfig[] = [
     file: "og-treatment-placement.png",
     title: "Private Rehab Placement",
     subtitle: "UK & International",
-    seoTitle: "Private Rehab Placement | UK & International",
+    seoTitle: "Help Choosing a Rehab | Independent Treatment Placement",
   },
   {
     path: "/online-programme",
@@ -68,9 +68,9 @@ export const OG_PAGES: OgPageConfig[] = [
   {
     path: "/what-we-offer",
     file: "og-what-we-offer.png",
-    title: "Addiction Counselling & Recovery Services",
+    title: "Addiction Recovery Services",
     subtitle: "Insight Recovery Network",
-    seoTitle: "Addiction Counselling & Recovery Services",
+    seoTitle: "Addiction Recovery Services | Placement, Online & Family",
   },
   {
     path: "/assessments",

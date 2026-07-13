@@ -189,8 +189,8 @@ export default function RehabCostUK() {
     <Layout>
       <SEO
         title="How Much Does Rehab Cost in the UK?"
-        fullTitle="How Much Does Rehab Cost in the UK? Private Rehab Prices Explained"
-        description="Private alcohol rehab in the UK can vary widely depending on detox, length of stay and clinical support. Learn typical costs, what affects price, and how to compare safe treatment options."
+        fullTitle="Rehab Costs UK: Private Rehab Prices Explained"
+        description="Compare UK private rehab costs, typical 28-day prices, detox fees, what affects the final price and lower-cost or overseas treatment alternatives."
         canonical={CANONICAL}
         ogImage={HERO_IMAGE}
       />
@@ -209,6 +209,9 @@ export default function RehabCostUK() {
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.08] tracking-tight mb-7 text-primary">
                 How Much Does Rehab Cost in the UK?
               </h1>
+              <div className="mb-6 border-l-4 border-accent bg-background/80 p-5 text-sm leading-relaxed text-primary">
+                <strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within the approved guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are guide figures, not quotes or financial advice.
+              </div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.
               </p>
@@ -230,6 +233,9 @@ export default function RehabCostUK() {
                   Compare UK and overseas rehab options
                 </a>
               </div>
+              <Link href="/services-pricing-guide" className="mt-5 inline-flex text-sm font-semibold text-primary underline decoration-border underline-offset-4 hover:text-accent">
+                View the IRN services and pricing guide
+              </Link>
             </div>
 
             <div>

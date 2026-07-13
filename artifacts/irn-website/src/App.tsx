@@ -7,6 +7,7 @@ import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { installLeadClickTracking } from "@/lib/analytics";
 
 const About = lazy(() => import("@/pages/About"));
 const WhatWeOffer = lazy(() => import("@/pages/WhatWeOffer"));
@@ -38,6 +39,7 @@ const RecoveryPlanChecklistLanding = lazy(() => import("@/pages/RecoveryPlanChec
 const RecoveryPlanChecklist = lazy(() => import("@/pages/RecoveryPlanChecklist"));
 const CraigBilton = lazy(() => import("@/pages/CraigBilton"));
 const DestinationRehab = lazy(() => import("@/pages/DestinationRehab"));
+const AddictionHelpCornwall = lazy(() => import("@/pages/AddictionHelpCornwall"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
@@ -167,6 +169,8 @@ function Router() {
     }
   }, []);
 
+  useEffect(() => installLeadClickTracking(), []);
+
   // Enforce www canonical, redirect bare domain to www.
   // Only fires on the real production domain, never in dev (*.replit.dev).
   if (
@@ -210,6 +214,7 @@ function Router() {
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/private-rehab-uk" component={PrivateRehabUK} />
         <Route path="/how-much-does-rehab-cost-uk" component={RehabCostUK} />
+        <Route path="/addiction-help-cornwall" component={AddictionHelpCornwall} />
         <Route path="/family-addiction-intervention-uk" component={FamilyInterventionUK} />
         <Route path="/confidential-addiction-help-professionals" component={ProfessionalAddictionSupport} />
         <Route path="/get-help" component={GetHelp} />

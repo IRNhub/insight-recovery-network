@@ -65,6 +65,14 @@ const placementFaqs: FAQItem[] = [
     question: "Can Insight Recovery Network arrange medical detox?",
     answer: "We do not provide or prescribe detox. Where medically assisted withdrawal may be needed, we help people identify an appropriately regulated provider and encourage assessment by a qualified medical professional.",
   },
+  {
+    question: "What does treatment placement cost?",
+    answer: "Fees depend on the assessment and level of placement support required. We explain IRN fees and any relevant provider relationship before you proceed. Treatment-provider fees are separate and should be confirmed in writing. Our services and pricing guide gives the current overview.",
+  },
+  {
+    question: "Can you help with an urgent placement?",
+    answer: "We can prioritise time-sensitive enquiries and help clarify safe next steps, but IRN is not an emergency or crisis service. If someone is medically unstable, at immediate risk, suicidal, violent or experiencing severe withdrawal, call 999, attend A&E or seek urgent NHS advice before placement planning.",
+  },
 ];
 
 const comparison: Array<{
@@ -117,8 +125,9 @@ export default function TreatmentPlacement() {
   return (
     <Layout>
       <SEO
-        title={treatmentOg.seoTitle ?? treatmentOg.title}
-        description="Independent guidance on private rehab placement and detox across the UK and internationally. Insight Recovery Network assess your needs, identify the right facility, and manage the transition, confidentially and without pressure."
+        title={treatmentOg.title}
+        fullTitle={treatmentOg.seoTitle ?? treatmentOg.title}
+        description="Independent help choosing a private rehab or detox provider. We assess needs, compare suitable UK and international options and support admission planning."
         canonical="/treatment-placement"
         ogImage={ogImageUrl(treatmentOg.file)}
       />
@@ -161,7 +170,7 @@ export default function TreatmentPlacement() {
                 Find a suitable private rehab or detox provider without making a rushed decision.
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                We assess the situation, compare suitable treatment routes and support the practical move into care across the UK, South Africa, Thailand, Spain and Sri Lanka.
+                Insight Recovery Network helps individuals and families assess their needs, compare appropriate treatment options and access suitable programmes in the UK and internationally.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
@@ -528,6 +537,9 @@ export default function TreatmentPlacement() {
                 </span>
               </Link>
             </div>
+          </div>
+          <div className="mt-8 max-w-3xl border-l-4 border-accent bg-background p-6 text-sm leading-relaxed text-muted-foreground">
+            Treatment placement advice is independent of the provider's final clinical and admission decision. IRN fees, treatment-provider costs and any relevant commercial relationship are explained before you proceed. Review the <Link href="/services-pricing-guide" className="font-semibold text-primary underline underline-offset-4">services and pricing guide</Link>, or ask us to explain the likely costs during a confidential call.
           </div>
         </div>
       </section>
