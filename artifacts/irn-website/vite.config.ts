@@ -243,10 +243,17 @@ function servePrerenderedHtmlPlugin() {
       return next();
     }
     const clean = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+    const relativeHtmlPath = clean.startsWith("/resources/")
+      ? `_resources/${clean.slice("/resources/".length)}.html`
+      : clean.startsWith("/assessments/")
+        ? `_assessments/${clean.slice("/assessments/".length)}.html`
+        : clean === "/recovery-plan-checklist/checklist"
+          ? "recovery-plan-checklist-app.html"
+          : `${clean.replace(/^\//, "")}.html`;
     const htmlFile = path.resolve(
       import.meta.dirname,
       "dist/public",
-      clean.replace(/^\//, "") + ".html",
+      relativeHtmlPath,
     );
     if (fs.existsSync(htmlFile)) {
       const ae = (req.headers["accept-encoding"] as string) ?? "";
@@ -284,6 +291,46 @@ function servePrerenderedHtmlPlugin() {
     },
     configurePreviewServer(server: import("vite").PreviewServer) {
       server.middlewares.use(htmlMiddleware);
+    },
+  };
+}
+
+/**
+ * Return the generated 404 document with a real 404 status in preview/production.
+ * This runs after the prerendered-page middleware and before Vite's SPA fallback.
+ */
+function trueNotFoundPlugin() {
+  function middleware(
+    req: import("http").IncomingMessage,
+    res: import("http").ServerResponse,
+    next: () => void,
+  ) {
+    const pathname = (req.url ?? "/").split("?")[0].split("#")[0];
+    if (
+      pathname === "/" ||
+      pathname.includes(".") ||
+      pathname.startsWith("/api")
+    ) {
+      return next();
+    }
+
+    const notFoundFile = path.resolve(import.meta.dirname, "dist/public/404.html");
+    if (!fs.existsSync(notFoundFile)) return next();
+
+    const content = fs.readFileSync(notFoundFile);
+    res.writeHead(404, {
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Length": content.length,
+      "Cache-Control": "no-cache, no-store, must-revalidate",
+      "X-Robots-Tag": "noindex, nofollow",
+    });
+    res.end(content);
+  }
+
+  return {
+    name: "true-not-found",
+    configurePreviewServer(server: import("vite").PreviewServer) {
+      server.middlewares.use(middleware);
     },
   };
 }
@@ -370,10 +417,8 @@ function serverRedirectsPlugin() {
     // Strips port from Host so localhost dev is unaffected.
     const host = (req.headers.host ?? "").replace(/:\d+$/, "");
     if (host === "insightrecoverynetwork.com") {
-      const proto =
-        (req.headers["x-forwarded-proto"] as string | undefined) ?? "https";
       res.writeHead(301, {
-        Location: `${proto}://www.insightrecoverynetwork.com${req.url}`,
+        Location: `https://www.insightrecoverynetwork.com${req.url}`,
       });
       res.end();
       return;
@@ -411,6 +456,7 @@ export default defineConfig({
     cacheControlPlugin(),
     serveCompressedStaticPlugin(),
     servePrerenderedHtmlPlugin(),
+    trueNotFoundPlugin(),
     react(),
     tailwindcss(),
     runtimeErrorOverlay(),

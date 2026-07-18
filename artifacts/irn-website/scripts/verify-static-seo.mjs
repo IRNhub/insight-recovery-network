@@ -37,6 +37,14 @@ function assertNoEmDashes(directory) {
 assertNoEmDashes(root);
 
 const config = read(artifactConfig);
+if (/\bserve\s*=\s*["']static["']/.test(config)) {
+  fail("Static production serving bypasses the non-www host redirect middleware.");
+}
+const hasProductionServe =
+  /\[services\.production\.run\][\s\S]*?args\s*=\s*\[[^\]]*["']run["'][^\]]*["']serve["']/.test(config);
+if (!hasProductionServe) {
+  fail("Production must run the website serve script so canonical host redirects execute.");
+}
 const rewrites = [];
 const rewritePattern = /\[\[services\.production\.rewrites\]\]\s*\n\s*from\s*=\s*"([^"]+)"\s*\n\s*to\s*=\s*"([^"]+)"/g;
 for (const match of config.matchAll(rewritePattern)) {
@@ -202,6 +210,11 @@ if (sitemap.includes(`${siteUrl}/services-pricing-guide</loc>`)) {
 const robotsTxt = read(resolve(dist, "robots.txt"));
 if (!/User-agent:\s*OAI-SearchBot\s*\nAllow:\s*\//i.test(robotsTxt)) {
   fail("robots.txt does not explicitly allow OAI-SearchBot.");
+}
+const robotsSitemaps = [...robotsTxt.matchAll(/^Sitemap:\s*(\S+)\s*$/gim)]
+  .map((match) => match[1]);
+if (robotsSitemaps.length !== 1 || robotsSitemaps[0] !== `${siteUrl}/sitemap.xml`) {
+  fail(`robots.txt must reference only ${siteUrl}/sitemap.xml.`);
 }
 
 console.log(`✓ Static SEO verification passed for ${checked} sitemap URLs.`);

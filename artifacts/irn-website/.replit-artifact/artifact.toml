@@ -19,8 +19,16 @@ kind = "web"
 
   [services.production]
   build = [ "pnpm", "--filter", "@workspace/irn-website", "run", "build" ]
-  publicDir = "artifacts/irn-website/dist/public"
-  serve = "static"
+
+  # Run the production web service so host-level canonical redirects and
+  # response middleware execute. Static serving bypasses Vite middleware and
+  # caused the bare domain to return 200 before the client redirected to www.
+  [services.production.run]
+  args = [ "pnpm", "--filter", "@workspace/irn-website", "run", "serve" ]
+
+  [services.production.run.env]
+  NODE_ENV = "production"
+  PORT = "18088"
 
   # ── Top-level pages (no trailing slash) ──────────────────────────────────────
   [[services.production.rewrites]]
