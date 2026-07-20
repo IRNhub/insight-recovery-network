@@ -193,7 +193,7 @@ function ResearchHeader({ onLogout, location }: { onLogout: () => void; location
   );
 }
 
-// ── Survey list ──────────────────────────────────────────────────────────────
+// ── Survey list ────────────────────────────────────────────────────────────
 
 export default function AdminResearch({ secret, onLogout }: CommonProps) {
   const [location] = useLocation();
