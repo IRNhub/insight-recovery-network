@@ -1,5 +1,5 @@
 /**
- * IRNOS — Research & Surveys admin section.
+ * IRNOS – Research & Surveys admin section.
  *
  * Views:
  * - Survey list        (/admin/research)
@@ -7,7 +7,7 @@
  * - Individual response (/admin/research/:id/responses/:responseId)
  *
  * Access is restricted to holders of the admin secret (Admin / Clinical
- * Director). Raw IP addresses are never available here — the API does not
+ * Director). Raw IP addresses are never available here – the API does not
  * expose them and they are never stored.
  */
 import { useMemo, useState } from "react";
@@ -125,13 +125,13 @@ async function adminPost(secret: string, path: string, body?: unknown): Promise<
 }
 
 function formatDateTime(iso: string | null): string {
-  if (!iso) return "—";
+  if (!iso) return "–";
   const d = new Date(iso);
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
 }
 
 function formatDuration(seconds: number | null): string {
-  if (seconds === null || seconds === undefined) return "—";
+  if (seconds === null || seconds === undefined) return "–";
   if (seconds < 60) return `${seconds}s`;
   return `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
 }
@@ -193,7 +193,7 @@ function ResearchHeader({ onLogout, location }: { onLogout: () => void; location
   );
 }
 
-// ── Survey list ────────────────────────────────────────────────────────────────
+// ── Survey list ──────────────────────────────────────────────────────────────
 
 export default function AdminResearch({ secret, onLogout }: CommonProps) {
   const [location] = useLocation();
@@ -660,15 +660,15 @@ export function AdminSurveyDetail({ secret, onLogout, surveyId }: CommonProps & 
                   <tr key={row.id} className={`border-b border-border/20 ${row.excludedFromAnalysis ? "opacity-50" : ""}`}>
                     <td className="px-4 py-3 font-mono text-xs">{row.responseCode}</td>
                     <td className="px-4 py-3 whitespace-nowrap">{formatDateTime(row.submittedAt)}</td>
-                    <td className="px-4 py-3">{row.country ?? "—"}</td>
-                    <td className="px-4 py-3">{row.relationship ?? "—"}</td>
-                    <td className="px-4 py-3">{row.mainAddiction ?? "—"}</td>
+                    <td className="px-4 py-3">{row.country ?? "–"}</td>
+                    <td className="px-4 py-3">{row.relationship ?? "–"}</td>
+                    <td className="px-4 py-3">{row.mainAddiction ?? "–"}</td>
                     <td className="px-4 py-3">{row.source ?? "direct"}</td>
                     <td className="px-4 py-3">{formatDuration(row.completionDurationSeconds)}</td>
                     <td className="px-4 py-3 text-xs">
                       {row.suspectedDuplicate && <span className="text-amber-700">Duplicate? </span>}
                       {row.minimumTimeFlag && <span className="text-amber-700">Fast</span>}
-                      {!row.suspectedDuplicate && !row.minimumTimeFlag && "—"}
+                      {!row.suspectedDuplicate && !row.minimumTimeFlag && "–"}
                     </td>
                     <td className="px-4 py-3 text-xs">{row.excludedFromAnalysis ? "Excluded" : "Included"}</td>
                     <td className="px-4 py-3 text-xs">{row.quotationPermission ? "Yes" : "No"}</td>
@@ -697,7 +697,7 @@ export function AdminSurveyDetail({ secret, onLogout, surveyId }: CommonProps & 
   );
 }
 
-// ── Individual response ──────────────────────────────────────────────────────
+// ── Individual response ────────────────────────────────────────────────────
 
 export function AdminSurveyResponseView({
   secret,
@@ -773,11 +773,11 @@ export function AdminSurveyResponseView({
               <dl className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                 <div><dt className="text-xs text-muted-foreground">Submitted</dt><dd className="text-foreground">{formatDateTime(r.submittedAt)}</dd></div>
                 <div><dt className="text-xs text-muted-foreground">Completion time</dt><dd className="text-foreground">{formatDuration(r.completionDurationSeconds)}</dd></div>
-                <div><dt className="text-xs text-muted-foreground">Device category</dt><dd className="text-foreground capitalize">{r.userAgentCategory ?? "—"}</dd></div>
+                <div><dt className="text-xs text-muted-foreground">Device category</dt><dd className="text-foreground capitalize">{r.userAgentCategory ?? "–"}</dd></div>
                 <div><dt className="text-xs text-muted-foreground">Consent accepted</dt><dd className="text-foreground">{r.consentAccepted ? "Yes" : "No"}</dd></div>
                 <div><dt className="text-xs text-muted-foreground">Quotation permission</dt><dd className="text-foreground">{r.quotationPermission ? "Given" : "Not given"}</dd></div>
                 <div><dt className="text-xs text-muted-foreground">Source / medium / campaign</dt><dd className="text-foreground">{[r.source, r.medium, r.campaign].filter(Boolean).join(" / ") || "direct"}</dd></div>
-                <div className="col-span-2"><dt className="text-xs text-muted-foreground">Referral URL</dt><dd className="text-foreground break-all">{r.referralUrl || "—"}</dd></div>
+                <div className="col-span-2"><dt className="text-xs text-muted-foreground">Referral URL</dt><dd className="text-foreground break-all">{r.referralUrl || "–"}</dd></div>
               </dl>
             </div>
 
@@ -787,7 +787,7 @@ export function AdminSurveyResponseView({
                 <ul className="list-disc pl-5 space-y-1">
                   {r.suspectedDuplicate && <li>Possible duplicate submission (matched a recent submission signature).</li>}
                   {r.minimumTimeFlag && <li>Completed unusually quickly (under the minimum realistic completion time).</li>}
-                  {r.excludedFromAnalysis && <li>Excluded from analysis{r.exclusionReason ? ` — ${r.exclusionReason}` : ""}.</li>}
+                  {r.excludedFromAnalysis && <li>Excluded from analysis{r.exclusionReason ? ` – ${r.exclusionReason}` : ""}.</li>}
                 </ul>
               </div>
             )}
