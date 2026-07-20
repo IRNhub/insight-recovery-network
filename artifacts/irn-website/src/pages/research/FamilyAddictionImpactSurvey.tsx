@@ -1,5 +1,5 @@
 /**
- * UK Family Addiction Impact Survey 2026 — public survey page.
+ * UK Family Addiction Impact Survey 2026 – public survey page.
  *
  * Route: /research/family-addiction-impact-survey-2026
  * - Anonymous, no account required, no personal contact information collected.
@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
-// TODO(Craig): replace with the supplied campaign image — add it to
+// TODO(Craig): replace with the supplied campaign image – add it to
 // src/assets/ as family-addiction-impact-survey-2026-hero.webp (WebP,
 // compressed) and update this import path accordingly.
 import heroImage from "@/assets/hero-family-guidance.webp";
@@ -167,7 +167,7 @@ export default function FamilyAddictionImpactSurvey() {
     try {
       window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
     } catch {
-      // Storage may be unavailable (private browsing) — continue in memory.
+      // Storage may be unavailable (private browsing) – continue in memory.
     }
   }, [stored]);
 

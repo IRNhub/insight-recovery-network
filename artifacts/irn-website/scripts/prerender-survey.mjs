@@ -3,7 +3,7 @@
  *
  * Runs after prerender-meta.mjs (see package.json "build"). Generates
  * dist/public/research/<slug>.html from the built index.html so that
- * crawlers see the correct title, description, canonical and — crucially —
+ * crawlers see the correct title, description, canonical and – crucially –
  * the `noindex, follow` robots directive in static HTML, without executing
  * JavaScript.
  *
@@ -80,7 +80,7 @@ function injectMeta(baseHtml, page) {
   );
 
   // Static body for non-JS crawlers: inject just inside the root div fallback
-  // position — append before closing </body>, matching prerender-meta's
+  // position – append before closing </body>, matching prerender-meta's
   // approach of providing static content alongside the SPA mount point.
   if (page.body) {
     out = out.replace("</body>", `<noscript>${page.body}</noscript></body>`);
