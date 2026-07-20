@@ -1,6 +1,7 @@
 import app from "./app";
 import { logger } from "./lib/logger";
 import { seedArticlesIfEmpty } from "./lib/seed-articles";
+import { seedFamilySurvey } from "./lib/seed-family-survey";
 
 const rawPort = process.env["PORT"];
 
@@ -27,5 +28,10 @@ app.listen(port, (err) => {
   // Auto-seed articles on first start (non-blocking, non-fatal)
   seedArticlesIfEmpty().catch((err) =>
     logger.error({ err }, "Unexpected error in seedArticlesIfEmpty"),
+  );
+
+  // Auto-seed Research & Surveys (idempotent, non-blocking, non-fatal)
+  seedFamilySurvey().catch((err) =>
+    logger.error({ err }, "Unexpected error in seedFamilySurvey"),
   );
 });

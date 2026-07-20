@@ -42,6 +42,7 @@ const CraigBilton = lazy(() => import("@/pages/CraigBilton"));
 const DestinationRehab = lazy(() => import("@/pages/DestinationRehab"));
 const AddictionHelpCornwall = lazy(() => import("@/pages/AddictionHelpCornwall"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
+const FamilyAddictionImpactSurvey = lazy(() => import("@/pages/research/FamilyAddictionImpactSurvey"));
 const PrivacyPolicy = lazy(() => import("@/pages/legal/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("@/pages/legal/TermsOfService"));
 const CookiePolicy = lazy(() => import("@/pages/legal/CookiePolicy"));
@@ -226,6 +227,8 @@ function Router() {
         <Route path="/private-rehab-south-africa">{() => <DestinationRehab slug="private-rehab-south-africa" />}</Route>
         <Route path="/private-rehab-spain">{() => <DestinationRehab slug="private-rehab-spain" />}</Route>
         <Route path="/private-rehab-sri-lanka">{() => <DestinationRehab slug="private-rehab-sri-lanka" />}</Route>
+        {/* Research & Surveys (public, noindex, not in navigation or sitemap) */}
+        <Route path="/research/family-addiction-impact-survey-2026" component={FamilyAddictionImpactSurvey} />
         <Route path="/resources" component={ResourcesList} />
         <Route path="/resources/:slug" component={ResourceDetail} />
         <Route path="/assessments" component={AssessmentsIndex} />

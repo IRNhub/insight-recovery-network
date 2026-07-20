@@ -1,0 +1,230 @@
+/**
+ * Pure helpers for the Research & Surveys framework.
+ *
+ * Everything in this file is side-effect free so it can be unit tested
+ * without a database (see survey-utils.test.ts).
+ *
+ * PRIVACY NOTE — IP handling:
+ * Raw IP addresses are never persisted. `computeClientHash` produces a salted
+ * one-way SHA-256 digest of the IP + user agent, used only during submission
+ * processing to flag suspected duplicate responses. The salt comes from
+ * SURVEY_HASH_SALT (or a random per-boot value if unset, which makes hashes
+ * incomparable across restarts — still sufficient for burst duplicate
+ * detection). The hash cannot reasonably be reversed and is never exposed in
+ * IRNOS admin screens, API responses or exports.
+ */
+import { createHash, randomBytes } from "node:crypto";
+
+export type SurveyQuestionTypeName =
+  | "single_choice"
+  | "multi_choice"
+  | "scale"
+  | "short_text"
+  | "long_text"
+  | "yes_no"
+  | "consent";
+
+export interface QuestionOptions {
+  choices?: string[];
+  scaleMin?: number;
+  scaleMax?: number;
+  scaleMinLabel?: string;
+  scaleMaxLabel?: string;
+  maxLength?: number;
+}
+
+export interface QuestionForValidation {
+  id: number;
+  questionKey: string;
+  questionType: SurveyQuestionTypeName;
+  isRequired: boolean;
+  options: QuestionOptions | null;
+}
+
+export interface CleanAnswer {
+  questionId: number;
+  questionKey: string;
+  answerValue: string | null;
+  answerValues: string[] | null;
+}
+
+export const DEFAULT_SHORT_TEXT_MAX = 500;
+export const DEFAULT_LONG_TEXT_MAX = 4000;
+
+/** Unambiguous alphabet (no 0/O, 1/I/L) for anonymous response codes. */
+const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+
+/** e.g. FAM-2026-7K2Q9XWD — contains no personal information. */
+export function generateResponseCode(prefix: string): string {
+  const bytes = randomBytes(8);
+  let suffix = "";
+  for (let i = 0; i < 8; i++) {
+    suffix += CODE_ALPHABET[bytes[i]! % CODE_ALPHABET.length];
+  }
+  return `${prefix}-${suffix}`;
+}
+
+const bootSalt = randomBytes(16).toString("hex");
+
+export function computeClientHash(ip: string, userAgent: string, salt?: string): string {
+  const effectiveSalt = salt || process.env.SURVEY_HASH_SALT || bootSalt;
+  return createHash("sha256").update(`${effectiveSalt}|${ip}|${userAgent}`).digest("hex");
+}
+
+/** Coarse, non-identifying device category derived from the user agent. */
+export function categoriseUserAgent(userAgent: string | undefined): string {
+  if (!userAgent) return "unknown";
+  const ua = userAgent.toLowerCase();
+  if (/bot|crawler|spider|curl|wget|python|httpclient/.test(ua)) return "bot";
+  if (/ipad|tablet|kindle|silk/.test(ua) || (/android/.test(ua) && !/mobile/.test(ua))) return "tablet";
+  if (/mobile|iphone|android|windows phone/.test(ua)) return "mobile";
+  return "desktop";
+}
+
+/**
+ * Strips HTML tags, script content and control characters from free-text
+ * answers, collapses whitespace and enforces a maximum length.
+ */
+export function sanitiseText(value: string, maxLength: number): string {
+  const withoutTags = value
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]*>/g, " ");
+  const withoutControl = withoutTags.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "");
+  const collapsed = withoutControl.replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+  return collapsed.slice(0, maxLength);
+}
+
+export interface ValidationResult {
+  errors: string[];
+  cleanAnswers: CleanAnswer[];
+}
+
+/**
+ * Validates raw client answers (keyed by questionKey) against the approved
+ * question definitions loaded from the database. Client-submitted labels,
+ * option lists and types are never trusted — only the stored definitions.
+ */
+export function validateAnswers(
+  questions: QuestionForValidation[],
+  rawAnswers: Record<string, unknown>,
+): ValidationResult {
+  const errors: string[] = [];
+  const cleanAnswers: CleanAnswer[] = [];
+
+  for (const question of questions) {
+    const raw = rawAnswers[question.questionKey];
+    const isMissing =
+      raw === undefined ||
+      raw === null ||
+      (typeof raw === "string" && raw.trim() === "") ||
+      (Array.isArray(raw) && raw.length === 0);
+
+    if (isMissing) {
+      if (question.isRequired) {
+        errors.push(`Question "${question.questionKey}" requires an answer.`);
+      }
+      continue;
+    }
+
+    const options = question.options ?? {};
+
+    switch (question.questionType) {
+      case "single_choice": {
+        if (typeof raw !== "string" || !options.choices?.includes(raw)) {
+          errors.push(`Question "${question.questionKey}" has an invalid option.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: raw, answerValues: null });
+        break;
+      }
+      case "multi_choice": {
+        if (!Array.isArray(raw) || raw.some((v) => typeof v !== "string")) {
+          errors.push(`Question "${question.questionKey}" must be a list of options.`);
+          continue;
+        }
+        const unique = [...new Set(raw as string[])];
+        const approved = options.choices ?? [];
+        if (unique.some((v) => !approved.includes(v)) || unique.length > approved.length) {
+          errors.push(`Question "${question.questionKey}" has an invalid option.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: null, answerValues: unique });
+        break;
+      }
+      case "scale": {
+        const num = typeof raw === "number" ? raw : Number(raw);
+        const min = options.scaleMin ?? 1;
+        const max = options.scaleMax ?? 10;
+        if (!Number.isInteger(num) || num < min || num > max) {
+          errors.push(`Question "${question.questionKey}" must be a whole number between ${min} and ${max}.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: String(num), answerValues: null });
+        break;
+      }
+      case "yes_no": {
+        if (raw !== "yes" && raw !== "no") {
+          errors.push(`Question "${question.questionKey}" must be yes or no.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: raw, answerValues: null });
+        break;
+      }
+      case "consent": {
+        if (typeof raw !== "boolean") {
+          errors.push(`Question "${question.questionKey}" must be true or false.`);
+          continue;
+        }
+        if (question.isRequired && raw !== true) {
+          errors.push(`Question "${question.questionKey}" must be accepted.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: raw ? "true" : "false", answerValues: null });
+        break;
+      }
+      case "short_text":
+      case "long_text": {
+        if (typeof raw !== "string") {
+          errors.push(`Question "${question.questionKey}" must be text.`);
+          continue;
+        }
+        const maxLength =
+          options.maxLength ?? (question.questionType === "long_text" ? DEFAULT_LONG_TEXT_MAX : DEFAULT_SHORT_TEXT_MAX);
+        if (raw.length > maxLength * 2) {
+          errors.push(`Question "${question.questionKey}" exceeds the maximum length.`);
+          continue;
+        }
+        const cleaned = sanitiseText(raw, maxLength);
+        if (!cleaned) {
+          if (question.isRequired) errors.push(`Question "${question.questionKey}" requires an answer.`);
+          continue;
+        }
+        cleanAnswers.push({ questionId: question.id, questionKey: question.questionKey, answerValue: cleaned, answerValues: null });
+        break;
+      }
+      default:
+        errors.push(`Question "${question.questionKey}" has an unsupported type.`);
+    }
+  }
+
+  return { errors, cleanAnswers };
+}
+
+/** Escapes a value for inclusion in a CSV cell. */
+export function csvCell(value: unknown): string {
+  if (value === null || value === undefined) return "";
+  const str = Array.isArray(value) ? value.join("; ") : String(value);
+  if (/[",\n\r]/.test(str)) {
+    return `"${str.replace(/"/g, '""')}"`;
+  }
+  return str;
+}
+
+export function toCsv(headers: string[], rows: unknown[][]): string {
+  const lines = [headers.map(csvCell).join(",")];
+  for (const row of rows) {
+    lines.push(row.map(csvCell).join(","));
+  }
+  return "\uFEFF" + lines.join("\r\n") + "\r\n";
+}
