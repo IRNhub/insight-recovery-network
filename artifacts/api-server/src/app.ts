@@ -7,6 +7,12 @@ import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+if (process.env.NODE_ENV === "production") {
+  // Replit/Google Frontend is the only trusted proxy hop. Express then derives
+  // req.ip safely instead of application code trusting a spoofable header.
+  app.set("trust proxy", 1);
+}
+
 app.use(
   pinoHttp({
     logger,
@@ -38,6 +44,7 @@ app.use((req, res, next) => {
   );
   if (req.path === "/api/admin" || req.path.startsWith("/api/admin/")) {
     res.setHeader("X-Robots-Tag", "noindex, nofollow");
+    res.setHeader("Cache-Control", "private, no-store");
   }
   next();
 });

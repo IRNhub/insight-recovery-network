@@ -2,7 +2,7 @@
  * UK Family Addiction Impact Survey 2026 – public survey page.
  *
  * Route: /research/family-addiction-impact-survey-2026
- * - Anonymous, no account required, no personal contact information collected.
+ * - No account required and no name or contact details requested.
  * - noindex,follow while responses are collected; excluded from sitemap.xml.
  * - Multi-step form with progress, review screen and double-submit protection.
  * - Question definitions are fetched from the API (single source of truth);
@@ -98,20 +98,21 @@ async function fetchSurvey(): Promise<PublicSurvey> {
 }
 
 const PRIVACY_POINTS = [
-  "Responses are anonymous.",
+  "We do not ask for your name, email address or phone number.",
   "Please do not include names or identifying details in free-text answers.",
+  "A short-lived, salted technical signature is used to flag duplicate submissions; raw IP addresses are not stored.",
   "Results may be reported in aggregated form.",
-  "Anonymous comments will only be quoted where separate permission has been given.",
+  "De-identified comments will only be quoted where separate permission has been given.",
   "This survey is not a clinical assessment.",
   "Completing the survey does not establish a clinical relationship with Insight Recovery Network.",
   "The survey is not suitable for urgent or emergency support.",
 ];
 
 const REQUIRED_CONSENT_TEXT =
-  "I confirm that I am aged 18 or over, understand that this survey is anonymous, and consent to my responses being analysed and reported in aggregated form by Insight Recovery Network.";
+  "I confirm that I am aged 18 or over, understand that this survey does not ask for my name or contact details, and consent to my responses being analysed and reported in aggregated form by Insight Recovery Network.";
 
 const QUOTATION_CONSENT_TEXT =
-  "I agree that anonymous comments I provide may be quoted in reports, articles or media materials.";
+  "I agree that de-identified comments I provide may be quoted in reports, articles or media materials.";
 
 export default function FamilyAddictionImpactSurvey() {
   const { data: survey, isLoading, isError } = useQuery({
@@ -324,7 +325,7 @@ export default function FamilyAddictionImpactSurvey() {
     <Layout>
       <SEO
         title="UK Family Addiction Impact Survey 2026"
-        description="An anonymous five-minute survey by Insight Recovery Network exploring how addiction affects families and the barriers to accessing help."
+        description="A privacy-focused survey by Insight Recovery Network exploring how addiction affects families and the barriers to accessing help."
         canonical="/research/family-addiction-impact-survey-2026"
       />
       {/* noindex,follow while responses are collected; page is excluded from sitemap.xml */}
@@ -338,7 +339,7 @@ export default function FamilyAddictionImpactSurvey() {
         description={
           <>
             Help us better understand how addiction affects families, relationships and access to treatment.
-            This anonymous five-minute survey will contribute to educational resources, research findings and
+            This privacy-focused survey will contribute to educational resources, research findings and
             media commentary developed by Insight Recovery Network.
           </>
         }
@@ -348,7 +349,7 @@ export default function FamilyAddictionImpactSurvey() {
             document.getElementById("survey")?.scrollIntoView({ behavior: "smooth", block: "start" });
           },
         }}
-        footnote={<>Anonymous&ensp;•&ensp;Adults aged 18+&ensp;•&ensp;Approximately 5 minutes</>}
+        footnote={<>No name or contact details requested&ensp;•&ensp;Adults aged 18+&ensp;•&ensp;Approximately 7–10 minutes</>}
         image={{
           src: heroImage,
           alt: "A family sitting together in a calm home environment during a supportive conversation",
@@ -404,7 +405,7 @@ export default function FamilyAddictionImpactSurvey() {
                   Thank you for contributing to the UK Family Addiction Impact Survey 2026.
                 </h2>
                 <p className="text-muted-foreground font-light leading-relaxed mb-4">
-                  Your response has been submitted anonymously. Your contribution will help Insight Recovery
+                  Your response has been submitted without your name or contact details. Your contribution will help Insight Recovery
                   Network better understand the experience of families affected by addiction and improve
                   future educational and research materials.
                 </p>
@@ -447,7 +448,7 @@ export default function FamilyAddictionImpactSurvey() {
                     </h2>
                     <div className="space-y-4 text-muted-foreground font-light leading-relaxed mb-8">
                       <p>
-                        Insight Recovery Network is conducting an anonymous survey to better understand how
+                        Insight Recovery Network is conducting a privacy-focused survey to better understand how
                         addiction affects families and the barriers people face when trying to access help.
                       </p>
                       <p>
@@ -459,7 +460,7 @@ export default function FamilyAddictionImpactSurvey() {
                         The survey is intended for adults aged 18 or over who have been affected by the
                         addiction or compulsive behaviour of a family member, partner or someone close to them.
                       </p>
-                      <p className="text-primary">Estimated completion time: approximately 5 minutes.</p>
+                      <p className="text-primary">Estimated completion time: approximately 7–10 minutes.</p>
                     </div>
 
                     <div className="border border-border/60 bg-card p-6 md:p-8 mb-8">
@@ -730,7 +731,7 @@ export default function FamilyAddictionImpactSurvey() {
                     </h2>
                     <p className="text-muted-foreground font-light mb-8">
                       Please review your answers below. You can go back to change anything before submitting.
-                      Your response is anonymous.
+                      We do not ask for your name or contact details.
                     </p>
 
                     <div className="space-y-8 mb-10">
@@ -768,7 +769,7 @@ export default function FamilyAddictionImpactSurvey() {
                             <dd className="text-sm text-foreground mt-0.5">Accepted</dd>
                           </div>
                           <div>
-                            <dt className="text-sm text-muted-foreground font-light">Permission to quote anonymous comments</dt>
+                            <dt className="text-sm text-muted-foreground font-light">Permission to quote de-identified comments</dt>
                             <dd className="text-sm text-foreground mt-0.5">
                               {stored.quotationPermission ? "Given" : "Not given"}
                             </dd>

@@ -114,6 +114,9 @@ export const surveyResponsesTable = pgTable("survey_responses", {
   excludedFromAnalysis: boolean("excluded_from_analysis").notNull().default(false),
   exclusionReason: text("exclusion_reason"),
   adminNotes: text("admin_notes"),
+  irnOsForwardedAt: timestamp("irnos_forwarded_at"),
+  irnOsForwardAttempts: integer("irnos_forward_attempts").notNull().default(0),
+  irnOsForwardError: text("irnos_forward_error"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 

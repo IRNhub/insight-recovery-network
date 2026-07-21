@@ -6,9 +6,15 @@ import AdminArticles from "./AdminArticles";
 import AdminEnquiries from "./AdminEnquiries";
 import AdminResourceLeads from "./AdminResourceLeads";
 import ArticleEditor from "./ArticleEditor";
-import AdminResearch, { AdminSurveyDetail, AdminSurveyResponseView } from "./AdminResearch";
 
 const STORAGE_KEY = "irn_admin_secret";
+
+function ResearchMoved() {
+  useEffect(() => {
+    window.location.replace("https://irnos.online/research");
+  }, []);
+  return <div className="min-h-screen flex items-center justify-center text-sm text-muted-foreground">Opening Research &amp; Surveys in IRNOS…</div>;
+}
 
 export default function AdminApp() {
   const [secret, setSecret] = useState<string | null>(() => {
@@ -68,23 +74,11 @@ export default function AdminApp() {
       <Route path="/admin/leads">
         <AdminResourceLeads secret={secret} onLogout={handleLogout} />
       </Route>
-      <Route path="/admin/research/:surveyId/responses/:responseId">
-        {(params) => (
-          <AdminSurveyResponseView
-            secret={secret}
-            onLogout={handleLogout}
-            surveyId={Number(params.surveyId)}
-            responseId={Number(params.responseId)}
-          />
-        )}
-      </Route>
-      <Route path="/admin/research/:surveyId">
-        {(params) => (
-          <AdminSurveyDetail secret={secret} onLogout={handleLogout} surveyId={Number(params.surveyId)} />
-        )}
+      <Route path="/admin/research/:rest*">
+        <ResearchMoved />
       </Route>
       <Route path="/admin/research">
-        <AdminResearch secret={secret} onLogout={handleLogout} />
+        <ResearchMoved />
       </Route>
       <Route path="/admin/articles">
         <AdminArticles secret={secret} onLogout={handleLogout} />
