@@ -65,8 +65,14 @@ CREATE TABLE IF NOT EXISTS survey_responses (
   excluded_from_analysis boolean NOT NULL DEFAULT false,
   exclusion_reason text,
   admin_notes text,
+  irnos_forwarded_at timestamp,
+  irnos_forward_attempts integer NOT NULL DEFAULT 0,
+  irnos_forward_error text,
   created_at timestamp NOT NULL DEFAULT now()
 );
+ALTER TABLE survey_responses ADD COLUMN IF NOT EXISTS irnos_forwarded_at timestamp;
+ALTER TABLE survey_responses ADD COLUMN IF NOT EXISTS irnos_forward_attempts integer NOT NULL DEFAULT 0;
+ALTER TABLE survey_responses ADD COLUMN IF NOT EXISTS irnos_forward_error text;
 CREATE INDEX IF NOT EXISTS survey_responses_survey_idx ON survey_responses (survey_id);
 CREATE INDEX IF NOT EXISTS survey_responses_client_hash_idx ON survey_responses (survey_id, client_hash);
 

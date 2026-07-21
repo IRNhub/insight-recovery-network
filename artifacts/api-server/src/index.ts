@@ -2,6 +2,7 @@ import app from "./app";
 import { logger } from "./lib/logger";
 import { seedArticlesIfEmpty } from "./lib/seed-articles";
 import { seedFamilySurvey } from "./lib/seed-family-survey";
+import { startSurveySyncWorker } from "./lib/irn-os-survey-sync";
 
 const rawPort = process.env["PORT"];
 
@@ -31,7 +32,7 @@ app.listen(port, (err) => {
   );
 
   // Auto-seed Research & Surveys (idempotent, non-blocking, non-fatal)
-  seedFamilySurvey().catch((err) =>
-    logger.error({ err }, "Unexpected error in seedFamilySurvey"),
-  );
+  seedFamilySurvey()
+    .catch((err) => logger.error({ err }, "Unexpected error in seedFamilySurvey"))
+    .finally(() => startSurveySyncWorker());
 });

@@ -382,7 +382,7 @@ export async function seedFamilySurvey(): Promise<void> {
           slug: FAMILY_SURVEY_SLUG,
           title: "UK Family Addiction Impact Survey 2026",
           description:
-            "Insight Recovery Network is conducting an anonymous survey to better understand how addiction affects families and the barriers people face when trying to access help.",
+            "Insight Recovery Network is conducting a privacy-focused survey to better understand how addiction affects families and the barriers people face when trying to access help.",
           status: initialStatus,
           isPublic: initialStatus === "open",
           isNoIndex: true,
@@ -392,6 +392,14 @@ export async function seedFamilySurvey(): Promise<void> {
         .returning();
       logger.info({ slug: FAMILY_SURVEY_SLUG, status: initialStatus }, "Seeded family survey");
     }
+
+    if (!survey) return;
+
+    [survey] = await db.update(surveysTable).set({
+      title: "UK Family Addiction Impact Survey 2026",
+      description: "Insight Recovery Network is conducting a privacy-focused survey to better understand how addiction affects families and the barriers people face when trying to access help.",
+      updatedAt: new Date(),
+    }).where(eq(surveysTable.id, survey.id)).returning();
 
     if (!survey) return;
 

@@ -27,10 +27,10 @@ const SURVEY_PAGES = [
     file: "research/family-addiction-impact-survey-2026.html",
     title: "UK Family Addiction Impact Survey 2026 | Insight Recovery Network",
     description:
-      "An anonymous five-minute survey by Insight Recovery Network exploring how addiction affects families and the barriers to accessing help.",
+      "A privacy-focused 7–10 minute survey by Insight Recovery Network exploring how addiction affects families and barriers to accessing help.",
     // Collecting responses: keep out of the index but let crawlers follow links.
     robots: "noindex, follow",
-    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><p style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">IRN Research 2026</p><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">UK Family Addiction Impact Survey 2026</h1><p style="line-height:1.8;color:#4a5568;">An anonymous five-minute survey to help us better understand how addiction affects families, relationships and access to treatment. Anonymous. Adults aged 18+. Approximately 5 minutes.</p></div></main>`,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><p style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1rem;">IRN Research 2026</p><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">UK Family Addiction Impact Survey 2026</h1><p style="line-height:1.8;color:#4a5568;">A privacy-focused survey to help us better understand how addiction affects families, relationships and access to treatment. No name or contact details requested. Adults aged 18+. Approximately 7–10 minutes.</p></div></main>`,
   },
 ];
 
@@ -46,15 +46,9 @@ function injectMeta(baseHtml, page) {
   let out = baseHtml;
   const canonicalUrl = `${SITE_URL}${page.route}`;
 
-  out = out.replace(/(<title>)[^<]*(<\/title>)/, `$1${page.title}$2`);
-  out = out.replace(
-    /(<meta\s+name="description"\s+content=")[^"]*(")/,
-    `$1${esc(page.description)}$2`,
-  );
-  out = out.replace(
-    /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
-    `$1${canonicalUrl}$2`,
-  );
+  out = out.replace(/<title[^>]*>[^<]*<\/title>/i, `<title>${page.title}</title>`);
+  out = out.replace(/<meta\b(?=[^>]*\bname="description")[^>]*>/i, `<meta name="description" content="${esc(page.description)}" />`);
+  out = out.replace(/<link\b(?=[^>]*\brel="canonical")[^>]*>/i, `<link rel="canonical" href="${canonicalUrl}" />`);
   if (/<meta\s+name="robots"/.test(out)) {
     out = out.replace(
       /(<meta\s+name="robots"\s+content=")[^"]*(")/,
@@ -66,18 +60,16 @@ function injectMeta(baseHtml, page) {
       `</title>\n    <meta name="robots" content="${page.robots}" />`,
     );
   }
-  out = out.replace(
-    /(<meta\s+property="og:title"\s+content=")[^"]*(")/,
-    `$1${page.title}$2`,
-  );
-  out = out.replace(
-    /(<meta\s+property="og:description"\s+content=")[^"]*(")/,
-    `$1${esc(page.description)}$2`,
-  );
-  out = out.replace(
-    /(<meta\s+property="og:url"\s+content=")[^"]*(")/,
-    `$1${canonicalUrl}$2`,
-  );
+  out = out.replace(/<meta\b(?=[^>]*\bproperty="og:title")[^>]*>/i, `<meta property="og:title" content="${page.title}" />`);
+  out = out.replace(/<meta\b(?=[^>]*\bproperty="og:description")[^>]*>/i, `<meta property="og:description" content="${esc(page.description)}" />`);
+  out = out.replace(/<meta\b(?=[^>]*\bproperty="og:url")[^>]*>/i, `<meta property="og:url" content="${canonicalUrl}" />`);
+  out = out.replace(/<meta\b(?=[^>]*\bname="twitter:title")[^>]*>/i, `<meta name="twitter:title" content="${page.title}" />`);
+  out = out.replace(/<meta\b(?=[^>]*\bname="twitter:description")[^>]*>/i, `<meta name="twitter:description" content="${esc(page.description)}" />`);
+
+  // The survey is intentionally analytics-free: do not send addiction-survey
+  // visits to Google Tag Manager or Meta Pixel, including no-JS fallbacks.
+  out = out.replace(/<!-- Google Tag Manager \(noscript\) -->[\s\S]*?<!-- End Google Tag Manager \(noscript\) -->/g, "");
+  out = out.replace(/<!-- Meta Pixel \(noscript\) -->[\s\S]*?<!-- End Meta Pixel \(noscript\) -->/g, "");
 
   // Static body for non-JS crawlers: inject just inside the root div fallback
   // position – append before closing </body>, matching prerender-meta's

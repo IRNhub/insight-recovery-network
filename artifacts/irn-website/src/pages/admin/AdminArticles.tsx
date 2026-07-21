@@ -154,12 +154,6 @@ export default function AdminArticles({ secret, onLogout }: AdminArticlesProps) 
           >
             Leads
           </Link>
-          <Link
-            href="/admin/research"
-            className="px-5 py-2.5 text-xs font-semibold tracking-widest uppercase border-b-2 border-transparent text-muted-foreground hover:text-primary transition-colors"
-          >
-            Research &amp; Surveys
-          </Link>
         </div>
       </header>
 

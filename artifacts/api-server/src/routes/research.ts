@@ -33,6 +33,7 @@ import {
   categoriseUserAgent,
   type QuestionForValidation,
 } from "../lib/survey-utils";
+import { forwardSurveyResponseToIrnOs } from "../lib/irn-os-survey-sync";
 
 const router: IRouter = Router();
 
@@ -41,11 +42,10 @@ const RATE_LIMIT_MAX = 5;
 const DUPLICATE_WINDOW_MS = 12 * 60 * 60 * 1000;
 const MINIMUM_REALISTIC_SECONDS = 60;
 const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+const MAX_RATE_LIMIT_BUCKETS = 5000;
 
 function getClientKey(req: Request): string {
-  const forwarded = req.headers["x-forwarded-for"];
-  const firstForwarded = Array.isArray(forwarded) ? forwarded[0] : forwarded;
-  return firstForwarded?.split(",")[0]?.trim() || req.ip || "unknown";
+  return req.ip || "unknown";
 }
 
 function isRateLimited(req: Request): boolean {
@@ -53,6 +53,16 @@ function isRateLimited(req: Request): boolean {
   const now = Date.now();
   const current = rateLimitBuckets.get(key);
   if (!current || current.resetAt <= now) {
+    if (rateLimitBuckets.size >= MAX_RATE_LIMIT_BUCKETS) {
+      for (const [bucketKey, bucket] of rateLimitBuckets) {
+        if (bucket.resetAt <= now) rateLimitBuckets.delete(bucketKey);
+      }
+      while (rateLimitBuckets.size >= MAX_RATE_LIMIT_BUCKETS) {
+        const oldestKey = rateLimitBuckets.keys().next().value;
+        if (!oldestKey) break;
+        rateLimitBuckets.delete(oldestKey);
+      }
+    }
     rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
     return false;
   }
@@ -78,6 +88,7 @@ const SubmitResponseBody = z.object({
 });
 
 router.get("/research/surveys/:slug", async (req: Request, res: Response) => {
+  res.setHeader("Cache-Control", "private, no-store");
   try {
     await ensureSurveyTables();
     const slug = String(req.params.slug || "").slice(0, 200);
@@ -251,6 +262,9 @@ router.post("/research/surveys/:slug/responses", async (req: Request, res: Respo
     });
 
     logger.info({ slug, responseCode: inserted.responseCode }, "Survey response submitted");
+    // The website remains a durable safety copy. Delivery is idempotent and
+    // retried by the background sync worker if IRNOS is temporarily offline.
+    void forwardSurveyResponseToIrnOs(inserted.id);
     res.status(201).json({ responseCode: inserted.responseCode });
   } catch (err: any) {
     // Unique violation on submission_token = concurrent double submit.
