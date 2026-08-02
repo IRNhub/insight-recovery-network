@@ -14,8 +14,24 @@ import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const EARLY_FINDINGS_SURVEY_URL = `${SITE_URL}/research/family-addiction-impact-survey-2026`;
+const EARLY_FINDINGS_SERIES = [
+  {
+    slug: "families-carrying-burden-addiction-early-findings",
+    label: "Families carrying the burden",
+  },
+  {
+    slug: "why-families-delay-seeking-addiction-help",
+    label: "Why families delay seeking help",
+  },
+  {
+    slug: "hidden-family-cost-of-addiction",
+    label: "The hidden family cost",
+  },
+] as const;
 
-const ARTICLE_CLUSTERS = [
+const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
+  EARLY_FINDINGS_SERIES.map((article) => article.slug),
   [
     "relapse-meaning",
     "slip-lapse-relapse-difference",
@@ -394,6 +410,9 @@ export default function ResourceDetail() {
   const relatedArticles = [...related, ...moreRelated].slice(0, 2);
 
   const canonicalPath = `/resources/${article.slug}`;
+  const isEarlyFindingsArticle = EARLY_FINDINGS_SERIES.some(
+    (candidate) => candidate.slug === article.slug,
+  );
   const commercialLinks = (() => {
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
@@ -432,6 +451,14 @@ export default function ResourceDetail() {
     ];
   })();
   const contextualCta = (() => {
+    if (isEarlyFindingsArticle) {
+      return {
+        heading: "Take part in the ongoing research",
+        description: "Have you been affected by a family member's addiction or compulsive behaviour? The anonymous UK Family Addiction Impact Survey 2026 remains open and will contribute to the final report.",
+        primaryCta: { label: "Take the anonymous survey", href: EARLY_FINDINGS_SURVEY_URL },
+        secondaryCta: { label: "Find family support", href: "/family-addiction-intervention-uk" },
+      };
+    }
     const slug = article.slug;
     if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(slug)) {
       return {
@@ -566,7 +593,7 @@ export default function ResourceDetail() {
             </nav>
 
             <span className="block text-[10px] font-semibold tracking-widest uppercase text-accent/80 mb-5">
-              {article.category}
+              {article.seriesLabel ?? article.category}
             </span>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-primary leading-tight mb-6">
@@ -600,6 +627,36 @@ export default function ResourceDetail() {
           </div>
         </div>
       </section>
+
+      {isEarlyFindingsArticle && (
+        <nav aria-label="Early Findings series" className="border-b border-border/40 bg-secondary/20">
+          <div className="container mx-auto px-6 md:px-12 py-5">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-[10px] font-semibold tracking-widest uppercase text-accent/80 mb-3">
+                UK Family Addiction Report 2026: Early Findings
+              </p>
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-x-5">
+                {EARLY_FINDINGS_SERIES.map((item, index) => {
+                  const isCurrent = item.slug === article.slug;
+                  return isCurrent ? (
+                    <span key={item.slug} aria-current="page" className="text-sm font-medium text-primary">
+                      {index + 1}. {item.label}
+                    </span>
+                  ) : (
+                    <Link
+                      key={item.slug}
+                      href={`/resources/${item.slug}`}
+                      className="text-sm text-muted-foreground hover:text-primary underline underline-offset-2"
+                    >
+                      {index + 1}. {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </nav>
+      )}
 
       {/* ── Featured image (shown when article supplies one) ── */}
       {article.image && (

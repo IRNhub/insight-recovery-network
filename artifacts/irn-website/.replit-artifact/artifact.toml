@@ -317,6 +317,30 @@ kind = "web"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
+  from = "/resources/families-carrying-burden-addiction-early-findings"
+  to = "/_resources/families-carrying-burden-addiction-early-findings.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/families-carrying-burden-addiction-early-findings/"
+  to = "/_resources/families-carrying-burden-addiction-early-findings.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-families-delay-seeking-addiction-help"
+  to = "/_resources/why-families-delay-seeking-addiction-help.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/why-families-delay-seeking-addiction-help/"
+  to = "/_resources/why-families-delay-seeking-addiction-help.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/hidden-family-cost-of-addiction"
+  to = "/_resources/hidden-family-cost-of-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/hidden-family-cost-of-addiction/"
+  to = "/_resources/hidden-family-cost-of-addiction.html"
+
+  [[services.production.rewrites]]
   from = "/resources/crypto-trading-addiction-warning-signs-help"
   to = "/_resources/crypto-trading-addiction-warning-signs-help.html"
 
