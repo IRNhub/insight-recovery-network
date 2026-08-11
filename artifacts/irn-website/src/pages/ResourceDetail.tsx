@@ -710,7 +710,8 @@ export default function ResourceDetail() {
   return (
     <Layout>
       <SEO
-        title={article.seoTitle ?? article.title}
+        title={article.title}
+        fullTitle={article.seoTitle}
         description={article.metaDescription ?? article.excerpt}
         canonical={canonicalPath}
         ogImage={ogImage}
