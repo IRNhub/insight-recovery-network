@@ -2644,7 +2644,7 @@ function articleToPrerenderMeta(article) {
     pageTitle: article.seoTitle ?? article.title,
     ogTitle: article.ogTitle ?? article.title,
     description: article.metaDescription ?? article.ogDescription ?? article.excerpt,
-    image: siteImageUrl(article.image),
+    image: siteImageUrl(article.ogImage ?? article.image),
     imageAlt: article.imageAlt ?? SITE_NAME,
     date: article.date,
     updatedDate: article.updatedDate ?? article.date,
@@ -2666,7 +2666,7 @@ function articleToPrerenderMeta(article) {
 /**
  * Load the full article data (content, faq, author, readingTime) from
  * src/data/articles.ts. Tries native TS import first (Node >= 23), then
- * falls back to transforming via vite's bundled esbuild. Returns null on
+ * falls back to bundling via esbuild so local data-module imports are followed. Returns null on
  * failure so the build degrades gracefully to meta-only prerendering.
  */
 async function loadTsModule(relPath) {
@@ -2674,20 +2674,46 @@ async function loadTsModule(relPath) {
   try {
     return await import(pathToFileURL(tsPath).href);
   } catch {
-    /* fall through to esbuild transform */
+    /* fall through to Vite's TypeScript transform */
   }
   try {
     const { transformWithEsbuild } = await import("vite");
-    const src = readFileSync(tsPath, "utf-8");
-    const { code } = await transformWithEsbuild(src, tsPath, {
+    const tmpPath = resolve(distPublic, `.tmp-${relPath.replace(/[^a-z0-9]/gi, "_")}.mjs`);
+    const source = readFileSync(tsPath, "utf8");
+    const transformed = await transformWithEsbuild(source, tsPath, {
       loader: "ts",
       format: "esm",
+      target: "node20",
     });
-    const tmpPath = resolve(distPublic, `.tmp-${relPath.replace(/[^a-z0-9]/gi, "_")}.mjs`);
-    writeFileSync(tmpPath, code, "utf-8");
-    const mod = await import(pathToFileURL(tmpPath).href);
-    rmSync(tmpPath, { force: true });
-    return mod;
+    let code = transformed.code;
+    const temporaryDependencies = [];
+
+    if (relPath === "src/data/articles.ts") {
+      const approvedPath = resolve(root, "src/data/approved-articles.ts");
+      const approvedSource = readFileSync(approvedPath, "utf8");
+      const approvedTransformed = await transformWithEsbuild(approvedSource, approvedPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
+      writeFileSync(approvedTmpPath, approvedTransformed.code, "utf8");
+      temporaryDependencies.push(approvedTmpPath);
+      code = code.replace(
+        /from\s+["']\.\/approved-articles["']/,
+        'from "./.tmp-approved-articles.mjs"',
+      );
+    }
+
+    writeFileSync(tmpPath, code, "utf8");
+    try {
+      return await import(`${pathToFileURL(tmpPath).href}?v=${Date.now()}`);
+    } finally {
+      rmSync(tmpPath, { force: true });
+      for (const dependencyPath of temporaryDependencies) {
+        rmSync(dependencyPath, { force: true });
+      }
+    }
   } catch (err) {
     console.warn(`  ⚠ Could not load ${relPath} (${err?.message}).`);
     return null;
@@ -2728,10 +2754,11 @@ function inlineMd(line) {
  * src/pages/ResourceDetail.tsx: ## / ### headings, "- " lists, | tables |,
  * **bold**, [links](url), paragraphs) into static inline-styled HTML.
  */
-function markdownToHtml(content) {
+function markdownToHtml(content, supportingImages = []) {
   const lines = content.split("\n");
   const html = [];
   let listItems = null;
+  let orderedItems = null;
   let tableRows = null;
 
   const P_STYLE =
@@ -2750,6 +2777,17 @@ function markdownToHtml(content) {
       );
     }
     listItems = null;
+  };
+
+  const flushOrderedList = () => {
+    if (orderedItems?.length) {
+      html.push(
+        `<ol style="font-family:sans-serif;font-size:0.95rem;line-height:1.9;color:#4a5568;padding-left:1.5rem;margin:1rem 0;max-width:680px;">${orderedItems
+          .map((li) => `<li style="margin-bottom:0.35rem;padding-left:0.25rem;">${li}</li>`)
+          .join("")}</ol>`
+      );
+    }
+    orderedItems = null;
   };
 
   const flushTable = () => {
@@ -2792,6 +2830,7 @@ function markdownToHtml(content) {
     // (mirrors the block parser in src/pages/ResourceDetail.tsx)
     if (line.startsWith("[CTA:")) {
       flushList();
+      flushOrderedList();
       flushTable();
       const tagMatch = line.match(/^\[CTA:([^:\]]+):([^\]]+)\]$/);
       const ctaHref = tagMatch ? tagMatch[1] : "/contact";
@@ -2815,6 +2854,7 @@ function markdownToHtml(content) {
 
     if (line.includes("|") && line.split("|").filter(Boolean).length >= 2) {
       flushList();
+      flushOrderedList();
       (tableRows ??= []).push(line);
       continue;
     }
@@ -2822,33 +2862,68 @@ function markdownToHtml(content) {
 
     if (!line) {
       flushList();
+      flushOrderedList();
       continue;
     }
     if (line.startsWith("### ")) {
       flushList();
+      flushOrderedList();
       html.push(`<h3 style="${H3_STYLE}">${inlineMd(line.slice(4))}</h3>`);
       continue;
     }
     if (line.startsWith("## ")) {
       flushList();
-      html.push(`<h2 style="${H2_STYLE}">${inlineMd(line.slice(3))}</h2>`);
+      flushOrderedList();
+      const heading = line.slice(3);
+      html.push(`<h2 style="${H2_STYLE}">${inlineMd(heading)}</h2>`);
+      const supportingImage = supportingImages.find(
+        (image) => image.afterHeading.toLowerCase() === heading.toLowerCase(),
+      );
+      if (supportingImage) {
+        html.push(
+          `<figure style="margin:2rem 0;max-width:680px;">` +
+            `<img src="${escText(supportingImage.src)}" alt="${esc(supportingImage.alt)}" loading="lazy" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" />` +
+            (supportingImage.caption
+              ? `<figcaption style="font-family:sans-serif;font-size:0.85rem;line-height:1.6;color:#4a5568;margin-top:0.75rem;">${escText(supportingImage.caption)}</figcaption>`
+              : "") +
+            `</figure>`
+        );
+      }
       continue;
     }
     if (line.startsWith("- ")) {
+      flushOrderedList();
       (listItems ??= []).push(inlineMd(line.slice(2)));
+      continue;
+    }
+    if (/^\d+\.\s+/.test(line)) {
+      flushList();
+      (orderedItems ??= []).push(inlineMd(line.replace(/^\d+\.\s+/, "")));
       continue;
     }
     if (/^\*\*[^*]+\*\*$/.test(line)) {
       flushList();
+      flushOrderedList();
       html.push(
         `<p style="font-family:sans-serif;font-weight:600;color:#162B3B;margin:1.5rem 0 0.5rem;max-width:680px;">${escText(line.replace(/^\*\*|\*\*$/g, ""))}</p>`
       );
       continue;
     }
     flushList();
-    html.push(`<p style="${P_STYLE}">${inlineMd(line)}</p>`);
+    flushOrderedList();
+    if (line.startsWith("**Concise answer:**")) {
+      const answer = line.replace("**Concise answer:**", "").trim();
+      html.push(
+        `<aside aria-label="Concise answer" style="margin:1.75rem 0;padding:1.25rem 1.5rem;border-left:4px solid #C9A96E;background:rgba(242,237,227,0.75);max-width:680px;">` +
+          `<p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#162B3B;margin:0;"><strong>Concise answer:</strong> ${inlineMd(answer)}</p>` +
+          `</aside>`
+      );
+    } else {
+      html.push(`<p style="${P_STYLE}">${inlineMd(line)}</p>`);
+    }
   }
   flushList();
+  flushOrderedList();
   flushTable();
   return html.join("\n");
 }
@@ -2976,7 +3051,8 @@ function buildArticleBodyHtml(meta, full) {
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
-            ${markdownToHtml(withoutEmbeddedFaq(full.content))}
+            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" alt="${esc(full.imageAlt ?? full.title)}" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
+            ${markdownToHtml(withoutEmbeddedFaq(full.content), full.supportingImages)}
           </article>
           ${faqHtml}
           ${sourcesHtml}
@@ -3193,6 +3269,33 @@ function buildArticleJsonLd(meta, full) {
   };
 }
 
+function buildMedicalWebPageJsonLd(meta, full) {
+  if (!full?.medicalWebPage) return null;
+  const canonicalUrl = `${SITE_URL}/resources/${meta.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": `${canonicalUrl}#medical-webpage`,
+    name: full.title,
+    description: meta.description,
+    url: canonicalUrl,
+    inLanguage: "en-GB",
+    datePublished: `${meta.date}T00:00:00+00:00`,
+    dateModified: `${full.updatedDate ?? meta.updatedDate ?? meta.date}T00:00:00+00:00`,
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#craig-bilton`,
+      name: "Craig Bilton",
+      jobTitle: "Founder & Clinical Director",
+      url: `${SITE_URL}/craig-bilton`,
+    },
+    medicalAudience: {
+      "@type": "MedicalAudience",
+      audienceType: "Patient",
+    },
+  };
+}
+
 function buildFaqJsonLd(meta, full) {
   if (!full?.faq?.length) return null;
   return {
@@ -3388,6 +3491,7 @@ function injectArticleMeta(html, article, full = null) {
   // Structured data: Article + Breadcrumb (+ FAQ where present) + entity graph
   out = injectJsonLd(out, [
     buildArticleJsonLd(article, full),
+    buildMedicalWebPageJsonLd(article, full),
     buildFaqJsonLd(article, full),
     buildBreadcrumbJsonLd(article, full),
     ORGANIZATION_JSONLD,

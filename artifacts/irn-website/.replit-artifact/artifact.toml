@@ -317,6 +317,30 @@ kind = "web"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
+  from = "/resources/cocaine-addiction"
+  to = "/_resources/cocaine-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/cocaine-addiction/"
+  to = "/_resources/cocaine-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-detox-uk"
+  to = "/_resources/addiction-detox-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/addiction-detox-uk/"
+  to = "/_resources/addiction-detox-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/dual-diagnosis"
+  to = "/_resources/dual-diagnosis.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/dual-diagnosis/"
+  to = "/_resources/dual-diagnosis.html"
+
+  [[services.production.rewrites]]
   from = "/resources/families-carrying-burden-addiction-early-findings"
   to = "/_resources/families-carrying-burden-addiction-early-findings.html"
 
