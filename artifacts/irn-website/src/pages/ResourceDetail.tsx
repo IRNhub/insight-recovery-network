@@ -33,6 +33,20 @@ const EARLY_FINDINGS_SERIES = [
 const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   EARLY_FINDINGS_SERIES.map((article) => article.slug),
   [
+    "cocaine-addiction",
+    "addiction-detox-uk",
+    "addiction-warning-signs",
+    "why-cant-i-stop-how-addiction-works",
+    "what-happens-in-residential-rehabilitation",
+  ],
+  [
+    "dual-diagnosis",
+    "mental-health-and-addiction",
+    "addiction-warning-signs",
+    "online-recovery-programmes",
+    "supporting-a-loved-one-through-recovery",
+  ],
+  [
     "relapse-meaning",
     "slip-lapse-relapse-difference",
     "why-relapse-happens-before-substance-use",
@@ -125,7 +139,10 @@ function parseInlineLinks(text: string): React.ReactNode[] {
   });
 }
 
-function parseContent(content: string) {
+function parseContent(
+  content: string,
+  supportingImages: Article["supportingImages"] = [],
+) {
   const lines = content.split("\n");
   const elements: React.ReactNode[] = [];
   let i = 0;
@@ -135,11 +152,34 @@ function parseContent(content: string) {
 
     // ## Heading
     if (line.startsWith("## ")) {
+      const heading = line.replace("## ", "");
       elements.push(
         <h2 key={i} className="text-2xl md:text-3xl font-serif text-primary mt-10 mb-4 leading-snug">
-          {line.replace("## ", "")}
+          {heading}
         </h2>
       );
+      const supportingImage = supportingImages.find(
+        (image) => image.afterHeading.toLowerCase() === heading.toLowerCase(),
+      );
+      if (supportingImage) {
+        elements.push(
+          <figure key={`supporting-image-${i}`} className="my-8">
+            <div className="overflow-hidden rounded-xl border border-border/40 bg-secondary/20">
+              <img
+                src={supportingImage.src}
+                alt={supportingImage.alt}
+                className="block w-full aspect-video object-cover"
+                loading="lazy"
+              />
+            </div>
+            {supportingImage.caption && (
+              <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {supportingImage.caption}
+              </figcaption>
+            )}
+          </figure>,
+        );
+      }
 
     // ### Sub-heading
     } else if (line.startsWith("### ")) {
@@ -210,6 +250,24 @@ function parseContent(content: string) {
       );
       continue;
 
+    // 1. Ordered list
+    } else if (/^\d+\.\s+/.test(line)) {
+      const listItems: string[] = [];
+      while (i < lines.length && /^\d+\.\s+/.test(lines[i])) {
+        listItems.push(lines[i].replace(/^\d+\.\s+/, ""));
+        i++;
+      }
+      elements.push(
+        <ol key={`ordered-list-${i}`} className="list-decimal pl-6 my-4 space-y-2">
+          {listItems.map((item, idx) => (
+            <li key={idx} className="pl-1 text-muted-foreground font-light text-base leading-relaxed">
+              {parseInlineLinks(item)}
+            </li>
+          ))}
+        </ol>
+      );
+      continue;
+
     // Markdown table, lines starting with |
     } else if (line.startsWith("| ")) {
       const tableLines: string[] = [];
@@ -263,6 +321,20 @@ function parseContent(content: string) {
       continue;
 
     // Regular paragraph, handles **inline bold** and [text](url) inline links
+    } else if (line.startsWith("**Concise answer:**")) {
+      const answer = line.replace("**Concise answer:**", "").trim();
+      elements.push(
+        <aside
+          key={i}
+          className="my-7 rounded-r-xl border-l-4 border-accent bg-secondary/40 px-6 py-5"
+          aria-label="Concise answer"
+        >
+          <p className="text-primary font-medium leading-relaxed">
+            <span className="font-semibold">Concise answer:</span> {parseInlineLinks(answer)}
+          </p>
+        </aside>
+      );
+
     } else if (line.trim() !== "") {
       const rawParts = line.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
       const parts = rawParts.map((part, idx) => {
@@ -414,6 +486,27 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "cocaine-addiction") {
+      return [
+        { title: "Drug-use assessment", description: "Organise concerns about use, control, harm and the next appropriate conversation.", href: "/assessments/drug-use" },
+        { title: "Online recovery programme", description: "Explore structured recovery support when online care is clinically suitable.", href: "/online-programme" },
+        { title: "Treatment placement", description: "Compare more intensive treatment options when risk or complexity requires them.", href: "/treatment-placement" },
+      ];
+    }
+    if (article.slug === "addiction-detox-uk") {
+      return [
+        { title: "Detox suitability assessment", description: "Organise withdrawal history and risk questions before speaking with a clinical service.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare private detox and residential providers by clinical capability and fit.", href: "/treatment-placement" },
+        { title: "Residential rehabilitation", description: "Understand what should happen after withdrawal has been safely managed.", href: "/resources/what-happens-in-residential-rehabilitation" },
+      ];
+    }
+    if (article.slug === "dual-diagnosis") {
+      return [
+        { title: "Recovery assessments", description: "Organise concerns before discussing co-occurring needs with an appropriate professional.", href: "/assessments" },
+        { title: "Treatment placement", description: "Compare providers against mental-health, withdrawal, medication and safeguarding needs.", href: "/treatment-placement" },
+        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
+      ];
+    }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
         { title: "Luxury rehab", description: "Compare premium treatment against clinical quality, privacy and aftercare.", href: "/luxury-rehab" },
@@ -460,6 +553,38 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "cocaine-addiction") {
+      return {
+        heading: "Concerned about your cocaine use?",
+        description: "A confidential assessment can help organise the pattern, risks and realistic treatment options. It is not a diagnosis or emergency service.",
+        primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
+        secondaryCta: { label: "Compare treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "addiction-detox-uk") {
+      return {
+        heading: "Unsure whether withdrawal needs medical support?",
+        description: "Use the detox assessment to organise the history and identify questions for a GP, prescriber, NHS service or treatment provider.",
+        primaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "what-happens-in-residential-rehabilitation") {
+      return {
+        heading: "Need help comparing residential treatment?",
+        description: "Assessment-led placement can help compare providers by clinical capability, safety, location, cost and continuing care.",
+        primaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+        secondaryCta: { label: "Take a confidential assessment", href: "/assessments" },
+      };
+    }
+    if (slug === "dual-diagnosis") {
+      return {
+        heading: "Not sure how mental health and substance use fit together?",
+        description: "A confidential recovery assessment can help organise concerns and identify sensible questions for the next professional conversation. It is not a diagnosis.",
+        primaryCta: { label: "Start a recovery assessment", href: "/assessments" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
     if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(slug)) {
       return {
         heading: "Worried about someone you love?",
@@ -491,8 +616,10 @@ export default function ResourceDetail() {
       secondaryCta: { label: "Take a free assessment", href: "/assessments" },
     };
   })();
-  const ogImage = article.image
-    ? `${SITE_URL}${article.image}`
+  const ogImage = article.ogImage
+    ? `${SITE_URL}${article.ogImage}`
+    : article.image
+      ? `${SITE_URL}${article.image}`
     : `${SITE_URL}/opengraph.jpg`;
 
   const faqSchema =
@@ -556,6 +683,29 @@ export default function ResourceDetail() {
       { "@type": "ListItem", position: 3, name: article.title, item: `${SITE_URL}${canonicalPath}` },
     ],
   };
+  const medicalWebPageSchema = article.medicalWebPage
+    ? {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "@id": `${SITE_URL}${canonicalPath}#medical-webpage`,
+        name: article.title,
+        description: article.metaDescription ?? article.excerpt,
+        url: `${SITE_URL}${canonicalPath}`,
+        inLanguage: "en-GB",
+        datePublished: article.date,
+        dateModified: article.updatedDate ?? article.date,
+        author: {
+          "@type": "Person",
+          name: article.author,
+          jobTitle: article.authorRole,
+          url: `${SITE_URL}/craig-bilton`,
+        },
+        medicalAudience: {
+          "@type": "MedicalAudience",
+          audienceType: "Patient",
+        },
+      }
+    : null;
 
   return (
     <Layout>
@@ -572,6 +722,11 @@ export default function ResourceDetail() {
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(blogSchema)}</script>
+        {medicalWebPageSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(medicalWebPageSchema)}
+          </script>
+        )}
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
@@ -684,10 +839,13 @@ export default function ResourceDetail() {
       )}
 
       {/* ── Article body ── */}
-      <section className="py-12 md:py-20">
+      <article className="py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
-            {parseContent(withoutEmbeddedFaq(article.content))}
+            {parseContent(
+              withoutEmbeddedFaq(article.content),
+              article.supportingImages,
+            )}
             {article.faq && article.faq.length > 0 && (
               <section className="mt-14 pt-9 border-t border-border/50" aria-labelledby="article-faq">
                 <h2 id="article-faq" className="font-serif text-2xl md:text-3xl text-primary mb-6">
@@ -740,7 +898,7 @@ export default function ResourceDetail() {
             )}
           </div>
         </div>
-      </section>
+      </article>
 
       {/* ── Related articles ── */}
       {relatedArticles.length > 0 && (

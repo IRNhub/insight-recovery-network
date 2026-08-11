@@ -1,3 +1,5 @@
+import { approvedArticles } from "./approved-articles";
+
 export interface Article {
   slug: string;
   title: string;
@@ -10,7 +12,15 @@ export interface Article {
   category: string;
   content: string;
   image?: string;
+  ogImage?: string;
   imageAlt?: string;
+  medicalWebPage?: boolean;
+  supportingImages?: Array<{
+    afterHeading: string;
+    src: string;
+    alt: string;
+    caption?: string;
+  }>;
   faq?: Array<{ question: string; answer: string }>;
   sources?: Array<{ title: string; publisher: string; url: string }>;
   seoTitle?: string;
@@ -33,7 +43,7 @@ export const CATEGORIES = [
   "Relapse Prevention",
 ];
 
-export const articles: Article[] = [
+const legacyArticles: Article[] = [
   {
     slug: "families-carrying-burden-addiction-early-findings",
     title: "Early Findings: Families Are Carrying the Burden of Addiction Alone",
@@ -3506,6 +3516,13 @@ Need help understanding what level of support is right? Insight Recovery Network
 - [Contact Insight Recovery Network](/contact), speak confidentially about your situation
     `.trim(),
   },
+];
+
+const approvedSlugs = new Set(approvedArticles.map((article) => article.slug));
+
+export const articles: Article[] = [
+  ...approvedArticles,
+  ...legacyArticles.filter((article) => !approvedSlugs.has(article.slug)),
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
