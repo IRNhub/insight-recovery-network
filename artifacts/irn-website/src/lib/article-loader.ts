@@ -1,4 +1,7 @@
-import { articles as staticArticles } from "@/data/articles";
+import {
+  articles as staticArticles,
+  isApprovedArticleSlug,
+} from "@/data/articles";
 import type { Article } from "@/data/articles";
 
 export async function fetchMergedArticles(): Promise<Article[]> {
@@ -9,9 +12,14 @@ export async function fetchMergedArticles(): Promise<Article[]> {
     const dbArticles: Article[] = await res.json();
     if (dbArticles.length === 0) return staticArticles;
 
-    const dbSlugs = new Set(dbArticles.map((article) => article.slug));
-    const staticOnly = staticArticles.filter((article) => !dbSlugs.has(article.slug));
-    const merged = [...dbArticles, ...staticOnly];
+    const dbWithoutApprovedArticles = dbArticles.filter(
+      (article) => !isApprovedArticleSlug(article.slug),
+    );
+    const dbSlugs = new Set(dbWithoutApprovedArticles.map((article) => article.slug));
+    const staticOnly = staticArticles.filter(
+      (article) => isApprovedArticleSlug(article.slug) || !dbSlugs.has(article.slug),
+    );
+    const merged = [...dbWithoutApprovedArticles, ...staticOnly];
 
     merged.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""));
     return merged;

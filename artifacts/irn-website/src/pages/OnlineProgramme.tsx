@@ -200,10 +200,10 @@ export default function OnlineProgramme() {
               <p className="text-[12px] text-muted-foreground/60 font-light leading-relaxed">
                 Not sure if this programme is right for you? Read the{" "}
                 <Link
-                  href="/online-addiction-recovery-programme-uk"
+                  href="/resources/online-recovery-programmes"
                   className="underline underline-offset-2 hover:text-primary transition-colors"
                 >
-                  full guide to online addiction recovery support
+                  evidence and safety guide to online addiction recovery
                 </Link>
                 {" "}or use our{" "}
                 <Link

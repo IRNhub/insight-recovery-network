@@ -3520,6 +3520,10 @@ Need help understanding what level of support is right? Insight Recovery Network
 
 const approvedSlugs = new Set(approvedArticles.map((article) => article.slug));
 
+export function isApprovedArticleSlug(slug: string): boolean {
+  return approvedSlugs.has(slug);
+}
+
 export const articles: Article[] = [
   ...approvedArticles,
   ...legacyArticles.filter((article) => !approvedSlugs.has(article.slug)),

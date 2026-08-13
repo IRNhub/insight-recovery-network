@@ -2566,14 +2566,16 @@ const ARTICLES = [
   {
     slug: "online-recovery-programmes",
     pageTitle:
-      "Online Recovery Programmes UK | Insight Recovery",
+      "Online Addiction Recovery Programme: UK Guide | IRN",
     ogTitle:
-      "Online Recovery Programmes: Who Are They For and Do They Work?",
+      "Online Addiction Recovery Programme: Evidence & Safety",
     description:
-      "Digital recovery support has matured significantly in recent years. For many people, structured online programmes offer a clinically effective alternative to in-person treatment.",
-    image: `${SITE_URL}/opengraph.jpg`,
-    imageAlt: "Insight Recovery Network",
+      "Learn how online addiction recovery programmes work, who they may suit, safety limits, evidence and how to choose credible UK support.",
+    image: `${SITE_URL}/online-addiction-recovery-programme-uk-hero-og.webp`,
+    imageAlt:
+      "Adult taking part in a confidential online addiction recovery session at home.",
     date: "2026-02-10",
+    updatedDate: "2026-08-13",
     type: "article",
   },
   {

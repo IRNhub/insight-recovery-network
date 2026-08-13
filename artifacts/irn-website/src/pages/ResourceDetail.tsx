@@ -8,7 +8,11 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import NotFound from "@/pages/not-found";
-import { formatDate, articles as staticArticles } from "@/data/articles";
+import {
+  formatDate,
+  articles as staticArticles,
+  isApprovedArticleSlug,
+} from "@/data/articles";
 import { fetchMergedArticles } from "@/lib/article-loader";
 import type { Article } from "@/data/articles";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
@@ -82,6 +86,9 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
 ];
 
 async function fetchArticle(slug: string): Promise<Article> {
+  const approvedArticle = staticArticles.find((article) => article.slug === slug);
+  if (approvedArticle && isApprovedArticleSlug(slug)) return approvedArticle;
+
   try {
     const res = await fetch(`/api/articles/${slug}`);
     if (res.status === 404) {

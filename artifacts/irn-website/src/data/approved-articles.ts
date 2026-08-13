@@ -1629,5 +1629,503 @@ Yes, usually with the person's consent. Families can contribute information and 
 ### What should a coordinated care plan include?
 
 It should identify the person's goals, current risks, interventions for both mental health and substance use, medication and withdrawal arrangements, the lead professional, responsibilities across services, information-sharing consent, crisis actions, practical needs and follow-up.`.trim(),
-  }
+  },
+{
+  slug: "online-recovery-programmes",
+  title: "Online Addiction Recovery Programme: Evidence & Safety",
+  excerpt: "A clinically informed UK guide to how online addiction recovery works, who it may suit, its safety limits and how to choose credible support.",
+  author: "Craig Bilton",
+  authorRole: "Founder & Clinical Director",
+  date: "2026-02-10",
+  updatedDate: "2026-08-13",
+  readingTime: 25,
+  category: "Treatment Options",
+  image: "/online-addiction-recovery-programme-uk-hero.webp",
+  ogImage: "/online-addiction-recovery-programme-uk-hero-og.webp",
+  imageAlt: "Adult taking part in a confidential online addiction recovery session at home.",
+  seoTitle: "Online Addiction Recovery Programme: UK Guide | IRN",
+  metaDescription: "Learn how online addiction recovery programmes work, who they may suit, safety limits, evidence and how to choose credible UK support.",
+  ogTitle: "Online Addiction Recovery Programme: Evidence & Safety",
+  ogDescription: "A clinically informed UK guide to online recovery evidence, suitability, safety, programme quality and when more intensive care is needed.",
+  publishedStatus: "published",
+  medicalWebPage: true,
+  supportingImages: [
+    {
+      afterHeading: "What a suitability assessment should cover",
+      src: "/online-recovery-suitability-assessment.webp",
+      alt: "Confidential online assessment for addiction recovery programme suitability.",
+      caption: "A suitability assessment should consider withdrawal risk, mental health, home safety, previous treatment and the support available around the person."
+    },
+    {
+      afterHeading: "Getting the most from online recovery",
+      src: "/online-recovery-relapse-prevention-plan.webp",
+      alt: "Person building a weekly recovery and relapse-prevention plan at home.",
+      caption: "Good online care continues between sessions through practical planning, reflection, support and regular review."
+    }
+  ],
+  faq: [
+    {
+      question: "Do online addiction recovery programmes work?",
+      answer: "They can help, but outcomes depend on the intervention, the person and how well the level of care fits. A 2025 review found promising results for remote interventions, especially as an addition to in-person care, while also finding substantial risk of bias in the evidence. No credible provider should guarantee an outcome or treat all online programmes as equivalent."
+    },
+    {
+      question: "Can an online programme help me detox?",
+      answer: "Not unless a separately regulated medical service has assessed and is medically managing the withdrawal. A recovery programme should not present video sessions, groups or an app as detoxification. Alcohol and benzodiazepine withdrawal can be dangerous. Obtain medical advice before stopping if physical dependence or withdrawal may be present."
+    },
+    {
+      question: "Is online recovery suitable for severe addiction?",
+      answer: "Severity is only one consideration. Withdrawal risk, overdose history, mental health, housing, safeguarding, previous treatment and ability to engage all matter. Some people with longstanding problems can use online continuing care safely; others need medical, intensive community or residential support. Assessment is more reliable than a label."
+    },
+    {
+      question: "Is online recovery confidential?",
+      answer: "It should be delivered with clear privacy and data-protection arrangements, but participants also need a private space and secure device where possible. Ask whether sessions are recorded, which platform is used, who can access notes and how information is shared. Group members should agree confidentiality, although a provider cannot guarantee another participant's behaviour absolutely."
+    },
+    {
+      question: "Can online recovery be used after rehab?",
+      answer: "Yes. It can provide continuing structure, relapse-prevention review and support while the person applies recovery skills at home. It should complement the discharge plan and maintain necessary links with local medical, mental-health and community services."
+    },
+    {
+      question: "What happens if I relapse during an online programme?",
+      answer: "Tell the programme promptly and assess immediate safety. The response may include medical help, a revised plan, more frequent contact or a move to a higher level of care. Relapse should prompt review rather than shame, but it must not be minimised when overdose, withdrawal or mental-health risk has increased."
+    }
+  ],
+  sources: [
+    {
+      title: "Drug misuse in over 16s: psychosocial interventions",
+      publisher: "NICE",
+      url: "https://www.nice.org.uk/guidance/CG51/chapter/recommendations"
+    },
+    {
+      title: "Alcohol-use disorders: diagnosis, assessment and management",
+      publisher: "NICE",
+      url: "https://www.nice.org.uk/guidance/cg115/chapter/Recommendations"
+    },
+    {
+      title: "Coexisting severe mental illness and substance misuse",
+      publisher: "NICE",
+      url: "https://www.nice.org.uk/guidance/ng58/chapter/recommendations"
+    },
+    {
+      title: "Drug misuse and dependence: UK guidelines on clinical management",
+      publisher: "Department of Health and Social Care",
+      url: "https://www.gov.uk/government/publications/drug-misuse-and-dependence-uk-guidelines-on-clinical-management"
+    },
+    {
+      title: "Clinical guidelines for alcohol treatment: psychosocial interventions",
+      publisher: "Department of Health and Social Care",
+      url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/5-psychosocial-interventions"
+    },
+    {
+      title: "How effective are remote and digital interventions as part of alcohol and drug treatment and recovery support?",
+      publisher: "Addiction",
+      url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12215248/"
+    },
+    {
+      title: "Telemedicine-delivered treatment interventions for substance use disorders",
+      publisher: "Journal of Substance Abuse Treatment",
+      url: "https://pubmed.ncbi.nlm.nih.gov/31006553/"
+    },
+    {
+      title: "Alcohol-use disorder",
+      publisher: "NHS",
+      url: "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+    },
+    {
+      title: "Urgent support",
+      publisher: "NHS",
+      url: "https://www.nhs.uk/every-mind-matters/urgent-support/"
+    },
+    {
+      title: "Choosing an online healthcare service",
+      publisher: "Care Quality Commission",
+      url: "https://www.cqc.org.uk/care-services/help-choosing-care/choosing-online-healthcare-service"
+    },
+    {
+      title: "Data sharing and recording online meetings",
+      publisher: "Information Commissioner's Office",
+      url: "https://ico.org.uk/for-organisations/advice-for-small-organisations/information-security/data-sharing-advice/"
+    }
+  ],
+  content: `This guide is for adults concerned about their own addiction or compulsive behaviour, and for families supporting them. It is educational and does not diagnose addiction, provide medical detoxification, prescribe medication or replace emergency, GP or specialist care.
+
+## The concise answer
+
+**Concise answer:** An online addiction recovery programme can provide structured psychosocial support through live individual or group sessions, recovery education, practical assignments, progress reviews and relapse-prevention planning while a person remains at home. It may be suitable for an adult who is medically stable, has a safe and reasonably private environment and can engage consistently. It is not a substitute for medical detoxification, emergency mental health care or 24-hour residential support.
+
+A 2025 systematic review found promising outcomes for remote interventions, particularly when they supplemented in-person treatment, but much of the evidence was at high risk of bias. The safest conclusion is that online care can be valuable when the programme is credible and the level of care matches the person's risks and needs.
+
+> **Urgent safety information:** If you or someone else is in immediate danger, call 999 or go to A&E. In England, if urgent mental health help is needed but it is not an emergency, use NHS 111 online or call 111 and select the mental health option. Alcohol withdrawal can be dangerous: if you experience withdrawal symptoms, obtain medical help before trying to stop.
+
+## Table of contents
+
+1. [Key takeaways](#key-takeaways)
+2. [What is an online addiction recovery programme?](#what-is-an-online-addiction-recovery-programme)
+3. [What does the evidence say?](#what-does-the-evidence-say)
+4. [Who may be suitable?](#who-may-be-suitable)
+5. [When online support is not enough](#when-online-support-is-not-enough)
+6. [What a suitability assessment should cover](#what-a-suitability-assessment-should-cover)
+7. [What a good programme should include](#what-a-good-programme-should-include)
+8. [Online programme, outpatient care or residential rehab?](#online-programme-outpatient-care-or-residential-rehab)
+9. [How to assess a provider](#how-to-assess-a-provider)
+10. [Getting the most from online recovery](#getting-the-most-from-online-recovery)
+11. [Privacy, technology and accessibility](#privacy-technology-and-accessibility)
+12. [Relapse, disengagement and stepping up care](#relapse-disengagement-and-stepping-up-care)
+13. [Online recovery after residential treatment](#online-recovery-after-residential-treatment)
+14. [Support for families](#support-for-families)
+15. [When to seek professional help](#when-to-seek-professional-help)
+16. [Frequently asked questions](#frequently-asked-questions)
+
+## Key takeaways
+
+- Online recovery is a **delivery format**, not a single treatment. Its quality depends on the assessment, practitioners, therapeutic methods, safeguarding, review process and links with other services.
+- It may be appropriate where the person is medically stable, able to participate and living in an environment that supports rather than undermines recovery.
+- It should not be used to manage dangerous withdrawal, acute psychosis, immediate suicide risk, serious physical illness or a situation requiring 24-hour containment.
+- Recent evidence is encouraging but not definitive. Remote support appears particularly useful as an addition to other treatment; evidence for replacing in-person care completely is less certain.
+- A credible programme should define its scope, assess suitability, use appropriately trained staff, monitor progress and have a clear process for escalating risk.
+- The best next step is often an honest assessment of need rather than choosing a service by convenience, price or marketing claims alone.
+
+## What is an online addiction recovery programme?
+
+An online addiction recovery programme is a planned course of support delivered through secure video, telephone and digital tools. Unlike a general wellbeing app or occasional peer meeting, a structured programme should have a defined purpose, sequence and review process.
+
+Depending on the provider and the person's needs, it may include:
+
+- an initial assessment of substance use, mental health, physical health, safety and recovery goals
+- regular one-to-one sessions
+- facilitated recovery groups
+- psychoeducation about dependence, cravings, triggers and behaviour change
+- motivational work to strengthen readiness for change
+- practical relapse-prevention planning
+- recovery assignments between sessions
+- monitoring of progress, risk and engagement
+- family involvement, with consent and where clinically appropriate
+- coordination with a GP, prescriber, local drug and alcohol service or mental health team when needed
+- continuing care after detoxification or residential rehabilitation.
+
+The word **online** describes where contact happens. It does not prove that a programme is clinical, evidence based or suitable. A video call can deliver skilled therapeutic work, but it can also deliver poorly structured advice. The important questions are what is being provided, by whom, for which needs, with what safety arrangements and how progress is reviewed.
+
+Online mutual-aid meetings, self-guided courses, apps, coaching and formal therapy may all have a role, but they are not interchangeable. Someone comparing services should ask whether the offer is education, peer support, counselling, a regulated healthcare activity or a coordinated treatment pathway. Clear providers explain those boundaries rather than allowing people to assume that every need can be managed remotely.
+
+## What does the evidence say?
+
+The evidence is more promising than the outdated idea that remote support is automatically inferior to support delivered in a room. It is also more nuanced than claims that online treatment is universally equivalent to face-to-face care.
+
+A 2025 systematic review and meta-analysis in *Addiction* examined 34 randomised controlled trials involving 6,461 adults with alcohol or drug use disorders. It found that remote interventions used **alongside** in-person treatment were associated with lower odds of relapse and fewer days of alcohol or drug use than in-person treatment alone. When remote interventions replaced or partly replaced in-person care, relapse outcomes also favoured remote support, but the change in days of use was small and uncertain. More than 70% of the outcomes were judged to be at high risk of bias, and results differed by substance and therapeutic approach.
+
+That review supports three cautious conclusions:
+
+1. Remote support can be an active part of treatment and recovery, not merely a convenient substitute for information leaflets.
+2. It may be especially useful when it adds contact, skills practice or monitoring to an existing pathway.
+3. The research does not justify assuming that every online programme is effective or that remote care can safely replace every form of in-person treatment.
+
+Earlier systematic reviews reached a similar broad position: telemedicine and digital interventions can improve reach and are acceptable to many participants, but studies vary substantially in quality, design, population and outcome measurement. Results from a structured programme with live practitioner contact should not be transferred automatically to a self-guided app, and findings for alcohol should not be assumed to apply identically to opioids, benzodiazepines, stimulants, cannabis or behavioural addictions.
+
+UK guidance focuses less on the screen through which care is delivered and more on the content and safety of care. NICE recommends risk assessment, appropriately trained staff, psychosocial interventions, progress monitoring, relapse-prevention support and coordinated care according to the person's needs. The UK clinical guidelines for drug misuse state that treatment should include a psychosocial component and emphasise therapeutic alliance, evidence-based interventions, structure, goal direction, supportive social networks and outcome monitoring. Those principles are possible online, but a service needs to design for them deliberately.
+
+For alcohol treatment, current UK clinical guidance recognises online tools as possible additional support alongside structured treatment. It does not describe an app or virtual programme as a replacement for medically supported withdrawal when that is required.
+
+The practical message is straightforward: online delivery can be credible, but effectiveness depends on **fit, programme quality, participation and connection with the wider care system**.
+
+## Who may be suitable?
+
+An online programme may be a reasonable option for an adult whose current risks can be managed safely at home and who can make practical use of remote support. Suitability is individual; no checklist can replace assessment.
+
+Factors that often support online participation include:
+
+### Medical stability
+
+There is no current need for emergency assessment, inpatient stabilisation or medically supervised detoxification. The person is not relying on an online programme to manage withdrawal or prescribe medication.
+
+### A safe and workable home environment
+
+The person has somewhere they can attend sessions with reasonable privacy. The environment does not contain immediate violence, coercion, uncontrolled substance use or constant disruption that makes participation unsafe or unrealistic.
+
+### Capacity to engage
+
+The person can use the relevant technology, attend agreed sessions and complete at least some work between them. Motivation does not need to be perfect; ambivalence is common. There does, however, need to be enough willingness to communicate honestly and test new behaviour.
+
+### Risks that can be monitored remotely
+
+The person's mental and physical health needs do not require observation that a remote service cannot provide. Where other professionals are involved, communication and responsibility should be clear.
+
+### A proportionate level of care
+
+Online support may fit someone with harmful or dependent use whose risks are manageable in the community, a person seeking early intervention, or someone returning to daily life after more intensive treatment. It may also help people whose location, work, mobility or caring responsibilities make regular travel difficult.
+
+Convenience alone does not establish suitability. A person may strongly prefer online care because it is discreet or easier to fit around work, yet still need medical or residential support. A good assessment respects preference while being honest about risk.
+
+## When online support is not enough
+
+Some situations need a different or higher level of care. Online support can sometimes remain part of a wider plan, but it should not be the only response when the person requires urgent, medical or round-the-clock intervention.
+
+Seek an appropriate clinical assessment rather than relying on online recovery alone where there is:
+
+- possible dangerous withdrawal, including alcohol or benzodiazepine dependence
+- a history of withdrawal seizures, delirium or complicated detoxification
+- current hallucinations, severe confusion, psychosis or mania
+- immediate suicide risk, serious self-harm risk or risk to other people
+- overdose, chest pain, breathing difficulty, collapse or another medical emergency
+- severe intoxication that prevents meaningful participation
+- an unsafe home, domestic abuse, exploitation or serious safeguarding concern
+- repeated rapid relapse despite well-delivered community support
+- uncontrolled polydrug use or high overdose risk
+- homelessness or no private, reliable place from which to engage
+- cognitive impairment or communication needs that the programme cannot accommodate
+- a need for medication initiation or monitoring outside the programme's competence or regulatory scope.
+
+Alcohol deserves particular caution. The NHS states that stopping suddenly can be dangerous for someone who is dependent and advises obtaining medical help before stopping if withdrawal symptoms occur. Symptoms may include tremor, sweating, nausea, anxiety, a racing heartbeat, hallucinations, confusion or seizures. A video recovery group is not a detox service.
+
+Likewise, someone with coexisting severe mental illness and substance misuse should not be bounced between services. NICE recommends comprehensive assessment, coordinated care and attention to physical health, housing, social care and safeguarding as well as substance use. Online sessions may improve access, but they cannot make those wider needs disappear.
+
+## What a suitability assessment should cover
+
+A proper assessment is not a test someone passes or fails. Its purpose is to understand needs, identify risk and agree the safest proportionate pathway.
+
+It should explore:
+
+### Substance use and withdrawal
+
+Which substances or behaviours are involved? How often, how much and by what route? Has use increased? Are there morning symptoms, withdrawal symptoms, blackouts, overdoses or previous medically complicated withdrawals? Are prescribed medicines, illicit drugs and alcohol being combined?
+
+### Physical health
+
+Relevant conditions, pregnancy, current medication, pain, sleep, nutrition and recent medical symptoms matter. A recovery practitioner should know when medical input is required rather than trying to work beyond their role.
+
+### Mental health and immediate safety
+
+Assessment should include mood, anxiety, trauma symptoms, psychosis, self-harm, suicidal thinking, risk to others and current contact with mental health services. An online programme needs a plan for what happens if risk increases during or between sessions.
+
+### Treatment and recovery history
+
+What has been tried before? What helped, even briefly? What led to disengagement or relapse? Previous attempts are useful clinical information, not evidence that a person is incapable of recovery.
+
+### Home and social environment
+
+Who lives with the person? Is anyone else using substances? Is there privacy, internet access and a safe place for sessions? Are there caring duties, work pressures, housing problems or relationship risks that affect engagement?
+
+### Goals, preferences and readiness
+
+Some people want abstinence; others first want to reduce harm, understand their pattern or prepare for more intensive treatment. Goals should be discussed openly and reviewed. A credible provider should not promise a pathway it cannot safely deliver simply to secure enrolment.
+
+### Other services and escalation
+
+The assessment should identify whether the person needs a GP, local authority drug and alcohol service, prescriber, mental health team, medical detoxification or residential placement. It should be clear who holds responsibility for each part of care.
+
+**Practical next step:** If you are unsure which level of help fits, use a confidential [recovery assessment](/assessments) to organise the relevant information. If withdrawal or immediate safety may be an issue, seek medical advice rather than waiting for an online programme appointment.
+
+## What a good programme should include
+
+There is no single formula, but credible structured programmes tend to share the following features.
+
+### A defined scope
+
+The service explains what it does and does not provide. It distinguishes recovery support from medical detoxification, diagnosis, prescribing and emergency care. Age limits, location limits and exclusions should be visible.
+
+### Individual assessment and a care plan
+
+People should not be placed automatically into the same timetable. The plan should reflect their goals, risks, mental health, social environment, strengths and other services involved.
+
+### Appropriately trained and supervised practitioners
+
+Qualifications should be described accurately. Terms such as clinician, therapist, counsellor, coach and recovery practitioner are not synonyms. If a regulated healthcare professional is providing treatment in their registered capacity, the provider should comply with the relevant professional and regulatory requirements.
+
+### Evidence-informed psychosocial work
+
+Content may include motivational approaches, cognitive and behavioural strategies, coping-skills training, relapse prevention, social-network work and support for coexisting anxiety or depression where the practitioner is competent to provide it. The method should match the need rather than being selected because it is easy to put into videos.
+
+### Human contact and therapeutic alliance
+
+Digital worksheets can reinforce learning, but they should not be presented as a replacement for human judgement when a person needs assessment, formulation or support. The relationship with a consistent practitioner or team can help create trust, accountability and honest review.
+
+### Work between sessions
+
+Recovery develops in ordinary life. Useful between-session work may involve tracking triggers, planning for high-risk situations, practising emotion-regulation skills, rebuilding routine, attending mutual aid, repairing sleep or preparing a conversation with family.
+
+### Progress and risk review
+
+The service should agree meaningful measures. These may include substance-use days, recovery goals, attendance, cravings, wellbeing, sleep, social connection or use of coping strategies. Monitoring should prompt discussion and adaptation, not become surveillance or a simplistic score of whether someone is doing recovery correctly.
+
+### A response to non-attendance and deterioration
+
+NICE guidance highlights the importance of maintaining contact with people at risk of losing touch with services. A provider should explain what happens after missed sessions, a return to use, disclosure of suicidal thinking or signs that the current care level is no longer safe.
+
+### Continuing-care and referral links
+
+Online care works best as part of a pathway. A programme should be able to coordinate appropriately with medical, mental health, residential, family and local services instead of treating referral as failure.
+
+## Online programme, outpatient care or residential rehab?
+
+These options overlap, and the terms are used differently by providers. The comparison below is a starting point, not a recommendation for a particular person.
+
+| Feature | Structured online programme | In-person outpatient/community care | Residential rehab |
+|---|---|---|---|
+| Where support happens | At home by video, telephone and digital tools | Clinic or community setting while living at home | Person lives at the treatment setting |
+| Typical strength | Access, flexibility and applying recovery skills in real life | Direct local contact and easier physical assessment or coordinated community care | Separation from immediate triggers, high structure and 24-hour environment |
+| Main limitation | No physical containment; remote observation is limited | Travel, waiting times or variable local access | Cost, time away and major transition back home |
+| Detoxification | Not provided by a recovery programme unless separately delivered by an appropriately regulated medical service | May be arranged or medically managed in the community for suitable people | May be available on site or linked to inpatient care; must be medically assessed |
+| Suitable mental-health complexity | Only where needs and risks can be managed safely and coordinated | Can link directly with local mental-health services | May suit some complex cases, depending on clinical capability and psychiatric support |
+| Best use | Early intervention, structured community recovery or continuing care | Community treatment requiring local professional input | Higher-intensity support when containment or separation is needed |
+
+A staged pathway is often more realistic than a permanent choice between formats. Someone may need medical detoxification, then residential or community treatment, followed by online continuing care. Another person may begin online, then step up if repeated use, risk or home instability shows that more support is needed.
+
+For a fuller comparison, read [Online Addiction Support vs Residential Rehab](/resources/online-addiction-support-vs-residential-rehab). If the likely need is more intensive, [treatment placement](/treatment-placement) can help organise an assessment-led search rather than choosing a centre from advertising alone.
+
+## How to assess a provider
+
+Use questions that make the provider explain its clinical and operational model.
+
+1. **Who is the programme designed for, and who is it not suitable for?**
+2. **What assessment occurs before enrolment?**
+3. **Does the programme provide treatment, counselling, coaching, peer support or education?**
+4. **Who delivers sessions, and what are their qualifications, professional registrations and supervision arrangements?**
+5. **How are withdrawal risk, suicide risk, psychosis and safeguarding concerns handled?**
+6. **What happens if I relapse, miss sessions or become more unwell?**
+7. **How is progress reviewed, and can the plan change?**
+8. **How do you coordinate with my GP, prescriber or mental health team?**
+9. **Are groups recorded? How is sensitive information protected?**
+10. **What outcome evidence do you publish, and are denominators, follow-up periods and dropout rates included?**
+11. **What is the full cost, cancellation policy and minimum commitment?**
+12. **What aftercare or step-down support is available?**
+
+Be cautious if a provider guarantees recovery, claims one format works for everyone, cannot identify who holds clinical responsibility, minimises withdrawal risk or uses impressive outcome percentages without explaining who was measured and for how long.
+
+Regulation also requires nuance. In England, the Care Quality Commission regulates providers when they carry on specified regulated activities. Not every recovery-support or coaching service falls within the same regulatory scope. If a service provides online medical consultations, diagnosis, prescribing or treatment by listed healthcare professionals, ask which activities are regulated and verify any registration claimed. CQC provides public guidance on choosing online healthcare services.
+
+## Getting the most from online recovery
+
+An appropriate programme still depends on active participation. The following steps make engagement more practical.
+
+### Protect the time and space
+
+Use headphones, close unnecessary apps and choose the most private place available. Tell household members when you cannot be interrupted. If privacy cannot be created safely, discuss alternatives with the provider rather than withholding important information.
+
+### Treat sessions as appointments, not content
+
+Join on time, keep the camera arrangement agreed with the practitioner and avoid attending while driving, working or caring for someone else. Online convenience should not turn a therapeutic session into background activity.
+
+### Be honest about use and setbacks
+
+A return to use changes risk and planning. Hiding it may keep someone in a level of care that is no longer safe. Good services respond with assessment and adaptation, not humiliation.
+
+### Do the work in daily life
+
+Use the period between sessions to test the plan: change access to substances, build routine, practise coping skills, contact supportive people and review warning signs. Digital tools can provide prompts and records, but they do not carry out those actions for you.
+
+### Agree how family is involved
+
+Family participation should have a purpose and respect consent, confidentiality and safety. It may help with practical support, boundaries and early warning signs. It should not turn a partner or parent into a monitor responsible for the person's recovery.
+
+### Review fit, not just attendance
+
+Attending every session is not sufficient if risk is increasing or nothing changes. Ask periodically: Is the plan addressing the main drivers? Is use reducing or becoming safer? Is mental health improving or deteriorating? Is more intensive care needed?
+
+## Privacy, technology and accessibility
+
+Addiction and mental-health information is sensitive. Before starting, read the provider's privacy notice and ask:
+
+- which platform is used and how access is controlled
+- whether sessions or groups are recorded
+- what notes are kept and who can see them
+- how information is shared with other professionals or family
+- what happens if the connection fails during a risk disclosure
+- whether participants can use a preferred name on group software
+- how data-subject rights and complaints are handled.
+
+The Information Commissioner's Office advises organisations that recording online meetings requires a valid purpose and lawful basis, and that participants should be told why a recording is made, how it will be used and how long it will be kept. In recovery groups, the safest default is usually not to record unless there is a clear, justified and transparent reason.
+
+Technology can also exclude. Hearing, sight, literacy, language, neurodiversity, cognitive needs, limited data and low digital confidence may affect participation. A credible service should discuss reasonable adjustments and alternative contact methods. Online care is only more accessible if the person can actually use it.
+
+## Relapse, disengagement and stepping up care
+
+A lapse or relapse is clinically important information, not proof that treatment has failed. The response should be proportionate to what happened and the current risks.
+
+A programme should help the person:
+
+1. establish immediate safety
+2. identify what was used, how much and whether urgent medical help is needed
+3. consider overdose, withdrawal, self-harm and safeguarding risk
+4. contact the relevant professional or emergency service when required
+5. understand the sequence of warning signs and triggers without shame
+6. revise the recovery and crisis plans
+7. decide whether the current level of care remains sufficient.
+
+Repeated relapse, escalating quantity, dangerous combinations, loss of housing, worsening mental health or inability to attend may all indicate that online-only support is no longer proportionate. Stepping up to local specialist treatment, medical care or residential support is a clinical adjustment, not a punishment.
+
+Equally, a missed session should not automatically lead to discharge. NICE guidance for people with severe mental illness and substance misuse treats loss of contact as a concern and recommends proactive, flexible efforts to reconnect. Online programmes should have an agreed contact policy that respects both safety and privacy.
+
+## Online recovery after residential treatment
+
+The return home after residential treatment is a major change in environment and responsibility. Triggers, relationships, work pressures and unstructured time reappear. Online continuing care can create a bridge between the treatment plan and the person's real daily life.
+
+Useful aftercare may include:
+
+- reviewing the discharge and relapse-prevention plans
+- regular one-to-one and group contact
+- monitoring early warning signs
+- coordinating with local services and prescribers
+- practising responses to real situations as they arise
+- involving family appropriately
+- rebuilding work, sleep, exercise and social routines
+- agreeing rapid support if risk rises.
+
+Continuity matters more than ownership. The online provider should not replace parts of the discharge plan that require medical, psychiatric or local follow-up. With consent, information should pass between services clearly enough that the person does not have to repeatedly retell their history or manage conflicting advice alone.
+
+## Support for families
+
+Families often value online access because meetings can be easier to arrange around work, geography and caring responsibilities. Family involvement may provide education, help people agree boundaries and create a shared response to warning signs.
+
+It should also protect the family member's own wellbeing. A partner or parent cannot provide medical monitoring, guarantee abstinence or be available around the clock. Their role needs limits.
+
+Helpful questions for families include:
+
+- What signs would mean we contact the programme, a clinician or emergency services?
+- What information can be shared with us, with the person's consent?
+- Which behaviours will we support, and which consequences will we stop absorbing?
+- How will we respond to intoxication or aggressive behaviour safely?
+- What support is available for us separately?
+
+NICE recommends information, guided self-help and access to support for families and carers affected by drug misuse, with family meetings considered where needs continue. Family support is not an optional marketing extra; it can be an important separate strand of care.
+
+## How Insight Recovery Network approaches online support
+
+Insight Recovery Network's [online recovery programme](/online-programme) combines structured individual and group contact, recovery tasks, relapse-prevention work and access to [Insight OS](/insight-os) for reflection, check-ins and planning between sessions. Suitability is considered before a programme recommendation. IRN does not provide medical detoxification, diagnosis, prescribing or emergency care, and may recommend medical assessment or a higher level of support where online care is not sufficient.
+
+This service description is not proof of effectiveness. To strengthen transparency over time, IRN should publish clearly defined first-party measures such as enquiries assessed, acceptance criteria, enrolment, attendance, completion, attrition, follow-up windows and the precise outcome measures used. Results should include denominators and limitations and should never imply that self-reported programme data are equivalent to an independent clinical trial.
+
+## When to seek professional help
+
+Arrange a professional assessment if substance use is difficult to control, is affecting health, work or relationships, repeatedly returns after attempts to stop, or is being used to cope with anxiety, depression, trauma or another mental-health difficulty.
+
+Seek medical advice before reducing or stopping alcohol if there are withdrawal symptoms such as shaking, sweating, nausea, anxiety or needing a drink to feel normal. Do not use this article or an online recovery programme as detox instructions. Similar caution is needed with benzodiazepines and other medicines that can cause withdrawal; speak to the prescriber or an appropriate medical service.
+
+Use urgent or emergency help if there is severe withdrawal, a seizure, hallucinations, confusion, overdose, breathing difficulty, chest pain, collapse, serious self-harm risk or danger to another person. Call 999 or go to A&E for an emergency. In England, NHS 111 can direct urgent physical or mental-health care when it is not an emergency.
+
+If the person is safe but the level of care is unclear, a confidential assessment can compare online, community, medical and residential options. The aim is not to persuade someone into the most intensive service; it is to avoid asking a lower-intensity service to manage risks it cannot safely hold.
+
+## Frequently asked questions
+
+### Do online addiction recovery programmes work?
+
+They can help, but outcomes depend on the intervention, the person and how well the level of care fits. A 2025 review found promising results for remote interventions, especially as an addition to in-person care, while also finding substantial risk of bias in the evidence. No credible provider should guarantee an outcome or treat all online programmes as equivalent.
+
+### Can an online programme help me detox?
+
+Not unless a separately regulated medical service has assessed and is medically managing the withdrawal. A recovery programme should not present video sessions, groups or an app as detoxification. Alcohol and benzodiazepine withdrawal can be dangerous. Obtain medical advice before stopping if physical dependence or withdrawal may be present.
+
+### Is online recovery suitable for severe addiction?
+
+Severity is only one consideration. Withdrawal risk, overdose history, mental health, housing, safeguarding, previous treatment and ability to engage all matter. Some people with longstanding problems can use online continuing care safely; others need medical, intensive community or residential support. Assessment is more reliable than a label.
+
+### Is online recovery confidential?
+
+It should be delivered with clear privacy and data-protection arrangements, but participants also need a private space and secure device where possible. Ask whether sessions are recorded, which platform is used, who can access notes and how information is shared. Group members should agree confidentiality, although a provider cannot guarantee another participant's behaviour absolutely.
+
+### Can online recovery be used after rehab?
+
+Yes. It can provide continuing structure, relapse-prevention review and support while the person applies recovery skills at home. It should complement the discharge plan and maintain necessary links with local medical, mental-health and community services.
+
+### What happens if I relapse during an online programme?
+
+Tell the programme promptly and assess immediate safety. The response may include medical help, a revised plan, more frequent contact or a move to a higher level of care. Relapse should prompt review rather than shame, but it must not be minimised when overdose, withdrawal or mental-health risk has increased.`.trim()
+},
 ] satisfies Article[];
