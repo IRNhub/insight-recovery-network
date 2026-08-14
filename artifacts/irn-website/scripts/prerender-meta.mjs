@@ -2751,6 +2751,14 @@ function inlineMd(line) {
   return out;
 }
 
+function headingId(heading) {
+  return heading
+    .toLowerCase()
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 /**
  * Convert the article markdown-ish content (same dialect rendered by
  * src/pages/ResourceDetail.tsx: ## / ### headings, "- " lists, | tables |,
@@ -2877,7 +2885,7 @@ function markdownToHtml(content, supportingImages = []) {
       flushList();
       flushOrderedList();
       const heading = line.slice(3);
-      html.push(`<h2 style="${H2_STYLE}">${inlineMd(heading)}</h2>`);
+      html.push(`<h2 id="${headingId(heading)}" style="${H2_STYLE}">${inlineMd(heading)}</h2>`);
       const supportingImage = supportingImages.find(
         (image) => image.afterHeading.toLowerCase() === heading.toLowerCase(),
       );
@@ -3013,8 +3021,8 @@ function buildArticleBodyHtml(meta, full) {
 
   const faqHtml = full.faq?.length
     ? `
-          <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
+          <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);" aria-labelledby="frequently-asked-questions">
+            <h2 id="frequently-asked-questions" style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:1.5rem;">Frequently Asked Questions</h2>
             ${full.faq
               .map(
                 (f) => `

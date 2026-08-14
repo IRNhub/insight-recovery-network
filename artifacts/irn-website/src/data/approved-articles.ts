@@ -2128,4 +2128,430 @@ Yes. It can provide continuing structure, relapse-prevention review and support 
 
 Tell the programme promptly and assess immediate safety. The response may include medical help, a revised plan, more frequent contact or a move to a higher level of care. Relapse should prompt review rather than shame, but it must not be minimised when overdose, withdrawal or mental-health risk has increased.`.trim()
 },
+  {
+    slug: "addiction-support-for-families",
+    title: "Addiction Support for Families: A Complete UK Guide",
+    excerpt: "Practical UK guidance for families affected by addiction: safety, conversations, boundaries, treatment options and support for your own wellbeing.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-08-14",
+    readingTime: 25,
+    category: "Family Support",
+    image: "/addiction-support-for-families-uk-hero.webp",
+    ogImage: "/addiction-support-for-families-uk-hero-og.webp",
+    imageAlt: "Two adult relatives speaking with a family addiction support practitioner.",
+    seoTitle: "Addiction Support for Families: UK Guide | IRN",
+    metaDescription: "Practical UK guidance for families affected by addiction: safety, conversations, boundaries, treatment options and support for your own wellbeing.",
+    ogTitle: "Addiction Support for Families: A Complete UK Guide",
+    ogDescription: "Evidence-based guidance for families on safety, communication, boundaries, treatment decisions and support in their own right.",
+    publishedStatus: "published",
+    medicalWebPage: true,
+    supportingImages: [
+      {
+        afterHeading: "Start with safety, not persuasion",
+        src: "/family-addiction-safety-boundaries-plan.webp",
+        alt: "Family creating a safety and boundaries plan with an addiction support practitioner.",
+        caption: "A useful family plan separates urgent safety actions from longer-term boundaries and makes each person's responsibilities clear.",
+      },
+      {
+        afterHeading: "Support for your own wellbeing",
+        src: "/support-for-family-affected-by-addiction.webp",
+        alt: "Family member receiving confidential support for the impact of a loved one's addiction.",
+        caption: "Family members can receive confidential information, peer support and help for their own health even when their loved one is not in treatment.",
+      },
+    ],
+    faq: [
+      {
+        question: "What support is available for families affected by addiction in the UK?",
+        answer: "Options include a GP, local NHS or council-commissioned alcohol and drug services, family appointments, peer groups, counselling, carers' services, safeguarding support and private family guidance. The NHS lists organisations including FRANK, Adfam, Addiction Family Support, Families Anonymous and SMART Family & Friends. The right option depends on whether the immediate need is safety, information, emotional support, treatment planning or help for children or vulnerable adults.",
+      },
+      {
+        question: "Can I get family support if my loved one refuses treatment?",
+        answer: "Yes. UK guidance says affected relatives should be offered information and support even when the person with the alcohol problem is not attending treatment. A service can usually discuss your own wellbeing, general risk information, coping, boundaries and available services without disclosing the other person's confidential clinical information.",
+      },
+      {
+        question: "How can I help someone with addiction without enabling them?",
+        answer: "Support safety and access to care while avoiding actions that repeatedly hide harm or transfer responsibilities the person could reasonably hold. You might arrange an assessment or call an ambulance, but decline to give cash, provide false explanations or allow impaired driving. Context matters: harm reduction and emergency help are not enabling. A family professional can help make boundaries safe and realistic.",
+      },
+      {
+        question: "What boundaries should families set around addiction?",
+        answer: "A useful boundary is specific, proportionate and within your control. It might cover money, driving, substances in the home, abusive communication or what help you will offer. State what you will do rather than using a threat to force recovery. Boundaries involving housing, children, domestic abuse, disability or financial dependence may need legal, safeguarding or specialist advice.",
+      },
+      {
+        question: "Can a family force an adult into rehab in the UK?",
+        answer: "A family cannot ordinarily compel a capacitous adult into addiction treatment solely because relatives believe rehab is needed. Emergency, safeguarding, mental-capacity and mental-health procedures may apply in particular high-risk circumstances, but professionals must assess those. Families can prepare options, stop participating in unsafe patterns and act when emergency or safeguarding thresholds are met.",
+      },
+      {
+        question: "What should I do in an addiction-related emergency?",
+        answer: "Call 999 if someone is unconscious, cannot be woken, has a seizure, is struggling to breathe, may have overdosed, or presents an immediate danger to themselves or others. Tell responders what substances or medicines may be involved. Use naloxone for a suspected opioid overdose if it is available and you know how, but still call 999. Do not attempt to manage dangerous withdrawal or violence alone.",
+      },
+    ],
+    sources: [
+      { title: "Drug misuse in over 16s: psychosocial interventions", publisher: "NICE", url: "https://www.nice.org.uk/guidance/CG51/chapter/recommendations" },
+      { title: "Clinical guidelines for alcohol treatment: principles of care", publisher: "Department of Health and Social Care", url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/2-principles-of-care" },
+      { title: "Clinical guidelines for alcohol treatment: assessment and treatment and recovery planning", publisher: "Department of Health and Social Care", url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/4-assessment-and-treatment-and-recovery-planning" },
+      { title: "Clinical guidelines for alcohol treatment: psychosocial interventions", publisher: "Department of Health and Social Care", url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/5-psychosocial-interventions" },
+      { title: "Clinical guidelines for alcohol treatment: parents in alcohol treatment services", publisher: "Department of Health and Social Care", url: "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/26-parents-in-alcohol-treatment-services" },
+      { title: "Supporting adult carers", publisher: "NICE", url: "https://www.nice.org.uk/guidance/ng150/chapter/Recommendations" },
+      { title: "Advice for families of people who use drugs", publisher: "NHS", url: "https://www.nhs.uk/live-well/addiction-support/advice-for-the-families-of-drug-users/" },
+      { title: "Urgent mental-health support", publisher: "NHS", url: "https://www.nhs.uk/every-mind-matters/urgent-support/" },
+      { title: "Safeguarding children affected by parental alcohol and drug use", publisher: "GOV.UK", url: "https://www.gov.uk/government/publications/safeguarding-children-affected-by-parental-alcohol-and-drug-use" },
+      { title: "Domestic abuse: how to get help", publisher: "GOV.UK", url: "https://www.gov.uk/guidance/domestic-abuse-how-to-get-help" },
+      { title: "Supplying take-home naloxone without a prescription", publisher: "GOV.UK", url: "https://www.gov.uk/guidance/supplying-take-home-naloxone-without-a-prescription" },
+      { title: "Psychosocial interventions for family members affected by another's substance use", publisher: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/36744608/" },
+      { title: "Advice for parents and carers", publisher: "FRANK", url: "https://www.talktofrank.com/get-help/concerned-about-a-child" },
+      { title: "Consent to treatment and an adult's right to refuse", publisher: "NHS", url: "https://www.nhs.uk/tests-and-treatments/consent-to-treatment/" },
+    ],
+    content: `This guide is for adult partners, parents, adult children, siblings, friends and carers affected by another person's addiction. It offers general education and family guidance. It does not diagnose addiction, provide legal advice, direct an individual detoxification or replace emergency, safeguarding, GP or specialist care. Advice involving children requires age-appropriate and local safeguarding support.
+
+## The concise answer
+
+**Concise answer:** Addiction support for families should do two things: help relatives respond more safely and effectively to the person with the addiction, and protect the family's own physical, emotional and practical wellbeing. Useful support may include clear information, an independent family appointment, peer support, help with communication and boundaries, safeguarding advice, and a planned route into assessment or treatment if the person accepts help.
+
+Families can influence conditions around recovery, but they cannot control another adult's decisions or take over clinical responsibility. Support remains worthwhile even when the person is not in treatment.
+
+**Urgent safety information:** If someone is unconscious, having a seizure, severely confused, struggling to breathe, at immediate risk of suicide or violence, or otherwise in danger, call 999 or go to A&E. In England, urgent mental-health help that is not an emergency is available through NHS 111 online or by calling 111 and selecting the mental-health option. If domestic abuse is present, prioritise a safe contact with a specialist service; do not use a family confrontation when it could increase danger.
+
+## Table of contents
+
+1. [Key takeaways](#key-takeaways)
+2. [What does addiction support for families include?](#what-does-addiction-support-for-families-include)
+3. [Why family support matters](#why-family-support-matters)
+4. [Start with safety, not persuasion](#start-with-safety-not-persuasion)
+5. [How to talk about addiction](#how-to-talk-about-addiction)
+6. [Boundaries, consequences and enabling](#boundaries-consequences-and-enabling)
+7. [When the person refuses treatment](#when-the-person-refuses-treatment)
+8. [Consent and confidentiality](#consent-and-confidentiality)
+9. [Children, vulnerable adults and safeguarding](#children-vulnerable-adults-and-safeguarding)
+10. [How families can support treatment and recovery](#how-families-can-support-treatment-and-recovery)
+11. [Support for your own wellbeing](#support-for-your-own-wellbeing)
+12. [Choosing family support in the UK](#choosing-family-support-in-the-uk)
+13. [A practical seven-day family plan](#a-practical-seven-day-family-plan)
+14. [How Insight Recovery Network supports families](#how-insight-recovery-network-supports-families)
+15. [When to seek professional help](#when-to-seek-professional-help)
+16. [Frequently asked questions](#frequently-asked-questions)
+
+## Key takeaways
+
+- Families deserve support in their own right; their needs do not depend on whether the person with the addiction enters treatment.
+- Begin by separating immediate medical, mental-health and safeguarding risks from the longer-term work of communication, boundaries and treatment planning.
+- A useful boundary states what **you** will do to protect safety or wellbeing. It is not a punishment designed to force recovery.
+- Choose a calm, sober and reasonably safe time for a conversation. Describe specific observations, listen, avoid labels and offer one realistic next step.
+- A family cannot ordinarily compel a capacitous adult into addiction treatment. It can stop participating in unsafe patterns, prepare options and act when risk requires professional intervention.
+- Treatment services must respect confidentiality, but they can usually listen to relatives, explain general processes and offer the family support without disclosing the person's private information.
+- Children and vulnerable adults should never be given responsibility for monitoring, rescuing or keeping an adult safe.
+- Evidence supports family-focused and family-member interventions, but no method guarantees treatment entry, abstinence or a particular outcome.
+
+## What does addiction support for families include?
+
+The phrase **family support** can describe several different forms of help. They overlap, but they should not be treated as interchangeable.
+
+**Support for the family member** focuses on the effect the situation is having on you. It may include a confidential appointment, guided self-help, a peer group, counselling, practical advice or help with your own mental and physical health.
+
+**Family guidance** helps relatives understand addiction, identify risk, plan conversations, agree boundaries and decide how they will respond to recurring situations. It should increase clarity rather than make the family responsible for delivering treatment.
+
+**Family involvement in treatment** happens when the person receiving care consents and involvement is appropriate. A relative might contribute history, attend selected sessions, support a recovery plan or understand what to do if risk increases. The purpose and limits of involvement should be agreed explicitly.
+
+**Family-focused treatment** is a structured clinical intervention delivered by trained practitioners. Depending on the problem and service, this can include behavioural couples work, social network approaches or interventions designed specifically for affected family members.
+
+**Intervention planning** is a carefully prepared process for raising concerns and offering treatment options. It is not the dramatic ambush often shown in television programmes. Where domestic abuse, violence, coercion, acute mental illness or other serious risk is present, a joint confrontation may be unsafe and specialist advice should come first.
+
+**Treatment assessment and placement** addresses the person's clinical needs: substance use, withdrawal, overdose history, physical and mental health, safeguarding, previous treatment, home environment and willingness to engage. It may identify community, online, medically supported or residential options. Family preferences matter, but clinical fit and safety should lead the decision.
+
+A better starting point than “How do we make them stop?” is: “What is urgent, what belongs to us, and what support does each person need?”
+
+## Why family support matters
+
+Addiction can reorganise family life around uncertainty. Relatives may monitor mood and intoxication, check whether someone is breathing, cover absences, lend money, care for children, manage appointments or wait for the next crisis. These responses often begin as attempts to protect someone. Over time, they can affect sleep, work, finances, relationships and health.
+
+The clinical case for family support is not based only on the hope that a relative will persuade someone into treatment. UK guidance says family members should be offered information and support even when the person with the alcohol problem is not attending treatment. NICE guidance for drug misuse recommends guided self-help and support-group contact when family or carer needs are identified, with structured individual family meetings considered when significant problems continue.
+
+The research is encouraging but should be described carefully. A 2023 systematic review included 19 studies of psychosocial interventions for family members affected by another person's substance use; 10 contributed to meta-analyses. Individual and group approaches showed favourable changes in outcomes such as depression, distress, coping and family functioning. The authors also warned that small samples and weak study methods limited the certainty of conclusions. Family support is evidence-informed, but it is not a guaranteed route to changing another person's behaviour.
+
+Current UK alcohol-treatment guidance describes three legitimate aims of family-focused work:
+
+1. helping a family member support treatment entry or engagement
+2. involving family or social-network members in treatment, with consent
+3. supporting affected relatives in their own right, whether or not the person drinking participates.
+
+That third aim is easily overlooked. Your health, safety and stability are worthwhile outcomes. They are not consolation prizes for failing to make someone recover.
+
+## Start with safety, not persuasion
+
+When a family is frightened, the instinct is often to find the perfect argument. Risk assessment is more urgent than persuasion.
+
+### Immediate danger
+
+Call 999 if someone may have overdosed, is unconscious, cannot be woken, has severe breathing difficulty, is having a seizure, has collapsed, is severely confused, or there is immediate danger from suicide or violence. Tell the call handler what you know about alcohol, drugs or medicines taken. Stay within the instructions you are given and do not put yourself at risk.
+
+Naloxone can temporarily reverse an opioid overdose. UK rules allow relevant services to supply take-home naloxone to people at risk and to family members or friends. If opioids may be involved, ask a local drug service or pharmacist whether naloxone and training are available. Using naloxone does not replace calling 999 because its effect can wear off and further treatment may be needed.
+
+### Withdrawal risk
+
+Do not direct someone to stop alcohol or benzodiazepines abruptly when dependence or withdrawal may be present. Severe withdrawal can be dangerous. A family member should not be expected to design a taper, lend prescribed medication or provide an informal home detox. Arrange medical assessment through a GP, NHS or specialist alcohol and drug service, or an appropriate detox provider. The [UK addiction detox guide](/resources/addiction-detox-uk) explains why setting and medical oversight matter.
+
+### Mental-health crisis
+
+Substance use may coexist with suicidal thoughts, psychosis, severe depression, agitation or confusion. If danger is immediate, call 999 or go to A&E. In England, NHS 111 can provide urgent mental-health help where the situation is urgent but not an emergency. Do not assume that every frightening behaviour is “just the addiction”. Physical illness, head injury, overdose, withdrawal and acute mental illness all require appropriate assessment.
+
+### Violence and domestic abuse
+
+Substance use does not cause or excuse domestic abuse. If you are afraid of a partner or family member, make safety the priority and seek confidential domestic-abuse advice. A boundary conversation or planned intervention may increase danger when coercive control or violence is present. If you are in immediate danger, call 999. If you cannot speak and need police help from a mobile, follow the operator's prompts and press 55 when prompted.
+
+## How to talk about addiction
+
+A conversation cannot guarantee insight or treatment, but it can make honesty and help more possible.
+
+### Choose the conditions
+
+Speak when the person is as sober and medically stable as possible, when neither of you is rushing and where you can leave safely. Do not begin a high-stakes conversation while someone is intoxicated, withdrawing, driving, caring for children or already escalating.
+
+If you are afraid of their reaction, obtain professional advice before speaking. Safety matters more than having the conversation quickly.
+
+### Use observations, not a prosecution case
+
+Start with two or three specific changes you have seen:
+
+- “You missed work twice this week after drinking.”
+- “You said you would stop, but you have used again and seem frightened by it.”
+- “I found you difficult to wake and I am worried about your safety.”
+
+Avoid trying to prove every past incident. Labels such as “addict”, “selfish” or “in denial” can turn the discussion into a fight about identity. Describe behaviour, impact and concern.
+
+### Say what you feel and need
+
+Use clear first-person language: “I am worried”; “I will not travel with you when you have been drinking”; “I need the children to stay elsewhere tonight”; “I am willing to help arrange an assessment.” This is more useful than speaking for the entire family or predicting catastrophe to frighten the person.
+
+### Ask and listen
+
+Open questions can reveal readiness and barriers:
+
+- “What worries you most about what has been happening?”
+- “What have you tried already?”
+- “What would make getting help feel possible?”
+- “Would you agree to one confidential assessment before deciding anything else?”
+
+Listening does not mean agreeing with minimisation or accepting abuse. It helps you understand whether the obstacle is fear of withdrawal, cost, stigma, work, childcare, a previous treatment experience or no current wish to change.
+
+### Offer one proportionate next step
+
+A list of ten services can overwhelm someone. Offer one action that matches the situation: a GP appointment, local drug and alcohol assessment, medically informed detox assessment, recovery assessment, family consultation or conversation with a treatment provider. If the person declines, state how you will respond and when you will revisit the subject.
+
+For a fuller conversation framework, use [how to talk to someone about drinking or drug use](/resources/how-to-talk-to-someone-about-drinking-drug-use).
+
+## Boundaries, consequences and enabling
+
+Families are often told to “set boundaries” or “stop enabling” without being shown what those words mean. Poorly used, both can create shame and unsafe ultimatums.
+
+### What a boundary is
+
+A boundary is a clear statement about your own participation, property, money, contact or safety. It should be:
+
+- linked to a real need or risk
+- specific enough to understand
+- within your control
+- proportionate and lawful
+- realistic to maintain
+- reviewed if circumstances change.
+
+Examples might include:
+
+- “I will not give cash, but I can pay a necessary bill directly if I decide it is safe.”
+- “You cannot drive my car or transport the children after drinking or using drugs.”
+- “I will end the conversation if I am threatened and seek help if I feel unsafe.”
+- “You cannot stay in my home while bringing drugs into it.”
+- “I will help arrange treatment, but I will not call your employer with a false explanation.”
+
+The appropriate boundary depends on housing rights, financial dependence, children, disability, risk and the relationship. Legal, safeguarding or domestic-abuse advice may be needed before changing access to a home, money or care.
+
+### What a boundary is not
+
+A boundary is not a threat whose only purpose is to force treatment. It is not a punishment, public humiliation or removal of essential help in a medical crisis. If you say you will do something you cannot safely or realistically do, the result may be more confusion rather than consistency.
+
+### Rethinking “enabling”
+
+The term is often used for actions that protect a person from the consequences of substance use: repeatedly replacing money, giving false explanations, paying drug debts or taking over responsibilities indefinitely. Some rescuing actions can unintentionally help an unsafe pattern continue.
+
+Context matters. Providing food, calling an ambulance, protecting a child, supplying naloxone, arranging transport to treatment or reducing immediate harm is not the same as pretending nothing is wrong. Ask three questions:
+
+1. Does this action improve immediate safety?
+2. Does it transfer a responsibility that the person could reasonably hold?
+3. Does it protect recovery and family wellbeing, or keep the same cycle going?
+
+The guide to [helping someone without enabling](/resources/help-someone-with-addiction-without-enabling) and the guide to [family boundaries in recovery](/resources/family-boundaries-addiction-recovery) develop this distinction.
+
+## When the person refuses treatment
+
+A capable adult can make decisions that family members strongly disagree with. In ordinary circumstances, relatives cannot force an adult into addiction treatment simply because the situation is harmful. Mental-capacity, mental-health and safeguarding law can become relevant in specific circumstances, but those are professional assessments, not tools for a family to apply by itself.
+
+Refusal does not mean the family must do nothing. You can:
+
+- seek support and assessment for your own needs
+- document specific risks and incidents accurately
+- stop making false explanations or providing unsafe financial support
+- agree a consistent response across the family where safe
+- prepare realistic treatment options so they are available when willingness changes
+- keep communication open without repeating the same argument every day
+- contact professionals when medical, mental-health or safeguarding thresholds are reached.
+
+Motivation can change. A calm response today may support a different decision later, but no family method guarantees treatment entry. Be cautious of providers promising that a particular script or confrontation will “break denial” or produce admission.
+
+Read [what to do when someone refuses treatment](/resources/what-to-do-when-someone-refuses-treatment) for a more detailed decision guide.
+
+## Consent and confidentiality
+
+Confidentiality can feel one-sided to families. You may hold vital information but be told that a service cannot discuss the person's care. The distinction below helps.
+
+If a capable adult does not consent, a service will usually be unable to disclose their personal clinical information to relatives. That does not necessarily prevent the service from:
+
+- listening to information you provide
+- recording a relevant concern according to its policy
+- explaining general treatment processes
+- giving general risk and emergency information
+- signposting you to family support
+- offering you a separate appointment about your own wellbeing.
+
+The service may not be able to confirm whether the person is a patient or tell you what action it has taken. Ask how information from relatives is handled and whether you should put important concerns in writing.
+
+When the person does consent to family involvement, agree the scope rather than assuming “full access”. Useful questions include:
+
+- Which relatives may be contacted?
+- What information can be shared, and what remains private?
+- May the family attend assessments or reviews?
+- What should happen after missed contact, relapse or rising risk?
+- Who holds responsibility for urgent decisions?
+
+Current UK alcohol guidance recommends clear confidentiality arrangements for both the person in treatment and the family member. It also supports separate appointments so relatives can disclose the impact on their own wellbeing in confidence.
+
+Confidentiality is not absolute where law, immediate danger or safeguarding duties require information to be shared. A provider should explain its limits clearly rather than making vague promises.
+
+## Children, vulnerable adults and safeguarding
+
+Children can be affected by unpredictability, absence, conflict, unsafe driving, financial instability, caring responsibilities or frightening incidents even when they do not understand addiction. They should not be asked to monitor intoxication, hide substances, keep secrets, supervise withdrawal or become the emotional support for adults.
+
+Practical protections may include identifying a safe adult, keeping emergency numbers accessible, arranging reliable school and childcare routines, preventing travel with an impaired driver and making sure essential needs are met. A child who is frightened or taking on substantial caring responsibilities may need help from school, a GP, a young-carers service, children's social care or a specialist organisation.
+
+UK clinical guidance makes clear that adult treatment services have safeguarding responsibilities and should help parents and children access support and, when necessary, protection. Seeking help does not automatically determine one outcome for a family. The purpose of early help and safeguarding assessment is to understand needs and reduce harm.
+
+Vulnerable adults may also need safeguarding support where there is neglect, exploitation, coercion, violence, impaired capacity or inability to protect themselves. Contact the relevant local authority safeguarding service for advice, or emergency services when danger is immediate.
+
+Do not promise a child that you will keep dangerous information secret. Explain, in age-appropriate language, that you may need to involve a safe professional to help.
+
+## How families can support treatment and recovery
+
+Family involvement is most useful when it is agreed, bounded and matched to the treatment plan. It should not turn a relative into an unpaid clinician, detox supervisor or permanent crisis manager.
+
+### Before treatment
+
+Relatives may help by providing an accurate history, identifying previous withdrawal or overdose, describing mental-health and safeguarding concerns, and clarifying practical barriers. A professional assessment should still speak directly with the person and form its own judgement.
+
+### During treatment
+
+With consent, a family member may learn how the programme works, attend selected sessions, support agreed routines, understand medicines at a general safety level, and know who to contact if risk changes. Family or social-network interventions should be delivered by practitioners trained and supervised in the method.
+
+### At transitions
+
+Risk can change after detox, residential discharge, relapse or a return home. A continuing-care plan should clarify appointments, medication responsibility, overdose and withdrawal risk, early warning signs, support contacts and what would trigger a higher level of care.
+
+### If relapse occurs
+
+Respond first to safety. Reduced tolerance can increase overdose risk after abstinence. Avoid shame, but do not minimise the event. Encourage prompt contact with the treatment team or an assessment service and review whether the current level of care still fits. The family can support re-engagement while maintaining boundaries.
+
+### Choosing the level of care
+
+Not everyone needs residential rehabilitation, and not everyone can be supported safely at home. Assessment may point towards local NHS or community treatment, medically supported withdrawal, structured online care, outpatient therapy, residential rehabilitation, mental-health care or a combined pathway. The guide on [when a family should consider rehab](/resources/when-should-family-consider-rehab) and IRN's [treatment placement guidance](/treatment-placement) explain the decision factors.
+
+## Support for your own wellbeing
+
+You do not have to wait for the person to accept help before seeking support yourself.
+
+### A separate family appointment
+
+Ask a local alcohol or drug service whether it supports affected family members. Current UK alcohol guidance says support should be available even when the person drinking is not in treatment. A separate appointment can cover urgent needs, stress, coping, information, social support and further referrals.
+
+### Your GP and mental health
+
+Speak with your GP if stress is affecting sleep, mood, anxiety, physical health, work or daily functioning. If you need urgent mental-health support in England but there is no immediate danger, use NHS 111 online or call 111 and select the mental-health option. Call 999 or go to A&E where someone is in danger.
+
+### Peer and voluntary support
+
+The NHS lists UK support routes including FRANK, Adfam, Addiction Family Support, Families Anonymous and SMART Family & Friends. Alcohol-focused options also include Al-Anon, and NACOA supports people affected by a parent's drinking. Services differ in approach, eligibility, geography and meeting style, so it is reasonable to try more than one.
+
+Peer support can reduce isolation and provide practical experience. It should not replace medical, safeguarding, domestic-abuse or mental-health care when those are needed.
+
+### A carer's assessment
+
+You may not call yourself a carer, particularly if the change happened gradually or you are a partner, parent, sibling, adult child or friend. NICE advises that unpaid adult carers should be told about their right to discuss their own needs with their local authority. Entitlements and processes vary across the four UK nations; ask your local authority or carer service about the assessment that applies where you live.
+
+### Work, money and relationships
+
+Family strain is often practical as well as emotional. Consider confidential advice about debt, benefits, employment, housing or legal issues where relevant. Protect important documents, accounts and children's essentials where it is safe and lawful to do so. Couples or family therapy may help some relationships, but it is not appropriate as a substitute for domestic-abuse support.
+
+### Rest and ordinary life
+
+Self-care is often described too vaguely. Make it concrete: sleep somewhere safe, keep your own medical appointments, eat regularly, speak to one trusted person, maintain contact outside the crisis and protect time when you are not monitoring the other adult. These actions do not mean you care less. They reduce the chance that the entire family becomes organised around addiction.
+
+## Choosing family support in the UK
+
+Before paying for a service, ask:
+
+- Is the work for the family member, the person with the addiction, or both?
+- What assessment occurs before advice is given?
+- Who delivers the service, and what training and supervision do they have?
+- How are domestic abuse, suicide risk, withdrawal, children and vulnerable adults handled?
+- How does consent and confidentiality work for each participant?
+- Does the provider promise treatment entry or recovery outcomes it cannot guarantee?
+- Are costs, cancellations, referral relationships and commissions transparent?
+- What happens if the person refuses help or needs urgent medical care?
+- Is there a route to NHS, local authority, medical, mental-health or residential services when needed?
+
+Avoid providers whose main message is that the family has caused the addiction or can guarantee recovery by following a formula. Good support respects both influence and limits: families can change their own responses and contribute to safer conditions, but the person's treatment outcome is not theirs to guarantee.
+
+[CTA:/family-addiction-intervention-uk:Explore Family Addiction Guidance]
+A confidential family conversation can help separate urgent risk from longer-term decisions, clarify safe boundaries and identify realistic treatment routes. Your loved one does not need to be ready for you to seek guidance for your own next steps.
+[/CTA]
+
+## A practical seven-day family plan
+
+This plan is not a countdown to confrontation. It is a way to replace scattered worry with safer preparation.
+
+**Day 1: Write down the current concerns.** Record recent events, immediate risks, substances or behaviours involved, withdrawal signs, children or vulnerable adults affected and what you do not yet know. Keep facts separate from assumptions.
+
+**Day 2: Identify emergency thresholds.** Agree when you would call 999, NHS 111, a GP, a local crisis service or safeguarding team. Find the address and phone number of the local drug and alcohol service. If opioids may be involved, ask about take-home naloxone.
+
+**Day 3: Get support for one family member.** Book a GP, family-support, peer-group or professional consultation. Do this even if the person with the addiction refuses help.
+
+**Day 4: Agree two or three boundaries.** Choose boundaries that protect safety and are within your control. Consider legal or specialist advice where housing, money, domestic abuse or caring duties make a change risky.
+
+**Day 5: Prepare one conversation.** Choose the time, write down two observations, one expression of concern and one proposed next step. Decide how you will end the conversation if it becomes unsafe.
+
+**Day 6: Clarify treatment routes.** Identify the most proportionate first assessment and what alternatives exist if medical detox, mental-health care or residential treatment is indicated.
+
+**Day 7: Review the family plan.** Decide who will do what, what information remains private, how children will be protected, and when the plan will be reviewed. Do not assign one exhausted relative every task.
+
+## How Insight Recovery Network supports families
+
+Insight Recovery Network helps adult relatives organise a complex situation into clearer decisions. A family conversation may cover risk, household impact, communication, boundaries, treatment readiness and realistic options. Where the person agrees to assessment, the next step can be matched to their needs rather than to one predetermined service.
+
+IRN's [family addiction guidance](/family-addiction-intervention-uk) supports relatives preparing conversations, boundaries and next steps. A [confidential recovery assessment](/assessments) can help clarify the person's needs when they are willing to engage. If residential, detox or specialist care may be appropriate, [assessment-led treatment placement](/treatment-placement) can help compare suitable routes and disclose relevant referral relationships.
+
+IRN is a private support and treatment-guidance service, not a regulated healthcare provider. It does not diagnose, prescribe, provide medical detox or deliver emergency care. Any treating provider remains responsible for its clinical assessment and admission decision. This page does not replace NHS, GP, safeguarding, domestic-abuse or crisis care.
+
+## When to seek professional help
+
+Seek professional advice promptly when:
+
+- you do not know whether stopping alcohol or medication could cause dangerous withdrawal
+- overdose, severe intoxication or repeated loss of consciousness has occurred
+- suicidal thoughts, psychosis, severe depression, violence or serious confusion may be present
+- children or vulnerable adults are affected by unsafe care, neglect, violence or exploitation
+- domestic abuse or coercive control makes a conversation or boundary unsafe
+- family members cannot agree on a safe response
+- money, housing, work or health are being significantly affected
+- the same crisis repeats despite promises and informal attempts to manage it
+- the person wants help but the family cannot judge which level of care is appropriate
+- your own sleep, mood, physical health or ability to function is deteriorating.
+
+You do not need to wait until the situation is at its worst. An independent family appointment can be appropriate even when the person with the addiction is not ready to take part.`.trim(),
+  },
 ] satisfies Article[];

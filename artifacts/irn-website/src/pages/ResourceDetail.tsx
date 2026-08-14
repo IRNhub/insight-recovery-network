@@ -85,6 +85,14 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   ],
 ];
 
+function headingId(heading: string): string {
+  return heading
+    .toLowerCase()
+    .replace(/[’']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 async function fetchArticle(slug: string): Promise<Article> {
   const approvedArticle = staticArticles.find((article) => article.slug === slug);
   if (approvedArticle && isApprovedArticleSlug(slug)) return approvedArticle;
@@ -161,7 +169,7 @@ function parseContent(
     if (line.startsWith("## ")) {
       const heading = line.replace("## ", "");
       elements.push(
-        <h2 key={i} className="text-2xl md:text-3xl font-serif text-primary mt-10 mb-4 leading-snug">
+        <h2 id={headingId(heading)} key={i} className="scroll-mt-24 text-2xl md:text-3xl font-serif text-primary mt-10 mb-4 leading-snug">
           {heading}
         </h2>
       );
@@ -592,6 +600,14 @@ export default function ResourceDetail() {
         secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
       };
     }
+    if (slug === "addiction-support-for-families") {
+      return {
+        heading: "Get a clearer family plan",
+        description: "A confidential family conversation can help separate urgent risk from longer-term decisions, clarify safe boundaries and identify realistic treatment routes. Your loved one does not need to be ready for you to seek guidance.",
+        primaryCta: { label: "Explore family addiction guidance", href: "/family-addiction-intervention-uk" },
+        secondaryCta: { label: "Start a recovery assessment", href: "/assessments" },
+      };
+    }
     if (/(family|intervention|enabl|loved-one|refuses-treatment|talk-to-someone)/.test(slug)) {
       return {
         heading: "Worried about someone you love?",
@@ -855,8 +871,8 @@ export default function ResourceDetail() {
               article.supportingImages,
             )}
             {article.faq && article.faq.length > 0 && (
-              <section className="mt-14 pt-9 border-t border-border/50" aria-labelledby="article-faq">
-                <h2 id="article-faq" className="font-serif text-2xl md:text-3xl text-primary mb-6">
+              <section className="mt-14 pt-9 border-t border-border/50" aria-labelledby="frequently-asked-questions">
+                <h2 id="frequently-asked-questions" className="scroll-mt-24 font-serif text-2xl md:text-3xl text-primary mb-6">
                   Frequently asked questions
                 </h2>
                 <div className="space-y-4">

@@ -212,7 +212,7 @@ Useful early support may help relatives:
 
 The aim is not to give relatives control over another person. It is to replace confusion with a clearer framework. Families can make better decisions about their own actions even when they cannot determine what the person experiencing addiction will do.
 
-Insight Recovery Network’s [family addiction guidance](/family-addiction-intervention-uk) explains how conversations, boundaries and intervention planning can be approached. Where a family is trying to compare residential or specialist options, [treatment placement guidance](/treatment-placement) can help clarify suitability, safety and practical fit.
+The [complete UK addiction support guide for families](/resources/addiction-support-for-families) brings together safety, communication, boundaries and support for relatives in one place. Insight Recovery Network’s [family addiction guidance](/family-addiction-intervention-uk) explains how conversations, boundaries and intervention planning can be approached. Where a family is trying to compare residential or specialist options, [treatment placement guidance](/treatment-placement) can help clarify suitability, safety and practical fit.
 
 ## Methodology and limitations
 
@@ -317,7 +317,7 @@ Family work should be available before, during and after treatment. Before treat
 
 It should also be available when the person experiencing addiction does not engage. A family member’s need for support is valid in its own right. Their wellbeing should not depend entirely on whether someone else accepts treatment.
 
-Families seeking a starting point can read our [family addiction guidance](/family-addiction-intervention-uk). If a suitable treatment option needs to be identified, [treatment placement guidance](/treatment-placement) can help compare levels of care, location and practical fit.
+Families seeking a starting point can read our [complete guide to addiction support for families](/resources/addiction-support-for-families) and our [family addiction guidance](/family-addiction-intervention-uk). If a suitable treatment option needs to be identified, [treatment placement guidance](/treatment-placement) can help compare levels of care, location and practical fit.
 
 ## Methodology and limitations
 
@@ -2953,7 +2953,7 @@ Family members who are burned out, overwhelmed, or themselves psychologically de
 
 If you are unsure what to do, or if the situation is deteriorating, seeking professional guidance is appropriate. Family intervention specialists, addiction counsellors, and organisations such as Al-Anon can all provide structured support.
 
-We work with families throughout this process, from the initial conversation about what is happening, through to supporting someone into treatment and helping families adjust to life in recovery.
+Our [wider UK family addiction support guide](/resources/addiction-support-for-families) covers safety, communication, confidentiality, boundaries and help for relatives in their own right. We work with families throughout this process, from the initial conversation about what is happening, through to supporting someone into treatment and helping families adjust to life in recovery.
     `.trim(),
   },
   {
