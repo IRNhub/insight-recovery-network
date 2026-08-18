@@ -1577,8 +1577,8 @@ const PAGES = [
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
                 <p style="font-family:sans-serif;font-size:0.75rem;color:#888;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.1em;">Mental Health</p>
-                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/mental-health-and-addiction" style="color:#162B3B;text-decoration:none;">Mental Health and Addiction: Understanding the Connection</a></h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Addiction and mental health conditions frequently co-occur. Understanding the relationship between them is essential to effective treatment.</p>
+                <h3 style="font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;"><a href="/resources/mental-health-and-addiction" style="color:#162B3B;text-decoration:none;">Mental Health and Addiction: A Complete UK Guide</a></h3>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;max-width:680px;margin-bottom:0.75rem;">Understand how mental health and addiction interact, what a safe assessment covers, urgent warning signs and how to find coordinated UK support.</p>
                 <a href="/resources/mental-health-and-addiction" style="font-family:sans-serif;font-size:0.85rem;color:#162B3B;text-decoration:underline;">Read article</a>
               </article>
               <article style="padding:1.75rem 0;border-bottom:1px solid rgba(201,169,110,0.2);">
@@ -2554,13 +2554,14 @@ const ARTICLES = [
   {
     slug: "mental-health-and-addiction",
     pageTitle:
-      "Mental Health and Addiction | Insight Recovery",
-    ogTitle: "The Connection Between Mental Health and Addiction",
+      "Mental Health and Addiction: UK Guide | IRN",
+    ogTitle: "Mental Health and Addiction: A Complete UK Guide",
     description:
-      "Addiction and mental health conditions frequently co-occur. Understanding the relationship between them is essential to effective treatment.",
-    image: `${SITE_URL}/opengraph.jpg`,
-    imageAlt: "Insight Recovery Network",
+      "Understand how mental health and addiction interact, what a safe assessment covers, urgent warning signs and how to find coordinated UK support.",
+    image: `${SITE_URL}/mental-health-and-addiction-uk-hero-og.webp`,
+    imageAlt: "Adult discussing mental health and addiction with two coordinated support practitioners",
     date: "2026-02-24",
+    updatedDate: "2026-08-18",
     type: "article",
   },
   {
@@ -2698,8 +2699,22 @@ async function loadTsModule(relPath) {
         format: "esm",
         target: "node20",
       });
+      const articleEightPath = resolve(root, "src/data/article-008-mental-health-and-addiction.ts");
+      const articleEightSource = readFileSync(articleEightPath, "utf8");
+      const articleEightTransformed = await transformWithEsbuild(articleEightSource, articleEightPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const articleEightTmpPath = resolve(distPublic, ".tmp-article-008-mental-health-and-addiction.mjs");
+      writeFileSync(articleEightTmpPath, articleEightTransformed.code, "utf8");
+      temporaryDependencies.push(articleEightTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
-      writeFileSync(approvedTmpPath, approvedTransformed.code, "utf8");
+      const approvedCode = approvedTransformed.code.replace(
+        /from\s+["']\.\/article-008-mental-health-and-addiction["']/,
+        'from "./.tmp-article-008-mental-health-and-addiction.mjs"',
+      );
+      writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
       code = code.replace(
         /from\s+["']\.\/approved-articles["']/,

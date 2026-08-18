@@ -1,6 +1,9 @@
 import type { Article } from "./articles";
 
+import { mentalHealthAndAddictionArticle } from "./article-008-mental-health-and-addiction";
+
 export const approvedArticles = [
+  mentalHealthAndAddictionArticle,
   {
     slug: "cocaine-addiction",
     title: "Cocaine Addiction: Signs, Risks and Treatment",
@@ -1341,6 +1344,8 @@ Continuing care should be planned before discharge. It may include community add
     ],
     content: `**Concise answer:** Dual diagnosis usually means that a person has both a mental-health condition and harmful alcohol or drug use. It is a descriptive term, not a single diagnosis. Good care assesses both areas together, deals with urgent risks first and coordinates evidence-based treatment rather than assuming one problem must be completely resolved before the other can be addressed. The right pathway may involve primary care, mental-health services, community addiction treatment, medically supported withdrawal, residential care or structured online support, depending on the person's needs and safety.
 
+For the broader relationship between symptoms, substance use, assessment and routes into care, read the complete guide to [mental health and addiction](/resources/mental-health-and-addiction).
+
 If someone is in immediate danger, has attempted suicide, is severely confused, is having a seizure, cannot be woken, has serious breathing difficulty or is experiencing another medical emergency, call 999 or go to A&E. In England, urgent mental-health support that is not an emergency is available through NHS 111 online or by calling 111 and selecting the mental-health option.
 
 ## Key takeaways
@@ -2459,7 +2464,7 @@ Respond first to safety. Reduced tolerance can increase overdose risk after abst
 
 ### Choosing the level of care
 
-Not everyone needs residential rehabilitation, and not everyone can be supported safely at home. Assessment may point towards local NHS or community treatment, medically supported withdrawal, structured online care, outpatient therapy, residential rehabilitation, mental-health care or a combined pathway. The guide on [when a family should consider rehab](/resources/when-should-family-consider-rehab) and IRN's [treatment placement guidance](/treatment-placement) explain the decision factors.
+Not everyone needs residential rehabilitation, and not everyone can be supported safely at home. Assessment may point towards local NHS or community treatment, medically supported withdrawal, structured online care, outpatient therapy, residential rehabilitation, [mental-health and addiction care](/resources/mental-health-and-addiction) or a combined pathway. The guide on [when a family should consider rehab](/resources/when-should-family-consider-rehab) and IRN's [treatment placement guidance](/treatment-placement) explain the decision factors.
 
 ## Support for your own wellbeing
 

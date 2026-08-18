@@ -120,11 +120,18 @@ async function fetchArticle(slug: string): Promise<Article> {
   }
 }
 
-/** Convert [text](url) patterns to <Link> elements */
+/** Convert inline links and bold emphasis to rendered elements. */
 function parseInlineLinks(text: string): React.ReactNode[] {
-  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
   if (parts.length === 1) return [text];
   return parts.map((part, idx) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={idx} className="font-semibold text-primary">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
     const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (m) {
       if (/^https?:\/\//.test(m[2])) {
@@ -522,6 +529,13 @@ export default function ResourceDetail() {
         { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
+    if (article.slug === "mental-health-and-addiction") {
+      return [
+        { title: "Recovery assessments", description: "Organise mental-health and addiction concerns before the next professional conversation.", href: "/assessments" },
+        { title: "Treatment placement", description: "Compare providers against withdrawal, mental-health, medication and safeguarding needs.", href: "/treatment-placement" },
+        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
+      ];
+    }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
         { title: "Luxury rehab", description: "Compare premium treatment against clinical quality, privacy and aftercare.", href: "/luxury-rehab" },
@@ -600,6 +614,14 @@ export default function ResourceDetail() {
         secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
       };
     }
+    if (slug === "mental-health-and-addiction") {
+      return {
+        heading: "Not sure which need to address first?",
+        description: "A confidential assessment can help organise concerns and identify a proportionate next step. It is educational, not a diagnosis or emergency service.",
+        primaryCta: { label: "Explore the assessments", href: "/assessments" },
+        secondaryCta: { label: "Discuss treatment options", href: "/treatment-placement" },
+      };
+    }
     if (slug === "addiction-support-for-families") {
       return {
         heading: "Get a clearer family plan",
@@ -663,7 +685,7 @@ export default function ResourceDetail() {
 
   const blogSchema = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     headline: article.seoTitle ?? article.title,
     description: article.metaDescription ?? article.excerpt,
     author: {
