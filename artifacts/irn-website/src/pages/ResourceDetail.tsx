@@ -44,6 +44,14 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
     "what-happens-in-residential-rehabilitation",
   ],
   [
+    "benzodiazepine-addiction",
+    "addiction-detox-uk",
+    "addiction-warning-signs",
+    "mental-health-and-addiction",
+    "dual-diagnosis",
+    "online-recovery-programmes",
+  ],
+  [
     "dual-diagnosis",
     "mental-health-and-addiction",
     "addiction-warning-signs",
@@ -536,6 +544,13 @@ export default function ResourceDetail() {
         { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
+    if (article.slug === "benzodiazepine-addiction") {
+      return [
+        { title: "Detox suitability assessment", description: "Organise medicine, withdrawal and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare providers when withdrawal history, multiple substances or other risks require greater clinical structure.", href: "/treatment-placement" },
+        { title: "Online recovery programme", description: "Explore continuing recovery support once medical withdrawal risk has been addressed and online care is suitable.", href: "/online-programme" },
+      ];
+    }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
         { title: "Luxury rehab", description: "Compare premium treatment against clinical quality, privacy and aftercare.", href: "/luxury-rehab" },
@@ -620,6 +635,14 @@ export default function ResourceDetail() {
         description: "A confidential assessment can help organise concerns and identify a proportionate next step. It is educational, not a diagnosis or emergency service.",
         primaryCta: { label: "Explore the assessments", href: "/assessments" },
         secondaryCta: { label: "Discuss treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "benzodiazepine-addiction") {
+      return {
+        heading: "Concerned about benzodiazepine dependence or withdrawal?",
+        description: "The detox assessment can help organise medicine, withdrawal and combination-risk questions before a conversation with a prescriber or clinical service. It does not provide a taper or replace medical assessment.",
+        primaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
       };
     }
     if (slug === "addiction-support-for-families") {
@@ -718,6 +741,9 @@ export default function ResourceDetail() {
     },
     articleSection: article.category,
     inLanguage: "en-GB",
+    ...(article.sources?.length
+      ? { citation: article.sources.map((source) => source.url) }
+      : {}),
   };
   const breadcrumbSchema = {
     "@context": "https://schema.org",

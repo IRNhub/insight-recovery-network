@@ -194,7 +194,7 @@ Seek urgent medical advice for:
 - severe self-neglect, dehydration, chest pain, collapse or another acute physical problem
 - a child or vulnerable adult who may be unsafe.
 
-Do not tell a person at risk of alcohol or benzodiazepine withdrawal simply to stop abruptly. [Detox safety needs an individual assessment](/resources/addiction-detox-uk).
+Do not tell a person at risk of alcohol or benzodiazepine withdrawal simply to stop abruptly. [Detox safety needs an individual assessment](/resources/addiction-detox-uk), and the [benzodiazepine addiction and dependence guide](/resources/benzodiazepine-addiction) explains the medicine-specific risks.
 
 ## What a comprehensive assessment should cover
 

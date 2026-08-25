@@ -2552,6 +2552,19 @@ const ARTICLES = [
     type: "article",
   },
   {
+    slug: "benzodiazepine-addiction",
+    pageTitle:
+      "Benzodiazepine Addiction and Dependence: UK Guide | IRN",
+    ogTitle: "Benzodiazepine Addiction and Dependence: UK Guide",
+    description:
+      "Understand benzodiazepine dependence, addiction and withdrawal risks, when urgent help is needed, and how safe UK assessment and treatment work.",
+    image: `${SITE_URL}/benzodiazepine-addiction-uk-hero-og.webp`,
+    imageAlt: "Adult discussing benzodiazepine dependence with a healthcare professional",
+    date: "2026-08-25",
+    updatedDate: "2026-08-25",
+    type: "article",
+  },
+  {
     slug: "mental-health-and-addiction",
     pageTitle:
       "Mental Health and Addiction: UK Guide | IRN",
@@ -2709,11 +2722,26 @@ async function loadTsModule(relPath) {
       const articleEightTmpPath = resolve(distPublic, ".tmp-article-008-mental-health-and-addiction.mjs");
       writeFileSync(articleEightTmpPath, articleEightTransformed.code, "utf8");
       temporaryDependencies.push(articleEightTmpPath);
+      const articleNinePath = resolve(root, "src/data/article-009-benzodiazepine-addiction.ts");
+      const articleNineSource = readFileSync(articleNinePath, "utf8");
+      const articleNineTransformed = await transformWithEsbuild(articleNineSource, articleNinePath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const articleNineTmpPath = resolve(distPublic, ".tmp-article-009-benzodiazepine-addiction.mjs");
+      writeFileSync(articleNineTmpPath, articleNineTransformed.code, "utf8");
+      temporaryDependencies.push(articleNineTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
-      const approvedCode = approvedTransformed.code.replace(
-        /from\s+["']\.\/article-008-mental-health-and-addiction["']/,
-        'from "./.tmp-article-008-mental-health-and-addiction.mjs"',
-      );
+      const approvedCode = approvedTransformed.code
+        .replace(
+          /from\s+["']\.\/article-008-mental-health-and-addiction["']/,
+          'from "./.tmp-article-008-mental-health-and-addiction.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-009-benzodiazepine-addiction["']/,
+          'from "./.tmp-article-009-benzodiazepine-addiction.mjs"',
+        );
       writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
       code = code.replace(
@@ -3291,6 +3319,9 @@ function buildArticleJsonLd(meta, full) {
       logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+    ...(full?.sources?.length
+      ? { citation: full.sources.map((source) => source.url) }
+      : {}),
   };
 }
 

@@ -1,8 +1,10 @@
 import type { Article } from "./articles";
 
 import { mentalHealthAndAddictionArticle } from "./article-008-mental-health-and-addiction";
+import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-addiction";
 
 export const approvedArticles = [
+  benzodiazepineAddictionArticle,
   mentalHealthAndAddictionArticle,
   {
     slug: "cocaine-addiction",
@@ -597,6 +599,8 @@ The major post-detox risk is loss of tolerance. If a person returns to opioids, 
 ### Benzodiazepines, Z-drugs and other dependence-forming medicines
 
 Physical dependence can develop even when a medicine has been taken as prescribed. It is not the same thing as addiction, although the two can coexist. NICE advises against abrupt discontinuation of opioids, benzodiazepines, gabapentinoids, Z-drugs or antidepressants except in exceptional medical circumstances. Withdrawal is usually planned as a slow, stepwise reduction that can be adjusted to the person's response.[6]
+
+The [benzodiazepine addiction and dependence guide](/resources/benzodiazepine-addiction) explains this distinction, urgent risks and the questions a medicine review should cover.
 
 Someone considering a reduction should speak to the original prescriber, GP or another qualified clinician. The plan should consider dose, duration, previous withdrawal, concurrent medicines, physical and mental health, the original condition and the person's circumstances. This article intentionally does not provide a taper schedule because a generic schedule can be unsafe.
 
@@ -2101,7 +2105,7 @@ This service description is not proof of effectiveness. To strengthen transparen
 
 Arrange a professional assessment if substance use is difficult to control, is affecting health, work or relationships, repeatedly returns after attempts to stop, or is being used to cope with anxiety, depression, trauma or another mental-health difficulty.
 
-Seek medical advice before reducing or stopping alcohol if there are withdrawal symptoms such as shaking, sweating, nausea, anxiety or needing a drink to feel normal. Do not use this article or an online recovery programme as detox instructions. Similar caution is needed with benzodiazepines and other medicines that can cause withdrawal; speak to the prescriber or an appropriate medical service.
+Seek medical advice before reducing or stopping alcohol if there are withdrawal symptoms such as shaking, sweating, nausea, anxiety or needing a drink to feel normal. Do not use this article or an online recovery programme as detox instructions. Similar caution is needed with benzodiazepines and other medicines that can cause withdrawal; speak to the prescriber or an appropriate medical service and read the [benzodiazepine dependence safety guide](/resources/benzodiazepine-addiction).
 
 Use urgent or emergency help if there is severe withdrawal, a seizure, hallucinations, confusion, overdose, breathing difficulty, chest pain, collapse, serious self-harm risk or danger to another person. Call 999 or go to A&E for an emergency. In England, NHS 111 can direct urgent physical or mental-health care when it is not an emergency.
 
