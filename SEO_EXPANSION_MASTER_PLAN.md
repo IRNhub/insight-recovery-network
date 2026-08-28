@@ -6,6 +6,7 @@ Implementation base after authority reconciliation: `origin/main` at `ce096b2`
 Live site: https://www.insightrecoverynetwork.com/
 Companion tracker: [SEO_EXPANSION_TRACKER.csv](./SEO_EXPANSION_TRACKER.csv)
 Implementation record: [SEO_EXPANSION_IMPLEMENTATION_REPORT.md](./SEO_EXPANSION_IMPLEMENTATION_REPORT.md)
+Visual audit and image briefs: [SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md](./SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md)
 
 ## Executive answer
 
@@ -215,6 +216,16 @@ Batch 2 acceptance includes unique titles and descriptions, one H1, self-canonic
 - Every health page should expose author, relevant credentials, original/updated date, reviewer where applicable, sources and a medical-information disclaimer.
 - Use NHS, NICE, GOV.UK/OHID, ONS and primary/peer-reviewed research. Do not use competitor copy as evidence.
 
+## Visual-content gate
+
+Every new or substantially improved page must receive an asset-level visual audit before publication. Record the current hero and supporting images, pixel dimensions, aspect ratios, placements, ALT text and Open Graph reference; then decide separately whether a dedicated hero is needed, supporting editorial photography would add comprehension or trust, and an existing IRN asset is genuinely suitable for reuse.
+
+Visual inspection is mandatory. Do not approve an image from its filename or ALT text alone, and do not assume that a generic site image is sufficient. Reuse must be rejected where an asset duplicates a different pillar, misstates the visible scene, contains readable fabricated material, relies on a promotional brand panel or conflicts with the page’s clinical scope.
+
+Where a bespoke asset is needed, write an 11-field page-specific image brief covering URL, purpose, scene, people/objects, composition, tone, UK context, IRN palette/style, crop, ALT text and exclusions. The SEO expansion workflow must not use Replit AI, external AI image generation or automatic stock sourcing. Default delivery is a 1600 × 900 WebP hero or body image plus a separate 1200 × 630 Open Graph crop, with no baked-in text and a safe central crop area.
+
+The tracker fields `Hero image status`, `Supporting image status`, `Image brief status`, `ALT text status` and `OG image status` are release controls, not optional notes. The detailed Batch 2 audit, production briefs and future-batch checklist are maintained in [SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md](./SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md).
+
 ## Measurement and operating cadence
 
 The tracker includes blank Search Console fields by design. Update impressions, clicks, average position, CTR and qualified-enquiry outcomes monthly. Review pages with stable impressions and average positions roughly 4–20 first, but only after query intent is checked. Record assisted conversions separately from raw traffic, because the business goal is qualified private treatment and support enquiries.
@@ -224,6 +235,7 @@ Suggested release rhythm:
 - release one clinically reviewed commercial cluster at a time;
 - publish or refresh the authority pillar before or with its treatment page;
 - add reciprocal links, prerender output, sitemap entry, metadata and schema in the same release;
+- complete the asset audit, tracker statuses and any required image briefs before approving visuals for publication;
 - run typecheck, production build, static SEO verification, link audit and a mobile visual check;
 - review safety/cost content at least every six months and after relevant guidance or provider changes.
 

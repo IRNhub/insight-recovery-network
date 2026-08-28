@@ -46,6 +46,7 @@ Every route has unique title, description, self-canonical and H1; visible breadc
 - `SEO_EXPANSION_MASTER_PLAN.md`
 - `SEO_EXPANSION_TRACKER.csv`
 - `SEO_EXPANSION_IMPLEMENTATION_REPORT.md`
+- `SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md`
 - `artifacts/irn-website/src/data/substance-treatment-pages.js`
 - `artifacts/irn-website/src/data/substance-treatment-pages.d.ts`
 - `artifacts/irn-website/src/pages/SubstanceTreatmentPage.tsx`
@@ -136,7 +137,7 @@ No separate `/resources/alcohol-detox` page was created because it would compete
 - TypeScript passed with `CI=true pnpm --filter @workspace/irn-website run typecheck`.
 - The complete production build passed for 95 sitemap URLs and 50 full article pages, including asset compression.
 - Automated verification confirmed unique titles and meta descriptions, exactly one H1 per indexed route, correct canonicals, indexability, content depth, schema, official sources, clinical boundaries, reciprocal links and zero raw-HTML orphans.
-- Desktop and 390 by 844 mobile browser checks covered all eight Batch 2 routes: no horizontal overflow, correct H1/title/canonical, descriptive image alt text, visible safety guidance and valid contextual calls to action.
+- Desktop and 390 by 844 mobile browser checks covered all eight Batch 2 routes: no horizontal overflow, correct H1/title/canonical, present image ALT attributes, visible safety guidance and valid contextual calls to action. The later asset-level review below identifies where existing ALT wording is conceptual or does not literally match the reused image and supplies replacements.
 - Hydrated cost-page schema resolves to one each of Organization, WebSite, Person, WebPage, Service, BreadcrumbList and FAQPage, with no residual static or prerender page-schema copy.
 - HTTP checks passed for new-route 200, query-preserving trailing-slash 301, canonical-host 301 and true unknown-route 404 with `X-Robots-Tag: noindex, nofollow`.
 - The existing large-main-chunk warning is approximately 1.46 MB uncompressed and 416 KB gzip after reconciling Batch 2 with the new upstream authority article. It remains a P2 performance item and does not fail the build.
@@ -153,3 +154,15 @@ No separate `/resources/alcohol-detox` page was created because it would compete
 ## Deployment acceptance
 
 No push or deployment was performed. After deployment approval, re-crawl the live sitemap and verify the production edge preserves the tested 301 behavior for the public Replit hostname and all non-root trailing slashes. Then submit or refresh the sitemap in Search Console and populate the blank tracker fields as query and conversion data accumulates.
+
+## Batch 2 visual asset addendum
+
+The eight Batch 2 pages received a retrospective visual audit after the content and technical implementation. No page was redesigned and no image was generated, sourced or substituted.
+
+- Seven pages need a new page-specific hero. The general detox hub also needs a future replacement set because its current hero and supporting images use an advertising-led branded treatment and readable fabricated paperwork.
+- Benzodiazepine and ketamine withdrawal can each reuse one existing, unbranded and directly relevant IRN assessment image.
+- Cocaine withdrawal and the general detox hub must not reuse their current supporting images because they contain prominent brand panels and/or readable fabricated content.
+- Detox-versus-rehab and the rehab-cost page do not need supporting photography; the existing comparison and pricing modules are more useful.
+- All eight pages require a new dedicated 1200 × 630 social crop when their replacement hero is produced. The rehab-cost asset is the highest-priority replacement because it bakes readable illustrative prices into the image.
+
+The complete asset inventory, placement decisions, existing ALT review, recommended dimensions, eight individual image briefs and automatic future-batch gate are recorded in [SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md](./SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md). The five corresponding status fields have been added to the master tracker.
