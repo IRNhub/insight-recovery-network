@@ -2,8 +2,10 @@ import type { Article } from "./articles";
 
 import { mentalHealthAndAddictionArticle } from "./article-008-mental-health-and-addiction";
 import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-addiction";
+import { ketamineAddictionArticle } from "./article-010-ketamine-addiction";
 
 export const approvedArticles = [
+  ketamineAddictionArticle,
   benzodiazepineAddictionArticle,
   mentalHealthAndAddictionArticle,
   {
