@@ -552,23 +552,23 @@ export default function ResourceDetail() {
     }
     if (article.slug === "cannabis-addiction") {
       return [
+        { title: "Cannabis addiction treatment", description: "Compare community, online and residential support against use, mental health and home stability.", href: "/cannabis-addiction-treatment" },
         { title: "Drug-use assessment", description: "Organise concerns about cannabis use, control, withdrawal, mental health and daily functioning.", href: "/assessments/drug-use" },
         { title: "Online recovery programme", description: "Explore structured recovery support when the person is medically stable and online care is suitable.", href: "/online-programme" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when risk, complexity or the home environment requires greater structure.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "ketamine-addiction") {
       return [
+        { title: "Ketamine addiction treatment", description: "Coordinate recovery support with a separate medical pathway for bladder, urinary or abdominal harm.", href: "/ketamine-addiction-treatment" },
         { title: "Drug-use assessment", description: "Organise concerns about ketamine use, control, physical symptoms and the next appropriate conversation.", href: "/assessments/drug-use" },
         { title: "Detox suitability assessment", description: "Review withdrawal and combination-risk questions when alcohol, benzodiazepines, opioids or other substances are also involved.", href: "/assessments/detox" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when medical, mental-health or environmental risks require greater structure.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "cocaine-addiction") {
       return [
+        { title: "Cocaine addiction treatment", description: "Compare evidence-based psychological, community, online and residential treatment routes.", href: "/cocaine-addiction-treatment" },
         { title: "Drug-use assessment", description: "Organise concerns about use, control, harm and the next appropriate conversation.", href: "/assessments/drug-use" },
         { title: "Online recovery programme", description: "Explore structured recovery support when online care is clinically suitable.", href: "/online-programme" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when risk or complexity requires them.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "addiction-detox-uk") {
@@ -580,23 +580,30 @@ export default function ResourceDetail() {
     }
     if (article.slug === "dual-diagnosis") {
       return [
+        { title: "Dual diagnosis treatment", description: "Compare integrated provider capability for mental-health and addiction needs.", href: "/dual-diagnosis-treatment" },
         { title: "Recovery assessments", description: "Organise concerns before discussing co-occurring needs with an appropriate professional.", href: "/assessments" },
         { title: "Treatment placement", description: "Compare providers against mental-health, withdrawal, medication and safeguarding needs.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
     if (article.slug === "mental-health-and-addiction") {
       return [
+        { title: "Dual diagnosis treatment", description: "Compare integrated treatment routes without self-diagnosing from symptoms.", href: "/dual-diagnosis-treatment" },
         { title: "Recovery assessments", description: "Organise mental-health and addiction concerns before the next professional conversation.", href: "/assessments" },
         { title: "Treatment placement", description: "Compare providers against withdrawal, mental-health, medication and safeguarding needs.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
     if (article.slug === "benzodiazepine-addiction") {
       return [
+        { title: "Benzodiazepine treatment", description: "Compare prescriber-led withdrawal planning and wider recovery support without using a generic taper.", href: "/benzodiazepine-addiction-treatment" },
         { title: "Detox suitability assessment", description: "Organise medicine, withdrawal and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
         { title: "Treatment placement", description: "Compare providers when withdrawal history, multiple substances or other risks require greater clinical structure.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore continuing recovery support once medical withdrawal risk has been addressed and online care is suitable.", href: "/online-programme" },
+      ];
+    }
+    if (article.slug === "understanding-alcohol-dependency") {
+      return [
+        { title: "Alcohol addiction treatment", description: "Compare withdrawal assessment, community, online and residential alcohol treatment routes.", href: "/alcohol-addiction-treatment" },
+        { title: "Alcohol and detox assessment", description: "Organise withdrawal and dependence questions before speaking with a medical service.", href: "/assessments/alcohol-detox" },
+        { title: "Private alcohol rehab costs", description: "Review alcohol-specific cost drivers, inclusions and alternatives.", href: "/resources/private-alcohol-rehab-uk-costs-options-alternatives" },
       ];
     }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {

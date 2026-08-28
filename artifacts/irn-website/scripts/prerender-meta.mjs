@@ -32,6 +32,10 @@ import {
   premiumTreatmentPages,
   PREMIUM_TREATMENT_REVIEW_DATE,
 } from "../src/data/premium-treatment-pages.js";
+import {
+  substanceTreatmentPages,
+  SUBSTANCE_TREATMENT_REVIEW_DATE,
+} from "../src/data/substance-treatment-pages.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -2109,6 +2113,171 @@ PAGES.push(
   })),
 );
 
+function buildSubstanceTreatmentJsonLd(page) {
+  const canonical = `${SITE_URL}${page.route}`;
+
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: page.fullTitle,
+      description: page.metaDescription,
+      inLanguage: "en-GB",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      reviewedBy: {
+        "@type": "Person",
+        "@id": `${SITE_URL}/craig-bilton#person`,
+        name: "Craig Bilton",
+        url: `${SITE_URL}/craig-bilton`,
+      },
+      lastReviewed: "2026-08-28",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: `${page.title} guidance and placement support`,
+      serviceType: "Assessment-led addiction treatment navigation and recovery support",
+      description: page.metaDescription,
+      provider: { "@id": `${SITE_URL}/#organization` },
+      areaServed: { "@type": "Country", name: "United Kingdom" },
+      url: canonical,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Treatment placement", item: `${SITE_URL}/treatment-placement` },
+        { "@type": "ListItem", position: 3, name: page.title, item: canonical },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer },
+      })),
+    },
+  ];
+}
+
+function buildSubstanceTreatmentBody(page) {
+  const sections = page.sections.map((section) => `
+    <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);">
+      <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.25rem;">${esc(section.title)}</h2>
+      ${section.paragraphs.map((paragraph) => `<p style="font-family:sans-serif;font-size:0.96rem;line-height:1.85;color:#4a5568;max-width:820px;margin-bottom:1rem;">${esc(paragraph)}</p>`).join("")}
+      ${section.bullets?.length ? `<ul style="font-family:sans-serif;font-size:0.9rem;line-height:1.8;color:#4a5568;padding-left:1.25rem;columns:2;column-gap:2rem;">${section.bullets.map((item) => `<li style="margin-bottom:0.5rem;break-inside:avoid;">${esc(item)}</li>`).join("")}</ul>` : ""}
+    </section>`).join("");
+
+  return `
+    <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <a href="/" style="font-family:Georgia,serif;color:#F6F4F0;text-decoration:none;font-size:1.1rem;">Insight Recovery Network</a>
+      <nav aria-label="Main navigation" style="display:flex;gap:1rem;flex-wrap:wrap;"><a href="/treatment-placement" style="color:#F6F4F0;font-family:sans-serif;font-size:0.85rem;">Treatment placement</a><a href="/assessments" style="color:#F6F4F0;font-family:sans-serif;font-size:0.85rem;">Assessments</a><a href="/resources" style="color:#F6F4F0;font-family:sans-serif;font-size:0.85rem;">Resources</a><a href="/contact" style="color:#fff;font-family:sans-serif;font-size:0.85rem;">Discuss treatment options</a></nav>
+    </header>
+    <main style="font-family:Georgia,serif;background:#F6F4F0;color:#162B3B;">
+      <div style="max-width:1180px;margin:0 auto;padding:2rem;">
+        <nav aria-label="Breadcrumb" style="font-family:sans-serif;font-size:0.75rem;margin:1rem 0 2rem;"><a href="/">Home</a> / <a href="/treatment-placement">Treatment placement</a> / ${esc(page.title)}</nav>
+        <section style="padding:1rem 0 3rem;border-bottom:1px solid rgba(22,43,59,0.12);">
+          <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;">${esc(page.eyebrow)}</p>
+          <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;font-weight:500;max-width:920px;">${esc(page.h1)}</h1>
+          ${page.intro.map((paragraph) => `<p style="font-family:sans-serif;font-size:1rem;line-height:1.85;color:#4a5568;max-width:840px;">${esc(paragraph)}</p>`).join("")}
+          <aside style="font-family:sans-serif;max-width:840px;border-left:4px solid #C9A96E;background:#fff;padding:1.1rem 1.25rem;margin:2rem 0;"><strong style="display:block;margin-bottom:0.45rem;">Safety comes first</strong><span style="font-size:0.9rem;line-height:1.7;color:#4a5568;">${esc(page.urgentNote)}</span></aside>
+          <p><a href="${esc(page.cta.primary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;">${esc(page.cta.primary[0])}</a> <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 1.5rem;color:#162B3B;font-family:sans-serif;">How placement works</a></p>
+        </section>
+        <section aria-label="Service summary" style="padding:2rem 0;border-bottom:1px solid rgba(22,43,59,0.12);font-family:sans-serif;">
+          <h2 style="position:absolute;left:-9999px;">Service summary</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">${[["Who this is for", page.summary.who], ["What it helps solve", page.summary.problem], ["Where it applies", page.summary.applies], ["Next step", page.summary.nextStep]].map(([label, value]) => `<div style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.25rem;"><strong style="display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:#9B7844;margin-bottom:0.5rem;">${esc(label)}</strong><span style="font-size:0.9rem;line-height:1.6;">${esc(value)}</span></div>`).join("")}</div>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Reviewed ${esc(SUBSTANCE_TREATMENT_REVIEW_DATE)} by <a href="/craig-bilton">Craig Bilton, Founder &amp; Clinical Director</a>.</p>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose, prescribe or provide medical detox, and is not an emergency service.</p>
+        </section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.highlights.map((item) => `<article style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.5rem;"><h2 style="font-size:1.25rem;font-weight:500;">${esc(item.title)}</h2><p style="font-family:sans-serif;font-size:0.9rem;line-height:1.75;color:#4a5568;">${esc(item.body)}</p></article>`).join("")}</section>
+        ${sections}
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);">
+          <h2 style="font-size:2rem;font-weight:500;">${esc(page.comparison.title)}</h2><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:820px;">${esc(page.comparison.introduction)}</p>
+          <table style="width:100%;border-collapse:collapse;font-family:sans-serif;font-size:0.85rem;"><thead><tr>${page.comparison.columns.map((column) => `<th style="text-align:left;padding:0.85rem;border:1px solid rgba(22,43,59,0.15);background:#162B3B;color:#fff;">${esc(column)}</th>`).join("")}</tr></thead><tbody>${page.comparison.rows.map((row) => `<tr>${row.map((cell) => `<td style="vertical-align:top;padding:0.85rem;border:1px solid rgba(22,43,59,0.15);line-height:1.6;">${esc(cell)}</td>`).join("")}</tr>`).join("")}</tbody></table>
+        </section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">From immediate safety to continuing care</h2><ol style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${page.process.map(([title, body]) => `<li style="margin-bottom:0.85rem;"><strong style="color:#162B3B;">${esc(title)}:</strong> ${esc(body)}</li>`).join("")}</ol><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;border-left:4px solid #C9A96E;padding:1rem 1.25rem;">${esc(page.transparency)}</p></section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Related treatment and clinical guidance</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.relatedLinks.map(([title, description, href]) => `<article style="border:1px solid rgba(22,43,59,0.12);padding:1.25rem;background:#fff;"><h3 style="font-size:1.15rem;font-weight:500;"><a href="${esc(href)}">${esc(title)}</a></h3><p style="font-family:sans-serif;font-size:0.85rem;line-height:1.7;color:#4a5568;">${esc(description)}</p></article>`).join("")}</div></section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Clinical sources and review</h2><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:820px;">General UK treatment information reviewed ${esc(SUBSTANCE_TREATMENT_REVIEW_DATE)}. These sources support the clinical framing; they do not endorse IRN or replace individual assessment.</p><ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;">${page.sources.map(([title, href]) => `<li><a href="${esc(href)}" rel="noopener noreferrer">${esc(title)}</a></li>`).join("")}</ul></section>
+        <section style="padding:3rem 0;"><h2 style="font-size:2rem;font-weight:500;">Questions about ${esc(page.title.toLowerCase())}</h2>${page.faqs.map(([question, answer]) => `<article style="max-width:840px;margin-bottom:1.5rem;"><h3 style="font-size:1.2rem;font-weight:500;">${esc(question)}</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${esc(answer)}</p></article>`).join("")}</section>
+        <section style="padding:3rem 2rem;background:#162B3B;color:#fff;text-align:center;"><h2 style="font-size:2rem;font-weight:500;">${esc(page.cta.heading)}</h2><p style="font-family:sans-serif;line-height:1.8;color:rgba(255,255,255,0.75);">${esc(page.cta.description)}</p><a href="${esc(page.cta.primary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;background:#fff;color:#162B3B;text-decoration:none;font-family:sans-serif;">${esc(page.cta.primary[0])}</a> <a href="${esc(page.cta.secondary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;color:#fff;font-family:sans-serif;">${esc(page.cta.secondary[0])}</a></section>
+      </div>
+    </main>`;
+}
+
+function buildResourceHubDirectory(fullArticles, currentBody) {
+  const published = fullArticles.filter(
+    (article) => article.publishedStatus !== "draft",
+  );
+  const missing = published.filter(
+    (article) => !currentBody.includes(`href="/resources/${article.slug}"`),
+  );
+  const byCategory = new Map();
+  for (const article of missing) {
+    const category = article.category || "Recovery guidance";
+    if (!byCategory.has(category)) byCategory.set(category, []);
+    byCategory.get(category).push(article);
+  }
+
+  const categories = [...byCategory.entries()]
+    .map(([category, articles]) => `
+      <section style="margin-bottom:2rem;">
+        <h3 style="font-size:1.25rem;font-weight:500;margin-bottom:0.75rem;">${esc(category)}</h3>
+        <ul style="font-family:sans-serif;line-height:1.75;color:#4a5568;padding-left:1.25rem;">${articles
+          .map((article) => `<li><a href="/resources/${esc(article.slug)}">${esc(article.title)}</a></li>`)
+          .join("")}</ul>
+      </section>`)
+    .join("");
+
+  return `
+    <section aria-labelledby="complete-resource-directory" style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+      <h2 id="complete-resource-directory" style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Complete Resource Directory</h2>
+      <p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:760px;">Browse every published clinical and recovery article, including the latest substance, family, relapse and alcohol resources.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem 2rem;">${categories}</div>
+    </section>
+    <section aria-labelledby="treatment-guide-directory" style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+      <h2 id="treatment-guide-directory" style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Treatment Decision Guides</h2>
+      <ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;padding-left:1.25rem;">${substanceTreatmentPages.map((page) => `<li><a href="${esc(page.route)}">${esc(page.title)}</a></li>`).join("")}</ul>
+    </section>
+    <section aria-labelledby="resource-governance" style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);font-family:sans-serif;">
+      <h2 id="resource-governance" style="font-family:Georgia,serif;font-size:2rem;font-weight:500;margin-bottom:1rem;">About Our Guidance and Support</h2>
+      <p style="line-height:1.9;color:#4a5568;"><a href="/about-insight-recovery-network">How Insight Recovery Network works</a> · <a href="/editorial-policy">Editorial policy</a> · <a href="/media">Media and expert commentary</a> · <a href="/confidential-addiction-help-professionals">Confidential help for professionals</a> · <a href="/recovery-plan-checklist">Recovery plan checklist</a></p>
+    </section>`;
+}
+
+PAGES.push(
+  ...substanceTreatmentPages.map((page) => ({
+    route: page.route,
+    file: `${page.slug}.html`,
+    title: page.fullTitle,
+    description: page.metaDescription,
+    ogImage: DEFAULT_OG_IMAGE,
+    jsonLd: buildSubstanceTreatmentJsonLd(page),
+    body: buildSubstanceTreatmentBody(page),
+  })),
+);
+
+const treatmentPlacementPage = PAGES.find(
+  (page) => page.route === "/treatment-placement",
+);
+if (treatmentPlacementPage) {
+  const treatmentGuideLinks = `
+    <section aria-labelledby="substance-treatment-guides" style="max-width:1200px;margin:0 auto;padding:3rem 2rem;border-top:1px solid rgba(201,169,110,0.25);">
+      <h2 id="substance-treatment-guides" style="font-family:Georgia,serif;font-size:2rem;font-weight:500;color:#162B3B;margin-bottom:1rem;">Substance-Specific Treatment Guides</h2>
+      <p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:760px;">Compare treatment settings and provider questions after reviewing the relevant clinical information and immediate safety needs.</p>
+      <ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;padding-left:1.25rem;">${substanceTreatmentPages.map((page) => `<li><a href="${esc(page.route)}">${esc(page.title)}</a></li>`).join("")}</ul>
+    </section>`;
+  treatmentPlacementPage.body = treatmentPlacementPage.body.replace(
+    "</main>",
+    `${treatmentGuideLinks}</main>`,
+  );
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: inject page-specific meta tags into index.html
 // ─────────────────────────────────────────────────────────────────────────────
@@ -3124,6 +3293,56 @@ const STATIC_FOOTER = `
         </div>
       </footer>`;
 
+const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
+  "understanding-alcohol-dependency": [
+    ["Alcohol addiction treatment", "/alcohol-addiction-treatment"],
+    ["Alcohol and detox assessment", "/assessments/alcohol-detox"],
+    ["Private alcohol rehab costs", "/resources/private-alcohol-rehab-uk-costs-options-alternatives"],
+  ],
+  "cocaine-addiction": [
+    ["Cocaine addiction treatment", "/cocaine-addiction-treatment"],
+    ["Drug-use assessment", "/assessments/drug-use"],
+    ["Structured online recovery", "/online-programme"],
+  ],
+  "cannabis-addiction": [
+    ["Cannabis addiction treatment", "/cannabis-addiction-treatment"],
+    ["Drug-use assessment", "/assessments/drug-use"],
+    ["Structured online recovery", "/online-programme"],
+  ],
+  "ketamine-addiction": [
+    ["Ketamine addiction treatment", "/ketamine-addiction-treatment"],
+    ["Drug-use assessment", "/assessments/drug-use"],
+    ["Treatment placement", "/treatment-placement"],
+  ],
+  "benzodiazepine-addiction": [
+    ["Benzodiazepine dependence treatment", "/benzodiazepine-addiction-treatment"],
+    ["Detox suitability assessment", "/assessments/detox"],
+    ["Treatment placement", "/treatment-placement"],
+  ],
+  "dual-diagnosis": [
+    ["Dual diagnosis treatment", "/dual-diagnosis-treatment"],
+    ["Recovery assessments", "/assessments"],
+    ["Treatment placement", "/treatment-placement"],
+  ],
+  "mental-health-and-addiction": [
+    ["Dual diagnosis treatment", "/dual-diagnosis-treatment"],
+    ["Recovery assessments", "/assessments"],
+    ["Treatment placement", "/treatment-placement"],
+  ],
+};
+
+function buildArticleTreatmentLinks(slug) {
+  const links = SUBSTANCE_ARTICLE_TREATMENT_LINKS[slug];
+  if (!links) return "";
+
+  return `
+    <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);" aria-labelledby="treatment-next-steps">
+      <h2 id="treatment-next-steps" style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:0.75rem;">Treatment and next steps</h2>
+      <p style="font-family:sans-serif;font-size:0.92rem;line-height:1.75;color:#4a5568;max-width:680px;">Move from clinical information to an assessment-led treatment decision without treating this article as an individual diagnosis.</p>
+      <ul style="font-family:sans-serif;font-size:0.92rem;line-height:1.9;color:#4a5568;padding-left:1.25rem;">${links.map(([title, href]) => `<li><a href="${href}">${title}</a></li>`).join("")}</ul>
+    </section>`;
+}
+
 /** Build the full static body HTML for an article page. */
 function buildArticleBodyHtml(meta, full) {
   const canonicalUrl = `${SITE_URL}/resources/${full.slug}`;
@@ -3187,6 +3406,7 @@ function buildArticleBodyHtml(meta, full) {
           </article>
           ${faqHtml}
           ${sourcesHtml}
+          ${buildArticleTreatmentLinks(full.slug)}
           <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
@@ -3686,6 +3906,22 @@ async function main() {
 
   const baseHtml = readFileSync(indexPath, "utf-8");
 
+  // Load the complete content set before rendering the resource hub so its
+  // raw HTML links to every published article and every new treatment guide.
+  const fullArticles = await loadFullArticles();
+  if (fullArticles) {
+    LOADED_ARTICLES = fullArticles
+      .filter((article) => article.publishedStatus !== "draft")
+      .map(articleToPrerenderMeta);
+    const resourcesPage = PAGES.find((page) => page.route === "/resources");
+    if (resourcesPage) {
+      resourcesPage.body = resourcesPage.body.replace(
+        "</main>",
+        `${buildResourceHubDirectory(fullArticles, resourcesPage.body)}</main>`,
+      );
+    }
+  }
+
   // ── Step 1: Pre-render main site pages ───────────────────────────────────
   console.log("\n▶  Pre-rendering main site pages…\n");
 
@@ -3770,13 +4006,8 @@ async function main() {
   // ── Step 5: Pre-render per-article flat HTML files ────────────────────────
   console.log("\n▶  Pre-rendering full article pages…\n");
 
-  const fullArticles = await loadFullArticles();
   if (!fullArticles) {
     console.warn("  ⚠ Full article data unavailable, article pages will be meta-only.\n");
-  } else {
-    LOADED_ARTICLES = fullArticles
-      .filter((article) => article.publishedStatus !== "draft")
-      .map(articleToPrerenderMeta);
   }
 
   let articleCount = 0;
@@ -3835,6 +4066,12 @@ const SITEMAP_PAGE_META = {
   "/luxury-rehab":                              { changefreq: "monthly", priority: "0.9" },
   "/executive-rehab":                           { changefreq: "monthly", priority: "0.9" },
   "/destination-rehab":                         { changefreq: "monthly", priority: "0.9" },
+  "/alcohol-addiction-treatment":               { changefreq: "monthly", priority: "0.9" },
+  "/cocaine-addiction-treatment":               { changefreq: "monthly", priority: "0.9" },
+  "/cannabis-addiction-treatment":              { changefreq: "monthly", priority: "0.9" },
+  "/ketamine-addiction-treatment":              { changefreq: "monthly", priority: "0.9" },
+  "/benzodiazepine-addiction-treatment":        { changefreq: "monthly", priority: "0.9" },
+  "/dual-diagnosis-treatment":                  { changefreq: "monthly", priority: "0.9" },
   "/assessments/alcohol-detox":                  { changefreq: "monthly", priority: "0.7" },
   "/assessments/alcohol-use":    { changefreq: "monthly", priority: "0.7" },
   "/assessments/drug-use":       { changefreq: "monthly", priority: "0.7" },
@@ -3867,7 +4104,14 @@ const SITEMAP_LASTMOD = {
   "/about": "2026-07-13",
   "/about-insight-recovery-network": "2026-07-13",
   "/what-we-offer": "2026-07-13",
-  "/treatment-placement": "2026-07-13",
+  "/treatment-placement": "2026-08-28",
+  "/resources": "2026-08-28",
+  "/alcohol-addiction-treatment": "2026-08-28",
+  "/cocaine-addiction-treatment": "2026-08-28",
+  "/cannabis-addiction-treatment": "2026-08-28",
+  "/ketamine-addiction-treatment": "2026-08-28",
+  "/benzodiazepine-addiction-treatment": "2026-08-28",
+  "/dual-diagnosis-treatment": "2026-08-28",
   "/private-rehab-uk": "2026-07-13",
   "/private-rehab-alternative-uk": "2026-07-13",
   "/how-much-does-rehab-cost-uk": "2026-07-13",

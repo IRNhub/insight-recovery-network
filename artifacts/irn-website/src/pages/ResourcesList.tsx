@@ -10,6 +10,8 @@ import { fetchMergedArticles } from "@/lib/article-loader";
 import { BookOpen, Loader2, Search, X } from "lucide-react";
 import resourcesHero from "../assets/resources-hero.webp";
 import type { Article } from "@/data/articles";
+import { substanceTreatmentPages } from "@/data/substance-treatment-pages.js";
+import { Link } from "wouter";
 
 function matchesSearch(article: Article, query: string): boolean {
   const q = query.toLowerCase().trim();
@@ -234,6 +236,27 @@ export default function ResourcesList() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="border-y border-border/40 bg-secondary/15 py-12 md:py-16" aria-labelledby="treatment-guides-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent/80">From information to a decision</p>
+            <h2 id="treatment-guides-heading" className="mb-4 font-serif text-3xl text-primary md:text-4xl">Substance-specific treatment guides</h2>
+            <p className="leading-relaxed text-muted-foreground">Use the clinical articles to understand a concern, then use these decision guides to compare assessment, community, online and residential treatment routes.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {substanceTreatmentPages.map((page) => (
+              <Link key={page.route} href={page.route} className="group border border-border/40 bg-background p-5 transition-colors hover:border-accent/60">
+                <h3 className="mb-2 font-serif text-lg text-primary group-hover:text-accent">{page.title}</h3>
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Compare treatment options</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+            Learn more about <Link href="/about-insight-recovery-network" className="underline underline-offset-4 hover:text-primary">how IRN works</Link>, our <Link href="/editorial-policy" className="underline underline-offset-4 hover:text-primary">editorial policy</Link>, <Link href="/media" className="underline underline-offset-4 hover:text-primary">media commentary</Link>, <Link href="/confidential-addiction-help-professionals" className="underline underline-offset-4 hover:text-primary">confidential help for professionals</Link> and the <Link href="/recovery-plan-checklist" className="underline underline-offset-4 hover:text-primary">recovery plan checklist</Link>.
+          </p>
         </div>
       </section>
 

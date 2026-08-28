@@ -54,6 +54,12 @@ for (const match of config.matchAll(rewritePattern)) {
 if (rewrites.some((rule) => rule.from === "/*" && rule.to === "/index.html")) {
   fail("Global SPA fallback is present; unknown URLs would become soft 404 homepages.");
 }
+const trailingSlashRewrites = rewrites.filter(
+  (rule) => rule.from !== "/" && rule.from.endsWith("/"),
+);
+if (trailingSlashRewrites.length) {
+  fail(`Trailing-slash rewrites bypass canonical 301 handling: ${trailingSlashRewrites.map((rule) => rule.from).join(", ")}`);
+}
 
 function targetForPath(pathname) {
   if (pathname === "/") return "/index.html";
@@ -89,6 +95,7 @@ if (duplicateUrls.length) fail(`Sitemap contains duplicate URLs: ${[...new Set(d
 const homepage = read(resolve(dist, "index.html"));
 const homepageTitle = firstMatch(homepage, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", "/");
 let checked = 0;
+const htmlByPath = new Map();
 
 for (const url of urls) {
   const parsed = new URL(url);
@@ -103,6 +110,7 @@ for (const url of urls) {
 
   const targetPath = resolve(dist, target.replace(/^\//, ""));
   const html = read(targetPath);
+  htmlByPath.set(pathname, html);
   const title = firstMatch(html, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", pathname);
   const canonical = firstMatch(
     html,
@@ -129,6 +137,83 @@ for (const url of urls) {
   }
 
   checked += 1;
+}
+
+const treatmentPaths = [
+  "/alcohol-addiction-treatment",
+  "/cocaine-addiction-treatment",
+  "/cannabis-addiction-treatment",
+  "/ketamine-addiction-treatment",
+  "/benzodiazepine-addiction-treatment",
+  "/dual-diagnosis-treatment",
+];
+
+for (const pathname of treatmentPaths) {
+  const html = htmlByPath.get(pathname);
+  if (!html) fail(`New treatment guide is missing from sitemap: ${pathname}`);
+  const words = html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z0-9#]+;/gi, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  if (words < 850) fail(`${pathname} static body is too light for a YMYL decision page (${words} words).`);
+  for (const schemaType of ["WebPage", "Service", "BreadcrumbList", "FAQPage"]) {
+    if (!html.includes(`\"@type\":\"${schemaType}\"`)) {
+      fail(`${pathname} is missing ${schemaType} JSON-LD.`);
+    }
+  }
+  for (const requiredText of [
+    "not a regulated healthcare provider",
+    "does not diagnose",
+    "does not",
+    "Clinical sources and review",
+    "Craig Bilton",
+  ]) {
+    if (!html.toLowerCase().includes(requiredText.toLowerCase())) {
+      fail(`${pathname} is missing clinical/trust content: ${requiredText}`);
+    }
+  }
+}
+
+const pillarLinks = {
+  "/resources/understanding-alcohol-dependency": "/alcohol-addiction-treatment",
+  "/resources/cocaine-addiction": "/cocaine-addiction-treatment",
+  "/resources/cannabis-addiction": "/cannabis-addiction-treatment",
+  "/resources/ketamine-addiction": "/ketamine-addiction-treatment",
+  "/resources/benzodiazepine-addiction": "/benzodiazepine-addiction-treatment",
+  "/resources/dual-diagnosis": "/dual-diagnosis-treatment",
+};
+for (const [pillar, treatment] of Object.entries(pillarLinks)) {
+  const html = htmlByPath.get(pillar);
+  if (!html?.includes(`href=\"${treatment}\"`)) {
+    fail(`${pillar} does not link to its treatment guide ${treatment}.`);
+  }
+}
+
+const resourceHub = htmlByPath.get("/resources");
+for (const pathname of htmlByPath.keys()) {
+  if (pathname.startsWith("/resources/") && !resourceHub?.includes(`href=\"${pathname}\"`)) {
+    fail(`Resource hub raw HTML does not link to ${pathname}.`);
+  }
+}
+
+const inboundLinks = new Map([...htmlByPath.keys()].map((pathname) => [pathname, new Set()]));
+for (const [source, html] of htmlByPath) {
+  for (const match of html.matchAll(/\bhref=["']([^"']+)["']/gi)) {
+    if (!match[1].startsWith("/") || match[1].startsWith("//")) continue;
+    let target = match[1].split(/[?#]/)[0];
+    if (target !== "/" && target.endsWith("/")) target = target.slice(0, -1);
+    if (inboundLinks.has(target) && target !== source) inboundLinks.get(target).add(source);
+  }
+}
+const orphaned = [...inboundLinks.entries()]
+  .filter(([pathname, sources]) => pathname !== "/" && sources.size === 0)
+  .map(([pathname]) => pathname);
+if (orphaned.length) {
+  fail(`Sitemap pages orphaned in raw HTML: ${orphaned.join(", ")}`);
 }
 
 for (const utilityPath of [
@@ -158,6 +243,7 @@ const conversionPriorityPaths = [
   "/luxury-rehab",
   "/executive-rehab",
   "/destination-rehab",
+  ...treatmentPaths,
 ];
 
 for (const pathname of conversionPriorityPaths) {

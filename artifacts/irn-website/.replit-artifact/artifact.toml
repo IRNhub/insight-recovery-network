@@ -30,13 +30,34 @@ kind = "web"
   NODE_ENV = "production"
   PORT = "18088"
 
+  # ── Substance-specific treatment guides ────────────────────────────────────
+  [[services.production.rewrites]]
+  from = "/alcohol-addiction-treatment"
+  to = "/alcohol-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/cocaine-addiction-treatment"
+  to = "/cocaine-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/cannabis-addiction-treatment"
+  to = "/cannabis-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/ketamine-addiction-treatment"
+  to = "/ketamine-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/benzodiazepine-addiction-treatment"
+  to = "/benzodiazepine-addiction-treatment.html"
+
+  [[services.production.rewrites]]
+  from = "/dual-diagnosis-treatment"
+  to = "/dual-diagnosis-treatment.html"
+
   # ── Top-level pages (no trailing slash) ──────────────────────────────────────
   [[services.production.rewrites]]
   from = "/about"
-  to = "/about.html"
-
-  [[services.production.rewrites]]
-  from = "/about/"
   to = "/about.html"
 
   [[services.production.rewrites]]
@@ -44,15 +65,7 @@ kind = "web"
   to = "/about-insight-recovery-network.html"
 
   [[services.production.rewrites]]
-  from = "/about-insight-recovery-network/"
-  to = "/about-insight-recovery-network.html"
-
-  [[services.production.rewrites]]
   from = "/addiction-help-cornwall"
-  to = "/addiction-help-cornwall.html"
-
-  [[services.production.rewrites]]
-  from = "/addiction-help-cornwall/"
   to = "/addiction-help-cornwall.html"
 
   [[services.production.rewrites]]
@@ -60,15 +73,7 @@ kind = "web"
   to = "/clinical-disclaimer.html"
 
   [[services.production.rewrites]]
-  from = "/clinical-disclaimer/"
-  to = "/clinical-disclaimer.html"
-
-  [[services.production.rewrites]]
   from = "/editorial-policy"
-  to = "/editorial-policy.html"
-
-  [[services.production.rewrites]]
-  from = "/editorial-policy/"
   to = "/editorial-policy.html"
 
   [[services.production.rewrites]]
@@ -76,15 +81,7 @@ kind = "web"
   to = "/contact.html"
 
   [[services.production.rewrites]]
-  from = "/contact/"
-  to = "/contact.html"
-
-  [[services.production.rewrites]]
   from = "/family-addiction-intervention-uk"
-  to = "/family-addiction-intervention-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/family-addiction-intervention-uk/"
   to = "/family-addiction-intervention-uk.html"
 
   [[services.production.rewrites]]
@@ -92,15 +89,7 @@ kind = "web"
   to = "/family-addiction-intervention-uk.html"
 
   [[services.production.rewrites]]
-  from = "/family-support/"
-  to = "/family-addiction-intervention-uk.html"
-
-  [[services.production.rewrites]]
   from = "/family-intervention"
-  to = "/family-addiction-intervention-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/family-intervention/"
   to = "/family-addiction-intervention-uk.html"
 
   [[services.production.rewrites]]
@@ -108,15 +97,7 @@ kind = "web"
   to = "/family-addiction-intervention-uk.html"
 
   [[services.production.rewrites]]
-  from = "/intervention/"
-  to = "/family-addiction-intervention-uk.html"
-
-  [[services.production.rewrites]]
   from = "/confidential-addiction-help-professionals"
-  to = "/confidential-addiction-help-professionals.html"
-
-  [[services.production.rewrites]]
-  from = "/confidential-addiction-help-professionals/"
   to = "/confidential-addiction-help-professionals.html"
 
   [[services.production.rewrites]]
@@ -124,15 +105,7 @@ kind = "web"
   to = "/cookie-policy.html"
 
   [[services.production.rewrites]]
-  from = "/cookie-policy/"
-  to = "/cookie-policy.html"
-
-  [[services.production.rewrites]]
   from = "/insight-os"
-  to = "/insight-os.html"
-
-  [[services.production.rewrites]]
-  from = "/insight-os/"
   to = "/insight-os.html"
 
   [[services.production.rewrites]]
@@ -140,15 +113,7 @@ kind = "web"
   to = "/online-addiction-recovery-programme-uk.html"
 
   [[services.production.rewrites]]
-  from = "/online-addiction-recovery-programme-uk/"
-  to = "/online-addiction-recovery-programme-uk.html"
-
-  [[services.production.rewrites]]
   from = "/online-programme"
-  to = "/online-programme.html"
-
-  [[services.production.rewrites]]
-  from = "/online-programme/"
   to = "/online-programme.html"
 
   # ── Legacy slug → canonical online programme page ────────────────────────────
@@ -157,15 +122,7 @@ kind = "web"
   to = "/online-programme.html"
 
   [[services.production.rewrites]]
-  from = "/online-recovery-programme/"
-  to = "/online-programme.html"
-
-  [[services.production.rewrites]]
   from = "/privacy-policy"
-  to = "/privacy-policy.html"
-
-  [[services.production.rewrites]]
-  from = "/privacy-policy/"
   to = "/privacy-policy.html"
 
   [[services.production.rewrites]]
@@ -173,15 +130,7 @@ kind = "web"
   to = "/private-rehab-alternative-uk.html"
 
   [[services.production.rewrites]]
-  from = "/private-rehab-alternative-uk/"
-  to = "/private-rehab-alternative-uk.html"
-
-  [[services.production.rewrites]]
   from = "/private-rehab-uk"
-  to = "/private-rehab-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/private-rehab-uk/"
   to = "/private-rehab-uk.html"
 
   [[services.production.rewrites]]
@@ -189,15 +138,7 @@ kind = "web"
   to = "/luxury-rehab.html"
 
   [[services.production.rewrites]]
-  from = "/luxury-rehab/"
-  to = "/luxury-rehab.html"
-
-  [[services.production.rewrites]]
   from = "/executive-rehab"
-  to = "/executive-rehab.html"
-
-  [[services.production.rewrites]]
-  from = "/executive-rehab/"
   to = "/executive-rehab.html"
 
   [[services.production.rewrites]]
@@ -205,15 +146,7 @@ kind = "web"
   to = "/destination-rehab.html"
 
   [[services.production.rewrites]]
-  from = "/destination-rehab/"
-  to = "/destination-rehab.html"
-
-  [[services.production.rewrites]]
   from = "/how-much-does-rehab-cost-uk"
-  to = "/how-much-does-rehab-cost-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/how-much-does-rehab-cost-uk/"
   to = "/how-much-does-rehab-cost-uk.html"
 
   [[services.production.rewrites]]
@@ -221,32 +154,16 @@ kind = "web"
   to = "/terms-of-service.html"
 
   [[services.production.rewrites]]
-  from = "/terms-of-service/"
-  to = "/terms-of-service.html"
-
-  [[services.production.rewrites]]
   from = "/treatment-placement"
-  to = "/treatment-placement.html"
-
-  [[services.production.rewrites]]
-  from = "/treatment-placement/"
   to = "/treatment-placement.html"
 
   [[services.production.rewrites]]
   from = "/what-we-offer"
   to = "/what-we-offer.html"
 
-  [[services.production.rewrites]]
-  from = "/what-we-offer/"
-  to = "/what-we-offer.html"
-
   # ── /assessments ─────────────────────────────────────────────────────────────
   [[services.production.rewrites]]
   from = "/assessments"
-  to = "/assessments.html"
-
-  [[services.production.rewrites]]
-  from = "/assessments/"
   to = "/assessments.html"
 
   # ── /assessments sub-pages → internal _assessments/ directory ────────────────
@@ -255,15 +172,7 @@ kind = "web"
   to = "/_assessments/adhd-impulsivity.html"
 
   [[services.production.rewrites]]
-  from = "/assessments/adhd-impulsivity/"
-  to = "/_assessments/adhd-impulsivity.html"
-
-  [[services.production.rewrites]]
   from = "/assessments/alcohol-detox"
-  to = "/_assessments/alcohol-detox.html"
-
-  [[services.production.rewrites]]
-  from = "/assessments/alcohol-detox/"
   to = "/_assessments/alcohol-detox.html"
 
   [[services.production.rewrites]]
@@ -271,15 +180,7 @@ kind = "web"
   to = "/_assessments/alcohol-use.html"
 
   [[services.production.rewrites]]
-  from = "/assessments/alcohol-use/"
-  to = "/_assessments/alcohol-use.html"
-
-  [[services.production.rewrites]]
   from = "/assessments/anxiety"
-  to = "/_assessments/anxiety.html"
-
-  [[services.production.rewrites]]
-  from = "/assessments/anxiety/"
   to = "/_assessments/anxiety.html"
 
   [[services.production.rewrites]]
@@ -287,32 +188,16 @@ kind = "web"
   to = "/_assessments/depression.html"
 
   [[services.production.rewrites]]
-  from = "/assessments/depression/"
-  to = "/_assessments/depression.html"
-
-  [[services.production.rewrites]]
   from = "/assessments/detox"
-  to = "/_assessments/detox.html"
-
-  [[services.production.rewrites]]
-  from = "/assessments/detox/"
   to = "/_assessments/detox.html"
 
   [[services.production.rewrites]]
   from = "/assessments/drug-use"
   to = "/_assessments/drug-use.html"
 
-  [[services.production.rewrites]]
-  from = "/assessments/drug-use/"
-  to = "/_assessments/drug-use.html"
-
   # ── /resources ───────────────────────────────────────────────────────────────
   [[services.production.rewrites]]
   from = "/resources"
-  to = "/resources.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/"
   to = "/resources.html"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
@@ -329,15 +214,7 @@ kind = "web"
   to = "/_resources/cannabis-addiction.html"
 
   [[services.production.rewrites]]
-  from = "/resources/cannabis-addiction/"
-  to = "/_resources/cannabis-addiction.html"
-
-  [[services.production.rewrites]]
   from = "/resources/ketamine-addiction"
-  to = "/_resources/ketamine-addiction.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/ketamine-addiction/"
   to = "/_resources/ketamine-addiction.html"
 
   [[services.production.rewrites]]
@@ -345,15 +222,7 @@ kind = "web"
   to = "/_resources/benzodiazepine-addiction.html"
 
   [[services.production.rewrites]]
-  from = "/resources/benzodiazepine-addiction/"
-  to = "/_resources/benzodiazepine-addiction.html"
-
-  [[services.production.rewrites]]
   from = "/resources/cocaine-addiction"
-  to = "/_resources/cocaine-addiction.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/cocaine-addiction/"
   to = "/_resources/cocaine-addiction.html"
 
   [[services.production.rewrites]]
@@ -361,15 +230,7 @@ kind = "web"
   to = "/_resources/addiction-detox-uk.html"
 
   [[services.production.rewrites]]
-  from = "/resources/addiction-detox-uk/"
-  to = "/_resources/addiction-detox-uk.html"
-
-  [[services.production.rewrites]]
   from = "/resources/dual-diagnosis"
-  to = "/_resources/dual-diagnosis.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/dual-diagnosis/"
   to = "/_resources/dual-diagnosis.html"
 
   [[services.production.rewrites]]
@@ -377,15 +238,7 @@ kind = "web"
   to = "/_resources/families-carrying-burden-addiction-early-findings.html"
 
   [[services.production.rewrites]]
-  from = "/resources/families-carrying-burden-addiction-early-findings/"
-  to = "/_resources/families-carrying-burden-addiction-early-findings.html"
-
-  [[services.production.rewrites]]
   from = "/resources/why-families-delay-seeking-addiction-help"
-  to = "/_resources/why-families-delay-seeking-addiction-help.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/why-families-delay-seeking-addiction-help/"
   to = "/_resources/why-families-delay-seeking-addiction-help.html"
 
   [[services.production.rewrites]]
@@ -393,15 +246,7 @@ kind = "web"
   to = "/_resources/hidden-family-cost-of-addiction.html"
 
   [[services.production.rewrites]]
-  from = "/resources/hidden-family-cost-of-addiction/"
-  to = "/_resources/hidden-family-cost-of-addiction.html"
-
-  [[services.production.rewrites]]
   from = "/resources/crypto-trading-addiction-warning-signs-help"
-  to = "/_resources/crypto-trading-addiction-warning-signs-help.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/crypto-trading-addiction-warning-signs-help/"
   to = "/_resources/crypto-trading-addiction-warning-signs-help.html"
 
   [[services.production.rewrites]]
@@ -409,15 +254,7 @@ kind = "web"
   to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
 
   [[services.production.rewrites]]
-  from = "/resources/how-to-choose-private-rehab-centre-uk/"
-  to = "/_resources/how-to-choose-private-rehab-centre-uk.html"
-
-  [[services.production.rewrites]]
   from = "/resources/managing-relapse-part-of-recovery"
-  to = "/_resources/managing-relapse-part-of-recovery.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/managing-relapse-part-of-recovery/"
   to = "/_resources/managing-relapse-part-of-recovery.html"
 
   [[services.production.rewrites]]
@@ -425,15 +262,7 @@ kind = "web"
   to = "/_resources/mental-health-and-addiction.html"
 
   [[services.production.rewrites]]
-  from = "/resources/mental-health-and-addiction/"
-  to = "/_resources/mental-health-and-addiction.html"
-
-  [[services.production.rewrites]]
   from = "/resources/online-addiction-support-vs-residential-rehab"
-  to = "/_resources/online-addiction-support-vs-residential-rehab.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/online-addiction-support-vs-residential-rehab/"
   to = "/_resources/online-addiction-support-vs-residential-rehab.html"
 
   [[services.production.rewrites]]
@@ -441,15 +270,7 @@ kind = "web"
   to = "/_resources/online-recovery-programmes.html"
 
   [[services.production.rewrites]]
-  from = "/resources/online-recovery-programmes/"
-  to = "/_resources/online-recovery-programmes.html"
-
-  [[services.production.rewrites]]
   from = "/resources/private-rehab-vs-nhs-addiction-treatment"
-  to = "/_resources/private-rehab-vs-nhs-addiction-treatment.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/private-rehab-vs-nhs-addiction-treatment/"
   to = "/_resources/private-rehab-vs-nhs-addiction-treatment.html"
 
   [[services.production.rewrites]]
@@ -457,15 +278,7 @@ kind = "web"
   to = "/_resources/supporting-a-loved-one-through-recovery.html"
 
   [[services.production.rewrites]]
-  from = "/resources/supporting-a-loved-one-through-recovery/"
-  to = "/_resources/supporting-a-loved-one-through-recovery.html"
-
-  [[services.production.rewrites]]
   from = "/resources/understanding-alcohol-dependency"
-  to = "/_resources/understanding-alcohol-dependency.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/understanding-alcohol-dependency/"
   to = "/_resources/understanding-alcohol-dependency.html"
 
   [[services.production.rewrites]]
@@ -473,23 +286,11 @@ kind = "web"
   to = "/_resources/what-happens-in-residential-rehabilitation.html"
 
   [[services.production.rewrites]]
-  from = "/resources/what-happens-in-residential-rehabilitation/"
-  to = "/_resources/what-happens-in-residential-rehabilitation.html"
-
-  [[services.production.rewrites]]
   from = "/resources/why-cant-i-stop-how-addiction-works"
   to = "/_resources/why-cant-i-stop-how-addiction-works.html"
 
   [[services.production.rewrites]]
-  from = "/resources/why-cant-i-stop-how-addiction-works/"
-  to = "/_resources/why-cant-i-stop-how-addiction-works.html"
-
-  [[services.production.rewrites]]
   from = "/resources/why-willpower-is-not-a-recovery-plan"
-  to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/why-willpower-is-not-a-recovery-plan/"
   to = "/_resources/why-willpower-is-not-a-recovery-plan.html"
 
   # Replit's static router does not substitute wildcards in rewrite targets.
@@ -499,15 +300,7 @@ kind = "web"
   to = "/_resources/what-does-enabler-mean.html"
 
   [[services.production.rewrites]]
-  from = "/resources/what-does-enabler-mean/"
-  to = "/_resources/what-does-enabler-mean.html"
-
-  [[services.production.rewrites]]
   from = "/resources/help-someone-with-addiction-without-enabling"
-  to = "/_resources/help-someone-with-addiction-without-enabling.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/help-someone-with-addiction-without-enabling/"
   to = "/_resources/help-someone-with-addiction-without-enabling.html"
 
   [[services.production.rewrites]]
@@ -515,15 +308,7 @@ kind = "web"
   to = "/_resources/what-to-do-when-someone-refuses-treatment.html"
 
   [[services.production.rewrites]]
-  from = "/resources/what-to-do-when-someone-refuses-treatment/"
-  to = "/_resources/what-to-do-when-someone-refuses-treatment.html"
-
-  [[services.production.rewrites]]
   from = "/resources/how-to-stage-addiction-intervention-uk"
-  to = "/_resources/how-to-stage-addiction-intervention-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/how-to-stage-addiction-intervention-uk/"
   to = "/_resources/how-to-stage-addiction-intervention-uk.html"
 
   [[services.production.rewrites]]
@@ -531,15 +316,7 @@ kind = "web"
   to = "/_resources/family-boundaries-addiction-recovery.html"
 
   [[services.production.rewrites]]
-  from = "/resources/family-boundaries-addiction-recovery/"
-  to = "/_resources/family-boundaries-addiction-recovery.html"
-
-  [[services.production.rewrites]]
   from = "/resources/how-to-talk-to-someone-about-drinking-drug-use"
-  to = "/_resources/how-to-talk-to-someone-about-drinking-drug-use.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/how-to-talk-to-someone-about-drinking-drug-use/"
   to = "/_resources/how-to-talk-to-someone-about-drinking-drug-use.html"
 
   [[services.production.rewrites]]
@@ -547,15 +324,7 @@ kind = "web"
   to = "/_resources/when-should-family-consider-rehab.html"
 
   [[services.production.rewrites]]
-  from = "/resources/when-should-family-consider-rehab/"
-  to = "/_resources/when-should-family-consider-rehab.html"
-
-  [[services.production.rewrites]]
   from = "/resources/addiction-support-for-families"
-  to = "/_resources/addiction-support-for-families.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/addiction-support-for-families/"
   to = "/_resources/addiction-support-for-families.html"
 
   [[services.production.rewrites]]
@@ -563,15 +332,7 @@ kind = "web"
   to = "/_resources/relapse-meaning.html"
 
   [[services.production.rewrites]]
-  from = "/resources/relapse-meaning/"
-  to = "/_resources/relapse-meaning.html"
-
-  [[services.production.rewrites]]
   from = "/resources/relapsing-does-not-mean-you-have-failed"
-  to = "/_resources/relapsing-does-not-mean-you-have-failed.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/relapsing-does-not-mean-you-have-failed/"
   to = "/_resources/relapsing-does-not-mean-you-have-failed.html"
 
   [[services.production.rewrites]]
@@ -579,15 +340,7 @@ kind = "web"
   to = "/_resources/slip-lapse-relapse-difference.html"
 
   [[services.production.rewrites]]
-  from = "/resources/slip-lapse-relapse-difference/"
-  to = "/_resources/slip-lapse-relapse-difference.html"
-
-  [[services.production.rewrites]]
   from = "/resources/why-relapse-happens-before-substance-use"
-  to = "/_resources/why-relapse-happens-before-substance-use.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/why-relapse-happens-before-substance-use/"
   to = "/_resources/why-relapse-happens-before-substance-use.html"
 
   [[services.production.rewrites]]
@@ -595,15 +348,7 @@ kind = "web"
   to = "/_resources/relapse-prevention-plan.html"
 
   [[services.production.rewrites]]
-  from = "/resources/relapse-prevention-plan/"
-  to = "/_resources/relapse-prevention-plan.html"
-
-  [[services.production.rewrites]]
   from = "/resources/addiction-warning-signs"
-  to = "/_resources/addiction-warning-signs.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/addiction-warning-signs/"
   to = "/_resources/addiction-warning-signs.html"
 
   [[services.production.rewrites]]
@@ -611,15 +356,7 @@ kind = "web"
   to = "/_resources/what-to-do-after-relapse.html"
 
   [[services.production.rewrites]]
-  from = "/resources/what-to-do-after-relapse/"
-  to = "/_resources/what-to-do-after-relapse.html"
-
-  [[services.production.rewrites]]
   from = "/resources/how-structured-support-prevents-relapse"
-  to = "/_resources/how-structured-support-prevents-relapse.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/how-structured-support-prevents-relapse/"
   to = "/_resources/how-structured-support-prevents-relapse.html"
 
   [[services.production.rewrites]]
@@ -627,15 +364,7 @@ kind = "web"
   to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
 
   [[services.production.rewrites]]
-  from = "/resources/detoxing-from-alcohol-symptoms-when-dangerous/"
-  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
-
-  [[services.production.rewrites]]
   from = "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help"
-  to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help/"
   to = "/_resources/alcohol-withdrawal-symptoms-when-you-need-medical-help.html"
 
   [[services.production.rewrites]]
@@ -643,15 +372,7 @@ kind = "web"
   to = "/_resources/how-long-does-alcohol-stay-in-your-system.html"
 
   [[services.production.rewrites]]
-  from = "/resources/how-long-does-alcohol-stay-in-your-system/"
-  to = "/_resources/how-long-does-alcohol-stay-in-your-system.html"
-
-  [[services.production.rewrites]]
   from = "/resources/can-i-stop-drinking-without-rehab"
-  to = "/_resources/can-i-stop-drinking-without-rehab.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/can-i-stop-drinking-without-rehab/"
   to = "/_resources/can-i-stop-drinking-without-rehab.html"
 
   [[services.production.rewrites]]
@@ -659,15 +380,7 @@ kind = "web"
   to = "/_resources/do-i-need-alcohol-rehab-or-online-support.html"
 
   [[services.production.rewrites]]
-  from = "/resources/do-i-need-alcohol-rehab-or-online-support/"
-  to = "/_resources/do-i-need-alcohol-rehab-or-online-support.html"
-
-  [[services.production.rewrites]]
   from = "/resources/private-alcohol-rehab-uk-costs-options-alternatives"
-  to = "/_resources/private-alcohol-rehab-uk-costs-options-alternatives.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/private-alcohol-rehab-uk-costs-options-alternatives/"
   to = "/_resources/private-alcohol-rehab-uk-costs-options-alternatives.html"
 
   [[services.production.rewrites]]
@@ -675,15 +388,7 @@ kind = "web"
   to = "/_resources/alcohol-rehab-alternatives-uk.html"
 
   [[services.production.rewrites]]
-  from = "/resources/alcohol-rehab-alternatives-uk/"
-  to = "/_resources/alcohol-rehab-alternatives-uk.html"
-
-  [[services.production.rewrites]]
   from = "/resources/online-alcohol-recovery-programme-uk"
-  to = "/_resources/online-alcohol-recovery-programme-uk.html"
-
-  [[services.production.rewrites]]
-  from = "/resources/online-alcohol-recovery-programme-uk/"
   to = "/_resources/online-alcohol-recovery-programme-uk.html"
 
   # ── Destination placement pages ──────────────────────────────────────────────
@@ -692,15 +397,7 @@ kind = "web"
   to = "/private-rehab-thailand.html"
 
   [[services.production.rewrites]]
-  from = "/private-rehab-thailand/"
-  to = "/private-rehab-thailand.html"
-
-  [[services.production.rewrites]]
   from = "/private-rehab-south-africa"
-  to = "/private-rehab-south-africa.html"
-
-  [[services.production.rewrites]]
-  from = "/private-rehab-south-africa/"
   to = "/private-rehab-south-africa.html"
 
   [[services.production.rewrites]]
@@ -708,24 +405,12 @@ kind = "web"
   to = "/private-rehab-spain.html"
 
   [[services.production.rewrites]]
-  from = "/private-rehab-spain/"
-  to = "/private-rehab-spain.html"
-
-  [[services.production.rewrites]]
   from = "/private-rehab-sri-lanka"
-  to = "/private-rehab-sri-lanka.html"
-
-  [[services.production.rewrites]]
-  from = "/private-rehab-sri-lanka/"
   to = "/private-rehab-sri-lanka.html"
 
   # ── Recovery plan checklist landing ──────────────────────────────────────────
   [[services.production.rewrites]]
   from = "/recovery-plan-checklist"
-  to = "/recovery-plan-checklist.html"
-
-  [[services.production.rewrites]]
-  from = "/recovery-plan-checklist/"
   to = "/recovery-plan-checklist.html"
 
   # ── Explicit client-rendered utility routes ─────────────────────────────────
@@ -736,15 +421,7 @@ kind = "web"
   to = "/services-pricing-guide.html"
 
   [[services.production.rewrites]]
-  from = "/services-pricing-guide/"
-  to = "/services-pricing-guide.html"
-
-  [[services.production.rewrites]]
   from = "/craig-bilton"
-  to = "/craig-bilton.html"
-
-  [[services.production.rewrites]]
-  from = "/craig-bilton/"
   to = "/craig-bilton.html"
 
   [[services.production.rewrites]]
@@ -773,15 +450,7 @@ kind = "web"
   to = "/about-us.html"
 
   [[services.production.rewrites]]
-  from = "/about-us/"
-  to = "/about-us.html"
-
-  [[services.production.rewrites]]
   from = "/media"
-  to = "/media.html"
-
-  [[services.production.rewrites]]
-  from = "/media/"
   to = "/media.html"
 
   [services.env]
