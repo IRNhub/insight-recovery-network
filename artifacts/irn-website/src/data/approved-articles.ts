@@ -4,8 +4,10 @@ import { mentalHealthAndAddictionArticle } from "./article-008-mental-health-and
 import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-addiction";
 import { ketamineAddictionArticle } from "./article-010-ketamine-addiction";
 import { cannabisAddictionArticle } from "./article-011-cannabis-addiction";
+import { prescriptionDrugAddictionArticle } from "./article-012-prescription-drug-addiction";
 
 export const approvedArticles = [
+  prescriptionDrugAddictionArticle,
   cannabisAddictionArticle,
   ketamineAddictionArticle,
   benzodiazepineAddictionArticle,

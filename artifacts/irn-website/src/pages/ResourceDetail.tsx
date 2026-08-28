@@ -69,6 +69,16 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
     "online-recovery-programmes",
   ],
   [
+    "prescription-drug-addiction",
+    "benzodiazepine-addiction",
+    "addiction-detox-uk",
+    "addiction-warning-signs",
+    "why-cant-i-stop-how-addiction-works",
+    "mental-health-and-addiction",
+    "dual-diagnosis",
+    "online-recovery-programmes",
+  ],
+  [
     "dual-diagnosis",
     "mental-health-and-addiction",
     "addiction-warning-signs",
@@ -533,6 +543,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "prescription-drug-addiction") {
+      return [
+        { title: "Detox suitability assessment", description: "Organise medicine, withdrawal, overdose and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare private treatment settings when medical, mental-health or environmental risks require more structure.", href: "/treatment-placement" },
+        { title: "Online recovery programme", description: "Explore continuing recovery support after prescribing and withdrawal risks have been clinically addressed.", href: "/online-programme" },
+      ];
+    }
     if (article.slug === "cannabis-addiction") {
       return [
         { title: "Drug-use assessment", description: "Organise concerns about cannabis use, control, withdrawal, mental health and daily functioning.", href: "/assessments/drug-use" },
@@ -628,6 +645,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "prescription-drug-addiction") {
+      return {
+        heading: "Concerned about prescription medicine dependence or withdrawal?",
+        description: "The detox assessment can help organise the medicine list, withdrawal history, overdose risk and questions for a prescriber or clinical service. It does not provide a taper or replace medical assessment.",
+        primaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
     if (slug === "cannabis-addiction") {
       return {
         heading: "Concerned that cannabis is becoming difficult to control?",
