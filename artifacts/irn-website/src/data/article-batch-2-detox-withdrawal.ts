@@ -12,9 +12,10 @@ export const batchTwoDetoxWithdrawalArticles: Article[] = [
     updatedDate: "2026-08-28",
     readingTime: 13,
     category: "Alcohol Recovery",
-    image: "/article-alcohol-withdrawal-symptoms-medical-help.png",
+    image: "/alcohol-withdrawal-safety-uk-hero.webp",
+    ogImage: "/alcohol-withdrawal-safety-uk-og.webp",
     imageAlt:
-      "Private clinical consultation representing alcohol detox assessment and withdrawal safety.",
+      "Healthcare professional checking an adult's blood pressure during a clinical assessment.",
     seoTitle: "Alcohol Detox & Withdrawal: UK Safety Guide | IRN",
     metaDescription:
       "Learn when alcohol detox needs medical support, which withdrawal signs are urgent, how settings differ and what continuing treatment should follow.",
@@ -196,10 +197,10 @@ For confidential navigation, [contact Insight Recovery Network](/contact). We ca
     date: "2026-08-28",
     readingTime: 14,
     category: "Addiction & Substances",
-    image: "/benzodiazepine-addiction-uk-hero.webp",
-    ogImage: "/benzodiazepine-addiction-uk-hero-og.webp",
+    image: "/benzodiazepine-withdrawal-uk-hero.webp",
+    ogImage: "/benzodiazepine-withdrawal-uk-og.webp",
     imageAlt:
-      "Adult discussing a safe benzodiazepine withdrawal plan with a qualified healthcare professional.",
+      "Adult reviewing a blank calendar beside an unlabelled medicine box and a glass of water.",
     seoTitle: "Benzodiazepine Withdrawal & Detox UK | IRN",
     metaDescription:
       "Understand benzodiazepine withdrawal risk, why sudden stopping can be unsafe, what assessment covers and how prescriber-led UK support works.",
@@ -208,6 +209,14 @@ For confidential navigation, [contact Insight Recovery Network](/contact). We ca
       "Why benzodiazepine withdrawal must be individualised and connected to qualified prescribing and continuing recovery support.",
     publishedStatus: "published",
     medicalWebPage: true,
+    supportingImages: [
+      {
+        afterHeading: "What an assessment should cover",
+        src: "/benzodiazepine-dependence-clinical-assessment.webp",
+        alt: "Adult and healthcare professional reviewing medicine history and withdrawal safety in a quiet consultation.",
+        caption: "Assessment should bring medicine history, previous withdrawal, other substances, health and support needs into one prescriber-led plan.",
+      },
+    ],
     faq: [
       {
         question: "Should benzodiazepines be stopped suddenly?",
@@ -539,10 +548,10 @@ For non-emergency help comparing treatment settings, [contact Insight Recovery N
     date: "2026-08-28",
     readingTime: 12,
     category: "Addiction & Substances",
-    image: "/cocaine-addiction-signs-treatment-uk-hero.webp",
-    ogImage: "/cocaine-addiction-signs-treatment-uk-hero-og.webp",
+    image: "/cocaine-withdrawal-uk-hero.webp",
+    ogImage: "/cocaine-withdrawal-uk-og.webp",
     imageAlt:
-      "Adult discussing cocaine withdrawal, low mood and recovery support with a practitioner.",
+      "Adult sitting thoughtfully at a kitchen table beside a window.",
     seoTitle: "Cocaine Withdrawal: Crash, Risks & Support | IRN",
     metaDescription:
       "Learn what cocaine withdrawal can feel like, which mental-health signs need urgent help and how UK treatment supports recovery after the crash.",
@@ -707,10 +716,10 @@ For confidential help comparing appropriate treatment routes, [contact Insight R
     date: "2026-08-28",
     readingTime: 12,
     category: "Addiction & Substances",
-    image: "/ketamine-addiction-uk-hero.webp",
-    ogImage: "/ketamine-addiction-uk-hero-og.webp",
+    image: "/ketamine-withdrawal-uk-hero.webp",
+    ogImage: "/ketamine-withdrawal-uk-og.webp",
     imageAlt:
-      "Adult discussing ketamine withdrawal and physical symptoms with a recovery practitioner.",
+      "Adult preparing to leave home with a phone and backpack.",
     seoTitle: "Ketamine Withdrawal: Symptoms & UK Support | IRN",
     metaDescription:
       "Learn what ketamine withdrawal can feel like, when bladder or abdominal symptoms need medical care and how UK recovery support is assessed.",
@@ -719,6 +728,14 @@ For confidential help comparing appropriate treatment routes, [contact Insight R
       "A clinically bounded guide to stopping ketamine, psychological withdrawal and the separate pathway for physical harm.",
     publishedStatus: "published",
     medicalWebPage: true,
+    supportingImages: [
+      {
+        afterHeading: "What a useful assessment should cover",
+        src: "/ketamine-uropathy-integrated-assessment.webp",
+        alt: "Adult discussing ketamine use and physical-health concerns in a joined-up assessment.",
+        caption: "A useful assessment considers ketamine use and physical-health symptoms together while keeping medical diagnosis and recovery support within the right professional roles.",
+      },
+    ],
     faq: [
       {
         question: "Does ketamine cause withdrawal?",
@@ -877,10 +894,10 @@ For non-emergency guidance comparing support options, [contact Insight Recovery 
     date: "2026-08-28",
     readingTime: 13,
     category: "Treatment Options",
-    image: "/addiction-detox-uk-safe-assessment-hero.webp",
-    ogImage: "/addiction-detox-uk-safe-assessment-hero-og.webp",
+    image: "/detox-vs-rehab-uk-hero.webp",
+    ogImage: "/detox-vs-rehab-uk-og.webp",
     imageAlt:
-      "Adult comparing withdrawal management and longer-term rehabilitation with a treatment professional.",
+      "A consultation room and adjoining therapy room in a calm treatment setting.",
     seoTitle: "Detox vs Rehab: Differences and UK Options | IRN",
     metaDescription:
       "Compare detox and rehab, when each is needed, how settings differ and what to check before choosing a UK withdrawal or residential service.",

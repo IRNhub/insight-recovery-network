@@ -238,8 +238,11 @@ function parseContent(
               <img
                 src={supportingImage.src}
                 alt={supportingImage.alt}
+                width={1600}
+                height={900}
                 className="block w-full aspect-video object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             {supportingImage.caption && (
@@ -1080,8 +1083,12 @@ export default function ResourceDetail() {
                 <img
                   src={article.image}
                   alt={article.imageAlt ?? article.title}
+                  width={1600}
+                  height={900}
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>

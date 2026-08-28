@@ -9,7 +9,8 @@ import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/how-much-does-rehab-cost-uk";
-const HERO_IMAGE = `${SITE_URL}/how-much-does-rehab-cost-uk-hero.webp`;
+const HERO_IMAGE_PATH = "/rehab-costs-uk-comparison-hero.webp";
+const OG_IMAGE = `${SITE_URL}/rehab-costs-uk-comparison-og.webp`;
 
 const priceRows = [
   {
@@ -220,7 +221,7 @@ export default function RehabCostUK() {
         fullTitle="Rehab Costs UK: Private Rehab Prices Explained"
         description="Compare UK private rehab costs, typical 28-day prices, detox fees, what affects the final price and lower-cost or overseas treatment alternatives."
         canonical={CANONICAL}
-        ogImage={HERO_IMAGE}
+        ogImage={OG_IMAGE}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
@@ -275,10 +276,10 @@ export default function RehabCostUK() {
 
             <div>
               <img
-                src="/how-much-does-rehab-cost-uk-hero.webp"
-                alt="Insight Recovery Network private rehab cost guide for the UK"
-                width={1717}
-                height={916}
+                src={HERO_IMAGE_PATH}
+                alt="Adult comparing unbranded rehabilitation information beside a calculator and laptop."
+                width={1600}
+                height={900}
                 className="w-full rounded-sm shadow-2xl shadow-primary/10 border border-border/50"
                 fetchPriority="high"
                 decoding="async"

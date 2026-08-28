@@ -972,7 +972,7 @@ const PAGES = [
     title: "Rehab Costs UK: Private Rehab Prices Explained",
     description:
       "Compare UK private rehab costs, typical 28-day prices, detox fees, what affects the final price and lower-cost or overseas treatment alternatives.",
-    ogImage: `${SITE_URL}/how-much-does-rehab-cost-uk-hero.webp`,
+    ogImage: `${SITE_URL}/rehab-costs-uk-comparison-og.webp`,
     jsonLd: REHAB_COST_JSONLD,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -993,7 +993,7 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:1.25rem;">Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.</p>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:2rem;">Insight Recovery Network helps you understand the real cost, what is included, what level of care is needed, and which options are clinically appropriate before you commit.</p>
             <p style="margin-bottom:2rem;"><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Speak to us about treatment options</a><a href="/services-pricing-guide" style="font-family:sans-serif;color:#162B3B;">View services and pricing</a></p>
-            <img src="/how-much-does-rehab-cost-uk-hero.webp" width="1717" height="916" alt="Insight Recovery Network private rehab cost guide for the UK" style="display:block;width:100%;height:auto;margin:2.5rem 0;border-radius:0.5rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
+            <img src="/rehab-costs-uk-comparison-hero.webp" width="1600" height="900" alt="Adult comparing unbranded rehabilitation information beside a calculator and laptop." style="display:block;width:100%;height:auto;margin:2.5rem 0;border-radius:0.5rem;box-shadow:0 18px 50px -16px rgba(22,43,59,0.28);" fetchpriority="high" decoding="async" />
           </section>
           <section style="padding:2rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;font-family:sans-serif;">
@@ -3225,7 +3225,7 @@ function markdownToHtml(content, supportingImages = []) {
       if (supportingImage) {
         html.push(
           `<figure style="margin:2rem 0;max-width:680px;">` +
-            `<img src="${escText(supportingImage.src)}" alt="${esc(supportingImage.alt)}" loading="lazy" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" />` +
+            `<img src="${escText(supportingImage.src)}" width="1600" height="900" alt="${esc(supportingImage.alt)}" loading="lazy" decoding="async" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" />` +
             (supportingImage.caption
               ? `<figcaption style="font-family:sans-serif;font-size:0.85rem;line-height:1.6;color:#4a5568;margin-top:0.75rem;">${escText(supportingImage.caption)}</figcaption>`
               : "") +
@@ -3454,7 +3454,7 @@ function buildArticleBodyHtml(meta, full) {
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
-            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" alt="${esc(full.imageAlt ?? full.title)}" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
+            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" fetchpriority="high" decoding="async" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
             ${markdownToHtml(withoutEmbeddedFaq(full.content), full.supportingImages)}
           </article>
           ${faqHtml}

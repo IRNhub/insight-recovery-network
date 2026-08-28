@@ -6,17 +6,27 @@ Companion tracker: [SEO_EXPANSION_TRACKER.csv](./SEO_EXPANSION_TRACKER.csv)
 
 ## Outcome
 
-All eight Batch 2 pages have now been audited at asset level. Each page needs at least one replacement asset, but the requirement is deliberately proportionate:
+All eight Batch 2 pages have now been audited at asset level. The pre-implementation audit found that each page needed at least one replacement asset, with deliberately proportionate requirements:
 
-- seven pages need a new, page-specific hero because the current image is reused, text-heavy, visually promotional or liable to misrepresent the page;
-- the general detox hub already has a page-specific concept, but its branded hero and supporting images are advertising-led and contain readable fabricated paperwork, so the set should be replaced in a later asset production pass;
-- the benzodiazepine and ketamine withdrawal pages can reuse one strong, relevant IRN supporting image each;
-- detox-versus-rehab and the rehab-cost page do not need additional supporting photography because their comparison and price modules carry the explanatory load;
-- every page should have a dedicated 1200 × 630 Open Graph crop derived from its approved hero, with no baked-in text or logo.
+- seven pages needed a new, page-specific hero because the prior image was reused, text-heavy, visually promotional or liable to misrepresent the page;
+- the general detox hub already had a page-specific concept, but its branded hero and supporting images were advertising-led and contained readable fabricated paperwork, so the set needed replacement;
+- the benzodiazepine and ketamine withdrawal pages could reuse one strong, relevant IRN supporting image each;
+- detox-versus-rehab and the rehab-cost page did not need additional supporting photography because their comparison and price modules carried the explanatory load;
+- every page needed a dedicated 1200 × 630 Open Graph crop derived from its approved hero, with no baked-in text or logo.
 
-No image has been generated, sourced or added. These are production briefs for a photographer or an authorised non-AI visual-production workflow. The current pages remain structurally unchanged.
+The briefs below remain the production and acceptance record. A later implementation pass used user-supplied master images; no Replit AI, Replit image generation, stock sourcing or placeholder imagery was used.
 
-## Batch 2 asset audit
+## Supplied-master implementation status
+
+Seven user-supplied hero masters passed the visual gate and were implemented as exact 1600 × 900 WebP heroes with separate 1200 × 630 WebP Open Graph crops. The implemented files are compressed to approximately 52–140 KB each, use literal ALT text, and retain the existing page layouts.
+
+`Opioid detox.png` was not implemented because the prominent readable “Community Treatment Service / Support · Recovery · Health” sign conflicts with the no-readable-text rule and could imply a real provider. The existing generic opioid hero and OG image remain temporarily, with the unresolved status recorded in the tracker. No substitute was introduced.
+
+The approved benzodiazepine and ketamine supporting-image reuses are implemented after their assessment sections. New supporting assets are still required for alcohol withdrawal, opioid detox and cocaine withdrawal. The general detox hub still needs replacements for its two existing branded/readable-text supporting images. Detox-versus-rehab and the rehab-cost page require no supporting photography.
+
+The current architecture uses directly referenced static WebP assets, so WebP was retained rather than adding an unneeded picture-source abstraction solely for AVIF. Both hero and social files have fixed intrinsic dimensions, and the existing 16:9 containers reserve layout space before loading.
+
+## Batch 2 pre-implementation asset audit
 
 | Page | Current hero and dimensions | Dedicated hero needed? | Supporting editorial assessment | Existing IRN reuse | Existing ALT text | OG/social status | Recommended output and placement | Decision |
 |---|---|---|---|---|---|---|---|---|

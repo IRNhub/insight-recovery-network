@@ -157,12 +157,20 @@ No push or deployment was performed. After deployment approval, re-crawl the liv
 
 ## Batch 2 visual asset addendum
 
-The eight Batch 2 pages received a retrospective visual audit after the content and technical implementation. No page was redesigned and no image was generated, sourced or substituted.
+The eight Batch 2 pages received a retrospective visual audit after the content and technical implementation. No page was redesigned and no Replit AI, Replit image generation, stock sourcing or placeholder imagery was used.
 
-- Seven pages need a new page-specific hero. The general detox hub also needs a future replacement set because its current hero and supporting images use an advertising-led branded treatment and readable fabricated paperwork.
-- Benzodiazepine and ketamine withdrawal can each reuse one existing, unbranded and directly relevant IRN assessment image.
-- Cocaine withdrawal and the general detox hub must not reuse their current supporting images because they contain prominent brand panels and/or readable fabricated content.
-- Detox-versus-rehab and the rehab-cost page do not need supporting photography; the existing comparison and pricing modules are more useful.
-- All eight pages require a new dedicated 1200 × 630 social crop when their replacement hero is produced. The rehab-cost asset is the highest-priority replacement because it bakes readable illustrative prices into the image.
+- Seven pages needed a new page-specific hero. The general detox hub also needed a replacement set because its prior hero and supporting images used advertising-led branded treatment imagery and readable fabricated paperwork.
+- Benzodiazepine and ketamine withdrawal could each reuse one existing, unbranded and directly relevant IRN assessment image.
+- Cocaine withdrawal and the general detox hub could not reuse their prior supporting images because they contain prominent brand panels and/or readable fabricated content.
+- Detox-versus-rehab and the rehab-cost page did not need supporting photography; their comparison and pricing modules are more useful.
+- All eight pages needed a dedicated 1200 × 630 social crop with their replacement hero. The rehab-cost asset was the highest-priority replacement because it baked readable illustrative prices into the image.
 
 The complete asset inventory, placement decisions, existing ALT review, recommended dimensions, eight individual image briefs and automatic future-batch gate are recorded in [SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md](./SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md). The five corresponding status fields have been added to the master tracker.
+
+### Supplied-master implementation
+
+Seven user-supplied hero masters passed the visual gate and are implemented as compressed 1600 × 900 WebP images with separate 1200 × 630 Open Graph crops. Literal ALT text replaced conceptual or mismatched descriptions, and fixed intrinsic dimensions plus the existing 16:9 containers reserve layout space. The approved benzodiazepine and ketamine assessment images are now reused once each in the corresponding withdrawal article.
+
+The supplied opioid image was deliberately not implemented because prominent readable fabricated service signage conflicts with the approved exclusions and could imply a real provider. The previous generic opioid hero and OG image remain temporarily; the tracker records the blocked replacement and unresolved ALT status. Supporting imagery also remains outstanding for alcohol withdrawal, opioid detox and cocaine withdrawal, together with the two general-detox supporting-image replacements.
+
+Post-asset validation passed: TypeScript, the complete production build, 95-URL sitemap and 50-article prerender, static SEO verification, exact built-HTML hero/OG/ALT assertions, derived-image dimension checks, and desktop/mobile browser QA across all seven updated pages. Browser QA found no broken images, horizontal overflow, console warnings or console errors. The implementation retains the site’s established static WebP architecture. No push or deployment was performed.
