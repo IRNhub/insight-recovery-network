@@ -44,6 +44,15 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
     "what-happens-in-residential-rehabilitation",
   ],
   [
+    "cannabis-addiction",
+    "addiction-warning-signs",
+    "why-cant-i-stop-how-addiction-works",
+    "mental-health-and-addiction",
+    "dual-diagnosis",
+    "addiction-detox-uk",
+    "online-recovery-programmes",
+  ],
+  [
     "ketamine-addiction",
     "addiction-warning-signs",
     "mental-health-and-addiction",
@@ -524,6 +533,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "cannabis-addiction") {
+      return [
+        { title: "Drug-use assessment", description: "Organise concerns about cannabis use, control, withdrawal, mental health and daily functioning.", href: "/assessments/drug-use" },
+        { title: "Online recovery programme", description: "Explore structured recovery support when the person is medically stable and online care is suitable.", href: "/online-programme" },
+        { title: "Treatment placement", description: "Compare more intensive treatment options when risk, complexity or the home environment requires greater structure.", href: "/treatment-placement" },
+      ];
+    }
     if (article.slug === "ketamine-addiction") {
       return [
         { title: "Drug-use assessment", description: "Organise concerns about ketamine use, control, physical symptoms and the next appropriate conversation.", href: "/assessments/drug-use" },
@@ -612,6 +628,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "cannabis-addiction") {
+      return {
+        heading: "Concerned that cannabis is becoming difficult to control?",
+        description: "A confidential assessment can help organise the pattern, withdrawal, mental-health risks and realistic support options. It is educational and cannot diagnose cannabis dependence or assess an emergency.",
+        primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
+        secondaryCta: { label: "Explore treatment options", href: "/treatment-placement" },
+      };
+    }
     if (slug === "ketamine-addiction") {
       return {
         heading: "Concerned about ketamine use or health effects?",
