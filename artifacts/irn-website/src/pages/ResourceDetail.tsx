@@ -44,6 +44,14 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
     "what-happens-in-residential-rehabilitation",
   ],
   [
+    "ketamine-addiction",
+    "addiction-warning-signs",
+    "mental-health-and-addiction",
+    "dual-diagnosis",
+    "addiction-detox-uk",
+    "online-recovery-programmes",
+  ],
+  [
     "benzodiazepine-addiction",
     "addiction-detox-uk",
     "addiction-warning-signs",
@@ -516,6 +524,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "ketamine-addiction") {
+      return [
+        { title: "Drug-use assessment", description: "Organise concerns about ketamine use, control, physical symptoms and the next appropriate conversation.", href: "/assessments/drug-use" },
+        { title: "Detox suitability assessment", description: "Review withdrawal and combination-risk questions when alcohol, benzodiazepines, opioids or other substances are also involved.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare more intensive treatment options when medical, mental-health or environmental risks require greater structure.", href: "/treatment-placement" },
+      ];
+    }
     if (article.slug === "cocaine-addiction") {
       return [
         { title: "Drug-use assessment", description: "Organise concerns about use, control, harm and the next appropriate conversation.", href: "/assessments/drug-use" },
@@ -597,6 +612,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "ketamine-addiction") {
+      return {
+        heading: "Concerned about ketamine use or health effects?",
+        description: "A confidential assessment can help organise the pattern, risks and realistic treatment options. It is educational and cannot diagnose ketamine addiction or assess bladder, kidney or other physical damage.",
+        primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
     if (slug === "cocaine-addiction") {
       return {
         heading: "Concerned about your cocaine use?",

@@ -2552,6 +2552,18 @@ const ARTICLES = [
     type: "article",
   },
   {
+    slug: "ketamine-addiction",
+    pageTitle: "Ketamine Addiction: Signs, Harms & Treatment | IRN",
+    ogTitle: "Ketamine Addiction: Signs, Harms and Treatment",
+    description:
+      "Understand ketamine addiction, bladder and mental-health harms, urgent warning signs, assessment and evidence-based UK treatment options.",
+    image: `${SITE_URL}/ketamine-addiction-uk-hero-og.webp`,
+    imageAlt: "Adult discussing ketamine use and health symptoms with a recovery practitioner",
+    date: "2026-08-28",
+    updatedDate: "2026-08-28",
+    type: "article",
+  },
+  {
     slug: "benzodiazepine-addiction",
     pageTitle:
       "Benzodiazepine Addiction and Dependence: UK Guide | IRN",
@@ -2732,6 +2744,16 @@ async function loadTsModule(relPath) {
       const articleNineTmpPath = resolve(distPublic, ".tmp-article-009-benzodiazepine-addiction.mjs");
       writeFileSync(articleNineTmpPath, articleNineTransformed.code, "utf8");
       temporaryDependencies.push(articleNineTmpPath);
+      const articleTenPath = resolve(root, "src/data/article-010-ketamine-addiction.ts");
+      const articleTenSource = readFileSync(articleTenPath, "utf8");
+      const articleTenTransformed = await transformWithEsbuild(articleTenSource, articleTenPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const articleTenTmpPath = resolve(distPublic, ".tmp-article-010-ketamine-addiction.mjs");
+      writeFileSync(articleTenTmpPath, articleTenTransformed.code, "utf8");
+      temporaryDependencies.push(articleTenTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
       const approvedCode = approvedTransformed.code
         .replace(
@@ -2741,6 +2763,10 @@ async function loadTsModule(relPath) {
         .replace(
           /from\s+["']\.\/article-009-benzodiazepine-addiction["']/,
           'from "./.tmp-article-009-benzodiazepine-addiction.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-010-ketamine-addiction["']/,
+          'from "./.tmp-article-010-ketamine-addiction.mjs"',
         );
       writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
