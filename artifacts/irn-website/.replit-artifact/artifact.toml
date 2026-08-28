@@ -317,6 +317,14 @@ kind = "web"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
+  from = "/resources/cannabis-addiction"
+  to = "/_resources/cannabis-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/cannabis-addiction/"
+  to = "/_resources/cannabis-addiction.html"
+
+  [[services.production.rewrites]]
   from = "/resources/ketamine-addiction"
   to = "/_resources/ketamine-addiction.html"
 

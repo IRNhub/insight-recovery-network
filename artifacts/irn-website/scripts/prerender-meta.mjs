@@ -2552,6 +2552,18 @@ const ARTICLES = [
     type: "article",
   },
   {
+    slug: "cannabis-addiction",
+    pageTitle: "Cannabis Addiction: Signs, Effects and Treatment - IRN",
+    ogTitle: "Cannabis Addiction: Signs, Effects and Treatment",
+    description:
+      "Learn the signs and effects of cannabis addiction, what withdrawal can feel like, when mental-health risks need urgent help and UK treatment options.",
+    image: `${SITE_URL}/cannabis-addiction-uk-hero-og.webp`,
+    imageAlt: "Adult discussing cannabis use, sleep and wellbeing with a recovery practitioner",
+    date: "2026-08-28",
+    updatedDate: "2026-08-28",
+    type: "article",
+  },
+  {
     slug: "ketamine-addiction",
     pageTitle: "Ketamine Addiction: Signs, Harms & Treatment | IRN",
     ogTitle: "Ketamine Addiction: Signs, Harms and Treatment",
@@ -2754,6 +2766,16 @@ async function loadTsModule(relPath) {
       const articleTenTmpPath = resolve(distPublic, ".tmp-article-010-ketamine-addiction.mjs");
       writeFileSync(articleTenTmpPath, articleTenTransformed.code, "utf8");
       temporaryDependencies.push(articleTenTmpPath);
+      const articleElevenPath = resolve(root, "src/data/article-011-cannabis-addiction.ts");
+      const articleElevenSource = readFileSync(articleElevenPath, "utf8");
+      const articleElevenTransformed = await transformWithEsbuild(articleElevenSource, articleElevenPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const articleElevenTmpPath = resolve(distPublic, ".tmp-article-011-cannabis-addiction.mjs");
+      writeFileSync(articleElevenTmpPath, articleElevenTransformed.code, "utf8");
+      temporaryDependencies.push(articleElevenTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
       const approvedCode = approvedTransformed.code
         .replace(
@@ -2767,6 +2789,10 @@ async function loadTsModule(relPath) {
         .replace(
           /from\s+["']\.\/article-010-ketamine-addiction["']/,
           'from "./.tmp-article-010-ketamine-addiction.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-011-cannabis-addiction["']/,
+          'from "./.tmp-article-011-cannabis-addiction.mjs"',
         );
       writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
