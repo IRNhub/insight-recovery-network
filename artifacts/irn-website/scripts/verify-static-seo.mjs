@@ -96,6 +96,14 @@ const homepage = read(resolve(dist, "index.html"));
 const homepageTitle = firstMatch(homepage, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", "/");
 let checked = 0;
 const htmlByPath = new Map();
+const pathsByTitle = new Map();
+const pathsByDescription = new Map();
+
+function recordUniqueValue(index, value, pathname) {
+  const paths = index.get(value) ?? [];
+  paths.push(pathname);
+  index.set(value, paths);
+}
 
 for (const url of urls) {
   const parsed = new URL(url);
@@ -112,6 +120,12 @@ for (const url of urls) {
   const html = read(targetPath);
   htmlByPath.set(pathname, html);
   const title = firstMatch(html, /<title(?:\s[^>]*)?>([^<]+)<\/title>/, "title", pathname);
+  const description = firstMatch(
+    html,
+    /<meta\b(?=[^>]*\bname="description")(?=[^>]*\bcontent="([^"]+)")[^>]*>/,
+    "meta description",
+    pathname,
+  );
   const canonical = firstMatch(
     html,
     /<link\b(?=[^>]*\brel="canonical")(?=[^>]*\bhref="([^"]+)")[^>]*>/,
@@ -135,8 +149,27 @@ for (const url of urls) {
   if (pathname.startsWith("/resources/") && !html.includes("<article>")) {
     fail(`${pathname} does not contain a statically rendered article body.`);
   }
+  const h1Count = [...html.matchAll(/<h1\b/gi)].length;
+  if (h1Count !== 1) fail(`${pathname} has ${h1Count} H1 elements; expected exactly one.`);
+
+  recordUniqueValue(pathsByTitle, title.trim().toLowerCase(), pathname);
+  recordUniqueValue(pathsByDescription, description.trim().toLowerCase(), pathname);
 
   checked += 1;
+}
+
+for (const [label, index] of [
+  ["title", pathsByTitle],
+  ["meta description", pathsByDescription],
+]) {
+  const duplicates = [...index.entries()].filter(([, paths]) => paths.length > 1);
+  if (duplicates.length) {
+    fail(
+      `Duplicate ${label} values found: ${duplicates
+        .map(([, paths]) => paths.join(" and "))
+        .join("; ")}`,
+    );
+  }
 }
 
 const treatmentPaths = [
@@ -175,6 +208,86 @@ for (const pathname of treatmentPaths) {
     if (!html.toLowerCase().includes(requiredText.toLowerCase())) {
       fail(`${pathname} is missing clinical/trust content: ${requiredText}`);
     }
+  }
+}
+
+const batchTwoResourcePaths = [
+  "/resources/addiction-detox-uk",
+  "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help",
+  "/resources/benzodiazepine-withdrawal",
+  "/resources/opioid-detox",
+  "/resources/cocaine-withdrawal",
+  "/resources/ketamine-withdrawal",
+  "/resources/detox-vs-rehab",
+];
+
+for (const pathname of batchTwoResourcePaths) {
+  const html = htmlByPath.get(pathname);
+  if (!html) fail(`Batch 2 detox or withdrawal guide is missing from sitemap: ${pathname}`);
+  const words = html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z0-9#]+;/gi, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  if (words < 900) fail(`${pathname} static body is too light for a YMYL withdrawal decision page (${words} words).`);
+  for (const schemaType of ["Article", "MedicalWebPage", "BreadcrumbList", "FAQPage"]) {
+    if (!html.includes(`\"@type\":\"${schemaType}\"`)) {
+      fail(`${pathname} is missing ${schemaType} JSON-LD.`);
+    }
+  }
+  for (const requiredText of [
+    "not a regulated healthcare provider",
+    "does not",
+    "999",
+    "Sources and further reading",
+    "Craig Bilton",
+  ]) {
+    if (!html.toLowerCase().includes(requiredText.toLowerCase())) {
+      fail(`${pathname} is missing clinical/trust content: ${requiredText}`);
+    }
+  }
+  if (!/href="https:\/\/(?:www\.)?(?:nice\.org\.uk|nhs\.uk|gov\.uk)|href="https:\/\/www\.nhs\.uk/.test(html)) {
+    fail(`${pathname} does not expose an authoritative NICE, NHS or GOV.UK source link.`);
+  }
+}
+
+const batchTwoReciprocalLinks = [
+  ["/resources/prescription-drug-addiction", "/resources/benzodiazepine-withdrawal"],
+  ["/resources/prescription-drug-addiction", "/resources/opioid-detox"],
+  ["/resources/understanding-alcohol-dependency", "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help"],
+  ["/resources/benzodiazepine-addiction", "/resources/benzodiazepine-withdrawal"],
+  ["/resources/cocaine-addiction", "/resources/cocaine-withdrawal"],
+  ["/resources/ketamine-addiction", "/resources/ketamine-withdrawal"],
+  ["/benzodiazepine-addiction-treatment", "/resources/benzodiazepine-withdrawal"],
+  ["/cocaine-addiction-treatment", "/resources/cocaine-withdrawal"],
+  ["/ketamine-addiction-treatment", "/resources/ketamine-withdrawal"],
+  ["/how-much-does-rehab-cost-uk", "/resources/detox-vs-rehab"],
+];
+for (const [source, target] of batchTwoReciprocalLinks) {
+  if (!htmlByPath.get(source)?.includes(`href=\"${target}\"`)) {
+    fail(`${source} does not link to its Batch 2 guide ${target}.`);
+  }
+}
+
+const detoxHub = htmlByPath.get("/resources/addiction-detox-uk");
+for (const target of batchTwoResourcePaths.slice(1)) {
+  if (!detoxHub?.includes(`href=\"${target}\"`)) {
+    fail(`/resources/addiction-detox-uk does not link to ${target}.`);
+  }
+}
+
+const rehabCost = htmlByPath.get("/how-much-does-rehab-cost-uk");
+for (const schemaType of ["WebPage", "Service", "BreadcrumbList", "FAQPage"]) {
+  if (!rehabCost?.includes(`\"@type\":\"${schemaType}\"`)) {
+    fail(`/how-much-does-rehab-cost-uk is missing ${schemaType} JSON-LD.`);
+  }
+}
+for (const requiredText of ["Last reviewed 28 August 2026", "not a statistical market average", "not a regulated healthcare provider"]) {
+  if (!rehabCost?.toLowerCase().includes(requiredText.toLowerCase())) {
+    fail(`/how-much-does-rehab-cost-uk is missing Batch 2 review content: ${requiredText}`);
   }
 }
 

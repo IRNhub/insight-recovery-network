@@ -109,6 +109,17 @@ const REHAB_COST_FAQS = [
 const REHAB_COST_JSONLD = [
   {
     "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/how-much-does-rehab-cost-uk#webpage`,
+    name: "How Much Does Rehab Cost in the UK?",
+    description:
+      "A guide to UK private rehab prices, detox fees, inclusions, alternatives and the questions to ask before choosing treatment.",
+    url: `${SITE_URL}/how-much-does-rehab-cost-uk`,
+    inLanguage: "en-GB",
+    dateModified: "2026-08-28",
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${SITE_URL}/how-much-does-rehab-cost-uk#service`,
     name: "UK Rehab Cost and Treatment Options Guidance",
@@ -128,6 +139,14 @@ const REHAB_COST_JSONLD = [
       { "@type": "Country", name: "Sri Lanka" },
     ],
     url: `${SITE_URL}/how-much-does-rehab-cost-uk`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Rehab Costs UK", item: `${SITE_URL}/how-much-does-rehab-cost-uk` },
+    ],
   },
   {
     "@context": "https://schema.org",
@@ -167,6 +186,7 @@ const PAGES = [
       </header>
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
+          <nav aria-label="Breadcrumb" style="font-family:sans-serif;font-size:0.8rem;color:#4a5568;margin-bottom:2rem;"><a href="/" style="color:#4a5568;">Home</a> › <span>Rehab costs UK</span></nav>
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">
               About the founder
@@ -338,6 +358,8 @@ const PAGES = [
             <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
               <li>Alcohol detox and residential rehabilitation</li>
               <li>Drug detox and residential rehabilitation</li>
+              <li><a href="/resources/addiction-detox-uk" style="color:#162B3B;">Addiction detox safety and setting guidance</a></li>
+              <li><a href="/resources/detox-vs-rehab" style="color:#162B3B;">Detox versus rehabilitation decision guidance</a></li>
               <li>Dual-diagnosis treatment (addiction and mental health)</li>
               <li>Private facilities across the UK</li>
               <li>International treatment centres in <a href="/private-rehab-thailand" style="color:#162B3B;">Thailand</a>, <a href="/private-rehab-spain" style="color:#162B3B;">Spain</a>, <a href="/private-rehab-south-africa" style="color:#162B3B;">South Africa</a>, and <a href="/private-rehab-sri-lanka" style="color:#162B3B;">Sri Lanka</a></li>
@@ -967,7 +989,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;margin-bottom:1.25rem;">Rehab cost guide, UK</p>
             <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;font-weight:500;margin-bottom:1.5rem;max-width:760px;">How Much Does Rehab Cost in the UK?</h1>
-            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;max-width:720px;color:#162B3B;margin-bottom:1.25rem;border-left:4px solid #C9A96E;background:#fff;padding:1rem 1.25rem;"><strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within the approved guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are guide figures, not quotes or financial advice.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;max-width:720px;color:#162B3B;margin-bottom:1.25rem;border-left:4px solid #C9A96E;background:#fff;padding:1rem 1.25rem;"><strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within this page's illustrative guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are not live quotes or a statistical market average.</p>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:1.25rem;">Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.</p>
             <p style="font-family:sans-serif;font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;margin-bottom:2rem;">Insight Recovery Network helps you understand the real cost, what is included, what level of care is needed, and which options are clinically appropriate before you commit.</p>
             <p style="margin-bottom:2rem;"><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Speak to us about treatment options</a><a href="/services-pricing-guide" style="font-family:sans-serif;color:#162B3B;">View services and pricing</a></p>
@@ -980,7 +1002,7 @@ const PAGES = [
               <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Where it applies</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">UK private rehab, alcohol detox, overseas residential treatment and structured online recovery support.</p></div>
               <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Next step</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Speak to us about treatment options.</p></div>
             </div>
-            <p style="font-family:sans-serif;font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 9 July 2026. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service.</p>
+            <p style="font-family:sans-serif;font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 28 August 2026. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service.</p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Families often search for rehab costs under pressure.</h2>
@@ -1002,7 +1024,7 @@ const PAGES = [
                 </tbody>
               </table>
             </div>
-            <p style="font-family:sans-serif;font-size:0.8rem;line-height:1.7;color:#4a5568;margin-top:1rem;">These figures are broad guide prices only. Actual costs depend on clinical needs, detox requirements, risk, location, accommodation level and length of stay.</p>
+            <p style="font-family:sans-serif;font-size:0.8rem;line-height:1.7;color:#4a5568;margin-top:1rem;">These are editorial guide figures, not a statistical market average or live quotes. Provider fees and inclusions can change. Ask for a dated written quotation that separates assessment, detox, medication, tests, accommodation, therapy and aftercare.</p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">What affects the cost of rehab?</h2>
@@ -1016,7 +1038,8 @@ const PAGES = [
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">How much does alcohol rehab cost?</h2>
-            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">Alcohol rehab costs vary because alcohol dependence may require medically supervised detox before therapy begins. Costs are influenced by severity of dependence, withdrawal history, previous seizures or delirium tremens, physical health, psychiatric risk and medication needs. Families should not choose alcohol rehab based only on price if detox risk is present.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">Alcohol rehab costs vary because alcohol dependence may require medically supervised detox before therapy begins. Costs are influenced by severity of dependence, withdrawal history, previous seizures or delirium tremens, physical health, psychiatric risk and medication needs. Families should not choose alcohol rehab based only on price if detox risk is present.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;">Read the <a href="/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help" style="color:#162B3B;">alcohol detox and withdrawal guide</a> before comparing fees. Insight Recovery Network does not prescribe or provide medical detox.</p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">What is usually included, and what may cost extra?</h2>
@@ -1028,6 +1051,12 @@ const PAGES = [
             <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">We help individuals and families understand what level of care is needed, compare UK and overseas options, avoid unsuitable placements, consider clinical risk, match budget with appropriate care, coordinate assessment and placement, and support families before, during and after treatment.</p>
             <p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Request a confidential treatment options call</a></p>
           </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);" aria-labelledby="cost-methodology">
+            <h2 id="cost-methodology" style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">How to use these guide prices safely</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">The price ranges on this page are comparison guides, not a guarantee, live quote or published market statistic. A lower headline fee may exclude detox, medication, psychiatric input, tests, transfers or aftercare. Obtain a dated written quotation and compare like for like.</p>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:760px;margin-bottom:1rem;">Clinical statements are checked against the <a href="https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment" style="color:#162B3B;">UK clinical guidelines for alcohol treatment</a>, <a href="https://www.nice.org.uk/guidance/CG52/chapter/recommendations" style="color:#162B3B;">NICE opioid detoxification guidance</a> and the <a href="/resources/addiction-detox-uk" style="color:#162B3B;">IRN addiction detox guide</a>.</p>
+            <p style="font-family:sans-serif;font-size:0.82rem;line-height:1.7;color:#4a5568;max-width:760px;">Last reviewed 28 August 2026. IRN is not a regulated healthcare provider and does not diagnose, prescribe or provide medical detox. External providers remain responsible for their own assessment, quotation and care.</p>
+          </section>
           <section style="padding:3rem 0;">
             <h2 style="font-size:1.9rem;font-weight:500;margin-bottom:1rem;">Frequently asked questions about rehab cost</h2>
             <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:820px;">
@@ -1036,7 +1065,7 @@ const PAGES = [
           </section>
           <section style="padding:2rem 0;">
             <h2 style="font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Related rehab cost and treatment guidance</h2>
-            <p style="font-family:sans-serif;line-height:2;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment placement support</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private rehab in the UK</a><a href="/online-addiction-recovery-programme-uk" style="color:#162B3B;margin-right:1rem;">Online recovery programme</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private rehab alternative UK</a><a href="/assessments/detox" style="color:#162B3B;margin-right:1rem;">Detox suitability assessment</a><a href="/contact" style="color:#162B3B;">Speak to Insight Recovery Network</a></p>
+            <p style="font-family:sans-serif;line-height:2;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment placement support</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private rehab in the UK</a><a href="/online-addiction-recovery-programme-uk" style="color:#162B3B;margin-right:1rem;">Online recovery programme</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private rehab alternative UK</a><a href="/assessments/detox" style="color:#162B3B;margin-right:1rem;">Detox suitability assessment</a><a href="/resources/detox-vs-rehab" style="color:#162B3B;margin-right:1rem;">Detox vs rehab</a><a href="/resources/addiction-detox-uk" style="color:#162B3B;margin-right:1rem;">Addiction detox UK</a><a href="/contact" style="color:#162B3B;">Speak to Insight Recovery Network</a></p>
           </section>
         </div>
       </main>
@@ -2967,6 +2996,16 @@ async function loadTsModule(relPath) {
       const articleTwelveTmpPath = resolve(distPublic, ".tmp-article-012-prescription-drug-addiction.mjs");
       writeFileSync(articleTwelveTmpPath, articleTwelveTransformed.code, "utf8");
       temporaryDependencies.push(articleTwelveTmpPath);
+      const batchTwoPath = resolve(root, "src/data/article-batch-2-detox-withdrawal.ts");
+      const batchTwoSource = readFileSync(batchTwoPath, "utf8");
+      const batchTwoTransformed = await transformWithEsbuild(batchTwoSource, batchTwoPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const batchTwoTmpPath = resolve(distPublic, ".tmp-article-batch-2-detox-withdrawal.mjs");
+      writeFileSync(batchTwoTmpPath, batchTwoTransformed.code, "utf8");
+      temporaryDependencies.push(batchTwoTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
       const approvedCode = approvedTransformed.code
         .replace(
@@ -2988,6 +3027,10 @@ async function loadTsModule(relPath) {
         .replace(
           /from\s+["']\.\/article-012-prescription-drug-addiction["']/,
           'from "./.tmp-article-012-prescription-drug-addiction.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-batch-2-detox-withdrawal["']/,
+          'from "./.tmp-article-batch-2-detox-withdrawal.mjs"',
         );
       writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
@@ -3294,13 +3337,21 @@ const STATIC_FOOTER = `
       </footer>`;
 
 const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
+  "prescription-drug-addiction": [
+    ["Benzodiazepine withdrawal guide", "/resources/benzodiazepine-withdrawal"],
+    ["Opioid detox and withdrawal", "/resources/opioid-detox"],
+    ["Detox suitability assessment", "/assessments/detox"],
+    ["Treatment placement", "/treatment-placement"],
+  ],
   "understanding-alcohol-dependency": [
     ["Alcohol addiction treatment", "/alcohol-addiction-treatment"],
+    ["Alcohol detox and withdrawal", "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help"],
     ["Alcohol and detox assessment", "/assessments/alcohol-detox"],
     ["Private alcohol rehab costs", "/resources/private-alcohol-rehab-uk-costs-options-alternatives"],
   ],
   "cocaine-addiction": [
     ["Cocaine addiction treatment", "/cocaine-addiction-treatment"],
+    ["Cocaine withdrawal guide", "/resources/cocaine-withdrawal"],
     ["Drug-use assessment", "/assessments/drug-use"],
     ["Structured online recovery", "/online-programme"],
   ],
@@ -3311,11 +3362,13 @@ const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
   ],
   "ketamine-addiction": [
     ["Ketamine addiction treatment", "/ketamine-addiction-treatment"],
+    ["Ketamine withdrawal guide", "/resources/ketamine-withdrawal"],
     ["Drug-use assessment", "/assessments/drug-use"],
     ["Treatment placement", "/treatment-placement"],
   ],
   "benzodiazepine-addiction": [
     ["Benzodiazepine dependence treatment", "/benzodiazepine-addiction-treatment"],
+    ["Benzodiazepine withdrawal guide", "/resources/benzodiazepine-withdrawal"],
     ["Detox suitability assessment", "/assessments/detox"],
     ["Treatment placement", "/treatment-placement"],
   ],
@@ -4114,7 +4167,7 @@ const SITEMAP_LASTMOD = {
   "/dual-diagnosis-treatment": "2026-08-28",
   "/private-rehab-uk": "2026-07-13",
   "/private-rehab-alternative-uk": "2026-07-13",
-  "/how-much-does-rehab-cost-uk": "2026-07-13",
+  "/how-much-does-rehab-cost-uk": "2026-08-28",
   "/addiction-help-cornwall": "2026-07-13",
   "/private-rehab-thailand": "2026-07-13",
   "/clinical-disclaimer": "2026-07-13",

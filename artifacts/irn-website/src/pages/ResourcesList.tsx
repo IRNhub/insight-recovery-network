@@ -24,6 +24,44 @@ function matchesSearch(article: Article, query: string): boolean {
   );
 }
 
+const withdrawalDecisionGuides = [
+  {
+    title: "Addiction detox in the UK",
+    description: "Start with the broad guide to withdrawal risk, assessment and treatment settings.",
+    href: "/resources/addiction-detox-uk",
+  },
+  {
+    title: "Alcohol detox and withdrawal",
+    description: "Understand when medically assisted withdrawal or emergency help may be needed.",
+    href: "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help",
+  },
+  {
+    title: "Benzodiazepine withdrawal",
+    description: "Why abrupt stopping can be unsafe and how prescriber-led support works.",
+    href: "/resources/benzodiazepine-withdrawal",
+  },
+  {
+    title: "Opioid detox and withdrawal",
+    description: "Compare maintenance, detox and continuing care, including overdose prevention.",
+    href: "/resources/opioid-detox",
+  },
+  {
+    title: "Cocaine withdrawal",
+    description: "Understand the crash, mental-health risks and support after stopping.",
+    href: "/resources/cocaine-withdrawal",
+  },
+  {
+    title: "Ketamine withdrawal",
+    description: "Separate psychological withdrawal support from medical care for physical harm.",
+    href: "/resources/ketamine-withdrawal",
+  },
+  {
+    title: "Detox vs rehab",
+    description: "See how withdrawal management differs from rehabilitation and aftercare.",
+    href: "/resources/detox-vs-rehab",
+  },
+] as const;
+
 export default function ResourcesList() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
@@ -236,6 +274,24 @@ export default function ResourcesList() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="border-y border-border/40 bg-primary py-12 text-primary-foreground md:py-16" aria-labelledby="withdrawal-guides-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Withdrawal and detox decisions</p>
+            <h2 id="withdrawal-guides-heading" className="mb-4 font-serif text-3xl md:text-4xl">Find the right safety guide before stopping</h2>
+            <p className="leading-relaxed text-primary-foreground/75">Different substances require different clinical decisions. These guides explain risk, medical boundaries and the next appropriate service without offering self-detox schedules.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {withdrawalDecisionGuides.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="group border border-primary-foreground/15 bg-primary-foreground/5 p-5 transition-colors hover:border-accent/70 hover:bg-primary-foreground/10">
+                <h3 className="mb-2 font-serif text-lg text-primary-foreground group-hover:text-accent">{guide.title}</h3>
+                <p className="text-sm leading-relaxed text-primary-foreground/70">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -65,6 +65,9 @@ export function Layout({ children }: LayoutProps) {
     document
       .head.querySelectorAll('[data-prerendered-meta="true"]')
       .forEach((element) => element.remove());
+    document
+      .head.querySelectorAll('[data-static-jsonld="true"]')
+      .forEach((element) => element.remove());
   }, [location]);
 
   return (

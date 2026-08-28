@@ -206,10 +206,6 @@ kind = "web"
   to = "/_resources/prescription-drug-addiction.html"
 
   [[services.production.rewrites]]
-  from = "/resources/prescription-drug-addiction/"
-  to = "/_resources/prescription-drug-addiction.html"
-
-  [[services.production.rewrites]]
   from = "/resources/cannabis-addiction"
   to = "/_resources/cannabis-addiction.html"
 
@@ -228,6 +224,26 @@ kind = "web"
   [[services.production.rewrites]]
   from = "/resources/addiction-detox-uk"
   to = "/_resources/addiction-detox-uk.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/benzodiazepine-withdrawal"
+  to = "/_resources/benzodiazepine-withdrawal.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/opioid-detox"
+  to = "/_resources/opioid-detox.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/cocaine-withdrawal"
+  to = "/_resources/cocaine-withdrawal.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/ketamine-withdrawal"
+  to = "/_resources/ketamine-withdrawal.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/detox-vs-rehab"
+  to = "/_resources/detox-vs-rehab.html"
 
   [[services.production.rewrites]]
   from = "/resources/dual-diagnosis"
