@@ -92,12 +92,101 @@ const whenRehabNeeded = [
   "The person cannot maintain safety without around-the-clock support",
 ];
 
+const alternativesComparison = [
+  {
+    option: "UK Private Rehab",
+    maySuit: "Someone who needs residential structure, wants treatment closer to home, or may benefit from easier family contact.",
+    consideration: "The programme, clinical capability, length of stay and aftercare should be checked against the person's actual needs.",
+  },
+  {
+    option: "Overseas Private Rehab",
+    maySuit: "Someone for whom distance, privacy, a different environment or a longer residential pathway may be relevant.",
+    consideration: "Travel, medical arrangements, family access, safeguarding and continuing care at home need careful planning.",
+  },
+  {
+    option: "Structured Online Recovery",
+    maySuit: "Someone who is medically stable, can remain safe at home and needs professional structure without residential care.",
+    consideration: "It is not a substitute for medical detox or 24-hour support where withdrawal, safety or clinical complexity requires more intensive care.",
+  },
+  {
+    option: "NHS and Local Services",
+    maySuit: "Someone who may benefit from accessible community addiction, mental health, GP or local authority support.",
+    consideration: "Availability, eligibility and waiting times vary, so immediate safety and interim support may need consideration.",
+  },
+  {
+    option: "Family Support / Intervention",
+    maySuit: "Families supporting someone who is not engaging, is ambivalent about help or needs a more structured conversation.",
+    consideration: "Family guidance cannot replace urgent medical or safeguarding action, and the person's autonomy and safety still matter.",
+  },
+  {
+    option: "Medical Detox",
+    maySuit: "Someone whose physical dependence or withdrawal history means stopping alcohol or drugs may require clinical supervision.",
+    consideration: "Detox is a medical step rather than a complete recovery plan; the setting and ongoing treatment should be assessed separately.",
+  },
+];
+
+const ukVsAbroad = [
+  {
+    factor: "Clinical needs",
+    uk: "A UK setting may be practical when treatment needs to sit alongside existing local or family support.",
+    abroad: "An overseas setting may be considered when a different environment or a longer residential pathway fits the assessed need.",
+  },
+  {
+    factor: "Programme length",
+    uk: "Length varies by provider and need; confirm what happens after the initial stay.",
+    abroad: "Longer stays may be available, but time away should be realistic for work, family and continuing care.",
+  },
+  {
+    factor: "Treatment model",
+    uk: "Compare the therapy, medical provision, staffing and relapse-prevention approach rather than the setting alone.",
+    abroad: "The same questions apply overseas, with additional checks on governance, communication and clinical accountability.",
+  },
+  {
+    factor: "Cost",
+    uk: "Costs vary by detox needs, location, clinical intensity, accommodation and duration.",
+    abroad: "The total cost also includes travel, transfers, time away and any care needed when returning home.",
+  },
+  {
+    factor: "Privacy and environment",
+    uk: "Proximity can support discretion and continuity, while the local environment may include familiar triggers.",
+    abroad: "Distance and a different environment may feel helpful for some people, but privacy should never replace clinical suitability.",
+  },
+  {
+    factor: "Family contact",
+    uk: "Being closer may make planned family involvement easier, subject to consent and clinical appropriateness.",
+    abroad: "Distance can make visits and communication harder, so expectations and contact arrangements should be agreed in advance.",
+  },
+  {
+    factor: "Travel and aftercare",
+    uk: "Travel is usually simpler, but a clear plan for returning home and accessing local support is still important.",
+    abroad: "Travel planning, medication continuity, handover and aftercare in the UK need to be considered before admission.",
+  },
+  {
+    factor: "Medical requirements",
+    uk: "Where medically supervised detox may be needed, confirm the service can provide or coordinate the appropriate level of care.",
+    abroad: "Do not travel for residential treatment without checking withdrawal risk, medical access, medication arrangements and emergency planning.",
+  },
+];
+
+const familyDecisionFactors = [
+  ["Substance-use pattern", "Consider which substances are involved, frequency, quantity, recent changes and any polydrug use."],
+  ["Withdrawal risk", "Ask whether stopping could be medically risky and whether a supervised detox assessment is needed."],
+  ["Physical and mental health", "Include physical conditions, medication, anxiety, depression, trauma, psychosis or other mental-health needs."],
+  ["Previous treatment", "Review what has been tried, what helped, what did not, and whether relapse or disengagement followed."],
+  ["Home environment", "Consider safety, stability, access to substances, relationships and whether there is practical support."],
+  ["Willingness to engage", "Understand what the person is willing to consider; pressure alone does not establish clinical suitability."],
+  ["Safeguarding", "Take immediate risks, dependants, vulnerability, violence, self-neglect and urgent safety concerns seriously."],
+  ["Structure", "Match the level of daily support, supervision and therapeutic contact to the person's needs."],
+  ["Aftercare", "Ask how therapy, medication, family support, relapse prevention and local services will continue after treatment."],
+  ["Affordability", "Choose a plan that is financially sustainable, including travel, treatment length and continuing support."],
+];
+
 export default function PrivateRehabAlternativeUK() {
   return (
     <Layout>
       <SEO
         title="Private Rehab Alternative UK"
-        fullTitle="Private Rehab Alternatives UK | Online, Outpatient & NHS Options"
+        fullTitle="Alternatives to Private Rehab UK | Online, NHS & Overseas Options"
         description="Compare private rehab alternatives in the UK, including structured online recovery, outpatient, NHS and family support, plus when residential care is safer."
         canonical="/private-rehab-alternative-uk"
         ogImage={`${SITE_URL}/opengraph.jpg`}
@@ -115,10 +204,10 @@ export default function PrivateRehabAlternativeUK() {
               Private Rehab Alternatives, UK
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              Private Rehab Alternatives in the UK: What Can Work Instead?
+              Alternatives to Private Rehab in the UK
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
-              If someone is medically stable and can remain safe at home, structured online recovery, outpatient care, therapy, peer support or NHS services may be appropriate alternatives. Residential detox or rehab remains important where withdrawal, safety or clinical complexity requires it.
+              Residential private rehab is one option, but it is not automatically right for everyone. Depending on clinical needs and circumstances, alternatives may include structured online recovery, NHS or local services, overseas residential treatment, medically supervised detox where appropriate, or family guidance and intervention when someone is not engaging. Insight Recovery Network helps people compare an appropriate level and location of care without assuming one route fits all.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -126,7 +215,7 @@ export default function PrivateRehabAlternativeUK() {
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Book a confidential call
+                  Discuss suitable treatment options
                 </button>
               </Link>
               <Link href="/assessments">
@@ -147,6 +236,86 @@ export default function PrivateRehabAlternativeUK() {
         problem="Compares realistic alternatives while keeping detox safety and the need for a proper assessment clear."
         applies="Online across the UK and internationally; regulated detox or residential care is arranged separately when required."
       />
+
+      <section className="py-12 md:py-20 border-b border-border/40">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5 text-primary">
+              Comparing Alternatives to Private Rehab
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              The most suitable route depends on withdrawal risk, physical and mental health, safety, willingness to engage, practical circumstances and the support available afterwards. These options are not interchangeable, and a proper assessment should come before a decision.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {alternativesComparison.map((item) => (
+              <article key={item.option} className="border border-border/40 rounded-sm p-6">
+                <h3 className="font-serif text-xl font-medium mb-4 text-primary">{item.option}</h3>
+                <div className="space-y-3 text-sm leading-relaxed">
+                  <p>
+                    <strong className="text-primary">May suit:</strong>{" "}
+                    <span className="text-muted-foreground">{item.maySuit}</span>
+                  </p>
+                  <p>
+                    <strong className="text-primary">Main consideration:</strong>{" "}
+                    <span className="text-muted-foreground">{item.consideration}</span>
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-20 border-b border-border/40">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5 text-primary">
+              UK Rehab vs Rehab Abroad
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              There is no universally better location. Compare <Link href="/private-rehab-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">UK private rehab</Link> and <Link href="/treatment-placement" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">treatment placement guidance</Link> with overseas routes such as <Link href="/private-rehab-spain" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">Spain</Link>, <Link href="/private-rehab-south-africa" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">South Africa</Link>, <Link href="/private-rehab-thailand" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">Thailand</Link> and <Link href="/private-rehab-sri-lanka" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">Sri Lanka</Link> against the same clinical and practical questions.
+            </p>
+          </div>
+          <div className="space-y-4">
+            {ukVsAbroad.map((item) => (
+              <div key={item.factor} className="grid grid-cols-1 lg:grid-cols-[minmax(10rem,0.7fr)_1fr_1fr] gap-4 border-b border-border/40 pb-4 last:border-b-0">
+                <h3 className="font-serif text-lg font-medium text-primary">{item.factor}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-primary">UK:</strong> {item.uk}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <strong className="text-primary">Abroad:</strong> {item.abroad}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 md:py-20 border-b border-border/40">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-2xl mb-10">
+            <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-5 text-primary">
+              Choosing Treatment for a Family Member
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Families often have to make sense of difficult information while someone is not ready to engage. A useful decision considers the whole situation rather than choosing by urgency, location or accommodation alone. Our <Link href="/resources/how-to-choose-private-rehab-centre-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">guide to choosing a private rehab centre</Link> may help with questions to ask, while <Link href="/family-addiction-intervention-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">family intervention guidance</Link> can help when a more structured conversation is needed.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
+            {familyDecisionFactors.map(([factor, description]) => (
+              <div key={factor} className="border-l-2 border-accent/50 pl-5">
+                <h3 className="font-serif text-lg font-medium mb-2 text-primary">{factor}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-10 max-w-3xl">
+            Insight Recovery Network can help individuals and families compare an appropriate level and location of care, whether that means community support, structured online recovery, medical detox, UK or overseas residential treatment, or family guidance. We do not assume that one route is right for everyone.
+          </p>
+        </div>
+      </section>
 
       {/* Who this is for / When rehab is needed */}
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -260,7 +429,7 @@ export default function PrivateRehabAlternativeUK() {
       <CTASection
         heading="Not sure which route is right for you?"
         body="A confidential conversation can help clarify whether structured online support, treatment placement, or another approach is most appropriate. No obligation, no pressure."
-        primaryLabel="Book a confidential call"
+        primaryLabel="Discuss suitable treatment options"
         primaryHref="/contact"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"

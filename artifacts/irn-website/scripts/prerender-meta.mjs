@@ -795,7 +795,7 @@ const PAGES = [
   {
     route: "/private-rehab-alternative-uk",
     file: "private-rehab-alternative-uk.html",
-    title: "Private Rehab Alternatives UK | Online, Outpatient &amp; NHS Options",
+    title: "Alternatives to Private Rehab UK | Online, NHS &amp; Overseas Options",
     description:
       "Compare private rehab alternatives in the UK, including structured online recovery, outpatient, NHS and family support, plus when residential care is safer.",
     ogImage: DEFAULT_OG_IMAGE,
@@ -818,15 +818,56 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Rehab Alternatives, UK</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:700px;">
-              Private Rehab Alternatives in the UK: What Can Work Instead?
+              Alternatives to Private Rehab in the UK
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:640px;color:#4a5568;margin-bottom:2rem;">
-              Private residential rehab is not always the right answer. There are other routes, and being honest about which one is appropriate makes the difference between recovery that works and recovery that does not.
+              Residential private rehab is one option, but it is not automatically right for everyone. Depending on clinical needs and circumstances, alternatives may include structured online recovery, NHS or local services, overseas residential treatment, medically supervised detox where appropriate, or family guidance and intervention when someone is not engaging. Insight Recovery Network helps people compare an appropriate level and location of care without assuming one route fits all.
             </p>
             <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
-              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+              <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Discuss suitable treatment options</a>
               <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Comparing Alternatives to Private Rehab</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1.5rem;">The most suitable route depends on withdrawal risk, physical and mental health, safety, willingness to engage, practical circumstances and the support available afterwards. These options are not interchangeable, and a proper assessment should come before a decision.</p>
+            <div style="font-family:sans-serif;color:#4a5568;line-height:1.7;">
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;margin-bottom:1rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">UK Private Rehab</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Someone who needs residential structure, wants treatment closer to home, or may benefit from easier family contact.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> Check the programme, clinical capability, length of stay and aftercare against the person's actual needs.</p></article>
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;margin-bottom:1rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">Overseas Private Rehab</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Someone for whom distance, privacy, a different environment or a longer residential pathway may be relevant.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> Travel, medical arrangements, family access, safeguarding and continuing care at home need careful planning.</p></article>
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;margin-bottom:1rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">Structured Online Recovery</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Someone who is medically stable, can remain safe at home and needs professional structure without residential care.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> It is not a substitute for medical detox or 24-hour support where withdrawal, safety or clinical complexity requires more intensive care.</p></article>
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;margin-bottom:1rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">NHS and Local Services</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Someone who may benefit from accessible community addiction, mental health, GP or local authority support.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> Availability, eligibility and waiting times vary, so immediate safety and interim support may need consideration.</p></article>
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;margin-bottom:1rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">Family Support / Intervention</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Families supporting someone who is not engaging, is ambivalent about help or needs a more structured conversation.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> Family guidance cannot replace urgent medical or safeguarding action, and the person's autonomy and safety still matter.</p></article>
+              <article style="border:1px solid rgba(22,43,59,0.16);padding:1.25rem;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.25rem;color:#162B3B;margin:0 0 0.75rem;">Medical Detox</h3><p style="margin:0 0 0.5rem;"><strong style="color:#162B3B;">May suit:</strong> Someone whose physical dependence or withdrawal history means stopping alcohol or drugs may require clinical supervision.</p><p style="margin:0;"><strong style="color:#162B3B;">Main consideration:</strong> Detox is a medical step rather than a complete recovery plan; the setting and ongoing treatment should be assessed separately.</p></article>
+            </div>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">UK Rehab vs Rehab Abroad</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1.5rem;">There is no universally better location. Compare <a href="/private-rehab-uk" style="color:#162B3B;">UK private rehab</a> and <a href="/treatment-placement" style="color:#162B3B;">treatment placement guidance</a> with overseas routes such as <a href="/private-rehab-spain" style="color:#162B3B;">Spain</a>, <a href="/private-rehab-south-africa" style="color:#162B3B;">South Africa</a>, <a href="/private-rehab-thailand" style="color:#162B3B;">Thailand</a> and <a href="/private-rehab-sri-lanka" style="color:#162B3B;">Sri Lanka</a> against the same clinical and practical questions.</p>
+            <dl style="font-family:sans-serif;font-size:0.95rem;line-height:1.75;color:#4a5568;">
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Clinical needs</dt><dd>A UK setting may be practical alongside existing local or family support. An overseas setting may be considered when a different environment or longer residential pathway fits the assessed need.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Programme length and treatment model</dt><dd>Length varies in both settings. Compare therapy, medical provision, staffing, relapse-prevention work, governance and clinical accountability rather than the setting alone.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Cost</dt><dd>Costs vary with detox needs, location, clinical intensity, accommodation and duration. Overseas care also involves travel, transfers, time away and care after returning home.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Privacy and environment</dt><dd>Proximity can support discretion and continuity, while distance and a different environment may feel helpful for some people. Privacy should never replace clinical suitability.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Family contact and travel</dt><dd>Being in the UK may make planned family involvement and travel easier. Overseas visits and communication can require more planning, and expectations should be agreed before admission.</dd>
+              <dt style="font-weight:600;color:#162B3B;margin-top:1rem;">Aftercare and medical requirements</dt><dd>Confirm how therapy, medication, handover and continuing care will work after treatment. Do not travel without checking withdrawal risk, medical access, medication arrangements and emergency planning.</dd>
+            </dl>
+          </section>
+          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Choosing Treatment for a Family Member</h2>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1.5rem;">Families often have to make sense of difficult information while someone is not ready to engage. A useful decision considers the whole situation rather than choosing by urgency, location or accommodation alone. Our <a href="/resources/how-to-choose-private-rehab-centre-uk" style="color:#162B3B;">guide to choosing a private rehab centre</a> may help with questions to ask, while <a href="/family-addiction-intervention-uk" style="color:#162B3B;">family intervention guidance</a> can help when a more structured conversation is needed.</p>
+            <ul style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;padding-left:1.25rem;">
+              <li><strong style="color:#162B3B;">Substance-use pattern:</strong> which substances are involved, frequency, quantity, recent changes and polydrug use.</li>
+              <li><strong style="color:#162B3B;">Withdrawal risk:</strong> whether stopping could be medically risky and whether a supervised detox assessment is needed.</li>
+              <li><strong style="color:#162B3B;">Physical and mental health:</strong> physical conditions, medication and mental-health needs.</li>
+              <li><strong style="color:#162B3B;">Previous treatment:</strong> what has been tried, what helped, what did not and whether relapse or disengagement followed.</li>
+              <li><strong style="color:#162B3B;">Home environment:</strong> safety, stability, access to substances, relationships and practical support.</li>
+              <li><strong style="color:#162B3B;">Willingness to engage:</strong> what the person is willing to consider; pressure alone does not establish suitability.</li>
+              <li><strong style="color:#162B3B;">Safeguarding:</strong> immediate risks, dependants, vulnerability, violence, self-neglect and urgent safety concerns.</li>
+              <li><strong style="color:#162B3B;">Structure:</strong> the daily support, supervision and therapeutic contact the person needs.</li>
+              <li><strong style="color:#162B3B;">Aftercare:</strong> how therapy, medication, family support, relapse prevention and local services will continue.</li>
+              <li><strong style="color:#162B3B;">Affordability:</strong> whether the plan is sustainable, including travel, treatment length and continuing support.</li>
+            </ul>
+            <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-top:1.5rem;">Insight Recovery Network can help individuals and families compare an appropriate level and location of care, without assuming that one route is right for everyone.</p>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">What Insight Recovery Network can offer</h2>
