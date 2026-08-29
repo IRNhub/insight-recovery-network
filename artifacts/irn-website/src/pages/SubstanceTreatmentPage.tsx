@@ -31,6 +31,15 @@ function pageJsonLd(page: NonNullable<ReturnType<typeof getSubstanceTreatmentPag
       description: page.metaDescription,
       inLanguage: "en-GB",
       isPartOf: { "@id": `${SITE_URL}/#website` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        "@id": `${canonical}#primaryimage`,
+        url: `${SITE_URL}${page.heroImage}`,
+        contentUrl: `${SITE_URL}${page.heroImage}`,
+        width: 1600,
+        height: 900,
+        caption: page.heroAlt,
+      },
       reviewedBy: {
         "@type": "Person",
         "@id": `${SITE_URL}/craig-bilton#person`,
@@ -46,6 +55,7 @@ function pageJsonLd(page: NonNullable<ReturnType<typeof getSubstanceTreatmentPag
       name: `${page.title} guidance and placement support`,
       serviceType: "Assessment-led addiction treatment navigation and recovery support",
       description: page.metaDescription,
+      image: `${SITE_URL}${page.heroImage}`,
       provider: {
         "@type": "Organization",
         "@id": `${SITE_URL}/#organization`,
@@ -97,6 +107,10 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
         fullTitle={page.fullTitle}
         description={page.metaDescription}
         canonical={page.route}
+        ogImage={`${SITE_URL}${page.ogImage}`}
+        ogImageWidth={1200}
+        ogImageHeight={630}
+        ogImageAlt={page.heroAlt}
       />
       <Helmet>
         <meta name="robots" content="index, follow" />
@@ -118,7 +132,7 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
             <span aria-current="page" className="text-primary">{page.title}</span>
           </nav>
 
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] lg:gap-14">
             <div>
               <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                 {page.eyebrow}
@@ -146,14 +160,30 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
               </p>
             </div>
 
-            <aside className="border border-accent/30 bg-primary p-7 text-primary-foreground shadow-xl lg:mt-8" aria-label="Important safety guidance">
-              <AlertTriangle className="mb-5 h-6 w-6 text-accent" strokeWidth={1.5} />
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Safety comes first</p>
-              <p className="text-sm leading-relaxed text-primary-foreground/80">{page.urgentNote}</p>
-              <Link href="/clinical-disclaimer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-accent">
-                Read the clinical disclaimer <ArrowRight size={15} />
-              </Link>
-            </aside>
+            <div className="space-y-6 lg:mt-8">
+              <figure className="aspect-video overflow-hidden bg-secondary/20 shadow-xl">
+                <img
+                  src={page.heroImage}
+                  alt={page.heroAlt}
+                  width={1600}
+                  height={900}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 42vw, 100vw"
+                  className="h-full w-full object-cover"
+                />
+              </figure>
+
+              <aside className="border border-accent/30 bg-primary p-7 text-primary-foreground shadow-xl" aria-label="Important safety guidance">
+                <AlertTriangle className="mb-5 h-6 w-6 text-accent" strokeWidth={1.5} />
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Safety comes first</p>
+                <p className="text-sm leading-relaxed text-primary-foreground/80">{page.urgentNote}</p>
+                <Link href="/clinical-disclaimer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-accent">
+                  Read the clinical disclaimer <ArrowRight size={15} />
+                </Link>
+              </aside>
+            </div>
           </div>
         </div>
       </section>

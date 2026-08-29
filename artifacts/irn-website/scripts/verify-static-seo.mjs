@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const dist = resolve(root, "dist/public");
@@ -83,6 +84,14 @@ function firstMatch(html, pattern, label, pathname) {
   const match = html.match(pattern);
   if (!match) fail(`${pathname} has no ${label}.`);
   return match[1];
+}
+
+function tagAttributes(tag) {
+  const attributes = {};
+  for (const match of tag.matchAll(/([:@\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)) {
+    attributes[match[1].toLowerCase()] = match[2] ?? match[3] ?? "";
+  }
+  return attributes;
 }
 
 const sitemap = read(resolve(dist, "sitemap.xml"));
@@ -209,6 +218,76 @@ for (const pathname of treatmentPaths) {
       fail(`${pathname} is missing clinical/trust content: ${requiredText}`);
     }
   }
+}
+
+const treatmentVisuals = {
+  "/alcohol-addiction-treatment": {
+    hero: "/alcohol-addiction-treatment-uk-hero.webp",
+    alt: "Adult preparing walking shoes and a bag for a structured recovery morning.",
+    og: "/alcohol-addiction-treatment-uk-og.webp",
+  },
+  "/cocaine-addiction-treatment": {
+    hero: "/cocaine-addiction-treatment-uk-hero.webp",
+    alt: "Adult tying running shoes beside a wet community athletics track.",
+    og: "/cocaine-addiction-treatment-uk-og.webp",
+  },
+  "/cannabis-addiction-treatment": {
+    hero: "/cannabis-addiction-treatment-uk-hero.webp",
+    alt: "Adult preparing to start the day beside a made bed and home workspace.",
+    og: "/cannabis-addiction-treatment-uk-og.webp",
+  },
+  "/ketamine-addiction-treatment": {
+    hero: "/ketamine-addiction-treatment-uk-hero.webp",
+    alt: "Adult leaving a community health centre after a planned medical appointment.",
+    og: "/ketamine-addiction-treatment-uk-og.webp",
+  },
+  "/benzodiazepine-addiction-treatment": {
+    hero: "/benzodiazepine-addiction-treatment-uk-hero.webp",
+    alt: "Adult reviewing an unlabelled appointment card with a healthcare professional in a community pharmacy.",
+    og: "/benzodiazepine-addiction-treatment-uk-og.webp",
+  },
+  "/dual-diagnosis-treatment": {
+    hero: "/dual-diagnosis-treatment-uk-hero.webp",
+    alt: "Adult walking with two support professionals in a community wellbeing centre courtyard.",
+    og: "/dual-diagnosis-treatment-uk-og.webp",
+  },
+};
+
+for (const [pathname, visual] of Object.entries(treatmentVisuals)) {
+  const html = htmlByPath.get(pathname);
+  const imageTag = [...html.matchAll(/<img\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => tagAttributes(tag).src === visual.hero);
+  if (!imageTag) {
+    fail(`${pathname} has no visibly rendered masthead hero; an OG image alone is not sufficient.`);
+  }
+  const image = tagAttributes(imageTag);
+  if (image.alt !== visual.alt) fail(`${pathname} hero ALT does not match the approved literal description.`);
+  if (image.width !== "1600" || image.height !== "900") fail(`${pathname} hero lacks 1600x900 intrinsic dimensions.`);
+  if (image.loading !== "eager" || image.fetchpriority !== "high") fail(`${pathname} above-the-fold hero lacks eager loading or high fetch priority.`);
+  if (!image.sizes) fail(`${pathname} hero has no responsive sizes attribute.`);
+
+  const heroPath = resolve(dist, visual.hero.slice(1));
+  const ogPath = resolve(dist, visual.og.slice(1));
+  const heroMetadata = await sharp(heroPath).metadata();
+  const ogMetadata = await sharp(ogPath).metadata();
+  if (heroMetadata.format !== "webp" || heroMetadata.width !== 1600 || heroMetadata.height !== 900) {
+    fail(`${pathname} hero asset is not a 1600x900 WebP.`);
+  }
+  if (ogMetadata.format !== "webp" || ogMetadata.width !== 1200 || ogMetadata.height !== 630) {
+    fail(`${pathname} OG asset is not a 1200x630 WebP.`);
+  }
+  if (statSync(heroPath).size > 200 * 1024) fail(`${pathname} hero exceeds the 200 KB performance ceiling.`);
+  if (statSync(ogPath).size > 120 * 1024) fail(`${pathname} OG image exceeds the 120 KB performance ceiling.`);
+
+  const ogImage = firstMatch(
+    html,
+    /<meta\b(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="([^"]+)")[^>]*>/,
+    "Open Graph image",
+    pathname,
+  );
+  if (ogImage !== `${siteUrl}${visual.og}`) fail(`${pathname} does not use its dedicated OG image.`);
+  if (!html.includes(`\"@type\":\"ImageObject\"`)) fail(`${pathname} is missing ImageObject JSON-LD for its visible hero.`);
 }
 
 const batchTwoResourcePaths = [
