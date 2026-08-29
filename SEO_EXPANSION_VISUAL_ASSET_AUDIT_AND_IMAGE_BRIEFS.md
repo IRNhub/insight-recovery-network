@@ -1,7 +1,7 @@
 # Insight Recovery Network SEO Visual Asset Audit and Image Briefs
 
-Audit date: 28 August 2026  
-Scope: Batch 2 retrospective audit and the visual-content gate for every future SEO expansion batch  
+Audit date: 29 August 2026
+Scope: Batch 1 visual remediation, Batch 2 retrospective audit and the visual-content gate for every future SEO expansion batch
 Companion tracker: [SEO_EXPANSION_TRACKER.csv](./SEO_EXPANSION_TRACKER.csv)
 
 ## Outcome
@@ -25,6 +25,25 @@ Seven user-supplied hero masters passed the visual gate and were implemented as 
 The approved benzodiazepine and ketamine supporting-image reuses are implemented after their assessment sections. New supporting assets are still required for alcohol withdrawal, opioid detox and cocaine withdrawal. The general detox hub still needs replacements for its two existing branded/readable-text supporting images. Detox-versus-rehab and the rehab-cost page require no supporting photography.
 
 The current architecture uses directly referenced static WebP assets, so WebP was retained rather than adding an unneeded picture-source abstraction solely for AVIF. Both hero and social files have fixed intrinsic dimensions, and the existing 16:9 containers reserve layout space before loading.
+
+## Batch 1 treatment-page visual remediation
+
+The live audit on 29 August 2026 confirmed that all six Batch 1 treatment pages rendered **zero visible on-page images**. Each page used the generic `/og-home.png` social asset, but that file was metadata only and did not satisfy the visible-content requirement. With no rendered image, there was no on-page image ALT implementation and no visible supporting image.
+
+Potential repository reuses were reviewed visually rather than accepted by filename. The cocaine, cannabis, ketamine, benzodiazepine and dual-diagnosis candidates were rejected because they contained a visible IRN logo or graphic panel, repeated the client-and-practitioner-at-a-desk pattern, contained paperwork-led compositions, or belonged to a broader authority article. No existing asset genuinely satisfied the six-page brief, and no unrelated image was reused.
+
+| Page | Visible hero before remediation | Visible supporting image | OG before remediation | Dedicated hero implemented | Literal ALT text | Dedicated OG | Image performance |
+|---|---|---|---|---|---|---|---|
+| `/alcohol-addiction-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/alcohol-addiction-treatment-uk-hero.webp` — an adult preparing walking shoes and a bag for a structured morning | “Adult preparing walking shoes and a bag for a structured recovery morning.” | `/alcohol-addiction-treatment-uk-og.webp` | 1600 × 900 WebP hero, 53 KB; 1200 × 630 WebP OG, 33 KB; explicit dimensions, eager loading and high fetch priority |
+| `/cocaine-addiction-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/cocaine-addiction-treatment-uk-hero.webp` — an adult preparing for planned exercise at a community track | “Adult tying running shoes beside a wet community athletics track.” | `/cocaine-addiction-treatment-uk-og.webp` | 1600 × 900 WebP hero, 134 KB; 1200 × 630 WebP OG, 76 KB; explicit dimensions, eager loading and high fetch priority |
+| `/benzodiazepine-addiction-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/benzodiazepine-addiction-treatment-uk-hero.webp` — side-by-side support in a community pharmacy rather than a seated desk consultation | “Adult reviewing an unlabelled appointment card with a healthcare professional in a community pharmacy.” | `/benzodiazepine-addiction-treatment-uk-og.webp` | 1600 × 900 WebP hero, 70 KB; 1200 × 630 WebP OG, 42 KB; explicit dimensions, eager loading and high fetch priority |
+| `/dual-diagnosis-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/dual-diagnosis-treatment-uk-hero.webp` — an adult walking with two joined-up support professionals | “Adult walking with two support professionals in a community wellbeing centre courtyard.” | `/dual-diagnosis-treatment-uk-og.webp` | 1600 × 900 WebP hero, 132 KB; 1200 × 630 WebP OG, 79 KB; explicit dimensions, eager loading and high fetch priority |
+| `/ketamine-addiction-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/ketamine-addiction-treatment-uk-hero.webp` — an adult leaving an ordinary community health centre after follow-up | “Adult leaving a community health centre after a planned medical appointment.” | `/ketamine-addiction-treatment-uk-og.webp` | 1600 × 900 WebP hero, 112 KB; 1200 × 630 WebP OG, 68 KB; explicit dimensions, eager loading and high fetch priority |
+| `/cannabis-addiction-treatment` | None | None; not required because the structured comparison and service modules provide the mid-page explanatory visuals | `/og-home.png` | `/cannabis-addiction-treatment-uk-hero.webp` — an adult re-engaging with a morning routine and prepared workspace | “Adult preparing to start the day beside a made bed and home workspace.” | `/cannabis-addiction-treatment-uk-og.webp` | 1600 × 900 WebP hero, 80 KB; 1200 × 630 WebP OG, 48 KB; explicit dimensions, eager loading and high fetch priority |
+
+All six final assets are single continuous photographs. They contain no drug imagery, readable fake text, logos, watermarks, split-screen treatment or staged distress. The complete generation prompts are retained in `BATCH_1_TREATMENT_HERO_GENERATION_PROMPTS.md`.
+
+Production-preview QA passed at 1280 × 720 desktop and 390 × 844 mobile. Each hero rendered at the intended 16:9 ratio without horizontal overflow or console errors; the mobile layout stacked the image above the existing safety panel. Static assertions separately verify the visible hero, literal ALT text, dedicated OG asset, schema image and performance limits for every treatment route.
 
 ## Batch 2 pre-implementation asset audit
 
@@ -174,15 +193,22 @@ Approved supporting reuse: `/ketamine-uropathy-integrated-assessment.webp`, afte
 
 Every new or substantially improved SEO page must complete the following before publication:
 
-1. Inventory every current image, file path, pixel dimensions, aspect ratio, page placement, caption, ALT text and OG reference.
-2. Review the images visually; filename and ALT text alone are not evidence that the asset is appropriate.
+1. Inventory every current image, file path, pixel dimensions, aspect ratio, page placement, caption, ALT text and OG reference. Review the actual pixels; filenames, metadata and ALT text alone are not evidence of relevance or quality.
+2. Record and validate **five independent statuses** for every page:
+   - `Visible hero image`: whether a dedicated hero is required, whether it is actually rendered in the page masthead, its source path and its placement. A metadata-only image does not count.
+   - `Visible supporting image(s)`: whether supporting editorial imagery is required, the number actually rendered and its content placement; record a reason when it is genuinely not required.
+   - `Open Graph image`: the dedicated social asset and its live metadata URL. This status never satisfies the visible-hero or visible-supporting-image status.
+   - `ALT text`: literal, page-specific ALT for every meaningful rendered image, plus an explicit decision for any intentionally decorative image.
+   - `Image performance`: intrinsic width and height, encoded format, file size, loading mode, fetch priority, responsive sizing, layout-shift reservation and successful HTTP delivery.
 3. Decide separately whether a dedicated hero is needed, whether supporting editorial images add comprehension or trust, and whether an existing IRN image is genuinely suitable for reuse.
-4. Reject reuse where it creates topic ambiguity, duplicates a pillar hero, contains readable fabricated material, relies on a promotional brand panel or conflicts with the page’s clinical scope.
-5. Record `Hero image status`, `Supporting image status`, `Image brief status`, `ALT text status` and `OG image status` in the master tracker.
-6. If a bespoke asset is needed, create a page-specific brief containing the 11 required fields used above. Do not generate the image, invoke Replit AI, use an external AI image service or automatically source stock.
-7. Prepare descriptive ALT text from what the final approved image literally shows. Do not use ALT to make clinical or service claims that are not visible.
-8. Require a 1600 × 900 master and a dedicated 1200 × 630 social crop unless the page template documents a different need. Avoid baked-in text and place key subjects inside the safe crop area.
-9. Verify desktop, mobile and social crops after implementation, including loading, intrinsic dimensions, focal crop, ALT output and Open Graph metadata.
-10. Treat incomplete asset production as a tracked dependency, not permission to use a misleading generic image. A page may retain its current asset temporarily only when the tracker records the gap and the image does not create a safety or factual risk.
+4. Reject reuse where it creates topic ambiguity, duplicates a pillar hero, contains readable fabricated material, relies on a promotional brand panel, repeats an overused consultation composition or conflicts with the page’s clinical scope.
+5. A page is **visually complete** only when every required visible image is implemented and verified, ALT text and performance checks pass, and the OG status is independently complete. `OG complete / visible hero missing` is an explicit failure state and must never be reported as visual completion.
+6. Record `Hero image status`, `Supporting image status`, `Image brief status`, `ALT text status`, `OG image status` and `Image performance status` in the master tracker.
+7. If a bespoke asset is needed, create a page-specific brief containing the 11 required fields used above. Use an approved independent Codex image-generation capability only when authorised; otherwise output the brief for external production. Never invoke Replit AI or Replit image generation, automatically source stock, or introduce a placeholder.
+8. Prepare descriptive ALT text from what the final approved image literally shows. Do not use ALT to make clinical or service claims that are not visible.
+9. Require a 1600 × 900 master and a dedicated 1200 × 630 social crop unless the page template documents a different need. Avoid baked-in text and keep key subjects inside both crop-safe areas.
+10. Automated image assertions must inspect rendered page HTML—not only metadata—and fail when a required masthead image is absent, hidden, broken, dimensionless, missing its approved ALT, incorrectly lazy-loaded above the fold or replaced by an OG-only asset.
+11. Verify desktop, 390 px mobile and social crops after implementation, including visibility, focal crop, intrinsic dimensions, ALT output, Open Graph metadata, broken-image behaviour, console output and horizontal overflow.
+12. Treat incomplete asset production as a tracked dependency, not permission to use a misleading generic image. A page may retain its current asset temporarily only when the tracker records the gap and the image does not create a safety or factual risk.
 
 The visual gate supplements clinical, editorial and technical acceptance. It does not permit a page redesign or broaden IRN’s clinical claims.

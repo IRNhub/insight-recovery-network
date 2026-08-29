@@ -4,6 +4,9 @@ export interface SubstanceTreatmentPage {
   title: string;
   fullTitle: string;
   metaDescription: string;
+  heroImage: string;
+  heroAlt: string;
+  ogImage: string;
   eyebrow: string;
   h1: string;
   intro: string[];
