@@ -2196,6 +2196,15 @@ function buildSubstanceTreatmentJsonLd(page) {
       description: page.metaDescription,
       inLanguage: "en-GB",
       isPartOf: { "@id": `${SITE_URL}/#website` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        "@id": `${canonical}#primaryimage`,
+        url: `${SITE_URL}${page.heroImage}`,
+        contentUrl: `${SITE_URL}${page.heroImage}`,
+        width: 1600,
+        height: 900,
+        caption: page.heroAlt,
+      },
       reviewedBy: {
         "@type": "Person",
         "@id": `${SITE_URL}/craig-bilton#person`,
@@ -2211,6 +2220,7 @@ function buildSubstanceTreatmentJsonLd(page) {
       name: `${page.title} guidance and placement support`,
       serviceType: "Assessment-led addiction treatment navigation and recovery support",
       description: page.metaDescription,
+      image: `${SITE_URL}${page.heroImage}`,
       provider: { "@id": `${SITE_URL}/#organization` },
       areaServed: { "@type": "Country", name: "United Kingdom" },
       url: canonical,
@@ -2255,6 +2265,7 @@ function buildSubstanceTreatmentBody(page) {
         <section style="padding:1rem 0 3rem;border-bottom:1px solid rgba(22,43,59,0.12);">
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#9B7844;">${esc(page.eyebrow)}</p>
           <h1 style="font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;font-weight:500;max-width:920px;">${esc(page.h1)}</h1>
+          <img src="${esc(page.heroImage)}" alt="${esc(page.heroAlt)}" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1024px) 42vw, 100vw" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:1.75rem 0;" />
           ${page.intro.map((paragraph) => `<p style="font-family:sans-serif;font-size:1rem;line-height:1.85;color:#4a5568;max-width:840px;">${esc(paragraph)}</p>`).join("")}
           <aside style="font-family:sans-serif;max-width:840px;border-left:4px solid #C9A96E;background:#fff;padding:1.1rem 1.25rem;margin:2rem 0;"><strong style="display:block;margin-bottom:0.45rem;">Safety comes first</strong><span style="font-size:0.9rem;line-height:1.7;color:#4a5568;">${esc(page.urgentNote)}</span></aside>
           <p><a href="${esc(page.cta.primary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;">${esc(page.cta.primary[0])}</a> <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 1.5rem;color:#162B3B;font-family:sans-serif;">How placement works</a></p>
@@ -2326,7 +2337,10 @@ PAGES.push(
     file: `${page.slug}.html`,
     title: page.fullTitle,
     description: page.metaDescription,
-    ogImage: DEFAULT_OG_IMAGE,
+    ogImage: `${SITE_URL}${page.ogImage}`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: page.heroAlt,
     jsonLd: buildSubstanceTreatmentJsonLd(page),
     body: buildSubstanceTreatmentBody(page),
   })),
