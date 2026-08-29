@@ -546,6 +546,14 @@ export default function TreatmentPlacement() {
 
       <RelatedServiceLinks
         links={[
+          { title: "Alcohol Addiction Treatment", description: "Compare withdrawal assessment, community, online and residential alcohol treatment routes.", href: "/alcohol-addiction-treatment" },
+          { title: "Cocaine Addiction Treatment", description: "Compare psychological, community, online and residential cocaine support.", href: "/cocaine-addiction-treatment" },
+          { title: "Cannabis Addiction Treatment", description: "Choose support based on use, mental health, home stability and treatment fit.", href: "/cannabis-addiction-treatment" },
+          { title: "Ketamine Addiction Treatment", description: "Coordinate addiction support with appropriate medical assessment for physical harm.", href: "/ketamine-addiction-treatment" },
+          { title: "Benzodiazepine Treatment", description: "Keep prescriber-led withdrawal planning connected to wider recovery support.", href: "/benzodiazepine-addiction-treatment" },
+          { title: "Dual Diagnosis Treatment", description: "Compare integrated mental-health and addiction treatment capability.", href: "/dual-diagnosis-treatment" },
+          { title: "Addiction Detox UK", description: "Understand withdrawal risk, clinical assessment and the differences between community, residential and inpatient settings.", href: "/resources/addiction-detox-uk" },
+          { title: "Detox vs Rehab", description: "Separate withdrawal management from rehabilitation and continuing recovery care.", href: "/resources/detox-vs-rehab" },
           { title: "Rehab Cost UK Guide", description: "Compare typical UK rehab, detox, overseas treatment and online recovery costs.", href: "/how-much-does-rehab-cost-uk" },
           { title: "Private Rehab UK", description: "Understand UK detox and residential rehabilitation options.", href: "/private-rehab-uk" },
           { title: "Private Rehab Alternatives", description: "Compare structured online support and other non-residential routes.", href: "/private-rehab-alternative-uk" },
