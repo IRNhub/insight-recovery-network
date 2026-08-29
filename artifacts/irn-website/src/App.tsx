@@ -31,6 +31,7 @@ const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlterna
 const PrivateRehabUK = lazy(() => import("@/pages/PrivateRehabUK"));
 const RehabCostUK = lazy(() => import("@/pages/RehabCostUK"));
 const PremiumTreatmentPage = lazy(() => import("@/pages/PremiumTreatmentPage"));
+const SubstanceTreatmentPage = lazy(() => import("@/pages/SubstanceTreatmentPage"));
 const FamilyInterventionUK = lazy(() => import("@/pages/FamilyInterventionUK"));
 const ProfessionalAddictionSupport = lazy(() => import("@/pages/ProfessionalAddictionSupport"));
 const GetHelp = lazy(() => import("@/pages/GetHelp"));
@@ -86,7 +87,7 @@ const REDIRECT_PATHS: Record<string, string> = {
   "/rehab":                              "/treatment-placement",
   "/rehabilitation":                     "/treatment-placement",
   "/alcohol-detox":                      "/treatment-placement",
-  "/alcohol-treatment":                  "/treatment-placement",
+  "/alcohol-treatment":                  "/alcohol-addiction-treatment",
   "/alcohol-addiction":                  "/resources/understanding-alcohol-dependency",
   "/understanding-alcohol-addiction":    "/resources/understanding-alcohol-dependency",
   "/alcohol-dependency":                 "/resources/understanding-alcohol-dependency",
@@ -173,11 +174,12 @@ function Router() {
 
   useEffect(() => installLeadClickTracking(), []);
 
-  // Enforce www canonical, redirect bare domain to www.
-  // Only fires on the real production domain, never in dev (*.replit.dev).
+  // Enforce the custom www host on the bare domain and the public Replit host.
+  // Preview hosts (*.replit.dev) remain unaffected.
   if (
     typeof window !== "undefined" &&
-    window.location.hostname === "insightrecoverynetwork.com"
+    (window.location.hostname === "insightrecoverynetwork.com" ||
+      window.location.hostname === "insight-recovery-network.replit.app")
   ) {
     window.location.replace(
       "https://www.insightrecoverynetwork.com" +
@@ -216,6 +218,12 @@ function Router() {
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
         <Route path="/private-rehab-uk" component={PrivateRehabUK} />
         <Route path="/how-much-does-rehab-cost-uk" component={RehabCostUK} />
+        <Route path="/alcohol-addiction-treatment">{() => <SubstanceTreatmentPage slug="alcohol-addiction-treatment" />}</Route>
+        <Route path="/cocaine-addiction-treatment">{() => <SubstanceTreatmentPage slug="cocaine-addiction-treatment" />}</Route>
+        <Route path="/cannabis-addiction-treatment">{() => <SubstanceTreatmentPage slug="cannabis-addiction-treatment" />}</Route>
+        <Route path="/ketamine-addiction-treatment">{() => <SubstanceTreatmentPage slug="ketamine-addiction-treatment" />}</Route>
+        <Route path="/benzodiazepine-addiction-treatment">{() => <SubstanceTreatmentPage slug="benzodiazepine-addiction-treatment" />}</Route>
+        <Route path="/dual-diagnosis-treatment">{() => <SubstanceTreatmentPage slug="dual-diagnosis-treatment" />}</Route>
         <Route path="/luxury-rehab">{() => <PremiumTreatmentPage slug="luxury-rehab" />}</Route>
         <Route path="/executive-rehab">{() => <PremiumTreatmentPage slug="executive-rehab" />}</Route>
         <Route path="/destination-rehab">{() => <PremiumTreatmentPage slug="destination-rehab" />}</Route>

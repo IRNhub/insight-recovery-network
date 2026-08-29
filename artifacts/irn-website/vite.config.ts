@@ -367,7 +367,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/rehab":                              "/treatment-placement",
   "/rehabilitation":                     "/treatment-placement",
   "/alcohol-detox":                      "/treatment-placement",
-  "/alcohol-treatment":                  "/treatment-placement",
+  "/alcohol-treatment":                  "/alcohol-addiction-treatment",
   "/alcohol-addiction":                  "/resources/understanding-alcohol-dependency",
   "/understanding-alcohol-addiction":    "/resources/understanding-alcohol-dependency",
   "/alcohol-dependency":                 "/resources/understanding-alcohol-dependency",
@@ -416,7 +416,10 @@ function serverRedirectsPlugin() {
     // Redirect non-www to www (canonical domain enforcement).
     // Strips port from Host so localhost dev is unaffected.
     const host = (req.headers.host ?? "").replace(/:\d+$/, "");
-    if (host === "insightrecoverynetwork.com") {
+    if (
+      host === "insightrecoverynetwork.com" ||
+      host === "insight-recovery-network.replit.app"
+    ) {
       res.writeHead(301, {
         Location: `https://www.insightrecoverynetwork.com${req.url}`,
       });
@@ -426,7 +429,15 @@ function serverRedirectsPlugin() {
 
     const [pathPart, queryPart] = (req.url ?? "").split("?");
     const raw = pathPart.split("#")[0];
-    // Normalise: strip trailing slash (except root), lowercase
+    if (raw !== "/" && raw.endsWith("/")) {
+      res.writeHead(301, {
+        Location: `${raw.slice(0, -1)}${queryPart ? `?${queryPart}` : ""}`,
+      });
+      res.end();
+      return;
+    }
+
+    // Normalise case for legacy lookup after canonical slash handling.
     const pathname = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;
     const target = SERVER_REDIRECTS[pathname.toLowerCase()];
     if (target) {

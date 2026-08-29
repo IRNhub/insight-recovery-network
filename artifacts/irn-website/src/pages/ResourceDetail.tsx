@@ -37,8 +37,17 @@ const EARLY_FINDINGS_SERIES = [
 const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   EARLY_FINDINGS_SERIES.map((article) => article.slug),
   [
-    "cocaine-addiction",
     "addiction-detox-uk",
+    "detox-vs-rehab",
+    "alcohol-withdrawal-symptoms-when-you-need-medical-help",
+    "benzodiazepine-withdrawal",
+    "opioid-detox",
+    "cocaine-withdrawal",
+    "ketamine-withdrawal",
+  ],
+  [
+    "cocaine-addiction",
+    "cocaine-withdrawal",
     "addiction-warning-signs",
     "why-cant-i-stop-how-addiction-works",
     "what-happens-in-residential-rehabilitation",
@@ -54,6 +63,7 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   ],
   [
     "ketamine-addiction",
+    "ketamine-withdrawal",
     "addiction-warning-signs",
     "mental-health-and-addiction",
     "dual-diagnosis",
@@ -62,6 +72,7 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   ],
   [
     "benzodiazepine-addiction",
+    "benzodiazepine-withdrawal",
     "addiction-detox-uk",
     "addiction-warning-signs",
     "mental-health-and-addiction",
@@ -71,6 +82,8 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   [
     "prescription-drug-addiction",
     "benzodiazepine-addiction",
+    "benzodiazepine-withdrawal",
+    "opioid-detox",
     "addiction-detox-uk",
     "addiction-warning-signs",
     "why-cant-i-stop-how-addiction-works",
@@ -225,8 +238,11 @@ function parseContent(
               <img
                 src={supportingImage.src}
                 alt={supportingImage.alt}
+                width={1600}
+                height={900}
                 className="block w-full aspect-video object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
             {supportingImage.caption && (
@@ -545,6 +561,8 @@ export default function ResourceDetail() {
   const commercialLinks = (() => {
     if (article.slug === "prescription-drug-addiction") {
       return [
+        { title: "Benzodiazepine withdrawal guide", description: "Understand why prescribed benzodiazepine withdrawal needs an individual prescriber-led plan.", href: "/resources/benzodiazepine-withdrawal" },
+        { title: "Opioid detox and withdrawal", description: "Compare maintenance and detox decisions and understand reduced-tolerance risk.", href: "/resources/opioid-detox" },
         { title: "Detox suitability assessment", description: "Organise medicine, withdrawal, overdose and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
         { title: "Treatment placement", description: "Compare private treatment settings when medical, mental-health or environmental risks require more structure.", href: "/treatment-placement" },
         { title: "Online recovery programme", description: "Explore continuing recovery support after prescribing and withdrawal risks have been clinically addressed.", href: "/online-programme" },
@@ -552,51 +570,111 @@ export default function ResourceDetail() {
     }
     if (article.slug === "cannabis-addiction") {
       return [
+        { title: "Cannabis addiction treatment", description: "Compare community, online and residential support against use, mental health and home stability.", href: "/cannabis-addiction-treatment" },
         { title: "Drug-use assessment", description: "Organise concerns about cannabis use, control, withdrawal, mental health and daily functioning.", href: "/assessments/drug-use" },
         { title: "Online recovery programme", description: "Explore structured recovery support when the person is medically stable and online care is suitable.", href: "/online-programme" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when risk, complexity or the home environment requires greater structure.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "ketamine-addiction") {
       return [
+        { title: "Ketamine addiction treatment", description: "Coordinate recovery support with a separate medical pathway for bladder, urinary or abdominal harm.", href: "/ketamine-addiction-treatment" },
+        { title: "Ketamine withdrawal guide", description: "Understand psychological withdrawal and when physical symptoms need separate medical care.", href: "/resources/ketamine-withdrawal" },
         { title: "Drug-use assessment", description: "Organise concerns about ketamine use, control, physical symptoms and the next appropriate conversation.", href: "/assessments/drug-use" },
         { title: "Detox suitability assessment", description: "Review withdrawal and combination-risk questions when alcohol, benzodiazepines, opioids or other substances are also involved.", href: "/assessments/detox" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when medical, mental-health or environmental risks require greater structure.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "cocaine-addiction") {
       return [
+        { title: "Cocaine addiction treatment", description: "Compare evidence-based psychological, community, online and residential treatment routes.", href: "/cocaine-addiction-treatment" },
+        { title: "Cocaine withdrawal guide", description: "Understand the crash, mental-health risks and support after stopping.", href: "/resources/cocaine-withdrawal" },
         { title: "Drug-use assessment", description: "Organise concerns about use, control, harm and the next appropriate conversation.", href: "/assessments/drug-use" },
         { title: "Online recovery programme", description: "Explore structured recovery support when online care is clinically suitable.", href: "/online-programme" },
-        { title: "Treatment placement", description: "Compare more intensive treatment options when risk or complexity requires them.", href: "/treatment-placement" },
       ];
     }
     if (article.slug === "addiction-detox-uk") {
       return [
         { title: "Detox suitability assessment", description: "Organise withdrawal history and risk questions before speaking with a clinical service.", href: "/assessments/detox" },
+        { title: "Detox vs rehab", description: "Compare withdrawal management with the continuing treatment that follows.", href: "/resources/detox-vs-rehab" },
+        { title: "Opioid detox and withdrawal", description: "Understand maintenance, detox, reduced tolerance and overdose prevention.", href: "/resources/opioid-detox" },
         { title: "Treatment placement", description: "Compare private detox and residential providers by clinical capability and fit.", href: "/treatment-placement" },
-        { title: "Residential rehabilitation", description: "Understand what should happen after withdrawal has been safely managed.", href: "/resources/what-happens-in-residential-rehabilitation" },
       ];
     }
     if (article.slug === "dual-diagnosis") {
       return [
+        { title: "Dual diagnosis treatment", description: "Compare integrated provider capability for mental-health and addiction needs.", href: "/dual-diagnosis-treatment" },
         { title: "Recovery assessments", description: "Organise concerns before discussing co-occurring needs with an appropriate professional.", href: "/assessments" },
         { title: "Treatment placement", description: "Compare providers against mental-health, withdrawal, medication and safeguarding needs.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
     if (article.slug === "mental-health-and-addiction") {
       return [
+        { title: "Dual diagnosis treatment", description: "Compare integrated treatment routes without self-diagnosing from symptoms.", href: "/dual-diagnosis-treatment" },
         { title: "Recovery assessments", description: "Organise mental-health and addiction concerns before the next professional conversation.", href: "/assessments" },
         { title: "Treatment placement", description: "Compare providers against withdrawal, mental-health, medication and safeguarding needs.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore structured online support when the person is medically stable and suitable.", href: "/online-programme" },
       ];
     }
     if (article.slug === "benzodiazepine-addiction") {
       return [
+        { title: "Benzodiazepine treatment", description: "Compare prescriber-led withdrawal planning and wider recovery support without using a generic taper.", href: "/benzodiazepine-addiction-treatment" },
+        { title: "Benzodiazepine withdrawal guide", description: "Understand why abrupt stopping can be unsafe and what a prescriber-led plan covers.", href: "/resources/benzodiazepine-withdrawal" },
         { title: "Detox suitability assessment", description: "Organise medicine, withdrawal and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
         { title: "Treatment placement", description: "Compare providers when withdrawal history, multiple substances or other risks require greater clinical structure.", href: "/treatment-placement" },
-        { title: "Online recovery programme", description: "Explore continuing recovery support once medical withdrawal risk has been addressed and online care is suitable.", href: "/online-programme" },
+      ];
+    }
+    if (article.slug === "understanding-alcohol-dependency") {
+      return [
+        { title: "Alcohol addiction treatment", description: "Compare withdrawal assessment, community, online and residential alcohol treatment routes.", href: "/alcohol-addiction-treatment" },
+        { title: "Alcohol detox and withdrawal", description: "Understand when medically assisted withdrawal or urgent care may be needed.", href: "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help" },
+        { title: "Alcohol and detox assessment", description: "Organise withdrawal and dependence questions before speaking with a medical service.", href: "/assessments/alcohol-detox" },
+        { title: "Private alcohol rehab costs", description: "Review alcohol-specific cost drivers, inclusions and alternatives.", href: "/resources/private-alcohol-rehab-uk-costs-options-alternatives" },
+      ];
+    }
+    if (article.slug === "alcohol-withdrawal-symptoms-when-you-need-medical-help") {
+      return [
+        { title: "Alcohol addiction treatment", description: "Compare treatment settings after withdrawal risk has been assessed.", href: "/alcohol-addiction-treatment" },
+        { title: "Alcohol and detox assessment", description: "Organise withdrawal history and risk questions for a qualified service.", href: "/assessments/alcohol-detox" },
+        { title: "UK addiction detox guide", description: "Compare community, residential and specialist inpatient withdrawal settings.", href: "/resources/addiction-detox-uk" },
+        { title: "Detox vs rehab", description: "See how withdrawal management connects to continuing treatment.", href: "/resources/detox-vs-rehab" },
+      ];
+    }
+    if (article.slug === "benzodiazepine-withdrawal") {
+      return [
+        { title: "Benzodiazepine treatment", description: "Connect qualified prescribing with psychological and recovery support.", href: "/benzodiazepine-addiction-treatment" },
+        { title: "Benzodiazepine dependence guide", description: "Understand dependence, addiction, risks and treatment language.", href: "/resources/benzodiazepine-addiction" },
+        { title: "Detox suitability assessment", description: "Organise medicines, withdrawal and combined-use questions.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare higher-support settings when risk or complexity requires them.", href: "/treatment-placement" },
+      ];
+    }
+    if (article.slug === "opioid-detox") {
+      return [
+        { title: "UK addiction detox guide", description: "Compare withdrawal risks and settings across different substances.", href: "/resources/addiction-detox-uk" },
+        { title: "Detox suitability assessment", description: "Organise history and risk questions before contacting a qualified service.", href: "/assessments/detox" },
+        { title: "Treatment placement", description: "Compare external providers by prescribing, monitoring and continuing care.", href: "/treatment-placement" },
+        { title: "Detox vs rehab", description: "Understand why withdrawal management must connect to continuing treatment.", href: "/resources/detox-vs-rehab" },
+      ];
+    }
+    if (article.slug === "cocaine-withdrawal") {
+      return [
+        { title: "Cocaine addiction treatment", description: "Compare evidence-based community, online and residential support.", href: "/cocaine-addiction-treatment" },
+        { title: "Cocaine addiction guide", description: "Understand signs, harms and the wider treatment pathway.", href: "/resources/cocaine-addiction" },
+        { title: "Drug-use assessment", description: "Organise concerns about use, mood, other substances and safety.", href: "/assessments/drug-use" },
+        { title: "Online recovery programme", description: "Explore structured support when the person is medically stable.", href: "/online-programme" },
+      ];
+    }
+    if (article.slug === "ketamine-withdrawal") {
+      return [
+        { title: "Ketamine addiction treatment", description: "Coordinate recovery support with a separate physical-health pathway.", href: "/ketamine-addiction-treatment" },
+        { title: "Ketamine addiction guide", description: "Understand addiction signs, bladder harm and broader treatment options.", href: "/resources/ketamine-addiction" },
+        { title: "Drug-use assessment", description: "Organise concerns about use, control and physical symptoms.", href: "/assessments/drug-use" },
+        { title: "Treatment placement", description: "Compare settings when greater structure is required.", href: "/treatment-placement" },
+      ];
+    }
+    if (article.slug === "detox-vs-rehab") {
+      return [
+        { title: "UK addiction detox guide", description: "Understand substance-specific withdrawal risks and settings.", href: "/resources/addiction-detox-uk" },
+        { title: "Residential rehabilitation", description: "See what assessment, therapy and aftercare should involve.", href: "/resources/what-happens-in-residential-rehabilitation" },
+        { title: "Treatment placement", description: "Compare external detox and rehab providers by capability and fit.", href: "/treatment-placement" },
+        { title: "Private rehab costs", description: "Compare costs only after identifying the required level of care.", href: "/how-much-does-rehab-cost-uk" },
       ];
     }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
@@ -651,6 +729,38 @@ export default function ResourceDetail() {
         description: "The detox assessment can help organise the medicine list, withdrawal history, overdose risk and questions for a prescriber or clinical service. It does not provide a taper or replace medical assessment.",
         primaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
         secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "alcohol-withdrawal-symptoms-when-you-need-medical-help") {
+      return {
+        heading: "Unsure whether alcohol withdrawal needs medical support?",
+        description: "Use the alcohol and detox assessment to organise the history for a GP, NHS alcohol service or qualified detox provider. It cannot clear a self-detox.",
+        primaryCta: { label: "Start the alcohol detox assessment", href: "/assessments/alcohol-detox" },
+        secondaryCta: { label: "Compare treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "benzodiazepine-withdrawal" || slug === "opioid-detox") {
+      return {
+        heading: "Need help organising withdrawal and treatment questions?",
+        description: "Use the detox assessment to prepare for a qualified clinical conversation. It does not prescribe, diagnose or approve a self-managed withdrawal.",
+        primaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
+        secondaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "cocaine-withdrawal" || slug === "ketamine-withdrawal") {
+      return {
+        heading: "Ready to put structured recovery support in place?",
+        description: "A drug-use assessment can organise the pattern, safety concerns and questions for the next appropriate service. It is not an emergency or medical assessment.",
+        primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
+        secondaryCta: { label: "Compare treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "detox-vs-rehab") {
+      return {
+        heading: "Need help separating withdrawal care from longer treatment?",
+        description: "Assessment-led placement can help compare external services by detox capability, rehabilitation model, safety and continuing care.",
+        primaryCta: { label: "Explore treatment placement", href: "/treatment-placement" },
+        secondaryCta: { label: "Start the detox assessment", href: "/assessments/detox" },
       };
     }
     if (slug === "cannabis-addiction") {
@@ -973,8 +1083,12 @@ export default function ResourceDetail() {
                 <img
                   src={article.image}
                   alt={article.imageAlt ?? article.title}
+                  width={1600}
+                  height={900}
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                 />
               </div>
             </div>

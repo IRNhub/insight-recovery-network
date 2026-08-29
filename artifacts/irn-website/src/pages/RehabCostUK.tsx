@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -8,7 +9,8 @@ import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/how-much-does-rehab-cost-uk";
-const HERO_IMAGE = `${SITE_URL}/how-much-does-rehab-cost-uk-hero.webp`;
+const HERO_IMAGE_PATH = "/rehab-costs-uk-comparison-hero.webp";
+const OG_IMAGE = `${SITE_URL}/rehab-costs-uk-comparison-og.webp`;
 
 const priceRows = [
   {
@@ -184,7 +186,34 @@ const serviceSchema = {
   url: `${SITE_URL}${CANONICAL}`,
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${SITE_URL}${CANONICAL}#webpage`,
+  name: "How Much Does Rehab Cost in the UK?",
+  description:
+    "A guide to UK private rehab prices, detox fees, inclusions, alternatives and the questions to ask before choosing treatment.",
+  url: `${SITE_URL}${CANONICAL}`,
+  inLanguage: "en-GB",
+  dateModified: "2026-08-28",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Rehab Costs UK", item: `${SITE_URL}${CANONICAL}` },
+  ],
+};
+
 export default function RehabCostUK() {
+  useEffect(() => {
+    document
+      .querySelectorAll('script[data-prerendered-jsonld="true"]')
+      .forEach((script) => script.remove());
+  }, []);
+
   return (
     <Layout>
       <SEO
@@ -192,15 +221,22 @@ export default function RehabCostUK() {
         fullTitle="Rehab Costs UK: Private Rehab Prices Explained"
         description="Compare UK private rehab costs, typical 28-day prices, detox fees, what affects the final price and lower-cost or overseas treatment alternatives."
         canonical={CANONICAL}
-        ogImage={HERO_IMAGE}
+        ogImage={OG_IMAGE}
       />
       <Helmet>
+        <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
       </Helmet>
 
       <section className="py-14 md:py-20 border-b border-border/40 bg-secondary/20">
         <div className="container mx-auto px-6 md:px-12">
+          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <Link href="/" className="hover:text-primary">Home</Link>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page" className="normal-case tracking-normal">Rehab costs UK</span>
+          </nav>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-5">
@@ -210,7 +246,7 @@ export default function RehabCostUK() {
                 How Much Does Rehab Cost in the UK?
               </h1>
               <div className="mb-6 border-l-4 border-accent bg-background/80 p-5 text-sm leading-relaxed text-primary">
-                <strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within the approved guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are guide figures, not quotes or financial advice.
+                <strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within this page's illustrative guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are not live quotes or a statistical market average.
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.
@@ -240,10 +276,10 @@ export default function RehabCostUK() {
 
             <div>
               <img
-                src="/how-much-does-rehab-cost-uk-hero.webp"
-                alt="Insight Recovery Network private rehab cost guide for the UK"
-                width={1717}
-                height={916}
+                src={HERO_IMAGE_PATH}
+                alt="Adult comparing unbranded rehabilitation information beside a calculator and laptop."
+                width={1600}
+                height={900}
                 className="w-full rounded-sm shadow-2xl shadow-primary/10 border border-border/50"
                 fetchPriority="high"
                 decoding="async"
@@ -258,7 +294,7 @@ export default function RehabCostUK() {
         problem="Explains realistic cost ranges, what affects price and how to compare options without choosing on price alone."
         applies="UK private rehab, alcohol detox, overseas residential treatment and structured online recovery support."
         nextStep="Speak to us about treatment options"
-        updated="9 July 2026"
+        updated="28 August 2026"
       />
 
       <section className="py-12 md:py-18 border-b border-border/40">
@@ -330,7 +366,7 @@ export default function RehabCostUK() {
           </div>
 
           <p className="text-xs text-muted-foreground leading-relaxed mt-5 max-w-3xl">
-            These figures are broad guide prices only. Actual costs depend on clinical needs, detox requirements, risk, location, accommodation level and length of stay.
+            These are editorial guide figures, not a statistical market average or live quotes. Provider fees and inclusions can change. Ask for a dated written quotation that separates assessment, detox, medication, tests, accommodation, therapy and aftercare.
           </p>
         </div>
       </section>
@@ -424,6 +460,9 @@ export default function RehabCostUK() {
                   alcohol detox suitability assessment
                 </Link>
                 , or contact us for a private conversation.
+              </p>
+              <p>
+                The <Link href="/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent">alcohol detox and withdrawal guide</Link> explains when qualified assessment or urgent care may be needed. Insight Recovery Network does not prescribe or provide medical detox.
               </p>
             </div>
           </div>
@@ -520,6 +559,20 @@ export default function RehabCostUK() {
         </div>
       </section>
 
+      <section className="py-12 md:py-20 border-b border-border/40" aria-labelledby="cost-methodology">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-accent/80 mb-4">Review and source method</p>
+            <h2 id="cost-methodology" className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary mb-5">How to use these guide prices safely</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>The price ranges on this page are comparison guides, not a guarantee, live quote or published market statistic. A lower headline fee may exclude detox, medication, psychiatric input, tests, transfers or aftercare. Obtain a dated written quotation and compare like for like.</p>
+              <p>Clinical statements about withdrawal and treatment settings are checked against current UK guidance. See the <a href="https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent">UK clinical guidelines for alcohol treatment</a>, <a href="https://www.nice.org.uk/guidance/CG52/chapter/recommendations" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent">NICE opioid detoxification guidance</a> and the <Link href="/resources/addiction-detox-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent">IRN addiction detox guide</Link>.</p>
+              <p>Last reviewed 28 August 2026. IRN is not a regulated healthcare provider and does not diagnose, prescribe or provide medical detox. External providers remain responsible for their own assessment, quotation and care.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mb-12">
@@ -568,6 +621,16 @@ export default function RehabCostUK() {
             title: "Free detox suitability assessment",
             description: "A confidential starting point if you are unsure whether detox risk needs medical attention.",
             href: "/assessments/detox",
+          },
+          {
+            title: "Detox vs rehab",
+            description: "Separate withdrawal management from rehabilitation before comparing fees.",
+            href: "/resources/detox-vs-rehab",
+          },
+          {
+            title: "Addiction detox UK",
+            description: "Understand clinical assessment, withdrawal risks and the differences between detox settings.",
+            href: "/resources/addiction-detox-uk",
           },
           {
             title: "Speak to Insight Recovery Network",

@@ -10,6 +10,8 @@ import { fetchMergedArticles } from "@/lib/article-loader";
 import { BookOpen, Loader2, Search, X } from "lucide-react";
 import resourcesHero from "../assets/resources-hero.webp";
 import type { Article } from "@/data/articles";
+import { substanceTreatmentPages } from "@/data/substance-treatment-pages.js";
+import { Link } from "wouter";
 
 function matchesSearch(article: Article, query: string): boolean {
   const q = query.toLowerCase().trim();
@@ -21,6 +23,44 @@ function matchesSearch(article: Article, query: string): boolean {
     article.content.toLowerCase().includes(q)
   );
 }
+
+const withdrawalDecisionGuides = [
+  {
+    title: "Addiction detox in the UK",
+    description: "Start with the broad guide to withdrawal risk, assessment and treatment settings.",
+    href: "/resources/addiction-detox-uk",
+  },
+  {
+    title: "Alcohol detox and withdrawal",
+    description: "Understand when medically assisted withdrawal or emergency help may be needed.",
+    href: "/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help",
+  },
+  {
+    title: "Benzodiazepine withdrawal",
+    description: "Why abrupt stopping can be unsafe and how prescriber-led support works.",
+    href: "/resources/benzodiazepine-withdrawal",
+  },
+  {
+    title: "Opioid detox and withdrawal",
+    description: "Compare maintenance, detox and continuing care, including overdose prevention.",
+    href: "/resources/opioid-detox",
+  },
+  {
+    title: "Cocaine withdrawal",
+    description: "Understand the crash, mental-health risks and support after stopping.",
+    href: "/resources/cocaine-withdrawal",
+  },
+  {
+    title: "Ketamine withdrawal",
+    description: "Separate psychological withdrawal support from medical care for physical harm.",
+    href: "/resources/ketamine-withdrawal",
+  },
+  {
+    title: "Detox vs rehab",
+    description: "See how withdrawal management differs from rehabilitation and aftercare.",
+    href: "/resources/detox-vs-rehab",
+  },
+] as const;
 
 export default function ResourcesList() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -234,6 +274,45 @@ export default function ResourcesList() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="border-y border-border/40 bg-primary py-12 text-primary-foreground md:py-16" aria-labelledby="withdrawal-guides-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">Withdrawal and detox decisions</p>
+            <h2 id="withdrawal-guides-heading" className="mb-4 font-serif text-3xl md:text-4xl">Find the right safety guide before stopping</h2>
+            <p className="leading-relaxed text-primary-foreground/75">Different substances require different clinical decisions. These guides explain risk, medical boundaries and the next appropriate service without offering self-detox schedules.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {withdrawalDecisionGuides.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="group border border-primary-foreground/15 bg-primary-foreground/5 p-5 transition-colors hover:border-accent/70 hover:bg-primary-foreground/10">
+                <h3 className="mb-2 font-serif text-lg text-primary-foreground group-hover:text-accent">{guide.title}</h3>
+                <p className="text-sm leading-relaxed text-primary-foreground/70">{guide.description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-border/40 bg-secondary/15 py-12 md:py-16" aria-labelledby="treatment-guides-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent/80">From information to a decision</p>
+            <h2 id="treatment-guides-heading" className="mb-4 font-serif text-3xl text-primary md:text-4xl">Substance-specific treatment guides</h2>
+            <p className="leading-relaxed text-muted-foreground">Use the clinical articles to understand a concern, then use these decision guides to compare assessment, community, online and residential treatment routes.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {substanceTreatmentPages.map((page) => (
+              <Link key={page.route} href={page.route} className="group border border-border/40 bg-background p-5 transition-colors hover:border-accent/60">
+                <h3 className="mb-2 font-serif text-lg text-primary group-hover:text-accent">{page.title}</h3>
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">Compare treatment options</span>
+              </Link>
+            ))}
+          </div>
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+            Learn more about <Link href="/about-insight-recovery-network" className="underline underline-offset-4 hover:text-primary">how IRN works</Link>, our <Link href="/editorial-policy" className="underline underline-offset-4 hover:text-primary">editorial policy</Link>, <Link href="/media" className="underline underline-offset-4 hover:text-primary">media commentary</Link>, <Link href="/confidential-addiction-help-professionals" className="underline underline-offset-4 hover:text-primary">confidential help for professionals</Link> and the <Link href="/recovery-plan-checklist" className="underline underline-offset-4 hover:text-primary">recovery plan checklist</Link>.
+          </p>
         </div>
       </section>
 

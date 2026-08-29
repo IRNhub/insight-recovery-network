@@ -5,8 +5,10 @@ import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-add
 import { ketamineAddictionArticle } from "./article-010-ketamine-addiction";
 import { cannabisAddictionArticle } from "./article-011-cannabis-addiction";
 import { prescriptionDrugAddictionArticle } from "./article-012-prescription-drug-addiction";
+import { batchTwoDetoxWithdrawalArticles } from "./article-batch-2-detox-withdrawal";
 
 export const approvedArticles = [
+  ...batchTwoDetoxWithdrawalArticles,
   prescriptionDrugAddictionArticle,
   cannabisAddictionArticle,
   ketamineAddictionArticle,
@@ -19,6 +21,7 @@ export const approvedArticles = [
     author: "Craig Bilton",
     authorRole: "Founder & Clinical Director",
     date: "2026-08-11",
+    updatedDate: "2026-08-28",
     readingTime: 18,
     category: "Addiction & Substances",
     image: "/cocaine-addiction-signs-treatment-uk-hero.webp",
@@ -414,9 +417,9 @@ Online support can provide structure, therapeutic contact, education, accountabi
     date: "2026-08-11",
     readingTime: 19,
     category: "Treatment Options",
-    image: "/addiction-detox-uk-safe-assessment-hero.webp",
-    ogImage: "/addiction-detox-uk-safe-assessment-hero-og.webp",
-    imageAlt: "Adult having a confidential detox assessment with an addiction professional.",
+    image: "/addiction-detox-uk-treatment-navigation-hero.webp",
+    ogImage: "/addiction-detox-uk-treatment-navigation-og.webp",
+    imageAlt: "Adult arriving at a calm treatment setting with a backpack.",
     seoTitle: "Addiction Detox UK: Safety, Settings and Next Steps | IRN",
     metaDescription: "Understand when addiction detox needs medical support, how community, residential and inpatient settings differ, and what should happen afterwards.",
     ogTitle: "Addiction Detox UK: Safety, Settings and Next Steps",
@@ -512,7 +515,7 @@ Online support can provide structure, therapeutic contact, education, accountabi
     ],
     content: `**Concise answer:** Addiction detox is the planned management of withdrawal when someone reduces or stops alcohol, an illicit drug or a dependence-forming medicine. The right approach depends on the substance, level of dependence, previous withdrawal, physical and mental health, other substances, pregnancy, home support and immediate risk. Alcohol and benzodiazepine withdrawal can cause serious complications, while opioid detox reduces tolerance and can raise overdose risk if use resumes. Detox should therefore follow an individual clinical assessment and be connected to continuing addiction treatment, not treated as a stand-alone cure.[1][2][3][4]
 
-If you are dependent on alcohol, benzodiazepines, opioids or another prescribed medicine, do not make a sudden change based only on information online. Speak to a doctor, prescriber or specialist treatment service. Call 999 or go to A&E for a seizure, severe confusion, hallucinations, collapse, severe breathing difficulty, chest pain, extreme agitation, suspected overdose or immediate risk of suicide or serious self-harm. Insight Recovery Network is not an emergency or medical detox service.
+If you are dependent on alcohol, benzodiazepines, opioids or another prescribed medicine, do not make a sudden change based only on information online. Speak to a doctor, prescriber or specialist treatment service. Call 999 or go to A&E for a seizure, severe confusion, hallucinations, collapse, severe breathing difficulty, chest pain, extreme agitation, suspected overdose or immediate risk of suicide or serious self-harm. Insight Recovery Network is not a regulated healthcare provider, emergency service or medical detox service. We do not diagnose, prescribe or provide medical detox.
 
 ## Key takeaways
 
@@ -682,6 +685,19 @@ Prescribed medication should follow a clinical protocol and be reviewed by quali
 Discharge should not be the first time aftercare is discussed. The plan may include psychological treatment, medication to support relapse prevention where clinically appropriate, online or community recovery support, family work, peer support, physical and mental healthcare, housing or employment help, and clear action if craving or relapse occurs.[1][2][4]
 
 For opioids, reduced tolerance and overdose prevention need explicit attention. For alcohol, continuing treatment may include psychosocial support and, after medical assessment, relapse-prevention medication. For prescribed medicines, follow-up may need to continue while symptoms settle or the reduction plan changes.[1][2][6]
+
+## Substance-specific withdrawal and detox guides
+
+The broad principles on this page do not replace substance-specific decisions. Use the relevant guide to prepare for a conversation with a qualified service:
+
+- [Alcohol detox and withdrawal](/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help), including medically assisted withdrawal and urgent warning signs
+- [Benzodiazepine withdrawal](/resources/benzodiazepine-withdrawal), including the difference between prescribed dependence and addiction
+- [Opioid detox and withdrawal](/resources/opioid-detox), including maintenance treatment, reduced tolerance and overdose prevention
+- [Cocaine withdrawal](/resources/cocaine-withdrawal), including the crash, depression and psychological support
+- [Ketamine withdrawal](/resources/ketamine-withdrawal), including the separate medical pathway for bladder, urinary or abdominal harm
+- [Detox vs rehab](/resources/detox-vs-rehab), explaining how withdrawal management and continuing addiction treatment fit together.
+
+These pages do not provide medication schedules or individual clearance to stop. Alcohol, benzodiazepine and opioid decisions require particular care, and combined use may change the safest sequence or setting.
 
 ## Can addiction detox be done at home?
 
