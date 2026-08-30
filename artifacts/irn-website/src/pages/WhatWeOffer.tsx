@@ -499,8 +499,12 @@ export default function WhatWeOffer() {
       <CTASection
         heading="Unsure which route is right?"
         description="Start with a confidential conversation. We will help you understand the options without pressure, judgement, or obligation."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/get-help" }}
         secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        primaryEvent="book_consultation_click"
+        sourcePage="what-we-offer"
+        serviceInterest="general-support"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

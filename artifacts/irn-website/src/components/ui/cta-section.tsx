@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Button } from "./button";
+import type { ConversionEvent } from "@/lib/analytics";
 
 interface CTASectionProps {
   heading: string;
@@ -12,7 +13,12 @@ interface CTASectionProps {
   secondaryLabel?: string;
   secondaryHref?: string;
   isExternal?: boolean;
-  analyticsEvent?: string;
+  analyticsEvent?: ConversionEvent;
+  primaryEvent?: ConversionEvent;
+  secondaryEvent?: ConversionEvent;
+  sourcePage?: string;
+  serviceInterest?: string;
+  ctaLocation?: string;
 }
 
 export function CTASection({
@@ -27,6 +33,11 @@ export function CTASection({
   secondaryHref,
   isExternal,
   analyticsEvent,
+  primaryEvent,
+  secondaryEvent,
+  sourcePage,
+  serviceInterest,
+  ctaLocation,
 }: CTASectionProps) {
   const resolvedPrimaryCta = primaryCta ?? {
     label: primaryLabel ?? "Book a confidential call",
@@ -39,6 +50,13 @@ export function CTASection({
       : undefined);
   const resolvedDescription = description ?? body;
   const isDirectHref = (href: string) => /^(https?:|tel:|mailto:)/.test(href);
+  const analyticsAttributes = (event: ConversionEvent | undefined, label: string) => ({
+    "data-analytics-event": event,
+    "data-source-page": sourcePage,
+    "data-service-interest": serviceInterest,
+    "data-cta-location": ctaLocation ?? "final_cta",
+    "data-cta-label": label,
+  });
 
   return (
     <section className="py-8 md:py-14 lg:py-16 bg-primary relative overflow-hidden">
@@ -67,13 +85,13 @@ export function CTASection({
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal || isDirectHref(resolvedPrimaryCta.href) ? (
-              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto" data-analytics-event={analyticsEvent}>
+              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {resolvedPrimaryCta.label}
                 </Button>
               </a>
             ) : (
-              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto" data-analytics-event={analyticsEvent}>
+              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
                 <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
                   {resolvedPrimaryCta.label}
                 </Button>
@@ -81,13 +99,13 @@ export function CTASection({
             )}
 
             {resolvedSecondaryCta && (isDirectHref(resolvedSecondaryCta.href) ? (
-              <a href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
+              <a href={resolvedSecondaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
                 <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
                   {resolvedSecondaryCta.label}
                 </Button>
               </a>
             ) : (
-              <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto">
+              <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
                 <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
                   {resolvedSecondaryCta.label}
                 </Button>

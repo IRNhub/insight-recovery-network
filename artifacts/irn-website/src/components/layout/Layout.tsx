@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "wouter";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
+import { SOCIAL_PROFILE_URLS } from "@/config/social-links.js";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface LayoutProps {
 const ORGANIZATION_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "https://www.insightrecoverynetwork.com/#organization",
   name: "Insight Recovery Network",
   url: "https://www.insightrecoverynetwork.com",
   logo: "https://www.insightrecoverynetwork.com/og-about.png",
@@ -32,11 +34,13 @@ const ORGANIZATION_SCHEMA = {
     "@type": "Person",
     name: "Craig Bilton",
   },
+  sameAs: SOCIAL_PROFILE_URLS,
 };
 
 const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://www.insightrecoverynetwork.com/#website",
   name: "Insight Recovery Network",
   url: "https://www.insightrecoverynetwork.com",
   description:
@@ -46,6 +50,7 @@ const WEBSITE_SCHEMA = {
 const PERSON_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://www.insightrecoverynetwork.com/#craig-bilton",
   name: "Craig Bilton",
   jobTitle: "Founder",
   worksFor: {
@@ -55,7 +60,7 @@ const PERSON_SCHEMA = {
   },
   description:
     "Addiction recovery specialist with over 20 years of international experience in residential rehabilitation, online recovery support, and complex case management.",
-  url: "https://www.insightrecoverynetwork.com/craig-bilton",
+  url: "https://www.insightrecoverynetwork.com/about",
 };
 
 export function Layout({ children }: LayoutProps) {
@@ -65,8 +70,10 @@ export function Layout({ children }: LayoutProps) {
     document
       .head.querySelectorAll('[data-prerendered-meta="true"]')
       .forEach((element) => element.remove());
-    document
-      .head.querySelectorAll('[data-static-jsonld="true"]')
+    document.head
+      .querySelectorAll(
+        '[data-static-jsonld="true"], [data-prerendered-jsonld="true"]',
+      )
       .forEach((element) => element.remove());
   }, [location]);
 

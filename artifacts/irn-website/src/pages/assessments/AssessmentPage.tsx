@@ -6,6 +6,7 @@ import { AssessmentResult } from "@/components/assessment/AssessmentResult";
 import { buildClinicalBrief } from "@/lib/assessment-scorer";
 import type { AssessmentConfig, AssessmentAnswers, ScoreResult, AnchorReport } from "@/types/assessment";
 import { Shield, Clock, Lock } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 interface AssessmentPageProps {
   config: AssessmentConfig;
@@ -25,6 +26,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
   const [assessmentId, setAssessmentId] = useState<number | undefined>(undefined);
   const [userName, setUserName] = useState("");
   const [isLoadingAnchor, setIsLoadingAnchor] = useState(false);
+  const [leadSubmitStatus, setLeadSubmitStatus] = useState<"submitting" | "success" | "error">("submitting");
 
   async function handleComplete(answers: AssessmentAnswers, score: ScoreResult, consent: boolean) {
     setIsSubmitting(true);
@@ -39,10 +41,13 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
     setResult(score);
     setUserName(name);
     setIsLoadingAnchor(true);
+    setLeadSubmitStatus("submitting");
     setPhase("result");
     setIsSubmitting(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
     try {
       const response = await fetch(`${API_BASE}/assessments/submit`, {
         method: "POST",
@@ -66,6 +71,10 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
       });
 
       if (response.ok) {
+        setLeadSubmitStatus("success");
+        trackEvent("assessment_complete", {
+          form_name: "self_assessment",
+        });
         const data = await response.json();
         if (data.anchorReport) {
           setAnchorReport(data.anchorReport as AnchorReport);
@@ -73,9 +82,10 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
         if (typeof data.id === "number") {
           setAssessmentId(data.id);
         }
-      }
+      } else setLeadSubmitStatus("error");
     } catch {
       // Anchor unavailable, result still shown with deterministic content
+      setLeadSubmitStatus("error");
     } finally {
       setIsLoadingAnchor(false);
     }
@@ -169,6 +179,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
           advisories={result.advisories}
           assessmentId={assessmentId}
           onCtaClick={handleCtaClick}
+          leadSubmitStatus={leadSubmitStatus}
         />
       </Layout>
     );
@@ -220,8 +231,14 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
 
           <button
             onClick={() => {
+              trackEvent("assessment_start", {
+                cta_location: "assessment_intro",
+              });
               setPhase("assessment");
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.scrollTo({
+                top: 0,
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+              });
             }}
             className="inline-flex items-center gap-3 px-8 h-14 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
           >

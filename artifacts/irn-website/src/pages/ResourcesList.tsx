@@ -319,8 +319,12 @@ export default function ResourcesList() {
       <CTASection
         heading="Speak with a clinical specialist."
         description="Our articles provide information, but every situation is different. A confidential conversation can help clarify the right next step for you or your loved one."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/get-help" }}
         secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        primaryEvent="book_consultation_click"
+        sourcePage="resources"
+        serviceInterest="general-support"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

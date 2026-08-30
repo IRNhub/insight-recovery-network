@@ -127,7 +127,7 @@ export default function OnlineAddictionRecoveryUK() {
               Professional, clinically informed recovery support delivered online, for individuals in the UK who need structure, accountability, and professional guidance without residential treatment.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
+              <Link href="/get-help" data-analytics-event="online_programme_enquiry" data-service-interest="online-programme" data-cta-location="hero">
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
@@ -268,10 +268,14 @@ export default function OnlineAddictionRecoveryUK() {
       <CTASection
         heading="Find out whether online recovery support is right for you."
         body="A confidential conversation can help clarify whether online recovery support, treatment placement, or another level of care is most appropriate for your situation. No obligation, no pressure."
-        primaryLabel="Book a confidential call"
-        primaryHref="/contact"
+        primaryLabel="Ask about programme availability"
+        primaryHref="/get-help"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
+        primaryEvent="online_programme_enquiry"
+        sourcePage="online-addiction-recovery-programme-uk"
+        serviceInterest="online-programme"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

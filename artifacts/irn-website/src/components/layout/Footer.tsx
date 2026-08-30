@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { openCookieSettings } from "@/components/CookieConsent";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,6 +25,12 @@ export function Footer() {
               <a href="tel:+447415994475" className="hover:text-accent transition-colors">
                 +44 7415 994475
               </a>
+            </div>
+            <div className="flex flex-col gap-3 pt-2">
+              <h4 className="font-serif text-lg text-primary-foreground/90">
+                Follow Insight Recovery Network
+              </h4>
+              <SocialLinks variant="footer" showLabels />
             </div>
           </div>
 
@@ -156,6 +164,11 @@ export function Footer() {
                 <Link href="/editorial-policy" className="hover:text-accent transition-colors">
                   Editorial Policy
                 </Link>
+              </li>
+              <li>
+                <button type="button" onClick={openCookieSettings} className="text-left hover:text-accent transition-colors">
+                  Cookie Settings
+                </button>
               </li>
             </ul>
           </div>

@@ -72,7 +72,7 @@ function securityHeadersPlugin() {
     res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
     res.setHeader(
       "Content-Security-Policy",
-      "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+      "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://www.googleadservices.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.facebook.com https://connect.facebook.net https://googleads.g.doubleclick.net; frame-src https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
     );
 
     const pathname = (req.url ?? "/").split("?")[0];
@@ -347,6 +347,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
 
   // ── Old WordPress page slugs ──────────────────────────────────────────
   "/about-us":                           "/about",
+  "/craig-bilton":                       "/about",
   "/contact-us":                         "/contact",
   "/get-in-touch":                       "/contact",
   "/services":                           "/what-we-offer",
@@ -360,6 +361,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/terms-and-conditions":               "/terms-of-service",
   "/online-therapy":                     "/online-programme",
   "/online-recovery":                    "/online-programme",
+  "/online-recovery-programme":          "/online-programme",
   "/insightos":                          "/insight-os",
   "/family-support":                     "/family-addiction-intervention-uk",
   "/family-intervention":                "/family-addiction-intervention-uk",
@@ -413,35 +415,31 @@ function serverRedirectsPlugin() {
     res: import("http").ServerResponse,
     next: () => void,
   ) {
-    // Redirect non-www to www (canonical domain enforcement).
-    // Strips port from Host so localhost dev is unaffected.
+    // Resolve host, legacy slug, casing and trailing slash together so even a
+    // bare-domain legacy URL reaches its canonical destination in one hop.
     const host = (req.headers.host ?? "").replace(/:\d+$/, "");
-    if (
-      host === "insightrecoverynetwork.com" ||
-      host === "insight-recovery-network.replit.app"
-    ) {
-      res.writeHead(301, {
-        Location: `https://www.insightrecoverynetwork.com${req.url}`,
-      });
-      res.end();
-      return;
-    }
-
-    const [pathPart, queryPart] = (req.url ?? "").split("?");
+    const requestUrl = req.url ?? "";
+    const queryIndex = requestUrl.indexOf("?");
+    const pathPart = queryIndex === -1 ? requestUrl : requestUrl.slice(0, queryIndex);
+    const queryPart = queryIndex === -1 ? "" : requestUrl.slice(queryIndex + 1);
     const raw = pathPart.split("#")[0];
-    if (raw !== "/" && raw.endsWith("/")) {
-      res.writeHead(301, {
-        Location: `${raw.slice(0, -1)}${queryPart ? `?${queryPart}` : ""}`,
-      });
-      res.end();
-      return;
-    }
+    const noTrailingSlash = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;
+    const lowerPath = noTrailingSlash.includes(".")
+      ? noTrailingSlash
+      : noTrailingSlash.toLowerCase();
+    const canonicalPath = SERVER_REDIRECTS[lowerPath] ?? lowerPath;
+    const needsCanonicalHost =
+      host === "insightrecoverynetwork.com" ||
+      host === "insight-recovery-network.replit.app";
+    const needsCanonicalPath = canonicalPath !== raw;
 
-    // Normalise case for legacy lookup after canonical slash handling.
-    const pathname = raw !== "/" && raw.endsWith("/") ? raw.slice(0, -1) : raw;
-    const target = SERVER_REDIRECTS[pathname.toLowerCase()];
-    if (target) {
-      res.writeHead(301, { Location: `${target}${queryPart ? `?${queryPart}` : ""}` });
+    if (needsCanonicalHost || needsCanonicalPath) {
+      const origin = needsCanonicalHost
+        ? "https://www.insightrecoverynetwork.com"
+        : "";
+      res.writeHead(301, {
+        Location: `${origin}${canonicalPath}${queryPart ? `?${queryPart}` : ""}`,
+      });
       res.end();
       return;
     }
@@ -497,6 +495,7 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     assetsInlineLimit: 0,
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port,

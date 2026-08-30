@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { useBrowserLocation } from "wouter/use-browser-location";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,7 +7,9 @@ import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
-import { installLeadClickTracking } from "@/lib/analytics";
+import { installLeadClickTracking, trackPageView } from "@/lib/analytics";
+import { CONSENT_CHANGED_EVENT } from "@/lib/consent";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const About = lazy(() => import("@/pages/About"));
 const WhatWeOffer = lazy(() => import("@/pages/WhatWeOffer"));
@@ -39,7 +41,6 @@ const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const ServicesPricingGuide = lazy(() => import("@/pages/ServicesPricingGuide"));
 const RecoveryPlanChecklistLanding = lazy(() => import("@/pages/RecoveryPlanChecklistLanding"));
 const RecoveryPlanChecklist = lazy(() => import("@/pages/RecoveryPlanChecklist"));
-const CraigBilton = lazy(() => import("@/pages/CraigBilton"));
 const DestinationRehab = lazy(() => import("@/pages/DestinationRehab"));
 const AddictionHelpCornwall = lazy(() => import("@/pages/AddictionHelpCornwall"));
 const AdminApp = lazy(() => import("@/pages/admin/AdminApp"));
@@ -66,6 +67,7 @@ const REDIRECT_PATHS: Record<string, string> = {
 
   // ── Old WordPress page slugs ──────────────────────────────────────────
   "/about-us":                           "/about",
+  "/craig-bilton":                       "/about",
   "/contact-us":                         "/contact",
   "/get-in-touch":                       "/contact",
   "/services":                           "/what-we-offer",
@@ -159,6 +161,8 @@ function useNormalisedLocation(): ReturnType<typeof useBrowserLocation> {
 }
 
 function Router() {
+  const [location] = useLocation();
+
   useEffect(() => {
     try {
       if (!window.sessionStorage.getItem("irn_landing_page")) {
@@ -173,6 +177,24 @@ function Router() {
   }, []);
 
   useEffect(() => installLeadClickTracking(), []);
+
+  useEffect(() => {
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      // Helmet updates the route title asynchronously. A second frame keeps the
+      // title change ahead of the single SPA page-view event.
+      secondFrame = window.requestAnimationFrame(() => trackPageView());
+    });
+    const consentChanged = () => {
+      secondFrame = window.requestAnimationFrame(() => trackPageView());
+    };
+    window.addEventListener(CONSENT_CHANGED_EVENT, consentChanged);
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+      window.removeEventListener(CONSENT_CHANGED_EVENT, consentChanged);
+    };
+  }, [location]);
 
   // Enforce the custom www host on the bare domain and the public Replit host.
   // Preview hosts (*.replit.dev) remain unaffected.
@@ -212,7 +234,6 @@ function Router() {
         <Route path="/services-pricing-guide" component={ServicesPricingGuide} />
         <Route path="/recovery-plan-checklist" component={RecoveryPlanChecklistLanding} />
         <Route path="/recovery-plan-checklist/checklist" component={RecoveryPlanChecklist} />
-        <Route path="/craig-bilton" component={CraigBilton} />
         <Route path="/about-insight-recovery-network" component={AboutInsightRecoveryNetwork} />
         <Route path="/online-addiction-recovery-programme-uk" component={OnlineAddictionRecoveryUK} />
         <Route path="/private-rehab-alternative-uk" component={PrivateRehabAlternativeUK} />
@@ -273,6 +294,7 @@ function App() {
         <WouterRouter hook={useNormalisedLocation}>
           <Router />
           <WhatsAppFloat />
+          <CookieConsent />
         </WouterRouter>
         <Toaster />
       </TooltipProvider>

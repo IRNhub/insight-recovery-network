@@ -1,26 +1,10 @@
-import { useEffect } from "react";
 import { Link } from "wouter";
 import { CheckCircle2 } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, unknown>>;
-  }
-}
-
 export default function ThankYou() {
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "irn_enquiry_conversion",
-      conversion_name: "confidential_enquiry",
-      page_path: window.location.pathname,
-    });
-  }, []);
-
   return (
     <Layout>
       <SEO

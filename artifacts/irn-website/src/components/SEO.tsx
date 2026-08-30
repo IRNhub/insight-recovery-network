@@ -14,6 +14,7 @@ interface SEOProps {
   ogImageHeight?: number;
   ogImageAlt?: string;
   noIndex?: boolean;
+  followWhenNoIndex?: boolean;
   ogType?: "website" | "article";
   datePublished?: string;
   dateModified?: string;
@@ -31,6 +32,7 @@ export function SEO({
   ogImageHeight = 630,
   ogImageAlt = SITE_NAME,
   noIndex = false,
+  followWhenNoIndex = false,
   ogType = "website",
   datePublished,
   dateModified,
@@ -45,7 +47,9 @@ export function SEO({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
-      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+      {noIndex && (
+        <meta name="robots" content={followWhenNoIndex ? "noindex, follow" : "noindex, nofollow"} />
+      )}
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

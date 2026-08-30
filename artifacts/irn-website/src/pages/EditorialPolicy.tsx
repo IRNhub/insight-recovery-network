@@ -79,7 +79,7 @@ export default function EditorialPolicy() {
             <div className="pt-6 border-t border-border/50 text-xs">
               <p>
                 Read more about{" "}
-                <Link href="/craig-bilton" className="underline underline-offset-2 hover:text-primary">
+                <Link href="/about" className="underline underline-offset-2 hover:text-primary">
                   Craig Bilton
                 </Link>{" "}
                 and our{" "}

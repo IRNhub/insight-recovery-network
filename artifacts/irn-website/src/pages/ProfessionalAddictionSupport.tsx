@@ -83,7 +83,7 @@ export default function ProfessionalAddictionSupport() {
               We help you compare structured online support, medically supervised detox and discreet residential treatment around your clinical needs, work, family and privacy.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact">
+              <Link href="/get-help" data-analytics-event="book_consultation_click" data-service-interest="professional" data-cta-location="hero">
                 <Button className="h-12 w-full rounded-none bg-white px-7 text-primary hover:bg-white/90 sm:w-auto">
                   Arrange a discreet consultation <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -195,7 +195,10 @@ export default function ProfessionalAddictionSupport() {
         heading="A private conversation can prevent a public crisis."
         body="Explain what is happening and what you need to protect. We will help you identify a safe, proportionate next step without pressure."
         primaryLabel="Arrange a discreet consultation"
-        primaryHref="/contact"
+        primaryHref="/get-help"
+        primaryEvent="book_consultation_click"
+        serviceInterest="professional"
+        sourcePage="confidential-addiction-help-professionals"
         secondaryLabel="Compare rehab options"
         secondaryHref="/treatment-placement"
       />

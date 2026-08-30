@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           <h1 className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-4" style={{ color: "#162B3B" }}>
             Privacy Policy
           </h1>
-          <p className="font-light text-sm text-muted-foreground">Last updated: May 2025</p>
+          <p className="font-light text-sm text-muted-foreground">Last updated: July 2026</p>
         </div>
       </section>
 
@@ -52,7 +52,7 @@ export default function PrivacyPolicy() {
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Enquiry form (/contact):</strong> name, email address, phone number (optional), and the content of your message.</li>
                 <li><strong className="font-medium text-foreground/70">Self-assessment forms (/assessments/*):</strong> name, email address, phone number (optional), your assessment answers, and your consent to receive results by email.</li>
-                <li><strong className="font-medium text-foreground/70">Website usage:</strong> we do not use tracking or advertising cookies. Our web server may log standard access data (IP address, browser type, pages visited) for security and error diagnostics. This data is not linked to individual identities.</li>
+                <li><strong className="font-medium text-foreground/70">Website usage:</strong> with permission, GA4 receives privacy-screened page and interaction data. Analytics and marketing are off by default. Our web server may also log standard access data for security and error diagnostics.</li>
               </ul>
             </div>
 
@@ -88,8 +88,10 @@ export default function PrivacyPolicy() {
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Resend</strong> (email delivery service), used to send notification and acknowledgement emails. Resend may transiently process your name and email address as part of email delivery. Resend is GDPR-compliant.</li>
                 <li><strong className="font-medium text-foreground/70">Replit</strong> (hosting infrastructure), our website and database are hosted on Replit&rsquo;s infrastructure, which is SOC 2 compliant.</li>
+                <li><strong className="font-medium text-foreground/70">Google</strong> (optional analytics and tag management), loaded only after the relevant consent choice.</li>
+                <li><strong className="font-medium text-foreground/70">Meta</strong> (optional marketing technology), loaded only after marketing consent. Automatic page-view and health-context conversion events are disabled.</li>
               </ul>
-              <p className="mt-3">We do not use Google Analytics, Facebook Pixel, or any other advertising or behavioural tracking service.</p>
+              <p className="mt-3">We do not send names, email addresses, phone numbers, messages, assessment answers or clinical information in analytics events. See the Cookie Policy for controls and categories.</p>
             </div>
 
             <div>

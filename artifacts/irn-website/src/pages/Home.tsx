@@ -7,6 +7,8 @@ import { CTASection } from "@/components/ui/cta-section";
 import { PathwayCard } from "@/components/ui/pathway-card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { ServiceSummary } from "@/components/ui/service-summary";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 import craigImage from "@/assets/craig-bilton.jpg";
 import familyImage from "@/assets/hero-family-guidance.webp";
 import onlineImage from "@/assets/hero-online-programme.webp";
@@ -14,6 +16,7 @@ import treatmentImage from "@/assets/hero-treatment-placement.webp";
 import digitalToolsImage from "@/assets/hero-digital-tools.webp";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const parity = getRouteParity("/");
 
 const pathways = [
   {
@@ -89,12 +92,14 @@ export default function Home() {
   return (
     <Layout>
       <SEO
-        title="Private Rehab Placement UK"
-        fullTitle="Private Rehab Placement UK | Insight Recovery Network"
-        description="Confidential help comparing private rehab, detox, family intervention and structured online addiction support in the UK and selected destinations."
-        canonical="/"
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={`${SITE_URL}/og-home-v2.png`}
       />
+      <RouteSchemas route="/" />
 
       <section className="relative overflow-hidden border-y border-accent/15 bg-[linear-gradient(155deg,#F2EDE3_0%,#F8F6F1_54%,#ECE6DB_100%)]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(201,169,110,0.2),transparent_42%)]" />
@@ -104,19 +109,19 @@ export default function Home() {
               Private rehab placement and addiction guidance for the UK and abroad
             </p>
             <h1 className="mb-6 max-w-2xl font-serif text-[2.55rem] font-medium leading-[1.04] tracking-tight text-primary md:text-6xl lg:text-[4rem]">
-              Find the right rehab, detox or recovery support without guessing.
+              {parity.h1}
             </h1>
             <p className="mb-5 max-w-xl text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
-              Confidential guidance for individuals and families making urgent, expensive and deeply personal treatment decisions.
+              {parity.heroIntro}
             </p>
             <p className="mb-8 max-w-xl leading-relaxed text-muted-foreground">
               Speak directly with Craig Bilton, drawing on more than 20 years of international addiction-treatment experience, and get a clear plan for what should happen next.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact">
+              <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                 <Button className="h-12 w-full rounded-none px-7 text-sm sm:w-auto">
-                  Discuss treatment options today
+                  {parity.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -261,7 +266,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <Link href="/craig-bilton" className="mt-8 inline-flex items-center text-sm font-semibold text-accent hover:text-white">
+            <Link href="/about" className="mt-8 inline-flex items-center text-sm font-semibold text-accent hover:text-white">
               About Craig’s experience <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
@@ -321,9 +326,13 @@ export default function Home() {
         heading="You do not need to make the treatment decision alone."
         body="Tell us what is happening. We will help you identify the safest, most proportionate next step and explain the realistic options without pressure."
         primaryLabel="Discuss treatment options today"
-        primaryHref="/contact"
+        primaryHref="/get-help"
         secondaryLabel="I am worried about someone"
         secondaryHref="/family-addiction-intervention-uk"
+        primaryEvent="get_help_click"
+        sourcePage="home"
+        serviceInterest="treatment-placement"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

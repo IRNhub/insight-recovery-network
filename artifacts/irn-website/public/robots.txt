@@ -3,26 +3,6 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 Disallow: /api/
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Facebot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: bingbot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
+Disallow: /recovery-plan-checklist/checklist
 
 Sitemap: https://www.insightrecoverynetwork.com/sitemap.xml

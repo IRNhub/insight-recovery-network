@@ -399,8 +399,12 @@ export default function About() {
       <CTASection
         heading="Speak confidentially about your situation."
         description="There is no pressure, no obligation, and no need to have everything worked out. A private conversation can help clarify the most appropriate next step for you or your family."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential call", href: "/get-help" }}
         secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        primaryEvent="book_consultation_click"
+        sourcePage="about-craig"
+        serviceInterest="general-support"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

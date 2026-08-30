@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts --host 0.0.0.0",
-    "build": "node scripts/generate-favicons.mjs && node --experimental-strip-types scripts/generate-og-images.ts && vite build --config vite.config.ts && node scripts/prerender-meta.mjs && node scripts/prerender-survey.mjs && node scripts/verify-static-seo.mjs && node scripts/compress-assets.mjs",
+    "build": "node scripts/generate-favicons.mjs && node --experimental-strip-types scripts/generate-og-images.ts && vite build --config vite.config.ts && node scripts/prerender-meta.mjs && node scripts/prerender-survey.mjs && node scripts/verify-static-seo.mjs && node scripts/verify-route-parity.mjs && node scripts/compress-assets.mjs",
     "verify:seo": "node scripts/verify-static-seo.mjs",
+    "verify:parity": "node scripts/verify-route-parity.mjs",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

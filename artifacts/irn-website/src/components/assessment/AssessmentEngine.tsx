@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Shield, ChevronRight, ChevronLeft, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import type { AssessmentConfig, AssessmentAnswers, ScoreResult } from "@/types/assessment";
+import { scoreAssessment } from "@/lib/assessment-scorer";
 
 interface AssessmentEngineProps {
   config: AssessmentConfig;
@@ -16,6 +17,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
   const [answers, setAnswers] = useState<AssessmentAnswers>({});
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const isCompleting = useRef(false);
 
   const section = config.sections[currentSection];
   const totalSections = config.sections.length;
@@ -55,18 +57,28 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
   async function handleNext() {
     if (!validateSection()) return;
     if (isLastSection) {
-      const { scoreAssessment } = await import("@/lib/assessment-scorer");
+      if (isCompleting.current) return;
+      isCompleting.current = true;
       const result = scoreAssessment(config, answers);
-      await onComplete(answers, result, consent);
+      try {
+        await onComplete(answers, result, consent);
+      } finally {
+        isCompleting.current = false;
+      }
       return;
     }
     setCurrentSection((s) => s + 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTop();
   }
 
   function handleBack() {
     setCurrentSection((s) => Math.max(0, s - 1));
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTop();
+  }
+
+  function scrollToTop() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   }
 
   return (
@@ -77,7 +89,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
           <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground font-sans whitespace-nowrap">
             {currentSection + 1} / {totalSections}
           </span>
-          <div className="flex-1 bg-border/30 h-1.5 rounded-full overflow-hidden">
+          <div className="flex-1 bg-border/30 h-1.5 rounded-full overflow-hidden" role="progressbar" aria-label="Assessment progress" aria-valuemin={0} aria-valuemax={totalSections} aria-valuenow={currentSection + 1}>
             <div
               className="h-full rounded-full transition-all duration-500"
               style={{
@@ -138,13 +150,15 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
                 {/* Radio options */}
                 {question.type === "radio" && question.options && (
-                  <div className="flex flex-col gap-2.5">
+                  <div className="flex flex-col gap-2.5" role="radiogroup" aria-label={question.text} aria-describedby={error ? `${question.id}-error` : undefined}>
                     {question.options.map((option) => {
                       const selected = answers[question.id] === option.value;
                       return (
                         <button
                           key={option.value}
                           type="button"
+                          role="radio"
+                          aria-checked={selected}
                           onClick={() => setAnswer(question.id, option.value)}
                           className={cn(
                             "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
@@ -187,7 +201,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                 )}
 
                 {error && (
-                  <p className="text-red-600 text-xs mt-2 font-medium">{error}</p>
+                  <p id={`${question.id}-error`} role="alert" className="text-red-600 text-xs mt-2 font-medium">{error}</p>
                 )}
               </div>
             );
@@ -198,6 +212,8 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
             <div>
               <button
                 type="button"
+                role="checkbox"
+                aria-checked={consent}
                 onClick={() => {
                   setConsent((c) => !c);
                   setErrors((prev) => {
@@ -230,7 +246,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                 </p>
               </button>
               {errors["_consent"] && (
-                <p className="text-red-600 text-xs mt-2 font-medium">{errors["_consent"]}</p>
+                <p role="alert" className="text-red-600 text-xs mt-2 font-medium">{errors["_consent"]}</p>
               )}
             </div>
           )}
@@ -255,7 +271,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
           <Button
             onClick={handleNext}
-            disabled={isSubmitting}
+            disabled={isSubmitting || isCompleting.current}
             className="flex items-center gap-2 rounded-none h-11 px-7"
           >
             {isSubmitting

@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
@@ -6,9 +5,12 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { ArrowRight } from "lucide-react";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/private-rehab-uk";
+const parity = getRouteParity(CANONICAL);
 
 const whenAppropriate = [
   "Alcohol dependence where a medically supervised detox may be required",
@@ -132,16 +134,14 @@ export default function PrivateRehabUK() {
   return (
     <Layout>
       <SEO
-        title="Private Rehab UK"
-        fullTitle="Private Rehab UK | Assessment-Led Guidance Before Choosing Treatment | Insight Recovery Network"
-        description="Considering private rehab in the UK? Insight Recovery Network helps individuals and families compare UK rehab, overseas treatment, detox needs, online recovery support and aftercare before committing to a treatment route."
-        canonical={CANONICAL}
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={`${SITE_URL}/private-rehab-uk-hero.png`}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-      </Helmet>
+      <RouteSchemas route={CANONICAL} />
 
       {/* Hero: split layout, real HTML text (left) + supportive image (right) */}
       <section className="py-14 md:py-20 border-b border-border/40 bg-secondary/20">
@@ -154,7 +154,7 @@ export default function PrivateRehabUK() {
                 Private Rehab UK: Assessment-Led Guidance
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.08] tracking-tight mb-7 text-primary">
-                Private Rehab UK: Assessment-Led Guidance Before You Choose
+                {parity.h1}
               </h1>
               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
                 Many people begin by searching for private rehab in the UK. Before committing to a costly
@@ -167,12 +167,12 @@ export default function PrivateRehabUK() {
                 make a safer, clearer and more informed decision, with any relevant provider or commercial relationship explained transparently.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-                <Link href="/contact">
+                <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                   <button
                     type="button"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto"
                   >
-                    Book a confidential call
+                    {parity.primaryCta.label}
                   </button>
                 </Link>
                 <Link href="/assessments">
@@ -193,16 +193,29 @@ export default function PrivateRehabUK() {
                 style={{ background: "rgba(201,169,110,0.10)", border: "1px solid rgba(201,169,110,0.22)" }}
               />
               <div className="relative overflow-hidden rounded-xl border border-border/40 bg-primary shadow-sm">
-                <img
-                  src="/private-rehab-uk-hero.png"
-                  alt="Couple reviewing private rehab and treatment options with assessment-led guidance"
-                  className="block w-full h-full object-cover aspect-[4/3] lg:aspect-[5/4]"
-                  style={{ objectPosition: "center" }}
-                  width={1536}
-                  height={1024}
-                  loading="eager"
-                  fetchPriority="high"
-                />
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcSet="/private-rehab-uk-hero-480.avif 480w, /private-rehab-uk-hero-768.avif 768w, /private-rehab-uk-hero-1024.avif 1024w, /private-rehab-uk-hero-1536.avif 1536w"
+                    sizes="(max-width: 1023px) calc(100vw - 3rem), 44vw"
+                  />
+                  <source
+                    type="image/webp"
+                    srcSet="/private-rehab-uk-hero-480.webp 480w, /private-rehab-uk-hero-768.webp 768w, /private-rehab-uk-hero-1024.webp 1024w, /private-rehab-uk-hero-1536.webp 1536w"
+                    sizes="(max-width: 1023px) calc(100vw - 3rem), 44vw"
+                  />
+                  <img
+                    src="/private-rehab-uk-hero.png"
+                    alt="Couple reviewing private rehab and treatment options with assessment-led guidance"
+                    className="block w-full h-full object-cover aspect-[4/3] lg:aspect-[5/4]"
+                    style={{ objectPosition: "center" }}
+                    width={1536}
+                    height={1024}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
 
@@ -434,7 +447,13 @@ export default function PrivateRehabUK() {
               support or family intervention is the most appropriate next step.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/contact">
+              <Link
+                href="/get-help"
+                data-analytics-event="treatment_placement_enquiry"
+                data-source-page="private-rehab-uk"
+                data-service-interest="treatment-placement"
+                data-cta-location="mid_page_assessment"
+              >
                 <button
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary text-sm font-medium hover:bg-white/90 transition-colors w-full sm:w-auto"
@@ -503,7 +522,7 @@ export default function PrivateRehabUK() {
             </h2>
           </div>
           <div className="max-w-3xl space-y-8">
-            {faqs.map((faq) => (
+            {(parity.faqs ?? []).map((faq) => (
               <div key={faq.question} className="border-b border-border/40 pb-8 last:border-b-0">
                 <h3 className="font-serif text-xl font-medium mb-3 text-primary">{faq.question}</h3>
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -516,10 +535,14 @@ export default function PrivateRehabUK() {
       <CTASection
         heading="Considering private rehab in the UK?"
         body="Compare your options first. A confidential conversation can clarify whether UK rehab, overseas treatment, detox, structured online support or family intervention is the most appropriate next step. No pressure, with relevant provider relationships explained transparently."
-        primaryLabel="Book a confidential call"
-        primaryHref="/contact"
+        primaryLabel="Request a confidential placement consultation"
+        primaryHref="/get-help"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
+        primaryEvent="treatment_placement_enquiry"
+        sourcePage="private-rehab-uk"
+        serviceInterest="treatment-placement"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

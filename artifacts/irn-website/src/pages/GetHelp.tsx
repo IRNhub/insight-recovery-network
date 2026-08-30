@@ -1,9 +1,11 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Link, useLocation } from "wouter";
 import { SEO } from "@/components/SEO";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 import {
   Form,
   FormControl,
@@ -24,13 +26,11 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Shield } from "lucide-react";
-
-// Monetary value attached to each Lead event, so Meta treats these as high-value
-// conversions. Representative figure: change this single number to your real
-// typical deal value if different.
-const LEAD_VALUE_GBP = 75;
+import { trackEvent } from "@/lib/analytics";
+import { openCookieSettings } from "@/components/CookieConsent";
 
 const API_BASE = "/api";
+const parity = getRouteParity("/get-help");
 
 const REACHING_FOR: Record<string, { label: string; supportType: string }> = {
   "loved-one": { label: "A loved one", supportType: "someone-else" },
@@ -44,6 +44,9 @@ const formSchema = z.object({
   phone: z.string().min(5, "Please enter your phone or WhatsApp number"),
   reachingFor: z.enum(["loved-one", "myself", "other"], {
     required_error: "Please choose the option that best fits",
+  }),
+  serviceInterest: z.enum(["treatment-placement", "online-programme", "family-support", "intervention", "not-sure"], {
+    required_error: "Please choose the type of guidance you need",
   }),
   message: z.string().optional(),
   consent: z.boolean().refine((val) => val === true, "Please tick to consent"),
@@ -98,6 +101,8 @@ function EnquiryForm() {
   const [isPending, setIsPending] = useState(false);
   const [isError, setIsError] = useState(false);
   const formStartedAt = useMemo(() => Date.now(), []);
+  const hasTrackedStart = useRef(false);
+  const isSubmittingRef = useRef(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -105,6 +110,8 @@ function EnquiryForm() {
   });
 
   async function onSubmit(data: FormValues) {
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setIsPending(true);
     setIsError(false);
     try {
@@ -124,7 +131,7 @@ function EnquiryForm() {
       const reaching =
         REACHING_FOR[data.reachingFor] ?? { label: data.reachingFor, supportType: "general" };
       const composedMessage =
-        `Enquiry via get-help (Facebook ad). Reaching out for: ${reaching.label}.` +
+        `Enquiry via get-help. Reaching out for: ${reaching.label}.` +
         (data.message && data.message.trim() ? ` Message: ${data.message.trim()}` : "");
 
       const response = await fetch(`${API_BASE}/enquiries`, {
@@ -136,6 +143,7 @@ function EnquiryForm() {
           phone: data.phone,
           preferredContact: "phone",
           supportType: reaching.supportType,
+          serviceInterest: data.serviceInterest,
           message: composedMessage,
           consent: data.consent,
           pageSource: "/get-help",
@@ -153,18 +161,14 @@ function EnquiryForm() {
       });
 
       if (!response.ok) throw new Error(`Server responded with ${response.status}`);
-      // Meta Pixel: report a successful enquiry as a Lead for ad optimisation.
-      const w = window as unknown as { fbq?: (...args: unknown[]) => void };
-      if (typeof w.fbq === "function") {
-        w.fbq("track", "Lead", {
-          value: LEAD_VALUE_GBP,
-          currency: "GBP",
-          content_name: "get-help enquiry",
-        });
-      }
+      trackEvent("consultation_form_submit", {
+        form_name: "get_help_consultation",
+        service_interest: data.serviceInterest,
+      });
       navigate("/thank-you");
     } catch {
       setIsError(true);
+      isSubmittingRef.current = false;
     } finally {
       setIsPending(false);
     }
@@ -173,7 +177,17 @@ function EnquiryForm() {
   return (
     <div className="bg-white p-6 sm:p-8 md:p-10 border border-border shadow-sm">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          onFocusCapture={() => {
+            if (hasTrackedStart.current) return;
+            hasTrackedStart.current = true;
+            trackEvent("consultation_form_start", {
+              form_name: "get_help_consultation",
+            });
+          }}
+          className="space-y-5"
+        >
           <input
             type="text"
             name="website"
@@ -181,6 +195,31 @@ function EnquiryForm() {
             autoComplete="off"
             aria-hidden="true"
             className="hidden"
+          />
+
+          <FormField
+            control={form.control}
+            name="serviceInterest"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-primary font-medium">What would you like guidance with?</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="rounded-none h-12 border-input focus:ring-1 focus:ring-accent focus:border-accent">
+                      <SelectValue placeholder="Choose the most relevant route" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent className="rounded-none">
+                    <SelectItem value="treatment-placement">Private rehab placement</SelectItem>
+                    <SelectItem value="online-programme">Online recovery support</SelectItem>
+                    <SelectItem value="family-support">Family support</SelectItem>
+                    <SelectItem value="intervention">Professional intervention guidance</SelectItem>
+                    <SelectItem value="not-sure">I am not sure yet</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
           />
 
           {isError && (
@@ -337,13 +376,14 @@ export default function GetHelp() {
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
       <SEO
-        title="Free Confidential Addiction Support"
-        fullTitle="Free, Confidential Addiction Support for You or Someone You Love | Insight Recovery Network"
-        description="Living with addiction, your own or a loved one's, is overwhelming, and knowing what to do next is hard. Insight Recovery Network helps you take the guesswork out of getting help. Free, confidential and clinically led."
-        canonical="/get-help"
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage="https://www.insightrecoverynetwork.com/get-help-hero.png"
-        noIndex
       />
+      <RouteSchemas route="/get-help" />
 
       {/* No separate header: the IRN logo and tagline are part of the hero image below. */}
       <main className="flex-1">
@@ -366,25 +406,28 @@ export default function GetHelp() {
           <div className="container mx-auto px-6 md:px-12 py-12 md:py-16">
             <div className="max-w-2xl">
               <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-accent/90 mb-5">
-                Confidential addiction support, for you or someone you love
+                Private addiction treatment guidance for adults
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight text-white mb-6">
-                Let us take the guesswork out of getting help.
+                {parity.h1}
               </h1>
               <p className="text-lg md:text-xl text-white/85 font-light leading-relaxed mb-9 max-w-xl">
-                Whether it is you or someone you love, living with addiction is exhausting and
-                confusing, and knowing what to do next is the hardest part. You do not have to work it
-                out alone. Start with a free, confidential conversation.
+                {parity.heroIntro}
               </p>
               <a
-                href="#book"
+                href={parity.primaryCta.href}
+                data-analytics-event={parity.primaryCta.analyticsEvent}
+                data-source-page={parity.primaryCta.sourcePage}
+                data-service-interest={parity.primaryCta.serviceInterest}
+                data-cta-location={parity.primaryCta.location}
+                data-cta-label={parity.primaryCta.label}
                 className="inline-flex items-center justify-center h-14 px-9 bg-white text-primary text-base font-medium hover:bg-white/90 transition-colors"
               >
-                Request a free assessment
+                {parity.primaryCta.label}
               </a>
               <div className="flex items-center gap-2 text-white/70 text-sm mt-5">
                 <Shield className="w-4 h-4 text-accent" />
-                Free, confidential, no obligation
+                Confidential first discussion, no obligation
               </div>
             </div>
           </div>
@@ -416,16 +459,16 @@ export default function GetHelp() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
               <div className="lg:col-span-5">
                 <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary mb-5">
-                  Request your free, confidential assessment
+                  Request a confidential treatment discussion
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                  Tell us a little about what is going on and the best way to reach you. It is
-                  completely free and confidential, with no pressure and no obligation. We usually
-                  respond the same day.
+                  Tell us how to contact you and which route you want to discuss. Insight Recovery
+                  Network provides private, paid placement and recovery services; the first discussion
+                  is confidential and carries no obligation. We usually respond the same day.
                 </p>
                 <div className="flex items-center gap-2 text-primary font-medium text-sm">
                   <Shield className="w-4 h-4 text-accent" />
-                  Free, confidential and secure
+                  Confidential and secure
                 </div>
               </div>
               <div className="lg:col-span-7">
@@ -469,6 +512,8 @@ export default function GetHelp() {
             <div className="mt-10">
               <a
                 href="#book"
+                data-analytics-event="get_help_click"
+                data-cta-location="trust_section"
                 className="inline-flex items-center justify-center h-14 px-9 bg-primary text-primary-foreground text-base font-medium hover:bg-primary/90 transition-colors"
               >
                 Request a free assessment
@@ -485,8 +530,7 @@ export default function GetHelp() {
                 The kind of help available
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Depending on what your situation needs, we help with two main routes, both with UK
-                clinical oversight.
+                We help adults and their families understand four practical private-service routes.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -511,7 +555,25 @@ export default function GetHelp() {
                   on assessed suitability.
                 </p>
               </div>
+              <div className="border border-border/40 bg-white p-7">
+                <h3 className="font-serif text-xl font-medium text-primary mb-3">Family support</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Practical guidance for relatives who need a calmer plan, clearer boundaries and help
+                  deciding how to approach treatment conversations.
+                </p>
+              </div>
+              <div className="border border-border/40 bg-white p-7">
+                <h3 className="font-serif text-xl font-medium text-primary mb-3">Professional intervention guidance</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Preparation and professional guidance where repeated conversations have stalled and
+                  the family needs a structured, non-coercive approach.
+                </p>
+              </div>
             </div>
+            <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              This is not an emergency, crisis or NHS service, and we do not accept anyone under 18. If
+              someone is in immediate danger, call 999 or attend A&amp;E.
+            </p>
           </div>
         </section>
 
@@ -547,16 +609,18 @@ export default function GetHelp() {
               </h2>
             </div>
             <div className="max-w-3xl space-y-7">
-              {faqs.map((f) => (
-                <div key={f.q} className="border-b border-border/40 pb-7 last:border-b-0">
-                  <h3 className="font-serif text-xl font-medium text-primary mb-2">{f.q}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{f.a}</p>
+              {(parity.faqs ?? []).map((faq) => (
+                <div key={faq.question} className="border-b border-border/40 pb-7 last:border-b-0">
+                  <h3 className="font-serif text-xl font-medium text-primary mb-2">{faq.question}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </div>
               ))}
             </div>
             <div className="mt-10">
               <a
                 href="#book"
+                data-analytics-event="get_help_click"
+                data-cta-location="faq"
                 className="inline-flex items-center justify-center h-14 px-9 bg-primary text-primary-foreground text-base font-medium hover:bg-primary/90 transition-colors"
               >
                 Request a free assessment
@@ -589,6 +653,9 @@ export default function GetHelp() {
               <Link href="/terms-of-service" className="hover:text-accent transition-colors">
                 Terms
               </Link>
+              <button type="button" onClick={openCookieSettings} className="hover:text-accent transition-colors">
+                Cookie settings
+              </button>
             </div>
           </div>
         </div>

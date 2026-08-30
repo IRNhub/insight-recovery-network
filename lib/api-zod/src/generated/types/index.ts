@@ -9,6 +9,7 @@
 export * from "./enquiryCreated";
 export * from "./enquiryInput";
 export * from "./enquiryInputPreferredContact";
+export * from "./enquiryInputServiceInterest";
 export * from "./enquiryInputSupportType";
 export * from "./healthStatus";
 export * from "./validationError";

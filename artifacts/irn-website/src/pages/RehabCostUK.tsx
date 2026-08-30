@@ -6,9 +6,13 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
+import { CTASection } from "@/components/ui/cta-section";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/how-much-does-rehab-cost-uk";
+const parity = getRouteParity(CANONICAL);
 const HERO_IMAGE_PATH = "/rehab-costs-uk-comparison-hero.webp";
 const OG_IMAGE = `${SITE_URL}/rehab-costs-uk-comparison-og.webp`;
 
@@ -217,12 +221,14 @@ export default function RehabCostUK() {
   return (
     <Layout>
       <SEO
-        title="How Much Does Rehab Cost in the UK?"
-        fullTitle="Rehab Costs UK: Private Rehab Prices Explained"
-        description="Compare UK private rehab costs, typical 28-day prices, detox fees, what affects the final price and lower-cost or overseas treatment alternatives."
-        canonical={CANONICAL}
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={OG_IMAGE}
       />
+      <RouteSchemas route={CANONICAL} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
@@ -243,7 +249,7 @@ export default function RehabCostUK() {
                 Rehab cost guide, UK
               </p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.4rem] font-medium leading-[1.08] tracking-tight mb-7 text-primary">
-                How Much Does Rehab Cost in the UK?
+                {parity.h1}
               </h1>
               <div className="mb-6 border-l-4 border-accent bg-background/80 p-5 text-sm leading-relaxed text-primary">
                 <strong>Direct answer:</strong> a 28-day UK private rehab stay is commonly within this page's illustrative guide range of £8,000 to £20,000+, while detox-only, longer residential, overseas and online options vary substantially. These are not live quotes or a statistical market average.
@@ -252,14 +258,19 @@ export default function RehabCostUK() {
                 Private rehab costs vary depending on detox needs, length of stay, clinical intensity, location, accommodation level and whether treatment is in the UK or overseas.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mb-9">
-                Insight Recovery Network helps you understand the real cost, what is included, what level of care is needed, and which options are clinically appropriate before you commit.
+                {parity.heroIntro}
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/contact"
+                  href={parity.primaryCta.href}
+                  data-analytics-event={parity.primaryCta.analyticsEvent}
+                  data-source-page={parity.primaryCta.sourcePage}
+                  data-service-interest={parity.primaryCta.serviceInterest}
+                  data-cta-location={parity.primaryCta.location}
+                  data-cta-label={parity.primaryCta.label}
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                 >
-                  Speak to us about treatment options
+                  {parity.primaryCta.label}
                   <ArrowRight size={16} strokeWidth={1.8} />
                 </Link>
                 <a
@@ -514,7 +525,11 @@ export default function RehabCostUK() {
                 We help individuals and families compare realistic options without pressure, panic or false reassurance.
               </p>
               <Link
-                href="/contact"
+                href="/get-help"
+                data-analytics-event="treatment_placement_enquiry"
+                data-source-page="rehab-costs-uk"
+                data-service-interest="treatment-placement"
+                data-cta-location="how_irn_helps"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
               >
                 Request a confidential treatment options call
@@ -584,7 +599,7 @@ export default function RehabCostUK() {
             </h2>
           </div>
           <div className="max-w-3xl space-y-8">
-            {faqs.map((faq) => (
+            {(parity.faqs ?? []).map((faq) => (
               <div key={faq.question} className="border-b border-border/40 pb-8 last:border-b-0">
                 <h3 className="font-serif text-xl font-medium text-primary mb-3">{faq.question}</h3>
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -653,6 +668,18 @@ export default function RehabCostUK() {
             href: "/destination-rehab",
           },
         ]}
+      />
+
+      <CTASection
+        heading="Compare the real cost before committing to treatment."
+        description="A confidential placement consultation can help you compare what is included, what level of care may be appropriate and which options fit your circumstances."
+        primaryCta={{ label: "Request a confidential placement consultation", href: "/get-help" }}
+        secondaryCta={{ label: "View services and pricing", href: "/services-pricing-guide" }}
+        primaryEvent="treatment_placement_enquiry"
+        secondaryEvent="pricing_guide_view"
+        sourcePage="rehab-costs-uk"
+        serviceInterest="treatment-placement"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

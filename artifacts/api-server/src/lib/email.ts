@@ -8,6 +8,7 @@ interface EnquiryData {
   phone: string;
   preferredContact: string;
   supportType: string;
+  serviceInterest: string;
   message: string;
   consent: boolean;
   landingPage?: string | null;
@@ -27,6 +28,16 @@ const SUPPORT_TYPE_LABELS: Record<string, string> = {
   "someone-else": "I need help for someone else",
   professional: "Professional or organisation enquiry",
   general: "General enquiry",
+};
+
+const SERVICE_INTEREST_LABELS: Record<string, string> = {
+  "treatment-placement": "Treatment placement or private rehab",
+  "online-programme": "Online Recovery Programme",
+  "family-support": "Family or intervention support",
+  "free-assessment": "Free assessment or results discussion",
+  "insight-os": "Insight OS",
+  professional: "Professional partnership",
+  "not-sure": "Not sure yet",
 };
 
 const CONTACT_LABELS: Record<string, string> = {
@@ -50,6 +61,7 @@ function buildNotificationHtml(data: EnquiryData): string {
     ["Phone / WhatsApp", data.phone],
     ["Preferred Contact", CONTACT_LABELS[data.preferredContact] ?? data.preferredContact],
     ["Enquiry Type", SUPPORT_TYPE_LABELS[data.supportType] ?? data.supportType],
+    ["Service Interest", SERVICE_INTEREST_LABELS[data.serviceInterest] ?? data.serviceInterest],
     ["Consent Accepted", data.consent ? "Yes" : "No"],
     ["Page Source", data.pageSource ?? "Unknown"],
     ["Landing Page", data.landingPage ?? "Unknown"],
@@ -104,6 +116,7 @@ function buildNotificationText(data: EnquiryData): string {
     `Phone / WhatsApp: ${data.phone}`,
     `Preferred Contact: ${CONTACT_LABELS[data.preferredContact] ?? data.preferredContact}`,
     `Enquiry Type: ${SUPPORT_TYPE_LABELS[data.supportType] ?? data.supportType}`,
+    `Service Interest: ${SERVICE_INTEREST_LABELS[data.serviceInterest] ?? data.serviceInterest}`,
     `Consent Accepted: ${data.consent ? "Yes" : "No"}`,
     `Page Source: ${data.pageSource ?? "Unknown"}`,
     `Landing Page: ${data.landingPage ?? "Unknown"}`,

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useLocation } from "wouter";
+import { Link } from "wouter";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,6 +22,9 @@ const contactFormSchema = z.object({
   supportType: z.enum(["myself", "someone-else", "professional", "general"], {
     required_error: "Please select the type of support you are looking for",
   }),
+  serviceInterest: z.enum(["treatment-placement", "online-programme", "family-support", "free-assessment", "insight-os", "professional", "not-sure"], {
+    required_error: "Please select the service you are interested in",
+  }),
   message: z.string().min(10, "Please provide a brief message"),
   consent: z.boolean().refine((val) => val === true, "You must consent to proceed"),
 });
@@ -35,6 +39,7 @@ export function ContactForm() {
   const [isError, setIsError] = useState(false);
   const formStartedAt = useMemo(() => Date.now(), []);
   const hasTrackedStart = useRef(false);
+  const isSubmittingRef = useRef(false);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -48,6 +53,8 @@ export function ContactForm() {
   });
 
   async function onSubmit(data: ContactFormValues) {
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setIsPending(true);
     setIsError(false);
     try {
@@ -73,6 +80,7 @@ export function ContactForm() {
           phone: data.phone,
           preferredContact: data.preferredContact,
           supportType: data.supportType,
+          serviceInterest: data.serviceInterest,
           message: data.message,
           consent: data.consent,
           pageSource: location,
@@ -93,12 +101,14 @@ export function ContactForm() {
         throw new Error(`Server responded with ${response.status}`);
       }
 
-      trackEvent("contact_form_submit_success", {
+      trackEvent("contact_form_submit", {
         form_name: "confidential_enquiry",
+        service_interest: data.serviceInterest,
       });
       navigate("/thank-you");
     } catch {
       setIsError(true);
+      isSubmittingRef.current = false;
     } finally {
       setIsPending(false);
     }
@@ -112,7 +122,7 @@ export function ContactForm() {
           onFocusCapture={() => {
             if (hasTrackedStart.current) return;
             hasTrackedStart.current = true;
-            trackEvent("contact_form_started", {
+            trackEvent("contact_form_start", {
               form_name: "confidential_enquiry",
             });
           }}
@@ -128,7 +138,7 @@ export function ContactForm() {
           />
 
           {isError && (
-            <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
+            <div role="alert" aria-live="assertive" className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 text-sm">
               We were unable to submit your enquiry at this time. Please try again, or contact us directly by email.
             </div>
           )}
@@ -204,6 +214,33 @@ export function ContactForm() {
 
           <FormField
             control={form.control}
+            name="serviceInterest"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-primary font-medium">What would you like help with?</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger className="rounded-none h-12 border-input focus:ring-1 focus:ring-accent focus:border-accent">
+                      <SelectValue placeholder="Select a service or choose not sure" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent className="rounded-none">
+                    <SelectItem value="treatment-placement">Treatment placement or private rehab</SelectItem>
+                    <SelectItem value="online-programme">Online Recovery Programme</SelectItem>
+                    <SelectItem value="family-support">Family or intervention support</SelectItem>
+                    <SelectItem value="free-assessment">Free assessment or results discussion</SelectItem>
+                    <SelectItem value="insight-os">Insight OS</SelectItem>
+                    <SelectItem value="professional">Professional partnership</SelectItem>
+                    <SelectItem value="not-sure">I am not sure yet</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="supportType"
             render={({ field }) => (
               <FormItem>
@@ -274,6 +311,12 @@ export function ContactForm() {
           >
             {isPending ? "Submitting…" : "Submit Confidential Enquiry"}
           </Button>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            Please avoid including unnecessary medical records or highly sensitive details. Read our{" "}
+            <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-primary">
+              Privacy Policy
+            </Link>.
+          </p>
         </form>
       </Form>
     </div>

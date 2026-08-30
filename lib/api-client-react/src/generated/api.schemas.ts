@@ -28,6 +28,19 @@ export const EnquiryInputSupportType = {
   general: "general",
 } as const;
 
+export type EnquiryInputServiceInterest =
+  (typeof EnquiryInputServiceInterest)[keyof typeof EnquiryInputServiceInterest];
+
+export const EnquiryInputServiceInterest = {
+  "treatment-placement": "treatment-placement",
+  "online-programme": "online-programme",
+  "family-support": "family-support",
+  "free-assessment": "free-assessment",
+  "insight-os": "insight-os",
+  professional: "professional",
+  "not-sure": "not-sure",
+} as const;
+
 export interface EnquiryInput {
   /** @minLength 2 */
   name: string;
@@ -36,6 +49,7 @@ export interface EnquiryInput {
   phone: string;
   preferredContact: EnquiryInputPreferredContact;
   supportType: EnquiryInputSupportType;
+  serviceInterest: EnquiryInputServiceInterest;
   /** @minLength 10 */
   message: string;
   consent: boolean;

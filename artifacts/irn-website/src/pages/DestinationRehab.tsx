@@ -58,7 +58,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                 {d.heroIntro}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact">
+                <Link href="/get-help" data-analytics-event="treatment_placement_enquiry" data-service-interest="treatment-placement" data-cta-location="hero">
                   <button
                     type="button"
                     className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
@@ -345,7 +345,10 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         heading={`Considering treatment in ${d.country}?`}
         body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently."
         primaryLabel="Book a confidential call"
-        primaryHref="/contact"
+        primaryHref="/get-help"
+        primaryEvent="treatment_placement_enquiry"
+        serviceInterest="treatment-placement"
+        sourcePage={d.slug}
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
       />

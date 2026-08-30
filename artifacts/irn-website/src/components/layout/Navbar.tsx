@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Menu, X, Search } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { SocialLinks } from "@/components/SocialLinks";
 
 const SearchModal = lazy(() =>
   import("@/components/search/SearchModal").then((module) => ({
@@ -97,6 +98,7 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
+              <SocialLinks variant="header" />
               <div className="h-4 w-px bg-border" />
               {/* Search trigger */}
               <button
@@ -108,7 +110,7 @@ export function Navbar() {
               >
                 <Search size={17} strokeWidth={1.5} />
               </button>
-              <Link href="/contact" data-testid="link-nav-contact">
+              <Link href="/get-help" data-testid="link-nav-contact" data-analytics-event="get_help_click" data-cta-location="header" data-service-interest="general-support">
                 <Button
                   variant="default"
                   className="rounded-none font-medium h-10 px-4 text-xs xl:px-6 xl:text-sm"
@@ -174,11 +176,20 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
+              <div className="border-t border-border pt-4">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  Follow us
+                </p>
+                <SocialLinks variant="header" />
+              </div>
               <div className="pt-4 border-t border-border">
                 <Link
-                  href="/contact"
+                  href="/get-help"
                   className="block w-full"
                   data-testid="link-mobile-contact"
+                  data-analytics-event="get_help_click"
+                  data-cta-location="mobile_menu"
+                  data-service-interest="general-support"
                 >
                   <Button
                     variant="default"
