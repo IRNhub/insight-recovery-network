@@ -2,7 +2,9 @@
 
 Date: 30 August 2026
 
-Status: instrument use confirmed; all IRN context, safety mappings, deterministic findings and pathways remain **PENDING CLINICAL DIRECTOR APPROVAL**.
+Status: instrument use confirmed; IRN context, safety mappings, deterministic findings and pathways approved by the Clinical Director on 30 August 2026 following the final clinical correction pass.
+
+This clinical approval is not legal advice, privacy or data-protection approval, regulatory approval, medical-device classification, production-release approval, or a substitute for validating the cited instrument conditions for IRN's exact live use.
 
 ## Decision
 
@@ -23,4 +25,4 @@ Authoritative sources:
 
 All three Phase C assessments are explicitly adult-only. An age question appears before any instrument item. Selecting under 18 displays age-appropriate GP and urgent mental-health pathways, hides the adult questionnaire, disables submission in the browser and is rejected by server-side validation if forged.
 
-No paediatric instrument, score or interpretation has been invented. The wording and under-18 pathway should receive legal and Clinical Director review before production activation, including confirmation of the intended UK nations and any safeguarding process outside this anonymous screen.
+No paediatric instrument, score or interpretation has been invented. The adult-only clinical boundary and under-18 pathway are clinically approved. Legal, privacy, safeguarding-process and UK-nation applicability review remain required before production activation.

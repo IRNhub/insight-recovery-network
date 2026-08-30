@@ -1,15 +1,16 @@
 {
   "title": "IRN Assessment Platform Phase C Clinical Director Fixture Pack",
   "generatedAt": "2026-08-30",
-  "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+  "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+  "clinicalDirectorApprovalDate": "2026-08-30",
   "fixtures": [
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-minimal",
       "assessmentKey": "anxiety",
       "profile": "Minimal symptoms",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "not-at-all",
@@ -94,6 +95,15 @@
       "deterministicFindings": [],
       "pathways": [
         {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
           "id": "nhs-talking-therapies",
           "category": "nhs-specialist",
           "label": "Explore NHS Talking Therapies",
@@ -104,15 +114,6 @@
             "anxiety",
             "depression"
           ],
-          "priority": 100
-        },
-        {
-          "id": "self-guided",
-          "category": "self-guided",
-          "label": "Review practical information and monitor the pattern",
-          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
-          "destination": "/resources",
-          "commercial": false,
           "priority": 99
         },
         {
@@ -128,8 +129,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -148,12 +149,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-moderate-persistent",
       "assessmentKey": "anxiety",
       "profile": "Moderate persistent symptoms",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "more-than-half",
@@ -292,8 +293,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -313,12 +314,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-severe-functional",
       "assessmentKey": "anxiety",
       "profile": "Severe symptoms with functional impairment",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "nearly-every-day",
@@ -460,8 +461,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -481,12 +482,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-avoidance",
       "assessmentKey": "anxiety",
       "profile": "Anxiety plus avoidance",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "more-than-half",
@@ -625,8 +626,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -646,12 +647,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-substance-coping",
       "assessmentKey": "anxiety",
       "profile": "Anxiety plus substance coping",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "more-than-half",
@@ -798,8 +799,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -819,12 +820,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-mild-passing-thoughts",
       "assessmentKey": "anxiety",
       "profile": "Mild symptoms plus current passing self-harm thoughts",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "several-days",
@@ -923,7 +924,7 @@
             "gp-review",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -984,12 +985,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-recurring-thoughts",
       "assessmentKey": "anxiety",
       "profile": "Recurring or increasing self-harm thoughts",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "not-at-all",
@@ -1082,7 +1083,7 @@
             "urgent-mental-health",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -1133,12 +1134,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "anxiety-cannot-remain-safe",
       "assessmentKey": "anxiety",
       "profile": "Immediate inability to remain safe",
       "definitionVersion": 2,
-      "definitionHash": "2627d0c7824e37e6b076107826f1222530649454748d94c45950d76e65555256",
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "gad7-1": "not-at-all",
@@ -1231,7 +1232,7 @@
             "emergency-999",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "emergency-help-now",
@@ -1282,12 +1283,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-minimal",
       "assessmentKey": "depression",
       "profile": "Minimal symptoms",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "not-at-all",
@@ -1372,6 +1373,15 @@
       "deterministicFindings": [],
       "pathways": [
         {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
           "id": "nhs-talking-therapies",
           "category": "nhs-specialist",
           "label": "Explore NHS Talking Therapies",
@@ -1382,15 +1392,6 @@
             "anxiety",
             "depression"
           ],
-          "priority": 100
-        },
-        {
-          "id": "self-guided",
-          "category": "self-guided",
-          "label": "Review practical information and monitor the pattern",
-          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
-          "destination": "/resources",
-          "commercial": false,
           "priority": 99
         },
         {
@@ -1406,8 +1407,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -1426,12 +1427,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-low-mood-low-impact",
       "assessmentKey": "depression",
       "profile": "Low mood without major impairment",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "not-at-all",
@@ -1539,6 +1540,15 @@
       ],
       "pathways": [
         {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
           "id": "nhs-talking-therapies",
           "category": "nhs-specialist",
           "label": "Explore NHS Talking Therapies",
@@ -1549,15 +1559,6 @@
             "anxiety",
             "depression"
           ],
-          "priority": 100
-        },
-        {
-          "id": "self-guided",
-          "category": "self-guided",
-          "label": "Review practical information and monitor the pattern",
-          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
-          "destination": "/resources",
-          "commercial": false,
           "priority": 99
         },
         {
@@ -1573,8 +1574,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -1593,12 +1594,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-anhedonia-energy",
       "assessmentKey": "depression",
       "profile": "Prominent anhedonia and low energy",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "nearly-every-day",
@@ -1734,8 +1735,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -1755,12 +1756,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-functional-impact",
       "assessmentKey": "depression",
       "profile": "Significant functional impairment",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "several-days",
@@ -1902,8 +1903,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -1923,12 +1924,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-isolation-hopelessness",
       "assessmentKey": "depression",
       "profile": "Isolation plus hopelessness",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "more-than-half",
@@ -2065,8 +2066,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -2086,12 +2087,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-substance-coping",
       "assessmentKey": "depression",
       "profile": "Depression symptoms with substance coping",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "several-days",
@@ -2239,8 +2240,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -2260,12 +2261,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-lower-item9",
       "assessmentKey": "depression",
       "profile": "Lower total severity plus self-harm thoughts",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "not-at-all",
@@ -2358,7 +2359,7 @@
             "gp-review",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "phq9.item9.positive.v2",
@@ -2372,7 +2373,7 @@
             "gp-review",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -2401,16 +2402,9 @@
         {
           "id": "mental-health-current-review",
           "heading": "Please arrange prompt mental-health support",
-          "body": "You reported current passing thoughts of self-harm or suicide. This assessment cannot determine or predict risk. A qualified professional should discuss these thoughts with you promptly and help you decide what support is needed.",
+          "body": "You reported current passing thoughts of self-harm or suicide. This assessment cannot determine or predict risk. A qualified professional should discuss these thoughts with you promptly and help you decide what support is needed. Your PHQ-9 item 9 response remains part of the PHQ-9 score, but it is not a suicide-risk score. The symptom total does not determine immediate safety. This guidance is based on your separate safety answer and current context.",
           "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health service. You can also call Samaritans on 116 123.",
           "emergencyText": "If the thoughts become more frequent, you are concerned about staying safe, or there is immediate danger, call 999 or go to A&E."
-        },
-        {
-          "id": "phq9-item9-review",
-          "heading": "Your response to the thoughts-of-harm question needs separate attention",
-          "body": "You selected a response other than 'Not at all' to PHQ-9 item 9. That item is not a suicide-risk score and cannot establish intent or immediate danger. It does mean that these thoughts should be discussed directly with a qualified professional.",
-          "actionText": "Use the separate safety guidance in this result and contact your GP, NHS 111 or an appropriate mental-health service promptly.",
-          "emergencyText": "If you are concerned that you may not remain safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
         }
       ],
       "prohibitedContent": [
@@ -2424,19 +2418,18 @@
         "band": "Minimal depression",
         "safetyAction": "clinical-review-recommended",
         "requiredContentIds": [
-          "phq9-item9-review",
           "mental-health-current-review"
         ],
         "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-recurring-thoughts",
       "assessmentKey": "depression",
       "profile": "Recurring self-harm thoughts",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "not-at-all",
@@ -2529,7 +2522,7 @@
             "urgent-mental-health",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "phq9.item9.positive.v2",
@@ -2543,7 +2536,7 @@
             "gp-review",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -2581,16 +2574,9 @@
         {
           "id": "mental-health-urgent",
           "heading": "Please seek urgent mental-health support today",
-          "body": "Your answer indicates significant or recurring thoughts of self-harm or suicide. This assessment cannot determine or predict risk, but this answer needs prompt support from a qualified professional.",
+          "body": "Your answer indicates significant or recurring thoughts of self-harm or suicide. This assessment cannot determine or predict risk, but this answer needs prompt support from a qualified professional. Your PHQ-9 item 9 response remains part of the PHQ-9 score, but it is not a suicide-risk score. The symptom total does not determine immediate safety. This guidance is based on your separate safety answer and current context.",
           "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health crisis service today.",
           "emergencyText": "If you feel unable to keep yourself safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
-        },
-        {
-          "id": "phq9-item9-review",
-          "heading": "Your response to the thoughts-of-harm question needs separate attention",
-          "body": "You selected a response other than 'Not at all' to PHQ-9 item 9. That item is not a suicide-risk score and cannot establish intent or immediate danger. It does mean that these thoughts should be discussed directly with a qualified professional.",
-          "actionText": "Use the separate safety guidance in this result and contact your GP, NHS 111 or an appropriate mental-health service promptly.",
-          "emergencyText": "If you are concerned that you may not remain safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
         }
       ],
       "prohibitedContent": [
@@ -2604,19 +2590,18 @@
         "band": "Minimal depression",
         "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "phq9-item9-review",
           "mental-health-urgent"
         ],
         "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "depression-cannot-remain-safe",
       "assessmentKey": "depression",
       "profile": "Immediate inability to remain safe",
       "definitionVersion": 2,
-      "definitionHash": "dca0f2a0ea4d984e970d64162d28bb2dce2377c33699be555d4c5794d1886469",
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "phq9-1": "not-at-all",
@@ -2709,7 +2694,7 @@
             "emergency-999",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "emergency-help-now",
@@ -2760,12 +2745,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-few-symptoms",
       "assessmentKey": "adhd",
       "profile": "Few symptoms",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "never",
@@ -2895,8 +2880,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -2915,12 +2900,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-attention-only",
       "assessmentKey": "adhd",
       "profile": "Attention symptoms only",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -3083,8 +3068,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3104,12 +3089,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-restlessness-impulsivity",
       "assessmentKey": "adhd",
       "profile": "Impulsivity and restlessness profile",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "never",
@@ -3259,8 +3244,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3280,12 +3265,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-no-childhood",
       "assessmentKey": "adhd",
       "profile": "Symptoms without childhood persistence",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -3448,8 +3433,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3469,12 +3454,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-one-setting",
       "assessmentKey": "adhd",
       "profile": "Symptoms in only one setting",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -3638,8 +3623,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3659,12 +3644,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-multisetting-impact",
       "assessmentKey": "adhd",
       "profile": "Symptoms with significant multi-setting impairment",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -3843,8 +3828,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3864,12 +3849,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-mental-health-overlap",
       "assessmentKey": "adhd",
       "profile": "ADHD-like symptoms with anxiety or depression overlap",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -4046,8 +4031,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -4067,12 +4052,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-substance-overlap",
       "assessmentKey": "adhd",
       "profile": "ADHD-like symptoms with substance use",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "often",
@@ -4264,8 +4249,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -4285,12 +4270,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "adhd-self-harm",
       "assessmentKey": "adhd",
       "profile": "Self-harm requiring a separate safety pathway",
       "definitionVersion": 2,
-      "definitionHash": "a5c20fc838d8eba89b3f89dda624a2804fa6d50896a901f7c41d2959b871f7c2",
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
       "exactSyntheticAnswers": {
         "age-eligibility": "adult",
         "asrs-1": "never",
@@ -4407,7 +4392,7 @@
             "urgent-mental-health",
             "samaritans"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",

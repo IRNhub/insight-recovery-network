@@ -140,7 +140,8 @@ test("Phase B keeps the four authorised substance assessment definitions active 
     const definition = getActiveDefinition(key);
     assert.equal(definition.version, 2);
     assert.equal(definition.engineVersion, "phase-b-v2");
-    assert.equal(definition.clinicalApproval.status, "pending-clinical-director");
+    assert.equal(definition.clinicalApproval.status, "approved");
+    assert.equal(definition.clinicalApproval.approvedAt, "2026-08-30");
   }
 });
 
@@ -186,8 +187,8 @@ test("general detox handles conflicting abrupt-change answers conservatively", (
     "substance-benz-frequency": "daily",
     "substance-benz-abrupt": "no",
   })));
-  assert.equal(result.safety.action, "clinical-review-recommended");
-  assert.equal(result.safety.content.some((content) => content.id === "benzodiazepine-withdrawal-review"), true);
+  assert.equal(result.safety.action, "urgent-same-day-assessment");
+  assert.equal(result.safety.content.some((content) => content.id === "benzodiazepine-withdrawal-urgent"), true);
 });
 
 test("independent alcohol safety can override a low profile while exposure alone is not an emergency", () => {
@@ -211,7 +212,7 @@ test("independent alcohol safety can override a low profile while exposure alone
 
 test("substance-specific safety content does not leak an unrelated withdrawal model", () => {
   const cases: Array<{ key: PhaseBKey; overrides: AssessmentAnswers; required: string; prohibited: string[] }> = [
-    { key: "drug-use", overrides: { substances: ["benzodiazepines"], "substance-benz-frequency": "daily", "substance-benz-abrupt": "yes" }, required: "benzodiazepine-withdrawal-review", prohibited: ["alcohol-withdrawal-urgent"] },
+    { key: "drug-use", overrides: { substances: ["benzodiazepines"], "substance-benz-frequency": "daily", "substance-benz-abrupt": "yes" }, required: "benzodiazepine-withdrawal-urgent", prohibited: ["alcohol-withdrawal-urgent"] },
     { key: "drug-use", overrides: { substances: ["opioids"], "substance-opioid-overdose-now": "unresponsive" }, required: "opioid-overdose-emergency", prohibited: ["alcohol-withdrawal-urgent", "withdrawal-urgent"] },
     { key: "drug-use", overrides: { substances: ["opioids"], "substance-opioid-recent-abstinence": "yes", "substance-opioid-reduced-tolerance": "no" }, required: "opioid-tolerance-review", prohibited: ["alcohol-withdrawal-urgent"] },
     { key: "drug-use", overrides: { substances: ["stimulants"], "substance-stimulant-acute": "psychosis" }, required: "stimulant-urgent", prohibited: ["alcohol-withdrawal-urgent", "benzodiazepine-withdrawal-urgent"] },
@@ -230,7 +231,7 @@ test("substance-specific safety content does not leak an unrelated withdrawal mo
 
 test("current acute substance emergencies prioritise 999 and suppress every IRN pathway", () => {
   const cases: Array<{ key: PhaseBKey; overrides: AssessmentAnswers; contentId: string }> = [
-    { key: "alcohol-use", overrides: { "alcohol-current-withdrawal": "severe" }, contentId: "alcohol-withdrawal-emergency" },
+    { key: "alcohol-use", overrides: { "alcohol-current-acute": "seizure" }, contentId: "alcohol-withdrawal-emergency" },
     { key: "drug-use", overrides: { substances: ["benzodiazepines"], "substance-benz-withdrawal": "severe" }, contentId: "benzodiazepine-withdrawal-emergency" },
     { key: "drug-use", overrides: { substances: ["ghb-gbl"], "substance-ghb-withdrawal": "severe" }, contentId: "ghb-gbl-withdrawal-emergency" },
     { key: "drug-use", overrides: { substances: ["stimulants"], "substance-stimulant-acute": "severe-agitation" }, contentId: "stimulant-emergency" },
@@ -272,7 +273,7 @@ test("the Clinical Director fixture pack covers every required profile and enfor
   assert.equal(phaseBClinicalFixtures.filter((fixture) => fixture.assessmentKey === "detox-suitability").length, 12);
 
   for (const fixture of materialised) {
-    assert.equal(fixture.approvalStatus, "PENDING CLINICAL DIRECTOR APPROVAL");
+    assert.equal(fixture.approvalStatus, "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026");
     assert.ok(Object.keys(fixture.exactSyntheticAnswers).length > 0);
     assert.equal(fixture.validatedInstrumentResult, null);
     const expected = fixture.expectedReviewAssertions;

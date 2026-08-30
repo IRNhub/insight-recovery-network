@@ -14,10 +14,12 @@ import type {
 
 type PhaseCKey = Extract<AssessmentKey, "anxiety" | "depression" | "adhd">;
 
-const PENDING_PHASE_C_APPROVAL: ClinicalApprovalMetadata = {
-  status: "pending-clinical-director",
-  reference: "IRN-ASSESSMENT-PHASE-C-MENTAL-HEALTH-RULES-V2",
-  notes: "Adult-only synthetic implementation. Context wording, shared safety mappings, deterministic findings and pathways require Clinical Director approval before production activation.",
+const PHASE_C_CLINICAL_APPROVAL: ClinicalApprovalMetadata = {
+  status: "approved",
+  reference: "IRN-ASSESSMENT-FINAL-CLINICAL-CORRECTION-2026-08-30",
+  approvedBy: "Craig Bilton, Clinical Director",
+  approvedAt: "2026-08-30",
+  notes: "Adult-only clinical architecture, context wording, shared safety mappings, deterministic findings and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval.",
 };
 
 const ADULT_ONLY = {
@@ -113,7 +115,7 @@ function sharedMentalHealthSafetyRules(key: PhaseCKey): SafetyRule[] {
   const rule = (entry: Omit<SafetyRule, "version" | "approval">): SafetyRule => ({
     ...entry,
     version: 2,
-    approval: PENDING_PHASE_C_APPROVAL,
+    approval: PHASE_C_CLINICAL_APPROVAL,
   });
   return [
     rule({
@@ -189,7 +191,7 @@ function interpretation(
     minimumState: "elevated",
     statement,
     whyItMatters,
-    approval: PENDING_PHASE_C_APPROVAL,
+    approval: PHASE_C_CLINICAL_APPROVAL,
     ...extra,
   };
 }
@@ -477,7 +479,7 @@ function phaseCDefinition(
     safetyRules,
     interpretationRules: interpretations,
     pathwayRules: PATHWAYS.filter((pathway) => !pathway.assessmentKeys || pathway.assessmentKeys.includes(key)),
-    clinicalApproval: PENDING_PHASE_C_APPROVAL,
+    clinicalApproval: PHASE_C_CLINICAL_APPROVAL,
   };
 }
 
@@ -490,7 +492,7 @@ const phqItemNineRule: SafetyRule = {
   contentId: "phq9-item9-review",
   pathwayIds: ["gp-review", "samaritans"],
   suppressCommercialCtas: true,
-  approval: PENDING_PHASE_C_APPROVAL,
+  approval: PHASE_C_CLINICAL_APPROVAL,
 };
 
 export const phaseCMentalHealthDefinitionsV2: AssessmentDefinition[] = [

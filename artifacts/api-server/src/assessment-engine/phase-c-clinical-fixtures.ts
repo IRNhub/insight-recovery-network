@@ -223,7 +223,7 @@ export const phaseCClinicalFixtures: PhaseCClinicalFixture[] = [
     score: 1,
     band: "Minimal depression",
     safetyAction: "clinical-review-recommended",
-    requiredContentIds: ["phq9-item9-review", "mental-health-current-review"],
+    requiredContentIds: ["mental-health-current-review"],
     requireCommercialSuppression: true,
   }),
   fixture("depression-recurring-thoughts", "depression", "Recurring self-harm thoughts", {
@@ -233,7 +233,7 @@ export const phaseCClinicalFixtures: PhaseCClinicalFixture[] = [
     score: 1,
     band: "Minimal depression",
     safetyAction: "urgent-same-day-assessment",
-    requiredContentIds: ["phq9-item9-review", "mental-health-urgent"],
+    requiredContentIds: ["mental-health-urgent"],
     requireCommercialSuppression: true,
   }),
   fixture("depression-cannot-remain-safe", "depression", "Immediate inability to remain safe", {
@@ -342,7 +342,7 @@ export function materialisePhaseCClinicalFixtures() {
     const answers = validateAnswers(definition, fixture.answers);
     const result = evaluateAssessment(definition, answers);
     return {
-      approvalStatus: "PENDING CLINICAL DIRECTOR APPROVAL" as const,
+      approvalStatus: "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026" as const,
       fixtureId: fixture.id,
       assessmentKey: fixture.assessmentKey,
       profile: fixture.profile,

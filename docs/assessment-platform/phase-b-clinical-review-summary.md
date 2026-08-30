@@ -4,9 +4,11 @@ Date: 30 August 2026
 
 Source: existing 41-fixture Phase B pack
 
-Status: **PENDING CLINICAL DIRECTOR APPROVAL**
+Status: **SUPERSEDED PRE-CORRECTION REVIEW RECORD**. The corrected Phase B clinical architecture and rules were approved by the Clinical Director on 30 August 2026.
 
-This is a review aid, not a re-analysis of the Phase B architecture. Technical safety-action names are retained so decisions can be traced directly to the fixture pack. “No” under CTA suppression means the fixture currently retains at least one commercial IRN pathway.
+This document preserves the questions and fixture states presented before the final clinical correction pass. Its tables are historical and must not be treated as current live mappings. Current outputs are in `phase-b-clinical-fixtures.json`; the altered-fixture decisions are summarised in `final-clinical-correction-summary.md`.
+
+Technical safety-action names are retained so the approval trail remains auditable. References below to a visible commercial CTA describe the pre-correction state.
 
 ## Alcohol Use
 
@@ -71,4 +73,4 @@ This is a review aid, not a re-analysis of the Phase B architecture. Technical s
 
 ## Decisions to prioritise
 
-The highest-value review points are: emergency versus urgent mapping for current severe withdrawal or psychosis; urgent versus clinical review for imminent benzodiazepine/alcohol change; overdose positioning for daily opioids and opioid/sedative co-use; and whether commercial CTAs should remain visible during urgent same-day withdrawal presentations. No Phase B rule has been changed in preparing this summary.
+The review prioritised emergency versus urgent mapping for current severe withdrawal or psychosis; urgent versus clinical review for imminent benzodiazepine/alcohol change; overdose positioning for daily opioids and opioid/sedative co-use; and commercial CTA visibility during urgent same-day presentations. Those decisions were resolved in the final clinical correction pass. No Phase B rule was changed when this historical review document itself was originally prepared.

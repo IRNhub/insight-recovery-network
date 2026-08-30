@@ -243,7 +243,7 @@ test("12 alcohol content cannot appear without alcohol context and does appear f
     assert.equal(result.safety.content.some((item) => item.id.startsWith("alcohol-")), false);
   }
   const alcohol = authoritative(payload("alcohol-detox", {
-    answers: lowestAnswers("alcohol-detox", { "alcohol-current-withdrawal": "severe" }),
+    answers: lowestAnswers("alcohol-detox", { "alcohol-current-acute": "seizure" }),
   }));
   assert.equal(alcohol.safety.content.some((item) => item.id === "alcohol-withdrawal-emergency"), true);
 });
@@ -380,7 +380,7 @@ test("23 active definitions include explicit clinical approval metadata", () => 
     assert.equal(definition.status, "active");
     assert.equal(
       definition.clinicalApproval.status,
-      definition.version === 2 ? "pending-clinical-director" : "approved",
+      "approved",
     );
     assert.ok(definition.clinicalApproval.reference);
     for (const rule of [...definition.safetyRules, ...definition.interpretationRules]) {

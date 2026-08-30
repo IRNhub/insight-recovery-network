@@ -1,16 +1,17 @@
 {
   "title": "IRN Assessment Platform Phase B Clinical Director Fixture Pack",
   "generatedAt": "2026-08-30",
-  "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+  "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+  "clinicalDirectorApprovalDate": "2026-08-30",
   "instrumentDecision": "No validated instrument result is included because commercial reproduction permission for WHO AUDIT and WHO ASSIST was not supplied or conclusively established.",
   "fixtures": [
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-minimal",
       "assessmentKey": "alcohol-use",
       "profile": "Minimal drinking",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -40,7 +41,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -118,8 +119,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [],
@@ -190,12 +191,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-prominent-exposure",
       "assessmentKey": "alcohol-use",
       "profile": "Prominent alcohol exposure without withdrawal",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "four-plus-week",
         "alcohol-quantity": "ten-plus",
@@ -225,7 +226,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -307,8 +308,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -385,12 +386,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-dependence-indicators",
       "assessmentKey": "alcohol-use",
       "profile": "Dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -420,7 +421,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -511,7 +512,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -560,15 +561,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -576,6 +568,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -604,12 +605,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-low-profile-prior-seizure",
       "assessmentKey": "alcohol-use",
       "profile": "Lower alcohol exposure with a historical withdrawal seizure",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -639,7 +640,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -726,7 +727,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -774,15 +775,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -790,6 +782,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -818,12 +819,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-abrupt-dependence",
       "assessmentKey": "alcohol-use",
       "profile": "Intended abrupt cessation with dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -853,7 +854,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -941,30 +942,42 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
-          "id": "alcohol.abrupt-with-tolerance.alcohol-use.v2",
+          "id": "alcohol.abrupt-with-dependence.alcohol-use.v2",
           "version": 2,
-          "action": "clinical-review-recommended",
+          "action": "urgent-same-day-assessment",
           "evidenceQuestionIds": [
             "alcohol-intended-change",
-            "alcohol-tolerance"
+            "alcohol-tolerance",
+            "alcohol-morning-relief",
+            "alcohol-previous-withdrawal",
+            "alcohol-previous-detox",
+            "alcohol-prior-seizure",
+            "alcohol-prior-hallucination-confusion"
           ],
-          "contentId": "alcohol-withdrawal-review",
+          "contentId": "alcohol-withdrawal-urgent",
           "pathwayIds": [
-            "detox-clinical-review"
+            "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
-      "safetyAction": "clinical-review-recommended",
+      "safetyAction": "urgent-same-day-assessment",
       "requiredContent": [
         {
           "id": "alcohol-withdrawal-review",
           "heading": "Alcohol withdrawal should be assessed",
           "body": "Your answers include an indicator that can be relevant to physical dependence or alcohol withdrawal. A clinician should assess this before you make a substantial change to your drinking.",
           "actionText": "Do not stop or sharply reduce alcohol without first obtaining appropriate medical advice if you may be dependent."
+        },
+        {
+          "id": "alcohol-withdrawal-urgent",
+          "heading": "Please seek urgent medical advice about alcohol withdrawal",
+          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. Abruptly stopping or sharply reducing alcohol may be unsafe when physical dependence is possible. This assessment cannot establish whether withdrawal would be safe outside medical care.",
+          "actionText": "Seek urgent medical advice today before stopping or sharply reducing alcohol.",
+          "emergencyText": "If you are currently having a seizure, marked confusion or severe hallucinations, call 999 or go to A&E."
         }
       ],
       "prohibitedContent": [],
@@ -1003,56 +1016,30 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
-          "id": "gp-review",
-          "category": "gp",
-          "label": "Speak with your GP or a qualified clinician",
-          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
-          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "id": "urgent-medical",
+          "category": "urgent-medical",
+          "label": "Seek urgent medical advice today",
+          "description": "Contact NHS 111, your GP or an appropriate urgent medical service today.",
+          "destination": "tel:111",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "treatment-placement",
-          "category": "residential-placement",
-          "label": "Discuss treatment-placement options",
-          "description": "Where more intensive support may be appropriate, IRN can help explore UK and international treatment options.",
-          "destination": "/treatment-placement",
-          "commercial": true,
-          "priority": 97
         }
       ],
       "expectedReviewAssertions": {
-        "safetyAction": "clinical-review-recommended",
+        "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "alcohol-withdrawal-review"
-        ]
+          "alcohol-withdrawal-urgent"
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-current-severe-withdrawal",
       "assessmentKey": "alcohol-use",
-      "profile": "Current severe alcohol-withdrawal symptoms",
+      "profile": "Current severe non-acute alcohol-withdrawal symptoms",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1082,7 +1069,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -1161,24 +1148,25 @@
         {
           "id": "alcohol.current-severe.alcohol-use.v2",
           "version": 2,
-          "action": "emergency-help-now",
+          "action": "urgent-same-day-assessment",
           "evidenceQuestionIds": [
             "alcohol-current-withdrawal"
           ],
-          "contentId": "alcohol-withdrawal-emergency",
+          "contentId": "alcohol-withdrawal-urgent",
           "pathwayIds": [
-            "emergency-999"
+            "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
-      "safetyAction": "emergency-help-now",
+      "safetyAction": "urgent-same-day-assessment",
       "requiredContent": [
         {
-          "id": "alcohol-withdrawal-emergency",
-          "heading": "Please get emergency medical help now",
-          "body": "Your answers indicate a current symptom that may be associated with a serious alcohol-withdrawal complication. This assessment cannot provide emergency care or determine the cause.",
-          "actionText": "Call 999 or go to A&E now. Do not attempt to manage this through an online assessment."
+          "id": "alcohol-withdrawal-urgent",
+          "heading": "Please seek urgent medical advice about alcohol withdrawal",
+          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. Abruptly stopping or sharply reducing alcohol may be unsafe when physical dependence is possible. This assessment cannot establish whether withdrawal would be safe outside medical care.",
+          "actionText": "Seek urgent medical advice today before stopping or sharply reducing alcohol.",
+          "emergencyText": "If you are currently having a seizure, marked confusion or severe hallucinations, call 999 or go to A&E."
         }
       ],
       "prohibitedContent": [],
@@ -1217,30 +1205,30 @@
       },
       "pathways": [
         {
-          "id": "emergency-999",
-          "category": "emergency",
-          "label": "Call 999 or go to A&E",
-          "description": "Use emergency services now for an acute medical emergency or immediate danger.",
-          "destination": "tel:999",
+          "id": "urgent-medical",
+          "category": "urgent-medical",
+          "label": "Seek urgent medical advice today",
+          "description": "Contact NHS 111, your GP or an appropriate urgent medical service today.",
+          "destination": "tel:111",
           "commercial": false,
           "priority": 100
         }
       ],
       "expectedReviewAssertions": {
-        "safetyAction": "emergency-help-now",
+        "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "alcohol-withdrawal-emergency"
+          "alcohol-withdrawal-urgent"
         ],
         "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-benzodiazepines",
       "assessmentKey": "alcohol-use",
       "profile": "Alcohol with benzodiazepine co-use",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1273,7 +1261,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -1360,7 +1348,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -1408,15 +1396,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -1424,6 +1403,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -1452,12 +1440,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-opioids",
       "assessmentKey": "alcohol-use",
       "profile": "Alcohol with opioid co-use",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1490,7 +1478,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -1575,19 +1563,20 @@
           ],
           "contentId": "opioid-overdose-caution",
           "pathwayIds": [
-            "nhs-substance-service"
+            "nhs-substance-service",
+            "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
       "requiredContent": [
         {
           "id": "opioid-overdose-caution",
-          "heading": "Opioid safety needs individual assessment",
-          "body": "Opioid risk depends on the substance, dose, tolerance, recent abstinence, other sedatives and overdose history. The current screening cannot safely resolve those factors.",
-          "actionText": "Speak with a doctor or specialist substance service before attempting detoxification.",
-          "emergencyText": "If someone is unresponsive or breathing abnormally, call 999 immediately."
+          "heading": "Opioid and sedative use needs prominent overdose guidance",
+          "body": "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
         }
       ],
       "prohibitedContent": [],
@@ -1642,40 +1631,23 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "clinical-review-recommended",
         "requiredContentIds": [
           "opioid-overdose-caution"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-use-pregnancy-dependence",
       "assessmentKey": "alcohol-use",
       "profile": "Pregnancy with alcohol dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "0a54ac04d795ec23fe991c1e7391b384c8d846b5b4c3d0a660fd10d49e9abd0f",
+      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1705,7 +1677,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "consumption",
@@ -1793,7 +1765,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "pregnancy.alcohol-use.v2",
@@ -1804,9 +1776,11 @@
           ],
           "contentId": "pregnancy-substance-review",
           "pathwayIds": [
-            "gp-review"
+            "pregnancy-specialist",
+            "gp-review",
+            "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -1860,6 +1834,33 @@
       },
       "pathways": [
         {
+          "id": "pregnancy-specialist",
+          "category": "nhs-specialist",
+          "label": "Contact your GP, midwife or maternity service",
+          "description": "Seek prompt, non-judgemental medical and maternity advice, with specialist substance support where appropriate.",
+          "destination": "https://www.nhs.uk/pregnancy/finding-out/your-nhs-pregnancy-journey/",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 98
+        },
+        {
+          "id": "nhs-substance-service",
+          "category": "nhs-specialist",
+          "label": "Contact a local drug and alcohol service",
+          "description": "Local NHS or commissioned services can provide confidential substance-specific assessment and support.",
+          "destination": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/",
+          "commercial": false,
+          "priority": 97
+        },
+        {
           "id": "detox-clinical-review",
           "category": "detox-provider",
           "label": "Arrange a substance-specific clinical assessment",
@@ -1869,22 +1870,13 @@
           "priority": 100
         },
         {
-          "id": "gp-review",
-          "category": "gp",
-          "label": "Speak with your GP or a qualified clinician",
-          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
-          "destination": "https://www.nhs.uk/service-search/find-a-gp",
-          "commercial": false,
-          "priority": 99
-        },
-        {
           "id": "irn-consultation",
           "category": "irn-consultation",
           "label": "Discuss appropriate options with IRN",
           "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
           "destination": "/get-help",
           "commercial": true,
-          "priority": 98
+          "priority": 96
         },
         {
           "id": "irn-online-programme",
@@ -1893,7 +1885,7 @@
           "description": "IRN can discuss whether structured online support is appropriate for your needs.",
           "destination": "/online-programme",
           "commercial": true,
-          "priority": 97
+          "priority": 95
         }
       ],
       "expectedReviewAssertions": {
@@ -1905,12 +1897,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-no-dependence",
       "assessmentKey": "alcohol-detox",
       "profile": "No dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1940,7 +1932,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -2018,8 +2010,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [],
@@ -2087,12 +2079,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-mild-symptoms",
       "assessmentKey": "alcohol-detox",
       "profile": "Mild current symptoms",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2122,7 +2114,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -2209,7 +2201,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -2259,15 +2251,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -2275,6 +2258,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -2306,12 +2298,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-previous-complicated",
       "assessmentKey": "alcohol-detox",
       "profile": "Previous complicated detoxification",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2341,7 +2333,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -2428,7 +2420,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -2476,15 +2468,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -2492,6 +2475,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -2520,12 +2512,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-prior-seizure",
       "assessmentKey": "alcohol-detox",
       "profile": "Prior alcohol-withdrawal seizure",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2555,7 +2547,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -2642,7 +2634,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "alcohol.prior-seizure-abrupt.alcohol-detox.v2",
@@ -2657,7 +2649,26 @@
             "urgent-medical",
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
+        },
+        {
+          "id": "alcohol.abrupt-with-dependence.alcohol-detox.v2",
+          "version": 2,
+          "action": "urgent-same-day-assessment",
+          "evidenceQuestionIds": [
+            "alcohol-intended-change",
+            "alcohol-tolerance",
+            "alcohol-morning-relief",
+            "alcohol-previous-withdrawal",
+            "alcohol-previous-detox",
+            "alcohol-prior-seizure",
+            "alcohol-prior-hallucination-confusion"
+          ],
+          "contentId": "alcohol-withdrawal-urgent",
+          "pathwayIds": [
+            "urgent-medical"
+          ],
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -2671,8 +2682,8 @@
         {
           "id": "alcohol-withdrawal-urgent",
           "heading": "Please seek urgent medical advice about alcohol withdrawal",
-          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. This assessment cannot establish whether withdrawal would be safe outside medical care.",
-          "actionText": "Seek urgent medical advice today before stopping or substantially reducing alcohol.",
+          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. Abruptly stopping or sharply reducing alcohol may be unsafe when physical dependence is possible. This assessment cannot establish whether withdrawal would be safe outside medical care.",
+          "actionText": "Seek urgent medical advice today before stopping or sharply reducing alcohol.",
           "emergencyText": "If you are currently having a seizure, marked confusion or severe hallucinations, call 999 or go to A&E."
         }
       ],
@@ -2712,15 +2723,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "urgent-medical",
           "category": "urgent-medical",
           "label": "Seek urgent medical advice today",
@@ -2728,31 +2730,23 @@
           "destination": "tel:111",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
           "alcohol-withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-prior-confusion",
       "assessmentKey": "alcohol-detox",
       "profile": "Hallucination, confusion or delirium history",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2782,7 +2776,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -2869,7 +2863,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -2917,15 +2911,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
@@ -2933,6 +2918,15 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
+        },
+        {
+          "id": "detox-clinical-review",
+          "category": "detox-provider",
+          "label": "Arrange a substance-specific clinical assessment",
+          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 100
         },
         {
           "id": "irn-consultation",
@@ -2961,12 +2955,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-acute-seizure",
       "assessmentKey": "alcohol-detox",
       "profile": "Current acute seizure",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2996,7 +2990,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -3083,7 +3077,7 @@
           "pathwayIds": [
             "emergency-999"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "emergency-help-now",
@@ -3149,12 +3143,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-limited-support",
       "assessmentKey": "alcohol-detox",
       "profile": "Limited home support",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3184,7 +3178,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -3264,8 +3258,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [],
@@ -3324,12 +3318,12 @@
       "expectedReviewAssertions": {}
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-medically-vulnerable",
       "assessmentKey": "alcohol-detox",
       "profile": "Medical vulnerability",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3359,7 +3353,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -3444,7 +3438,7 @@
           "pathwayIds": [
             "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -3515,12 +3509,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "alcohol-detox-polysubstance",
       "assessmentKey": "alcohol-detox",
       "profile": "Alcohol with multiple sedating substances",
       "definitionVersion": 2,
-      "definitionHash": "ae545adc81053078580971b07514068cb8f994bf1675297c609944b712ccac70",
+      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3554,7 +3548,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO AUDIT reproduction in a commercial/company-sponsored service requires written permission. No permission was supplied, so the active v2 definition does not reproduce or claim AUDIT.",
       "domainProfile": [
         {
           "id": "current-exposure",
@@ -3641,7 +3635,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "alcohol.opioid-couse.alcohol-detox.v2",
@@ -3652,9 +3646,10 @@
           ],
           "contentId": "opioid-overdose-caution",
           "pathwayIds": [
-            "nhs-substance-service"
+            "nhs-substance-service",
+            "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -3667,10 +3662,10 @@
         },
         {
           "id": "opioid-overdose-caution",
-          "heading": "Opioid safety needs individual assessment",
-          "body": "Opioid risk depends on the substance, dose, tolerance, recent abstinence, other sedatives and overdose history. The current screening cannot safely resolve those factors.",
-          "actionText": "Speak with a doctor or specialist substance service before attempting detoxification.",
-          "emergencyText": "If someone is unresponsive or breathing abnormally, call 999 immediately."
+          "heading": "Opioid and sedative use needs prominent overdose guidance",
+          "body": "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
         }
       ],
       "prohibitedContent": [],
@@ -3709,15 +3704,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "nhs-substance-service",
           "category": "nhs-specialist",
           "label": "Contact a local drug and alcohol service",
@@ -3734,24 +3720,6 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 98
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 97
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 96
         }
       ],
       "expectedReviewAssertions": {
@@ -3759,16 +3727,17 @@
         "requiredContentIds": [
           "benzodiazepine-withdrawal-review",
           "opioid-overdose-caution"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-cannabis-consequences",
       "assessmentKey": "drug-use",
       "profile": "Cannabis with functional consequences",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis"
@@ -3792,7 +3761,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -3886,8 +3855,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -3965,12 +3934,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-stimulant-heavy",
       "assessmentKey": "drug-use",
       "profile": "Heavy cocaine or stimulant use",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "stimulants"
@@ -3993,7 +3962,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -4094,7 +4063,7 @@
             "gp-review",
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -4201,12 +4170,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-stimulant-psychosis",
       "assessmentKey": "drug-use",
       "profile": "Current stimulant-related psychotic symptoms",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "stimulants"
@@ -4229,7 +4198,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -4330,7 +4299,7 @@
             "urgent-medical",
             "urgent-mental-health"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -4406,12 +4375,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-opioid-daily",
       "assessmentKey": "drug-use",
       "profile": "Daily opioid use",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -4439,7 +4408,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -4524,13 +4493,30 @@
           "whyItMatters": "Practical support can help planning, but it does not replace substance-specific clinical assessment."
         }
       ],
-      "triggeredSafetyRules": [],
+      "triggeredSafetyRules": [
+        {
+          "id": "opioid.daily-harm-reduction.drug-use.v2",
+          "version": 2,
+          "action": "no-immediate-warning-identified",
+          "evidenceQuestionIds": [
+            "substance-opioid-frequency",
+            "substances"
+          ],
+          "contentId": "opioid-harm-reduction",
+          "pathwayIds": [
+            "nhs-substance-service"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
       "safetyAction": "no-immediate-warning-identified",
       "requiredContent": [
         {
-          "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "id": "opioid-harm-reduction",
+          "heading": "No immediate warning does not mean opioid use is safe",
+          "body": "Daily opioid use carries overdose risk even when this assessment has not identified an immediate warning. No immediate warning does not mean that opioid use is safe. Risk can increase after abstinence or reduced use because tolerance may fall, and alcohol, benzodiazepines or other sedatives can make overdose more likely. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Contact an appropriate local drug service or clinician to discuss safer use, treatment options and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
         }
       ],
       "prohibitedContent": [
@@ -4599,18 +4585,22 @@
         }
       ],
       "expectedReviewAssertions": {
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "opioid-harm-reduction"
+        ],
         "prohibitedContentIds": [
           "alcohol-withdrawal-urgent"
         ]
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-opioid-reduced-tolerance",
       "assessmentKey": "drug-use",
       "profile": "Opioid use after reduced tolerance",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -4638,7 +4628,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -4737,7 +4727,7 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "opioid.recent-abstinence.drug-use.v2",
@@ -4751,7 +4741,7 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -4759,8 +4749,8 @@
         {
           "id": "opioid-tolerance-review",
           "heading": "Reduced tolerance can increase overdose risk",
-          "body": "After a period of reduced use or abstinence, returning to a previously used amount can increase overdose risk. Alcohol, benzodiazepines and other sedatives can increase that risk further.",
-          "actionText": "Discuss safer next steps and naloxone with an appropriate clinician or local drug service."
+          "body": "After abstinence or a substantial reduction, opioid tolerance can fall. Returning to an amount that was previously tolerated can be dangerous and may cause overdose. Alcohol, benzodiazepines and other sedatives increase that risk further. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Contact an appropriate clinician or local drug service to discuss safer next steps and obtaining naloxone where relevant."
         }
       ],
       "prohibitedContent": [],
@@ -4843,12 +4833,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-opioid-prior-overdose",
       "assessmentKey": "drug-use",
       "profile": "Previous opioid overdose",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -4876,7 +4866,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -4974,17 +4964,17 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
       "requiredContent": [
         {
           "id": "opioid-overdose-caution",
-          "heading": "Opioid safety needs individual assessment",
-          "body": "Opioid risk depends on the substance, dose, tolerance, recent abstinence, other sedatives and overdose history. The current screening cannot safely resolve those factors.",
-          "actionText": "Speak with a doctor or specialist substance service before attempting detoxification.",
-          "emergencyText": "If someone is unresponsive or breathing abnormally, call 999 immediately."
+          "heading": "Opioid and sedative use needs prominent overdose guidance",
+          "body": "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
         }
       ],
       "prohibitedContent": [],
@@ -5067,12 +5057,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-opioid-sedative",
       "assessmentKey": "drug-use",
       "profile": "Opioid and sedative co-use",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -5103,7 +5093,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -5201,19 +5191,20 @@
           ],
           "contentId": "opioid-overdose-caution",
           "pathwayIds": [
-            "nhs-substance-service"
+            "nhs-substance-service",
+            "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
       "requiredContent": [
         {
           "id": "opioid-overdose-caution",
-          "heading": "Opioid safety needs individual assessment",
-          "body": "Opioid risk depends on the substance, dose, tolerance, recent abstinence, other sedatives and overdose history. The current screening cannot safely resolve those factors.",
-          "actionText": "Speak with a doctor or specialist substance service before attempting detoxification.",
-          "emergencyText": "If someone is unresponsive or breathing abnormally, call 999 immediately."
+          "heading": "Opioid and sedative use needs prominent overdose guidance",
+          "body": "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
         }
       ],
       "prohibitedContent": [],
@@ -5278,40 +5269,23 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "clinical-review-recommended",
         "requiredContentIds": [
           "opioid-overdose-caution"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-benzodiazepine-regular",
       "assessmentKey": "drug-use",
       "profile": "Regular benzodiazepine use with intended abrupt reduction",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "benzodiazepines"
@@ -5335,7 +5309,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -5424,25 +5398,25 @@
         {
           "id": "benzodiazepine.abrupt.drug-use.v2",
           "version": 2,
-          "action": "clinical-review-recommended",
+          "action": "urgent-same-day-assessment",
           "evidenceQuestionIds": [
             "substance-benz-abrupt",
             "substance-benz-frequency"
           ],
-          "contentId": "benzodiazepine-withdrawal-review",
+          "contentId": "benzodiazepine-withdrawal-urgent",
           "pathwayIds": [
-            "detox-clinical-review"
+            "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
-      "safetyAction": "clinical-review-recommended",
+      "safetyAction": "urgent-same-day-assessment",
       "requiredContent": [
         {
-          "id": "benzodiazepine-withdrawal-review",
-          "heading": "Benzodiazepine withdrawal needs medical guidance",
-          "body": "Your answers indicate regular benzodiazepine use or a benzodiazepine-related detox need. Abrupt changes can be unsafe and require individual medical advice.",
-          "actionText": "Speak with a doctor or appropriately qualified service before reducing or stopping benzodiazepines."
+          "id": "benzodiazepine-withdrawal-urgent",
+          "heading": "Please seek urgent medical help about benzodiazepine withdrawal",
+          "body": "Your answers indicate current severe symptoms or a previous serious complication in the context of benzodiazepine use. Abrupt changes can be unsafe.",
+          "actionText": "Seek urgent medical advice today. Call 999 or go to A&E for a current seizure, marked confusion or another acute emergency."
         }
       ],
       "prohibitedContent": [
@@ -5483,59 +5457,33 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
-          "id": "gp-review",
-          "category": "gp",
-          "label": "Speak with your GP or a qualified clinician",
-          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
-          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "id": "urgent-medical",
+          "category": "urgent-medical",
+          "label": "Seek urgent medical advice today",
+          "description": "Contact NHS 111, your GP or an appropriate urgent medical service today.",
+          "destination": "tel:111",
           "commercial": false,
-          "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
+          "priority": 100
         }
       ],
       "expectedReviewAssertions": {
-        "safetyAction": "clinical-review-recommended",
+        "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "benzodiazepine-withdrawal-review"
+          "benzodiazepine-withdrawal-urgent"
         ],
         "prohibitedContentIds": [
           "alcohol-withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-ghb-frequent",
       "assessmentKey": "drug-use",
       "profile": "Frequent GHB or GBL use",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "ghb-gbl"
@@ -5543,6 +5491,7 @@
         "substance-ghb-frequency": "multiple-daily",
         "substance-ghb-last-use": "over-day",
         "substance-ghb-dependence": "no",
+        "substance-ghb-intended-change": "abrupt",
         "substance-ghb-withdrawal": "none",
         "drug-control": "not-difficult",
         "drug-consequences": "no",
@@ -5558,7 +5507,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -5656,16 +5605,37 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
+        },
+        {
+          "id": "ghb.frequent-imminent.drug-use.v2",
+          "version": 2,
+          "action": "urgent-same-day-assessment",
+          "evidenceQuestionIds": [
+            "substance-ghb-frequency",
+            "substance-ghb-intended-change",
+            "substances"
+          ],
+          "contentId": "ghb-gbl-withdrawal-urgent",
+          "pathwayIds": [
+            "urgent-medical"
+          ],
+          "approvalStatus": "approved"
         }
       ],
-      "safetyAction": "clinical-review-recommended",
+      "safetyAction": "urgent-same-day-assessment",
       "requiredContent": [
         {
           "id": "ghb-gbl-withdrawal-review",
           "heading": "GHB or GBL withdrawal needs specialist assessment",
           "body": "Your answers identify GHB or GBL use in a context where withdrawal may require prompt specialist assessment. This screening tool cannot medically clear a detox plan.",
           "actionText": "Seek advice from a doctor or specialist substance service before stopping or reducing use."
+        },
+        {
+          "id": "ghb-gbl-withdrawal-urgent",
+          "heading": "Please seek urgent specialist help about GHB or GBL withdrawal",
+          "body": "Frequent GHB or GBL use with current withdrawal symptoms can require prompt specialist medical assessment. This is not alcohol-withdrawal guidance and the assessment cannot determine a safe detox setting.",
+          "actionText": "Seek urgent medical advice today. Call 999 for a seizure, marked confusion, severe agitation or another acute emergency."
         }
       ],
       "prohibitedContent": [
@@ -5706,59 +5676,33 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
-          "id": "gp-review",
-          "category": "gp",
-          "label": "Speak with your GP or a qualified clinician",
-          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
-          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "id": "urgent-medical",
+          "category": "urgent-medical",
+          "label": "Seek urgent medical advice today",
+          "description": "Contact NHS 111, your GP or an appropriate urgent medical service today.",
+          "destination": "tel:111",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
         }
       ],
       "expectedReviewAssertions": {
-        "safetyAction": "clinical-review-recommended",
+        "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "ghb-gbl-withdrawal-review"
+          "ghb-gbl-withdrawal-urgent"
         ],
         "prohibitedContentIds": [
           "alcohol-withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-ketamine-urinary",
       "assessmentKey": "drug-use",
       "profile": "Ketamine use with urinary symptoms",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "ketamine"
@@ -5782,7 +5726,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -5882,7 +5826,7 @@
           "pathwayIds": [
             "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -5980,12 +5924,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "drug-multiple-substances",
       "assessmentKey": "drug-use",
       "profile": "Multiple substances",
       "definitionVersion": 2,
-      "definitionHash": "a223cd06375db23e9243019808b8412bd0681d1c8ea35f5669adf895c5fb4f6b",
+      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis",
@@ -6014,7 +5958,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -6109,7 +6053,7 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -6189,12 +6133,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-alcohol",
       "assessmentKey": "detox-suitability",
       "profile": "Alcohol change planning",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "alcohol"
@@ -6217,7 +6161,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -6317,7 +6261,7 @@
           "pathwayIds": [
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "alcohol.prior-seizure-abrupt.detox-suitability.v2",
@@ -6332,7 +6276,7 @@
             "urgent-medical",
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -6346,8 +6290,8 @@
         {
           "id": "alcohol-withdrawal-urgent",
           "heading": "Please seek urgent medical advice about alcohol withdrawal",
-          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. This assessment cannot establish whether withdrawal would be safe outside medical care.",
-          "actionText": "Seek urgent medical advice today before stopping or substantially reducing alcohol.",
+          "body": "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. Abruptly stopping or sharply reducing alcohol may be unsafe when physical dependence is possible. This assessment cannot establish whether withdrawal would be safe outside medical care.",
+          "actionText": "Seek urgent medical advice today before stopping or sharply reducing alcohol.",
           "emergencyText": "If you are currently having a seizure, marked confusion or severe hallucinations, call 999 or go to A&E."
         }
       ],
@@ -6397,15 +6341,6 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
           "id": "urgent-medical",
           "category": "urgent-medical",
           "label": "Seek urgent medical advice today",
@@ -6413,31 +6348,23 @@
           "destination": "tel:111",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
           "alcohol-withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-benzodiazepine",
       "assessmentKey": "detox-suitability",
       "profile": "Benzodiazepine change planning",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "benzodiazepines"
@@ -6459,7 +6386,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -6550,39 +6477,39 @@
         {
           "id": "benzodiazepine.global-abrupt.detox-suitability.v2",
           "version": 2,
-          "action": "clinical-review-recommended",
+          "action": "urgent-same-day-assessment",
           "evidenceQuestionIds": [
             "intended-change",
             "substance-benz-frequency"
           ],
-          "contentId": "benzodiazepine-withdrawal-review",
+          "contentId": "benzodiazepine-withdrawal-urgent",
           "pathwayIds": [
-            "detox-clinical-review"
+            "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         },
         {
           "id": "benzodiazepine.abrupt.detox-suitability.v2",
           "version": 2,
-          "action": "clinical-review-recommended",
+          "action": "urgent-same-day-assessment",
           "evidenceQuestionIds": [
             "substance-benz-abrupt",
             "substance-benz-frequency"
           ],
-          "contentId": "benzodiazepine-withdrawal-review",
+          "contentId": "benzodiazepine-withdrawal-urgent",
           "pathwayIds": [
-            "detox-clinical-review"
+            "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
-      "safetyAction": "clinical-review-recommended",
+      "safetyAction": "urgent-same-day-assessment",
       "requiredContent": [
         {
-          "id": "benzodiazepine-withdrawal-review",
-          "heading": "Benzodiazepine withdrawal needs medical guidance",
-          "body": "Your answers indicate regular benzodiazepine use or a benzodiazepine-related detox need. Abrupt changes can be unsafe and require individual medical advice.",
-          "actionText": "Speak with a doctor or appropriately qualified service before reducing or stopping benzodiazepines."
+          "id": "benzodiazepine-withdrawal-urgent",
+          "heading": "Please seek urgent medical help about benzodiazepine withdrawal",
+          "body": "Your answers indicate current severe symptoms or a previous serious complication in the context of benzodiazepine use. Abrupt changes can be unsafe.",
+          "actionText": "Seek urgent medical advice today. Call 999 or go to A&E for a current seizure, marked confusion or another acute emergency."
         }
       ],
       "prohibitedContent": [],
@@ -6631,56 +6558,30 @@
       },
       "pathways": [
         {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 100
-        },
-        {
-          "id": "gp-review",
-          "category": "gp",
-          "label": "Speak with your GP or a qualified clinician",
-          "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
-          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "id": "urgent-medical",
+          "category": "urgent-medical",
+          "label": "Seek urgent medical advice today",
+          "description": "Contact NHS 111, your GP or an appropriate urgent medical service today.",
+          "destination": "tel:111",
           "commercial": false,
-          "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
+          "priority": 100
         }
       ],
       "expectedReviewAssertions": {
-        "safetyAction": "clinical-review-recommended",
+        "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
-          "benzodiazepine-withdrawal-review"
-        ]
+          "benzodiazepine-withdrawal-urgent"
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-opioid",
       "assessmentKey": "detox-suitability",
       "profile": "Opioid change planning after reduced tolerance",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -6706,7 +6607,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -6804,7 +6705,7 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -6812,8 +6713,8 @@
         {
           "id": "opioid-tolerance-review",
           "heading": "Reduced tolerance can increase overdose risk",
-          "body": "After a period of reduced use or abstinence, returning to a previously used amount can increase overdose risk. Alcohol, benzodiazepines and other sedatives can increase that risk further.",
-          "actionText": "Discuss safer next steps and naloxone with an appropriate clinician or local drug service."
+          "body": "After abstinence or a substantial reduction, opioid tolerance can fall. Returning to an amount that was previously tolerated can be dangerous and may cause overdose. Alcohol, benzodiazepines and other sedatives increase that risk further. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Contact an appropriate clinician or local drug service to discuss safer next steps and obtaining naloxone where relevant."
         }
       ],
       "prohibitedContent": [],
@@ -6896,12 +6797,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-ghb",
       "assessmentKey": "detox-suitability",
       "profile": "GHB or GBL change planning with withdrawal",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "ghb-gbl"
@@ -6910,6 +6811,7 @@
         "substance-ghb-frequency": "less-weekly",
         "substance-ghb-last-use": "over-day",
         "substance-ghb-dependence": "no",
+        "substance-ghb-intended-change": "no",
         "substance-ghb-withdrawal": "significant",
         "medical-vulnerability": "no",
         "pregnancy": "no",
@@ -6922,7 +6824,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -7021,7 +6923,7 @@
             "urgent-medical",
             "detox-clinical-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -7076,40 +6978,23 @@
           "destination": "tel:111",
           "commercial": false,
           "priority": 100
-        },
-        {
-          "id": "detox-clinical-review",
-          "category": "detox-provider",
-          "label": "Arrange a substance-specific clinical assessment",
-          "description": "A medically informed assessment can determine whether withdrawal support or supervision may be required.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
           "ghb-gbl-withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-stimulant",
       "assessmentKey": "detox-suitability",
       "profile": "Stimulant change planning with sleep deprivation",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "stimulants"
@@ -7130,7 +7015,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -7229,7 +7114,7 @@
             "gp-review",
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -7326,12 +7211,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-cannabis",
       "assessmentKey": "detox-suitability",
       "profile": "Cannabis change planning",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis"
@@ -7353,7 +7238,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -7443,8 +7328,8 @@
       "requiredContent": [
         {
           "id": "screening-limitation",
-          "heading": "About this safety check",
-          "body": "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe."
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
         }
       ],
       "prohibitedContent": [
@@ -7521,12 +7406,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-ketamine",
       "assessmentKey": "detox-suitability",
       "profile": "Ketamine change planning with urinary symptoms",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "ketamine"
@@ -7548,7 +7433,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -7646,7 +7531,7 @@
           "pathwayIds": [
             "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -7729,12 +7614,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-polysubstance",
       "assessmentKey": "detox-suitability",
       "profile": "Polysubstance change planning",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "benzodiazepines",
@@ -7766,7 +7651,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -7851,6 +7736,20 @@
       ],
       "triggeredSafetyRules": [
         {
+          "id": "opioid.benzodiazepine-selection.detox-suitability.v2",
+          "version": 2,
+          "action": "clinical-review-recommended",
+          "evidenceQuestionIds": [
+            "substances"
+          ],
+          "contentId": "opioid-overdose-caution",
+          "pathwayIds": [
+            "nhs-substance-service",
+            "gp-review"
+          ],
+          "approvalStatus": "approved"
+        },
+        {
           "id": "polysubstance.detox-suitability.v2",
           "version": 2,
           "action": "clinical-review-recommended",
@@ -7861,11 +7760,18 @@
           "pathwayIds": [
             "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
       "requiredContent": [
+        {
+          "id": "opioid-overdose-caution",
+          "heading": "Opioid and sedative use needs prominent overdose guidance",
+          "body": "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+          "actionText": "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+          "emergencyText": "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it."
+        },
         {
           "id": "polysubstance-review",
           "heading": "Using more than one substance needs clinical review",
@@ -7913,40 +7819,24 @@
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
           "priority": 99
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 98
-        },
-        {
-          "id": "irn-online-programme",
-          "category": "irn-online-programme",
-          "label": "Explore structured online recovery support",
-          "description": "IRN can discuss whether structured online support is appropriate for your needs.",
-          "destination": "/online-programme",
-          "commercial": true,
-          "priority": 97
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "clinical-review-recommended",
         "requiredContentIds": [
+          "opioid-overdose-caution",
           "polysubstance-review"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-contradictory-hidden-opioid-answer",
       "assessmentKey": "detox-suitability",
       "profile": "Contradictory branch answers are rejected",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis"
@@ -7974,7 +7864,7 @@
         ]
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [],
       "triggeredSafetyRules": [],
       "safetyAction": null,
@@ -7987,12 +7877,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-other-severe",
       "assessmentKey": "detox-suitability",
       "profile": "Other substance with severe current symptoms",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "other"
@@ -8011,7 +7901,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -8109,7 +7999,7 @@
           "pathwayIds": [
             "urgent-medical"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "urgent-same-day-assessment",
@@ -8165,31 +8055,23 @@
           "destination": "tel:111",
           "commercial": false,
           "priority": 100
-        },
-        {
-          "id": "irn-consultation",
-          "category": "irn-consultation",
-          "label": "Discuss appropriate options with IRN",
-          "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
-          "destination": "/get-help",
-          "commercial": true,
-          "priority": 99
         }
       ],
       "expectedReviewAssertions": {
         "safetyAction": "urgent-same-day-assessment",
         "requiredContentIds": [
           "withdrawal-urgent"
-        ]
+        ],
+        "requireCommercialSuppression": true
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-medical-vulnerability",
       "assessmentKey": "detox-suitability",
       "profile": "Medical vulnerability",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis"
@@ -8211,7 +8093,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -8308,7 +8190,7 @@
           "pathwayIds": [
             "gp-review"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -8391,12 +8273,12 @@
       }
     },
     {
-      "approvalStatus": "PENDING CLINICAL DIRECTOR APPROVAL",
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       "fixtureId": "detox-pregnancy",
       "assessmentKey": "detox-suitability",
       "profile": "Pregnancy with opioid use",
       "definitionVersion": 2,
-      "definitionHash": "fba4224b1e9f08f11d99593445edd3b8bf0892dbf0b60696f7a0bebffff05365",
+      "definitionHash": "f63c4709b2b14ea503d1af1115660caa7ac013b0da91a9ed2c24697a8def384f",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -8422,7 +8304,7 @@
         "issues": []
       },
       "validatedInstrumentResult": null,
-      "instrumentNote": "Synthetic implementation fixture. Questionnaire wording, mappings, actions and pathways require Clinical Director approval before production activation. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
+      "instrumentNote": "Clinical architecture, wording, mappings, actions and pathways approved following the final correction pass. This is not legal, privacy, medical-device, regulatory or instrument-licensing approval. WHO ASSIST is all-rights-reserved, intended for health-care administration, and commercial reproduction permission was not supplied. The active v2 definition is therefore an IRN descriptive profile, not ASSIST or ASSIST-like.",
       "domainProfile": [
         {
           "id": "substance-exposure",
@@ -8517,9 +8399,11 @@
           ],
           "contentId": "pregnancy-substance-review",
           "pathwayIds": [
-            "gp-review"
+            "pregnancy-specialist",
+            "gp-review",
+            "nhs-substance-service"
           ],
-          "approvalStatus": "pending-clinical-director"
+          "approvalStatus": "approved"
         }
       ],
       "safetyAction": "clinical-review-recommended",
@@ -8567,13 +8451,31 @@
       },
       "pathways": [
         {
+          "id": "pregnancy-specialist",
+          "category": "nhs-specialist",
+          "label": "Contact your GP, midwife or maternity service",
+          "description": "Seek prompt, non-judgemental medical and maternity advice, with specialist substance support where appropriate.",
+          "destination": "https://www.nhs.uk/pregnancy/finding-out/your-nhs-pregnancy-journey/",
+          "commercial": false,
+          "priority": 100
+        },
+        {
           "id": "gp-review",
           "category": "gp",
           "label": "Speak with your GP or a qualified clinician",
           "description": "A professional can review medical, mental-health and medication factors that an online assessment cannot establish.",
           "destination": "https://www.nhs.uk/service-search/find-a-gp",
           "commercial": false,
-          "priority": 100
+          "priority": 99
+        },
+        {
+          "id": "nhs-substance-service",
+          "category": "nhs-specialist",
+          "label": "Contact a local drug and alcohol service",
+          "description": "Local NHS or commissioned services can provide confidential substance-specific assessment and support.",
+          "destination": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/",
+          "commercial": false,
+          "priority": 98
         },
         {
           "id": "irn-consultation",
@@ -8582,7 +8484,7 @@
           "description": "IRN can help with treatment navigation and support options. IRN is not an emergency medical service.",
           "destination": "/get-help",
           "commercial": true,
-          "priority": 99
+          "priority": 97
         },
         {
           "id": "irn-online-programme",
@@ -8591,7 +8493,7 @@
           "description": "IRN can discuss whether structured online support is appropriate for your needs.",
           "destination": "/online-programme",
           "commercial": true,
-          "priority": 98
+          "priority": 96
         }
       ],
       "expectedReviewAssertions": {

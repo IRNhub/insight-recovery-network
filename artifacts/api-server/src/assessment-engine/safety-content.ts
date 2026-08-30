@@ -3,8 +3,8 @@ import type { SafetyContent, SafetyContentId } from "./contracts.ts";
 const CONTENT: Record<SafetyContentId, SafetyContent> = {
   "screening-limitation": {
     id: "screening-limitation",
-    heading: "About this safety check",
-    body: "Your answers have not identified an immediate warning sign within this screening tool. An online assessment cannot rule out medical or mental-health risk, and you should seek professional help whenever you feel concerned or unsafe.",
+    heading: "About your result",
+    body: "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice.",
   },
   "mental-health-support": {
     id: "mental-health-support",
@@ -49,8 +49,8 @@ const CONTENT: Record<SafetyContentId, SafetyContent> = {
   "alcohol-withdrawal-urgent": {
     id: "alcohol-withdrawal-urgent",
     heading: "Please seek urgent medical advice about alcohol withdrawal",
-    body: "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. This assessment cannot establish whether withdrawal would be safe outside medical care.",
-    actionText: "Seek urgent medical advice today before stopping or substantially reducing alcohol.",
+    body: "Your answers include a history or symptom associated with potentially complicated alcohol withdrawal. Abruptly stopping or sharply reducing alcohol may be unsafe when physical dependence is possible. This assessment cannot establish whether withdrawal would be safe outside medical care.",
+    actionText: "Seek urgent medical advice today before stopping or sharply reducing alcohol.",
     emergencyText: "If you are currently having a seizure, marked confusion or severe hallucinations, call 999 or go to A&E.",
   },
   "alcohol-withdrawal-emergency": {
@@ -95,12 +95,19 @@ const CONTENT: Record<SafetyContentId, SafetyContent> = {
     body: "A seizure, severe confusion or another acute severe symptom after reducing or delaying GHB or GBL requires emergency medical assessment.",
     actionText: "Call 999 or go to A&E now. Do not attempt to manage this through an online assessment.",
   },
+  "opioid-harm-reduction": {
+    id: "opioid-harm-reduction",
+    heading: "No immediate warning does not mean opioid use is safe",
+    body: "Daily opioid use carries overdose risk even when this assessment has not identified an immediate warning. No immediate warning does not mean that opioid use is safe. Risk can increase after abstinence or reduced use because tolerance may fall, and alcohol, benzodiazepines or other sedatives can make overdose more likely. Ask an appropriate local service about take-home naloxone and how to use it.",
+    actionText: "Contact an appropriate local drug service or clinician to discuss safer use, treatment options and obtaining naloxone where relevant.",
+    emergencyText: "If someone is unresponsive, difficult to wake, breathing abnormally, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it.",
+  },
   "opioid-overdose-caution": {
     id: "opioid-overdose-caution",
-    heading: "Opioid safety needs individual assessment",
-    body: "Opioid risk depends on the substance, dose, tolerance, recent abstinence, other sedatives and overdose history. The current screening cannot safely resolve those factors.",
-    actionText: "Speak with a doctor or specialist substance service before attempting detoxification.",
-    emergencyText: "If someone is unresponsive or breathing abnormally, call 999 immediately.",
+    heading: "Opioid and sedative use needs prominent overdose guidance",
+    body: "Using opioids with alcohol, benzodiazepines or other sedatives can increase the risk of severe sedation, abnormal breathing and overdose. Risk also depends on dose, tolerance, recent abstinence and overdose history, which this assessment cannot resolve. Ask an appropriate local service about take-home naloxone and how to use it.",
+    actionText: "Speak with a clinician or local drug service about the exact combination, safer next steps and obtaining naloxone where relevant.",
+    emergencyText: "If someone is unresponsive, difficult to wake, breathing abnormally, has collapsed, or has blue or grey lips or skin, call 999 now. Give naloxone if it is available and you know how to use it.",
   },
   "opioid-overdose-emergency": {
     id: "opioid-overdose-emergency",
@@ -111,8 +118,8 @@ const CONTENT: Record<SafetyContentId, SafetyContent> = {
   "opioid-tolerance-review": {
     id: "opioid-tolerance-review",
     heading: "Reduced tolerance can increase overdose risk",
-    body: "After a period of reduced use or abstinence, returning to a previously used amount can increase overdose risk. Alcohol, benzodiazepines and other sedatives can increase that risk further.",
-    actionText: "Discuss safer next steps and naloxone with an appropriate clinician or local drug service.",
+    body: "After abstinence or a substantial reduction, opioid tolerance can fall. Returning to an amount that was previously tolerated can be dangerous and may cause overdose. Alcohol, benzodiazepines and other sedatives increase that risk further. Ask an appropriate local service about take-home naloxone and how to use it.",
+    actionText: "Contact an appropriate clinician or local drug service to discuss safer next steps and obtaining naloxone where relevant.",
   },
   "stimulant-urgent": {
     id: "stimulant-urgent",

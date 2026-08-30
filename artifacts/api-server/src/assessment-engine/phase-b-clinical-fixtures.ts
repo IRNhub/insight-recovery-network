@@ -72,16 +72,16 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
     "alcohol-intended-change": "abrupt",
     "alcohol-tolerance": "yes",
     "alcohol-morning-relief": "daily-or-almost-daily",
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["alcohol-withdrawal-review"] }),
-  fixture("alcohol-use-current-severe-withdrawal", "alcohol-use", "Current severe alcohol-withdrawal symptoms", {
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
+  fixture("alcohol-use-current-severe-withdrawal", "alcohol-use", "Current severe non-acute alcohol-withdrawal symptoms", {
     "alcohol-current-withdrawal": "severe",
-  }, { safetyAction: "emergency-help-now", requiredContentIds: ["alcohol-withdrawal-emergency"], requireCommercialSuppression: true }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("alcohol-use-benzodiazepines", "alcohol-use", "Alcohol with benzodiazepine co-use", {
     "alcohol-co-use": ["benzodiazepines"],
   }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["benzodiazepine-withdrawal-review"] }),
   fixture("alcohol-use-opioids", "alcohol-use", "Alcohol with opioid co-use", {
     "alcohol-co-use": ["opioids"],
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["opioid-overdose-caution"] }),
+  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["opioid-overdose-caution"], requireCommercialSuppression: true }),
   fixture("alcohol-use-pregnancy-dependence", "alcohol-use", "Pregnancy with alcohol dependence indicators", {
     pregnancy: "yes",
     "alcohol-morning-relief": "weekly",
@@ -100,7 +100,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   fixture("alcohol-detox-prior-seizure", "alcohol-detox", "Prior alcohol-withdrawal seizure", {
     "alcohol-prior-seizure": "yes",
     "alcohol-intended-change": "abrupt",
-  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("alcohol-detox-prior-confusion", "alcohol-detox", "Hallucination, confusion or delirium history", {
     "alcohol-prior-hallucination-confusion": "yes",
   }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["alcohol-withdrawal-review"] }),
@@ -115,7 +115,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["medical-vulnerability-review"] }),
   fixture("alcohol-detox-polysubstance", "alcohol-detox", "Alcohol with multiple sedating substances", {
     "alcohol-co-use": ["benzodiazepines", "opioids"],
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["benzodiazepine-withdrawal-review", "opioid-overdose-caution"] }),
+  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["benzodiazepine-withdrawal-review", "opioid-overdose-caution"], requireCommercialSuppression: true }),
 
   fixture("drug-cannabis-consequences", "drug-use", "Cannabis with functional consequences", {
     substances: ["cannabis"],
@@ -136,7 +136,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   fixture("drug-opioid-daily", "drug-use", "Daily opioid use", {
     substances: ["opioids"],
     "substance-opioid-frequency": "daily",
-  }, { prohibitedContentIds: ["alcohol-withdrawal-urgent"] }),
+  }, { safetyAction: "no-immediate-warning-identified", requiredContentIds: ["opioid-harm-reduction"], prohibitedContentIds: ["alcohol-withdrawal-urgent"] }),
   fixture("drug-opioid-reduced-tolerance", "drug-use", "Opioid use after reduced tolerance", {
     substances: ["opioids"],
     "substance-opioid-recent-abstinence": "yes",
@@ -149,16 +149,17 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   fixture("drug-opioid-sedative", "drug-use", "Opioid and sedative co-use", {
     substances: ["opioids"],
     "substance-opioid-co-use": ["benzodiazepines"],
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["opioid-overdose-caution"] }),
+  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["opioid-overdose-caution"], requireCommercialSuppression: true }),
   fixture("drug-benzodiazepine-regular", "drug-use", "Regular benzodiazepine use with intended abrupt reduction", {
     substances: ["benzodiazepines"],
     "substance-benz-frequency": "daily",
     "substance-benz-abrupt": "yes",
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["benzodiazepine-withdrawal-review"], prohibitedContentIds: ["alcohol-withdrawal-urgent"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["benzodiazepine-withdrawal-urgent"], prohibitedContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("drug-ghb-frequent", "drug-use", "Frequent GHB or GBL use", {
     substances: ["ghb-gbl"],
     "substance-ghb-frequency": "multiple-daily",
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["ghb-gbl-withdrawal-review"], prohibitedContentIds: ["alcohol-withdrawal-urgent"] }),
+    "substance-ghb-intended-change": "abrupt",
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["ghb-gbl-withdrawal-urgent"], prohibitedContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("drug-ketamine-urinary", "drug-use", "Ketamine use with urinary symptoms", {
     substances: ["ketamine"],
     "substance-ketamine-frequency": "daily",
@@ -172,13 +173,13 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
     substances: ["alcohol"],
     "intended-change": "abrupt",
     "substance-alcohol-prior-seizure": "yes",
-  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["alcohol-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("detox-benzodiazepine", "detox-suitability", "Benzodiazepine change planning", {
     substances: ["benzodiazepines"],
     "intended-change": "abrupt",
     "substance-benz-frequency": "daily",
     "substance-benz-abrupt": "yes",
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["benzodiazepine-withdrawal-review"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["benzodiazepine-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("detox-opioid", "detox-suitability", "Opioid change planning after reduced tolerance", {
     substances: ["opioids"],
     "substance-opioid-reduced-tolerance": "yes",
@@ -186,7 +187,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   fixture("detox-ghb", "detox-suitability", "GHB or GBL change planning with withdrawal", {
     substances: ["ghb-gbl"],
     "substance-ghb-withdrawal": "significant",
-  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["ghb-gbl-withdrawal-urgent"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["ghb-gbl-withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("detox-stimulant", "detox-suitability", "Stimulant change planning with sleep deprivation", {
     substances: ["stimulants"],
     "substance-stimulant-sleep": "none-two-days",
@@ -202,7 +203,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
   }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["ketamine-urinary-review"] }),
   fixture("detox-polysubstance", "detox-suitability", "Polysubstance change planning", {
     substances: ["benzodiazepines", "opioids"],
-  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["polysubstance-review"] }),
+  }, { safetyAction: "clinical-review-recommended", requiredContentIds: ["opioid-overdose-caution", "polysubstance-review"], requireCommercialSuppression: true }),
   fixture("detox-contradictory-hidden-opioid-answer", "detox-suitability", "Contradictory branch answers are rejected", {
     substances: ["cannabis"],
     "substance-opioid-overdose-history": "yes",
@@ -211,7 +212,7 @@ export const phaseBClinicalFixtures: PhaseBClinicalFixture[] = [
     substances: ["other"],
     "substance-other-name": "Synthetic unlisted substance",
     "substance-other-current-symptoms": "severe",
-  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["withdrawal-urgent"] }),
+  }, { safetyAction: "urgent-same-day-assessment", requiredContentIds: ["withdrawal-urgent"], requireCommercialSuppression: true }),
   fixture("detox-medical-vulnerability", "detox-suitability", "Medical vulnerability", {
     substances: ["cannabis"],
     "medical-vulnerability": "yes",
@@ -231,7 +232,7 @@ export function materialisePhaseBClinicalFixtures() {
     } catch (error) {
       if (!(error instanceof AssessmentValidationError) || !fixture.expected.validationErrorField) throw error;
       return {
-        approvalStatus: "PENDING CLINICAL DIRECTOR APPROVAL",
+        approvalStatus: "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
         fixtureId: fixture.id,
         assessmentKey: fixture.assessmentKey,
         profile: fixture.profile,
@@ -253,7 +254,7 @@ export function materialisePhaseBClinicalFixtures() {
     }
     const result = evaluateAssessment(definition, answers);
     return {
-      approvalStatus: "PENDING CLINICAL DIRECTOR APPROVAL",
+      approvalStatus: "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
       fixtureId: fixture.id,
       assessmentKey: fixture.assessmentKey,
       profile: fixture.profile,

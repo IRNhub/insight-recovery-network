@@ -1,13 +1,15 @@
 # IRN Assessment Platform Phase B instrument decision
 
 Date: 30 August 2026
-Status: implementation record, pending legal and Clinical Director approval
+Status: IRN descriptive-profile clinical architecture and rules approved by the Clinical Director on 30 August 2026; legal and WHO permission gates remain open
 
 ## Decision
 
 The four Phase B assessments use clearly labelled IRN-developed descriptive needs profiles. They do not reproduce, approximate, score or claim to be WHO AUDIT or WHO ASSIST. No combined IRN total is produced.
 
 This is the authorised fallback in the Phase B brief. It preserves independent safety triage and leaves the definition contract ready for a later permission-confirmed validated instrument.
+
+The Clinical Director approval applies to the implemented IRN descriptive questions, safety mappings, deterministic interpretation and pathways after the final clinical correction pass. It is not legal advice, a privacy or regulatory approval, a device-classification decision, or permission to reproduce WHO AUDIT or WHO ASSIST.
 
 ## WHO AUDIT
 
@@ -44,4 +46,4 @@ Therefore:
 
 ## Approval gates
 
-Before either instrument can be activated, IRN should retain written permission or other documented legal authority, confirm the intended administration model, obtain Clinical Director approval, implement the instrument as a separately identified score, and add official worked-example and boundary tests from the authorised source.
+Before either WHO instrument can be activated, IRN should retain written permission or other documented legal authority, confirm the intended administration model, obtain separate Clinical Director approval for that instrument implementation, implement the instrument as a separately identified score, and add official worked-example and boundary tests from the authorised source. The approval recorded above does not satisfy these WHO instrument gates.

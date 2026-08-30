@@ -102,6 +102,7 @@ export type SafetyContentId =
   | "ghb-gbl-withdrawal-review"
   | "ghb-gbl-withdrawal-urgent"
   | "ghb-gbl-withdrawal-emergency"
+  | "opioid-harm-reduction"
   | "opioid-overdose-caution"
   | "opioid-overdose-emergency"
   | "opioid-tolerance-review"

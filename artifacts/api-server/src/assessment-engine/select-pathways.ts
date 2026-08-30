@@ -27,9 +27,14 @@ export function selectPathways(
       } else requiredIds.add("self-guided");
     }
     else if (["anxiety", "depression"].includes(definition.key)) {
-      requiredIds.add("nhs-talking-therapies");
-      if (screening.level === "higher-concern" || screening.level === "elevated-concern") requiredIds.add("gp-review");
-      else requiredIds.add("self-guided");
+      if (screening.level === "lower-concern") {
+        requiredIds.add("self-guided");
+        requiredIds.add("nhs-talking-therapies");
+      } else {
+        requiredIds.add("nhs-talking-therapies");
+        if (screening.level === "higher-concern" || screening.level === "elevated-concern") requiredIds.add("gp-review");
+        else requiredIds.add("self-guided");
+      }
     }
     else if (screening.source === "irn-descriptive-profile") {
       const elevatedDomains = domains.filter((domain) => ["elevated", "prominent"].includes(domain.state));
@@ -70,5 +75,5 @@ export function selectPathways(
     })
     .filter((pathway): pathway is PathwayRecommendation => pathway !== null)
     .filter((pathway) => !safety.suppressCommercialCtas || !pathway.commercial)
-    .sort((a, b) => b.priority - a.priority);
+    .sort((a, b) => Number(a.commercial) - Number(b.commercial) || b.priority - a.priority);
 }

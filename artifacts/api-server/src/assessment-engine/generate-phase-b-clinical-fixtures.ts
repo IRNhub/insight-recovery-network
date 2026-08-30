@@ -10,7 +10,8 @@ const outputPath = resolve(
 const pack = {
   title: "IRN Assessment Platform Phase B Clinical Director Fixture Pack",
   generatedAt: "2026-08-30",
-  approvalStatus: "PENDING CLINICAL DIRECTOR APPROVAL",
+  approvalStatus: "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+  clinicalDirectorApprovalDate: "2026-08-30",
   instrumentDecision: "No validated instrument result is included because commercial reproduction permission for WHO AUDIT and WHO ASSIST was not supplied or conclusively established.",
   fixtures: materialisePhaseBClinicalFixtures(),
 };

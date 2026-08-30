@@ -2,6 +2,7 @@ import type {
   AssessmentAnswers,
   AssessmentDefinition,
   SafetyAction,
+  SafetyContent,
   SafetyResult,
   SafetyRule,
   TriggeredSafetyRule,
@@ -31,6 +32,29 @@ function ruleMatches(rule: SafetyRule, answers: AssessmentAnswers): boolean {
   return allMatch && anyMatch;
 }
 
+function buildSafetyContent(matched: SafetyRule[]): SafetyContent[] {
+  const contentIds = matched.length > 0
+    ? [...new Set(matched.map((rule) => rule.contentId))]
+    : ["screening-limitation" as const];
+  const hasPhqItemNine = contentIds.includes("phq9-item9-review");
+  const sharedMentalHealthId = contentIds.find((id) => [
+    "mental-health-support",
+    "mental-health-current-review",
+    "mental-health-urgent",
+    "mental-health-emergency",
+  ].includes(id));
+
+  if (hasPhqItemNine && sharedMentalHealthId) {
+    const base = getSafetyContent(sharedMentalHealthId);
+    return [{
+      ...base,
+      body: `${base.body} Your PHQ-9 item 9 response remains part of the PHQ-9 score, but it is not a suicide-risk score. The symptom total does not determine immediate safety. This guidance is based on your separate safety answer and current context.`,
+    }];
+  }
+
+  return contentIds.map(getSafetyContent);
+}
+
 export function evaluateSafety(
   definition: AssessmentDefinition,
   answers: AssessmentAnswers,
@@ -50,18 +74,16 @@ export function evaluateSafety(
     pathwayIds: rule.pathwayIds,
     approvalStatus: rule.approval.status,
   }));
-  const contentIds = matched.length > 0
-    ? [...new Set(matched.map((rule) => rule.contentId))]
-    : ["screening-limitation" as const];
-
   return {
     action,
     publicHeading: ACTION_HEADING[action],
     limitation: "This online assessment cannot rule out medical or mental-health risk. Seek professional or emergency help whenever you feel concerned or unsafe.",
     triggeredRules,
-    content: contentIds.map(getSafetyContent),
+    content: buildSafetyContent(matched),
     suppressCommercialCtas:
-      action === "emergency-help-now" || matched.some((rule) => rule.suppressCommercialCtas),
+      action === "urgent-same-day-assessment"
+      || action === "emergency-help-now"
+      || matched.some((rule) => rule.suppressCommercialCtas),
   };
 }
 

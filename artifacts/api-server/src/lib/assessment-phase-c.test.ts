@@ -153,7 +153,8 @@ test("Phase C activates only the authorised adult mental-health v2 definitions",
     const definition = getActiveDefinition(key);
     assert.equal(definition.version, 2);
     assert.equal(definition.engineVersion, "phase-c-v2");
-    assert.equal(definition.clinicalApproval.status, "pending-clinical-director");
+    assert.equal(definition.clinicalApproval.status, "approved");
+    assert.equal(definition.clinicalApproval.approvedAt, "2026-08-30");
     assert.equal(definition.eligibility?.questionId, "age-eligibility");
     assert.deepEqual(definition.eligibility?.allowedValues, ["adult"]);
   }
@@ -334,7 +335,7 @@ test("the 26-fixture Clinical Director pack is complete and every expected mappi
   assert.equal(phaseCClinicalFixtures.filter((fixture) => fixture.assessmentKey === "adhd").length, 9);
   for (const fixture of materialised) {
     const expected = fixture.expectedReviewAssertions;
-    assert.equal(fixture.approvalStatus, "PENDING CLINICAL DIRECTOR APPROVAL");
+    assert.equal(fixture.approvalStatus, "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026");
     assert.equal(fixture.validatedInstrumentResult?.rawScore, expected.score, fixture.fixtureId);
     assert.equal(fixture.validatedInstrumentResult?.band, expected.band, fixture.fixtureId);
     assert.equal(fixture.safetyAction, expected.safetyAction, fixture.fixtureId);
