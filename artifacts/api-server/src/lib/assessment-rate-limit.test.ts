@@ -10,6 +10,7 @@ import {
   type AssessmentRateLimitIncrement,
   type AssessmentRateLimitStore,
 } from "../assessment-engine/assessment-rate-limit.ts";
+import { isProductionRuntime } from "./runtime-environment.ts";
 
 interface MemoryRow {
   count: number;
@@ -97,6 +98,22 @@ test("distributed limiter uses PostgreSQL atomic upsert and trusted Express IP d
   assert.match(appSource, /app\.set\("trust proxy", 1\)/);
   assert.match(migrationSource, /assessment_rate_limits_scope_key_uq/);
   assert.match(migrationSource, /assessment_rate_limits_expires_at_idx/);
+});
+
+test("published Replit apps retain production proxy, cookie and logging security without relying on NODE_ENV", async () => {
+  assert.equal(isProductionRuntime({ REPLIT_DEPLOYMENT: "1" }), true);
+  assert.equal(isProductionRuntime({ NODE_ENV: "production" }), true);
+  assert.equal(isProductionRuntime({ NODE_ENV: "development" }), false);
+
+  const runtimeSource = await readFile(new URL("./runtime-environment.ts", import.meta.url), "utf8");
+  const resultAccessSource = await readFile(
+    new URL("../assessment-engine/result-access.ts", import.meta.url),
+    "utf8",
+  );
+  const loggerSource = await readFile(new URL("./logger.ts", import.meta.url), "utf8");
+  assert.match(runtimeSource, /environment\.REPLIT_DEPLOYMENT === "1"/);
+  assert.match(resultAccessSource, /secure: isProductionRuntime\(\)/);
+  assert.match(loggerSource, /isProductionRuntime\(\)/);
 });
 
 test("two simulated application instances share one effective allowance", async () => {

@@ -5,10 +5,11 @@ import cors from "cors";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import { isProductionRuntime } from "./lib/runtime-environment.ts";
 
 const app: Express = express();
 
-if (process.env.NODE_ENV === "production") {
+if (isProductionRuntime()) {
   // Replit/Google Frontend is the only trusted proxy hop. Express then derives
   // req.ip safely instead of application code trusting a spoofable header.
   app.set("trust proxy", 1);
