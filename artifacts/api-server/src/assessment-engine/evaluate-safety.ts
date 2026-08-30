@@ -1,5 +1,4 @@
 import type {
-  AnswerCondition,
   AssessmentAnswers,
   AssessmentDefinition,
   SafetyAction,
@@ -7,6 +6,7 @@ import type {
   SafetyRule,
   TriggeredSafetyRule,
 } from "./contracts.ts";
+import { answerConditionMatches } from "./branching.ts";
 import { getSafetyContent } from "./safety-content.ts";
 
 const ACTION_RANK: Record<SafetyAction, number> = {
@@ -25,19 +25,9 @@ const ACTION_HEADING: Record<SafetyAction, string> = {
   "emergency-help-now": "Please get emergency help now",
 };
 
-function conditionMatches(condition: AnswerCondition, answers: AssessmentAnswers): boolean {
-  const answer = answers[condition.questionId];
-  if (answer === undefined) return false;
-  const values = Array.isArray(answer) ? answer : [answer];
-  if (condition.equals !== undefined) return values.length === 1 && values[0] === condition.equals;
-  if (condition.includes !== undefined) return values.includes(condition.includes);
-  if (condition.oneOf !== undefined) return values.some((value) => condition.oneOf!.includes(value));
-  return false;
-}
-
 function ruleMatches(rule: SafetyRule, answers: AssessmentAnswers): boolean {
-  const allMatch = !rule.all || rule.all.every((condition) => conditionMatches(condition, answers));
-  const anyMatch = !rule.any || rule.any.some((condition) => conditionMatches(condition, answers));
+  const allMatch = !rule.all || rule.all.every((condition) => answerConditionMatches(condition, answers));
+  const anyMatch = !rule.any || rule.any.some((condition) => answerConditionMatches(condition, answers));
   return allMatch && anyMatch;
 }
 

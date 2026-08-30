@@ -47,18 +47,29 @@ export function buildInterpretation(
   }
 
   const topLabels = rankedDomains.slice(0, 2).map((domain) => domain.label.toLowerCase());
-  const summary = topLabels.length >= 2
-    ? `Your ${screening.label.toLowerCase()} descriptive result is mainly shaped by ${topLabels[0]} together with ${topLabels[1]}. The interaction between those areas is more useful than the total score alone.`
-    : topLabels.length === 1
-      ? `Your ${screening.label.toLowerCase()} descriptive result is mainly shaped by ${topLabels[0]}. The safety guidance and limitations remain separate from this score.`
-      : `Your answers fall within the ${screening.label.toLowerCase()} range of this IRN-developed descriptive screen. No single domain was elevated, but this does not rule out a need for professional support.`;
+  const summary = screening.source === "irn-descriptive-profile"
+    ? topLabels.length >= 2
+      ? `Your descriptive profile is mainly shaped by ${topLabels[0]} together with ${topLabels[1]}. Looking at how these areas interact is more useful than treating them as one combined score.`
+      : topLabels.length === 1
+        ? `Your descriptive profile is mainly shaped by ${topLabels[0]}. This profile has no combined total, and the safety guidance remains separate.`
+        : "No single domain stood out in this descriptive profile. That does not rule out a need for professional support, and the safety guidance remains separate."
+    : topLabels.length >= 2
+      ? `Your ${screening.label.toLowerCase()} result is mainly shaped by ${topLabels[0]} together with ${topLabels[1]}. The interaction between those areas provides useful context for the screening score.`
+      : topLabels.length === 1
+        ? `Your ${screening.label.toLowerCase()} result is mainly shaped by ${topLabels[0]}. The safety guidance and limitations remain separate from this score.`
+        : `Your answers fall within the ${screening.label.toLowerCase()} range of this IRN-developed screen. No single domain was elevated, but this does not rule out a need for professional support.`;
 
   const protectiveFactors: PatternFinding[] = [];
+  const readinessDomainId = domains.some((domain) => domain.id === "readiness-support")
+    ? "readiness-support"
+    : domains.some((domain) => domain.id === "mental-health-readiness")
+      ? "mental-health-readiness"
+      : "readiness";
   if (answers["support"] === "yes") {
-    protectiveFactors.push({ id: "protective.available-support", title: "Available support", statement: "You indicated that someone may be available to support you.", whyItMatters: "Practical support can help with planning, but it does not replace medical assessment where safety concerns are present.", evidenceDomainIds: ["readiness"] });
+    protectiveFactors.push({ id: "protective.available-support", title: "Available support", statement: "You indicated that someone may be available to support you.", whyItMatters: "Practical support can help with planning, but it does not replace medical assessment where safety concerns are present.", evidenceDomainIds: [readinessDomainId] });
   }
-  if (answers["motivation"] === "ready") {
-    protectiveFactors.push({ id: "protective.readiness", title: "Readiness to seek change", statement: "You indicated that you feel ready to make a change.", whyItMatters: "Readiness can help engagement with support, while the safest method still depends on clinical context.", evidenceDomainIds: ["readiness", "mental-health-readiness"] });
+  if (answers["motivation"] === "ready" || answers["readiness"] === "ready" || answers["readiness"] === "already-changing") {
+    protectiveFactors.push({ id: "protective.readiness", title: "Readiness to seek change", statement: "You indicated that you feel ready to make or continue a change.", whyItMatters: "Readiness can help engagement with support, while the safest method still depends on clinical context.", evidenceDomainIds: [readinessDomainId] });
   }
 
   return {

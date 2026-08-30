@@ -10,6 +10,7 @@ import type {
   SafetyRule,
 } from "./contracts.ts";
 import { legacyDefinitionSnapshotV1 } from "./legacy-definition-snapshot-v1.ts";
+import { phaseBSubstanceDefinitionsV2 } from "./phase-b-substance-definitions-v2.ts";
 
 export const ENGINE_VERSION = "phase-a-v1";
 
@@ -214,7 +215,13 @@ function deepFreeze<T>(value: T): T {
   return value;
 }
 
-function buildDefinition(key: AssessmentKey): AssessmentDefinition {
+function finaliseDefinition(definition: AssessmentDefinition): AssessmentDefinition {
+  const draft = { ...definition, definitionHash: "" };
+  const definitionHash = createHash("sha256").update(stableStringify(draft)).digest("hex");
+  return deepFreeze({ ...draft, definitionHash });
+}
+
+function buildLegacyDefinition(key: AssessmentKey): AssessmentDefinition {
   const legacy = legacyDefinitionSnapshotV1[key];
   const draft = {
     key,
@@ -233,21 +240,33 @@ function buildDefinition(key: AssessmentKey): AssessmentDefinition {
       higherConcern: legacy.scoreThresholds.higherConcern,
       possibleDetoxRisk: legacy.scoreThresholds.possibleDetoxRisk,
     },
+    instrument: null,
     domainRules: domainRulesFor(key),
     safetyRules: [...(SELF_HARM_RULES[key] ?? []), ...(WITHDRAWAL_RULES[key] ?? [])],
     interpretationRules: PAIR_RULES[key].map((rule) => ({ ...rule, approval: PENDING_RULE_APPROVAL })),
     pathwayRules: PATHWAYS.filter((pathway) => !pathway.assessmentKeys || pathway.assessmentKeys.includes(key)),
     clinicalApproval: FOUNDATION_APPROVAL,
   };
-  const definitionHash = createHash("sha256").update(stableStringify(draft)).digest("hex");
-  return deepFreeze({ ...draft, definitionHash });
+  return finaliseDefinition(draft);
 }
 
-const ACTIVE_DEFINITIONS = deepFreeze(
-  Object.fromEntries(
-    (Object.keys(legacyDefinitionSnapshotV1) as AssessmentKey[]).map((key) => [key, buildDefinition(key)]),
-  ) as Record<AssessmentKey, AssessmentDefinition>,
+const LEGACY_DEFINITIONS = (Object.keys(legacyDefinitionSnapshotV1) as AssessmentKey[])
+  .map(buildLegacyDefinition);
+const PHASE_B_DEFINITIONS = phaseBSubstanceDefinitionsV2.map(finaliseDefinition);
+const ALL_DEFINITIONS = deepFreeze([...LEGACY_DEFINITIONS, ...PHASE_B_DEFINITIONS]);
+const DEFINITIONS_BY_KEY = new Map<AssessmentKey, AssessmentDefinition[]>(
+  (Object.keys(legacyDefinitionSnapshotV1) as AssessmentKey[]).map((key) => [
+    key,
+    ALL_DEFINITIONS.filter((definition) => definition.key === key)
+      .sort((a, b) => a.version - b.version),
+  ]),
 );
+const ACTIVE_DEFINITIONS = deepFreeze(Object.fromEntries(
+  [...DEFINITIONS_BY_KEY.entries()].map(([key, definitions]) => [
+    key,
+    definitions.filter((definition) => definition.status === "active").at(-1)!,
+  ]),
+) as Record<AssessmentKey, AssessmentDefinition>);
 
 export function isAssessmentKey(value: string): value is AssessmentKey {
   return value in ACTIVE_DEFINITIONS;
@@ -258,8 +277,7 @@ export function getActiveDefinition(key: AssessmentKey): AssessmentDefinition {
 }
 
 export function getDefinition(key: AssessmentKey, version: number): AssessmentDefinition | null {
-  const definition = ACTIVE_DEFINITIONS[key];
-  return definition.version === version ? definition : null;
+  return DEFINITIONS_BY_KEY.get(key)?.find((definition) => definition.version === version) ?? null;
 }
 
 export function listActiveDefinitions(): AssessmentDefinition[] {
@@ -278,12 +296,14 @@ export function toPublicDefinition(definition: AssessmentDefinition): PublicAsse
       id: section.id,
       title: section.title,
       description: section.description,
+      displayWhen: section.displayWhen,
       questions: section.questions.map((question) => ({
         id: question.id,
         text: question.text,
         subtext: question.subtext,
         type: question.type,
         required: question.required,
+        displayWhen: question.displayWhen,
         options: question.options?.map((option) => ({ value: option.value, label: option.label })),
       })),
     })),

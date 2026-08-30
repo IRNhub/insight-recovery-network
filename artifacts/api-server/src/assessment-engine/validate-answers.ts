@@ -6,13 +6,14 @@ import type {
   ValidatedSubmission,
 } from "./contracts.ts";
 import { getDefinition, isAssessmentKey } from "./registry.ts";
+import { questionIsApplicable } from "./branching.ts";
 
 const RawSubmissionSchema = z.object({
   assessmentKey: z.string().min(1).max(80),
   definitionVersion: z.number().int().positive(),
   submissionKey: z.string().uuid(),
   answers: z.record(z.string().min(1), z.union([z.string(), z.array(z.string())])),
-  consent: z.literal(true),
+  consent: z.boolean().optional(),
 });
 
 export const PHASE_A_PRIVACY_NOTICE_VERSION = "phase-a-2026-08-30";
@@ -43,8 +44,10 @@ export function validateAnswers(
   rawAnswers: AssessmentAnswers,
 ): AssessmentAnswers {
   const issues: Array<{ field: string; message: string }> = [];
-  const questions = definition.sections.flatMap((section) => section.questions);
-  const questionMap = new Map(questions.map((question) => [question.id, question]));
+  const entries = definition.sections.flatMap((section) =>
+    section.questions.map((question) => ({ section, question })),
+  );
+  const questionMap = new Map(entries.map(({ question }) => [question.id, question]));
 
   for (const answerId of Object.keys(rawAnswers)) {
     if (!questionMap.has(answerId)) {
@@ -53,14 +56,9 @@ export function validateAnswers(
   }
 
   const cleanAnswers: AssessmentAnswers = {};
-  for (const question of questions) {
+  for (const { question } of entries) {
     const answer = rawAnswers[question.id];
-    if (answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0)) {
-      if (question.required) {
-        issues.push({ field: `answers.${question.id}`, message: "An answer is required" });
-      }
-      continue;
-    }
+    if (answer === undefined || answer === "" || (Array.isArray(answer) && answer.length === 0)) continue;
 
     if (question.type === "radio" || question.type === "checkbox") {
       if (!question.options) {
@@ -92,6 +90,19 @@ export function validateAnswers(
       continue;
     }
     cleanAnswers[question.id] = answer.trim();
+  }
+
+  for (const { section, question } of entries) {
+    const applicable = questionIsApplicable(section, question, cleanAnswers);
+    const supplied = cleanAnswers[question.id] !== undefined;
+    if (!applicable && supplied) {
+      delete cleanAnswers[question.id];
+      issues.push({ field: `answers.${question.id}`, message: "Question is not applicable to the selected substance or context" });
+      continue;
+    }
+    if (applicable && question.required && !supplied) {
+      issues.push({ field: `answers.${question.id}`, message: "An answer is required" });
+    }
   }
 
   if (issues.length > 0) throw new AssessmentValidationError(issues);
@@ -126,6 +137,13 @@ export function parseSubmissionPayload(raw: unknown): {
     ]);
   }
 
+  const requiresContactConsent = definition.sections.some((section) => section.id === "contact-consent");
+  if (requiresContactConsent && parsed.data.consent !== true) {
+    throw new AssessmentValidationError([
+      { field: "consent", message: "Consent is required for this legacy definition" },
+    ]);
+  }
+
   return {
     definition,
     submission: {
@@ -133,8 +151,10 @@ export function parseSubmissionPayload(raw: unknown): {
       definitionVersion: parsed.data.definitionVersion,
       submissionKey: parsed.data.submissionKey,
       answers: validateAnswers(definition, parsed.data.answers),
-      consent: parsed.data.consent,
-      privacyNoticeVersion: PHASE_A_PRIVACY_NOTICE_VERSION,
+      consent: parsed.data.consent === true,
+      privacyNoticeVersion: requiresContactConsent
+        ? PHASE_A_PRIVACY_NOTICE_VERSION
+        : "phase-b-anonymous-2026-08-30",
     },
   };
 }

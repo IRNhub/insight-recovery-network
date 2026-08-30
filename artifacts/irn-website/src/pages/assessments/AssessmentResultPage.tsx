@@ -36,7 +36,7 @@ export default function AssessmentResultPage() {
         noIndex={true}
       />
       {result ? (
-        <AssessmentResult result={result} onCtaClick={recordCtaClick} />
+        <AssessmentResult result={result} onCtaClick={recordCtaClick} onResultUpdate={setResult} />
       ) : (
         <main className="min-h-[60vh] bg-[#F6F4F0] px-6 py-20">
           <div className="mx-auto max-w-xl border border-border/60 bg-white p-8">

@@ -28,6 +28,7 @@ export interface AssessmentQuestion {
   options?: AssessmentOption[];
   required?: boolean;
   redFlagKey?: string;
+  displayWhen?: BranchConditionSet;
 }
 
 export interface AssessmentSection {
@@ -35,6 +36,7 @@ export interface AssessmentSection {
   title: string;
   description?: string;
   questions: AssessmentQuestion[];
+  displayWhen?: BranchConditionSet;
 }
 
 export type DefinitionStatus = "draft" | "active" | "retired";
@@ -59,7 +61,14 @@ export interface AnswerCondition {
   questionId: string;
   equals?: string;
   includes?: string;
+  notIncludes?: string;
   oneOf?: string[];
+  minimumSelections?: number;
+}
+
+export interface BranchConditionSet {
+  all?: AnswerCondition[];
+  any?: AnswerCondition[];
 }
 
 export interface SafetyRule {
@@ -82,9 +91,22 @@ export type SafetyContentId =
   | "mental-health-emergency"
   | "alcohol-withdrawal-review"
   | "alcohol-withdrawal-urgent"
+  | "alcohol-withdrawal-emergency"
   | "benzodiazepine-withdrawal-review"
+  | "benzodiazepine-withdrawal-urgent"
+  | "benzodiazepine-withdrawal-emergency"
   | "ghb-gbl-withdrawal-review"
+  | "ghb-gbl-withdrawal-urgent"
+  | "ghb-gbl-withdrawal-emergency"
   | "opioid-overdose-caution"
+  | "opioid-overdose-emergency"
+  | "opioid-tolerance-review"
+  | "stimulant-urgent"
+  | "stimulant-emergency"
+  | "stimulant-mental-health-review"
+  | "ketamine-urinary-review"
+  | "cannabis-support-review"
+  | "pregnancy-substance-review"
   | "polysubstance-review"
   | "withdrawal-review"
   | "withdrawal-urgent"
@@ -100,7 +122,8 @@ export interface SafetyContent {
 
 export interface DomainRule {
   id: string;
-  sectionId: string;
+  sectionId?: string;
+  questionIds?: string[];
   label: string;
   elevatedText: string;
   whyItMatters: string;
@@ -157,6 +180,19 @@ export interface AssessmentDefinition {
     moderateConcern: number;
     higherConcern: number;
     possibleDetoxRisk: number;
+  } | {
+    kind: "irn-descriptive-profile";
+    profileLabel: string;
+    explanation: string;
+  };
+  instrument: null | {
+    kind: "audit" | "assist";
+    name: string;
+    version: string;
+    questionIds: string[];
+    maximumScore: number;
+    permissionStatus: "confirmed";
+    sourceUrl: string;
   };
   domainRules: DomainRule[];
   safetyRules: SafetyRule[];
@@ -197,11 +233,12 @@ export interface DomainResult {
 
 export interface ScreeningClassification {
   source: "irn-legacy-custom" | "validated-instrument" | "irn-descriptive-profile";
-  value: number;
-  maximumValue: number;
-  level: "lower-concern" | "moderate-concern" | "higher-concern" | "elevated-concern";
+  value: number | null;
+  maximumValue: number | null;
+  level: "lower-concern" | "moderate-concern" | "higher-concern" | "elevated-concern" | "descriptive-profile";
   label: string;
   explanation: string;
+  displayScore: boolean;
 }
 
 export interface TriggeredSafetyRule {
@@ -291,6 +328,20 @@ export interface ValidatedSubmission {
   submissionKey: string;
   answers: AssessmentAnswers;
   consent: boolean;
+  privacyNoticeVersion: string;
+}
+
+export interface AssessmentContactPermissions {
+  emailResult: boolean;
+  irnFollowUp: boolean;
+  marketing: boolean;
+}
+
+export interface AssessmentContactRequest {
+  name?: string;
+  email: string;
+  phone?: string;
+  permissions: AssessmentContactPermissions;
   privacyNoticeVersion: string;
 }
 

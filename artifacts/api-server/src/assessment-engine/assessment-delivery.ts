@@ -19,6 +19,18 @@ function deterministicBrief(record: StoredAssessmentResult): string {
 }
 
 async function forwardAuthoritativeAssessment(record: StoredAssessmentResult): Promise<void> {
+  if (!record.contact.name || !record.contact.email) {
+    const error = new Error("IRNOS follow-up contact details are incomplete");
+    error.name = "contact_missing";
+    throw error;
+  }
+  const hasFollowUpPermission = record.submission.consent ||
+    ["queued", "failed", "forwarded"].includes(record.result.delivery.irnOs);
+  if (!hasFollowUpPermission) {
+    const error = new Error("IRNOS follow-up permission is missing");
+    error.name = "consent_missing";
+    throw error;
+  }
   const forwarded = await forwardAssessmentToIrnOs({
     assessmentId: record.storageId,
     createdAt: new Date(record.result.completedAt),
@@ -26,7 +38,7 @@ async function forwardAuthoritativeAssessment(record: StoredAssessmentResult): P
     email: record.contact.email,
     phone: record.contact.phone,
     type: record.result.assessmentKey,
-    scoreValue: record.result.screening.value,
+    scoreValue: record.result.screening.value ?? undefined,
     scoreLevel: record.result.screening.level,
     bandName: record.result.screening.label,
     redFlags: record.result.safety.triggeredRules.map((rule) => rule.id),
@@ -38,7 +50,7 @@ async function forwardAuthoritativeAssessment(record: StoredAssessmentResult): P
     clinicalBrief: deterministicBrief(record),
     // Raw answers are deliberately not forwarded by the Phase A path.
     answers: undefined,
-    consent: record.submission.consent,
+    consent: true,
     submittedAt: record.result.completedAt,
   });
 
@@ -51,6 +63,11 @@ async function forwardAuthoritativeAssessment(record: StoredAssessmentResult): P
 
 export const assessmentDeliveryHandlers: AssessmentDeliveryHandlers = {
   email(record) {
+    if (!record.contact.email) {
+      const error = new Error("Result email address is missing");
+      error.name = "contact_missing";
+      return Promise.reject(error);
+    }
     return sendAuthoritativeAssessmentEmail({
       name: record.contact.name,
       email: record.contact.email,

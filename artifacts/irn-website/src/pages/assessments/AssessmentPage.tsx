@@ -77,7 +77,7 @@ export default function AssessmentPage({
           definitionVersion: config?.definitionVersion,
           submissionKey: submissionKey.current,
           answers,
-          consent,
+          ...(consent ? { consent: true } : {}),
         }),
       });
 
@@ -107,7 +107,12 @@ export default function AssessmentPage({
     }
   }
 
-  const resultBands = [
+  const resultBands = config?.definitionVersion === 2 ? [
+    { label: "Substance-specific needs profile", colour: "#2e7d52" },
+    { label: "Independent safety guidance", colour: "#b08a2a" },
+    { label: "No combined detox score", colour: "#c0622a" },
+    { label: "Anonymous core result", colour: "#162B3B" },
+  ] : [
     { label: "Lower Concern", colour: "#2e7d52" },
     { label: "Moderate Concern", colour: "#b08a2a" },
     { label: "Higher Concern", colour: "#c0622a" },
@@ -144,6 +149,7 @@ export default function AssessmentPage({
         <AssessmentResult
           result={result}
           onCtaClick={handleCtaClick}
+          onResultUpdate={setResult}
         />
       </>
     );
@@ -263,9 +269,10 @@ export default function AssessmentPage({
             How results are calculated
           </h2>
           <p className="text-muted-foreground font-light mb-8 leading-relaxed">
-            Your descriptive profile is calculated on the server using fixed,
-            versioned rules. Screening severity and safety guidance are assessed
-            separately, so an important single answer cannot be hidden by a total score.
+            Your profile is calculated on the server using fixed, versioned
+            rules. Substance-use patterns, safety guidance and possible pathways
+            are assessed separately, so an important answer cannot be hidden by
+            an overall total.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {resultBands.map((item) => (

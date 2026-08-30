@@ -1,15 +1,20 @@
 import { AlertTriangle, CheckCircle2, ExternalLink, Shield } from "lucide-react";
 import type { AuthoritativeAssessmentResult } from "@/types/assessment";
 import { markAssessmentLinkedHelpJourney } from "@/lib/assessment-tracking-boundary";
+import { AssessmentContactOptions } from "./AssessmentContactOptions";
 
 interface AssessmentResultProps {
   result: AuthoritativeAssessmentResult;
   onCtaClick?: () => void;
+  onResultUpdate?: (result: AuthoritativeAssessmentResult) => void;
 }
 
 const URGENT_ACTIONS = new Set(["urgent-same-day-assessment", "emergency-help-now"]);
 
 function deliveryCopy(result: AuthoritativeAssessmentResult): string {
+  if (result.delivery.email === "not-requested" && result.delivery.irnOs === "not-requested") {
+    return "Your anonymous core result is complete and saved for secure recovery in this browser. No email or IRN follow-up has been requested.";
+  }
   const email = result.delivery.email === "sent"
     ? "Your result email was accepted by our email provider."
     : result.delivery.email === "queued"
@@ -27,7 +32,7 @@ function deliveryCopy(result: AuthoritativeAssessmentResult): string {
   return `${email} ${irnOs}`;
 }
 
-export function AssessmentResult({ result, onCtaClick }: AssessmentResultProps) {
+export function AssessmentResult({ result, onCtaClick, onResultUpdate }: AssessmentResultProps) {
   const urgent = URGENT_ACTIONS.has(result.safety.action);
   const pathways = result.safety.suppressCommercialCtas
     ? result.pathways.filter((pathway) => !pathway.commercial)
@@ -81,17 +86,25 @@ export function AssessmentResult({ result, onCtaClick }: AssessmentResultProps) 
         {urgent && SafetyBlock}
 
         <section className="border border-border/60 bg-white p-6 md:p-7">
-          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Screening profile</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            {result.instrument ? result.instrument.name : "IRN context profile"}
+          </p>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-serif text-2xl text-primary">{result.screening.label}</h2>
-            <p className="text-sm text-muted-foreground">
-              {result.screening.value} of {result.screening.maximumValue}
-            </p>
+            <h2 className="font-serif text-2xl text-primary">
+              {result.instrument ? result.instrument.band : result.screening.label}
+            </h2>
+            {result.instrument ? (
+              <p className="text-sm font-semibold text-primary">
+                {result.instrument.name} score: {result.instrument.rawScore} / {result.instrument.maximumScore}
+              </p>
+            ) : result.screening.displayScore && result.screening.value !== null && result.screening.maximumValue !== null ? (
+              <p className="text-sm text-muted-foreground">
+                {result.screening.value} of {result.screening.maximumValue}
+              </p>
+            ) : null}
           </div>
           <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground">{result.screening.explanation}</p>
         </section>
-
-        {!urgent && SafetyBlock}
 
         <section className="border border-border/60 bg-white p-6 md:p-7">
           <h2 className="font-serif text-2xl text-primary">What your answers may suggest</h2>
@@ -114,6 +127,17 @@ export function AssessmentResult({ result, onCtaClick }: AssessmentResultProps) 
             </div>
           </section>
         )}
+
+        {result.interpretation.whyThisMatters.length > 0 && (
+          <section className="border border-border/60 bg-white p-6 md:p-7">
+            <h2 className="font-serif text-2xl text-primary">Why this matters</h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+              {result.interpretation.whyThisMatters.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {!urgent && SafetyBlock}
 
         <section className="border border-border/60 bg-white p-6 md:p-7">
           <h2 className="font-serif text-2xl text-primary">Your domain profile</h2>
@@ -141,7 +165,21 @@ export function AssessmentResult({ result, onCtaClick }: AssessmentResultProps) 
         )}
 
         <section className="border border-border/60 bg-white p-6 md:p-7">
-          <h2 className="font-serif text-2xl text-primary">Possible next steps</h2>
+          <h2 className="font-serif text-xl text-primary">What this result does not mean</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+            {result.interpretation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}
+          </ul>
+        </section>
+
+        <section className="border border-border/60 bg-white p-6 md:p-7">
+          <h2 className="font-serif text-xl text-primary">What to consider next</h2>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Use the safety guidance first. The pathways below are proportionate options based on the profile and do not replace individual medical or clinical assessment.
+          </p>
+        </section>
+
+        <section className="border border-border/60 bg-white p-6 md:p-7">
+          <h2 className="font-serif text-2xl text-primary">Appropriate pathways</h2>
           <div className="mt-5 flex flex-col gap-3">
             {pathways.map((pathway) => (
               <a
@@ -167,12 +205,13 @@ export function AssessmentResult({ result, onCtaClick }: AssessmentResultProps) 
           </section>
         )}
 
-        <section className="border border-border/60 bg-white p-6 md:p-7">
-          <h2 className="font-serif text-xl text-primary">Important limitations</h2>
-          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
-            {result.interpretation.limitations.map((limitation) => <li key={limitation}>{limitation}</li>)}
-          </ul>
-        </section>
+        {onResultUpdate && (
+          <AssessmentContactOptions
+            result={result}
+            suppressCommercialContact={result.safety.suppressCommercialCtas}
+            onResultUpdate={onResultUpdate}
+          />
+        )}
 
         <div className="flex items-start gap-3 py-4">
           <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />

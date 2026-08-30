@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Shield, ChevronRight, ChevronLeft, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import type { PublicAssessmentConfig, AssessmentAnswers } from "@/types/assessment";
+import { pruneHiddenAnswers, visibleAssessmentSections } from "@/lib/assessment-branching";
 
 interface AssessmentEngineProps {
   config: PublicAssessmentConfig;
@@ -18,15 +19,40 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
   const [errors, setErrors] = useState<Record<string, string>>({});
   const isCompleting = useRef(false);
 
-  const section = config.sections[currentSection];
-  const totalSections = config.sections.length;
+  const visibleSections = visibleAssessmentSections(config, answers);
+  const section = visibleSections[currentSection] ?? visibleSections[0];
+  const totalSections = visibleSections.length;
   const progressPct = Math.round(((currentSection) / totalSections) * 100);
   const isLastSection = currentSection === totalSections - 1;
+  const requiresLegacyConsent = config.sections.some((candidate) => candidate.id === "contact-consent");
+
+  useEffect(() => {
+    if (currentSection >= totalSections) setCurrentSection(Math.max(0, totalSections - 1));
+  }, [currentSection, totalSections]);
 
   function setAnswer(questionId: string, value: string) {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+    setAnswers((prev) => pruneHiddenAnswers(config, { ...prev, [questionId]: value }));
     setErrors((prev) => {
       const next = { ...prev };
+      delete next[questionId];
+      return next;
+    });
+  }
+
+  function toggleAnswer(questionId: string, value: string) {
+    setAnswers((previous) => {
+      const current = previous[questionId];
+      const values = Array.isArray(current) ? current : [];
+      const nextValues = values.includes(value)
+        ? values.filter((candidate) => candidate !== value)
+        : [...values, value];
+      const next = { ...previous };
+      if (nextValues.length > 0) next[questionId] = nextValues;
+      else delete next[questionId];
+      return pruneHiddenAnswers(config, next);
+    });
+    setErrors((previous) => {
+      const next = { ...previous };
       delete next[questionId];
       return next;
     });
@@ -46,7 +72,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
         }
       }
     }
-    if (isLastSection && !consent) {
+    if (isLastSection && requiresLegacyConsent && !consent) {
       newErrors["_consent"] = "You must consent to continue.";
     }
     setErrors(newErrors);
@@ -59,7 +85,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
       if (isCompleting.current) return;
       isCompleting.current = true;
       try {
-        await onComplete(answers, consent);
+        await onComplete(answers, requiresLegacyConsent ? consent : false);
       } catch {
         setErrors((current) => ({
           ...current,
@@ -183,6 +209,37 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                   </div>
                 )}
 
+                {question.type === "checkbox" && question.options && (
+                  <div className="flex flex-col gap-2.5" role="group" aria-label={question.text} aria-describedby={error ? `${question.id}-error` : undefined}>
+                    {question.options.map((option) => {
+                      const selected = Array.isArray(answers[question.id]) && answers[question.id].includes(option.value);
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          role="checkbox"
+                          aria-checked={selected}
+                          onClick={() => toggleAnswer(question.id, option.value)}
+                          className={cn(
+                            "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
+                            selected
+                              ? "border-primary bg-primary text-primary-foreground"
+                              : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30",
+                          )}
+                        >
+                          <span className={cn(
+                            "inline-flex w-4 h-4 border-2 mr-3 flex-shrink-0 align-middle items-center justify-center",
+                            selected ? "border-primary-foreground" : "border-muted-foreground/40",
+                          )}>
+                            {selected ? "✓" : ""}
+                          </span>
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
                 {/* Text / email / tel inputs */}
                 {(question.type === "text" || question.type === "email" || question.type === "tel") && (
                   <Input
@@ -211,7 +268,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
           })}
 
           {/* Consent (last section only) */}
-          {isLastSection && (
+          {isLastSection && requiresLegacyConsent && (
             <div>
               <button
                 type="button"

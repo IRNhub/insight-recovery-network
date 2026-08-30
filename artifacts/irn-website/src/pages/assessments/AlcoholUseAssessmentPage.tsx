@@ -4,10 +4,10 @@ export default function AlcoholUseAssessmentPage() {
   return (
     <AssessmentPage
       assessmentKey="alcohol-use"
-      title="Alcohol Use Assessment"
-      subtitle="This assessment helps you reflect on your relationship with alcohol and understand whether it may be affecting your wellbeing, health, or daily life. There are no right or wrong answers."
+      title="Alcohol Use and Support Needs Assessment"
+      subtitle="An anonymous IRN-developed profile of alcohol patterns, impact and independent withdrawal safety. It does not provide a diagnosis or use a combined score."
       estimatedMinutes={8}
-      seoDescription="Take our free confidential alcohol use assessment. Reflect on whether drinking may be affecting your health, relationships, or daily life, and find out what support may help."
+      seoDescription="Complete an anonymous alcohol use and support-needs assessment with separate pattern, withdrawal-safety and next-step guidance."
       canonical="/assessments/alcohol-use"
     />
   );

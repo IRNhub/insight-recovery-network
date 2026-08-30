@@ -4,10 +4,10 @@ export default function DrugUseAssessmentPage() {
   return (
     <AssessmentPage
       assessmentKey="drug-use"
-      title="Drug Use & Substance Assessment"
-      subtitle="This private self-assessment helps you reflect on your relationship with substances and whether further professional guidance may be appropriate. It does not diagnose a substance-use disorder or establish withdrawal safety."
+      title="Substance Use and Support Needs Assessment"
+      subtitle="An anonymous, substance-specific IRN needs profile covering use patterns, impact and relevant safety considerations. It does not diagnose a substance-use disorder or establish withdrawal safety."
       estimatedMinutes={8}
-      seoDescription="Take our free confidential drug use and substance assessment. Reflect on whether substance use may be affecting your life and whether professional support could help."
+      seoDescription="Complete an anonymous substance-specific needs assessment covering patterns, impact, safety guidance and possible support pathways."
       canonical="/assessments/drug-use"
     />
   );

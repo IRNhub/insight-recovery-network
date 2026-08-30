@@ -30,7 +30,7 @@ export interface IrnOsAssessmentPayload {
   email: string;
   phone?: string;
   type: string;
-  scoreValue: number;
+  scoreValue?: number;
   scoreLevel: string;
   bandName: string;
   redFlags: string[];
@@ -59,7 +59,7 @@ interface IrnOsResponse {
 function assessmentMessage(payload: IrnOsAssessmentPayload): string {
   return [
     `Website assessment completed: ${payload.type}`,
-    `Result: ${payload.bandName} (${payload.scoreValue})`,
+    `Result: ${payload.bandName}${payload.scoreValue === undefined ? "" : ` (${payload.scoreValue})`}`,
     `Score level: ${payload.scoreLevel}`,
     `Red flags: ${payload.redFlags.join(", ") || "None"}`,
     `Advisories: ${payload.advisories.join(", ") || "None"}`,
@@ -94,8 +94,10 @@ export function buildAssessmentLeadPayload(payload: IrnOsAssessmentPayload): Rec
     message: assessmentMessage(payload),
     assessment_type: payload.type,
     assessmentType: payload.type,
-    score_value: payload.scoreValue,
-    scoreValue: payload.scoreValue,
+    ...(payload.scoreValue === undefined ? {} : {
+      score_value: payload.scoreValue,
+      scoreValue: payload.scoreValue,
+    }),
     score_level: payload.scoreLevel,
     scoreLevel: payload.scoreLevel,
     score_label: payload.bandName,

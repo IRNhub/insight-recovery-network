@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import type { AuthoritativeAssessmentResult } from "./contracts.ts";
 
 export interface AuthoritativeAssessmentEmail {
-  name: string;
+  name?: string;
   email: string;
   result: AuthoritativeAssessmentResult;
 }
@@ -24,9 +24,14 @@ export function buildAuthoritativeAssessmentEmailText(data: AuthoritativeAssessm
     `Why this matters: ${pattern.whyItMatters}`,
   ]);
   const pathways = result.pathways.flatMap((pathway) => [pathway.label, pathway.description]);
+  const screeningLine = result.instrument
+    ? `${result.instrument.name} score: ${result.instrument.rawScore} of ${result.instrument.maximumScore} - ${result.instrument.band}`
+    : result.screening.displayScore && result.screening.value !== null && result.screening.maximumValue !== null
+      ? `${result.screening.label}: ${result.screening.value} of ${result.screening.maximumValue}`
+      : result.screening.label;
 
   return [
-    `Hello ${data.name.split(" ")[0] || data.name},`,
+    `Hello ${data.name?.split(" ")[0] || "there"},`,
     "",
     "Your Insight Recovery Network assessment result",
     "",
@@ -34,7 +39,7 @@ export function buildAuthoritativeAssessmentEmailText(data: AuthoritativeAssessm
     result.safety.limitation,
     ...safety,
     "",
-    `${result.screening.label}: ${result.screening.value} of ${result.screening.maximumValue}`,
+    screeningLine,
     result.screening.explanation,
     "",
     result.interpretation.summary,
@@ -51,6 +56,11 @@ export function buildAuthoritativeAssessmentEmailText(data: AuthoritativeAssessm
 
 export function buildAuthoritativeAssessmentEmailHtml(data: AuthoritativeAssessmentEmail): string {
   const { result } = data;
+  const screeningLine = result.instrument
+    ? `${result.instrument.name} score: ${result.instrument.rawScore} of ${result.instrument.maximumScore} - ${result.instrument.band}`
+    : result.screening.displayScore && result.screening.value !== null && result.screening.maximumValue !== null
+      ? `${result.screening.label}: ${result.screening.value} of ${result.screening.maximumValue}`
+      : result.screening.label;
   const safetyBlocks = result.safety.content.map((item) => `
     <div style="border-left:4px solid #9b2a2a;background:#fff7f7;padding:14px 16px;margin:12px 0;">
       <strong>${escapeHtml(item.heading)}</strong>
@@ -72,7 +82,7 @@ export function buildAuthoritativeAssessmentEmailHtml(data: AuthoritativeAssessm
 <html><body style="font-family:Arial,sans-serif;color:#162B3B;background:#F6F4F0;padding:24px;">
   <main style="max-width:640px;margin:auto;background:#fff;padding:32px;border:1px solid #ddd;">
     <h1 style="font-size:24px;margin-top:0;">Your assessment result</h1>
-    <p>Hello ${escapeHtml(data.name.split(" ")[0] || data.name)},</p>
+    <p>Hello ${escapeHtml(data.name?.split(" ")[0] || "there")},</p>
     <section style="margin:24px 0;">
       <h2 style="font-size:19px;">${escapeHtml(result.safety.publicHeading)}</h2>
       <p style="line-height:1.6;">${escapeHtml(result.safety.limitation)}</p>
@@ -80,7 +90,7 @@ export function buildAuthoritativeAssessmentEmailHtml(data: AuthoritativeAssessm
     </section>
     <section style="margin:24px 0;">
       <h2 style="font-size:19px;">Screening profile</h2>
-      <p><strong>${escapeHtml(result.screening.label)}</strong>: ${result.screening.value} of ${result.screening.maximumValue}</p>
+      <p><strong>${escapeHtml(screeningLine)}</strong></p>
       <p style="line-height:1.6;">${escapeHtml(result.screening.explanation)}</p>
     </section>
     <section style="margin:24px 0;">

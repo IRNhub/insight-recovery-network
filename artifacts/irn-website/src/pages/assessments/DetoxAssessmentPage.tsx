@@ -4,10 +4,10 @@ export default function DetoxAssessmentPage() {
   return (
     <AssessmentPage
       assessmentKey="detox-suitability"
-      title="Detox Suitability Assessment"
-      subtitle="If you are considering stopping or significantly reducing alcohol or other substances, this self-assessment highlights factors that may require professional or medical review. It cannot determine whether detox is medically safe."
+      title="Substance-Specific Change and Withdrawal Assessment"
+      subtitle="An anonymous, branched assessment of substance-specific withdrawal, overdose and health considerations. It cannot determine whether detoxification is medically safe."
       estimatedMinutes={10}
-      seoDescription="Use this private detox-needs self-assessment to identify substance-specific answers that may require professional review. It does not provide medical clearance."
+      seoDescription="Complete an anonymous substance-specific change and withdrawal assessment to identify answers that may require professional review."
       canonical="/assessments/detox"
     />
   );

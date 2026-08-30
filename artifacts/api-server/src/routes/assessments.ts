@@ -10,8 +10,10 @@ import {
 } from "../assessment-engine/assessment-persistence.ts";
 import {
   recoverAssessment,
+  requestAssessmentContact,
   submitAssessment,
 } from "../assessment-engine/assessment-service.ts";
+import { parseAssessmentContactRequest } from "../assessment-engine/assessment-contact.ts";
 import {
   getActiveDefinition,
   isAssessmentKey,
@@ -97,6 +99,36 @@ router.get("/assessments/result", async (req: Request, res: Response) => {
   }
 });
 
+router.post("/assessments/result/contact", async (req: Request, res: Response) => {
+  noStore(res);
+  const token = readResultAccessToken(req);
+  if (!token) {
+    res.status(404).json({ error: "Assessment result not found" });
+    return;
+  }
+  try {
+    const contactRequest = parseAssessmentContactRequest(req.body);
+    const stored = await requestAssessmentContact(
+      token,
+      contactRequest,
+      assessmentPersistence,
+      assessmentDeliveryHandlers,
+    );
+    if (!stored) {
+      res.status(404).json({ error: "Assessment result not found" });
+      return;
+    }
+    res.json({ result: stored.result });
+  } catch (error) {
+    if (error instanceof AssessmentValidationError) {
+      res.status(422).json({ error: "Validation failed", details: error.issues });
+      return;
+    }
+    logger.error({ err: error }, "Assessment contact request failed");
+    res.status(500).json({ error: "Your contact preferences could not be saved. Please try again." });
+  }
+});
+
 router.post("/assessments/result/cta", async (req: Request, res: Response) => {
   noStore(res);
   const token = readResultAccessToken(req);
@@ -152,6 +184,10 @@ router.post("/admin/assessments/:id/forward-to-irn-os", async (req: Request, res
       res.json({ ok: true });
       return;
     }
+    if (!assessment.name || !assessment.email) {
+      res.status(422).json({ error: "Legacy assessment contact details are incomplete" });
+      return;
+    }
 
     const result = await forwardAssessmentToIrnOs({
       assessmentId: String(assessment.id),
@@ -160,7 +196,7 @@ router.post("/admin/assessments/:id/forward-to-irn-os", async (req: Request, res
       email: assessment.email,
       phone: assessment.phone ?? undefined,
       type: assessment.type,
-      scoreValue: assessment.scoreValue,
+      scoreValue: assessment.scoreValue ?? undefined,
       scoreLevel: assessment.scoreLevel,
       bandName: assessment.scoreLabel || assessment.scoreLevel,
       redFlags: stringArray(assessment.redFlags),

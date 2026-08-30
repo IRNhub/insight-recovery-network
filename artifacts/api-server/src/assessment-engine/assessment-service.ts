@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import type {
   AssessmentAnswers,
+  AssessmentContactRequest,
   AuthoritativeAssessmentResult,
   ValidatedSubmission,
 } from "./contracts.ts";
@@ -15,8 +16,8 @@ import { parseSubmissionPayload } from "./validate-answers.ts";
 const RETENTION_DAYS = 730;
 
 export interface AssessmentContact {
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
   phone?: string;
 }
 
@@ -43,6 +44,10 @@ export interface AssessmentPersistence {
     errorCode?: string,
   ): Promise<void>;
   markCtaClicked(storageId: string): Promise<void>;
+  requestContact(
+    storageId: string,
+    request: AssessmentContactRequest,
+  ): Promise<StoredAssessmentResult>;
 }
 
 export interface AssessmentDeliveryHandlers {
@@ -64,19 +69,13 @@ export interface SubmitAssessmentOutcome {
   created: boolean;
 }
 
-function requiredText(answers: AssessmentAnswers, id: string): string {
-  const value = answers[id];
-  if (typeof value !== "string" || !value.trim()) {
-    throw new Error(`Validated assessment is missing required ${id}`);
-  }
-  return value.trim();
-}
-
 function contactFromAnswers(answers: AssessmentAnswers): AssessmentContact {
+  const name = answers.name;
+  const email = answers.email;
   const phone = answers.phone;
   return {
-    name: requiredText(answers, "name"),
-    email: requiredText(answers, "email"),
+    ...(typeof name === "string" && name.trim() ? { name: name.trim() } : {}),
+    ...(typeof email === "string" && email.trim() ? { email: email.trim() } : {}),
     ...(typeof phone === "string" && phone.trim() ? { phone: phone.trim() } : {}),
   };
 }
@@ -110,13 +109,13 @@ export async function attemptAssessmentDeliveries(
   }> = [
     {
       channel: "email",
-      shouldAttempt: current.result.delivery.email !== "sent",
+      shouldAttempt: current.result.delivery.email === "queued" || current.result.delivery.email === "failed",
       deliver: () => handlers.email(current),
       success: "sent",
     },
     {
       channel: "irn_os",
-      shouldAttempt: current.result.delivery.irnOs !== "forwarded",
+      shouldAttempt: current.result.delivery.irnOs === "queued" || current.result.delivery.irnOs === "failed",
       deliver: () => handlers.irnOs(current),
       success: "forwarded",
     },
@@ -151,12 +150,14 @@ function buildNewRecord(
 ): StoredAssessmentResult {
   const { submission, definition } = parseSubmissionPayload(raw);
   const evaluated = evaluateAssessment(definition, submission.answers);
+  const contact = contactFromAnswers(submission.answers);
+  const legacyDeliveryRequested = submission.consent && Boolean(contact.email);
   const expiresAt = new Date(now.getTime() + RETENTION_DAYS * 24 * 60 * 60 * 1000);
 
   return {
     storageId: "pending",
     submission,
-    contact: contactFromAnswers(submission.answers),
+    contact,
     answers: evaluated.answers,
     result: {
       resultId,
@@ -173,7 +174,9 @@ function buildNewRecord(
       pathways: evaluated.pathways,
       aiEnhancement: disabledAiEnhancement(),
       persistence: { status: "saved", expiresAt: expiresAt.toISOString() },
-      delivery: { email: "queued", irnOs: "queued" },
+      delivery: legacyDeliveryRequested
+        ? { email: "queued", irnOs: "queued" }
+        : { email: "not-requested", irnOs: "not-requested" },
     },
   };
 }
@@ -216,4 +219,16 @@ export async function recoverAssessment(
   persistence: AssessmentPersistence,
 ): Promise<StoredAssessmentResult | null> {
   return persistence.findByAccessTokenHash(hashResultAccessToken(accessToken));
+}
+
+export async function requestAssessmentContact(
+  accessToken: string,
+  request: AssessmentContactRequest,
+  persistence: AssessmentPersistence,
+  deliveries: AssessmentDeliveryHandlers,
+): Promise<StoredAssessmentResult | null> {
+  const existing = await recoverAssessment(accessToken, persistence);
+  if (!existing) return null;
+  const requested = await persistence.requestContact(existing.storageId, request);
+  return attemptAssessmentDeliveries(requested, persistence, deliveries);
 }

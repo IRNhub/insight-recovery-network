@@ -4,6 +4,7 @@ import type {
   DomainResult,
   DomainState,
 } from "./contracts.ts";
+import { questionIsApplicable } from "./branching.ts";
 
 const STATE_ORDER: DomainState[] = ["not-indicated", "present", "elevated", "prominent"];
 
@@ -23,17 +24,24 @@ export function evaluateDomains(
   definition: AssessmentDefinition,
   answers: AssessmentAnswers,
 ): DomainResult[] {
-  const sectionMap = new Map(definition.sections.map((section) => [section.id, section]));
+  const questionEntries = definition.sections.flatMap((section) =>
+    section.questions.map((question) => ({ section, question })),
+  );
 
   return definition.domainRules.map((rule) => {
-    const section = sectionMap.get(rule.sectionId);
+    const entries = questionEntries.filter(({ section, question }) =>
+      (rule.questionIds?.includes(question.id) || (!rule.questionIds && section.id === rule.sectionId)) &&
+      questionIsApplicable(section, question, answers),
+    );
     let score = 0;
     let maximumScore = 0;
     const evidenceQuestionIds: string[] = [];
 
-    for (const question of section?.questions ?? []) {
+    for (const { question } of entries) {
       if (!question.options) continue;
-      maximumScore += Math.max(0, ...question.options.map((option) => option.score));
+      maximumScore += question.type === "checkbox"
+        ? question.options.reduce((total, option) => total + Math.max(0, option.score), 0)
+        : Math.max(0, ...question.options.map((option) => option.score));
       const answer = answers[question.id];
       if (!answer) continue;
       const values = Array.isArray(answer) ? answer : [answer];
@@ -45,14 +53,21 @@ export function evaluateDomains(
       }
     }
 
+    const state = stateFor(score, maximumScore);
+    const summary = state === "not-indicated"
+      ? `Your answers did not identify ${rule.label.toLowerCase()} as a prominent part of this profile.`
+      : state === "present"
+        ? `${rule.label} is present in the profile but did not stand out as an elevated area.`
+        : rule.elevatedText;
+
     return {
       id: rule.id,
       label: rule.label,
       score,
       maximumScore,
-      state: stateFor(score, maximumScore),
+      state,
       evidenceQuestionIds: [...new Set(evidenceQuestionIds)],
-      summary: rule.elevatedText,
+      summary,
       whyItMatters: rule.whyItMatters,
     };
   });

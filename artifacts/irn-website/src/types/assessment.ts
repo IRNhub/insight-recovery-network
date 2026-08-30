@@ -16,6 +16,7 @@ export interface Question {
   options?: QuestionOption[];
   required?: boolean;
   redFlagKey?: string;
+  displayWhen?: BranchConditionSet;
 }
 
 export interface AssessmentSection {
@@ -23,6 +24,21 @@ export interface AssessmentSection {
   title: string;
   description?: string;
   questions: Question[];
+  displayWhen?: BranchConditionSet;
+}
+
+export interface AnswerCondition {
+  questionId: string;
+  equals?: string;
+  includes?: string;
+  notIncludes?: string;
+  oneOf?: string[];
+  minimumSelections?: number;
+}
+
+export interface BranchConditionSet {
+  all?: AnswerCondition[];
+  any?: AnswerCondition[];
 }
 
 export type ScoreLevel =
@@ -67,11 +83,12 @@ export interface AuthoritativeAssessmentResult {
   completedAt: string;
   screening: {
     source: "irn-legacy-custom" | "validated-instrument" | "irn-descriptive-profile";
-    value: number;
-    maximumValue: number;
-    level: "lower-concern" | "moderate-concern" | "higher-concern" | "elevated-concern";
+    value: number | null;
+    maximumValue: number | null;
+    level: "lower-concern" | "moderate-concern" | "higher-concern" | "elevated-concern" | "descriptive-profile";
     label: string;
     explanation: string;
+    displayScore: boolean;
   };
   instrument: null | {
     name: string;
@@ -186,8 +203,20 @@ export interface PublicAssessmentConfig {
     id: string;
     title: string;
     description?: string;
+    displayWhen?: BranchConditionSet;
     questions: PublicAssessmentQuestion[];
   }>;
 }
 
 export type AssessmentAnswers = Record<string, string | string[]>;
+
+export interface AssessmentContactRequest {
+  name?: string;
+  email: string;
+  phone?: string;
+  permissions: {
+    emailResult: boolean;
+    irnFollowUp: boolean;
+    marketing: boolean;
+  };
+}

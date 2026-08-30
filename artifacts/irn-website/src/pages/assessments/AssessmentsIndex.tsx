@@ -9,42 +9,42 @@ const assessmentsHeroImg = "/assessments-hero-brain.png";
 const assessments = [
   {
     id: "alcohol-detox",
-    title: "Alcohol & Detox Suitability Assessment",
+    title: "Alcohol Change and Withdrawal Assessment",
     description:
-      "Explore whether alcohol may be affecting your wellbeing and whether stopping suddenly could carry medical risk. Covers use patterns, withdrawal history, and detox safety.",
+      "Explore alcohol patterns, withdrawal history and the level of professional assessment to consider before making a substantial change.",
     href: "/assessments/alcohol-detox",
-    duration: "10–15 minutes",
-    forWhom: "For individuals drinking heavily who are considering stopping",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people considering reducing or stopping alcohol",
     featured: true,
   },
   {
     id: "alcohol-use",
-    title: "Alcohol Use Assessment",
+    title: "Alcohol Use and Support Needs Assessment",
     description:
-      "Reflect on your current relationship with alcohol and understand whether it may be affecting your health, relationships, or daily life.",
+      "Build an anonymous descriptive profile of alcohol exposure, impaired control, consequences and independent withdrawal-safety factors.",
     href: "/assessments/alcohol-use",
-    duration: "7–10 minutes",
-    forWhom: "For individuals questioning their drinking",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people questioning their drinking",
     featured: false,
   },
   {
     id: "drug-use",
-    title: "Drug Use & Substance Assessment",
+    title: "Substance Use and Support Needs Assessment",
     description:
-      "Explore your relationship with substances and identify whether further professional support or treatment may be appropriate.",
+      "Select the substances that are relevant and receive branched, substance-specific pattern, safety and support guidance.",
     href: "/assessments/drug-use",
-    duration: "7–10 minutes",
-    forWhom: "For individuals concerned about substance use",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people concerned about substance use",
     featured: false,
   },
   {
     id: "detox",
-    title: "Detox Suitability Assessment",
+    title: "Substance-Specific Change and Withdrawal Assessment",
     description:
-      "If you are considering stopping or reducing alcohol or substance use, this assessment highlights factors that may require professional or medical review. It cannot determine whether detox is medically safe.",
+      "Identify the relevant substance and explore withdrawal, overdose and health factors before changing use. It does not provide medical clearance.",
     href: "/assessments/detox",
-    duration: "8–12 minutes",
-    forWhom: "For those considering stopping or reducing use",
+    duration: "Approximately 10 minutes",
+    forWhom: "For people considering stopping or reducing use",
     featured: false,
   },
   {

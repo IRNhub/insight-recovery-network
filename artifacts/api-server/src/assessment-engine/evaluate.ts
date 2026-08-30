@@ -17,6 +17,6 @@ export function evaluateAssessment(
   const domains = evaluateDomains(definition, answers);
   const safety = evaluateSafety(definition, answers);
   const interpretation = buildInterpretation(definition, answers, screening, domains);
-  const pathways = selectPathways(definition, screening, safety);
+  const pathways = selectPathways(definition, screening, safety, domains);
   return { answers, screening, domains, safety, interpretation, pathways };
 }

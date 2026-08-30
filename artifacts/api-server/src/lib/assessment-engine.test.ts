@@ -31,6 +31,7 @@ import {
   parseSubmissionPayload,
   validateAnswers,
 } from "../assessment-engine/validate-answers.ts";
+import { questionIsApplicable } from "../assessment-engine/branching.ts";
 
 const KEYS: AssessmentKey[] = [
   "alcohol-use",
@@ -46,24 +47,29 @@ let keyCounter = 0;
 
 function lowestAnswers(key: AssessmentKey, overrides: AssessmentAnswers = {}): AssessmentAnswers {
   const definition = getActiveDefinition(key);
-  const answers: AssessmentAnswers = {};
-  for (const question of definition.sections.flatMap((section) => section.questions)) {
-    if (question.id === "name") answers[question.id] = "Synthetic Test Person";
-    else if (question.id === "email") answers[question.id] = "synthetic@example.test";
-    else if (question.type === "tel") continue;
-    else if (question.options?.length) {
-      const option = [...question.options].sort((a, b) => a.score - b.score)[0]!;
-      answers[question.id] = question.type === "checkbox" ? [option.value] : option.value;
-    } else if (question.required) answers[question.id] = "Synthetic response";
+  const answers: AssessmentAnswers = { ...overrides };
+  for (let pass = 0; pass < 4; pass += 1) {
+    for (const section of definition.sections) {
+      for (const question of section.questions) {
+        if (answers[question.id] !== undefined || !question.required || !questionIsApplicable(section, question, answers)) continue;
+        if (question.id === "name") answers[question.id] = "Synthetic Test Person";
+        else if (question.id === "email") answers[question.id] = "synthetic@example.test";
+        else if (question.type === "tel") continue;
+        else if (question.options?.length) {
+          const selected = [...question.options].sort((a, b) => a.score - b.score)[0]!;
+          answers[question.id] = question.type === "checkbox" ? [selected.value] : selected.value;
+        } else answers[question.id] = "Synthetic response";
+      }
+    }
   }
-  return { ...answers, ...overrides };
+  return answers;
 }
 
 function payload(key: AssessmentKey, overrides: Record<string, unknown> = {}) {
   keyCounter += 1;
   return {
     assessmentKey: key,
-    definitionVersion: 1,
+    definitionVersion: getActiveDefinition(key).version,
     submissionKey: `00000000-0000-4000-8000-${String(keyCounter).padStart(12, "0")}`,
     answers: lowestAnswers(key),
     consent: true,
@@ -125,6 +131,24 @@ class MemoryPersistence implements AssessmentPersistence {
   }
 
   async markCtaClicked() {}
+
+  async requestContact(storageId: string, request: import("../assessment-engine/contracts.ts").AssessmentContactRequest) {
+    const record = this.records.get(storageId);
+    if (!record) throw new Error("Synthetic result not found");
+    const updated: StoredAssessmentResult = {
+      ...record,
+      contact: { name: request.name, email: request.email, phone: request.phone },
+      result: {
+        ...record.result,
+        delivery: {
+          email: request.permissions.emailResult ? "queued" : record.result.delivery.email,
+          irnOs: request.permissions.irnFollowUp ? "queued" : record.result.delivery.irnOs,
+        },
+      },
+    };
+    this.records.set(storageId, updated);
+    return updated;
+  }
 }
 
 const successfulDeliveries: AssessmentDeliveryHandlers = {
@@ -221,9 +245,9 @@ test("12 alcohol content cannot appear without alcohol context and does appear f
     assert.equal(result.safety.content.some((item) => item.id.startsWith("alcohol-")), false);
   }
   const alcohol = authoritative(payload("alcohol-detox", {
-    answers: lowestAnswers("alcohol-detox", { "withdrawal-symptoms": "yes-severe" }),
+    answers: lowestAnswers("alcohol-detox", { "alcohol-current-withdrawal": "severe" }),
   }));
-  assert.equal(alcohol.safety.content.some((item) => item.id === "alcohol-withdrawal-urgent"), true);
+  assert.equal(alcohol.safety.content.some((item) => item.id === "alcohol-withdrawal-emergency"), true);
 });
 
 test("13 emergency presentation suppresses commercial CTAs", () => {
@@ -373,7 +397,10 @@ test("22 active definition versions are deeply immutable", () => {
 test("23 active definitions include explicit clinical approval metadata", () => {
   for (const definition of listActiveDefinitions()) {
     assert.equal(definition.status, "active");
-    assert.equal(definition.clinicalApproval.status, "approved");
+    assert.equal(
+      definition.clinicalApproval.status,
+      definition.version === 2 ? "pending-clinical-director" : "approved",
+    );
     assert.ok(definition.clinicalApproval.reference);
     for (const rule of [...definition.safetyRules, ...definition.interpretationRules]) {
       assert.ok(rule.approval.reference);
@@ -385,13 +412,22 @@ test("23 active definitions include explicit clinical approval metadata", () => 
 test("every configured answer option validates and evaluates without a gap", () => {
   for (const key of KEYS) {
     const definition = getActiveDefinition(key);
-    for (const question of definition.sections.flatMap((section) => section.questions)) {
-      for (const option of question.options ?? []) {
-        const answers = lowestAnswers(key, {
-          [question.id]: question.type === "checkbox" ? [option.value] : option.value,
-        });
-        const validated = validateAnswers(definition, answers);
-        assert.doesNotThrow(() => evaluateAssessment(definition, validated));
+    for (const section of definition.sections) {
+      for (const question of section.questions) {
+        for (const option of question.options ?? []) {
+          const branchAnswers: AssessmentAnswers = {};
+          for (const condition of section.displayWhen?.all ?? []) {
+            if (condition.includes) branchAnswers[condition.questionId] = [condition.includes];
+            else if (condition.equals) branchAnswers[condition.questionId] = condition.equals;
+            else if (condition.oneOf?.[0]) branchAnswers[condition.questionId] = condition.oneOf[0];
+          }
+          const answers = lowestAnswers(key, {
+            ...branchAnswers,
+            [question.id]: question.type === "checkbox" ? [option.value] : option.value,
+          });
+          const validated = validateAnswers(definition, answers);
+          assert.doesNotThrow(() => evaluateAssessment(definition, validated));
+        }
       }
     }
   }
@@ -400,7 +436,10 @@ test("every configured answer option validates and evaluates without a gap", () 
 test("score classification respects each active definition threshold boundary", () => {
   for (const key of KEYS) {
     const definition = getActiveDefinition(key);
+    if (definition.scoring.kind !== "irn-legacy-custom") continue;
     const screening = evaluateInstrument(definition, lowestAnswers(key));
+    assert.notEqual(screening.value, null);
+    if (screening.value === null) continue;
     if (screening.value >= definition.scoring.possibleDetoxRisk) assert.equal(screening.level, "elevated-concern");
     else if (screening.value >= definition.scoring.higherConcern) assert.equal(screening.level, "higher-concern");
     else if (screening.value >= definition.scoring.moderateConcern) assert.equal(screening.level, "moderate-concern");
@@ -411,11 +450,14 @@ test("score classification respects each active definition threshold boundary", 
 test("public definitions omit scoring and safety implementation", () => {
   for (const definition of listActiveDefinitions()) {
     const publicDefinition = toPublicDefinition(definition);
-    const serialised = JSON.stringify(publicDefinition);
-    assert.equal(serialised.includes("score"), false);
-    assert.equal(serialised.includes("redFlag"), false);
-    assert.equal(serialised.includes("safetyRules"), false);
-    assert.equal(serialised.includes("interpretationRules"), false);
+    assert.equal("scoring" in publicDefinition, false);
+    assert.equal("instrument" in publicDefinition, false);
+    assert.equal("domainRules" in publicDefinition, false);
+    assert.equal("safetyRules" in publicDefinition, false);
+    assert.equal("interpretationRules" in publicDefinition, false);
+    for (const question of publicDefinition.sections.flatMap((section) => section.questions)) {
+      for (const option of question.options ?? []) assert.equal("score" in option, false);
+    }
   }
 });
 

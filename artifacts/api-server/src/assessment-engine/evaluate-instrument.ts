@@ -8,6 +8,18 @@ export function evaluateInstrument(
   definition: AssessmentDefinition,
   answers: AssessmentAnswers,
 ): ScreeningClassification {
+  if (definition.scoring.kind === "irn-descriptive-profile") {
+    return {
+      source: "irn-descriptive-profile",
+      value: null,
+      maximumValue: null,
+      level: "descriptive-profile",
+      label: definition.scoring.profileLabel,
+      explanation: definition.scoring.explanation,
+      displayScore: false,
+    };
+  }
+
   let value = 0;
   let maximumValue = 0;
 
@@ -48,5 +60,6 @@ export function evaluateInstrument(
     level,
     label,
     explanation: "This is an IRN-developed descriptive score retained for Phase A compatibility. It is not a validated instrument score and is separate from the safety guidance below.",
+    displayScore: true,
   };
 }
