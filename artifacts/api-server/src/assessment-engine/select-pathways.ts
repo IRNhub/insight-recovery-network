@@ -1,0 +1,40 @@
+import type {
+  AssessmentDefinition,
+  PathwayRecommendation,
+  SafetyResult,
+  ScreeningClassification,
+} from "./contracts.ts";
+
+export function selectPathways(
+  definition: AssessmentDefinition,
+  screening: ScreeningClassification,
+  safety: SafetyResult,
+): PathwayRecommendation[] {
+  const byId = new Map(definition.pathwayRules.map((pathway) => [pathway.id, pathway]));
+  const requiredIds = new Set(safety.triggeredRules.flatMap((rule) => rule.pathwayIds));
+
+  if (safety.action === "emergency-help-now") requiredIds.add("emergency-999");
+  if (safety.action === "urgent-same-day-assessment" && requiredIds.size === 0) requiredIds.add("urgent-medical");
+  if (safety.action === "clinical-review-recommended") requiredIds.add("gp-review");
+
+  if (safety.action === "no-immediate-warning-identified" || safety.action === "additional-caution") {
+    if (definition.key === "adhd") requiredIds.add("formal-adhd");
+    else if (["anxiety", "depression"].includes(definition.key)) requiredIds.add("nhs-mental-health");
+    else if (screening.level === "lower-concern") requiredIds.add("self-guided");
+    else requiredIds.add("gp-review");
+  }
+
+  if (!safety.suppressCommercialCtas && safety.action !== "emergency-help-now") {
+    requiredIds.add("irn-consultation");
+  }
+
+  return [...requiredIds]
+    .map((id, index) => {
+      const pathway = byId.get(id);
+      if (!pathway) return null;
+      return { ...pathway, priority: 100 - index } satisfies PathwayRecommendation;
+    })
+    .filter((pathway): pathway is PathwayRecommendation => pathway !== null)
+    .filter((pathway) => !safety.suppressCommercialCtas || !pathway.commercial)
+    .sort((a, b) => b.priority - a.priority);
+}

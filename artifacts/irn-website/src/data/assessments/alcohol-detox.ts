@@ -4,7 +4,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
   id: "alcohol-detox",
   title: "Alcohol & Detox Suitability Assessment",
   subtitle:
-    "This confidential assessment helps us understand your current relationship with alcohol and identify the safest pathway forward. There are no right or wrong answers.",
+    "This private self-assessment explores your current relationship with alcohol and highlights when professional advice may be appropriate. It cannot determine whether detox is medically safe.",
   estimatedMinutes: 8,
   scoreThresholds: {
     moderateConcern: 11,
@@ -353,7 +353,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
       id: "contact-consent",
       title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also send a brief, personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
+        "Your result will be calculated and saved securely. We will attempt to email a copy, and the useful personalised guidance does not depend on AI.",
       questions: [
         {
           id: "name",
@@ -364,7 +364,7 @@ export const alcoholDetoxAssessment: AssessmentConfig = {
         {
           id: "email",
           text: "Your email address",
-          subtext: "Your result and Anchor's reflection will be sent here.",
+          subtext: "We will attempt to send a copy of the saved result here.",
           type: "email",
           required: true,
         },

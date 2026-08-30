@@ -1364,7 +1364,7 @@ const PAGES = [
     file: "assessments.html",
     title: "Free Addiction &amp; Mental Health Assessments | Insight Recovery Network",
     description:
-      "Confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Start a free clinical assessment and receive personalised guidance, no registration required.",
+      "Private self-assessments for alcohol use, drug use, detox needs, anxiety, depression, and ADHD, with server-calculated, non-diagnostic guidance.",
     ogImage: `${SITE_URL}/og-assessments.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1388,7 +1388,7 @@ const PAGES = [
               Free Confidential Addiction and Mental Health Assessments
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:1rem;">
-              These assessments are designed to help individuals and families understand their situation more clearly. Each one takes 7–15 minutes, is completely confidential, and requires no registration. Results are designed to provide personalised guidance, not a diagnosis.
+              These assessments are designed to help individuals and families understand their situation more clearly. Each one takes roughly 7–15 minutes, uses a tracker-free assessment journey, and currently requests contact details before submission. Results provide deterministic guidance, not a diagnosis.
             </p>
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:1.7;max-width:620px;color:#4a5568;margin-bottom:2rem;">
               These tools are for informational purposes only and do not constitute medical advice. If you are in crisis or require urgent support, please contact your GP or emergency services.
@@ -1418,7 +1418,7 @@ const PAGES = [
               </article>
               <article style="padding:1.75rem;border:1px solid rgba(201,169,110,0.4);background:#fff;">
                 <h3 style="font-size:1.1rem;font-weight:500;margin-bottom:0.5rem;">Detox Suitability Assessment</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Understand whether medical detox may be necessary, and what level of supervision or support is advisable before reducing or stopping substance use.</p>
+                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;margin-bottom:1rem;">Identify substance-specific withdrawal and medical answers that warrant professional review. This tool does not provide detox suitability or medical clearance.</p>
                 <p style="font-family:sans-serif;font-size:0.8rem;color:#888;margin-bottom:1rem;">8–12 minutes &nbsp;·&nbsp; For individuals preparing to stop using substances</p>
                 <a href="/assessments/detox" style="display:inline-block;padding:0.625rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.85rem;font-weight:500;">Start Detox Suitability Assessment</a>
               </article>
@@ -1466,7 +1466,7 @@ const PAGES = [
     file: "_assessments/alcohol-detox.html",
     title: "Alcohol &amp; Detox Suitability Assessment | Insight Recovery Network",
     description:
-      "Free confidential assessment to understand whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes. No registration required.",
+      "Private alcohol and detox self-assessment with separate withdrawal-safety guidance and a server-calculated, non-diagnostic result.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1485,12 +1485,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Alcohol &amp; Detox Suitability Assessment, free and confidential.
+              Alcohol &amp; Detox Self-Assessment, private and non-diagnostic.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              Designed for individuals drinking heavily who are considering stopping or reducing. This assessment explores whether alcohol use may carry withdrawal risk and whether medical detox may be appropriate. Takes 10–15 minutes and requires no registration.
+              Designed for individuals considering stopping or reducing alcohol. The assessment separates the descriptive screening profile from withdrawal and safety factors that may require professional review. It cannot determine detox suitability or provide medical clearance.
             </p>
             <a href="/assessments/alcohol-detox" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Alcohol &amp; Detox Assessment</a>
           </section>
@@ -1500,7 +1500,7 @@ const PAGES = [
               <li>Alcohol use patterns, frequency, and quantity</li>
               <li>Withdrawal history and previous detox experiences</li>
               <li>Physical health factors and current medications</li>
-              <li>Detox suitability and level of supervision recommended</li>
+              <li>Withdrawal factors that may warrant professional review</li>
               <li>Appropriate next steps and support options</li>
             </ul>
           </section>
@@ -1518,7 +1518,7 @@ const PAGES = [
     file: "_assessments/alcohol-use.html",
     title: "Alcohol Use Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential alcohol use self-assessment. Reflect on how drinking may be affecting your health, relationships, and daily life, personalised results sent to your email. No registration required.",
+      "Private alcohol use self-assessment with a server-calculated descriptive profile, separate safety guidance, and a durable browser result.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1537,12 +1537,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
               Alcohol Use Assessment, understand your relationship with alcohol.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This free assessment explores current drinking patterns and helps you understand whether alcohol may be affecting your health, relationships, work, or daily life. Based on clinically validated screening criteria. Takes 7–10 minutes and requires no registration.
+              This IRN-developed descriptive assessment explores current drinking patterns and how alcohol may be affecting health, relationships, work, or daily life. It is not a validated instrument or a diagnosis, and safety guidance is assessed separately from the total score.
             </p>
             <a href="/assessments/alcohol-use" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Alcohol Use Assessment</a>
           </section>
@@ -1570,7 +1570,7 @@ const PAGES = [
     file: "_assessments/drug-use.html",
     title: "Drug Use &amp; Substance Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential drug use and substance assessment. Explore your relationship with substances and understand whether professional support or treatment may be appropriate. No registration required.",
+      "Private drug-use self-assessment with server-calculated general pattern guidance, separate safety handling, and clear limitations.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1589,19 +1589,19 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Drug Use &amp; Substance Assessment, free and confidential.
+              Drug Use &amp; Substance Assessment, private and non-diagnostic.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This free assessment explores your relationship with substances, including recreational drugs, prescription medications, and stimulants, and helps you understand whether the level of use may be causing harm or whether professional support is appropriate. Takes 7–10 minutes and requires no registration.
+              This IRN-developed assessment explores general substance-use patterns and whether fuller professional support may be useful. The current version does not identify the exact substance, which remains an important limitation and should be established in a substance-specific assessment.
             </p>
             <a href="/assessments/drug-use" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Drug Use Assessment</a>
           </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1rem;">What This Assessment Covers</h2>
             <ul style="font-family:sans-serif;font-size:0.95rem;line-height:2;color:#4a5568;padding-left:1.25rem;">
-              <li>Substance type, frequency, and patterns of use</li>
+              <li>General frequency and patterns of use</li>
               <li>Impact on daily functioning and relationships</li>
               <li>Dependency risk and withdrawal considerations</li>
               <li>Co-occurring mental health concerns</li>
@@ -1622,7 +1622,7 @@ const PAGES = [
     file: "_assessments/detox.html",
     title: "Detox Suitability Assessment | Insight Recovery Network",
     description:
-      "Free confidential detox suitability assessment. Understand whether medical detox is advisable, what level of supervision may be needed, and how to approach stopping safely. No registration required.",
+      "Private detox-needs self-assessment that identifies substance-specific answers requiring professional review without providing medical clearance.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1641,12 +1641,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
               Detox Suitability Assessment, understand what level of support you may need.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This assessment explores your substance use, medical history, and withdrawal risk to help determine whether detox is appropriate and what level of medical supervision may be advisable. Detox from alcohol, benzodiazepines, or opioids can carry serious risk without proper guidance. Takes 8–12 minutes and requires no registration.
+              This assessment organises substance use, medical context and withdrawal indicators so answers that require professional review are not hidden by a total score. It cannot determine detox suitability or what level of medical supervision is required.
             </p>
             <a href="/assessments/detox" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Detox Suitability Assessment</a>
           </section>
@@ -1656,8 +1656,8 @@ const PAGES = [
               <li>Substance use and dependence level</li>
               <li>Previous detox or withdrawal experiences</li>
               <li>Physical health, medications, and risk factors</li>
-              <li>Appropriate detox pathway and supervision level</li>
-              <li>Whether residential or community detox is advisable</li>
+              <li>Safety indicators that may require clinical review</li>
+              <li>Questions to take into a substance-specific detox assessment</li>
             </ul>
           </section>
           <section style="padding:3rem 0;">
@@ -1672,9 +1672,9 @@ const PAGES = [
   {
     route: "/assessments/anxiety",
     file: "_assessments/anxiety.html",
-    title: "Anxiety Screening Assessment | Free &amp; Confidential | Insight Recovery Network",
+    title: "Anxiety Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential anxiety self-assessment based on GAD-7 criteria. Understand how anxiety may be affecting your thoughts, physical symptoms, and daily functioning, results sent to your email.",
+      "Private anxiety self-assessment with a server-calculated IRN descriptive profile, separate self-harm safety handling, and a non-diagnostic result.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1693,12 +1693,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Anxiety Screening Assessment, free and confidential.
+              Anxiety Self-Assessment, private and non-diagnostic.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This assessment explores anxiety patterns including worry, physical tension, sleep disruption, and avoidance behaviour. Based on clinically validated GAD-7 screening criteria. Designed to help individuals understand whether anxiety may be contributing to addictive behaviour or recovery difficulty. Takes 7–10 minutes and requires no registration.
+              This IRN-developed descriptive assessment explores worry, physical tension, sleep disruption, avoidance and daily impact. It is not the GAD-7 or a diagnostic instrument, and self-harm guidance is evaluated independently from the descriptive score.
             </p>
             <a href="/assessments/anxiety" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Anxiety Assessment</a>
           </section>
@@ -1724,9 +1724,9 @@ const PAGES = [
   {
     route: "/assessments/depression",
     file: "_assessments/depression.html",
-    title: "Depression Screening Assessment | Free &amp; Confidential | Insight Recovery Network",
+    title: "Depression Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential depression self-assessment based on PHQ-9 criteria. Understand how low mood may be affecting your energy, motivation, and wellbeing, personalised results sent to your email.",
+      "Private depression self-assessment with a server-calculated IRN descriptive profile, separate self-harm safety handling, and a non-diagnostic result.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1745,12 +1745,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Depression Screening Assessment, free and confidential.
+              Depression Self-Assessment, private and non-diagnostic.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This assessment explores low mood, reduced motivation, sleep difficulties, and changes in energy and outlook. Based on PHQ-9 screening criteria. Designed to help individuals understand whether depression may be a factor in their wellbeing or recovery. Takes 7–10 minutes and requires no registration.
+              This IRN-developed descriptive assessment explores low mood, motivation, sleep, energy, outlook and daily impact. It is not the PHQ-9 or a diagnostic instrument, and self-harm guidance is evaluated independently from the descriptive score.
             </p>
             <a href="/assessments/depression" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start Depression Assessment</a>
           </section>
@@ -1778,7 +1778,7 @@ const PAGES = [
     file: "_assessments/adhd-impulsivity.html",
     title: "ADHD &amp; Impulsivity Self-Assessment | Insight Recovery Network",
     description:
-      "Free confidential ADHD and impulsivity self-assessment. Explore patterns of attention, focus, and impulsive behaviour that may be affecting your work, relationships, or recovery. No registration required.",
+      "Private ADHD and impulsivity self-assessment with an IRN-developed descriptive profile, clear limitations, and separate safety handling.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1797,12 +1797,12 @@ const PAGES = [
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Free Clinical Assessment</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Private Self-Assessment</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              ADHD &amp; Impulsivity Assessment, free and confidential.
+              ADHD &amp; Impulsivity Assessment, private and non-diagnostic.
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:620px;color:#4a5568;margin-bottom:2rem;">
-              This assessment explores patterns of attention, focus, restlessness, and impulsive behaviour that may be contributing to addictive behaviour, relapse, or difficulty engaging with structured treatment. Designed for individuals exploring whether ADHD may be a factor in their recovery. Takes 10–12 minutes and requires no registration.
+              This IRN-developed descriptive assessment explores attention, focus, restlessness, impulsivity and daily impact. It is not a diagnosis or validated ADHD instrument; formal diagnosis requires a specialist developmental and clinical assessment.
             </p>
             <a href="/assessments/adhd-impulsivity" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Start ADHD &amp; Impulsivity Assessment</a>
           </section>

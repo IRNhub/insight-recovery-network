@@ -190,7 +190,7 @@ export const depressionAssessment: AssessmentConfig = {
       id: "contact-consent",
       title: "Section 4 of 4: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
+        "Your result will be calculated and saved securely. We will attempt to email a copy, and the useful personalised guidance does not depend on AI.",
       questions: [
         {
           id: "name",
@@ -201,7 +201,7 @@ export const depressionAssessment: AssessmentConfig = {
         {
           id: "email",
           text: "Your email address",
-          subtext: "Your result and Anchor's reflection will be sent here.",
+          subtext: "We will attempt to send a copy of the saved result here.",
           type: "email",
           required: true,
         },

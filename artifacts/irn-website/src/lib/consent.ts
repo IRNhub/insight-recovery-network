@@ -1,3 +1,5 @@
+import { currentPathIsAssessmentSensitive } from "./assessment-tracking-boundary.ts";
+
 export type ConsentCategory = "necessary" | "analytics" | "marketing";
 
 export interface ConsentPreferences {
@@ -143,6 +145,7 @@ function loadMetaPixel() {
 }
 
 function applyConsent(preferences: ConsentPreferences, command: "default" | "update") {
+  if (currentPathIsAssessmentSensitive()) return;
   setGoogleConsent(preferences, command);
 
   // GTM is non-essential and is loaded only when at least one Google-controlled
@@ -154,6 +157,7 @@ function applyConsent(preferences: ConsentPreferences, command: "default" | "upd
 
 export function initialiseConsent() {
   if (typeof window === "undefined") return;
+  if (currentPathIsAssessmentSensitive()) return;
   const preferences = getConsentPreferences();
   setGoogleConsent(DEFAULT_CONSENT, "default");
   if (hasStoredConsent()) applyConsent(preferences, "update");

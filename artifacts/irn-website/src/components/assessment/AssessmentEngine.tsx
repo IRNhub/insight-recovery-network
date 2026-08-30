@@ -3,12 +3,11 @@ import { Shield, ChevronRight, ChevronLeft, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import type { AssessmentConfig, AssessmentAnswers, ScoreResult } from "@/types/assessment";
-import { scoreAssessment } from "@/lib/assessment-scorer";
+import type { PublicAssessmentConfig, AssessmentAnswers } from "@/types/assessment";
 
 interface AssessmentEngineProps {
-  config: AssessmentConfig;
-  onComplete: (answers: AssessmentAnswers, result: ScoreResult, consent: boolean) => Promise<void>;
+  config: PublicAssessmentConfig;
+  onComplete: (answers: AssessmentAnswers, consent: boolean) => Promise<void>;
   isSubmitting: boolean;
 }
 
@@ -59,9 +58,13 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
     if (isLastSection) {
       if (isCompleting.current) return;
       isCompleting.current = true;
-      const result = scoreAssessment(config, answers);
       try {
-        await onComplete(answers, result, consent);
+        await onComplete(answers, consent);
+      } catch {
+        setErrors((current) => ({
+          ...current,
+          _submit: "We could not save your assessment result. Your answers remain on this page, so please try again.",
+        }));
       } finally {
         isCompleting.current = false;
       }
@@ -119,7 +122,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
           <h2 className="text-2xl md:text-3xl font-serif text-primary leading-snug mb-3">
             {section.id === "contact-consent"
               ? "Where should we send your results?"
-              : "Please answer honestly, your responses are completely confidential."}
+              : "Please answer as accurately as you can. Your responses are handled securely."}
           </h2>
           {section.description && (
             <p className="text-muted-foreground font-light leading-relaxed">
@@ -250,6 +253,12 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
               )}
             </div>
           )}
+
+          {errors["_submit"] && (
+            <p role="alert" className="border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+              {errors["_submit"]}
+            </p>
+          )}
         </div>
 
         {/* Navigation */}
@@ -266,7 +275,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
           <div className="flex items-center gap-2">
             <Shield className="w-3.5 h-3.5 text-accent" />
-            <span className="text-xs text-muted-foreground font-light">Confidential</span>
+            <span className="text-xs text-muted-foreground font-light">Handled securely</span>
           </div>
 
           <Button

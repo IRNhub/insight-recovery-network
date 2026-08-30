@@ -3,6 +3,7 @@ import { logger } from "./lib/logger";
 import { seedArticlesIfEmpty } from "./lib/seed-articles";
 import { seedFamilySurvey } from "./lib/seed-family-survey";
 import { startSurveySyncWorker } from "./lib/irn-os-survey-sync";
+import { startAssessmentDeliveryWorker } from "./assessment-engine/assessment-delivery-worker";
 
 const rawPort = process.env["PORT"];
 
@@ -35,4 +36,6 @@ app.listen(port, (err) => {
   seedFamilySurvey()
     .catch((err) => logger.error({ err }, "Unexpected error in seedFamilySurvey"))
     .finally(() => startSurveySyncWorker());
+
+  startAssessmentDeliveryWorker();
 });

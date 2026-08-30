@@ -10,6 +10,10 @@ import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { installLeadClickTracking, trackPageView } from "@/lib/analytics";
 import { CONSENT_CHANGED_EVENT } from "@/lib/consent";
 import { CookieConsent } from "@/components/CookieConsent";
+import {
+  currentPathIsAssessmentSensitive,
+  enforceAssessmentTrackingBoundary,
+} from "@/lib/assessment-tracking-boundary";
 
 const About = lazy(() => import("@/pages/About"));
 const WhatWeOffer = lazy(() => import("@/pages/WhatWeOffer"));
@@ -27,6 +31,7 @@ const DetoxAssessmentPage = lazy(() => import("@/pages/assessments/DetoxAssessme
 const AnxietyAssessmentPage = lazy(() => import("@/pages/assessments/AnxietyAssessmentPage"));
 const DepressionAssessmentPage = lazy(() => import("@/pages/assessments/DepressionAssessmentPage"));
 const AdhdAssessmentPage = lazy(() => import("@/pages/assessments/AdhdAssessmentPage"));
+const AssessmentResultPage = lazy(() => import("@/pages/assessments/AssessmentResultPage"));
 const AboutInsightRecoveryNetwork = lazy(() => import("@/pages/AboutInsightRecoveryNetwork"));
 const OnlineAddictionRecoveryUK = lazy(() => import("@/pages/OnlineAddictionRecoveryUK"));
 const PrivateRehabAlternativeUK = lazy(() => import("@/pages/PrivateRehabAlternativeUK"));
@@ -164,6 +169,10 @@ function Router() {
   const [location] = useLocation();
 
   useEffect(() => {
+    enforceAssessmentTrackingBoundary(location);
+  }, [location]);
+
+  useEffect(() => {
     try {
       if (!window.sessionStorage.getItem("irn_landing_page")) {
         window.sessionStorage.setItem(
@@ -221,8 +230,9 @@ function Router() {
   }
 
   return (
-    <Suspense fallback={null}>
-      <Switch>
+    <>
+      <Suspense fallback={null}>
+        <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/what-we-offer" component={WhatWeOffer} />
@@ -270,6 +280,7 @@ function Router() {
         <Route path="/assessments/anxiety" component={AnxietyAssessmentPage} />
         <Route path="/assessments/depression" component={DepressionAssessmentPage} />
         <Route path="/assessments/adhd-impulsivity" component={AdhdAssessmentPage} />
+        <Route path="/assessment-results/:assessmentKey" component={AssessmentResultPage} />
         {/* Legacy routes are handled as client-side 301s in REDIRECT_PATHS above */}
         {/* Legal */}
         <Route path="/privacy-policy" component={PrivacyPolicy} />
@@ -282,8 +293,10 @@ function Router() {
         <Route path="/admin" component={AdminApp} />
         <Route path="/admin/:rest*" component={AdminApp} />
         <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+        </Switch>
+      </Suspense>
+      {!currentPathIsAssessmentSensitive() && <WhatsAppFloat />}
+    </>
   );
 }
 
@@ -293,7 +306,6 @@ function App() {
       <TooltipProvider>
         <WouterRouter hook={useNormalisedLocation}>
           <Router />
-          <WhatsAppFloat />
           <CookieConsent />
         </WouterRouter>
         <Toaster />

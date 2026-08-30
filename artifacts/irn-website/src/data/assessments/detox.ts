@@ -4,7 +4,7 @@ export const detoxAssessment: AssessmentConfig = {
   id: "detox-suitability",
   title: "Detox Suitability Assessment",
   subtitle:
-    "If you are considering stopping or significantly reducing your use of alcohol or other substances, this assessment helps identify the safest pathway. Please answer as honestly as you can, your answers help us understand your level of risk.",
+    "If you are considering stopping or significantly reducing alcohol or other substances, this self-assessment highlights factors that may require professional or medical review. It cannot determine whether detox is medically safe.",
   estimatedMinutes: 10,
   scoreThresholds: {
     moderateConcern: 10,
@@ -237,7 +237,7 @@ export const detoxAssessment: AssessmentConfig = {
       id: "contact-consent",
       title: "Section 5 of 5: Your Details",
       description:
-        "Your results will be sent to you securely. We will also include a brief personalised note from Anchor, our recovery guidance system, reflecting what you have shared.",
+        "Your result will be calculated and saved securely. We will attempt to email a copy, and the useful personalised guidance does not depend on AI.",
       questions: [
         {
           id: "name",
@@ -248,7 +248,7 @@ export const detoxAssessment: AssessmentConfig = {
         {
           id: "email",
           text: "Your email address",
-          subtext: "Your result and Anchor's reflection will be sent here.",
+          subtext: "We will attempt to send a copy of the saved result here.",
           type: "email",
           required: true,
         },

@@ -1,8 +1,26 @@
-import { pgTable, serial, text, integer, boolean, jsonb, timestamp } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  index,
+  integer,
+  jsonb,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+  uniqueIndex,
+  uuid,
+} from "drizzle-orm/pg-core";
 
 export const assessmentsTable = pgTable("assessments", {
   id: serial("id").primaryKey(),
+  resultPublicId: uuid("result_public_id").notNull().defaultRandom().unique(),
+  submissionKey: uuid("submission_key").unique(),
   type: text("type").notNull(),
+  assessmentKey: text("assessment_key"),
+  definitionVersion: integer("definition_version"),
+  definitionHash: text("definition_hash"),
+  engineVersion: text("engine_version"),
+  resultSource: text("result_source").notNull().default("legacy-client-v1"),
   name: text("name").notNull(),
   email: text("email").notNull(),
   phone: text("phone"),
@@ -14,10 +32,50 @@ export const assessmentsTable = pgTable("assessments", {
   redFlags: jsonb("red_flags").notNull().default([]),
   tags: jsonb("tags").notNull().default([]),
   anchorResponse: text("anchor_response"),
+  instrumentResult: jsonb("instrument_result"),
+  domains: jsonb("domains"),
+  screeningClassification: jsonb("screening_classification"),
+  safetyAction: text("safety_action"),
+  triggeredSafetyRules: jsonb("triggered_safety_rules"),
+  deterministicInterpretation: jsonb("deterministic_interpretation"),
+  pathways: jsonb("pathways"),
+  aiEnhancementStatus: text("ai_enhancement_status").notNull().default("not_requested"),
+  aiProvider: text("ai_provider"),
+  aiModel: text("ai_model"),
+  aiPromptVersion: text("ai_prompt_version"),
+  persistenceState: text("persistence_state").notNull().default("saved"),
+  emailDeliveryStatus: text("email_delivery_status").notNull().default("not_requested"),
+  irnOsDeliveryStatus: text("irn_os_delivery_status").notNull().default("not_requested"),
+  privacyNoticeVersion: text("privacy_notice_version"),
+  resultAccessTokenHash: text("result_access_token_hash").unique(),
+  deleteAfter: timestamp("delete_after"),
+  deletedAt: timestamp("deleted_at"),
   ctaClicked: boolean("cta_clicked").notNull().default(false),
   status: text("status").notNull().default("new"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+export const assessmentDeliveriesTable = pgTable(
+  "assessment_deliveries",
+  {
+    id: serial("id").primaryKey(),
+    assessmentId: integer("assessment_id")
+      .notNull()
+      .references(() => assessmentsTable.id, { onDelete: "cascade" }),
+    channel: text("channel").notNull(),
+    status: text("status").notNull().default("queued"),
+    attempts: integer("attempts").notNull().default(0),
+    nextAttemptAt: timestamp("next_attempt_at").notNull().defaultNow(),
+    lastErrorCode: text("last_error_code"),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
+    updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("assessment_delivery_assessment_channel_uq").on(table.assessmentId, table.channel),
+    index("assessment_delivery_retry_idx").on(table.status, table.nextAttemptAt),
+  ],
+);
+
 export type Assessment = typeof assessmentsTable.$inferSelect;
 export type InsertAssessment = typeof assessmentsTable.$inferInsert;
+export type AssessmentDelivery = typeof assessmentDeliveriesTable.$inferSelect;

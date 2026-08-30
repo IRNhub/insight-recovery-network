@@ -312,7 +312,7 @@ export async function sendAssessmentResultToUser(data: AssessmentEmailData): Pro
   });
 
   if (error) throw new Error(`Resend error: ${error.message}`);
-  logger.info({ to: data.email }, "Assessment result email sent to user");
+  logger.info("Assessment result email accepted by provider");
 }
 
 export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Promise<void> {
@@ -343,7 +343,7 @@ export async function sendAssessmentLeadToCraig(data: AssessmentEmailData): Prom
   });
 
   if (error) throw new Error(`Resend error: ${error.message}`);
-  logger.info({ to: toEmail, cc: ccEmail }, "Assessment lead email sent");
+  logger.info("Assessment lead email accepted by provider");
 }
 
 interface AcknowledgementData {

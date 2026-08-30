@@ -41,7 +41,7 @@ const assessments = [
     id: "detox",
     title: "Detox Suitability Assessment",
     description:
-      "If you are considering stopping or reducing alcohol or substance use, this assessment helps identify the safest pathway.",
+      "If you are considering stopping or reducing alcohol or substance use, this assessment highlights factors that may require professional or medical review. It cannot determine whether detox is medically safe.",
     href: "/assessments/detox",
     duration: "8–12 minutes",
     forWhom: "For those considering stopping or reducing use",
@@ -84,7 +84,7 @@ export default function AssessmentsIndex() {
     <Layout>
       <SEO
         title="Free Confidential Addiction and Mental Health Self-Assessments"
-        description="Free confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Clinically informed, non-diagnostic, results sent to your email."
+        description="Private self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD, with server-calculated, non-diagnostic results."
         canonical="/assessments"
         ogImage={ogImageUrl("og-assessments.png")}
       />
@@ -103,7 +103,7 @@ export default function AssessmentsIndex() {
             <div className="lg:w-[52%] flex flex-col">
               <div className="w-7 h-px mb-5" style={{ background: "#C9A96E" }} />
               <p className="text-[10px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans mb-3">
-                Clinical Self-Assessments
+                Private Self-Assessments
               </p>
               <h1 className="font-serif text-primary leading-tight mb-4" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.75rem)" }}>
                 Free Confidential Addiction and Mental Health Assessments
@@ -117,11 +117,11 @@ export default function AssessmentsIndex() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-muted-foreground font-light">
                 <span className="flex items-center gap-2">
                   <Shield className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                  Completely confidential
+                  Handled securely
                 </span>
                 <span className="flex items-center gap-2">
                   <Lock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                  Results sent to your email
+                  Durable result page
                 </span>
                 <span className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
