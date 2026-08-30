@@ -5,12 +5,14 @@ import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-add
 import { ketamineAddictionArticle } from "./article-010-ketamine-addiction";
 import { cannabisAddictionArticle } from "./article-011-cannabis-addiction";
 import { prescriptionDrugAddictionArticle } from "./article-012-prescription-drug-addiction";
+import { gamblingAddictionArticle } from "./article-013-gambling-addiction";
 import { batchTwoDetoxWithdrawalArticles } from "./article-batch-2-detox-withdrawal";
 import { batchThreeCommercialDecisionArticles } from "./article-batch-3-commercial-decisions";
 
 export const approvedArticles = [
   ...batchThreeCommercialDecisionArticles,
   ...batchTwoDetoxWithdrawalArticles,
+  gamblingAddictionArticle,
   prescriptionDrugAddictionArticle,
   cannabisAddictionArticle,
   ketamineAddictionArticle,

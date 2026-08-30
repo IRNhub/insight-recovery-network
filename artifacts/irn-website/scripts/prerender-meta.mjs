@@ -2882,6 +2882,18 @@ const ARTICLES = [
     type: "article",
   },
   {
+    slug: "gambling-addiction",
+    pageTitle: "Gambling Addiction: Signs, Harms and Treatment | IRN",
+    ogTitle: "Gambling Addiction: Signs, Harms and Treatment",
+    description:
+      "Learn the signs and harms of gambling addiction, when risk needs urgent help, and how assessment, practical safeguards and UK treatment support recovery.",
+    image: `${SITE_URL}/gambling-addiction-uk-hero-og.webp`,
+    imageAlt: "Adult discussing gambling-related harm and recovery options with a practitioner",
+    date: "2026-08-30",
+    updatedDate: "2026-08-30",
+    type: "article",
+  },
+  {
     slug: "prescription-drug-addiction",
     pageTitle: "Prescription Drug Addiction: Signs and Help | IRN",
     ogTitle: "Prescription Drug Addiction: Signs, Risks and Help",
@@ -3128,6 +3140,16 @@ async function loadTsModule(relPath) {
       const articleTwelveTmpPath = resolve(distPublic, ".tmp-article-012-prescription-drug-addiction.mjs");
       writeFileSync(articleTwelveTmpPath, articleTwelveTransformed.code, "utf8");
       temporaryDependencies.push(articleTwelveTmpPath);
+      const articleThirteenPath = resolve(root, "src/data/article-013-gambling-addiction.ts");
+      const articleThirteenSource = readFileSync(articleThirteenPath, "utf8");
+      const articleThirteenTransformed = await transformWithEsbuild(articleThirteenSource, articleThirteenPath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const articleThirteenTmpPath = resolve(distPublic, ".tmp-article-013-gambling-addiction.mjs");
+      writeFileSync(articleThirteenTmpPath, articleThirteenTransformed.code, "utf8");
+      temporaryDependencies.push(articleThirteenTmpPath);
       const batchTwoPath = resolve(root, "src/data/article-batch-2-detox-withdrawal.ts");
       const batchTwoSource = readFileSync(batchTwoPath, "utf8");
       const batchTwoTransformed = await transformWithEsbuild(batchTwoSource, batchTwoPath, {
@@ -3169,6 +3191,10 @@ async function loadTsModule(relPath) {
         .replace(
           /from\s+["']\.\/article-012-prescription-drug-addiction["']/,
           'from "./.tmp-article-012-prescription-drug-addiction.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-013-gambling-addiction["']/,
+          'from "./.tmp-article-013-gambling-addiction.mjs"',
         )
         .replace(
           /from\s+["']\.\/article-batch-2-detox-withdrawal["']/,
@@ -3483,6 +3509,11 @@ const STATIC_FOOTER = `
       </footer>`;
 
 const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
+  "gambling-addiction": [
+    ["NHS help for gambling problems", "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/"],
+    ["Mental health and addiction", "/resources/mental-health-and-addiction"],
+    ["Support for families", "/resources/addiction-support-for-families"],
+  ],
   "prescription-drug-addiction": [
     ["Prescription drug addiction treatment", "/prescription-drug-addiction-treatment"],
     ["Benzodiazepine withdrawal guide", "/resources/benzodiazepine-withdrawal"],

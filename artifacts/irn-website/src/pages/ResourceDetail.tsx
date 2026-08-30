@@ -101,6 +101,15 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
     "online-recovery-programmes",
   ],
   [
+    "gambling-addiction",
+    "why-cant-i-stop-how-addiction-works",
+    "addiction-warning-signs",
+    "mental-health-and-addiction",
+    "relapse-prevention-plan",
+    "what-to-do-after-relapse",
+    "addiction-support-for-families",
+  ],
+  [
     "dual-diagnosis",
     "mental-health-and-addiction",
     "addiction-warning-signs",
@@ -568,6 +577,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "gambling-addiction") {
+      return [
+        { title: "NHS help for gambling problems", description: "Find gambling-specific NHS information and routes to specialist support.", href: "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" },
+        { title: "Mental health and addiction", description: "Understand why gambling harm and mental-health needs should be assessed together.", href: "/resources/mental-health-and-addiction" },
+        { title: "Support for families", description: "Plan boundaries, safeguarding and support for affected others.", href: "/resources/addiction-support-for-families" },
+      ];
+    }
     if (article.slug === "prescription-drug-addiction") {
       return [
         { title: "Prescription drug treatment", description: "Compare prescriber-led medicine review, specialist drug services and wider recovery support without assuming dependence is addiction.", href: "/prescription-drug-addiction-treatment" },
@@ -758,6 +774,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "gambling-addiction") {
+      return {
+        heading: "Need gambling-specific support?",
+        description: "Use NHS or commissioned gambling services for assessment and treatment. IRN can discuss its service limits and help you organise non-urgent next questions, but it is not a specialist gambling-treatment provider.",
+        primaryCta: { label: "Find NHS gambling support", href: "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" },
+        secondaryCta: { label: "Ask IRN about service limits", href: "/contact" },
+      };
+    }
     if (slug === "prescription-drug-addiction") {
       return {
         heading: "Concerned about prescription medicine dependence or withdrawal?",
