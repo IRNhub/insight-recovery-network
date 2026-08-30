@@ -31,6 +31,8 @@ export interface SubstanceTreatmentPage {
     primary: [string, string];
     secondary: [string, string];
   };
+  reviewDate?: string;
+  reviewDateIso?: string;
 }
 
 export const SUBSTANCE_TREATMENT_REVIEW_DATE: string;

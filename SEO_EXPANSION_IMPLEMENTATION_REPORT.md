@@ -1,4 +1,4 @@
-# SEO Expansion Batch 1 and Batch 2 Implementation Report
+# SEO Expansion Batch 1, Batch 2 and Batch 3 Implementation Report
 
 Implementation date: 28 August 2026
 Branch: `agent/seo-commercial-expansion-20260828`
@@ -174,3 +174,86 @@ Seven user-supplied hero masters passed the visual gate and are implemented as c
 The supplied opioid image was deliberately not implemented because prominent readable fabricated service signage conflicts with the approved exclusions and could imply a real provider. The previous generic opioid hero and OG image remain temporarily; the tracker records the blocked replacement and unresolved ALT status. Supporting imagery also remains outstanding for alcohol withdrawal, opioid detox and cocaine withdrawal, together with the two general-detox supporting-image replacements.
 
 Post-asset validation passed: TypeScript, the complete production build, 95-URL sitemap and 50-article prerender, static SEO verification, exact built-HTML hero/OG/ALT assertions, derived-image dimension checks, and desktop/mobile browser QA across all seven updated pages. Browser QA found no broken images, horizontal overflow, console warnings or console errors. The implementation retains the site’s established static WebP architecture. No push or deployment was performed.
+
+## Batch 3: prescription treatment, cannabis withdrawal and treatment decisions
+
+### Reconciliation and selection
+
+Batch 3 began from an isolated worktree at verified production commit `7d48cf723e71d9d937ec1a986a5bed78fb7f43a7`. The stale, dirty `website-source` checkout was preserved. A fetch confirmed that `origin/main` still matched the handoff commit.
+
+No authority article had been published after `/resources/prescription-drug-addiction`. The repository mentions an existing 28-article authority programme, but does not contain the remaining publication schedule, and it contains no Search Console query or qualified-enquiry export. Batch selection therefore used the master plan, live content architecture and duplication risk while recording the missing evidence rather than inventing it.
+
+Seven page actions were completed:
+
+1. New commercial page: `/prescription-drug-addiction-treatment`.
+2. New clinical resource: `/resources/cannabis-withdrawal`.
+3. New admission decision guide: `/resources/how-quickly-can-someone-enter-rehab`.
+4. New duration decision guide: `/resources/28-day-vs-90-day-rehab`.
+5. Substantial improvement to `/treatment-placement` as the central decision hub.
+6. Reciprocal internal-link restructuring across authority, treatment, provider-choice, cost and private-rehab paths.
+7. Initial-bundle remediation by deferring the full article index until search or a resource route needs it.
+
+The opioid commercial page remains deferred. Creating it before the authority-programme schedule exposes the intended opioid pillar and before named clinical review would risk both duplication and unsafe sequencing. A new inpatient-versus-outpatient page was also not created because the existing online-versus-residential guide substantially owns that decision. Existing private-versus-NHS, provider-choice, residential and cost URLs were strengthened instead of duplicated.
+
+### New route implementation
+
+All four new routes have unique titles, descriptions and H1s, self-canonicals, explicit production rewrites, sitemap inclusion, visible breadcrumbs, static body content, FAQs, relevant schema, source lists and contextual calls to action.
+
+The prescription treatment page distinguishes expected physical dependence and withdrawal from addiction or a broader substance-use pattern. It gives no medicine doses, taper schedules or prescribing instructions. Current prescribers, GPs, specialist services and external providers retain clinical responsibility.
+
+The cannabis withdrawal guide uses a cautious variable timeline, explains that symptoms and duration differ between people, distinguishes typical withdrawal from the potentially dangerous withdrawal associated with alcohol or benzodiazepines, and directs urgent mental-health or safety deterioration to appropriate services.
+
+The admission guide makes no same-day guarantee. It explains the role of assessment, withdrawal risk, medical stability, records, provider capacity, travel, payment and the external provider’s final admission decision.
+
+The duration guide rejects a universal 28-day or 90-day optimum. It explains how detox time, severity, co-occurring needs, progress reviews, discharge environment, cost and continuing care affect an individual plan.
+
+### Treatment-placement hub and internal links
+
+`/treatment-placement` now has a visible treatment-decision directory covering provider choice, admission timing, programme duration, private-versus-NHS care, online-versus-residential care and cost. It also exposes all seven substance-specific treatment guides in raw HTML.
+
+Reciprocal links now connect:
+
+- the prescription authority pillar, prescription treatment page, benzodiazepine-withdrawal guide and opioid-detox guide;
+- the cannabis authority pillar, cannabis-withdrawal guide and cannabis-treatment page;
+- treatment placement, private rehab, private-rehab alternatives, provider choice, admission speed, duration and cost;
+- every new article to the existing resource hub and relevant treatment path.
+
+The automated raw-HTML orphan check still passes for every sitemap URL.
+
+### Visual-content gate
+
+Five dedicated single-photograph hero masters were generated with the built-in Codex image-generation capability. No Replit AI, Replit suggestions, Replit image generation, stock sourcing or placeholder imagery was used. Each approved source was visually inspected before derivation into a 1600 × 900 WebP hero and separate 1200 × 630 WebP social crop.
+
+The four new pages each receive a distinct visible hero, literal ALT text, dedicated OG image, intrinsic dimensions, eager loading, high fetch priority, responsive sizes and ImageObject schema. Supporting photography is intentionally not required: the prescription page uses highlights, a treatment-setting comparison and a process; cannabis withdrawal uses a timeline and symptom/safety structure; admission uses a readiness pathway and provider questions; duration uses a comparison table, review checklist and continuing-care pathway.
+
+The existing treatment-placement courtyard image was rejected because it contained fabricated readable `RESIDENTIAL TREATMENT` signage and visually implied a luxury provider. The page now uses a British coastal-path decision scene, a separate OG crop and ImageObject schema. The prior asset remains untouched in the repository but is no longer imported by this page.
+
+All five briefs, final production prompts, ALT decisions, output paths and supporting-image rationales are recorded in `SEO_EXPANSION_VISUAL_ASSET_AUDIT_AND_IMAGE_BRIEFS.md`. The deliberately outstanding Batch 2 alcohol-withdrawal, opioid-detox, cocaine-withdrawal and general-detox supporting-image tasks remain unchanged. The rejected opioid replacement remains rejected and no substitute placeholder was introduced.
+
+### Sources and clinical boundaries
+
+Content was checked against current NICE, NHS, NHS England, GOV.UK/DHSC, OHID and CQC material, plus peer-reviewed cannabis-withdrawal literature. These sources do not endorse IRN. Every affected page states the relevant boundary: IRN does not diagnose, prescribe, provide medical detox, supervise inpatient medical care or operate the external facilities it may discuss. Emergency guidance uses 999/A&E where appropriate.
+
+### Performance result
+
+The prior initial bundle included the full article corpus through `Navbar → SearchModal → article-loader → articles`. Search is now lazily loaded only when opened. The global entry chunk fell from 1,498.06 kB uncompressed / 427.97 kB gzip to 383.21 kB / 120.94 kB. The 1,102.85 kB / 303.03 kB article-data chunk is deferred to resource/search use, so it no longer blocks ordinary initial page loads. Static prerendering and raw-HTML discovery are unchanged.
+
+### Batch 3 validation
+
+- TypeScript passes with `CI=true pnpm --filter @workspace/irn-website run typecheck`.
+- The full production build passes, including favicon/OG generation, Vite, prerendering, static verification and Brotli/gzip compression.
+- The generated sitemap contains 99 indexable URLs and all four new routes; 53 full articles are prerendered.
+- Automated Batch 3 checks validate content depth, exact canonicals, one H1, indexability, explicit rewrites, schema, official sources, clinical boundaries, visible heroes, literal ALT, 1600 × 900 and 1200 × 630 WebP dimensions, file-size ceilings, eager/high-priority loading, responsive sizes, dedicated OG metadata, ImageObject schema and reciprocal internal links.
+- Rendered browser QA passes at 1440 × 1000 and 390 × 844 on all five affected routes, with correct hero visibility and ALT, no horizontal overflow and no console warnings or errors.
+- `git diff --check` and a final repository-status review remain part of local commit acceptance.
+
+### Deployment and Search Console
+
+No push or deployment was performed. The production deployment ID and live site remain unchanged. Because no Batch 3 URL is deployed, no Search Console inspection request should be made yet. After approved deployment, request indexing for the four new routes, refresh the sitemap, and inspect the updated treatment-placement URL. Record impressions, clicks, average position, CTR and qualified/assisted enquiries in the tracker rather than selecting the next batch from rankings alone.
+
+### Recommended Batch 4 sequence
+
+1. Reconcile the 28-article authority schedule again. If the opioid authority pillar is released, review it first and only then consider a named-clinical-review opioid treatment page.
+2. Complete the four deliberately outstanding Batch 2 supporting-image tasks without placeholders or the rejected opioid-signage asset.
+3. Use real Search Console and qualified-enquiry evidence to decide between an international cost/placement decision, a genuinely distinct outpatient decision page or targeted improvement of existing high-impression URLs.
+4. Consider splitting the large resource article corpus into a lightweight search/list index plus on-demand article bodies, but only if measurements justify the additional architecture work.

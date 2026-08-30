@@ -1,7 +1,7 @@
 # Insight Recovery Network SEO Visual Asset Audit and Image Briefs
 
-Audit date: 29 August 2026
-Scope: Batch 1 visual remediation, Batch 2 retrospective audit and the visual-content gate for every future SEO expansion batch
+Audit date: 30 August 2026
+Scope: Batch 1 visual remediation, Batch 2 retrospective audit, Batch 3 implementation and the visual-content gate for every future SEO expansion batch
 Companion tracker: [SEO_EXPANSION_TRACKER.csv](./SEO_EXPANSION_TRACKER.csv)
 
 ## Outcome
@@ -212,3 +212,111 @@ Every new or substantially improved SEO page must complete the following before 
 12. Treat incomplete asset production as a tracked dependency, not permission to use a misleading generic image. A page may retain its current asset temporarily only when the tracker records the gap and the image does not create a safety or factual risk.
 
 The visual gate supplements clinical, editorial and technical acceptance. It does not permit a page redesign or broaden IRN’s clinical claims.
+
+## Batch 3 implemented visual audit
+
+The Batch 3 visual gate was completed before local commit. Five bespoke masters were generated through the built-in Codex image-generation capability and visually inspected. Replit AI, Replit Agent, Replit Assistant, Replit suggestions, Replit image generation, stock sourcing and placeholders were not used.
+
+| Page | Visible hero | Visible supporting images | Open Graph image | Literal ALT text | Performance and delivery |
+|---|---|---|---|---|---|
+| `/prescription-drug-addiction-treatment` | `/prescription-drug-addiction-treatment-uk-hero.webp`, 1600 × 900 WebP, 44 KB; visible in masthead | None required. Highlights, treatment-setting comparison and process modules provide the supporting visual hierarchy. | `/prescription-drug-addiction-treatment-uk-og.webp`, 1200 × 630 WebP, 27 KB | “Adult preparing an unlabelled medicine box and notebook for a medication review at home.” | Explicit dimensions, aspect-ratio reservation, eager loading, high fetch priority, responsive sizes, dedicated ImageObject and desktop/mobile render pass. |
+| `/resources/cannabis-withdrawal` | `/cannabis-withdrawal-uk-hero.webp`, 1600 × 900 WebP, 66 KB; visible below the article masthead | None required. Timeline, symptom explanation and safety guidance carry the body content. | `/cannabis-withdrawal-uk-og.webp`, 1200 × 630 WebP, 40 KB | “Adult filling a glass of water beside an open kitchen window in the early morning.” | Explicit dimensions, aspect-ratio reservation, eager loading, high fetch priority, responsive sizes, dedicated ImageObject and desktop/mobile render pass. |
+| `/resources/how-quickly-can-someone-enter-rehab` | `/how-quickly-enter-private-rehab-uk-hero.webp`, 1600 × 900 WebP, 50 KB; visible below the article masthead | None required. Admission pathway, readiness checklist and provider questions carry the body explanation. | `/how-quickly-enter-private-rehab-uk-og.webp`, 1200 × 630 WebP, 32 KB | “Adult holding house keys during a phone conversation beside a front window.” | Explicit dimensions, aspect-ratio reservation, eager loading, high fetch priority, responsive sizes, dedicated ImageObject and desktop/mobile render pass. |
+| `/resources/28-day-vs-90-day-rehab` | `/28-day-vs-longer-rehab-uk-hero.webp`, 1600 × 900 WebP, 58 KB; visible below the article masthead | None required. Comparison table, progress-review checklist and continuing-care pathway carry the decision. | `/28-day-vs-longer-rehab-uk-og.webp`, 1200 × 630 WebP, 37 KB | “Two adults preparing vegetables and crockery together in a communal kitchen.” | Explicit dimensions, aspect-ratio reservation, eager loading, high fetch priority, responsive sizes, dedicated ImageObject and desktop/mobile render pass. |
+| `/treatment-placement` | `/treatment-placement-navigation-hero.webp`, 1600 × 900 WebP, 118 KB; visible in masthead | None required. Process, destination comparison, decision-guide directory and service modules provide the supporting structure. | `/treatment-placement-navigation-og.webp`, 1200 × 630 WebP, 67 KB | “Adult standing where two coastal footpaths divide.” | Explicit dimensions, aspect-ratio reservation, eager loading, high fetch priority, responsive sizes, dedicated ImageObject and desktop/mobile render pass. |
+
+The previous treatment-placement courtyard asset was reviewed visually and rejected for this page because it contains fabricated readable `RESIDENTIAL TREATMENT` signage and presents a luxury facility as if it were a real provider. It remains untouched elsewhere in the repository but is no longer imported by the treatment-placement page. The replacement communicates assessment and navigation without depicting a clinic, a drug, treatment equipment or distress.
+
+All five final masters are single continuous photographs. None contains visible drugs, pills, paraphernalia, staged intoxication, fake clinical environments, readable fabricated material, logos, watermarks, forced smiles, dramatic distress, a collage, diptych, split screen, storyboard or multiple panels.
+
+### Batch 3 brief 1: prescription drug dependence and addiction treatment
+
+1. **URL:** `/prescription-drug-addiction-treatment`.
+2. **Image purpose and placement:** Visible masthead hero and source for a separate social crop; communicate careful review and planning without giving medicine instructions.
+3. **Scene:** A calm adult at an ordinary British kitchen table in natural morning light, preparing for a medication-review conversation.
+4. **People and objects:** One adult, a closed blank medicine box, plain notebook, pen, ceramic mug and phone; no visible medicine, labels or paperwork text.
+5. **Composition:** Landscape editorial frame with the adult right of centre and quiet negative space; one continuous scene.
+6. **Emotional tone:** Reflective, steady and dignified; no fear, shame, euphoria or crisis.
+7. **UK context:** Modest British home, familiar window and kitchen materials, ordinary clothing.
+8. **IRN palette and style:** Muted navy, charcoal, cream and natural wood; premium realistic British editorial photography; natural daylight.
+9. **Crop and placement:** 1600 × 900 hero plus 1200 × 630 OG crop; keep the face, hands and blank box inside the central crop-safe area.
+10. **ALT text:** “Adult preparing an unlabelled medicine box and notebook for a medication review at home.”
+11. **Exclusions:** No pills, blister packs, syringes, dosage charts, readable labels, fake prescriptions, white coats, fake clinic, logos, watermarks, forced smile, dramatic distress or multiple scenes.
+
+**Final production prompt:** Premium realistic British editorial recovery photograph in natural morning daylight. One middle-aged adult sits alone at a modest British kitchen table, calmly preparing for a medication-review conversation. He holds a completely blank closed white medicine box beside a plain notebook, pen, dark ceramic mug and phone. No medicine or pills are visible. Frame a wide landscape scene with the adult right of centre, quiet cream wall and natural oak surfaces, muted navy and charcoal clothing, restrained depth of field and dignified non-stigmatising mood. No readable text anywhere, no labels, no logo, no watermark, no fake prescription, no white coat, no clinical room, no visible drugs or paraphernalia, no staged distress and no forced smile. Keep the face, hands and blank box safe for both 16:9 and 1.91:1 crops. ONE single continuous photograph only. Do not create a collage, diptych, split screen, storyboard, before-and-after image, inset image or multiple panels.
+
+Generated source: `/Users/craigbilton/.codex/generated_images/01a05177-bb41-7170-b9b7-fe535e1f9ef3/exec-8d5e25cf-27e2-43cd-90a3-3cf740335f79.png`.
+
+### Batch 3 brief 2: cannabis withdrawal
+
+1. **URL:** `/resources/cannabis-withdrawal`.
+2. **Image purpose and placement:** Visible article hero and source for a separate social crop; represent sleep disruption, self-care and the start of a steadier routine without depicting cannabis.
+3. **Scene:** One adult filling a glass of water at an open kitchen window in the early morning.
+4. **People and objects:** One adult, plain glass, tap and ordinary kitchen objects without text or branding.
+5. **Composition:** Landscape frame with the person and glass inside the central area, real terraced homes softly visible beyond the window.
+6. **Emotional tone:** Quiet, slightly tired but composed and hopeful; no distress performance.
+7. **UK context:** Modest British terrace kitchen and overcast dawn light.
+8. **IRN palette and style:** Muted navy, charcoal, cream and natural wood; realistic British editorial photography.
+9. **Crop and placement:** 1600 × 900 hero plus 1200 × 630 OG crop; preserve the face, hands, water and open window in both crops.
+10. **ALT text:** “Adult filling a glass of water beside an open kitchen window in the early morning.”
+11. **Exclusions:** No cannabis, smoke, vape, drugs, paraphernalia, fake clinical setting, readable text, logos, watermark, forced smile, dramatic distress or multiple scenes.
+
+**Final production prompt:** Premium realistic British editorial recovery photograph at dawn in a modest terraced-house kitchen. One adult in understated navy clothing fills a clear glass of water beside an open window, pausing in a quiet early-morning routine. Soft overcast daylight, cream walls, natural wood and charcoal details, with ordinary British terraced homes softly visible outside. The person looks slightly tired but composed, dignified and safe, with no staged emotion. Landscape composition with the person, hands, water and window held inside the central crop-safe area. No cannabis, smoke, vape, drugs, paraphernalia, fake medical setting, readable text, logos, watermark or forced smile. ONE single continuous photograph only. Do not create a collage, diptych, split screen, storyboard, before-and-after image, inset image or multiple panels.
+
+Generated source: `/Users/craigbilton/.codex/generated_images/01a05177-bb41-7170-b9b7-fe535e1f9ef3/exec-0677947b-65f1-4969-bee0-875261040738.png`.
+
+### Batch 3 brief 3: private rehab admission timing
+
+1. **URL:** `/resources/how-quickly-can-someone-enter-rehab`.
+2. **Image purpose and placement:** Visible article hero and source for a separate social crop; show practical preparation and a phone assessment without suggesting guaranteed admission.
+3. **Scene:** One adult speaking on a phone beside the front window of an ordinary British home while holding house keys.
+4. **People and objects:** One adult, phone, keys, coat hooks and front-hall furniture; no suitcase, ticket or provider material.
+5. **Composition:** Wide landscape frame with person and keys centrally protected and daylight from the window.
+6. **Emotional tone:** Focused, calm and purposeful; neither celebratory nor distressed.
+7. **UK context:** Familiar British terraced-house entrance and street architecture.
+8. **IRN palette and style:** Muted navy, charcoal, cream and natural wood; premium realistic British editorial photography.
+9. **Crop and placement:** 1600 × 900 hero plus 1200 × 630 OG crop; retain the face, phone and keys in both crops.
+10. **ALT text:** “Adult holding house keys during a phone conversation beside a front window.”
+11. **Exclusions:** No ambulance, hospital, clinic, suitcase packed as a guarantee, readable documents, provider logo, watermark, forced smile, panic, visible substances or multiple scenes.
+
+**Final production prompt:** Premium realistic British editorial recovery photograph in soft natural daylight. One adult stands in the entrance of an ordinary British terraced home, calmly speaking on a phone while holding a small set of house keys. A coat hangs on simple wall hooks and the front window shows a softly focused British residential street. The mood is focused and purposeful, suggesting assessment and practical preparation rather than a guaranteed admission. Muted navy and charcoal clothing, cream plaster and natural wood. Wide landscape composition with face, phone and keys within the centre for 16:9 and 1.91:1 crops. No clinic, ambulance, suitcase, readable paperwork, signs, logos, watermark, visible drugs, distress or forced smile. ONE single continuous photograph only. Do not create a collage, diptych, split screen, storyboard, before-and-after image, inset image or multiple panels.
+
+Generated source: `/Users/craigbilton/.codex/generated_images/01a05177-bb41-7170-b9b7-fe535e1f9ef3/exec-582c1180-2f3d-4185-942c-28afd0c70b1d.png`.
+
+### Batch 3 brief 4: 28-day versus longer-term rehab
+
+1. **URL:** `/resources/28-day-vs-90-day-rehab`.
+2. **Image purpose and placement:** Visible article hero and source for a separate social crop; communicate routine, participation and time for recovery without using a calendar graphic.
+3. **Scene:** Two adults quietly preparing vegetables and crockery together in a modest communal kitchen.
+4. **People and objects:** Two adults, vegetables, plain chopping board, crockery and ordinary kitchen utensils; no staff uniforms or treatment branding.
+5. **Composition:** One continuous wide scene with both people working naturally rather than posing.
+6. **Emotional tone:** Cooperative, grounded and everyday; no forced smiles or institutional atmosphere.
+7. **UK context:** Modest British communal kitchen with familiar cabinetry and window light.
+8. **IRN palette and style:** Muted navy, charcoal, cream and natural wood; natural daylight and premium editorial realism.
+9. **Crop and placement:** 1600 × 900 hero plus 1200 × 630 OG crop; keep both people and the shared task central.
+10. **ALT text:** “Two adults preparing vegetables and crockery together in a communal kitchen.”
+11. **Exclusions:** No calendar numbers, clocks as a gimmick, institutional signage, white coats, fake therapy group, readable text, logos, watermark, distress or multiple panels.
+
+**Final production prompt:** Premium realistic British editorial recovery photograph in natural daylight. Two adults in ordinary understated navy and charcoal clothing prepare a simple meal together in a modest communal kitchen, one cutting vegetables on a plain wooden board while the other arranges unbranded crockery. The interaction is natural, quiet and cooperative, suggesting routine, participation and time to practise everyday recovery skills. Cream cabinetry, natural wood and a soft British window light, with no institutional or luxury styling. Wide landscape frame with both people and the shared task centred for 16:9 and 1.91:1 crops. No calendar graphics, numbers, signage, readable text, logos, watermark, white coats, staged therapy, distress or forced smiles. ONE single continuous photograph only. Do not create a collage, diptych, split screen, storyboard, before-and-after image, inset image or multiple panels.
+
+Generated source: `/Users/craigbilton/.codex/generated_images/01a05177-bb41-7170-b9b7-fe535e1f9ef3/exec-d84ea9a5-e597-4453-aba0-e5176e504795.png`.
+
+### Batch 3 brief 5: treatment-placement navigation
+
+1. **URL:** `/treatment-placement`.
+2. **Image purpose and placement:** Replace the rejected fabricated-signage courtyard hero and provide a separate social crop; communicate assessment, choice and safe navigation.
+3. **Scene:** One adult standing where two footpaths divide on a British coastal headland.
+4. **People and objects:** One adult in practical clothing with a small plain backpack; natural paths, dry-stone wall, muted sea and headland.
+5. **Composition:** Landscape frame with the path fork clearly visible and the person inside the central crop-safe area.
+6. **Emotional tone:** Calm, reflective and steady; not lost, distressed or triumphant.
+7. **UK context:** Recognisable British coastal landscape with overcast natural light and dry-stone boundaries.
+8. **IRN palette and style:** Muted navy, charcoal, cream, moss and natural stone; premium realistic British editorial photography.
+9. **Crop and placement:** 1600 × 900 hero plus 1200 × 630 OG crop; keep the person and fork readable in both crops.
+10. **ALT text:** “Adult standing where two coastal footpaths divide.”
+11. **Exclusions:** No treatment centre, clinic, sign, readable text, luxury property, compass graphic, logo, watermark, visible drugs, distress, forced smile or multiple scenes.
+
+**Final production prompt:** Premium realistic British editorial recovery photograph on a quiet coastal headland under soft overcast natural daylight. One mature adult in understated navy outdoor clothing and a small plain backpack stands calmly where two footpaths divide, looking across the route before choosing a direction. Include a dry-stone wall, muted green and straw grass, distant sea and recognisably British landscape. The person is reflective and steady, not lost or distressed. Wide landscape composition with the person and the fork in the paths held safely in the centre for both 16:9 and 1.91:1 crops. Muted navy, charcoal, cream, moss and natural stone. No treatment building, clinic, signs, readable text, luxury property, compass graphic, logos, watermark, visible drugs, dramatic distress or forced smile. ONE single continuous photograph only. Do not create a collage, diptych, split screen, storyboard, before-and-after image, inset image or multiple panels.
+
+Generated source: `/Users/craigbilton/.codex/generated_images/01a05177-bb41-7170-b9b7-fe535e1f9ef3/exec-6e2c3ad3-540f-4ac2-9c8f-cab9b375779b.png`.
+
+Batch 3 rendered QA passed at 1440 × 1000 and 390 × 844 for all five pages. Each page has one H1, a visible and correctly cropped hero, literal ALT text, no horizontal overflow and no browser console warnings or errors. Static checks separately verify the dedicated OG URL, ImageObject schema, dimensions, loading priority, responsive sizes and file-size ceilings.

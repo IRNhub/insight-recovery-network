@@ -312,7 +312,67 @@ const PAGES = [
     title: "Help Choosing a Rehab | Assessment-Led Placement",
     description:
       "Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning.",
-    ogImage: `${SITE_URL}/og-treatment-placement.png`,
+    ogImage: `${SITE_URL}/treatment-placement-navigation-og.webp`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: "Adult standing where two coastal footpaths divide.",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${SITE_URL}/treatment-placement#webpage`,
+        url: `${SITE_URL}/treatment-placement`,
+        name: "Help Choosing a Rehab | Assessment-Led Placement",
+        description: "Assessment-led help choosing a private rehab or detox provider, with provider relationships and clinical responsibility explained clearly.",
+        primaryImageOfPage: { "@id": `${SITE_URL}/treatment-placement#primaryimage` },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/treatment-placement#primaryimage`,
+        contentUrl: `${SITE_URL}/treatment-placement-navigation-hero.webp`,
+        width: 1600,
+        height: 900,
+        caption: "Adult standing where two coastal footpaths divide.",
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "@id": `${SITE_URL}/treatment-placement#service`,
+        name: "Private Rehab and Detox Placement",
+        serviceType: "Addiction Treatment Placement",
+        provider: { "@id": `${SITE_URL}/#organization` },
+        areaServed: [
+          { "@type": "Country", name: "United Kingdom" },
+          { "@type": "Place", name: "International" },
+        ],
+        url: `${SITE_URL}/treatment-placement`,
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "Treatment placement", item: `${SITE_URL}/treatment-placement` },
+        ],
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "How does treatment placement work?",
+            acceptedAnswer: { "@type": "Answer", text: "We clarify needs, risks, preferences, location and budget, then explain suitable options and support the practical steps towards admission. The chosen provider remains responsible for its own assessment and care." },
+          },
+          {
+            "@type": "Question",
+            name: "Can you arrange medical detox?",
+            acceptedAnswer: { "@type": "Answer", text: "Insight Recovery Network does not provide or prescribe detox. Where medically assisted withdrawal may be needed, we help identify an appropriately regulated provider and encourage medical assessment." },
+          },
+        ],
+      },
+    ],
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -334,6 +394,7 @@ const PAGES = [
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
               Find a Suitable Private Rehab or Detox Provider Without a Rushed Decision
             </h1>
+            <img src="/treatment-placement-navigation-hero.webp" alt="Adult standing where two coastal footpaths divide." width="1600" height="900" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1024px) 48vw, 100vw" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;margin:1.75rem 0;" />
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               Insight Recovery Network helps individuals and families assess their needs, compare appropriate treatment options and access suitable programmes in the UK and internationally.
             </p>
@@ -1106,7 +1167,7 @@ const PAGES = [
           </section>
           <section style="padding:2rem 0;">
             <h2 style="font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Related rehab cost and treatment guidance</h2>
-            <p style="font-family:sans-serif;line-height:2;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment placement support</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private rehab in the UK</a><a href="/online-addiction-recovery-programme-uk" style="color:#162B3B;margin-right:1rem;">Online recovery programme</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private rehab alternative UK</a><a href="/assessments/detox" style="color:#162B3B;margin-right:1rem;">Detox suitability assessment</a><a href="/resources/detox-vs-rehab" style="color:#162B3B;margin-right:1rem;">Detox vs rehab</a><a href="/resources/addiction-detox-uk" style="color:#162B3B;margin-right:1rem;">Addiction detox UK</a><a href="/contact" style="color:#162B3B;">Speak to Insight Recovery Network</a></p>
+            <p style="font-family:sans-serif;line-height:2;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment placement support</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private rehab in the UK</a><a href="/resources/28-day-vs-90-day-rehab" style="color:#162B3B;margin-right:1rem;">28-day vs longer-term rehab</a><a href="/online-addiction-recovery-programme-uk" style="color:#162B3B;margin-right:1rem;">Online recovery programme</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private rehab alternative UK</a><a href="/assessments/detox" style="color:#162B3B;margin-right:1rem;">Detox suitability assessment</a><a href="/resources/detox-vs-rehab" style="color:#162B3B;margin-right:1rem;">Detox vs rehab</a><a href="/resources/addiction-detox-uk" style="color:#162B3B;margin-right:1rem;">Addiction detox UK</a><a href="/contact" style="color:#162B3B;">Speak to Insight Recovery Network</a></p>
           </section>
         </div>
       </main>
@@ -2185,6 +2246,7 @@ PAGES.push(
 
 function buildSubstanceTreatmentJsonLd(page) {
   const canonical = `${SITE_URL}${page.route}`;
+  const reviewDateIso = page.reviewDateIso ?? "2026-08-28";
 
   return [
     {
@@ -2211,7 +2273,7 @@ function buildSubstanceTreatmentJsonLd(page) {
         name: "Craig Bilton",
         url: `${SITE_URL}/craig-bilton`,
       },
-      lastReviewed: "2026-08-28",
+      lastReviewed: reviewDateIso,
     },
     {
       "@context": "https://schema.org",
@@ -2247,6 +2309,7 @@ function buildSubstanceTreatmentJsonLd(page) {
 }
 
 function buildSubstanceTreatmentBody(page) {
+  const reviewDate = page.reviewDate ?? SUBSTANCE_TREATMENT_REVIEW_DATE;
   const sections = page.sections.map((section) => `
     <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);">
       <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.25rem;">${esc(section.title)}</h2>
@@ -2273,7 +2336,7 @@ function buildSubstanceTreatmentBody(page) {
         <section aria-label="Service summary" style="padding:2rem 0;border-bottom:1px solid rgba(22,43,59,0.12);font-family:sans-serif;">
           <h2 style="position:absolute;left:-9999px;">Service summary</h2>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;">${[["Who this is for", page.summary.who], ["What it helps solve", page.summary.problem], ["Where it applies", page.summary.applies], ["Next step", page.summary.nextStep]].map(([label, value]) => `<div style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.25rem;"><strong style="display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:#9B7844;margin-bottom:0.5rem;">${esc(label)}</strong><span style="font-size:0.9rem;line-height:1.6;">${esc(value)}</span></div>`).join("")}</div>
-          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Reviewed ${esc(SUBSTANCE_TREATMENT_REVIEW_DATE)} by <a href="/craig-bilton">Craig Bilton, Founder &amp; Clinical Director</a>.</p>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Reviewed ${esc(reviewDate)} by <a href="/craig-bilton">Craig Bilton, Founder &amp; Clinical Director</a>.</p>
           <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose, prescribe or provide medical detox, and is not an emergency service.</p>
         </section>
         <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.highlights.map((item) => `<article style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.5rem;"><h2 style="font-size:1.25rem;font-weight:500;">${esc(item.title)}</h2><p style="font-family:sans-serif;font-size:0.9rem;line-height:1.75;color:#4a5568;">${esc(item.body)}</p></article>`).join("")}</section>
@@ -2284,7 +2347,7 @@ function buildSubstanceTreatmentBody(page) {
         </section>
         <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">From immediate safety to continuing care</h2><ol style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${page.process.map(([title, body]) => `<li style="margin-bottom:0.85rem;"><strong style="color:#162B3B;">${esc(title)}:</strong> ${esc(body)}</li>`).join("")}</ol><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;border-left:4px solid #C9A96E;padding:1rem 1.25rem;">${esc(page.transparency)}</p></section>
         <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Related treatment and clinical guidance</h2><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.relatedLinks.map(([title, description, href]) => `<article style="border:1px solid rgba(22,43,59,0.12);padding:1.25rem;background:#fff;"><h3 style="font-size:1.15rem;font-weight:500;"><a href="${esc(href)}">${esc(title)}</a></h3><p style="font-family:sans-serif;font-size:0.85rem;line-height:1.7;color:#4a5568;">${esc(description)}</p></article>`).join("")}</div></section>
-        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Clinical sources and review</h2><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:820px;">General UK treatment information reviewed ${esc(SUBSTANCE_TREATMENT_REVIEW_DATE)}. These sources support the clinical framing; they do not endorse IRN or replace individual assessment.</p><ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;">${page.sources.map(([title, href]) => `<li><a href="${esc(href)}" rel="noopener noreferrer">${esc(title)}</a></li>`).join("")}</ul></section>
+        <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);"><h2 style="font-size:2rem;font-weight:500;">Clinical sources and review</h2><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;max-width:820px;">General UK treatment information reviewed ${esc(reviewDate)}. These sources support the clinical framing; they do not endorse IRN or replace individual assessment.</p><ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;">${page.sources.map(([title, href]) => `<li><a href="${esc(href)}" rel="noopener noreferrer">${esc(title)}</a></li>`).join("")}</ul></section>
         <section style="padding:3rem 0;"><h2 style="font-size:2rem;font-weight:500;">Questions about ${esc(page.title.toLowerCase())}</h2>${page.faqs.map(([question, answer]) => `<article style="max-width:840px;margin-bottom:1.5rem;"><h3 style="font-size:1.2rem;font-weight:500;">${esc(question)}</h3><p style="font-family:sans-serif;line-height:1.8;color:#4a5568;">${esc(answer)}</p></article>`).join("")}</section>
         <section style="padding:3rem 2rem;background:#162B3B;color:#fff;text-align:center;"><h2 style="font-size:2rem;font-weight:500;">${esc(page.cta.heading)}</h2><p style="font-family:sans-serif;line-height:1.8;color:rgba(255,255,255,0.75);">${esc(page.cta.description)}</p><a href="${esc(page.cta.primary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;background:#fff;color:#162B3B;text-decoration:none;font-family:sans-serif;">${esc(page.cta.primary[0])}</a> <a href="${esc(page.cta.secondary[1])}" style="display:inline-block;padding:0.875rem 1.5rem;color:#fff;font-family:sans-serif;">${esc(page.cta.secondary[0])}</a></section>
       </div>
@@ -2350,6 +2413,18 @@ const treatmentPlacementPage = PAGES.find(
   (page) => page.route === "/treatment-placement",
 );
 if (treatmentPlacementPage) {
+  const treatmentDecisionLinks = `
+    <section aria-labelledby="treatment-decision-guides" style="max-width:1200px;margin:0 auto;padding:3rem 2rem;border-top:1px solid rgba(201,169,110,0.25);">
+      <h2 id="treatment-decision-guides" style="font-family:Georgia,serif;font-size:2rem;font-weight:500;color:#162B3B;margin-bottom:1rem;">Compare Admission, Provider Quality, Treatment Length and Cost</h2>
+      <ul style="font-family:sans-serif;line-height:1.9;color:#4a5568;padding-left:1.25rem;">
+        <li><a href="/resources/how-to-choose-private-rehab-centre-uk">How to choose a private rehab</a></li>
+        <li><a href="/resources/how-quickly-can-someone-enter-rehab">How quickly can someone enter rehab?</a></li>
+        <li><a href="/resources/28-day-vs-90-day-rehab">28-day vs longer-term rehab</a></li>
+        <li><a href="/resources/private-rehab-vs-nhs-addiction-treatment">Private rehab vs NHS treatment</a></li>
+        <li><a href="/resources/online-addiction-support-vs-residential-rehab">Online support vs residential rehab</a></li>
+        <li><a href="/how-much-does-rehab-cost-uk">UK private rehab costs</a></li>
+      </ul>
+    </section>`;
   const treatmentGuideLinks = `
     <section aria-labelledby="substance-treatment-guides" style="max-width:1200px;margin:0 auto;padding:3rem 2rem;border-top:1px solid rgba(201,169,110,0.25);">
       <h2 id="substance-treatment-guides" style="font-family:Georgia,serif;font-size:2rem;font-weight:500;color:#162B3B;margin-bottom:1rem;">Substance-Specific Treatment Guides</h2>
@@ -2358,7 +2433,7 @@ if (treatmentPlacementPage) {
     </section>`;
   treatmentPlacementPage.body = treatmentPlacementPage.body.replace(
     "</main>",
-    `${treatmentGuideLinks}</main>`,
+    `${treatmentDecisionLinks}${treatmentGuideLinks}</main>`,
   );
 }
 
@@ -2425,6 +2500,8 @@ function buildStaticServiceEnhancement(route) {
   const links = [
     ["Rehab Cost UK Guide", "/how-much-does-rehab-cost-uk"],
     ["Treatment Placement", "/treatment-placement"],
+    ["Rehab Admission Timing", "/resources/how-quickly-can-someone-enter-rehab"],
+    ["28-Day vs Longer-Term Rehab", "/resources/28-day-vs-90-day-rehab"],
     ["Private Rehab UK", "/private-rehab-uk"],
     ["Private Rehab Alternatives", "/private-rehab-alternative-uk"],
     ["Luxury Rehab", "/luxury-rehab"],
@@ -3061,6 +3138,16 @@ async function loadTsModule(relPath) {
       const batchTwoTmpPath = resolve(distPublic, ".tmp-article-batch-2-detox-withdrawal.mjs");
       writeFileSync(batchTwoTmpPath, batchTwoTransformed.code, "utf8");
       temporaryDependencies.push(batchTwoTmpPath);
+      const batchThreePath = resolve(root, "src/data/article-batch-3-commercial-decisions.ts");
+      const batchThreeSource = readFileSync(batchThreePath, "utf8");
+      const batchThreeTransformed = await transformWithEsbuild(batchThreeSource, batchThreePath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const batchThreeTmpPath = resolve(distPublic, ".tmp-article-batch-3-commercial-decisions.mjs");
+      writeFileSync(batchThreeTmpPath, batchThreeTransformed.code, "utf8");
+      temporaryDependencies.push(batchThreeTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
       const approvedCode = approvedTransformed.code
         .replace(
@@ -3086,6 +3173,10 @@ async function loadTsModule(relPath) {
         .replace(
           /from\s+["']\.\/article-batch-2-detox-withdrawal["']/,
           'from "./.tmp-article-batch-2-detox-withdrawal.mjs"',
+        )
+        .replace(
+          /from\s+["']\.\/article-batch-3-commercial-decisions["']/,
+          'from "./.tmp-article-batch-3-commercial-decisions.mjs"',
         );
       writeFileSync(approvedTmpPath, approvedCode, "utf8");
       temporaryDependencies.push(approvedTmpPath);
@@ -3393,6 +3484,7 @@ const STATIC_FOOTER = `
 
 const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
   "prescription-drug-addiction": [
+    ["Prescription drug addiction treatment", "/prescription-drug-addiction-treatment"],
     ["Benzodiazepine withdrawal guide", "/resources/benzodiazepine-withdrawal"],
     ["Opioid detox and withdrawal", "/resources/opioid-detox"],
     ["Detox suitability assessment", "/assessments/detox"],
@@ -3412,6 +3504,7 @@ const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
   ],
   "cannabis-addiction": [
     ["Cannabis addiction treatment", "/cannabis-addiction-treatment"],
+    ["Cannabis withdrawal guide", "/resources/cannabis-withdrawal"],
     ["Drug-use assessment", "/assessments/drug-use"],
     ["Structured online recovery", "/online-programme"],
   ],
@@ -3436,6 +3529,30 @@ const SUBSTANCE_ARTICLE_TREATMENT_LINKS = {
     ["Dual diagnosis treatment", "/dual-diagnosis-treatment"],
     ["Recovery assessments", "/assessments"],
     ["Treatment placement", "/treatment-placement"],
+  ],
+  "cannabis-withdrawal": [
+    ["Cannabis addiction treatment", "/cannabis-addiction-treatment"],
+    ["Cannabis addiction guide", "/resources/cannabis-addiction"],
+    ["Drug-use assessment", "/assessments/drug-use"],
+    ["Mental health and addiction", "/resources/mental-health-and-addiction"],
+  ],
+  "how-quickly-can-someone-enter-rehab": [
+    ["Treatment placement", "/treatment-placement"],
+    ["How to choose a private rehab", "/resources/how-to-choose-private-rehab-centre-uk"],
+    ["Private rehab UK", "/private-rehab-uk"],
+    ["Rehab costs UK", "/how-much-does-rehab-cost-uk"],
+  ],
+  "28-day-vs-90-day-rehab": [
+    ["Treatment placement", "/treatment-placement"],
+    ["How to choose a private rehab", "/resources/how-to-choose-private-rehab-centre-uk"],
+    ["Private rehab UK", "/private-rehab-uk"],
+    ["Rehab costs UK", "/how-much-does-rehab-cost-uk"],
+  ],
+  "how-to-choose-private-rehab-centre-uk": [
+    ["How quickly can someone enter rehab?", "/resources/how-quickly-can-someone-enter-rehab"],
+    ["28-day vs longer-term rehab", "/resources/28-day-vs-90-day-rehab"],
+    ["Treatment placement", "/treatment-placement"],
+    ["Rehab costs UK", "/how-much-does-rehab-cost-uk"],
   ],
 };
 
@@ -3509,7 +3626,7 @@ function buildArticleBodyHtml(meta, full) {
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
-            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" fetchpriority="high" decoding="async" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
+            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1200px) 720px, calc(100vw - 4rem)" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
             ${markdownToHtml(withoutEmbeddedFaq(full.content), full.supportingImages)}
           </article>
           ${faqHtml}

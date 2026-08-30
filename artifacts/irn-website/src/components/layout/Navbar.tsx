@@ -1,8 +1,13 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, Search } from "lucide-react";
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { SearchModal } from "@/components/search/SearchModal";
+
+const SearchModal = lazy(() =>
+  import("@/components/search/SearchModal").then((module) => ({
+    default: module.SearchModal,
+  })),
+);
 
 export function Navbar() {
   const [location] = useLocation();
@@ -188,7 +193,11 @@ export function Navbar() {
         )}
       </header>
 
-      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchOpen && (
+        <Suspense fallback={null}>
+          <SearchModal isOpen onClose={() => setSearchOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 }

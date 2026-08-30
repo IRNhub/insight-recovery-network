@@ -608,6 +608,11 @@ export default function RehabCostUK() {
             href: "/private-rehab-uk",
           },
           {
+            title: "28-day vs longer-term rehab",
+            description: "Compare treatment length by clinical need, recovery environment and the continuing-care plan.",
+            href: "/resources/28-day-vs-90-day-rehab",
+          },
+          {
             title: "Online recovery programme",
             description: "Structured online support for people who are medically stable or need strong aftercare.",
             href: "/online-addiction-recovery-programme-uk",

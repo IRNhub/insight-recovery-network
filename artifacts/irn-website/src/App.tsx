@@ -223,6 +223,7 @@ function Router() {
         <Route path="/cannabis-addiction-treatment">{() => <SubstanceTreatmentPage slug="cannabis-addiction-treatment" />}</Route>
         <Route path="/ketamine-addiction-treatment">{() => <SubstanceTreatmentPage slug="ketamine-addiction-treatment" />}</Route>
         <Route path="/benzodiazepine-addiction-treatment">{() => <SubstanceTreatmentPage slug="benzodiazepine-addiction-treatment" />}</Route>
+        <Route path="/prescription-drug-addiction-treatment">{() => <SubstanceTreatmentPage slug="prescription-drug-addiction-treatment" />}</Route>
         <Route path="/dual-diagnosis-treatment">{() => <SubstanceTreatmentPage slug="dual-diagnosis-treatment" />}</Route>
         <Route path="/luxury-rehab">{() => <PremiumTreatmentPage slug="luxury-rehab" />}</Route>
         <Route path="/executive-rehab">{() => <PremiumTreatmentPage slug="executive-rehab" />}</Route>

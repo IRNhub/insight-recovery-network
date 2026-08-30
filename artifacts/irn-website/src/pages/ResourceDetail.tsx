@@ -54,12 +54,21 @@ const ARTICLE_CLUSTERS: readonly (readonly string[])[] = [
   ],
   [
     "cannabis-addiction",
+    "cannabis-withdrawal",
     "addiction-warning-signs",
     "why-cant-i-stop-how-addiction-works",
     "mental-health-and-addiction",
     "dual-diagnosis",
     "addiction-detox-uk",
     "online-recovery-programmes",
+  ],
+  [
+    "how-to-choose-private-rehab-centre-uk",
+    "how-quickly-can-someone-enter-rehab",
+    "28-day-vs-90-day-rehab",
+    "what-happens-in-residential-rehabilitation",
+    "private-rehab-vs-nhs-addiction-treatment",
+    "online-addiction-support-vs-residential-rehab",
   ],
   [
     "ketamine-addiction",
@@ -561,6 +570,7 @@ export default function ResourceDetail() {
   const commercialLinks = (() => {
     if (article.slug === "prescription-drug-addiction") {
       return [
+        { title: "Prescription drug treatment", description: "Compare prescriber-led medicine review, specialist drug services and wider recovery support without assuming dependence is addiction.", href: "/prescription-drug-addiction-treatment" },
         { title: "Benzodiazepine withdrawal guide", description: "Understand why prescribed benzodiazepine withdrawal needs an individual prescriber-led plan.", href: "/resources/benzodiazepine-withdrawal" },
         { title: "Opioid detox and withdrawal", description: "Compare maintenance and detox decisions and understand reduced-tolerance risk.", href: "/resources/opioid-detox" },
         { title: "Detox suitability assessment", description: "Organise medicine, withdrawal, overdose and combination-risk questions before speaking with a prescriber or clinical service.", href: "/assessments/detox" },
@@ -571,6 +581,7 @@ export default function ResourceDetail() {
     if (article.slug === "cannabis-addiction") {
       return [
         { title: "Cannabis addiction treatment", description: "Compare community, online and residential support against use, mental health and home stability.", href: "/cannabis-addiction-treatment" },
+        { title: "Cannabis withdrawal guide", description: "Understand sleep, mood, appetite and craving changes without overstating medical risk.", href: "/resources/cannabis-withdrawal" },
         { title: "Drug-use assessment", description: "Organise concerns about cannabis use, control, withdrawal, mental health and daily functioning.", href: "/assessments/drug-use" },
         { title: "Online recovery programme", description: "Explore structured recovery support when the person is medically stable and online care is suitable.", href: "/online-programme" },
       ];
@@ -679,10 +690,34 @@ export default function ResourceDetail() {
     }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
-        { title: "Luxury rehab", description: "Compare premium treatment against clinical quality, privacy and aftercare.", href: "/luxury-rehab" },
-        { title: "Executive rehab", description: "Review confidential treatment considerations for professionals.", href: "/executive-rehab" },
-        { title: "Destination rehab", description: "Consider travel safety and the complete overseas treatment pathway.", href: "/destination-rehab" },
+        { title: "How quickly can someone enter rehab?", description: "See which assessment, capacity, detox and travel checks affect a safe admission timeline.", href: "/resources/how-quickly-can-someone-enter-rehab" },
+        { title: "28-day vs longer-term rehab", description: "Compare treatment duration by assessed need, progress reviews and continuing care rather than package labels.", href: "/resources/28-day-vs-90-day-rehab" },
+        { title: "Private rehab costs", description: "Compare complete pathway costs after establishing clinical fit.", href: "/how-much-does-rehab-cost-uk" },
         { title: "Treatment placement", description: "Get assessment-led help comparing suitable providers.", href: "/treatment-placement" },
+      ];
+    }
+    if (article.slug === "cannabis-withdrawal") {
+      return [
+        { title: "Cannabis addiction guide", description: "Understand signs, harms and the wider evidence-led treatment picture.", href: "/resources/cannabis-addiction" },
+        { title: "Cannabis addiction treatment", description: "Compare community, online and residential support after the early withdrawal period.", href: "/cannabis-addiction-treatment" },
+        { title: "Drug-use assessment", description: "Organise use, withdrawal, mental-health and daily-functioning concerns.", href: "/assessments/drug-use" },
+        { title: "Online recovery programme", description: "Explore structured support where the person is stable and online care is suitable.", href: "/online-programme" },
+      ];
+    }
+    if (article.slug === "how-quickly-can-someone-enter-rehab") {
+      return [
+        { title: "How to choose a private rehab", description: "Use the clinical, regulatory, cost and aftercare checks before accepting a place.", href: "/resources/how-to-choose-private-rehab-centre-uk" },
+        { title: "Treatment placement", description: "See how assessment-led provider comparison and admission planning works.", href: "/treatment-placement" },
+        { title: "Detox suitability assessment", description: "Organise withdrawal history for a qualified clinical conversation.", href: "/assessments/detox" },
+        { title: "Private rehab costs", description: "Review total pathway costs and written-inclusion questions before paying.", href: "/how-much-does-rehab-cost-uk" },
+      ];
+    }
+    if (article.slug === "28-day-vs-90-day-rehab") {
+      return [
+        { title: "What happens in residential rehab?", description: "Understand assessment, therapy, daily structure and continuing care.", href: "/resources/what-happens-in-residential-rehabilitation" },
+        { title: "How to choose a private rehab", description: "Check provider capability and governance before comparing programme length.", href: "/resources/how-to-choose-private-rehab-centre-uk" },
+        { title: "Private rehab costs", description: "Compare the full pathway cost, including detox, extensions and aftercare.", href: "/how-much-does-rehab-cost-uk" },
+        { title: "Treatment placement", description: "Compare duration and setting against assessed needs.", href: "/treatment-placement" },
       ];
     }
     if (/(relapse|willpower|structured-support)/.test(article.slug)) {
@@ -769,6 +804,30 @@ export default function ResourceDetail() {
         description: "A confidential assessment can help organise the pattern, withdrawal, mental-health risks and realistic support options. It is educational and cannot diagnose cannabis dependence or assess an emergency.",
         primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
         secondaryCta: { label: "Explore treatment options", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "cannabis-withdrawal") {
+      return {
+        heading: "Need support beyond the first withdrawal period?",
+        description: "A drug-use assessment can help organise use, sleep, mood, cravings and realistic support options. It is educational and does not diagnose dependence or assess an emergency.",
+        primaryCta: { label: "Start a drug-use assessment", href: "/assessments/drug-use" },
+        secondaryCta: { label: "Compare cannabis treatment", href: "/cannabis-addiction-treatment" },
+      };
+    }
+    if (slug === "how-quickly-can-someone-enter-rehab") {
+      return {
+        heading: "Need a time-sensitive but suitable placement?",
+        description: "IRN can help organise the information, compare capable external providers and support admission planning without replacing emergency or clinical assessment.",
+        primaryCta: { label: "Discuss treatment placement", href: "/contact" },
+        secondaryCta: { label: "Review how placement works", href: "/treatment-placement" },
+      };
+    }
+    if (slug === "28-day-vs-90-day-rehab") {
+      return {
+        heading: "Need help comparing treatment length and fit?",
+        description: "Assessment-led placement can compare programme duration, clinical capability, cost and continuing care against the person's needs.",
+        primaryCta: { label: "Discuss treatment options", href: "/contact" },
+        secondaryCta: { label: "Compare rehab costs", href: "/how-much-does-rehab-cost-uk" },
       };
     }
     if (slug === "ketamine-addiction") {
@@ -1089,6 +1148,7 @@ export default function ResourceDetail() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
+                  sizes="(min-width: 1200px) 768px, (min-width: 768px) calc(100vw - 6rem), calc(100vw - 3rem)"
                 />
               </div>
             </div>
