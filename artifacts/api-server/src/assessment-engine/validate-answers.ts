@@ -105,6 +105,16 @@ export function validateAnswers(
     }
   }
 
+  if (definition.eligibility) {
+    const answer = cleanAnswers[definition.eligibility.questionId];
+    if (typeof answer === "string" && !definition.eligibility.allowedValues.includes(answer)) {
+      issues.push({
+        field: `answers.${definition.eligibility.questionId}`,
+        message: "This adult assessment cannot accept or score an under-18 response",
+      });
+    }
+  }
+
   if (issues.length > 0) throw new AssessmentValidationError(issues);
   return cleanAnswers;
 }

@@ -11,6 +11,7 @@ import type {
 } from "./contracts.ts";
 import { legacyDefinitionSnapshotV1 } from "./legacy-definition-snapshot-v1.ts";
 import { phaseBSubstanceDefinitionsV2 } from "./phase-b-substance-definitions-v2.ts";
+import { phaseCMentalHealthDefinitionsV2 } from "./phase-c-mental-health-definitions-v2.ts";
 
 export const ENGINE_VERSION = "phase-a-v1";
 
@@ -253,7 +254,8 @@ function buildLegacyDefinition(key: AssessmentKey): AssessmentDefinition {
 const LEGACY_DEFINITIONS = (Object.keys(legacyDefinitionSnapshotV1) as AssessmentKey[])
   .map(buildLegacyDefinition);
 const PHASE_B_DEFINITIONS = phaseBSubstanceDefinitionsV2.map(finaliseDefinition);
-const ALL_DEFINITIONS = deepFreeze([...LEGACY_DEFINITIONS, ...PHASE_B_DEFINITIONS]);
+const PHASE_C_DEFINITIONS = phaseCMentalHealthDefinitionsV2.map(finaliseDefinition);
+const ALL_DEFINITIONS = deepFreeze([...LEGACY_DEFINITIONS, ...PHASE_B_DEFINITIONS, ...PHASE_C_DEFINITIONS]);
 const DEFINITIONS_BY_KEY = new Map<AssessmentKey, AssessmentDefinition[]>(
   (Object.keys(legacyDefinitionSnapshotV1) as AssessmentKey[]).map((key) => [
     key,
@@ -292,6 +294,7 @@ export function toPublicDefinition(definition: AssessmentDefinition): PublicAsse
     title: definition.title,
     subtitle: definition.subtitle,
     estimatedMinutes: definition.estimatedMinutes,
+    eligibility: definition.eligibility,
     sections: definition.sections.map((section) => ({
       id: section.id,
       title: section.title,
@@ -304,7 +307,11 @@ export function toPublicDefinition(definition: AssessmentDefinition): PublicAsse
         type: question.type,
         required: question.required,
         displayWhen: question.displayWhen,
-        options: question.options?.map((option) => ({ value: option.value, label: option.label })),
+        options: question.options?.map((option) => ({
+          value: option.value,
+          label: option.label,
+          ...(option.instrumentThreshold ? { instrumentThreshold: true } : {}),
+        })),
       })),
     })),
   };

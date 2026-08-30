@@ -1,13 +1,54 @@
 import type {
   AssessmentAnswers,
   AssessmentDefinition,
+  AuthoritativeAssessmentResult,
   ScreeningClassification,
 } from "./contracts.ts";
+
+function validatedInstrumentScore(
+  definition: AssessmentDefinition,
+  answers: AssessmentAnswers,
+): { value: number; band: NonNullable<AssessmentDefinition["instrument"]>["bands"][number] } | null {
+  const instrument = definition.instrument;
+  if (!instrument) return null;
+
+  const questions = new Map(
+    definition.sections.flatMap((section) => section.questions).map((question) => [question.id, question]),
+  );
+  const value = instrument.questionIds.reduce((total, questionId) => {
+    const question = questions.get(questionId);
+    const answer = answers[questionId];
+    if (!question?.options || answer === undefined) return total;
+    const values = Array.isArray(answer) ? answer : [answer];
+    return total + values.reduce(
+      (questionTotal, selected) => questionTotal + (question.options?.find((option) => option.value === selected)?.score ?? 0),
+      0,
+    );
+  }, 0);
+  const band = instrument.bands.find(
+    (candidate) => value >= candidate.minimumScore && value <= candidate.maximumScore,
+  );
+  if (!band) throw new Error(`No validated instrument band covers score ${value} for ${instrument.name}`);
+  return { value, band };
+}
 
 export function evaluateInstrument(
   definition: AssessmentDefinition,
   answers: AssessmentAnswers,
 ): ScreeningClassification {
+  const validated = validatedInstrumentScore(definition, answers);
+  if (validated && definition.instrument) {
+    return {
+      source: "validated-instrument",
+      value: validated.value,
+      maximumValue: definition.instrument.maximumScore,
+      level: validated.band.level,
+      label: validated.band.label,
+      explanation: definition.instrument.explanation,
+      displayScore: true,
+    };
+  }
+
   if (definition.scoring.kind === "irn-descriptive-profile") {
     return {
       source: "irn-descriptive-profile",
@@ -61,5 +102,20 @@ export function evaluateInstrument(
     label,
     explanation: "This is an IRN-developed descriptive score retained for Phase A compatibility. It is not a validated instrument score and is separate from the safety guidance below.",
     displayScore: true,
+  };
+}
+
+export function evaluateInstrumentResult(
+  definition: AssessmentDefinition,
+  answers: AssessmentAnswers,
+): AuthoritativeAssessmentResult["instrument"] {
+  const validated = validatedInstrumentScore(definition, answers);
+  if (!validated || !definition.instrument) return null;
+  return {
+    name: definition.instrument.name,
+    version: definition.instrument.version,
+    rawScore: validated.value,
+    maximumScore: definition.instrument.maximumScore,
+    band: validated.band.label,
   };
 }

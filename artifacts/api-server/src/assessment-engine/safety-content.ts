@@ -12,6 +12,20 @@ const CONTENT: Record<SafetyContentId, SafetyContent> = {
     body: "You reported thoughts or emotional difficulties that should not be reduced to an ordinary assessment score. Consider speaking with your GP or a qualified mental-health professional, even if the rest of your result is in a lower range.",
     emergencyText: "If you feel unable to keep yourself safe, call 999 or go to A&E. You can also call Samaritans on 116 123.",
   },
+  "mental-health-current-review": {
+    id: "mental-health-current-review",
+    heading: "Please arrange prompt mental-health support",
+    body: "You reported current passing thoughts of self-harm or suicide. This assessment cannot determine or predict risk. A qualified professional should discuss these thoughts with you promptly and help you decide what support is needed.",
+    actionText: "Contact your GP, NHS 111 or an appropriate local mental-health service. You can also call Samaritans on 116 123.",
+    emergencyText: "If the thoughts become more frequent, you are concerned about staying safe, or there is immediate danger, call 999 or go to A&E.",
+  },
+  "phq9-item9-review": {
+    id: "phq9-item9-review",
+    heading: "Your response to the thoughts-of-harm question needs separate attention",
+    body: "You selected a response other than 'Not at all' to PHQ-9 item 9. That item is not a suicide-risk score and cannot establish intent or immediate danger. It does mean that these thoughts should be discussed directly with a qualified professional.",
+    actionText: "Use the separate safety guidance in this result and contact your GP, NHS 111 or an appropriate mental-health service promptly.",
+    emergencyText: "If you are concerned that you may not remain safe, call 999 or go to A&E. You can also call Samaritans on 116 123.",
+  },
   "mental-health-urgent": {
     id: "mental-health-urgent",
     heading: "Please seek urgent mental-health support today",

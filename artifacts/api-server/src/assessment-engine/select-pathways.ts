@@ -20,8 +20,17 @@ export function selectPathways(
   if (safety.action === "clinical-review-recommended") requiredIds.add("gp-review");
 
   if (safety.action === "no-immediate-warning-identified" || safety.action === "additional-caution") {
-    if (definition.key === "adhd") requiredIds.add("formal-adhd");
-    else if (["anxiety", "depression"].includes(definition.key)) requiredIds.add("nhs-mental-health");
+    if (definition.key === "adhd") {
+      if (screening.level === "higher-concern" || screening.level === "elevated-concern") {
+        requiredIds.add("formal-adhd");
+        requiredIds.add("gp-review");
+      } else requiredIds.add("self-guided");
+    }
+    else if (["anxiety", "depression"].includes(definition.key)) {
+      requiredIds.add("nhs-talking-therapies");
+      if (screening.level === "higher-concern" || screening.level === "elevated-concern") requiredIds.add("gp-review");
+      else requiredIds.add("self-guided");
+    }
     else if (screening.source === "irn-descriptive-profile") {
       const elevatedDomains = domains.filter((domain) => ["elevated", "prominent"].includes(domain.state));
       if (elevatedDomains.length === 0) requiredIds.add("self-guided");
@@ -32,6 +41,13 @@ export function selectPathways(
     }
     else if (screening.level === "lower-concern") requiredIds.add("self-guided");
     else requiredIds.add("gp-review");
+  }
+
+  if (safety.action !== "urgent-same-day-assessment" && safety.action !== "emergency-help-now") {
+    const substanceOverlap = domains.find((domain) => domain.id === "substance-overlap");
+    if (substanceOverlap && substanceOverlap.score > 0) requiredIds.add("nhs-substance-service");
+    const mentalHealthOverlap = domains.find((domain) => domain.id === "mental-health-overlap");
+    if (mentalHealthOverlap && mentalHealthOverlap.score > 0) requiredIds.add("gp-review");
   }
 
   if (!safety.suppressCommercialCtas && safety.action !== "emergency-help-now") {

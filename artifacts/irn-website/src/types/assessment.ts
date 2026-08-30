@@ -4,6 +4,7 @@ export interface QuestionOption {
   value: string;
   label: string;
   score: number;
+  instrumentThreshold?: boolean;
   redFlag?: boolean;
   advisoryKey?: string;
 }
@@ -189,7 +190,7 @@ export interface AssessmentConfig {
 
 export interface PublicAssessmentQuestion
   extends Omit<Question, "options" | "redFlagKey"> {
-  options?: Array<Pick<QuestionOption, "value" | "label">>;
+  options?: Array<Pick<QuestionOption, "value" | "label" | "instrumentThreshold">>;
 }
 
 export interface PublicAssessmentConfig {
@@ -199,6 +200,17 @@ export interface PublicAssessmentConfig {
   title: string;
   subtitle: string;
   estimatedMinutes: number;
+  eligibility?: {
+    questionId: string;
+    allowedValues: string[];
+    ineligibleHeading: string;
+    ineligibleBody: string;
+    pathways: Array<{
+      label: string;
+      description: string;
+      destination: string;
+    }>;
+  };
   sections: Array<{
     id: string;
     title: string;

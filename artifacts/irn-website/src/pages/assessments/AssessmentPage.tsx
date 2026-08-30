@@ -56,6 +56,7 @@ export default function AssessmentPage({
           title: definition.title,
           subtitle: definition.subtitle,
           estimatedMinutes: definition.estimatedMinutes,
+          eligibility: definition.eligibility,
           sections: definition.sections,
         });
       })
@@ -107,7 +108,13 @@ export default function AssessmentPage({
     }
   }
 
-  const resultBands = config?.definitionVersion === 2 ? [
+  const isPhaseCMentalHealth = config && ["anxiety", "depression", "adhd"].includes(config.id) && config.definitionVersion === 2;
+  const resultBands = isPhaseCMentalHealth ? [
+    { label: "Validated screening result", colour: "#2e7d52" },
+    { label: "Independent safety guidance", colour: "#b08a2a" },
+    { label: "Separate context profile", colour: "#c0622a" },
+    { label: "Anonymous core result", colour: "#162B3B" },
+  ] : config?.definitionVersion === 2 ? [
     { label: "Substance-specific needs profile", colour: "#2e7d52" },
     { label: "Independent safety guidance", colour: "#b08a2a" },
     { label: "No combined detox score", colour: "#c0622a" },
@@ -178,16 +185,16 @@ export default function AssessmentPage({
             Private Self-Assessment
           </p>
           <h1 className="font-serif text-primary text-4xl md:text-5xl leading-tight mb-6">
-            {title}
+            {config?.title ?? title}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-10">
-            {subtitle}
+            {config?.subtitle ?? subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-10 text-sm text-muted-foreground font-light">
             <span className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-accent" />
-              Approximately {estimatedMinutes} minutes
+              Approximately {config?.estimatedMinutes ?? estimatedMinutes} minutes
             </span>
             <span className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-accent" />
@@ -269,10 +276,10 @@ export default function AssessmentPage({
             How results are calculated
           </h2>
           <p className="text-muted-foreground font-light mb-8 leading-relaxed">
-            Your profile is calculated on the server using fixed, versioned
-            rules. Substance-use patterns, safety guidance and possible pathways
-            are assessed separately, so an important answer cannot be hidden by
-            an overall total.
+            Your result is calculated on the server using fixed, versioned
+            rules. {isPhaseCMentalHealth
+              ? "The validated screening score, IRN context, safety guidance and possible pathways are assessed separately, so one cannot hide or alter another."
+              : "Substance-use patterns, safety guidance and possible pathways are assessed separately, so an important answer cannot be hidden by an overall total."}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {resultBands.map((item) => (

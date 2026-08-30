@@ -135,15 +135,12 @@ class PhaseBMemoryPersistence implements AssessmentPersistence {
   }
 }
 
-test("Phase B activates only the four authorised substance assessment definitions", () => {
+test("Phase B keeps the four authorised substance assessment definitions active and unchanged", () => {
   for (const key of PHASE_B_KEYS) {
     const definition = getActiveDefinition(key);
     assert.equal(definition.version, 2);
     assert.equal(definition.engineVersion, "phase-b-v2");
     assert.equal(definition.clinicalApproval.status, "pending-clinical-director");
-  }
-  for (const key of ["anxiety", "depression", "adhd"] as const) {
-    assert.equal(getActiveDefinition(key).version, 1);
   }
 });
 

@@ -193,7 +193,7 @@ test("5 unknown questions and answer options are rejected", () => {
   );
 });
 
-test("6 idempotency prevents duplicate results and duplicate successful deliveries", async () => {
+test("6 idempotency prevents duplicate anonymous results and any unsolicited deliveries", async () => {
   const persistence = new MemoryPersistence();
   let emails = 0;
   let forwards = 0;
@@ -208,13 +208,13 @@ test("6 idempotency prevents duplicate results and duplicate successful deliveri
   assert.equal(second.created, false);
   assert.equal(first.result.resultId, second.result.resultId);
   assert.equal(persistence.createCount, 1);
-  assert.equal(emails, 1);
-  assert.equal(forwards, 1);
+  assert.equal(emails, 0);
+  assert.equal(forwards, 0);
 });
 
 test("7 safety is evaluated independently from screening severity", () => {
   const definition = getActiveDefinition("anxiety");
-  const answers = lowestAnswers("anxiety", { "self-harm": "yes-significant" });
+  const answers = lowestAnswers("anxiety", { "mental-health-safety": "recurring-increasing" });
   const screening = evaluateInstrument(definition, answers);
   const safety = evaluateSafety(definition, answers);
   assert.equal(typeof screening.value, "number");
@@ -224,16 +224,14 @@ test("7 safety is evaluated independently from screening severity", () => {
 
 test("8 serious safety action cannot be downgraded by otherwise low-severity answers", () => {
   const result = authoritative(payload("depression", {
-    answers: lowestAnswers("depression", { "self-harm": "yes-significant" }),
+    answers: lowestAnswers("depression", { "mental-health-safety": "recurring-increasing" }),
   }));
   assert.equal(result.safety.action, "urgent-same-day-assessment");
 });
 
 for (const [number, key] of [[9, "anxiety"], [10, "depression"], [11, "adhd"]] as const) {
   test(`${number} ${key} self-harm cannot produce alcohol advice`, () => {
-    const questionId = key === "adhd" ? "mental-health" : "self-harm";
-    const value = key === "adhd" ? "yes-self-harm" : "yes-significant";
-    const result = authoritative(payload(key, { answers: lowestAnswers(key, { [questionId]: value }) }));
+    const result = authoritative(payload(key, { answers: lowestAnswers(key, { "mental-health-safety": "recurring-increasing" }) }));
     assert.equal(result.safety.content.some((item) => item.id.startsWith("alcohol-")), false);
     assert.equal(JSON.stringify(result.safety).toLowerCase().includes("stopping drinking"), false);
   });
@@ -252,24 +250,7 @@ test("12 alcohol content cannot appear without alcohol context and does appear f
 
 test("13 emergency presentation suppresses commercial CTAs", () => {
   const base = getActiveDefinition("anxiety");
-  const definition: AssessmentDefinition = {
-    ...base,
-    safetyRules: [
-      ...base.safetyRules,
-      {
-        id: "fixture.immediate-danger",
-        version: 1,
-        action: "emergency-help-now",
-        all: [{ questionId: "self-harm", equals: "yes-significant" }],
-        evidenceQuestionIds: ["self-harm"],
-        contentId: "mental-health-emergency",
-        pathwayIds: ["emergency-999"],
-        suppressCommercialCtas: true,
-        approval: { status: "pending-clinical-director", reference: "synthetic-fixture" },
-      },
-    ],
-  };
-  const result = evaluateAssessment(definition, lowestAnswers("anxiety", { "self-harm": "yes-significant" }));
+  const result = evaluateAssessment(base, lowestAnswers("anxiety", { "mental-health-safety": "cannot-remain-safe" }));
   assert.equal(result.safety.action, "emergency-help-now");
   assert.equal(result.pathways.some((pathway) => pathway.commercial), false);
   assert.equal(result.pathways.some((pathway) => pathway.id === "emergency-999"), true);
@@ -283,7 +264,7 @@ test("14 unavailable AI still produces a complete deterministic result", () => {
   assert.ok(result.pathways.length > 0);
 });
 
-test("15 email failure preserves the saved result", async () => {
+test("15 anonymous assessment does not attempt email delivery without post-result permission", async () => {
   const persistence = new MemoryPersistence();
   const result = await submitAssessment(payload("anxiety"), {
     persistence,
@@ -293,11 +274,11 @@ test("15 email failure preserves the saved result", async () => {
     },
   });
   assert.equal(result.result.persistence.status, "saved");
-  assert.equal(result.result.delivery.email, "failed");
+  assert.equal(result.result.delivery.email, "not-requested");
   assert.ok(await recoverAssessment(result.accessToken, persistence));
 });
 
-test("16 IRNOS failure preserves the saved result", async () => {
+test("16 anonymous assessment does not attempt IRNOS delivery without post-result permission", async () => {
   const persistence = new MemoryPersistence();
   const result = await submitAssessment(payload("anxiety"), {
     persistence,
@@ -307,7 +288,7 @@ test("16 IRNOS failure preserves the saved result", async () => {
     },
   });
   assert.equal(result.result.persistence.status, "saved");
-  assert.equal(result.result.delivery.irnOs, "failed");
+  assert.equal(result.result.delivery.irnOs, "not-requested");
   assert.ok(await recoverAssessment(result.accessToken, persistence));
 });
 
@@ -415,6 +396,8 @@ test("every configured answer option validates and evaluates without a gap", () 
     for (const section of definition.sections) {
       for (const question of section.questions) {
         for (const option of question.options ?? []) {
+          if (definition.eligibility?.questionId === question.id
+            && !definition.eligibility.allowedValues.includes(option.value)) continue;
           const branchAnswers: AssessmentAnswers = {};
           for (const condition of section.displayWhen?.all ?? []) {
             if (condition.includes) branchAnswers[condition.questionId] = [condition.includes];

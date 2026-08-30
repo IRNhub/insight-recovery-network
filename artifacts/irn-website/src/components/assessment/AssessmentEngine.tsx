@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Shield, ChevronRight, ChevronLeft, Clock } from "lucide-react";
+import { Shield, ChevronRight, ChevronLeft, Clock, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -25,6 +25,14 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
   const progressPct = Math.round(((currentSection) / totalSections) * 100);
   const isLastSection = currentSection === totalSections - 1;
   const requiresLegacyConsent = config.sections.some((candidate) => candidate.id === "contact-consent");
+  const eligibilityAnswer = config.eligibility
+    ? answers[config.eligibility.questionId]
+    : undefined;
+  const eligibilityBlocked = Boolean(
+    config.eligibility
+    && typeof eligibilityAnswer === "string"
+    && !config.eligibility.allowedValues.includes(eligibilityAnswer),
+  );
 
   useEffect(() => {
     if (currentSection >= totalSections) setCurrentSection(Math.max(0, totalSections - 1));
@@ -81,6 +89,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
   async function handleNext() {
     if (!validateSection()) return;
+    if (eligibilityBlocked) return;
     if (isLastSection) {
       if (isCompleting.current) return;
       isCompleting.current = true;
@@ -193,7 +202,9 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                             "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
                             selected
                               ? "border-primary bg-primary text-primary-foreground"
-                              : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30"
+                              : option.instrumentThreshold
+                                ? "border-accent/60 bg-accent/10 text-foreground hover:border-accent"
+                                : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30"
                           )}
                         >
                           <span className={cn(
@@ -267,6 +278,28 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
             );
           })}
 
+          {eligibilityBlocked && config.eligibility && (
+            <section className="border border-amber-300 bg-amber-50 p-5" role="status" aria-live="polite">
+              <h3 className="font-serif text-xl text-primary">{config.eligibility.ineligibleHeading}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{config.eligibility.ineligibleBody}</p>
+              <div className="mt-4 flex flex-col gap-3">
+                {config.eligibility.pathways.map((pathway) => (
+                  <a
+                    key={pathway.destination}
+                    href={pathway.destination}
+                    className="flex items-start justify-between gap-3 border border-amber-300 bg-white p-4 text-sm hover:border-primary/50"
+                  >
+                    <span>
+                      <strong className="block text-primary">{pathway.label}</strong>
+                      <span className="mt-1 block text-muted-foreground">{pathway.description}</span>
+                    </span>
+                    <ExternalLink className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Consent (last section only) */}
           {isLastSection && requiresLegacyConsent && (
             <div>
@@ -337,7 +370,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
           <Button
             onClick={handleNext}
-            disabled={isSubmitting || isCompleting.current}
+            disabled={isSubmitting || isCompleting.current || eligibilityBlocked}
             className="flex items-center gap-2 rounded-none h-11 px-7"
           >
             {isSubmitting

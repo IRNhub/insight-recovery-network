@@ -167,7 +167,7 @@ function buildNewRecord(
       engineVersion: definition.engineVersion,
       completedAt: now.toISOString(),
       screening: evaluated.screening,
-      instrument: null,
+      instrument: evaluated.instrument,
       domains: evaluated.domains,
       safety: evaluated.safety,
       interpretation: evaluated.interpretation,

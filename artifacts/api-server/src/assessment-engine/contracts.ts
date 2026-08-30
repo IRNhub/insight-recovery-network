@@ -16,6 +16,8 @@ export interface AssessmentOption {
   value: string;
   label: string;
   score: number;
+  /** Required by instruments such as ASRS where the official form visually marks threshold responses. */
+  instrumentThreshold?: boolean;
   redFlag?: boolean;
   advisoryKey?: string;
 }
@@ -87,6 +89,8 @@ export interface SafetyRule {
 export type SafetyContentId =
   | "screening-limitation"
   | "mental-health-support"
+  | "mental-health-current-review"
+  | "phq9-item9-review"
   | "mental-health-urgent"
   | "mental-health-emergency"
   | "alcohol-withdrawal-review"
@@ -133,7 +137,10 @@ export interface InterpretationRule {
   id: string;
   priority: number;
   domainIds: string[];
+  minimumDomainIds?: string[];
   minimumState: DomainState;
+  all?: AnswerCondition[];
+  any?: AnswerCondition[];
   statement: string;
   whyItMatters: string;
   approval: ClinicalApprovalMetadata;
@@ -164,6 +171,38 @@ export interface PathwayDefinition {
   assessmentKeys?: AssessmentKey[];
 }
 
+export interface AssessmentEligibility {
+  questionId: string;
+  allowedValues: string[];
+  ineligibleHeading: string;
+  ineligibleBody: string;
+  pathways: Array<{
+    label: string;
+    description: string;
+    destination: string;
+  }>;
+}
+
+export interface ValidatedInstrumentBand {
+  minimumScore: number;
+  maximumScore: number;
+  label: string;
+  level: Exclude<ScreeningClassification["level"], "descriptive-profile">;
+}
+
+export interface ValidatedInstrumentDefinition {
+  kind: "audit" | "assist" | "gad-7" | "phq-9" | "asrs-v1.1-6q";
+  name: string;
+  version: string;
+  questionIds: string[];
+  maximumScore: number;
+  bands: ValidatedInstrumentBand[];
+  explanation: string;
+  permissionStatus: "confirmed";
+  sourceUrl: string;
+  citation: string;
+}
+
 export interface AssessmentDefinition {
   key: AssessmentKey;
   version: number;
@@ -174,6 +213,7 @@ export interface AssessmentDefinition {
   title: string;
   subtitle: string;
   estimatedMinutes: number;
+  eligibility?: AssessmentEligibility;
   sections: AssessmentSection[];
   scoring: {
     kind: "irn-legacy-custom";
@@ -185,15 +225,7 @@ export interface AssessmentDefinition {
     profileLabel: string;
     explanation: string;
   };
-  instrument: null | {
-    kind: "audit" | "assist";
-    name: string;
-    version: string;
-    questionIds: string[];
-    maximumScore: number;
-    permissionStatus: "confirmed";
-    sourceUrl: string;
-  };
+  instrument: null | ValidatedInstrumentDefinition;
   domainRules: DomainRule[];
   safetyRules: SafetyRule[];
   interpretationRules: InterpretationRule[];
@@ -208,12 +240,13 @@ export interface PublicAssessmentDefinition {
   title: string;
   subtitle: string;
   estimatedMinutes: number;
+  eligibility?: AssessmentEligibility;
   sections: Array<{
     id: string;
     title: string;
     description?: string;
     questions: Array<Omit<AssessmentQuestion, "redFlagKey" | "options"> & {
-      options?: Array<Pick<AssessmentOption, "value" | "label">>;
+      options?: Array<Pick<AssessmentOption, "value" | "label" | "instrumentThreshold">>;
     }>;
   }>;
 }
@@ -348,6 +381,7 @@ export interface AssessmentContactRequest {
 export interface EvaluationResult {
   answers: AssessmentAnswers;
   screening: ScreeningClassification;
+  instrument: AuthoritativeAssessmentResult["instrument"];
   domains: DomainResult[];
   safety: SafetyResult;
   interpretation: DeterministicInterpretation;
