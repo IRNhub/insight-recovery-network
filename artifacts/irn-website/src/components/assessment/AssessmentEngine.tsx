@@ -199,20 +199,20 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                           aria-checked={selected}
                           onClick={() => setAnswer(question.id, option.value)}
                           className={cn(
-                            "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
+                            "w-full cursor-pointer text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:border-border/40 disabled:bg-muted/50 disabled:text-muted-foreground disabled:opacity-70",
                             selected
                               ? "border-primary bg-primary text-primary-foreground"
-                              : option.instrumentThreshold
-                                ? "border-accent/60 bg-accent/10 text-foreground hover:border-accent"
-                                : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30"
+                              : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30"
                           )}
                         >
                           <span className={cn(
-                            "inline-block w-4 h-4 rounded-full border-2 mr-3 flex-shrink-0 align-middle",
+                            "inline-flex w-4 h-4 rounded-full border-2 mr-3 flex-shrink-0 align-middle items-center justify-center",
                             selected
-                              ? "border-primary-foreground bg-primary-foreground/20"
-                              : "border-muted-foreground/40"
-                          )} />
+                              ? "border-primary-foreground bg-primary-foreground"
+                              : "border-primary/45 bg-white"
+                          )} aria-hidden="true">
+                            {selected && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                          </span>
                           {option.label}
                         </button>
                       );
