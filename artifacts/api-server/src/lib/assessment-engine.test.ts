@@ -539,8 +539,10 @@ test("production-gate public assessment writes have server-side abuse limits", a
     new URL("../routes/assessments.ts", import.meta.url),
     "utf8",
   );
-  assert.match(routeSource, /assessmentRequestIsRateLimited\(req, "submit", 12\)/);
-  assert.match(routeSource, /assessmentRequestIsRateLimited\(req, "contact", 6\)/);
+  assert.match(routeSource, /await assessmentRequestMayProceed\(req, res, "submit", 12\)/);
+  assert.match(routeSource, /await assessmentRequestMayProceed\(req, res, "contact", 6\)/);
+  assert.doesNotMatch(routeSource, /new Map/);
   assert.match(routeSource, /status\(429\)/);
+  assert.match(routeSource, /status\(503\)/);
   assert.match(routeSource, /Retry-After/);
 });

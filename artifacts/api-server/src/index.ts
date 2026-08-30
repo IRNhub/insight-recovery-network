@@ -5,6 +5,7 @@ import { seedFamilySurvey } from "./lib/seed-family-survey";
 import { startSurveySyncWorker } from "./lib/irn-os-survey-sync";
 import { startAssessmentDeliveryWorker } from "./assessment-engine/assessment-delivery-worker";
 import { startAssessmentRetentionWorker } from "./assessment-engine/assessment-retention-worker";
+import { startAssessmentRateLimitCleanupWorker } from "./assessment-engine/assessment-rate-limit-worker";
 
 const rawPort = process.env["PORT"];
 
@@ -40,4 +41,5 @@ app.listen(port, (err) => {
 
   startAssessmentDeliveryWorker();
   startAssessmentRetentionWorker();
+  startAssessmentRateLimitCleanupWorker();
 });

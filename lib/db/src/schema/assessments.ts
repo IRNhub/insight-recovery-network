@@ -9,6 +9,7 @@ import {
   timestamp,
   uniqueIndex,
   uuid,
+  varchar,
 } from "drizzle-orm/pg-core";
 
 export const assessmentsTable = pgTable("assessments", {
@@ -83,6 +84,25 @@ export const assessmentDeliveriesTable = pgTable(
   ],
 );
 
+export const assessmentRateLimitsTable = pgTable(
+  "assessment_rate_limits",
+  {
+    id: serial("id").primaryKey(),
+    scope: text("scope").notNull(),
+    keyHash: varchar("key_hash", { length: 64 }).notNull(),
+    windowStartedAt: timestamp("window_started_at", { withTimezone: true }).notNull(),
+    requestCount: integer("request_count").notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("assessment_rate_limits_scope_key_uq").on(table.scope, table.keyHash),
+    index("assessment_rate_limits_expires_at_idx").on(table.expiresAt),
+  ],
+);
+
 export type Assessment = typeof assessmentsTable.$inferSelect;
 export type InsertAssessment = typeof assessmentsTable.$inferInsert;
 export type AssessmentDelivery = typeof assessmentDeliveriesTable.$inferSelect;
+export type AssessmentRateLimit = typeof assessmentRateLimitsTable.$inferSelect;

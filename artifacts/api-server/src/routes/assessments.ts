@@ -24,37 +24,36 @@ import {
   setResultAccessCookie,
 } from "../assessment-engine/result-access.ts";
 import { AssessmentValidationError } from "../assessment-engine/validate-answers.ts";
+import { assessmentRateLimiter } from "../assessment-engine/assessment-rate-limit-postgres.ts";
 
 const router: IRouter = Router();
 
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
-const RATE_LIMIT_MAX_BUCKETS = 10_000;
-const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_UNAVAILABLE_RETRY_SECONDS = 60;
 
-function assessmentRequestIsRateLimited(
+async function assessmentRequestMayProceed(
   req: Request,
+  res: Response,
   scope: "submit" | "contact",
   maximum: number,
-): boolean {
-  const now = Date.now();
-  const key = `${scope}:${req.ip || "unknown"}`;
-  const current = rateLimitBuckets.get(key);
-  if (!current || current.resetAt <= now) {
-    if (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
-      for (const [bucketKey, bucket] of rateLimitBuckets) {
-        if (bucket.resetAt <= now) rateLimitBuckets.delete(bucketKey);
-      }
-      while (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
-        const oldestKey = rateLimitBuckets.keys().next().value;
-        if (!oldestKey) break;
-        rateLimitBuckets.delete(oldestKey);
-      }
-    }
-    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+): Promise<boolean> {
+  try {
+    const decision = await assessmentRateLimiter.check(req.ip || "unknown", scope, maximum);
+    if (!decision.limited) return true;
+    res.setHeader("Retry-After", String(decision.retryAfterSeconds));
+    res.status(429).json({
+      error: scope === "submit"
+        ? "Too many assessment submissions. Please try again later."
+        : "Too many contact requests. Please try again later.",
+    });
+    return false;
+  } catch (error) {
+    logger.error({ err: error }, "Shared assessment rate limiter unavailable");
+    res.setHeader("Retry-After", String(RATE_LIMIT_UNAVAILABLE_RETRY_SECONDS));
+    res.status(503).json({
+      error: "This request cannot be processed safely right now. Please try again shortly.",
+    });
     return false;
   }
-  current.count += 1;
-  return current.count > maximum;
 }
 
 function requireAdmin(req: Request, res: Response): boolean {
@@ -88,11 +87,7 @@ router.get("/assessments/:key/definition", (req: Request, res: Response) => {
 
 router.post("/assessments/submit", async (req: Request, res: Response) => {
   noStore(res);
-  if (assessmentRequestIsRateLimited(req, "submit", 12)) {
-    res.setHeader("Retry-After", String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
-    res.status(429).json({ error: "Too many assessment submissions. Please try again later." });
-    return;
-  }
+  if (!(await assessmentRequestMayProceed(req, res, "submit", 12))) return;
   try {
     const outcome = await submitAssessment(req.body, {
       persistence: assessmentPersistence,
@@ -136,11 +131,7 @@ router.get("/assessments/result", async (req: Request, res: Response) => {
 
 router.post("/assessments/result/contact", async (req: Request, res: Response) => {
   noStore(res);
-  if (assessmentRequestIsRateLimited(req, "contact", 6)) {
-    res.setHeader("Retry-After", String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
-    res.status(429).json({ error: "Too many contact requests. Please try again later." });
-    return;
-  }
+  if (!(await assessmentRequestMayProceed(req, res, "contact", 6))) return;
   const token = readResultAccessToken(req);
   if (!token) {
     res.status(404).json({ error: "Assessment result not found" });
