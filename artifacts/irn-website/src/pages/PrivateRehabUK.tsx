@@ -459,6 +459,8 @@ export default function PrivateRehabUK() {
         links={[
           { title: "Rehab Cost UK Guide", description: "Understand typical private rehab, detox, overseas and online recovery costs before deciding.", href: "/how-much-does-rehab-cost-uk" },
           { title: "Treatment Placement", description: "See how assessment-led placement guidance works from first conversation to admission.", href: "/treatment-placement" },
+          { title: "How Quickly Can Someone Enter Rehab?", description: "Understand the checks, records and practical steps that affect admission timing.", href: "/resources/how-quickly-can-someone-enter-rehab" },
+          { title: "28-Day vs Longer-Term Rehab", description: "Compare treatment duration by assessed need rather than choosing a package length in isolation.", href: "/resources/28-day-vs-90-day-rehab" },
           { title: "Private Rehab Alternatives", description: "Compare residential care with online and community-based support.", href: "/private-rehab-alternative-uk" },
           { title: "Online Recovery Programme", description: "Structured support for people who do not need round-the-clock care.", href: "/online-programme" },
           { title: "Detox Suitability Assessment", description: "Consider withdrawal risk before attempting to stop alcohol or drugs.", href: "/assessments/detox" },

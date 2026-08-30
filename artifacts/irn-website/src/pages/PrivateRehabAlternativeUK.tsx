@@ -372,6 +372,8 @@ export default function PrivateRehabAlternativeUK() {
           { title: "Online Recovery Programme", description: "See how structured online recovery support works in everyday life.", href: "/online-programme" },
           { title: "Private Rehab UK", description: "Understand when residential treatment may be the more appropriate route.", href: "/private-rehab-uk" },
           { title: "Treatment Placement", description: "Get guidance when detox or residential care may be needed.", href: "/treatment-placement" },
+          { title: "How Quickly Can Someone Enter Rehab?", description: "See what must be established before a safe private admission can be confirmed.", href: "/resources/how-quickly-can-someone-enter-rehab" },
+          { title: "28-Day vs Longer-Term Rehab", description: "Compare residential duration with stepped and non-residential support.", href: "/resources/28-day-vs-90-day-rehab" },
           { title: "Family Guidance", description: "Support for families navigating uncertainty, boundaries and treatment decisions.", href: "/what-we-offer#family-guidance" },
           { title: "Detox Suitability Assessment", description: "Check whether stopping alcohol or drugs could require medical input.", href: "/assessments/detox" },
           { title: "Luxury Rehab", description: "Understand when premium residential care may add meaningful privacy or individual attention.", href: "/luxury-rehab" },

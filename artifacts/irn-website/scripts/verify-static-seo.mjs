@@ -187,6 +187,7 @@ const treatmentPaths = [
   "/cannabis-addiction-treatment",
   "/ketamine-addiction-treatment",
   "/benzodiazepine-addiction-treatment",
+  "/prescription-drug-addiction-treatment",
   "/dual-diagnosis-treatment",
 ];
 
@@ -250,6 +251,16 @@ const treatmentVisuals = {
     hero: "/dual-diagnosis-treatment-uk-hero.webp",
     alt: "Adult walking with two support professionals in a community wellbeing centre courtyard.",
     og: "/dual-diagnosis-treatment-uk-og.webp",
+  },
+  "/prescription-drug-addiction-treatment": {
+    hero: "/prescription-drug-addiction-treatment-uk-hero.webp",
+    alt: "Adult preparing an unlabelled medicine box and notebook for a medication review at home.",
+    og: "/prescription-drug-addiction-treatment-uk-og.webp",
+  },
+  "/treatment-placement": {
+    hero: "/treatment-placement-navigation-hero.webp",
+    alt: "Adult standing where two coastal footpaths divide.",
+    og: "/treatment-placement-navigation-og.webp",
   },
 };
 
@@ -330,6 +341,106 @@ for (const pathname of batchTwoResourcePaths) {
   }
   if (!/href="https:\/\/(?:www\.)?(?:nice\.org\.uk|nhs\.uk|gov\.uk)|href="https:\/\/www\.nhs\.uk/.test(html)) {
     fail(`${pathname} does not expose an authoritative NICE, NHS or GOV.UK source link.`);
+  }
+}
+
+const batchThreeResourceVisuals = {
+  "/resources/cannabis-withdrawal": {
+    hero: "/cannabis-withdrawal-uk-hero.webp",
+    alt: "Adult filling a glass of water beside an open kitchen window in the early morning.",
+    og: "/cannabis-withdrawal-uk-og.webp",
+  },
+  "/resources/how-quickly-can-someone-enter-rehab": {
+    hero: "/how-quickly-enter-private-rehab-uk-hero.webp",
+    alt: "Adult holding house keys during a phone conversation beside a front window.",
+    og: "/how-quickly-enter-private-rehab-uk-og.webp",
+  },
+  "/resources/28-day-vs-90-day-rehab": {
+    hero: "/28-day-vs-longer-rehab-uk-hero.webp",
+    alt: "Two adults preparing vegetables and crockery together in a communal kitchen.",
+    og: "/28-day-vs-longer-rehab-uk-og.webp",
+  },
+};
+
+for (const [pathname, visual] of Object.entries(batchThreeResourceVisuals)) {
+  const html = htmlByPath.get(pathname);
+  if (!html) fail(`Batch 3 resource guide is missing from sitemap: ${pathname}`);
+  const words = html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z0-9#]+;/gi, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  if (words < 900) fail(`${pathname} static body is too light for a decision guide (${words} words).`);
+  for (const schemaType of ["Article", "MedicalWebPage", "BreadcrumbList", "FAQPage", "ImageObject"]) {
+    if (!html.includes(`\"@type\":\"${schemaType}\"`)) {
+      fail(`${pathname} is missing ${schemaType} JSON-LD.`);
+    }
+  }
+  for (const requiredText of [
+    "not a regulated healthcare provider",
+    "does not",
+    "Sources and further reading",
+    "Craig Bilton",
+  ]) {
+    if (!html.toLowerCase().includes(requiredText.toLowerCase())) {
+      fail(`${pathname} is missing clinical or trust content: ${requiredText}`);
+    }
+  }
+  if (!/href="https:\/\/(?:www\.)?(?:nice\.org\.uk|nhs\.uk|gov\.uk|cqc\.org\.uk)|href="https:\/\/www\.nhs\.uk/.test(html)) {
+    fail(`${pathname} does not expose an authoritative NICE, NHS, GOV.UK or CQC source link.`);
+  }
+
+  const imageTag = [...html.matchAll(/<img\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => tagAttributes(tag).src === visual.hero);
+  if (!imageTag) fail(`${pathname} has no visible hero; an OG image alone is not sufficient.`);
+  const image = tagAttributes(imageTag);
+  if (image.alt !== visual.alt) fail(`${pathname} hero ALT does not match the approved literal description.`);
+  if (image.width !== "1600" || image.height !== "900") fail(`${pathname} hero lacks 1600x900 intrinsic dimensions.`);
+  if (image.loading !== "eager" || image.fetchpriority !== "high") fail(`${pathname} above-the-fold hero lacks eager loading or high fetch priority.`);
+  if (!image.sizes) fail(`${pathname} hero has no responsive sizes attribute.`);
+
+  const heroPath = resolve(dist, visual.hero.slice(1));
+  const ogPath = resolve(dist, visual.og.slice(1));
+  const heroMetadata = await sharp(heroPath).metadata();
+  const ogMetadata = await sharp(ogPath).metadata();
+  if (heroMetadata.format !== "webp" || heroMetadata.width !== 1600 || heroMetadata.height !== 900) {
+    fail(`${pathname} hero asset is not a 1600x900 WebP.`);
+  }
+  if (ogMetadata.format !== "webp" || ogMetadata.width !== 1200 || ogMetadata.height !== 630) {
+    fail(`${pathname} OG asset is not a 1200x630 WebP.`);
+  }
+  if (statSync(heroPath).size > 200 * 1024) fail(`${pathname} hero exceeds the 200 KB performance ceiling.`);
+  if (statSync(ogPath).size > 120 * 1024) fail(`${pathname} OG image exceeds the 120 KB performance ceiling.`);
+  const ogImage = firstMatch(
+    html,
+    /<meta\b(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="([^"]+)")[^>]*>/,
+    "Open Graph image",
+    pathname,
+  );
+  if (ogImage !== `${siteUrl}${visual.og}`) fail(`${pathname} does not use its dedicated OG image.`);
+}
+
+const batchThreeReciprocalLinks = [
+  ["/resources/prescription-drug-addiction", "/prescription-drug-addiction-treatment"],
+  ["/prescription-drug-addiction-treatment", "/resources/prescription-drug-addiction"],
+  ["/prescription-drug-addiction-treatment", "/resources/benzodiazepine-withdrawal"],
+  ["/prescription-drug-addiction-treatment", "/resources/opioid-detox"],
+  ["/resources/cannabis-addiction", "/resources/cannabis-withdrawal"],
+  ["/resources/cannabis-withdrawal", "/cannabis-addiction-treatment"],
+  ["/cannabis-addiction-treatment", "/resources/cannabis-withdrawal"],
+  ["/treatment-placement", "/resources/how-quickly-can-someone-enter-rehab"],
+  ["/treatment-placement", "/resources/28-day-vs-90-day-rehab"],
+  ["/resources/how-to-choose-private-rehab-centre-uk", "/resources/how-quickly-can-someone-enter-rehab"],
+  ["/resources/how-to-choose-private-rehab-centre-uk", "/resources/28-day-vs-90-day-rehab"],
+  ["/how-much-does-rehab-cost-uk", "/resources/28-day-vs-90-day-rehab"],
+];
+for (const [source, target] of batchThreeReciprocalLinks) {
+  if (!htmlByPath.get(source)?.includes(`href=\"${target}\"`)) {
+    fail(`${source} does not link to its Batch 3 cluster page ${target}.`);
   }
 }
 

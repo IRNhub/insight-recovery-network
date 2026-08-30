@@ -20,6 +20,7 @@ const highlightIcons = [ShieldCheck, ClipboardCheck, Network];
 
 function pageJsonLd(page: NonNullable<ReturnType<typeof getSubstanceTreatmentPage>>) {
   const canonical = `${SITE_URL}${page.route}`;
+  const reviewDateIso = page.reviewDateIso ?? "2026-08-28";
 
   return [
     {
@@ -46,7 +47,7 @@ function pageJsonLd(page: NonNullable<ReturnType<typeof getSubstanceTreatmentPag
         name: "Craig Bilton",
         url: `${SITE_URL}/craig-bilton`,
       },
-      lastReviewed: "2026-08-28",
+      lastReviewed: reviewDateIso,
     },
     {
       "@context": "https://schema.org",
@@ -99,6 +100,7 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
     href,
   }));
   const faqs = page.faqs.map(([question, answer]) => ({ question, answer }));
+  const reviewDate = page.reviewDate ?? SUBSTANCE_TREATMENT_REVIEW_DATE;
 
   return (
     <Layout>
@@ -207,7 +209,7 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
         problem={page.summary.problem}
         applies={page.summary.applies}
         nextStep={page.summary.nextStep}
-        updated={SUBSTANCE_TREATMENT_REVIEW_DATE}
+        updated={reviewDate}
       />
 
       <section className="border-b border-border/40 bg-secondary/10 py-12 md:py-16">
@@ -287,7 +289,7 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl">
             <h2 id="sources-heading" className="mb-4 font-serif text-2xl text-primary md:text-3xl">Clinical sources and review</h2>
-            <p className="mb-5 text-sm leading-relaxed text-muted-foreground">General UK treatment information reviewed {SUBSTANCE_TREATMENT_REVIEW_DATE}. Sources support the clinical framing; they do not endorse Insight Recovery Network or replace an individual assessment.</p>
+            <p className="mb-5 text-sm leading-relaxed text-muted-foreground">General UK treatment information reviewed {reviewDate}. Sources support the clinical framing; they do not endorse Insight Recovery Network or replace an individual assessment.</p>
             <ul className="space-y-3">
               {page.sources.map(([title, href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-start gap-2 text-sm font-medium text-primary underline decoration-accent/60 underline-offset-4 hover:text-accent">{title}<ArrowRight className="mt-0.5 h-4 w-4 shrink-0" /></a></li>)}
             </ul>

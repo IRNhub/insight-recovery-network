@@ -55,6 +55,10 @@ kind = "web"
   from = "/dual-diagnosis-treatment"
   to = "/dual-diagnosis-treatment.html"
 
+  [[services.production.rewrites]]
+  from = "/prescription-drug-addiction-treatment"
+  to = "/prescription-drug-addiction-treatment.html"
+
   # ── Top-level pages (no trailing slash) ──────────────────────────────────────
   [[services.production.rewrites]]
   from = "/about"
@@ -204,6 +208,18 @@ kind = "web"
   [[services.production.rewrites]]
   from = "/resources/prescription-drug-addiction"
   to = "/_resources/prescription-drug-addiction.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/cannabis-withdrawal"
+  to = "/_resources/cannabis-withdrawal.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/how-quickly-can-someone-enter-rehab"
+  to = "/_resources/how-quickly-can-someone-enter-rehab.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/28-day-vs-90-day-rehab"
+  to = "/_resources/28-day-vs-90-day-rehab.html"
 
   [[services.production.rewrites]]
   from = "/resources/cannabis-addiction"

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
-import { getOgConfig, ogImageUrl } from "@/config/og-pages";
+import { getOgConfig } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
@@ -9,8 +9,6 @@ import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
-
-import courtyardImg from "@/assets/tp-courtyard.webp";
 
 const placementSteps = [
   {
@@ -75,6 +73,39 @@ const placementFaqs: FAQItem[] = [
   },
 ];
 
+const decisionGuides = [
+  {
+    title: "How to choose a private rehab",
+    body: "Check clinical capability, regulation, detox, mental-health support, costs and aftercare before committing.",
+    href: "/resources/how-to-choose-private-rehab-centre-uk",
+  },
+  {
+    title: "How quickly can someone enter rehab?",
+    body: "Understand which assessment, capacity, medication, travel and funding checks affect admission timing.",
+    href: "/resources/how-quickly-can-someone-enter-rehab",
+  },
+  {
+    title: "28-day vs longer-term rehab",
+    body: "Compare duration by assessed need, progress reviews and the continuing-care plan rather than a package label.",
+    href: "/resources/28-day-vs-90-day-rehab",
+  },
+  {
+    title: "Private rehab vs NHS treatment",
+    body: "Compare access, setting, funding and continuity without assuming either route is universally better.",
+    href: "/resources/private-rehab-vs-nhs-addiction-treatment",
+  },
+  {
+    title: "Online support vs residential rehab",
+    body: "Use safety, home stability, treatment intensity and previous response to compare realistic levels of care.",
+    href: "/resources/online-addiction-support-vs-residential-rehab",
+  },
+  {
+    title: "UK private rehab costs",
+    body: "Compare total pathway costs only after establishing which setting and clinical capabilities are required.",
+    href: "/how-much-does-rehab-cost-uk",
+  },
+];
+
 const comparison: Array<{
   country: string;
   href: string;
@@ -129,7 +160,10 @@ export default function TreatmentPlacement() {
         fullTitle={treatmentOg.seoTitle ?? treatmentOg.title}
         description="Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning."
         canonical="/treatment-placement"
-        ogImage={ogImageUrl(treatmentOg.file)}
+        ogImage="https://www.insightrecoverynetwork.com/treatment-placement-navigation-og.webp"
+        ogImageWidth={1200}
+        ogImageHeight={630}
+        ogImageAlt="Adult standing where two coastal footpaths divide."
       />
       <Helmet>
         <script type="application/ld+json">
@@ -145,6 +179,17 @@ export default function TreatmentPlacement() {
               { "@type": "Place", "name": "International" },
             ],
             "url": "https://www.insightrecoverynetwork.com/treatment-placement",
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ImageObject",
+            "@id": "https://www.insightrecoverynetwork.com/treatment-placement#primaryimage",
+            "contentUrl": "https://www.insightrecoverynetwork.com/treatment-placement-navigation-hero.webp",
+            "width": 1600,
+            "height": 900,
+            "caption": "Adult standing where two coastal footpaths divide.",
           })}
         </script>
       </Helmet>
@@ -210,19 +255,23 @@ export default function TreatmentPlacement() {
                   }}
                 />
                 <img
-                  src={courtyardImg}
-                  alt="Private residential treatment setting at dusk"
+                  src="/treatment-placement-navigation-hero.webp"
+                  alt="Adult standing where two coastal footpaths divide."
+                  width={1600}
+                  height={900}
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
-                  style={{ objectPosition: "center 60%" }}
+                  style={{ objectPosition: "center" }}
                   fetchPriority="high"
                   loading="eager"
+                  decoding="async"
+                  sizes="(min-width: 1024px) 48vw, 100vw"
                 />
                 <div
                   className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"
                   style={{ background: "rgba(22,43,59,0.82)", backdropFilter: "blur(8px)" }}
                 >
-                  <p className="font-serif text-white text-[12px] leading-tight">Vetted international providers</p>
-                  <p className="text-white/55 text-[10.5px] font-light">Assessment-led placement guidance</p>
+                  <p className="font-serif text-white text-[12px] leading-tight">Assessment before placement</p>
+                  <p className="text-white/55 text-[10.5px] font-light">Compare safety, fit and continuity</p>
                 </div>
               </div>
             </div>
@@ -544,6 +593,39 @@ export default function TreatmentPlacement() {
         </div>
       </section>
 
+      <section className="border-y border-border/40 bg-secondary/15 py-12 md:py-20" aria-labelledby="treatment-decision-guides">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-9 max-w-3xl">
+            <span className="mb-3 block text-[9.5px] font-semibold uppercase tracking-[0.20em] text-accent/70">
+              Make the next decision deliberately
+            </span>
+            <h2 id="treatment-decision-guides" className="mb-4 font-serif text-3xl leading-tight text-primary md:text-4xl">
+              Compare admission, provider quality, treatment length and cost.
+            </h2>
+            <p className="text-[15px] font-light leading-relaxed text-muted-foreground">
+              These guides answer different parts of the same decision. Start with safety and clinical fit, then compare access, duration, location and complete pathway cost.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {decisionGuides.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="group border border-border/40 bg-background p-6 transition-colors hover:border-accent/50"
+              >
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <h3 className="font-serif text-xl leading-snug text-primary transition-colors group-hover:text-accent">
+                    {guide.title}
+                  </h3>
+                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
+                </div>
+                <p className="text-sm font-light leading-relaxed text-muted-foreground">{guide.body}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <RelatedServiceLinks
         links={[
           { title: "Alcohol Addiction Treatment", description: "Compare withdrawal assessment, community, online and residential alcohol treatment routes.", href: "/alcohol-addiction-treatment" },
@@ -551,6 +633,7 @@ export default function TreatmentPlacement() {
           { title: "Cannabis Addiction Treatment", description: "Choose support based on use, mental health, home stability and treatment fit.", href: "/cannabis-addiction-treatment" },
           { title: "Ketamine Addiction Treatment", description: "Coordinate addiction support with appropriate medical assessment for physical harm.", href: "/ketamine-addiction-treatment" },
           { title: "Benzodiazepine Treatment", description: "Keep prescriber-led withdrawal planning connected to wider recovery support.", href: "/benzodiazepine-addiction-treatment" },
+          { title: "Prescription Drug Treatment", description: "Separate physical dependence and withdrawal from addiction, with prescribers retaining medication responsibility.", href: "/prescription-drug-addiction-treatment" },
           { title: "Dual Diagnosis Treatment", description: "Compare integrated mental-health and addiction treatment capability.", href: "/dual-diagnosis-treatment" },
           { title: "Addiction Detox UK", description: "Understand withdrawal risk, clinical assessment and the differences between community, residential and inpatient settings.", href: "/resources/addiction-detox-uk" },
           { title: "Detox vs Rehab", description: "Separate withdrawal management from rehabilitation and continuing recovery care.", href: "/resources/detox-vs-rehab" },
