@@ -137,7 +137,7 @@ export default function PremiumTreatmentPage({ slug }: { slug: string }) {
               </div>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/contact" data-analytics-event={`${page.slug.replaceAll("-", "_")}_cta_click`}>
+                <Link href="/get-help" data-analytics-event="treatment_placement_enquiry" data-source-page={page.slug} data-service-interest="treatment-placement" data-cta-location="hero">
                   <Button size="lg" className="h-12 w-full rounded-none px-7 text-sm sm:w-auto">
                     Discuss treatment options
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -317,7 +317,10 @@ export default function PremiumTreatmentPage({ slug }: { slug: string }) {
         description={page.cta.description}
         primaryCta={{ label: page.cta.primary[0], href: page.cta.primary[1] }}
         secondaryCta={{ label: page.cta.secondary[0], href: page.cta.secondary[1] }}
-        analyticsEvent={`${page.slug.replaceAll("-", "_")}_cta_click`}
+        primaryEvent="treatment_placement_enquiry"
+        sourcePage={page.slug}
+        serviceInterest="treatment-placement"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

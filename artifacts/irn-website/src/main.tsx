@@ -3,6 +3,9 @@ import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import "./index.css";
+import { initialiseConsent } from "@/lib/consent";
+
+initialiseConsent();
 
 function AppWithReadySignal() {
   useLayoutEffect(() => {

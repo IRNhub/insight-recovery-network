@@ -78,6 +78,9 @@ components:
         supportType:
           type: string
           enum: [myself, someone-else, professional, general]
+        serviceInterest:
+          type: string
+          enum: [treatment-placement, online-programme, family-support, free-assessment, insight-os, professional, not-sure]
         message:
           type: string
           minLength: 10
@@ -89,6 +92,7 @@ components:
         - phone
         - preferredContact
         - supportType
+        - serviceInterest
         - message
         - consent
     EnquiryCreated:

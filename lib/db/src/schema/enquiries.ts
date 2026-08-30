@@ -9,6 +9,7 @@ export const enquiriesTable = pgTable("enquiries", {
   phone: text("phone").notNull(),
   preferredContact: text("preferred_contact").notNull(),
   supportType: text("support_type").notNull(),
+  serviceInterest: text("service_interest").notNull().default("not-sure"),
   message: text("message").notNull(),
   consent: boolean("consent").notNull().default(true),
   landingPage: text("landing_page"),

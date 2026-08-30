@@ -36,6 +36,11 @@ import {
   substanceTreatmentPages,
   SUBSTANCE_TREATMENT_REVIEW_DATE,
 } from "../src/data/substance-treatment-pages.js";
+import {
+  buildRouteSchemas,
+  routeParity,
+} from "../src/data/route-parity.js";
+import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -45,6 +50,12 @@ const publicDir = resolve(root, "public");
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const SITE_NAME = "Insight Recovery Network";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-home.png`;
+const EARLY_FINDINGS_SURVEY_URL = `${SITE_URL}/research/family-addiction-impact-survey-2026`;
+const EARLY_FINDINGS_SERIES = [
+  ["families-carrying-burden-addiction-early-findings", "Families carrying the burden"],
+  ["why-families-delay-seeking-addiction-help", "Why families delay seeking help"],
+  ["hidden-family-cost-of-addiction", "The hidden family cost"],
+];
 
 /** Escape a string for use inside an HTML attribute value. */
 function esc(str) {
@@ -57,6 +68,181 @@ function esc(str) {
 
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function applySocialSchemaProfiles(html) {
+  return html.replace(
+    /"sameAs"\s*:\s*\[\s*\]/,
+    `"sameAs": ${JSON.stringify(SOCIAL_PROFILE_URLS)}`,
+  );
+}
+
+function buildParityBody(route) {
+  const page = routeParity[route];
+  if (!page) throw new Error(`[prerender] Missing shared parity data for ${route}`);
+
+  const cta = page.primaryCta;
+  const sections = page.prerenderSections ?? [];
+  const highlights = page.highlights ?? [];
+  const faqs = page.faqs ?? [];
+
+  return `
+    <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
+      <nav aria-label="Main navigation" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="/treatment-placement" style="color:#F6F4F0;text-decoration:none;">Treatment Placement</a>
+        <a href="/family-addiction-intervention-uk" style="color:#F6F4F0;text-decoration:none;">Family Help</a>
+        <a href="/how-much-does-rehab-cost-uk" style="color:#F6F4F0;text-decoration:none;">Rehab Costs</a>
+        <a href="/online-programme" style="color:#F6F4F0;text-decoration:none;">Online Support</a>
+        <a href="/resources" style="color:#F6F4F0;text-decoration:none;">Resources</a>
+      </nav>
+    </header>
+    <main data-prerender-route="${esc(route)}" style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;">
+      <section style="max-width:1120px;margin:0 auto;padding:4rem 2rem 3rem;">
+        <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;font-weight:500;max-width:780px;">${esc(page.h1)}</h1>
+        <p style="font-size:1.05rem;line-height:1.8;max-width:720px;color:#4a5568;">${esc(page.heroIntro)}</p>
+        <a href="${esc(cta.href)}" data-primary-commercial-cta="true" data-analytics-event="${esc(cta.analyticsEvent)}" data-source-page="${esc(cta.sourcePage)}" data-service-interest="${esc(cta.serviceInterest)}" data-cta-location="${esc(cta.location)}" style="display:inline-block;margin-top:1rem;padding:.9rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-weight:600;">${esc(cta.label)}</a>
+      </section>
+      ${page.service ? `
+      <section${route === "/get-help" ? ' id="book"' : ""} style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Service summary</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <div><strong>Who this is for</strong><p>${esc(page.service.serviceType)}</p></div>
+          <div><strong>What it helps solve</strong><p>${esc(page.service.description)}</p></div>
+          <div><strong>Where it applies</strong><p>Private support for adults in the UK, with international options where the route description says so.</p></div>
+        </div>
+        <p style="line-height:1.75;max-width:760px;color:#4a5568;">Book a confidential call through the primary enquiry route. This is a private paid service. Insight Recovery Network provides guidance and support; it is not a regulated healthcare provider, is not an emergency service and does not diagnose, prescribe or provide medical detox.</p>
+        <p style="line-height:1.75;max-width:760px;color:#4a5568;">Written and reviewed by Craig Bilton, Founder and Clinical Director.</p>
+      </section>` : ""}
+      ${route === "/get-help" ? `
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Private support routes</h2>
+        <p style="line-height:1.75;color:#4a5568;">Insight Recovery Network provides private, paid services and does not provide emergency or NHS crisis care. We do not work with people under 18.</p>
+        <ul style="line-height:1.8;color:#4a5568;"><li>Private rehab placement</li><li>Online recovery support</li><li>Family support</li><li>Professional intervention guidance</li></ul>
+      </section>` : ""}
+      ${highlights.length ? `
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Programme options and support</h2>
+        <ul style="line-height:1.8;color:#4a5568;">${highlights.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>
+      </section>` : ""}
+      ${sections.map((section) => `
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">${esc(section.heading)}</h2>
+        <p style="line-height:1.75;max-width:760px;color:#4a5568;">${esc(section.body)}</p>
+      </section>`).join("")}
+      ${faqs.length ? `
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Frequently asked questions</h2>
+        ${faqs.map((faq) => `<article style="max-width:820px;margin:1.5rem 0;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;">${esc(faq.question)}</h3><p style="line-height:1.75;color:#4a5568;">${esc(faq.answer)}</p></article>`).join("")}
+      </section>` : ""}
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Related support and guidance</h2>
+        <p style="line-height:2;"><a href="/get-help">Speak to someone about private addiction treatment</a> · <a href="/treatment-placement">Treatment placement</a> · <a href="/online-programme">Online recovery programme</a> · <a href="/family-addiction-intervention-uk">Family guidance</a></p>
+      </section>
+    </main>`;
+}
+
+function supplementParityBody(body, route) {
+  const page = routeParity[route];
+  if (!page) return body;
+
+  const additions = [];
+  const serviceLabels = [
+    "Who this is for",
+    "What it helps solve",
+    "Where it applies",
+    "Next step",
+  ];
+  if (page.service && serviceLabels.some((label) => !body.includes(label))) {
+    additions.push(`
+      <section aria-label="Service summary" style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Service summary</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+          <div><strong>Who this is for</strong><p>${esc(page.service.serviceType)}</p></div>
+          <div><strong>What it helps solve</strong><p>${esc(page.service.description)}</p></div>
+          <div><strong>Where it applies</strong><p>Private support for adults in the UK, with international options where the route description says so.</p></div>
+          <div><strong>Next step</strong><p>Book a confidential call to discuss suitable options.</p></div>
+        </div>
+        <p style="line-height:1.75;color:#4a5568;">Written and reviewed by Craig Bilton, Founder and Clinical Director. Insight Recovery Network is not a regulated healthcare provider and is not an emergency service.</p>
+      </section>`,
+    );
+  }
+
+  for (const section of page.prerenderSections ?? []) {
+    if (!body.includes(section.heading)) {
+      additions.push(`
+        <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+          <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">${esc(section.heading)}</h2>
+          <p style="line-height:1.75;max-width:760px;color:#4a5568;">${esc(section.body)}</p>
+        </section>`,
+      );
+    }
+  }
+
+  const faqs = page.faqs ?? [];
+  if (
+    faqs.length &&
+    !/Frequently asked questions|Before you make contact|Questions about/i.test(body)
+  ) {
+    additions.push(`
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Frequently asked questions</h2>
+        ${faqs.map((faq) => `<article style="max-width:820px;margin:1.5rem 0;"><h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;">${esc(faq.question)}</h3><p style="line-height:1.75;color:#4a5568;">${esc(faq.answer)}</p></article>`).join("")}
+      </section>`,
+    );
+  }
+
+  if (!body.includes('data-primary-commercial-cta="true"')) {
+    const cta = page.primaryCta;
+    additions.push(`
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">Book a confidential call</h2>
+        <a href="${esc(cta.href)}" data-primary-commercial-cta="true" data-analytics-event="${esc(cta.analyticsEvent)}" data-source-page="${esc(cta.sourcePage)}" data-service-interest="${esc(cta.serviceInterest)}" data-cta-location="${esc(cta.location)}" style="display:inline-block;padding:.9rem 1.5rem;background:#162B3B;color:#fff;text-decoration:none;font-weight:600;">${esc(cta.label)}</a>
+      </section>`,
+    );
+  }
+
+  if (!additions.length) return body;
+  const supplement = additions.join("");
+  return body.includes("</main>")
+    ? body.replace("</main>", `${supplement}</main>`)
+    : `${body}${supplement}`;
+}
+
+function applySharedParity(page) {
+  const parity = routeParity[page.route];
+  if (!parity) return page;
+  const sharedSchemas = buildRouteSchemas(page.route);
+  const sharedSchemaIds = new Set(
+    sharedSchemas.map((schema) => schema["@id"]).filter(Boolean),
+  );
+  const sharedSchemaTypes = new Set(
+    sharedSchemas.flatMap((schema) =>
+      Array.isArray(schema["@type"]) ? schema["@type"] : [schema["@type"]],
+    ),
+  );
+  const additionalSchemas = (page.jsonLd ?? []).filter((schema) => {
+    const schemaTypes = Array.isArray(schema["@type"])
+      ? schema["@type"]
+      : [schema["@type"]];
+    return (
+      (!schema["@id"] || !sharedSchemaIds.has(schema["@id"])) &&
+      !schemaTypes.some((type) => sharedSchemaTypes.has(type))
+    );
+  });
+  return {
+    ...page,
+    title: parity.title,
+    description: parity.description,
+    noIndex: !parity.indexable,
+    body: supplementParityBody(page.body, page.route),
+    jsonLd: [...sharedSchemas, ...additionalSchemas],
+  };
+}
+
+function articleDocumentTitle(title) {
+  const suffix = ` | ${SITE_NAME}`;
+  return title.endsWith(suffix) ? title : `${title}${suffix}`;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -464,7 +650,7 @@ const PAGES = [
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Online Recovery Programme</p>
             <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Structured Online Addiction Recovery Programme
+              Online Recovery Programme Options and Pricing
             </h1>
             <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
               For those who need clinical-grade recovery support but cannot or choose not to enter residential treatment, our online programme delivers structured group therapy, one-to-one sessions, daily accountability, and relapse prevention planning, wherever you are in the world.
@@ -1817,7 +2003,7 @@ const PAGES = [
     file: "cookie-policy.html",
     title: "Cookie Policy | Insight Recovery Network",
     description:
-      "Insight Recovery Network uses only essential session cookies. We do not use tracking, advertising or analytics cookies. Learn what cookies we set and how to manage them.",
+      "How Insight Recovery Network uses necessary storage and, only with permission, analytics and marketing technologies, plus how to change your choices.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -1834,7 +2020,7 @@ const PAGES = [
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
           <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Cookie Policy</h1>
           <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:640px;">
-            We use only strictly necessary session storage for admin authentication. We do not use tracking, advertising, or analytics cookies. No cookie consent banner is required.
+            Necessary storage keeps the site working. Analytics and marketing technologies are off by default and load only after an active choice. Visitors can accept, reject or choose categories, then reopen Cookie Settings from the footer. Forms, phone, email and WhatsApp continue to work without optional consent.
           </p>
           <a href="mailto:info@insightrecoverynetwork.com" style="font-family:sans-serif;font-size:0.9rem;color:#162B3B;text-decoration:underline;">info@insightrecoverynetwork.com</a>
         </div>
@@ -1877,6 +2063,8 @@ const PAGES = [
     description:
       "Insight Recovery Network provides private online support and guidance, not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts.",
     ogImage: DEFAULT_OG_IMAGE,
+    noIndex: true,
+    followWhenNoIndex: true,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -1911,7 +2099,7 @@ const PAGES = [
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;">Insight Recovery Network</a>
         <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
           <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
-          <a href="/craig-bilton" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Craig Bilton</a>
+          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Craig Bilton</a>
           <a href="mailto:craig@insightrecoverynetwork.com?subject=Media%20enquiry" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Request expert comment</a>
         </nav>
       </header>
@@ -2053,6 +2241,7 @@ const PAGES = [
     description:
       "Craig Bilton is the Founder and Clinical Director of Insight Recovery Network, supporting individuals and families with addiction recovery, treatment placement, and structured online support.",
     ogImage: `${SITE_URL}/craig-bilton-hero.webp`,
+    noIndex: true,
     body: `
       <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:900px;margin:0 auto;padding:4rem 2rem;">
@@ -2089,11 +2278,10 @@ const PAGES = [
   {
     route: "/get-help",
     file: "get-help.html",
-    title: "Free, Confidential Addiction Support | Insight Recovery Network",
-    description: "Confidential guidance for people affected by their own or a loved one's addiction.",
+    title: "Get Private Addiction Help | Treatment Guidance UK",
+    description: "Speak confidentially about private rehab placement, online recovery, family support or professional intervention guidance in the UK.",
     ogImage: `${SITE_URL}/get-help-hero.png`,
-    noIndex: true,
-    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:700px;margin:0 auto;"><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Free, confidential addiction support</h1><p style="line-height:1.8;color:#4a5568;margin-bottom:2rem;">Clear guidance for you or someone you love, without pressure or judgement.</p><a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Book a confidential call</a></div></main>`,
+    body: `<main style="font-family:sans-serif;background:#F6F4F0;color:#162B3B;min-height:60vh;padding:4rem 2rem;"><div style="max-width:760px;margin:0 auto;"><p style="text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;color:#8A6836;">Private addiction treatment guidance for adults</p><h1 style="font-family:'Playfair Display',Georgia,serif;font-size:2.5rem;margin-bottom:1rem;">Speak to Someone About Private Addiction Treatment</h1><p style="line-height:1.8;color:#4a5568;margin-bottom:1.5rem;">Start with a confidential discussion about private rehab placement, online recovery, family support or professional intervention guidance. Insight Recovery Network provides private, paid services and does not provide emergency or NHS crisis care.</p><ul style="line-height:1.9;color:#4a5568;"><li><a href="/treatment-placement">Private rehab placement</a></li><li><a href="/online-programme">Online recovery support</a></li><li><a href="/family-addiction-intervention-uk">Family support</a></li><li><a href="/family-addiction-intervention-uk">Professional intervention guidance</a></li></ul><p style="line-height:1.8;color:#4a5568;">We do not accept anyone under 18. In an emergency call 999 or attend A&amp;E.</p><a href="#book" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Speak to the admissions team</a></div></main>`,
   },
   {
     route: "/admin",
@@ -2116,9 +2304,9 @@ const PAGES = [
         <div style="max-width:680px;margin:0 auto;padding:4rem 2rem;text-align:center;">
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#6B7280;margin-bottom:1rem;">404, Page Not Found</p>
           <h1 style="font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">We couldn't find that page.</h1>
-          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;">The page may have moved or no longer exists. You can return to the homepage or contact us for help.</p>
-          <a href="/" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;margin-right:0.75rem;">Back to Homepage</a>
-          <a href="/contact" style="font-family:sans-serif;color:#162B3B;">Contact Us</a>
+          <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;">The page may have moved, but you are still in the right place. Choose a useful next step below, or contact us confidentially if you are unsure where to begin.</p>
+          <p style="display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:center;"><a href="/" style="display:inline-block;padding:0.875rem 1.25rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:600;">Go to the homepage</a><a href="/assessments" style="display:inline-block;padding:0.875rem 1.25rem;border:1px solid #162B3B;color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Start a free assessment</a><a href="/treatment-placement" style="display:inline-block;padding:0.875rem 1.25rem;border:1px solid #162B3B;color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Get help choosing treatment</a><a href="/online-programme" style="display:inline-block;padding:0.875rem 1.25rem;border:1px solid #162B3B;color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">View the online programme</a></p>
+          <p><a href="/contact" style="font-family:sans-serif;color:#162B3B;margin-right:1rem;">Contact us confidentially</a><a href="https://wa.me/447723486235" style="font-family:sans-serif;color:#162B3B;">WhatsApp us</a></p>
         </div>
       </main>
     `,
@@ -2211,7 +2399,7 @@ function buildPremiumTreatmentBody(page) {
             ["Where it applies", page.summary.applies],
             ["Next step", page.summary.nextStep],
           ].map(([label, value]) => `<div style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.25rem;"><strong style="display:block;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:#9B7844;margin-bottom:0.5rem;">${esc(label)}</strong><span style="font-size:0.9rem;line-height:1.6;">${esc(value)}</span></div>`).join("")}</div>
-          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/craig-bilton">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed ${esc(PREMIUM_TREATMENT_REVIEW_DATE)}.</p>
+          <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1.5rem;">Written by <a href="/about">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed ${esc(PREMIUM_TREATMENT_REVIEW_DATE)}.</p>
           <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;">Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. In an emergency call 999 or attend A&amp;E.</p>
         </section>
         <section style="padding:3rem 0;border-bottom:1px solid rgba(22,43,59,0.12);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">${page.highlights.map((item) => `<article style="border:1px solid rgba(22,43,59,0.12);background:#fff;padding:1.5rem;"><h2 style="font-size:1.25rem;font-weight:500;">${esc(item.title)}</h2><p style="font-family:sans-serif;font-size:0.9rem;line-height:1.75;color:#4a5568;">${esc(item.body)}</p></article>`).join("")}</section>
@@ -2518,7 +2706,7 @@ function buildStaticServiceEnhancement(route) {
         ${summary.map((value, index) => `<div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">${labels[index]}</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">${value}</p></div>`).join("")}
         <div style="background:#fff;border:1px solid rgba(22,43,59,0.12);padding:1.25rem;"><p style="font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#9B7844;margin-bottom:0.5rem;">Next step</p><p style="font-size:0.9rem;line-height:1.6;color:#162B3B;">Book a confidential call</p></div>
       </div>
-      <div style="max-width:1200px;margin:1.25rem auto 0;font-size:0.78rem;line-height:1.7;color:#4a5568;"><p>Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 30 June 2026.</p><p>Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. In an emergency call 999 or attend A&amp;E.</p></div>
+      <div style="max-width:1200px;margin:1.25rem auto 0;font-size:0.78rem;line-height:1.7;color:#4a5568;"><p>Written by <a href="/about" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Last reviewed 30 June 2026.</p><p>Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency or crisis service. In an emergency call 999 or attend A&amp;E.</p></div>
     </section>
     <section style="font-family:sans-serif;max-width:1200px;margin:0 auto;padding:2.5rem 2rem;">
       <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;color:#162B3B;margin-bottom:1rem;">Related support and guidance</h2>
@@ -2538,7 +2726,7 @@ function injectPageMeta(baseHtml, page) {
   // <title> tag
   out = out.replace(
     /(<title>)[^<]*(<\/title>)/,
-    `$1${page.title}$2`
+    `$1${esc(page.title)}$2`
   );
 
   // meta name="description"
@@ -2556,14 +2744,14 @@ function injectPageMeta(baseHtml, page) {
   if (page.noIndex) {
     out = out.replace(
       /(<meta\s+name="robots"\s+content=")[^"]*(")/,
-      "$1noindex, nofollow$2"
+      page.followWhenNoIndex ? "$1noindex, follow$2" : "$1noindex, nofollow$2"
     );
   }
 
   // og:title
   out = out.replace(
     /(<meta\s+property="og:title"\s+content=")[^"]*(")/,
-    `$1${page.title}$2`
+    `$1${esc(page.title)}$2`
   );
 
   // og:description
@@ -2607,7 +2795,7 @@ function injectPageMeta(baseHtml, page) {
   // twitter:title
   out = out.replace(
     /(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,
-    `$1${page.title}$2`
+    `$1${esc(page.title)}$2`
   );
 
   // twitter:description
@@ -2622,10 +2810,14 @@ function injectPageMeta(baseHtml, page) {
     `$1${esc(page.ogImage)}$2`
   );
 
+  if (page.preserveBody) return markPrerenderedMetadata(out);
+
   // Replace the static body content inside <div id="root">...</div>
   // Uses greedy matching so the outer closing </div> is matched (not an inner one).
   // The comment "React mounts here" immediately follows the root </div>.
-  const staticEnhancement = buildStaticServiceEnhancement(page.route);
+  const staticEnhancement = routeParity[page.route]
+    ? ""
+    : buildStaticServiceEnhancement(page.route);
   const bodyReplaced = out.replace(
     /(<div id="root">)[\s\S]*(<\/div>)(\s*\n\s*<!-- React mounts here)/,
     `$1\n${page.body}\n${staticEnhancement}\n${STATIC_FOOTER}\n    $2$3`
@@ -3647,14 +3839,42 @@ function buildArticleBodyHtml(meta, full) {
           </aside>`
     : "";
 
+  const seriesNavHtml = full.seriesLabel
+    ? `<nav aria-label="Early Findings series" style="font-family:sans-serif;margin:0 0 2.5rem;padding:1.25rem;border:1px solid rgba(201,169,110,0.3);background:rgba(255,255,255,0.55);max-width:760px;">
+        <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#9B7844;margin:0 0 0.75rem;">${escText(full.seriesLabel)}</p>
+        <ol style="display:flex;flex-wrap:wrap;gap:0.65rem 1.5rem;margin:0;padding-left:1.25rem;line-height:1.6;">
+          ${EARLY_FINDINGS_SERIES.map(([slug, label]) =>
+            slug === full.slug
+              ? `<li aria-current="page"><strong>${escText(label)}</strong></li>`
+              : `<li><a href="/resources/${esc(slug)}" style="color:#162B3B;">${escText(label)}</a></li>`
+          ).join("")}
+        </ol>
+      </nav>`
+    : "";
+
+  const finalCtaHtml = full.seriesLabel
+    ? `<section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Take part in the ongoing research</h2>
+        <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:620px;">Have you been affected by a family member's addiction or compulsive behaviour? The anonymous UK Family Addiction Impact Survey 2026 remains open and will contribute to the final report.</p>
+        <a href="${EARLY_FINDINGS_SURVEY_URL}" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Take the anonymous survey</a>
+        <a href="/family-addiction-intervention-uk" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Find family support</a>
+      </section>`
+    : `<section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
+        <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
+        <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
+        <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
+      </section>`;
+
   return `${STATIC_HEADER}
       <main style="background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
         <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
           <nav aria-label="Breadcrumb" style="font-family:sans-serif;font-size:0.8rem;color:#4a5568;margin-bottom:2rem;">
             <a href="/" style="color:#4a5568;">Home</a> › <a href="/resources" style="color:#4a5568;">Resources</a> › <span>${escText(full.title)}</span>
           </nav>
+          ${seriesNavHtml}
           <article>
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.category)}</p>
+            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.seriesLabel ?? full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
             ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1200px) 720px, calc(100vw - 4rem)" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
@@ -3663,12 +3883,7 @@ function buildArticleBodyHtml(meta, full) {
           ${faqHtml}
           ${sourcesHtml}
           ${buildArticleTreatmentLinks(full.slug)}
-          <section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
-            <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Book a confidential call</h2>
-            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">If anything in this article resonates with your situation, a private conversation can help clarify the most appropriate support for you or your family. All enquiries are handled with complete discretion.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
-            <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
-          </section>
+          ${finalCtaHtml}
         </div>
       </main>
 ${STATIC_FOOTER}`;
@@ -3695,7 +3910,7 @@ function buildDestinationBodyHtml(d) {
               <div><strong>Where it applies</strong><p>Private treatment in ${escText(d.country)}; the chosen provider makes final admission and medical decisions.</p></div>
               <div><strong>Next step</strong><p>Book a confidential call</p></div>
             </div>
-            <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1rem;">Written by <a href="/craig-bilton" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency service.</p>
+            <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1rem;">Written by <a href="/about" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency service.</p>
           </section>
           <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
             <img src="${escText(d.heroImage)}" alt="${escText(d.heroImageAlt)}" style="display:block;width:100%;height:auto;border:1px solid rgba(22,43,59,0.12);background:#162B3B;margin-bottom:2rem;" />
@@ -3824,6 +4039,7 @@ const ORGANIZATION_JSONLD = {
     "Family intervention",
     "Relapse prevention",
   ],
+  sameAs: SOCIAL_PROFILE_URLS,
 };
 
 const PERSON_JSONLD = {
@@ -3833,7 +4049,7 @@ const PERSON_JSONLD = {
   name: "Craig Bilton",
   jobTitle: "Founder & Clinical Director",
   worksFor: { "@id": `${SITE_URL}/#organization` },
-  url: `${SITE_URL}/craig-bilton`,
+  url: `${SITE_URL}/about`,
   image: `${SITE_URL}/craig-bilton-hero.webp`,
   description:
     "Addiction treatment specialist with over 20 years of international experience spanning residential rehabilitation, online recovery support, and complex case management across the UK and internationally.",
@@ -3864,7 +4080,7 @@ function buildArticleJsonLd(meta, full) {
       "@id": `${SITE_URL}/#craig-bilton`,
       name: "Craig Bilton",
       jobTitle: "Founder & Clinical Director",
-      url: `${SITE_URL}/craig-bilton`,
+      url: `${SITE_URL}/about`,
     },
     publisher: {
       "@type": "Organization",
@@ -3924,6 +4140,7 @@ function buildBreadcrumbJsonLd(meta, full) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${SITE_URL}/resources/${meta.slug}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
       { "@type": "ListItem", position: 2, name: "Resources", item: `${SITE_URL}/resources` },
@@ -3988,11 +4205,14 @@ function replaceMeta2(html, attr, attrValue, newContent) {
 function injectArticleMeta(html, article, full = null) {
   let out = html;
   const canonicalUrl = `${SITE_URL}/resources/${article.slug}`;
+  const documentTitle = articleDocumentTitle(
+    full?.seoTitle ?? full?.title ?? article.pageTitle,
+  );
 
   // <title> tag
   out = out.replace(
     /(<title>)[^<]*(<\/title>)/,
-    `$1${esc(article.pageTitle)}$2`
+    `$1${esc(documentTitle)}$2`
   );
 
   // meta name="description"
@@ -4010,7 +4230,7 @@ function injectArticleMeta(html, article, full = null) {
   // og:title
   out = out.replace(
     /(<meta\s+property="og:title"\s+content=")[^"]*(")/,
-    `$1${esc(article.ogTitle)}$2`
+    `$1${esc(documentTitle)}$2`
   );
 
   // og:description
@@ -4058,7 +4278,7 @@ function injectArticleMeta(html, article, full = null) {
   // twitter:title
   out = out.replace(
     /(<meta\s+name="twitter:title"\s+content=")[^"]*(")/,
-    `$1${esc(article.ogTitle)}$2`
+    `$1${esc(documentTitle)}$2`
   );
 
   // twitter:description
@@ -4104,7 +4324,6 @@ function injectArticleMeta(html, article, full = null) {
     buildMedicalWebPageJsonLd(article, full),
     buildFaqJsonLd(article, full),
     buildBreadcrumbJsonLd(article, full),
-    ORGANIZATION_JSONLD,
     PERSON_JSONLD,
   ]);
 
@@ -4160,11 +4379,29 @@ async function main() {
     process.exit(1);
   }
 
-  const baseHtml = readFileSync(indexPath, "utf-8");
+  const baseHtml = applySocialSchemaProfiles(
+    readFileSync(indexPath, "utf-8"),
+  );
+  const loadedFullArticles = await loadFullArticles();
+  const fullArticles = loadedFullArticles
+    ? [...new Map(loadedFullArticles.map((article) => [article.slug, article])).values()]
+    : null;
+
+  const home = routeParity["/"];
+  const homeHtml = injectJsonLd(
+    injectPageMeta(baseHtml, {
+      route: "/",
+      title: home.title,
+      description: home.description,
+      ogImage: `${SITE_URL}/og-home-v2.png`,
+      preserveBody: true,
+    }),
+    [...buildRouteSchemas("/"), PERSON_JSONLD],
+  );
+  writeFileSync(indexPath, homeHtml, "utf-8");
 
   // Load the complete content set before rendering the resource hub so its
   // raw HTML links to every published article and every new treatment guide.
-  const fullArticles = await loadFullArticles();
   if (fullArticles) {
     LOADED_ARTICLES = fullArticles
       .filter((article) => article.publishedStatus !== "draft")
@@ -4186,9 +4423,10 @@ async function main() {
 
   let pageCount = 0;
   for (const page of PAGES) {
-    const html = injectJsonLd(injectPageMeta(baseHtml, page), [
-      ...(page.jsonLd ?? []),
-      ORGANIZATION_JSONLD,
+    const sharedPage = applySharedParity(page);
+    const pageForRender = sharedPage;
+    const html = injectJsonLd(injectPageMeta(baseHtml, pageForRender), [
+      ...(pageForRender.jsonLd ?? []),
       PERSON_JSONLD,
     ]);
     writeFileSync(resolve(distPublic, page.file), html, "utf-8");
@@ -4214,7 +4452,6 @@ async function main() {
       };
       const html = injectJsonLd(injectPageMeta(baseHtml, page), [
         ...buildDestinationJsonLd(d),
-        ORGANIZATION_JSONLD,
         PERSON_JSONLD,
       ]);
       writeFileSync(resolve(distPublic, page.file), html, "utf-8");
@@ -4223,15 +4460,6 @@ async function main() {
     console.log("");
   } else {
     console.warn("  ⚠ Destination data unavailable, skipping destination pages.\n");
-  }
-
-  // ── Step 1b: Inject Organization + Person JSON-LD into the home page ──────
-  if (!baseHtml.includes("#organization")) {
-    const homeHtml = markPrerenderedMetadata(
-      injectJsonLd(baseHtml, [ORGANIZATION_JSONLD, PERSON_JSONLD]),
-    );
-    writeFileSync(indexPath, homeHtml, "utf-8");
-    console.log("  ✓ index.html, injected Organization + Person JSON-LD\n");
   }
 
   // ── Step 2: Generate 1200×630 OG image for the new article ───────────────
@@ -4342,11 +4570,11 @@ const SITEMAP_PAGE_META = {
   "/recovery-plan-checklist": { changefreq: "monthly", priority: "0.7" },
   "/resources":          { changefreq: "weekly",  priority: "0.8" },
   "/contact":            { changefreq: "monthly", priority: "0.8" },
+  "/get-help":           { changefreq: "monthly", priority: "0.9" },
   "/assessments":        { changefreq: "monthly", priority: "0.8" },
   "/privacy-policy":     { changefreq: "yearly",  priority: "0.4" },
   "/terms-of-service":   { changefreq: "yearly",  priority: "0.4" },
   "/cookie-policy":      { changefreq: "yearly",  priority: "0.4" },
-  "/clinical-disclaimer":{ changefreq: "yearly",  priority: "0.4" },
   "/editorial-policy":   { changefreq: "yearly",  priority: "0.5" },
   "/media":              { changefreq: "monthly", priority: "0.7" },
 };
@@ -4373,7 +4601,7 @@ const SITEMAP_LASTMOD = {
   "/how-much-does-rehab-cost-uk": "2026-08-28",
   "/addiction-help-cornwall": "2026-07-13",
   "/private-rehab-thailand": "2026-07-13",
-  "/clinical-disclaimer": "2026-07-13",
+  "/get-help": "2026-07-24",
   "/luxury-rehab": "2026-07-13",
   "/executive-rehab": "2026-07-13",
   "/destination-rehab": "2026-07-13",

@@ -338,6 +338,299 @@ Read [Families Are Carrying the Burden of Addiction Alone](/resources/families-c
 Have you been affected by a family member’s addiction or compulsive behaviour? The [UK Family Addiction Impact Survey 2026](https://www.insightrecoverynetwork.com/research/family-addiction-impact-survey-2026) remains open. Responses are anonymous and will contribute to the final UK Family Addiction Report 2026.`,
   },
   {
+    slug: "families-carrying-burden-addiction-early-findings",
+    title: "Early Findings: Families Are Carrying the Burden of Addiction Alone",
+    excerpt: "Early UK findings show how responsibility for safety, secrecy and difficult family decisions can move onto the people surrounding addiction.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-08-02",
+    readingTime: 9,
+    category: "Family Support",
+    seriesLabel: "UK Family Addiction Report 2026: Early Findings",
+    image: "/addiction-support-for-families.png",
+    imageAlt: "A calm family support setting representing the responsibilities families can carry around addiction",
+    seoTitle: "Families Carrying Addiction's Burden | Early Findings",
+    metaDescription: "Early UK findings reveal how families carry responsibility, secrecy and conflict around addiction, and why support must include the whole family.",
+    ogTitle: "Early Findings: Families Are Carrying the Burden of Addiction Alone",
+    ogDescription: "Early UK findings on responsibility, secrecy and disagreement within families affected by addiction.",
+    publishedStatus: "published",
+    content: `The first findings from the UK Family Addiction Impact Survey 2026 point to a pattern that is familiar in family work but rarely described clearly enough: responsibility can move away from the person experiencing addiction and settle across the rest of the family.
+
+In these early findings, 88.9% said they often felt responsible for keeping the person safe or preventing the situation from becoming worse. When those who felt this responsibility sometimes are included, the figure rises to 97.8%.
+
+That does not mean relatives caused the addiction, can control it, or should be expected to manage it. It means that many respondents described living as though safety depended on their vigilance. Over time, partners, parents and other relatives may find themselves watching, anticipating, covering, negotiating and responding to each new crisis while ordinary life continues around them.
+
+This is the emerging story behind the percentages. Addiction can change the roles people occupy within a family. A partner becomes a crisis manager. A parent feels responsible for preventing catastrophe. A child may learn to adapt to tension or unpredictability. These are interpretations of the pattern, informed by more than 20 years of international experience in addiction treatment, family support, programme management and intervention work. They are not descriptions of every family or diagnoses of individual respondents.
+
+## When family members become crisis managers
+
+Feeling responsible for safety can take many forms. A family member may monitor whether the person is awake, check where they are, manage access to money, collect them from unsafe situations, call services, keep children away from conflict, or try to judge whether a situation requires urgent help.
+
+Some of those actions may be necessary in a particular moment. The difficulty is what happens when emergency behaviour becomes the family’s normal operating system. Attention moves towards the next risk. Plans become conditional. Sleep, work and parenting can be interrupted by the possibility that something may go wrong.
+
+The survey question measured whether respondents felt responsible for keeping the person safe or preventing matters from worsening. It did not measure clinical risk, the exact actions they took, or whether those actions helped. The result should therefore be read carefully. What it demonstrates is the reported weight of responsibility, not the effectiveness of any particular response.
+
+In practice, relatives often face decisions without full information. They may not know whether a promise represents genuine change, whether a boundary will increase danger, or whether stepping back will feel like abandonment. The wish to protect someone can sit alongside anger, fear and exhaustion. Those feelings are not contradictory. They are understandable responses to a prolonged and uncertain situation.
+
+## Secrecy, protection and the pressure to hold everything together
+
+The early findings also show that 87.8% had often or sometimes concealed, minimised or explained the person’s behaviour.
+
+This can be misunderstood as simple dishonesty or deliberate enabling. Family life is usually more complicated. A partner may explain an absence to an employer, shield children from frightening details, avoid telling ageing parents, or make excuses to friends because the alternative feels exposing and unsafe. A parent may minimise what is happening because naming it fully would force decisions they do not yet feel ready or equipped to make.
+
+Concealment can begin as protection. It may protect the person from immediate consequences, protect the family’s privacy, or preserve the appearance that daily life is still functioning. Yet secrecy can also narrow the family’s access to help. If no one outside the home knows what is happening, there are fewer people available to offer perspective, practical support or a challenge to a pattern that has gradually become normal.
+
+There is an important distinction between privacy and isolation. Families have a right to privacy and should not be pressured to disclose sensitive information widely. Isolation is different. It occurs when the need to contain the problem leaves the family without safe, informed support of its own.
+
+The purpose of family support should not be to shame people for how they coped under pressure. It should help them understand which responsibilities genuinely belong to them, which do not, and how to act more safely without taking ownership of another adult’s recovery.
+
+## Why families disagree about what to do
+
+More than three quarters of respondents, 76.7%, reported family disagreements frequently or sometimes about how to respond.
+
+Those disagreements are rarely just about whether anyone cares. One relative may believe firm boundaries are essential. Another may fear that a boundary will lead to homelessness, overdose, self-harm, family rupture or some other crisis. One person may want treatment arranged immediately, while another believes the person must ask for help themselves. Previous promises, financial pressures, children’s needs and different levels of exposure to the behaviour can all shape what each family member thinks is reasonable.
+
+Families may also hold different information. The person experiencing addiction may tell different relatives different parts of the story. One family member may see the crisis directly while another sees periods of apparent stability. This can create arguments about the seriousness of the problem before the family has even reached the harder question of what to do.
+
+Disagreement does not necessarily mean a family is dysfunctional. It may reflect the absence of a shared framework for understanding risk, responsibility and treatment. Without informed guidance, relatives are left to build a response from fear, past experience and whatever information they can find.
+
+Good family work makes these differences discussable. It helps people separate urgent safety decisions from longer-term boundaries, agree how they will communicate, and stop contradictory responses from pulling the family further apart. It also recognises that not every relative will reach the same conclusion at the same time.
+
+## What these findings may mean for support services
+
+If families are carrying this level of responsibility, support cannot begin and end with the person experiencing addiction. Relatives need clear information before a treatment admission, not only after one. They need help assessing what is urgent, understanding available options, setting boundaries and planning for the possibility that the person may refuse help.
+
+Services should also avoid treating the family as a convenient extension of the treatment system. A relative should not become an unpaid case manager simply because they are the person most available. Involving families can be valuable, but involvement needs consent, clarity and support. It should not transfer clinical or safeguarding responsibilities onto people who are already under strain.
+
+Earlier family guidance may also create better conditions for change. That does not mean a family can make someone recover. It means relatives can learn to respond with greater consistency, reduce unnecessary secrecy, prepare realistic treatment options and protect their own wellbeing. These are worthwhile outcomes even when the person affected is not yet ready to seek help.
+
+[Family addiction guidance](/family-addiction-intervention-uk) can help relatives think through conversations, boundaries and next steps. Where residential or specialist care may be needed, [treatment placement guidance](/treatment-placement) can help families compare options without assuming that one route suits everyone.
+
+## Methodology and limitations
+
+These are early findings from anonymous responses to the UK Family Addiction Impact Survey 2026. All respondents included in the current analysis reported being based in the United Kingdom. Participation was voluntary and the survey was distributed primarily online.
+
+The participant group is self-selected and the results should not be treated as nationally representative. The survey remains open, so figures may change as further responses are received and the current included export continues through quality review. The results describe what respondents reported. They do not establish causation and should not be used to diagnose individuals or assume that every family follows the same pattern.
+
+No free-text respondent quotations have been used in this article.
+
+## About the UK Family Addiction Report 2026
+
+The UK Family Addiction Report 2026 will examine how addiction and compulsive behaviour affect families, including responsibility, relationships, help-seeking and access to support. This Early Findings series shares emerging patterns while data collection continues. It is not the final report.
+
+Read the other articles in the series: [Why Families Can Live with Addiction for Years Before Seeking Help](/resources/why-families-delay-seeking-addiction-help) and [The Hidden Cost of Addiction Is Not Only Financial](/resources/hidden-family-cost-of-addiction).
+
+## Take part in the ongoing research
+
+Have you been affected by a family member’s addiction or compulsive behaviour? The [UK Family Addiction Impact Survey 2026](https://www.insightrecoverynetwork.com/research/family-addiction-impact-survey-2026) remains open. Responses are anonymous and will contribute to the final UK Family Addiction Report 2026.`,
+  },
+  {
+    slug: "why-families-delay-seeking-addiction-help",
+    title: "Why Families Can Live with Addiction for Years Before Seeking Help",
+    excerpt: "Early UK findings suggest that long delays can reflect fear, uncertainty, hope and limited confidence in treatment options, not a lack of care.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-08-02",
+    readingTime: 10,
+    category: "Family Support",
+    seriesLabel: "UK Family Addiction Report 2026: Early Findings",
+    image: "/family-consider-rehab-loved-one.png",
+    imageAlt: "A family member considering addiction treatment options in a calm private setting",
+    seoTitle: "Why Families Delay Seeking Addiction Help | UK Findings",
+    metaDescription: "Early UK findings explore why families may live with addiction for years before seeking help, including fear, hope and uncertainty about treatment.",
+    ogTitle: "Why Families Can Live with Addiction for Years Before Seeking Help",
+    ogDescription: "Early UK findings on delay, uncertainty and families' confidence in understanding addiction treatment options.",
+    publishedStatus: "published",
+    content: `Families rarely wake up one morning, identify addiction with certainty and immediately know which service to contact. More often, the problem develops through a series of incidents, explanations, promises and temporary improvements. By the time professional help is considered, the family may already have spent years trying to manage the situation itself.
+
+Early findings from the UK Family Addiction Impact Survey 2026 reflect that gradual process. Some 71.1% reported that the problem had affected the family for at least two years before professional help was sought, or that professional help had still not been sought.
+
+The wording matters. This does not mean 71.1% waited more than two years and then sought help. The figure combines people who described at least a two-year period before help was first sought with people for whom professional help had not yet been sought. Within the early findings, 28.9% reported more than five years before help was first sought, while 20% said professional help had not yet been sought.
+
+These figures should not be reduced to denial, indifference or lack of motivation. Families often care intensely. The delay may develop precisely because they are trying to protect the person, preserve stability, avoid a feared confrontation and make sense of treatment options they do not fully understand.
+
+## The length of time families live with addiction
+
+The beginning of a family’s experience is difficult to date. There may be no clear point at which substance use or compulsive behaviour becomes recognisably harmful. Early warning signs can be intermittent. A frightening incident is followed by an apology. Money disappears, then the person appears to regain control. A partner promises to cut down. A son or daughter returns to work. The family hopes the worst has passed.
+
+This variability can make decisive action feel premature. Relatives may question their own judgement or worry that they are overreacting. They may compare the situation with a more extreme picture of addiction and conclude that it is not yet serious enough for professional help.
+
+Over time, the threshold for what counts as a crisis can move. Events that once felt unacceptable become familiar. The family becomes skilled at restoring short-term stability, but the underlying pattern remains. This is one way crisis can become normal without anyone consciously choosing it.
+
+The survey measured the reported period before professional help was first sought. It did not establish what happened during every stage of that period or identify a single reason for delay. The figures show duration. The explanation requires caution and context.
+
+## Delay does not mean families do not care
+
+A family may postpone seeking help for many understandable reasons. They may fear that raising the subject will cause anger, disappearance, relationship breakdown or a more dangerous pattern of use. They may worry that contacting a service will remove control from the family or expose private information. They may have children, housing, work or financial responsibilities that make an immediate treatment plan feel impossible.
+
+Hope also plays a powerful role. People affected by addiction often have periods of genuine determination and improvement. Families may hear sincere promises and want to believe that another chance will be different. Continuing to hope is not foolish. The problem is that hope without a plan can keep the family waiting through repeated cycles.
+
+There can also be practical barriers. Relatives may not know whether the first call should be to a GP, a local drug and alcohol service, a therapist, an intervention professional, a detox provider or a residential programme. They may not know which services support families before the person agrees to treatment. Cost, waiting times, location and uncertainty about medical risk can add further delay.
+
+Some relatives believe they are not entitled to ask for support because they are not the person using alcohol or drugs. That is a damaging misconception. Family members can seek information and support for their own decisions even when the person experiencing addiction is not ready to engage.
+
+## The uncertainty surrounding treatment options
+
+The early findings suggest that understanding available treatment was a significant difficulty. Asked to rate their confidence before seeking help on a scale from 1 to 10, 57.8% gave a rating of 3 or below. The median rating was 3.
+
+This question measured confidence in understanding treatment options. It did not measure clinical knowledge, education, intelligence or a person’s ability to make decisions. It would be inappropriate to relabel the result as health literacy or to infer a diagnosis from it.
+
+Even so, low confidence has practical consequences. If a family cannot tell the difference between detox, residential rehabilitation, outpatient care, online recovery support, family intervention and peer support, it is harder to take a first step. Marketing language can make services sound interchangeable when they are not. Prices vary widely. Families may not know how to judge safety, clinical suitability or aftercare.
+
+The treatment system can also appear to require certainty before it offers guidance. Families are asked what they want when their central problem is that they do not yet know what is appropriate. A better first response is assessment and explanation: what risks need attention, which routes are realistic, what each option can and cannot provide, and what can be done if the person refuses.
+
+## Hope, fear and the gradual normalisation of crisis
+
+In family work, delay often emerges from a combination of hope and fear rather than one simple cause. The family hopes the person will change without formal treatment and fears what may happen if they confront the problem. They hope a new job, relationship, move or promise will create stability and fear that involving others will make the situation worse.
+
+Responsibility can deepen the trap. When relatives feel personally responsible for preventing harm, they may believe they cannot risk stepping back from familiar crisis management. Yet the effort required to keep daily life functioning leaves little time or emotional capacity to research alternatives.
+
+Shame and stigma can further narrow the family’s world. Addiction is still often treated as a moral failure, and relatives may expect blame for not stopping it sooner. Parents may fear being judged. Partners may worry that disclosure will affect work, finances or custody. Adult children may feel disloyal for speaking about a parent.
+
+These pressures do not affect every family in the same way. They are professional interpretations that may help explain the reported pattern, not outcomes directly measured by every survey question. The central point is that delay should invite curiosity and earlier support, not criticism.
+
+## What earlier family support could look like
+
+Earlier support does not have to begin with persuading someone into residential treatment. It can start with a confidential conversation for the family member who is worried.
+
+Useful early support may help relatives:
+
+- identify immediate medical or safeguarding concerns;
+- distinguish emergency action from longer-term planning;
+- understand the main treatment routes and their limitations;
+- prepare a calm, specific conversation;
+- agree boundaries that are realistic and safe;
+- protect children, finances and the wellbeing of other family members;
+- plan what to do if help is accepted, refused or repeatedly postponed.
+
+The aim is not to give relatives control over another person. It is to replace confusion with a clearer framework. Families can make better decisions about their own actions even when they cannot determine what the person experiencing addiction will do.
+
+Insight Recovery Network’s [family addiction guidance](/family-addiction-intervention-uk) explains how conversations, boundaries and intervention planning can be approached. Where a family is trying to compare residential or specialist options, [treatment placement guidance](/treatment-placement) can help clarify suitability, safety and practical fit.
+
+## Methodology and limitations
+
+These are early findings from anonymous responses to the UK Family Addiction Impact Survey 2026. All respondents included in the current analysis reported being based in the United Kingdom. Participation was voluntary and the survey was distributed primarily online.
+
+The participant group is self-selected and the results should not be treated as nationally representative. The survey remains open, so figures may change as further responses are received and the current included export continues through quality review. Results describe respondents’ reported experiences and do not establish why a delay occurred or whether one factor caused another.
+
+No free-text respondent quotations have been used in this article.
+
+## About the UK Family Addiction Report 2026
+
+The UK Family Addiction Report 2026 will examine how addiction and compulsive behaviour affect families and how people understand, seek and experience support. This article is part of an Early Findings series published while the research remains open. It should not be read as the final report.
+
+Continue with [Families Are Carrying the Burden of Addiction Alone](/resources/families-carrying-burden-addiction-early-findings) and [The Hidden Cost of Addiction Is Not Only Financial](/resources/hidden-family-cost-of-addiction).
+
+## Take part in the ongoing research
+
+Have you been affected by a family member’s addiction or compulsive behaviour? The [UK Family Addiction Impact Survey 2026](https://www.insightrecoverynetwork.com/research/family-addiction-impact-survey-2026) remains open. Responses are anonymous and will contribute to the final UK Family Addiction Report 2026.`,
+  },
+  {
+    slug: "hidden-family-cost-of-addiction",
+    title: "The Hidden Cost of Addiction Is Not Only Financial",
+    excerpt: "Early UK findings show how addiction can reshape responsibility, trust, relationships and daily family life long before every cost is visible.",
+    author: "Craig Bilton",
+    authorRole: "Founder & Clinical Director",
+    date: "2026-08-02",
+    readingTime: 10,
+    category: "Family Support",
+    seriesLabel: "UK Family Addiction Report 2026: Early Findings",
+    image: "/family-boundaries-addiction-recovery.png",
+    imageAlt: "A calm family conversation representing boundaries, trust and the hidden impact of addiction",
+    seoTitle: "The Hidden Family Cost of Addiction | Early Findings",
+    metaDescription: "Early UK findings examine addiction's hidden family cost: responsibility, secrecy, conflict, altered roles and years lived without clear support.",
+    ogTitle: "The Hidden Cost of Addiction Is Not Only Financial",
+    ogDescription: "Early UK findings on the emotional labour, secrecy, conflict and altered roles experienced by families affected by addiction.",
+    publishedStatus: "published",
+    content: `The financial consequences of addiction can be severe, but money is only one part of what families may lose. Time, trust, rest, connection and a sense of safety can also be eroded, often gradually and out of public view.
+
+Early findings from the UK Family Addiction Impact Survey 2026 offer a way to see some of that hidden burden. Nearly all respondents, 97.8%, said they had felt responsible at least sometimes for keeping the person safe or preventing matters from worsening. A further 87.8% said they had often or sometimes concealed, minimised or explained the person’s behaviour, while 76.7% reported disagreements within the family frequently or sometimes about how to respond.
+
+These questions did not directly measure exhaustion, damaged trust, isolation, hypervigilance or role reversal. Those terms should therefore not be presented as survey outcomes. They are clinically informed interpretations of what such patterns can mean in family life, drawing on more than 20 years of international work across addiction treatment, family support, programme management and intervention.
+
+The distinction matters. The data tells us what respondents reported doing and feeling responsible for. Professional experience helps interpret why those reported patterns deserve attention, but it does not allow assumptions about every person or family.
+
+## What families lose when addiction dominates daily life
+
+The hidden cost often accumulates in small adaptations. Plans are made around the person’s condition. Family members learn when not to raise difficult subjects. Money is moved, keys are hidden, children are distracted, social events are declined and explanations are prepared in advance.
+
+Emotional exhaustion can develop in a similar way. A partner may continue working, parenting and managing a household while also monitoring risk. A parent may spend nights waiting for a call. An adult child may become the person who organises appointments or reassures other relatives. The work is often invisible because it happens alongside ordinary responsibilities.
+
+## The emotional labour of keeping someone safe
+
+Emotional labour includes the effort involved in managing feelings, relationships and the atmosphere around a problem. In families affected by addiction, that may mean staying calm during a crisis, judging when to challenge or withdraw, reassuring children, absorbing anger, or trying to preserve hope for everyone else.
+
+The finding that 88.9% often felt responsible for safety or preventing deterioration suggests how central this work may be. It does not show that respondents were actually responsible in a legal, clinical or moral sense. Feeling responsible and being responsible are not the same thing.
+
+That gap can be painful. A relative may believe that if they say the right thing, remove the right risk or find the right treatment, the person will change. When the pattern continues, the family member may experience guilt or failure despite having limited control over the outcome.
+
+Family support should help clarify responsibility without becoming detached from risk. Relatives may need practical guidance about urgent medical concerns, safeguarding and crisis action. At the same time, they need permission to stop treating another adult’s every decision as evidence of their own success or failure.
+
+Boundaries are part of that work, but they are often described too simply. A boundary is not a threat designed to force recovery. It is a clear statement about what the family member will or will not do to protect safety, children, finances or their own wellbeing. Effective boundaries need to be realistic, specific and supported, particularly where violence, withdrawal risk, self-harm or homelessness is a concern.
+
+## Secrecy and the erosion of connection
+
+When 87.8% report often or sometimes concealing, minimising or explaining behaviour, the issue is not only what remains hidden from outsiders. Secrecy can alter relationships inside the family as well.
+
+Different people may know different versions of events. Children may sense that something is wrong but receive no explanation they can understand. Extended relatives may be asked to accept excuses that no longer feel credible. Partners may protect each other from selected facts while both become more isolated.
+
+Trust can be damaged by the addiction-related behaviour itself and by the family’s efforts to contain it. This does not mean relatives are equally responsible for the original harm. It means secrecy can become a system that makes honest connection harder for everyone.
+
+Privacy remains important. Families should not be pushed into public disclosure or into sharing information with unsafe people. The alternative to secrecy is not exposure. It is carefully chosen support: one informed professional, a trusted relative, a GP or another confidential service that can help the family think clearly.
+
+Reducing secrecy can also improve treatment planning. A fuller account of risk, previous attempts to change, mental health concerns and family circumstances may help a service judge what level of care is suitable. Consent and data protection still matter, and information should be shared thoughtfully.
+
+## Conflict over boundaries, treatment and responsibility
+
+The finding that 76.7% experienced family disagreements frequently or sometimes shows that the burden is not carried uniformly. Families may agree that there is a problem and still disagree profoundly about the response.
+
+One person may continue providing money because they fear immediate harm. Another may see that support as prolonging the pattern. One may want a formal intervention. Another may worry that confrontation will destroy the relationship. A parent and partner may each believe they understand the person best, while siblings have their own history and limits.
+
+Conflict can consume energy that might otherwise support a coordinated plan. It can also allow the central problem to remain unaddressed as relatives argue with one another. The person experiencing addiction may become the subject of family decisions without meaningful involvement, or may move between relatives whose boundaries differ.
+
+Professional family work can help by making the decision process explicit. What is the immediate risk? What information is missing? Which actions protect children or vulnerable adults? What support is available if the person accepts help? What will each relative do if they refuse? Agreement may not be complete, but a clearer shared approach can reduce reactive conflict.
+
+## The impact across partners, parents and children
+
+The early participant group included partners or spouses, parents, children and siblings of people affected by addiction or compulsive behaviour. Partners or spouses made up 42.2%, parents 35.6%, children 20%, and siblings 2.2%.
+
+These percentages describe who took part, not how severely each group was affected. They should not be used to compare suffering or claim that one relationship carries a greater burden than another.
+
+The roles are nevertheless important. Partners may be managing shared finances, parenting and the immediate household. Parents may continue to feel responsible for an adult child’s safety long after their formal caregiving role has changed. Children, including adult children, may adapt around a parent’s unpredictability or become responsible for siblings and practical tasks. Siblings may be drawn into care, conflict and decisions while receiving little acknowledgement or support.
+
+Family support needs to fit the relationship and life stage. Advice suitable for the partner of an adult is not automatically suitable for a young person living with a parent. Safeguarding, age, dependence, housing and financial control all change what choices are realistically available.
+
+## Why family support cannot remain an afterthought
+
+The hidden cost becomes harder to ignore when duration and uncertainty are considered together. In the early findings, 71.1% said the problem had affected the family for at least two years before professional help was sought, or that professional help had still not been sought. This is a combined finding, not a claim that everyone in that percentage eventually waited more than two years before seeking help.
+
+At the same time, 57.8% rated their confidence in understanding treatment options at 3 or below on a 10-point scale. Families may therefore be carrying substantial responsibility while feeling poorly equipped to navigate support.
+
+Family work should be available before, during and after treatment. Before treatment, it can clarify risk, options and boundaries. During treatment, it can help relatives understand appropriate involvement without turning them into case managers. After treatment, it can support trust, communication and realistic expectations while everyone adjusts to changed roles.
+
+It should also be available when the person experiencing addiction does not engage. A family member’s need for support is valid in its own right. Their wellbeing should not depend entirely on whether someone else accepts treatment.
+
+Families seeking a starting point can read our [family addiction guidance](/family-addiction-intervention-uk). If a suitable treatment option needs to be identified, [treatment placement guidance](/treatment-placement) can help compare levels of care, location and practical fit.
+
+## Methodology and limitations
+
+These are early findings from anonymous responses to the UK Family Addiction Impact Survey 2026. All respondents included in the current analysis reported being based in the United Kingdom. Participation was voluntary and the survey was distributed primarily online.
+
+The participant group is self-selected and the findings should not be treated as nationally representative. The survey remains open, so figures may change as additional responses are received and the current included export continues through quality review. Results describe respondents’ reported experiences and do not establish causation. Professional interpretations in this article are identified as such and should not be assumed to describe every family.
+
+No free-text respondent quotations have been used in this article.
+
+## About the UK Family Addiction Report 2026
+
+The UK Family Addiction Report 2026 will examine the wider impact of addiction and compulsive behaviour on family life. This Early Findings series shares emerging patterns while the research is ongoing. A fuller analysis will follow after data collection and review.
+
+Read [Families Are Carrying the Burden of Addiction Alone](/resources/families-carrying-burden-addiction-early-findings) and [Why Families Can Live with Addiction for Years Before Seeking Help](/resources/why-families-delay-seeking-addiction-help) for the other early findings.
+
+## Take part in the ongoing research
+
+Have you been affected by a family member’s addiction or compulsive behaviour? The [UK Family Addiction Impact Survey 2026](https://www.insightrecoverynetwork.com/research/family-addiction-impact-survey-2026) remains open. Responses are anonymous and will contribute to the final UK Family Addiction Report 2026.`,
+  },
+  {
     slug: "crypto-trading-addiction-warning-signs-help",
     title: "Crypto Trading Addiction: Warning Signs, Family Impact and Getting Help",
     excerpt: "Crypto trading can become compulsive and harmful. Learn the warning signs, how families are affected, and practical steps towards appropriate support.",

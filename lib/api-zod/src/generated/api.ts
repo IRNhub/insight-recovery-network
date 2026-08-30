@@ -31,6 +31,15 @@ export const SubmitEnquiryBody = zod.object({
   phone: zod.string().min(submitEnquiryBodyPhoneMin),
   preferredContact: zod.enum(["email", "phone", "whatsapp"]),
   supportType: zod.enum(["myself", "someone-else", "professional", "general"]),
+  serviceInterest: zod.enum([
+    "treatment-placement",
+    "online-programme",
+    "family-support",
+    "free-assessment",
+    "insight-os",
+    "professional",
+    "not-sure",
+  ]),
   message: zod.string().min(submitEnquiryBodyMessageMin),
   consent: zod.boolean(),
 });

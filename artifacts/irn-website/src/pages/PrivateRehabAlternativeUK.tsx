@@ -1,12 +1,14 @@
-import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
 import { CTASection } from "@/components/ui/cta-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
+const parity = getRouteParity("/private-rehab-alternative-uk");
 
 const faqs = [
   {
@@ -84,10 +86,57 @@ const options = [
   },
 ];
 
+const treatmentOptions = [
+  {
+    title: "UK Private Rehab",
+    maySuit: "People needing an intensive residential environment or a high level of structure.",
+    consideration: "Can be expensive and programme length varies considerably.",
+  },
+  {
+    title: "Overseas Private Rehab",
+    maySuit: "People considering longer treatment, greater separation from their usual environment, privacy, or different cost structures.",
+    consideration: "Travel, location, clinical suitability and quality of the chosen programme need careful consideration.",
+  },
+  {
+    title: "Structured Online Recovery",
+    maySuit: "Medically stable people who need intensive structured support while remaining at home and continuing appropriate work or family responsibilities.",
+    consideration: "It is not a substitute for medically supervised detox or residential care where risk is high.",
+  },
+  {
+    title: "NHS and Local Services",
+    maySuit: "People who want or need publicly funded addiction support.",
+    consideration: "Available services, thresholds, waiting times and treatment intensity vary by area.",
+  },
+  {
+    title: "Family Support / Intervention",
+    maySuit: "Families who are concerned about someone who is unwilling, ambivalent or not yet ready to seek help.",
+    consideration: "The immediate work may focus on the family's strategy, communication and boundaries rather than immediate admission to treatment.",
+  },
+  {
+    title: "Medical Detox",
+    maySuit: "People with physical dependence or clinically significant withdrawal risk.",
+    consideration: "Detox suitability should be professionally assessed and, where required, medically supervised.",
+  },
+];
+
+const familyDecisionChecklist = [
+  "Alcohol or drug use pattern",
+  "Withdrawal risk",
+  "Physical health",
+  "Mental health",
+  "Previous treatment attempts",
+  "Current home environment",
+  "Willingness to engage",
+  "Safeguarding or risk concerns",
+  "Required level of structure",
+  "Aftercare",
+  "Affordability",
+];
+
 const whenRehabNeeded = [
   "There is significant physical dependency on alcohol, benzodiazepines, or opioids requiring medically supervised withdrawal",
   "The home environment is unsafe, chaotic, or provides access to substances with no support network",
-  "Multiple residential relapses suggest a need for a more intensive clinical intervention",
+  "Repeated relapse despite community or online support suggests a need for a more intensive clinical intervention",
   "Dual diagnosis involves severe and unstable mental health conditions requiring specialist clinical care",
   "The person cannot maintain safety without around-the-clock support",
 ];
@@ -185,16 +234,14 @@ export default function PrivateRehabAlternativeUK() {
   return (
     <Layout>
       <SEO
-        title="Private Rehab Alternative UK"
-        fullTitle="Alternatives to Private Rehab UK | Online, NHS & Overseas Options"
-        description="Compare private rehab alternatives in the UK, including structured online recovery, outpatient, NHS and family support, plus when residential care is safer."
-        canonical="/private-rehab-alternative-uk"
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={`${SITE_URL}/opengraph.jpg`}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-      </Helmet>
+      <RouteSchemas route="/private-rehab-alternative-uk" />
 
       {/* Hero */}
       <section className="py-14 md:py-20 border-b border-border/40">
@@ -204,13 +251,13 @@ export default function PrivateRehabAlternativeUK() {
               Private Rehab Alternatives, UK
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.08] tracking-tight mb-8 text-primary">
-              Alternatives to Private Rehab in the UK
+              {parity.h1}
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mb-10">
               Residential private rehab is one option, but it is not automatically right for everyone. Depending on clinical needs and circumstances, alternatives may include structured online recovery, NHS or local services, overseas residential treatment, medically supervised detox where appropriate, or family guidance and intervention when someone is not engaging. Insight Recovery Network helps people compare an appropriate level and location of care without assuming one route fits all.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
+              <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
@@ -235,6 +282,7 @@ export default function PrivateRehabAlternativeUK() {
         who="People seeking structured addiction recovery support who may not need, want or be ready for residential rehabilitation."
         problem="Compares realistic alternatives while keeping detox safety and the need for a proper assessment clear."
         applies="Online across the UK and internationally; regulated detox or residential care is arranged separately when required."
+        nextStep="Start a confidential conversation about suitable options."
       />
 
       <section className="py-12 md:py-20 border-b border-border/40">
@@ -316,24 +364,23 @@ export default function PrivateRehabAlternativeUK() {
           </p>
         </div>
       </section>
-
       {/* Who this is for / When rehab is needed */}
       <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
-                Who this is relevant for
+                Who this guide is for
               </h2>
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  You may be considering your options if you are concerned about alcohol or drug use but are not sure whether residential rehab is necessary. You may have looked at the cost of private rehab and are wondering whether there is another way. You may be on an NHS waiting list and need support in the meantime. You may have completed residential treatment and need ongoing support to protect your recovery.
+                  You may be concerned about alcohol or drug use but unsure whether residential rehab is necessary. You may be comparing cost, waiting time, privacy and the practical impact of stepping away from home, work or family. You may also be deciding for a loved one or looking for ongoing support after residential treatment.
                 </p>
                 <p>
-                  Not everyone needs residential rehab. Some people can achieve and maintain recovery through structured online support, relapse prevention planning, and appropriate professional guidance. Others, particularly those with severe physical dependency, unsafe home environments, or complex clinical needs, need a more intensive level of care.
+                  Some people can be supported safely at home with appropriate structure and professional guidance. Others, particularly those with significant physical dependence, unsafe home environments or complex needs, require medically supervised detox or residential care.
                 </p>
                 <p>
-                  Insight Recovery Network helps you work out which situation you are actually in, rather than directing everyone down the same path.
+                  Insight Recovery Network helps individuals and families compare the appropriate level and location of treatment rather than directing everyone towards the same option.
                 </p>
               </div>
             </div>
@@ -347,7 +394,7 @@ export default function PrivateRehabAlternativeUK() {
               <ul className="space-y-3 mb-6">
                 {whenRehabNeeded.map((item, i) => (
                   <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
-                    <span className="text-accent mt-0.5 flex-shrink-0">, </span>
+                    <span aria-hidden="true" className="text-accent mt-0.5 flex-shrink-0">•</span>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -363,6 +410,97 @@ export default function PrivateRehabAlternativeUK() {
                 to help identify the right setting in the UK or internationally.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* UK treatment and overseas treatment */}
+      <section className="py-12 md:py-20 border-b border-border/40 bg-secondary/10" aria-labelledby="uk-rehab-abroad-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-10 lg:gap-16 items-start">
+            <div>
+              <h2 id="uk-rehab-abroad-heading" className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
+                UK Rehab vs Rehab Abroad
+              </h2>
+              <div className="space-y-5 text-muted-foreground leading-relaxed">
+                <p>
+                  Overseas treatment is not inherently better or worse than treatment in the UK. The more useful question is whether a particular programme can safely meet the person's needs and support recovery after they return home.
+                </p>
+                <p>
+                  Compare clinical needs and medical requirements first, followed by programme length, treatment model, total cost, privacy, environment, family contact, travel and aftercare. A lower headline price or attractive location does not by itself make a programme suitable.
+                </p>
+                <p>
+                  You can start with IRN's guides to{" "}
+                  <Link href="/private-rehab-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">
+                    private rehab in the UK
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/treatment-placement" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">
+                    assessment-led treatment placement
+                  </Link>{" "}
+                  before comparing specific destinations.
+                </p>
+              </div>
+            </div>
+            <div className="border border-border/40 bg-background p-6 md:p-8">
+              <h3 className="font-serif text-xl font-medium text-primary mb-4">Existing IRN destination guides</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                Explore the practical considerations covered in IRN's existing guides to residential treatment in:
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  ["Spain", "/private-rehab-spain"],
+                  ["South Africa", "/private-rehab-south-africa"],
+                  ["Thailand", "/private-rehab-thailand"],
+                  ["Sri Lanka", "/private-rehab-sri-lanka"],
+                ].map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="block border border-border/40 px-4 py-3 text-sm font-medium text-primary hover:border-accent/50 hover:text-accent transition-colors">
+                      Private rehab in {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Family decision support */}
+      <section className="py-12 md:py-20 border-b border-border/40" aria-labelledby="family-treatment-heading">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mb-10">
+            <h2 id="family-treatment-heading" className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
+              Choosing Treatment for a Family Member
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-5">
+              Families are often making decisions under pressure. A rehab should not be chosen on price, location or marketing alone; the aim is to match the person with an appropriate level of care while considering safety, engagement and what happens after treatment.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              A careful discussion should consider the following factors together:
+            </p>
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px border border-border/40 bg-border/40 mb-10">
+            {familyDecisionChecklist.map((factor) => (
+              <li key={factor} className="bg-background px-5 py-4 text-sm text-primary">
+                {factor}
+              </li>
+            ))}
+          </ul>
+          <div className="max-w-3xl space-y-5 text-muted-foreground leading-relaxed">
+            <p>
+              For a more detailed checklist, read{" "}
+              <Link href="/resources/how-to-choose-private-rehab-centre-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">
+                How to Choose the Right Private Rehab Centre in the UK
+              </Link>.
+            </p>
+            <p>
+              If the person is unwilling, ambivalent or not yet ready to seek help, IRN's{" "}
+              <Link href="/family-addiction-intervention-uk" className="text-foreground underline underline-offset-4 decoration-border hover:text-accent transition-colors">
+                family support and intervention guidance
+              </Link>{" "}
+              can help the family think through communication, boundaries and an appropriate next step. A confidential conversation with IRN can also help compare online treatment, UK or overseas residential care, detox and other suitable routes without assuming one option is right for everyone.
+            </p>
           </div>
         </div>
       </section>
@@ -386,10 +524,10 @@ export default function PrivateRehabAlternativeUK() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight mb-6 text-primary">
-              What Insight Recovery Network can offer
+              How Insight Recovery Network can help
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Depending on what is most clinically appropriate, we can provide one or more of the following:
+              Following a confidential discussion, IRN can help compare appropriate treatment routes and provide one or more of the following where suitable:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -418,7 +556,7 @@ export default function PrivateRehabAlternativeUK() {
             </h2>
           </div>
           <div className="max-w-3xl space-y-8">
-            {faqs.map((faq) => (
+            {(parity.faqs ?? []).map((faq) => (
               <div key={faq.question} className="border-b border-border/40 pb-8 last:border-b-0">
                 <h3 className="font-serif text-xl font-medium mb-3 text-primary">{faq.question}</h3>
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -432,7 +570,10 @@ export default function PrivateRehabAlternativeUK() {
         heading="Not sure which route is right for you?"
         body="A confidential conversation can help clarify whether structured online support, treatment placement, or another approach is most appropriate. No obligation, no pressure."
         primaryLabel="Discuss suitable treatment options"
-        primaryHref="/contact"
+        primaryHref="/get-help"
+        primaryEvent="treatment_placement_enquiry"
+        serviceInterest="treatment-placement"
+        sourcePage="private-rehab-alternative-uk"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
       />

@@ -538,6 +538,10 @@ export default function InsightOS() {
         primaryCta={{ label: "Open Insight OS", href: "https://irnonline.app" }}
         secondaryCta={{ label: "Book a confidential call", href: "/contact" }}
         isExternal={true}
+        secondaryEvent="book_consultation_click"
+        sourcePage="insight-os"
+        serviceInterest="insight-os"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

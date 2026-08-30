@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
+import { RouteSchemas } from "@/components/RouteSchemas";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
@@ -9,7 +10,9 @@ import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
+import { getRouteParity } from "@/data/route-parity";
 
+const parity = getRouteParity("/treatment-placement");
 const placementSteps = [
   {
     n: "1",
@@ -156,31 +159,18 @@ export default function TreatmentPlacement() {
   return (
     <Layout>
       <SEO
-        title={treatmentOg.title}
-        fullTitle={treatmentOg.seoTitle ?? treatmentOg.title}
-        description="Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning."
-        canonical="/treatment-placement"
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage="https://www.insightrecoverynetwork.com/treatment-placement-navigation-og.webp"
         ogImageWidth={1200}
         ogImageHeight={630}
         ogImageAlt="Adult standing where two coastal footpaths divide."
       />
+      <RouteSchemas route="/treatment-placement" />
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Private Rehab and Detox Placement",
-            "description": "Assessment-led, clinically informed guidance on private rehab, detox and residential treatment placement in the UK and internationally.",
-            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
-            "serviceType": "Addiction Treatment Placement",
-            "areaServed": [
-              { "@type": "Country", "name": "United Kingdom" },
-              { "@type": "Place", "name": "International" },
-            ],
-            "url": "https://www.insightrecoverynetwork.com/treatment-placement",
-          })}
-        </script>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -212,10 +202,10 @@ export default function TreatmentPlacement() {
                 Treatment Placement
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Find a suitable private rehab or detox provider without making a rushed decision.
+                {parity.h1}
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                Insight Recovery Network helps individuals and families assess their needs, compare appropriate treatment options and access suitable programmes in the UK and internationally.
+                {parity.heroIntro}
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
@@ -230,12 +220,12 @@ export default function TreatmentPlacement() {
                 ))}
               </div>
               <div className="flex flex-col gap-3 pt-2">
-                <Link href="/contact">
+                <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                   <Button
                     size="lg"
                     className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto"
                   >
-                    Request a treatment-options call
+                    {parity.primaryCta.label}
                   </Button>
                 </Link>
                 <p className="text-[11.5px] text-muted-foreground/60 font-light tracking-wide">
@@ -649,14 +639,18 @@ export default function TreatmentPlacement() {
         ]}
       />
 
-      <FAQSection items={placementFaqs} />
+      <FAQSection items={parity.faqs ?? []} includeSchema={false} />
 
       {/* ── CTA ── */}
       <CTASection
         heading="Need help choosing the right treatment setting?"
         description="Speak confidentially with our team. We will help you understand the available options without pressure or obligation."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        primaryCta={{ label: "Request a confidential placement consultation", href: "/get-help" }}
         secondaryCta={{ label: "Take a free assessment", href: "/assessments/detox" }}
+        primaryEvent="treatment_placement_enquiry"
+        sourcePage="treatment-placement"
+        serviceInterest="treatment-placement"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

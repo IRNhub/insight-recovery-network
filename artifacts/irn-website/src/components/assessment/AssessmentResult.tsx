@@ -12,6 +12,7 @@ interface AssessmentResultProps {
   advisories?: string[];
   assessmentId?: number;
   onCtaClick?: () => void;
+  leadSubmitStatus: "submitting" | "success" | "error";
 }
 
 const LEVEL_CONFIG = {
@@ -76,6 +77,7 @@ export function AssessmentResult({
   advisories = [],
   assessmentId,
   onCtaClick,
+  leadSubmitStatus,
 }: AssessmentResultProps) {
   const [anchorExpanded, setAnchorExpanded] = useState(false);
   const config = LEVEL_CONFIG[result.level];
@@ -98,8 +100,10 @@ export function AssessmentResult({
           <h1 className="font-serif text-white text-3xl md:text-4xl leading-snug mb-2">
             {firstName}, here are your results.
           </h1>
-          <p className="text-white/60 font-light text-sm">
-            Your results have been sent to your email address.
+          <p className="text-white/60 font-light text-sm" aria-live="polite">
+            {leadSubmitStatus === "submitting" && "Your results are shown below. We are preparing your email copy now."}
+            {leadSubmitStatus === "success" && "Your results are shown below and a copy has been sent to your email address."}
+            {leadSubmitStatus === "error" && "Your results are shown below. We could not confirm email delivery, so please save this page or contact us if you need a copy."}
           </p>
         </div>
       </div>
@@ -263,15 +267,15 @@ export function AssessmentResult({
             </p>
           )}
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contact" onClick={handleCtaClick}>
+            <Link href="/get-help" onClick={handleCtaClick} data-analytics-event="book_consultation_click" data-source-page="assessment-results" data-service-interest="free-assessment" data-cta-location="results_cta" data-cta-label="Discuss your results confidentially">
               <Button
                 className="rounded-none h-11 px-6 bg-white text-primary hover:bg-white/90 font-medium w-full sm:w-auto"
               >
                 <Calendar className="w-4 h-4 mr-2" />
-                Book a confidential call
+                Discuss your results confidentially
               </Button>
             </Link>
-            <Link href="/services" onClick={handleCtaClick}>
+            <Link href="/what-we-offer" onClick={handleCtaClick}>
               <Button
                 variant="outline"
                 className="rounded-none h-11 px-6 border-white/40 text-white hover:bg-white/10 font-light w-full sm:w-auto"

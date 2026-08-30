@@ -7,6 +7,7 @@ import { alcoholDetoxAssessment } from "@/data/assessments/alcohol-detox";
 import { buildClinicalBrief } from "@/lib/assessment-scorer";
 import type { AssessmentAnswers, ScoreResult, AnchorReport } from "@/types/assessment";
 import { Shield, Clock, Lock } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 type Phase = "intro" | "assessment" | "result";
 
@@ -20,6 +21,7 @@ export default function AlcoholDetoxAssessment() {
   const [assessmentId, setAssessmentId] = useState<number | undefined>(undefined);
   const [userName, setUserName] = useState("");
   const [isLoadingAnchor, setIsLoadingAnchor] = useState(false);
+  const [leadSubmitStatus, setLeadSubmitStatus] = useState<"submitting" | "success" | "error">("submitting");
 
   async function handleComplete(answers: AssessmentAnswers, score: ScoreResult, consent: boolean) {
     setIsSubmitting(true);
@@ -34,6 +36,7 @@ export default function AlcoholDetoxAssessment() {
     setResult(score);
     setUserName(name);
     setIsLoadingAnchor(true);
+    setLeadSubmitStatus("submitting");
     setPhase("result");
     setIsSubmitting(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -61,6 +64,10 @@ export default function AlcoholDetoxAssessment() {
       });
 
       if (response.ok) {
+        setLeadSubmitStatus("success");
+        trackEvent("assessment_complete", {
+          form_name: "self_assessment",
+        });
         const data = await response.json();
         if (data.anchorReport) {
           setAnchorReport(data.anchorReport as AnchorReport);
@@ -68,9 +75,10 @@ export default function AlcoholDetoxAssessment() {
         if (typeof data.id === "number") {
           setAssessmentId(data.id);
         }
-      }
+      } else setLeadSubmitStatus("error");
     } catch {
       // Anchor unavailable, result still shown with deterministic content
+      setLeadSubmitStatus("error");
     } finally {
       setIsLoadingAnchor(false);
     }
@@ -147,6 +155,7 @@ export default function AlcoholDetoxAssessment() {
           isLoading={isLoadingAnchor}
           advisories={result.advisories}
           assessmentId={assessmentId}
+          leadSubmitStatus={leadSubmitStatus}
           onCtaClick={handleCtaClick}
         />
       </Layout>
@@ -198,6 +207,9 @@ export default function AlcoholDetoxAssessment() {
 
           <button
             onClick={() => {
+              trackEvent("assessment_start", {
+                cta_location: "assessment_intro",
+              });
               setPhase("assessment");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}

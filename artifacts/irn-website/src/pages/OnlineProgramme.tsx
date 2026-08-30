@@ -1,5 +1,5 @@
-import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
+import { RouteSchemas } from "@/components/RouteSchemas";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { CTASection } from "@/components/ui/cta-section";
@@ -12,6 +12,9 @@ import { Users, User, Shield, CalendarCheck, Laptop, HeartHandshake } from "luci
 
 import heroImg from "@/assets/op-hero.webp";
 import oneToOneImg from "@/assets/op-one-to-one.webp";
+import { getRouteParity } from "@/data/route-parity";
+
+const parity = getRouteParity("/online-programme");
 
 const whoFor = [
   {
@@ -126,25 +129,14 @@ export default function OnlineProgramme() {
   return (
     <Layout>
       <SEO
-        title="Online Recovery Programme Options and Pricing"
-        fullTitle="Online Recovery Programme Options and Pricing | Insight Recovery Network"
-        description="Compare Insight Recovery Network's structured online recovery programme options, pricing, session levels, Insight OS access, relapse prevention planning and confidential enquiry route."
-        canonical="/online-programme"
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={ogImageUrl(onlineProgrammeOg.file)}
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Insight Recovery Network Online Programme Options",
-            "description": "Commercial programme page for Insight Recovery Network's online recovery support options, including monthly support levels, one-to-one sessions, group work, relapse prevention planning, and Insight OS access.",
-            "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
-            "serviceType": "Online Addiction Recovery Programme",
-            "url": "https://www.insightrecoverynetwork.com/online-programme",
-          })}
-        </script>
-      </Helmet>
+      <RouteSchemas route="/online-programme" />
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-background py-8 md:py-14">
@@ -164,10 +156,10 @@ export default function OnlineProgramme() {
                 Programme Options
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Online Recovery Programme Options and Pricing
+                {parity.h1}
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                Choose the level of structured online recovery support that fits your situation, from essential monthly support through to enhanced clinical input, with Insight OS access included.
+                {parity.heroIntro}
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
@@ -183,9 +175,9 @@ export default function OnlineProgramme() {
                 ))}
               </div>
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Link href="/contact">
+                <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                   <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto">
-                    Book a confidential call
+                    {parity.primaryCta.label}
                   </Button>
                 </Link>
                 <Link href="/assessments">
@@ -537,7 +529,13 @@ export default function OnlineProgramme() {
                     </div>
                   ))}
                 </div>
-                <Link href="/contact">
+                <Link
+                  href="/get-help"
+                  data-analytics-event="online_programme_enquiry"
+                  data-source-page="online-programme"
+                  data-service-interest="online-programme"
+                  data-cta-location="essential_pricing_card"
+                >
                   <button
                     className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
@@ -603,7 +601,13 @@ export default function OnlineProgramme() {
                     </div>
                   ))}
                 </div>
-                <Link href="/contact">
+                <Link
+                  href="/get-help"
+                  data-analytics-event="online_programme_enquiry"
+                  data-source-page="online-programme"
+                  data-service-interest="online-programme"
+                  data-cta-location="structured_pricing_card"
+                >
                   <button
                     className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none transition-all duration-200"
                     style={{
@@ -664,7 +668,13 @@ export default function OnlineProgramme() {
                     </div>
                   ))}
                 </div>
-                <Link href="/contact">
+                <Link
+                  href="/get-help"
+                  data-analytics-event="online_programme_enquiry"
+                  data-source-page="online-programme"
+                  data-service-interest="online-programme"
+                  data-cta-location="enhanced_pricing_card"
+                >
                   <button
                     className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
@@ -701,14 +711,18 @@ export default function OnlineProgramme() {
         ]}
       />
 
-      <FAQSection items={onlineProgrammeFaqs} />
+      <FAQSection items={parity.faqs ?? []} includeSchema={false} />
 
       {/* ── CTA ── */}
       <CTASection
         heading="Ready to build recovery with structure?"
         description="Start with a confidential consultation. We will help you understand whether the online programme is the right level of support for your situation."
-        primaryCta={{ label: "Book a confidential call", href: "/contact" }}
+        primaryCta={{ label: "Book a confidential programme consultation", href: "/get-help" }}
         secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        primaryEvent="online_programme_enquiry"
+        sourcePage="online-programme"
+        serviceInterest="online-programme"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

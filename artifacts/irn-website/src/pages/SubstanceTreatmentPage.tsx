@@ -303,7 +303,9 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
         description={page.cta.description}
         primaryCta={{ label: page.cta.primary[0], href: page.cta.primary[1] }}
         secondaryCta={{ label: page.cta.secondary[0], href: page.cta.secondary[1] }}
-        analyticsEvent={`${page.slug.replaceAll("-", "_")}_cta_click`}
+        analyticsEvent="treatment_placement_enquiry"
+        sourcePage={page.slug}
+        serviceInterest="treatment-placement"
       />
     </Layout>
   );

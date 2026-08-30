@@ -115,7 +115,7 @@ export default function AddictionHelpCornwall() {
               We are an online-only advisory and recovery network based in Newquay. We do not own or operate a residential rehab centre in Cornwall, and we explain any relevant provider relationship before a placement decision.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+              <Link href="/get-help" data-analytics-event="get_help_click" data-service-interest="general-support" data-cta-location="hero" className="inline-flex items-center justify-center gap-2 bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground hover:bg-primary/90">
                 Book a confidential call <ArrowRight size={16} />
               </Link>
               <Link href="/assessments" className="inline-flex items-center justify-center border border-primary/25 px-7 py-3.5 text-sm font-medium text-primary hover:bg-primary/5">
@@ -200,7 +200,10 @@ export default function AddictionHelpCornwall() {
         heading="Not sure what level of help is needed?"
         body="A confidential conversation can help you separate urgent medical questions from the longer-term treatment decision and understand the realistic options available from Cornwall."
         primaryLabel="Book a confidential call"
-        primaryHref="/contact"
+        primaryHref="/get-help"
+        primaryEvent="get_help_click"
+        serviceInterest="general-support"
+        sourcePage="addiction-help-cornwall"
         secondaryLabel="Take a free assessment"
         secondaryHref="/assessments"
       />

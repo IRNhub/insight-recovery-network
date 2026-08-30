@@ -25,6 +25,8 @@ export default function WhatsAppFloat() {
       rel="noopener noreferrer"
       aria-label="Chat privately with us on WhatsApp"
       data-testid="button-whatsapp-float"
+      data-analytics-event="whatsapp_click"
+      data-cta-location="floating_button"
       className="group fixed z-[60] flex items-center gap-2.5 rounded-full bg-[#25D366] p-3.5 text-white shadow-lg transition-transform duration-150 hover:scale-105 hover:shadow-xl motion-reduce:transition-none"
       style={{
         right: "max(1.25rem, env(safe-area-inset-right))",

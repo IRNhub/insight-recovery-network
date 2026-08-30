@@ -8,7 +8,7 @@ export default function CookiePolicy() {
       <SEO
         title="Cookie Policy"
         fullTitle="Cookie Policy | Insight Recovery Network"
-        description="Insight Recovery Network uses only essential session cookies. We do not use tracking, advertising or analytics cookies. Learn what cookies we set and how to manage them."
+        description="How Insight Recovery Network uses necessary storage and, only with permission, analytics and marketing technologies, plus how to change your choices."
         canonical="/cookie-policy"
       />
 
@@ -26,7 +26,7 @@ export default function CookiePolicy() {
           <h1 className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-4" style={{ color: "#162B3B" }}>
             Cookie Policy
           </h1>
-          <p className="font-light text-sm text-muted-foreground">Last updated: May 2025</p>
+          <p className="font-light text-sm text-muted-foreground">Last updated: July 2026</p>
         </div>
       </section>
 
@@ -50,7 +50,7 @@ export default function CookiePolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">2. Cookies we use</h2>
-              <p className="mb-4">We keep our use of cookies to an absolute minimum. We do not use tracking, advertising, behavioural, or analytics cookies of any kind.</p>
+              <p className="mb-4">Necessary storage is used without optional consent. Google and Meta technologies remain blocked unless you actively accept the relevant category.</p>
 
               <div className="border rounded" style={{ borderColor: "rgba(201,169,110,0.25)" }}>
                 <table className="w-full text-xs">
@@ -69,6 +69,24 @@ export default function CookiePolicy() {
                       <td className="px-4 py-3">Maintains an authenticated admin session. Only set for logged-in admin users, never set for regular visitors.</td>
                       <td className="px-4 py-3">Browser session</td>
                     </tr>
+                    <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
+                      <td className="px-4 py-3 font-mono text-foreground/60">irn_cookie_consent_v1</td>
+                      <td className="px-4 py-3">Necessary local storage</td>
+                      <td className="px-4 py-3">Stores analytics and marketing choices so they are respected on later visits.</td>
+                      <td className="px-4 py-3">Until cleared or replaced</td>
+                    </tr>
+                    <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
+                      <td className="px-4 py-3 font-mono text-foreground/60">Google Analytics / GTM</td>
+                      <td className="px-4 py-3">Analytics, optional</td>
+                      <td className="px-4 py-3">Measures aggregate page use and privacy-screened enquiry actions after analytics consent.</td>
+                      <td className="px-4 py-3">Set by Google according to tag configuration</td>
+                    </tr>
+                    <tr>
+                      <td className="px-4 py-3 font-mono text-foreground/60">Meta Pixel</td>
+                      <td className="px-4 py-3">Marketing, optional</td>
+                      <td className="px-4 py-3">Loads only after marketing consent. Automatic page views and health-context conversion events are disabled.</td>
+                      <td className="px-4 py-3">Set by Meta according to pixel configuration</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -79,18 +97,19 @@ export default function CookiePolicy() {
             </div>
 
             <div>
-              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. What we do NOT use</h2>
+              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Consent categories</h2>
               <ul className="flex flex-col gap-2 pl-4">
-                <li>We do not use Google Analytics or any other analytics service.</li>
-                <li>We do not use Facebook Pixel, Google Ads, or any advertising cookies.</li>
-                <li>We do not use any third-party tracking or behavioural profiling cookies.</li>
-                <li>We do not use cookies to identify individual users across sessions.</li>
+                <li><strong className="font-medium text-foreground/70">Necessary:</strong> consent preferences, security and essential site operation. Always active.</li>
+                <li><strong className="font-medium text-foreground/70">Analytics:</strong> Google Tag Manager and GA4 measurement. Off by default.</li>
+                <li><strong className="font-medium text-foreground/70">Marketing:</strong> Meta Pixel and any advertising tags configured in GTM. Off by default.</li>
+                <li>Names, contact details, messages, assessment answers and clinical information are not included in analytics events.</li>
               </ul>
             </div>
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">4. Managing cookies</h2>
-              <p className="mb-3">Because we only use strictly necessary session storage (which is not a cookie in the traditional sense and requires no consent under PECR), there is no cookie consent banner on this website.</p>
+              <p className="mb-3">You can accept all, reject all non-essential technologies, or choose analytics and marketing separately. Rejecting is offered as prominently as accepting.</p>
+              <p className="mb-3">Use the Cookie Settings link in the website footer at any time to change your choice. Withdrawing a previously granted category reloads the page so the related scripts are no longer present.</p>
               <p className="mb-3">You can control and delete cookies through your browser settings. Here are links to cookie management guides for common browsers:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary transition-colors">Google Chrome</a></li>
@@ -98,7 +117,7 @@ export default function CookiePolicy() {
                 <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary transition-colors">Apple Safari</a></li>
                 <li><a href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary transition-colors">Microsoft Edge</a></li>
               </ul>
-              <p className="mt-3">Disabling session storage in your browser may affect the functionality of the administrative area of this website but will not affect the experience of regular visitors.</p>
+              <p className="mt-3">Forms, phone links, email and WhatsApp continue to work when analytics and marketing are rejected.</p>
             </div>
 
             <div>

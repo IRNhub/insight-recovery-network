@@ -8,6 +8,7 @@ interface IrnOsLeadPayload {
   phone: string;
   preferredContact: string;
   supportType: string;
+  serviceInterest: string;
   message: string;
   consent: boolean;
   landingPage?: string | null;

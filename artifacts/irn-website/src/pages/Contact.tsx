@@ -1,10 +1,11 @@
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { Shield, Mail, Phone } from "lucide-react";
+import { Shield, Mail, MessageCircle, Phone } from "lucide-react";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
+import { SocialLinks } from "@/components/SocialLinks";
 
 const contactOg = getOgConfig("/contact")!;
 
@@ -86,7 +87,32 @@ export default function Contact() {
                       </p>
                     </div>
                   </div>
+
+                  <div className="flex items-start gap-4">
+                    <MessageCircle className="w-5 h-5 text-accent mt-0.5" />
+                    <div>
+                      <p className="text-sm font-semibold text-primary mb-1">WhatsApp</p>
+                      <a href="https://wa.me/447723486235?text=Hi%20Craig%2C%20I%27d%20like%20to%20speak%20confidentially." target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                        Start a confidential chat
+                      </a>
+                    </div>
+                  </div>
                 </div>
+
+                <div className="mt-8 border-t border-border pt-8">
+                  <h3 className="font-serif text-xl text-primary mb-3">
+                    Connect With Us
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                    Follow Insight Recovery Network for recovery insights, mental health education, client stories, practical advice, and updates about our services.
+                  </p>
+                  <SocialLinks variant="contact" showLabels />
+                </div>
+              </div>
+
+              <div className="border border-border/60 bg-secondary/20 p-6 text-sm leading-relaxed text-muted-foreground">
+                <p className="font-semibold text-primary mb-2">Urgent help</p>
+                <p>Insight Recovery Network is not an emergency service. If someone is in immediate danger, call 999 or attend A&amp;E. For urgent non-emergency medical advice, contact NHS 111.</p>
               </div>
             </div>
 

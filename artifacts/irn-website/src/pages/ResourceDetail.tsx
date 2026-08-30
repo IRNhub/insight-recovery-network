@@ -704,6 +704,13 @@ export default function ResourceDetail() {
         { title: "Private rehab costs", description: "Compare costs only after identifying the required level of care.", href: "/how-much-does-rehab-cost-uk" },
       ];
     }
+    if (isEarlyFindingsArticle) {
+      return [
+        { title: "Family addiction guidance", description: "Plan conversations, boundaries and practical next steps.", href: "/family-addiction-intervention-uk" },
+        { title: "Treatment placement", description: "Compare suitable treatment options with assessment-led guidance.", href: "/treatment-placement" },
+        { title: "All family support articles", description: "Explore further guidance for families affected by addiction.", href: "/resources" },
+      ];
+    }
     if (article.slug === "how-to-choose-private-rehab-centre-uk") {
       return [
         { title: "How quickly can someone enter rehab?", description: "See which assessment, capacity, detox and travel checks affect a safe admission timeline.", href: "/resources/how-quickly-can-someone-enter-rehab" },
@@ -960,6 +967,7 @@ export default function ResourceDetail() {
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "@id": `${SITE_URL}${canonicalPath}#faq`,
           mainEntity: article.faq.map((item) => ({
             "@type": "Question",
             name: item.question,
@@ -974,16 +982,19 @@ export default function ResourceDetail() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `${SITE_URL}${canonicalPath}#article`,
     headline: article.seoTitle ?? article.title,
     description: article.metaDescription ?? article.excerpt,
     author: {
       "@type": "Person",
+      "@id": `${SITE_URL}/#craig-bilton`,
       name: article.author,
       jobTitle: article.authorRole,
-      url: `${SITE_URL}/craig-bilton`,
+      url: `${SITE_URL}/about`,
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "Insight Recovery Network",
       url: SITE_URL,
       logo: {
@@ -1013,6 +1024,7 @@ export default function ResourceDetail() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${SITE_URL}${canonicalPath}#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
       { "@type": "ListItem", position: 2, name: "Resources", item: `${SITE_URL}/resources` },
@@ -1098,7 +1110,7 @@ export default function ResourceDetail() {
 
             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-border/40">
               <div className="flex flex-col gap-0.5">
-                <Link href="/craig-bilton" className="text-sm font-medium text-primary hover:text-accent transition-colors">
+                <Link href="/about" className="text-sm font-medium text-primary hover:text-accent transition-colors">
                   {article.author}
                 </Link>
                 <span className="text-xs text-muted-foreground font-light">{article.authorRole}</span>

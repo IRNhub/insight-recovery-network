@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, HeartHandshake, Phone, Shield, Users } from "lucide-react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
@@ -7,10 +6,13 @@ import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/ui/cta-section";
 import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
+import { RouteSchemas } from "@/components/RouteSchemas";
+import { getRouteParity } from "@/data/route-parity";
 import familyImage from "@/assets/wwo-family-intervention.webp";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/family-addiction-intervention-uk";
+const parity = getRouteParity(CANONICAL);
 
 const faqs: FAQItem[] = [
   {
@@ -96,16 +98,14 @@ export default function FamilyInterventionUK() {
   return (
     <Layout>
       <SEO
-        title="Family Addiction Help & Intervention UK"
-        fullTitle="Family Addiction Help & Intervention UK | Insight Recovery Network"
-        description="Confidential family addiction consultations and intervention guidance in the UK. Get a clear plan when someone you love is drinking, using drugs, refusing help or may need private treatment."
-        canonical={CANONICAL}
+        title={parity.title}
+        fullTitle={parity.title}
+        description={parity.description}
+        canonical={parity.canonical}
+        noIndex={!parity.indexable}
         ogImage={`${SITE_URL}/addiction-intervention-uk.png`}
       />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(serviceSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <RouteSchemas route={CANONICAL} />
 
       <section className="relative overflow-hidden border-b border-border/40 bg-secondary/20 py-10 md:py-16 lg:py-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_25%,rgba(201,169,110,0.16),transparent_42%)]" />
@@ -115,18 +115,18 @@ export default function FamilyInterventionUK() {
               Confidential help for families
             </p>
             <h1 className="mb-6 font-serif text-4xl font-medium leading-[1.08] tracking-tight text-primary md:text-5xl lg:text-[3.5rem]">
-              You do not have to wait for them to ask for help.
+              {parity.h1}
             </h1>
             <p className="mb-5 max-w-xl text-lg font-light leading-relaxed text-muted-foreground">
-              When someone you love is drinking, using drugs, refusing treatment or creating repeated crises, the family needs a plan, not another argument.
+              {parity.heroIntro}
             </p>
             <p className="mb-8 max-w-xl leading-relaxed text-muted-foreground">
               Speak confidentially with Craig Bilton about risk, boundaries, how to approach the conversation and which treatment options should be ready if the person agrees.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact">
+              <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                 <Button className="h-12 w-full rounded-none px-7 sm:w-auto">
-                  Discuss your family situation
+                  {parity.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -271,13 +271,16 @@ export default function FamilyInterventionUK() {
         </div>
       </section>
 
-      <FAQSection items={faqs} heading="Family consultation questions" />
+      <FAQSection items={parity.faqs ?? []} heading="Family consultation questions" includeSchema={false} />
 
       <CTASection
         heading="You can make the first call without them."
         body="Tell us what is happening. We will help you slow the situation down, identify the immediate priorities and decide what a realistic next step looks like."
         primaryLabel="Discuss your family situation"
-        primaryHref="/contact"
+        primaryHref="/get-help"
+        primaryEvent="family_support_enquiry"
+        serviceInterest="family-support"
+        sourcePage="family-addiction-intervention-uk"
         secondaryLabel="Call +44 7415 994475"
         secondaryHref="tel:+447415994475"
       />

@@ -15,6 +15,7 @@ let sourceColumnsReady: Promise<void> | null = null;
 const SOURCE_COLUMN_SQL = `
 ALTER TABLE enquiries
   ADD COLUMN IF NOT EXISTS landing_page text,
+  ADD COLUMN IF NOT EXISTS service_interest text NOT NULL DEFAULT 'not-sure',
   ADD COLUMN IF NOT EXISTS current_page text,
   ADD COLUMN IF NOT EXISTS referrer text,
   ADD COLUMN IF NOT EXISTS page_source text,
@@ -130,6 +131,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
         phone: data.phone,
         preferredContact: data.preferredContact,
         supportType: data.supportType,
+        serviceInterest: data.serviceInterest,
         message: data.message,
         consent: data.consent,
         ...sourceFields,
@@ -145,6 +147,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
       phone: data.phone,
       preferredContact: data.preferredContact,
       supportType: data.supportType,
+      serviceInterest: data.serviceInterest,
       message: data.message,
       consent: data.consent,
       ...sourceFields,
@@ -173,6 +176,7 @@ router.post("/enquiries", async (req: Request, res: Response) => {
       phone: data.phone,
       preferredContact: data.preferredContact,
       supportType: data.supportType,
+      serviceInterest: data.serviceInterest,
       message: data.message,
       consent: data.consent,
       ...sourceFields,

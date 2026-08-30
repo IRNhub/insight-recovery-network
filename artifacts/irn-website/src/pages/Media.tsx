@@ -67,7 +67,7 @@ const mediaSchema = {
     "@id": `${SITE_URL}/#craig-bilton`,
     name: "Craig Bilton",
     jobTitle: "Founder & Clinical Director",
-    url: `${SITE_URL}/craig-bilton`,
+    url: `${SITE_URL}/about`,
     worksFor: { "@id": `${SITE_URL}/#organization` },
     knowsAbout: topics,
     subjectOf: coverage.map((item) => ({
@@ -81,7 +81,7 @@ const mediaSchema = {
               "@type": "Person",
               "@id": `${SITE_URL}/#craig-bilton`,
               name: item.author,
-              url: `${SITE_URL}/craig-bilton`,
+              url: `${SITE_URL}/about`,
             },
           }
         : {}),
@@ -167,7 +167,7 @@ export default function Media() {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 He can provide concise background briefings, on-record comment and interviews. Commentary is kept within his professional scope and avoids diagnosis, prescription or claims about an individual who has not been assessed.
               </p>
-              <Link href="/craig-bilton" className="inline-flex items-center text-sm font-medium text-primary underline underline-offset-4">
+              <Link href="/about" className="inline-flex items-center text-sm font-medium text-primary underline underline-offset-4">
                 Read Craig&apos;s full profile
                 <ArrowUpRight className="w-4 h-4 ml-1.5" />
               </Link>

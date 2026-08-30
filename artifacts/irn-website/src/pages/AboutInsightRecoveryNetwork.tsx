@@ -271,9 +271,13 @@ export default function AboutInsightRecoveryNetwork() {
         heading="Speak with us confidentially."
         body="If you would like to understand more about what Insight Recovery Network offers, or would like guidance on the most appropriate support for your situation, please get in touch. There is no obligation and no pressure."
         primaryLabel="Book a confidential call"
-        primaryHref="/contact"
+        primaryHref="/get-help"
         secondaryLabel="View all services"
         secondaryHref="/what-we-offer"
+        primaryEvent="book_consultation_click"
+        sourcePage="about-insight-recovery-network"
+        serviceInterest="general-support"
+        ctaLocation="final_cta"
       />
     </Layout>
   );

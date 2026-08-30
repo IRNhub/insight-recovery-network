@@ -7,6 +7,7 @@
  */
 import type { EnquiryInputPreferredContact } from "./enquiryInputPreferredContact";
 import type { EnquiryInputSupportType } from "./enquiryInputSupportType";
+import type { EnquiryInputServiceInterest } from "./enquiryInputServiceInterest";
 
 export interface EnquiryInput {
   /** @minLength 2 */
@@ -16,6 +17,7 @@ export interface EnquiryInput {
   phone: string;
   preferredContact: EnquiryInputPreferredContact;
   supportType: EnquiryInputSupportType;
+  serviceInterest: EnquiryInputServiceInterest;
   /** @minLength 10 */
   message: string;
   consent: boolean;

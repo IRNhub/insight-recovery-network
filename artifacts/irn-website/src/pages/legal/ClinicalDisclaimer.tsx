@@ -10,6 +10,8 @@ export default function ClinicalDisclaimer() {
         fullTitle="Clinical Disclaimer | Insight Recovery Network"
         description="Insight Recovery Network provides private online support and guidance, not regulated medical treatment. Read our full clinical disclaimer including emergency service contacts."
         canonical="/clinical-disclaimer"
+        noIndex
+        followWhenNoIndex
       />
 
       <section

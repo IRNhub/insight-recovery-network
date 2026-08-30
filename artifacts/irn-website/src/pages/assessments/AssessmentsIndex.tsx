@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { ogImageUrl } from "@/config/og-pages";
 import { ArrowRight, Clock, Shield, Lock } from "lucide-react";
+import { CTASection } from "@/components/ui/cta-section";
 const assessmentsHeroImg = "/assessments-hero-brain.png";
 
 const assessments = [
@@ -127,6 +128,10 @@ export default function AssessmentsIndex() {
                   Most take under 15 minutes
                 </span>
               </div>
+              <Link href="/assessments/alcohol-use" className="mt-6 inline-flex w-full sm:w-fit items-center justify-center gap-2 bg-primary px-6 min-h-12 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+                Start the free confidential assessment
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Right: hero image */}
@@ -248,6 +253,17 @@ export default function AssessmentsIndex() {
           </div>
         </div>
       </section>
+
+      <CTASection
+        heading="Not sure which assessment to choose?"
+        description="Tell us what is happening and we can help you identify a suitable, confidential starting point without pressure."
+        primaryCta={{ label: "Speak confidentially", href: "/get-help" }}
+        secondaryCta={{ label: "Start the alcohol use assessment", href: "/assessments/alcohol-use" }}
+        primaryEvent="book_consultation_click"
+        sourcePage="assessments"
+        serviceInterest="free-assessment"
+        ctaLocation="final_cta"
+      />
     </Layout>
   );
 }

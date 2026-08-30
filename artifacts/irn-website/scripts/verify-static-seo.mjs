@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
+import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const dist = resolve(root, "dist/public");
@@ -19,9 +20,55 @@ function read(path) {
   return readFileSync(path, "utf8");
 }
 
+function assertOrganizationSocialProfiles(html, pathname) {
+  const schemas = [...html.matchAll(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  )]
+    .map((match) => {
+      try {
+        return JSON.parse(match[1]);
+      } catch {
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  const organization = schemas.find((schema) => {
+    const types = Array.isArray(schema["@type"])
+      ? schema["@type"]
+      : [schema["@type"]];
+    return (
+      schema.name === "Insight Recovery Network" &&
+      types.some((type) => type === "Organization" || type === "ProfessionalService")
+    );
+  });
+
+  if (!organization) {
+    fail(`${pathname} has no Insight Recovery Network Organization schema.`);
+  }
+
+  const sameAs = Array.isArray(organization.sameAs) ? organization.sameAs : [];
+  const missingProfiles = SOCIAL_PROFILE_URLS.filter(
+    (profileUrl) => !sameAs.includes(profileUrl),
+  );
+  if (missingProfiles.length) {
+    fail(
+      `${pathname} Organization schema is missing social profiles: ${missingProfiles.join(", ")}`,
+    );
+  }
+}
+
+function listGeneratedHtmlFiles(directory) {
+  return readdirSync(directory).flatMap((entry) => {
+    const path = resolve(directory, entry);
+    if (statSync(path).isDirectory()) return listGeneratedHtmlFiles(path);
+    return entry.endsWith(".html") ? [path] : [];
+  });
+}
+
 function assertNoEmDashes(directory) {
   for (const entry of readdirSync(directory)) {
-    if (entry === "dist" || entry === "node_modules") continue;
+    if (entry === "dist" || entry.startsWith("node_modules")) continue;
     const path = resolve(directory, entry);
     if (statSync(path).isDirectory()) {
       assertNoEmDashes(path);
@@ -523,13 +570,25 @@ for (const utilityPath of [
   "/services-pricing-guide",
   "/thank-you",
   "/recovery-plan-checklist/checklist",
-  "/get-help",
   "/admin",
 ]) {
   const target = targetForPath(utilityPath);
   if (!target) fail(`Required utility route is unmapped: ${utilityPath}`);
   const html = read(resolve(dist, target.replace(/^\//, "")));
   if (!/noindex, nofollow/i.test(html)) fail(`${utilityPath} must be noindex, nofollow.`);
+}
+
+const clinicalDisclaimerTarget = targetForPath("/clinical-disclaimer");
+if (!clinicalDisclaimerTarget) fail("Clinical disclaimer route is unmapped.");
+const clinicalDisclaimer = read(resolve(dist, clinicalDisclaimerTarget.replace(/^\//, "")));
+if (!/noindex, follow/i.test(clinicalDisclaimer)) {
+  fail("/clinical-disclaimer must be noindex, follow.");
+}
+if (sitemap.includes("<loc>https://www.insightrecoverynetwork.com/clinical-disclaimer</loc>")) {
+  fail("/clinical-disclaimer must not appear in the sitemap.");
+}
+if (!sitemap.includes("<loc>https://www.insightrecoverynetwork.com/get-help</loc>")) {
+  fail("/get-help must appear in the sitemap.");
 }
 
 const conversionPriorityPaths = [
@@ -567,6 +626,24 @@ for (const pathname of conversionPriorityPaths) {
   }
 }
 
+const getHelpTarget = targetForPath("/get-help");
+if (!getHelpTarget) fail("/get-help is unmapped.");
+const getHelp = read(resolve(dist, getHelpTarget.replace(/^\//, "")));
+for (const requiredText of [
+  "Speak to Someone About Private Addiction Treatment",
+  "private, paid services",
+  "does not provide emergency or NHS crisis care",
+  "under 18",
+  "Private rehab placement",
+  "Online recovery support",
+  "Family support",
+  "Professional intervention guidance",
+]) {
+  if (!getHelp.toLowerCase().includes(requiredText.toLowerCase())) {
+    fail(`/get-help is missing required commercial or safety content: ${requiredText}`);
+  }
+}
+
 for (const pathname of [
   "/treatment-placement",
   "/online-programme",
@@ -597,8 +674,13 @@ if (sitemap.includes(`${siteUrl}/services-pricing-guide</loc>`)) {
 }
 
 const robotsTxt = read(resolve(dist, "robots.txt"));
-if (!/User-agent:\s*OAI-SearchBot\s*\nAllow:\s*\//i.test(robotsTxt)) {
-  fail("robots.txt does not explicitly allow OAI-SearchBot.");
+for (const path of ["/admin", "/admin/", "/api/", "/recovery-plan-checklist/checklist"]) {
+  if (!robotsTxt.includes(`Disallow: ${path}`)) {
+    fail(`robots.txt does not disallow ${path}.`);
+  }
+}
+if ((robotsTxt.match(/^User-agent:/gim) ?? []).length !== 1) {
+  fail("robots.txt must use one wildcard group so bot-specific groups cannot weaken private-route rules.");
 }
 const robotsSitemaps = [...robotsTxt.matchAll(/^Sitemap:\s*(\S+)\s*$/gim)]
   .map((match) => match[1]);
@@ -606,5 +688,14 @@ if (robotsSitemaps.length !== 1 || robotsSitemaps[0] !== `${siteUrl}/sitemap.xml
   fail(`robots.txt must reference only ${siteUrl}/sitemap.xml.`);
 }
 
+const generatedHtmlFiles = listGeneratedHtmlFiles(dist).filter(
+  (htmlPath) => !/<meta\s+http-equiv="refresh"/i.test(read(htmlPath)),
+);
+for (const htmlPath of generatedHtmlFiles) {
+  const outputPath = htmlPath.slice(dist.length).replaceAll("\\", "/") || "/";
+  assertOrganizationSocialProfiles(read(htmlPath), outputPath);
+}
+
 console.log(`✓ Static SEO verification passed for ${checked} sitemap URLs.`);
+console.log(`✓ Organization social profiles verified in all ${generatedHtmlFiles.length} generated content pages.`);
 console.log("✓ Article bodies, canonicals, noindex rules and true-404 routing are consistent.");

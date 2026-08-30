@@ -46,14 +46,14 @@ export default function ServicesPricingGuide() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Button asChild size="lg" className="rounded-none h-12 px-8 w-full sm:w-auto gap-2">
-                <a href={guideHref} target="_blank" rel="noopener noreferrer">
+                <a href={guideHref} target="_blank" rel="noopener noreferrer" data-analytics-event="pricing_guide_view" data-cta-location="pricing_guide_hero">
                   <FileText className="w-4 h-4" strokeWidth={1.8} />
                   View Guide
                   <ArrowRight className="w-4 h-4" strokeWidth={1.8} />
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-none h-12 px-8 w-full sm:w-auto gap-2">
-                <a href={guideHref} download>
+                <a href={guideHref} download data-analytics-event="pricing_guide_view" data-cta-location="pricing_guide_download">
                   <Download className="w-4 h-4" strokeWidth={1.8} />
                   Download PDF
                 </a>
@@ -109,7 +109,7 @@ export default function ServicesPricingGuide() {
             <p className="text-muted-foreground leading-relaxed mb-6">
               The guide is only a starting point. The right pathway depends on clinical need, risk, previous treatment history, mental health concerns, family dynamics, budget, and the level of support required.
             </p>
-            <Link href="/contact">
+            <Link href="/get-help" data-analytics-event="book_consultation_click" data-cta-location="pricing_guide_footer">
               <Button variant="outline" size="lg" className="rounded-none h-12 px-8">
                 Contact Insight Recovery Network
               </Button>
