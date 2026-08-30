@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import type { AssessmentContactRequest, AuthoritativeAssessmentResult } from "@/types/assessment";
 
 interface AssessmentContactOptionsProps {
@@ -82,6 +83,10 @@ export function AssessmentContactOptions({
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         Your result is already complete. These choices are optional and each permission is separate.
       </p>
+      <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
+        Emailing the result sends the result content through Resend. IRN follow-up sends your contact details and a derived clinical summary to IRNOS, but not your raw answers. See the{" "}
+        <Link href="/privacy-policy" className="underline underline-offset-2">Privacy Policy</Link>.
+      </p>
 
       {hasExistingRequest && (
         <p className="mt-4 border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">
@@ -103,7 +108,7 @@ export function AssessmentContactOptions({
             </label>
             <label className="flex items-start gap-3 text-sm text-foreground">
               <input type="checkbox" checked={marketing} onChange={(event) => setMarketing(event.target.checked)} className="mt-1" />
-              <span><strong>Optional marketing permission.</strong> This is not required for an emailed result or IRN follow-up.</span>
+              <span><strong>Optional marketing permission.</strong> This separately permits occasional information about IRN services. It is not required for an emailed result or IRN follow-up.</span>
             </label>
           </>
         )}

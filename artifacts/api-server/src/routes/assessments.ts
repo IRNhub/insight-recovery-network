@@ -27,6 +27,36 @@ import { AssessmentValidationError } from "../assessment-engine/validate-answers
 
 const router: IRouter = Router();
 
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+const RATE_LIMIT_MAX_BUCKETS = 10_000;
+const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+
+function assessmentRequestIsRateLimited(
+  req: Request,
+  scope: "submit" | "contact",
+  maximum: number,
+): boolean {
+  const now = Date.now();
+  const key = `${scope}:${req.ip || "unknown"}`;
+  const current = rateLimitBuckets.get(key);
+  if (!current || current.resetAt <= now) {
+    if (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
+      for (const [bucketKey, bucket] of rateLimitBuckets) {
+        if (bucket.resetAt <= now) rateLimitBuckets.delete(bucketKey);
+      }
+      while (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
+        const oldestKey = rateLimitBuckets.keys().next().value;
+        if (!oldestKey) break;
+        rateLimitBuckets.delete(oldestKey);
+      }
+    }
+    rateLimitBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  current.count += 1;
+  return current.count > maximum;
+}
+
 function requireAdmin(req: Request, res: Response): boolean {
   const secret = req.headers["x-admin-secret"];
   const expected = process.env.ADMIN_SECRET;
@@ -58,6 +88,11 @@ router.get("/assessments/:key/definition", (req: Request, res: Response) => {
 
 router.post("/assessments/submit", async (req: Request, res: Response) => {
   noStore(res);
+  if (assessmentRequestIsRateLimited(req, "submit", 12)) {
+    res.setHeader("Retry-After", String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
+    res.status(429).json({ error: "Too many assessment submissions. Please try again later." });
+    return;
+  }
   try {
     const outcome = await submitAssessment(req.body, {
       persistence: assessmentPersistence,
@@ -101,6 +136,11 @@ router.get("/assessments/result", async (req: Request, res: Response) => {
 
 router.post("/assessments/result/contact", async (req: Request, res: Response) => {
   noStore(res);
+  if (assessmentRequestIsRateLimited(req, "contact", 6)) {
+    res.setHeader("Retry-After", String(Math.ceil(RATE_LIMIT_WINDOW_MS / 1000)));
+    res.status(429).json({ error: "Too many contact requests. Please try again later." });
+    return;
+  }
   const token = readResultAccessToken(req);
   if (!token) {
     res.status(404).json({ error: "Assessment result not found" });

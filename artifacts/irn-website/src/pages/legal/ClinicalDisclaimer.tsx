@@ -28,7 +28,7 @@ export default function ClinicalDisclaimer() {
           <h1 className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-4" style={{ color: "#162B3B" }}>
             Clinical Disclaimer
           </h1>
-          <p className="font-light text-sm text-muted-foreground">Last updated: May 2025</p>
+          <p className="font-light text-sm text-muted-foreground">Last updated: 30 August 2026</p>
         </div>
       </section>
 
@@ -86,6 +86,7 @@ export default function ClinicalDisclaimer() {
                 <li><strong className="font-medium text-foreground/70">Your GP or NHS 111:</strong> for urgent but non-emergency medical situations</li>
                 <li><strong className="font-medium text-foreground/70">A&amp;E:</strong> attend your nearest emergency department for immediate risk situations</li>
               </ul>
+              <p className="mt-3">Assessment answers and results are not monitored in real time. Submitting an assessment does not alert staff, summon emergency help or create an emergency response. If the result directs you to urgent or emergency services, you must contact those services yourself.</p>
             </div>
 
             <div>

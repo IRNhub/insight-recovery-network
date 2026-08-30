@@ -2,7 +2,7 @@ import { z } from "zod";
 import type { AssessmentContactRequest } from "./contracts.ts";
 import { AssessmentValidationError } from "./validate-answers.ts";
 
-export const PHASE_B_CONTACT_NOTICE_VERSION = "phase-b-contact-2026-08-30";
+export const PHASE_B_CONTACT_NOTICE_VERSION = "assessment-contact-privacy-2026-08-30-v1";
 
 const ContactRequestSchema = z.object({
   name: z.string().trim().min(1).max(120).optional(),

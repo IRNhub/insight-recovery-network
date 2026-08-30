@@ -164,7 +164,7 @@ export function parseSubmissionPayload(raw: unknown): {
       consent: parsed.data.consent === true,
       privacyNoticeVersion: requiresContactConsent
         ? PHASE_A_PRIVACY_NOTICE_VERSION
-        : "phase-b-anonymous-2026-08-30",
+        : "assessment-core-privacy-2026-08-30-v1",
     },
   };
 }

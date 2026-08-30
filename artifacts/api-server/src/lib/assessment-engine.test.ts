@@ -465,3 +465,56 @@ test("every active safety rule references a real question and approved option", 
     }
   }
 });
+
+test("production-gate privacy notices describe the implemented assessment data flow", async () => {
+  const privacySource = await readFile(
+    new URL("../../../irn-website/src/pages/legal/PrivacyPolicy.tsx", import.meta.url),
+    "utf8",
+  );
+  const cookieSource = await readFile(
+    new URL("../../../irn-website/src/pages/legal/CookiePolicy.tsx", import.meta.url),
+    "utf8",
+  );
+  const disclaimerSource = await readFile(
+    new URL("../../../irn-website/src/pages/legal/ClinicalDisclaimer.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(privacySource, /Anonymous core self-assessment/);
+  assert.match(privacySource, /Resend[\s\S]*complete result email/);
+  assert.match(privacySource, /IRNOS[\s\S]*does not forward raw answers/);
+  assert.match(privacySource, /Assessment AI is disabled/);
+  assert.doesNotMatch(privacySource, /retain enquiry and assessment data for up to two years/);
+  assert.match(cookieSource, /irn_assessment_result/);
+  assert.match(disclaimerSource, /not monitored in real time/);
+  assert.match(disclaimerSource, /does not alert staff, summon emergency help/);
+});
+
+test("production-gate retention worker is callable and deletes only deadline-bearing rows", async () => {
+  const workerSource = await readFile(
+    new URL("../assessment-engine/assessment-retention-worker.ts", import.meta.url),
+    "utf8",
+  );
+  const indexSource = await readFile(new URL("../index.ts", import.meta.url), "utf8");
+  const migrationSource = await readFile(
+    new URL("../../../../lib/db/migrations/20260830_assessment_phase_a.sql", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(workerSource, /lte\(assessmentsTable\.deleteAfter, now\)/);
+  assert.match(workerSource, /delete\(assessmentsTable\)/);
+  assert.doesNotMatch(workerSource, /isNull\(assessmentsTable\.deleteAfter\)/);
+  assert.match(indexSource, /startAssessmentRetentionWorker\(\)/);
+  assert.match(migrationSource, /ON DELETE CASCADE/);
+});
+
+test("production-gate public assessment writes have server-side abuse limits", async () => {
+  const routeSource = await readFile(
+    new URL("../routes/assessments.ts", import.meta.url),
+    "utf8",
+  );
+  assert.match(routeSource, /assessmentRequestIsRateLimited\(req, "submit", 12\)/);
+  assert.match(routeSource, /assessmentRequestIsRateLimited\(req, "contact", 6\)/);
+  assert.match(routeSource, /status\(429\)/);
+  assert.match(routeSource, /Retry-After/);
+});
