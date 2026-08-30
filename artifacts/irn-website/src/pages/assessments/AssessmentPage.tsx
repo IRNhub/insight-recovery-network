@@ -229,12 +229,13 @@ export default function AssessmentPage({
           )}
 
           <p className="text-xs text-muted-foreground font-light mt-6 leading-relaxed max-w-md">
-            This assessment is not a diagnosis. It is designed to help you
-            understand your current situation and identify a safe pathway
-            forward. If you are in immediate danger, call 999.
+            This screening and triage assessment is not a diagnosis, medical
+            clearance or a substitute for professional assessment. IRN does not
+            monitor submissions as an emergency service. If you are in immediate
+            danger, call 999 or use the urgent pathway shown to you directly.
           </p>
           <p className="text-xs text-muted-foreground font-light mt-3 leading-relaxed max-w-md">
-            The core assessment does not ask for your identity. Your answers and rule-based result are stored on IRN's server with a deletion date 730 days after completion. Google and Meta tracking are excluded throughout the assessment journey. Read the{" "}
+            The core assessment does not ask for your identity. Your answers and rule-based result are stored on IRN's server with a deletion date 90 days after completion. Google and Meta tracking are excluded throughout the assessment journey. Read the{" "}
             <Link href="/privacy-policy" className="underline underline-offset-2">Privacy Policy</Link>.
           </p>
         </div>

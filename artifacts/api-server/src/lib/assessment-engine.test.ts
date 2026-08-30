@@ -278,6 +278,20 @@ test("15 anonymous assessment does not attempt email delivery without post-resul
   assert.ok(await recoverAssessment(result.accessToken, persistence));
 });
 
+test("15a new anonymous assessment receives the owner-authorised 90-day deletion date", async () => {
+  const persistence = new MemoryPersistence();
+  const completedAt = new Date("2026-08-30T12:00:00.000Z");
+  const result = await submitAssessment(payload("anxiety"), {
+    persistence,
+    deliveries: successfulDeliveries,
+    now: () => completedAt,
+  });
+  assert.equal(
+    result.result.persistence.expiresAt,
+    new Date(completedAt.getTime() + 90 * 24 * 60 * 60 * 1000).toISOString(),
+  );
+});
+
 test("16 anonymous assessment does not attempt IRNOS delivery without post-result permission", async () => {
   const persistence = new MemoryPersistence();
   const result = await submitAssessment(payload("anxiety"), {
@@ -484,7 +498,19 @@ test("production-gate privacy notices describe the implemented assessment data f
   assert.match(privacySource, /Resend[\s\S]*complete result email/);
   assert.match(privacySource, /IRNOS[\s\S]*does not forward raw answers/);
   assert.match(privacySource, /Assessment AI is disabled/);
+  assert.match(privacySource, /deletion date 90 days after completion/);
+  assert.match(privacySource, /external processors are also not automatically erased/);
   assert.doesNotMatch(privacySource, /retain enquiry and assessment data for up to two years/);
+  assert.doesNotMatch(
+    privacySource,
+    /pending approval|awaiting approval|to be decided|TODO|provisional|still requiring approval|before the workflow is released/i,
+  );
+  for (const definition of listActiveDefinitions()) {
+    assert.doesNotMatch(
+      JSON.stringify(toPublicDefinition(definition)),
+      /permission is pending|requirements remain unresolved/i,
+    );
+  }
   assert.match(cookieSource, /irn_assessment_result/);
   assert.match(disclaimerSource, /not monitored in real time/);
   assert.match(disclaimerSource, /does not alert staff, summon emergency help/);

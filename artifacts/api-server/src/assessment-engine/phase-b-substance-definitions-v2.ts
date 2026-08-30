@@ -87,7 +87,7 @@ function alcoholSections(mode: "use" | "detox"): AssessmentSection[] {
     {
       id: "alcohol-consumption",
       title: "Alcohol pattern",
-      description: "These questions describe alcohol exposure. They form part of an IRN profile and are not presented as AUDIT while commercial reproduction permission is pending.",
+      description: "These questions describe alcohol exposure. They form part of an IRN profile and are not presented as AUDIT.",
       questions: [
         radio("alcohol-frequency", "How often do you drink alcohol?", FREQUENCY),
         radio("alcohol-quantity", "On a typical drinking day, approximately how many drinks do you have?", [
@@ -562,7 +562,7 @@ export const phaseBSubstanceDefinitionsV2: AssessmentDefinition[] = [
   definitionBase(
     "alcohol-use",
     "Alcohol Use and Support Needs Assessment",
-    "An anonymous IRN-developed profile of alcohol patterns, impact and independent withdrawal safety. It is not AUDIT while commercial reproduction permission is pending.",
+    "An anonymous IRN-developed profile of alcohol patterns, impact and independent withdrawal safety. It is not AUDIT.",
     alcoholSections("use"),
     alcoholUseDomains,
     alcoholSafetyRules("alcohol-use"),
@@ -582,7 +582,7 @@ export const phaseBSubstanceDefinitionsV2: AssessmentDefinition[] = [
   definitionBase(
     "drug-use",
     "Substance Use and Support Needs Assessment",
-    "An anonymous, substance-specific IRN needs profile. It is not WHO ASSIST and does not use an ASSIST-like score while permission and administration requirements remain unresolved.",
+    "An anonymous, substance-specific IRN needs profile. It is not WHO ASSIST and does not use an ASSIST-like score.",
     substanceDefinitionSections("drug-use"),
     substanceDomains,
     substanceSafetyRules("drug-use"),

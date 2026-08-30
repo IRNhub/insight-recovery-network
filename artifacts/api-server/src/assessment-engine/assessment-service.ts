@@ -13,7 +13,7 @@ import {
 } from "./result-access.ts";
 import { parseSubmissionPayload } from "./validate-answers.ts";
 
-const RETENTION_DAYS = 730;
+const RETENTION_DAYS = 90;
 
 export interface AssessmentContact {
   name?: string;

@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy"
         fullTitle="Privacy Policy | Insight Recovery Network"
-        description="How Insight Recovery Network collects, uses and protects your personal data under UK GDPR. All enquiries are handled with complete discretion."
+        description="How Insight Recovery Network collects, uses, stores and shares website and assessment information, and how to exercise your data rights."
         canonical="/privacy-policy"
       />
 
@@ -70,25 +70,26 @@ export default function PrivacyPolicy() {
             </div>
 
             <div>
-              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Legal basis for processing</h2>
-              <p className="mb-3">The lawful basis must match each processing purpose. The currently documented bases and the assessment-specific issue still requiring approval are:</p>
+              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Purposes and processing choices</h2>
+              <p className="mb-3">Assessment answers and derived results may concern health, mental health or substance use. We use that information operationally to calculate, store and allow you to recover the assessment result you request.</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Legitimate interests (Article 6(1)(f)):</strong> responding to direct enquiries, maintaining a record of contacts for continuity of support, and improving our services.</li>
-                <li><strong className="font-medium text-foreground/70">Consent (Article 6(1)(a)):</strong> for the separate result-email, IRN follow-up and marketing choices shown after an assessment. You can withdraw those permissions at any time by emailing us.</li>
-                <li>Assessment answers and derived results may constitute <em>special category data</em> under Article 9. The applicable Article 6 lawful basis and Article 9 condition for the anonymous core assessment and optional disclosures of health-related results must be confirmed in IRN's approved privacy documentation before the workflow is released to production. Purpose-specific contact choices do not by themselves settle those legal bases.</li>
+                <li>You can generate an anonymous core result without providing a name, email address or phone number.</li>
+                <li>We process a result-email request only when you separately select that option and provide an email address.</li>
+                <li>We process an IRN follow-up request only when you separately ask IRN to contact you and provide the required contact details.</li>
+                <li>Marketing permission is a separate optional choice and is not required for the anonymous result, result email or IRN follow-up.</li>
               </ul>
             </div>
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">4. Data retention</h2>
-              <p className="mb-3">New core assessment records are assigned a deletion date 730 days after completion. A scheduled server process deletes those assessment rows from the live website database after the deadline; linked delivery-queue rows are removed with them. The necessary result-access cookie lasts for up to 30 days.</p>
-              <p className="mb-3">Legacy assessment rows without a deletion date are not silently placed on this schedule. Enquiry records, emails and any IRNOS record created after a requested follow-up are separate records and are not deleted by the website assessment job. They require the applicable IRN retention and erasure process.</p>
-              <p>The 730-day technical setting is not a statement that this duration is legally required. IRN must approve the retention schedule against its documented policy and legal advice before production release. You may request erasure sooner, subject to any lawful reason data must be retained.</p>
+              <p className="mb-3">New anonymous core assessment records are assigned a deletion date 90 days after completion. A scheduled server process deletes those assessment rows from the live website database after the deadline; linked delivery-queue rows are removed with them. The necessary result-access cookie lasts for up to 30 days.</p>
+              <p className="mb-3">Legacy assessment rows without a deletion date are not automatically placed on this schedule. Enquiry records, emails and any IRNOS record created after a requested follow-up are separate records and are not deleted by the website assessment job. Backup copies, hosting logs and records held by external processors are also not automatically erased by that job and follow the applicable separate retention and erasure process.</p>
+              <p>You may request erasure sooner, subject to any lawful reason data must be retained.</p>
             </div>
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">5. Service providers and connected systems</h2>
-              <p className="mb-3">The assessment implementation uses the following services and systems. Contractual and international-transfer safeguards must be maintained and verified as part of IRN's supplier governance:</p>
+              <p className="mb-3">The assessment implementation uses the following services and connected systems:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Replit</strong> provides the website, API and database hosting infrastructure.</li>
                 <li><strong className="font-medium text-foreground/70">Resend</strong> is used only when you request an emailed result. It processes the destination email address, optional name and the complete result email, which contains derived health-related information. Raw assessment answers are not included in that email.</li>
@@ -138,7 +139,7 @@ export default function PrivacyPolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">9. Changes to this policy</h2>
-              <p>We may update this policy from time to time. The &ldquo;last updated&rdquo; date at the top of this page will reflect any changes. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+              <p>We may update this policy from time to time. The &ldquo;last updated&rdquo; date at the top of this page will reflect any changes.</p>
             </div>
 
             <div className="pt-6 border-t" style={{ borderColor: "rgba(201,169,110,0.2)" }}>

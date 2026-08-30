@@ -11,7 +11,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Minimal drinking",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -196,7 +196,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Prominent alcohol exposure without withdrawal",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "four-plus-week",
         "alcohol-quantity": "ten-plus",
@@ -391,7 +391,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -610,7 +610,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Lower alcohol exposure with a historical withdrawal seizure",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -824,7 +824,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Intended abrupt cessation with dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1039,7 +1039,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Current severe non-acute alcohol-withdrawal symptoms",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1228,7 +1228,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Alcohol with benzodiazepine co-use",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1445,7 +1445,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Alcohol with opioid co-use",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1647,7 +1647,7 @@
       "assessmentKey": "alcohol-use",
       "profile": "Pregnancy with alcohol dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "d8e53b7b7d0674e1ce5e641a77e873850f42fa7fc9bd12b51a229f82548983a0",
+      "definitionHash": "418c960c44056a1c44639029f1f22ba9c8599630991dc568fa615298fb374d22",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -1902,7 +1902,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "No dependence indicators",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2084,7 +2084,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Mild current symptoms",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2303,7 +2303,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Previous complicated detoxification",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2517,7 +2517,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Prior alcohol-withdrawal seizure",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2746,7 +2746,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Hallucination, confusion or delirium history",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -2960,7 +2960,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Current acute seizure",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3148,7 +3148,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Limited home support",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3323,7 +3323,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Medical vulnerability",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3514,7 +3514,7 @@
       "assessmentKey": "alcohol-detox",
       "profile": "Alcohol with multiple sedating substances",
       "definitionVersion": 2,
-      "definitionHash": "6d95b05e2f6641d0ad27c0f1729e62d24fa6a51e867a15a879b61c672c093112",
+      "definitionHash": "434af7bdbacae9c535143dacae3032fd81afde66991e549e00ce40950283eb36",
       "exactSyntheticAnswers": {
         "alcohol-frequency": "never",
         "alcohol-quantity": "one-two",
@@ -3737,7 +3737,7 @@
       "assessmentKey": "drug-use",
       "profile": "Cannabis with functional consequences",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis"
@@ -3939,7 +3939,7 @@
       "assessmentKey": "drug-use",
       "profile": "Heavy cocaine or stimulant use",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "stimulants"
@@ -4175,7 +4175,7 @@
       "assessmentKey": "drug-use",
       "profile": "Current stimulant-related psychotic symptoms",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "stimulants"
@@ -4380,7 +4380,7 @@
       "assessmentKey": "drug-use",
       "profile": "Daily opioid use",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -4600,7 +4600,7 @@
       "assessmentKey": "drug-use",
       "profile": "Opioid use after reduced tolerance",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -4838,7 +4838,7 @@
       "assessmentKey": "drug-use",
       "profile": "Previous opioid overdose",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -5062,7 +5062,7 @@
       "assessmentKey": "drug-use",
       "profile": "Opioid and sedative co-use",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "opioids"
@@ -5285,7 +5285,7 @@
       "assessmentKey": "drug-use",
       "profile": "Regular benzodiazepine use with intended abrupt reduction",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "benzodiazepines"
@@ -5483,7 +5483,7 @@
       "assessmentKey": "drug-use",
       "profile": "Frequent GHB or GBL use",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "ghb-gbl"
@@ -5702,7 +5702,7 @@
       "assessmentKey": "drug-use",
       "profile": "Ketamine use with urinary symptoms",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "ketamine"
@@ -5929,7 +5929,7 @@
       "assessmentKey": "drug-use",
       "profile": "Multiple substances",
       "definitionVersion": 2,
-      "definitionHash": "a163b640e7d02f889008c58fdaadc8a16270c5d866109ec968b4b61c7ce50040",
+      "definitionHash": "8f0462413abad4e36d30513f736ccc9b48262d02bc4ba51e00643b8fe12e49a6",
       "exactSyntheticAnswers": {
         "substances": [
           "cannabis",

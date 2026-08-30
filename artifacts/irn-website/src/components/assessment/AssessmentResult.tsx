@@ -216,7 +216,7 @@ export function AssessmentResult({ result, onCtaClick, onResultUpdate }: Assessm
         <div className="flex items-start gap-3 py-4">
           <Shield className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
           <p className="text-xs font-light leading-relaxed text-muted-foreground">
-            This result was calculated by IRN's deterministic server-side assessment engine. It is not a diagnosis and cannot rule out medical or mental-health risk.
+            This screening and triage result was calculated by IRN's deterministic server-side assessment engine. It is not a diagnosis or medical clearance and does not replace professional assessment. IRN does not monitor assessment submissions as an emergency service, so use any displayed NHS or emergency pathway directly.
           </p>
         </div>
       </main>
