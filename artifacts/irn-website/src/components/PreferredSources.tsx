@@ -1,8 +1,11 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 import { CONSENT_CHANGED_EVENT, getConsentPreferences } from "@/lib/consent";
 
 const GOOGLE_PUBLISHER_SCRIPT_ID = "google-preferred-sources-publisher";
 const GOOGLE_PUBLISHER_SCRIPT_SRC = "https://news.google.com/swg/js/v1/publisher.js";
+const GOOGLE_PREFERRED_SOURCES_ORIGIN = "https://news.google.com";
+const GOOGLE_ADD_PREFERRED_SOURCE_REQUEST = "AddPreferredSourceRequest";
 
 export const IRN_PREFERRED_SOURCE_DEEPLINK =
   "https://www.google.com/preferences/source?q=insightrecoverynetwork.com";
@@ -42,6 +45,36 @@ export const PREFERRED_SOURCES_PAGE_ROUTES = [
 ] as const;
 
 const preferredSourcesPageRoutes = new Set<string>(PREFERRED_SOURCES_PAGE_ROUTES);
+
+function buttonLocation(pathname: string) {
+  if (pathname === "/resources") return "resources_page";
+  if (pathname.startsWith("/resources/")) return "article_page";
+  return "other";
+}
+
+function isGoogleAddPreferredSourceRequest(data: unknown) {
+  if (!data || typeof data !== "object") return false;
+  const activity = data as {
+    sentinel?: unknown;
+    cmd?: unknown;
+    payload?: { RESPONSE?: unknown };
+  };
+  const response = activity.payload?.RESPONSE;
+  return (
+    activity.sentinel === "__ACTIVITIES__" &&
+    activity.cmd === "msg" &&
+    Array.isArray(response) &&
+    response[0] === GOOGLE_ADD_PREFERRED_SOURCE_REQUEST
+  );
+}
+
+function trackPreferredSourceActivation() {
+  trackEvent("preferred_source_click", {
+    page_location: `${window.location.origin}${window.location.pathname}`,
+    button_location: buttonLocation(window.location.pathname),
+    destination_url: IRN_PREFERRED_SOURCE_DEEPLINK,
+  });
+}
 
 interface PreferredSourceApi {
   init(options?: { lang?: string; theme?: "light" | "dark" }): void;
@@ -111,6 +144,7 @@ function loadGooglePublisherScript(onError: () => void) {
 export function PreferredSources() {
   const headingId = useId();
   const descriptionId = useId();
+  const googleButtonRef = useRef<HTMLDivElement>(null);
   const [preferredSourcesConsent, setPreferredSourcesConsent] = useState(
     () => getConsentPreferences().preferredSources,
   );
@@ -129,6 +163,21 @@ export function PreferredSources() {
     if (!preferredSourcesConsent) return;
     setScriptFailed(false);
     return loadGooglePublisherScript(() => setScriptFailed(true));
+  }, [preferredSourcesConsent]);
+
+  useEffect(() => {
+    if (!preferredSourcesConsent) return;
+
+    const handleGoogleMessage = (event: MessageEvent) => {
+      if (event.origin !== GOOGLE_PREFERRED_SOURCES_ORIGIN) return;
+      const buttonIframe = googleButtonRef.current?.querySelector("iframe");
+      if (!buttonIframe || event.source !== buttonIframe.contentWindow) return;
+      if (!isGoogleAddPreferredSourceRequest(event.data)) return;
+      trackPreferredSourceActivation();
+    };
+
+    window.addEventListener("message", handleGoogleMessage);
+    return () => window.removeEventListener("message", handleGoogleMessage);
   }, [preferredSourcesConsent]);
 
   return (
@@ -154,6 +203,7 @@ export function PreferredSources() {
           <div className="flex min-h-[60px] w-full items-center md:justify-end">
             {preferredSourcesConsent && !scriptFailed ? (
               <div
+                ref={googleButtonRef}
                 {...{ "google-add-preferred-source-btn": "" }}
                 data-theme="light"
                 className="w-full max-w-[320px]"
@@ -168,6 +218,7 @@ export function PreferredSources() {
                 className="inline-flex min-h-12 w-full max-w-[320px] items-center justify-center border border-primary bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 aria-describedby={descriptionId}
                 data-testid="preferred-sources-deeplink"
+                onClick={trackPreferredSourceActivation}
               >
                 Open Google Source Preferences
               </a>

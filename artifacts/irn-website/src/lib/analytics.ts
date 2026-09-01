@@ -29,6 +29,7 @@ export type AnalyticsEvent =
   | "treatment_placement_enquiry"
   | "online_programme_enquiry"
   | "family_support_enquiry"
+  | "preferred_source_click"
   | "not_found_view";
 
 export type ConversionEvent = Exclude<AnalyticsEvent, "spa_page_view">;
@@ -163,6 +164,7 @@ function isAnalyticsEvent(value: string): value is AnalyticsEvent {
     "treatment_placement_enquiry",
     "online_programme_enquiry",
     "family_support_enquiry",
+    "preferred_source_click",
     "not_found_view",
   ].includes(value);
 }
