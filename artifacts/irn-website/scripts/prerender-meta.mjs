@@ -2003,7 +2003,7 @@ const PAGES = [
     file: "cookie-policy.html",
     title: "Cookie Policy | Insight Recovery Network",
     description:
-      "How Insight Recovery Network uses necessary storage and, only with permission, analytics and marketing technologies, plus how to change your choices.",
+      "How Insight Recovery Network uses necessary storage and, only with permission, analytics, Google Preferred Sources and marketing technologies.",
     ogImage: DEFAULT_OG_IMAGE,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
@@ -2020,7 +2020,7 @@ const PAGES = [
           <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1rem;">Legal</p>
           <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);font-weight:500;margin-bottom:1rem;">Cookie Policy</h1>
           <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;color:#4a5568;margin-bottom:2rem;max-width:640px;">
-            Necessary storage keeps the site working. Analytics and marketing technologies are off by default and load only after an active choice. Visitors can accept, reject or choose categories, then reopen Cookie Settings from the footer. Forms, phone, email and WhatsApp continue to work without optional consent.
+            Necessary storage keeps the site working. Analytics, Google Preferred Sources and marketing technologies are separate optional purposes, are off by default and load only after an active choice. Visitors can accept, reject or choose categories, then reopen Cookie Settings from the footer. Forms, phone, email, WhatsApp and the user-initiated Google Source Preferences deeplink continue to work without optional consent.
           </p>
           <a href="mailto:info@insightrecoverynetwork.com" style="font-family:sans-serif;font-size:0.9rem;color:#162B3B;text-decoration:underline;">info@insightrecoverynetwork.com</a>
         </div>

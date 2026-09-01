@@ -4,6 +4,10 @@ import { useLocation } from "wouter";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { SOCIAL_PROFILE_URLS } from "@/config/social-links.js";
+import {
+  PreferredSources,
+  shouldShowPreferredSources,
+} from "@/components/PreferredSources";
 
 interface LayoutProps {
   children: ReactNode;
@@ -93,6 +97,7 @@ export function Layout({ children }: LayoutProps) {
       <Navbar />
       <main className="flex-1 flex flex-col pt-[88px]">
         {children}
+        {shouldShowPreferredSources(location) && <PreferredSources />}
       </main>
       <Footer />
     </div>

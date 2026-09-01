@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy"
         fullTitle="Privacy Policy | Insight Recovery Network"
-        description="How Insight Recovery Network collects, uses, stores and shares website and assessment information, and how to exercise your data rights."
+        description="How Insight Recovery Network collects, uses, stores and shares website and assessment information under UK GDPR, including optional analytics and Google Preferred Sources."
         canonical="/privacy-policy"
       />
 
@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
           <h1 className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-4" style={{ color: "#162B3B" }}>
             Privacy Policy
           </h1>
-          <p className="font-light text-sm text-muted-foreground">Last updated: 30 August 2026</p>
+          <p className="font-light text-sm text-muted-foreground">Last updated: September 2026</p>
         </div>
       </section>
 
@@ -51,9 +51,9 @@ export default function PrivacyPolicy() {
               <p className="mb-3">We collect information you actively provide, data needed to operate the service securely, and optional analytics data where you have permitted it. The main assessment-related flows are:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Enquiry form (/contact):</strong> name, email address, phone number (optional), and the content of your message.</li>
-                <li><strong className="font-medium text-foreground/70">Anonymous core self-assessment (/assessments/*):</strong> no name, email address or phone number is required. We store the answers you submit, the score or descriptive profile, derived safety and interpretation information, the assessment definition version, completion and delivery status, a hashed result-access token and a scheduled deletion date.</li>
-                <li><strong className="font-medium text-foreground/70">Optional choices after the result:</strong> if you ask for an emailed result, we collect your email address and an optional name. If you request IRN follow-up, we also require your name and may collect an optional phone number. Marketing permission is a separate, optional choice.</li>
-                <li><strong className="font-medium text-foreground/70">Website usage:</strong> with permission, GA4 receives privacy-screened page and interaction data on non-assessment pages. Google and Meta tracking are excluded throughout assessment and linked result journeys, regardless of an earlier cookie choice. Our web server or hosting provider may log standard access data for security and error diagnostics.</li>
+                  <li><strong className="font-medium text-foreground/70">Anonymous core self-assessment (/assessments/*):</strong> no name, email address or phone number is required. We store the answers you submit, the score or descriptive profile, derived safety and interpretation information, the assessment definition version, completion and delivery status, a hashed result-access token and a scheduled deletion date.</li>
+                  <li><strong className="font-medium text-foreground/70">Optional choices after the result:</strong> if you ask for an emailed result, we collect your email address and an optional name. If you request IRN follow-up, we also require your name and may collect an optional phone number. Marketing permission is a separate, optional choice.</li>
+                  <li><strong className="font-medium text-foreground/70">Website usage:</strong> with separate permission for each purpose, GA4 receives privacy-screened page and interaction data on non-assessment pages, and Google&apos;s Preferred Sources control receives the current page URL so it can render and operate. Analytics, Preferred Sources and marketing are off by default. Google and Meta tracking, and the Preferred Sources control, are excluded throughout individual assessment and linked result journeys, regardless of an earlier cookie choice. Our web server or hosting provider may log standard access data for security and error diagnostics.</li>
               </ul>
             </div>
 
@@ -91,13 +91,13 @@ export default function PrivacyPolicy() {
               <h2 className="font-serif text-xl font-medium text-primary mb-3">5. Service providers and connected systems</h2>
               <p className="mb-3">The assessment implementation uses the following services and connected systems:</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Replit</strong> provides the website, API and database hosting infrastructure.</li>
-                <li><strong className="font-medium text-foreground/70">Resend</strong> is used only when you request an emailed result. It processes the destination email address, optional name and the complete result email, which contains derived health-related information. Raw assessment answers are not included in that email.</li>
-                <li><strong className="font-medium text-foreground/70">IRNOS</strong> is IRN's connected operational system. It receives contact details and a derived clinical summary only when you ask IRN to follow up. The current assessment path does not forward raw answers.</li>
-                <li><strong className="font-medium text-foreground/70">Google</strong> provides optional analytics and tag management on non-assessment pages, loaded only after the relevant cookie choice.</li>
-                <li><strong className="font-medium text-foreground/70">Meta</strong> provides optional marketing technology on non-assessment pages, loaded only after marketing consent. Automatic page views and health-context conversion events are disabled.</li>
+                  <li><strong className="font-medium text-foreground/70">Replit</strong> provides the website, API and database hosting infrastructure.</li>
+                  <li><strong className="font-medium text-foreground/70">Resend</strong> is used only when you request an emailed result. It processes the destination email address, optional name and the complete result email, which contains derived health-related information. Raw assessment answers are not included in that email.</li>
+                  <li><strong className="font-medium text-foreground/70">IRNOS</strong> is IRN&apos;s connected operational system. It receives contact details and a derived clinical summary only when you ask IRN to follow up. The current assessment path does not forward raw answers.</li>
+                  <li><strong className="font-medium text-foreground/70">Google</strong> provides optional analytics, tag management and Preferred Sources on non-assessment pages, loaded only after the relevant separate consent choice. Preferred Sources is classified as functional third-party technology rather than analytics. Its control uses the current page URL and may use your Google account or Google session when you choose to open its selection flow.</li>
+                  <li><strong className="font-medium text-foreground/70">Meta</strong> provides optional marketing technology on non-assessment pages, loaded only after marketing consent. Automatic page views and health-context conversion events are disabled.</li>
               </ul>
-              <p className="mt-3">We do not send names, email addresses, phone numbers, messages, assessment answers, scores, results or clinical information in analytics events. Google and Meta scripts are not loaded on assessment journeys. See the Cookie Policy for controls and categories.</p>
+              <p className="mt-3">We do not send names, email addresses, phone numbers, messages, assessment answers, scores, results or clinical information in analytics events. Google and Meta scripts and the Preferred Sources control are not loaded on individual assessment or linked result journeys. See the Cookie Policy for controls and categories.</p>
             </div>
 
             <div>

@@ -46,7 +46,7 @@ export function markAssessmentEntryIfNeeded(pathname: string): void {
 
 function thirdPartyTrackerRuntimePresent(): boolean {
   return Boolean(
-    document.querySelector('script[data-irn-gtm],script[data-irn-meta],script[src*="googletagmanager.com"],script[src*="connect.facebook.net"]') ||
+    document.querySelector('script[data-irn-gtm],script[data-irn-meta],script[data-irn-preferred-sources],script[src*="googletagmanager.com"],script[src*="connect.facebook.net"],script[src*="news.google.com/swg/js/v1/publisher.js"]') ||
     window.dataLayer ||
     window.fbq,
   );

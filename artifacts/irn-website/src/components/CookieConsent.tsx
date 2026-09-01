@@ -18,12 +18,14 @@ export function CookieConsent() {
   const [open, setOpen] = useState(() => !hasStoredConsent());
   const [showDetails, setShowDetails] = useState(false);
   const [analytics, setAnalytics] = useState(initial.analytics);
+  const [preferredSources, setPreferredSources] = useState(initial.preferredSources);
   const [marketing, setMarketing] = useState(initial.marketing);
 
   useEffect(() => {
     const reopen = () => {
       const current = getConsentPreferences();
       setAnalytics(current.analytics);
+      setPreferredSources(current.preferredSources);
       setMarketing(current.marketing);
       setShowDetails(true);
       setOpen(true);
@@ -40,7 +42,11 @@ export function CookieConsent() {
 
   if (!open) return null;
 
-  function save(values: { analytics: boolean; marketing: boolean }) {
+  function save(values: {
+    analytics: boolean;
+    preferredSources: boolean;
+    marketing: boolean;
+  }) {
     const { requiresReload } = saveConsentPreferences(values);
     setOpen(false);
     if (requiresReload) window.location.reload();
@@ -61,8 +67,9 @@ export function CookieConsent() {
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/75">
               Necessary storage keeps the site working. With your permission, analytics helps us
-              understand site use and marketing enables advertising technology. Both are off by
-              default. Forms, phone, email and WhatsApp work without them. Read our{" "}
+              understand site use, Preferred Sources enables Google&apos;s optional publisher control,
+              and marketing enables advertising technology. All are off by default. Forms, phone,
+              email and WhatsApp work without them. Read our{" "}
               <Link href="/cookie-policy" className="underline underline-offset-2 hover:text-accent">
                 Cookie Policy
               </Link>.
@@ -70,7 +77,7 @@ export function CookieConsent() {
           </div>
 
           {showDetails && (
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
               <ConsentChoice
                 label="Necessary"
                 description="Consent record, security and essential site operation. Always on."
@@ -85,6 +92,12 @@ export function CookieConsent() {
                 onChange={setAnalytics}
               />
               <ConsentChoice
+                label="Preferred Sources"
+                description="Google's optional publisher control, which receives the current page URL and may use your Google session."
+                checked={preferredSources}
+                onChange={setPreferredSources}
+              />
+              <ConsentChoice
                 label="Marketing"
                 description="Meta Pixel and advertising tags. No automatic health-page events."
                 checked={marketing}
@@ -96,14 +109,18 @@ export function CookieConsent() {
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <button
               type="button"
-              onClick={() => save({ analytics: true, marketing: true })}
+              onClick={() =>
+                save({ analytics: true, preferredSources: true, marketing: true })
+              }
               className="min-h-11 border border-accent bg-accent px-5 py-2.5 text-sm font-semibold text-primary hover:bg-accent/90"
             >
               Accept all
             </button>
             <button
               type="button"
-              onClick={() => save({ analytics: false, marketing: false })}
+              onClick={() =>
+                save({ analytics: false, preferredSources: false, marketing: false })
+              }
               className="min-h-11 border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10"
             >
               Reject non-essential
@@ -111,7 +128,7 @@ export function CookieConsent() {
             {showDetails ? (
               <button
                 type="button"
-                onClick={() => save({ analytics, marketing })}
+                onClick={() => save({ analytics, preferredSources, marketing })}
                 className="min-h-11 border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/15"
               >
                 Save choices
