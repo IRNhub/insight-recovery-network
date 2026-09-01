@@ -7,6 +7,7 @@ import { Layout } from "@/components/layout/Layout";
 import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
+import { PreferredSources } from "@/components/PreferredSources";
 import NotFound from "@/pages/not-found";
 import {
   formatDate,
@@ -1253,6 +1254,8 @@ export default function ResourceDetail() {
           </div>
         </div>
       </article>
+
+      <PreferredSources />
 
       {/* ── Related articles ── */}
       {relatedArticles.length > 0 && (

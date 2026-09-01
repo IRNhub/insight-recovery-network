@@ -8,7 +8,7 @@ export default function CookiePolicy() {
       <SEO
         title="Cookie Policy"
         fullTitle="Cookie Policy | Insight Recovery Network"
-        description="How Insight Recovery Network uses necessary storage and, only with permission, analytics and marketing technologies, plus how to change your choices."
+        description="How Insight Recovery Network uses necessary storage and, only with permission, analytics, Google Preferred Sources and marketing technologies."
         canonical="/cookie-policy"
       />
 
@@ -26,7 +26,7 @@ export default function CookiePolicy() {
           <h1 className="font-serif text-4xl md:text-5xl font-medium leading-tight mb-4" style={{ color: "#162B3B" }}>
             Cookie Policy
           </h1>
-          <p className="font-light text-sm text-muted-foreground">Last updated: July 2026</p>
+          <p className="font-light text-sm text-muted-foreground">Last updated: September 2026</p>
         </div>
       </section>
 
@@ -50,7 +50,7 @@ export default function CookiePolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">2. Cookies we use</h2>
-              <p className="mb-4">Necessary storage is used without optional consent. Google and Meta technologies remain blocked unless you actively accept the relevant category.</p>
+              <p className="mb-4">Necessary storage is used without optional consent. Google and Meta technologies remain blocked unless you actively accept the relevant category. If optional Google services are not enabled, the Preferred Sources call to action uses Google&apos;s documented deeplink and does not load Google code until you choose to open it.</p>
 
               <div className="border rounded" style={{ borderColor: "rgba(201,169,110,0.25)" }}>
                 <table className="w-full text-xs">
@@ -70,9 +70,9 @@ export default function CookiePolicy() {
                       <td className="px-4 py-3">Browser session</td>
                     </tr>
                     <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
-                      <td className="px-4 py-3 font-mono text-foreground/60">irn_cookie_consent_v1</td>
+                      <td className="px-4 py-3 font-mono text-foreground/60">irn_cookie_consent_v2</td>
                       <td className="px-4 py-3">Necessary local storage</td>
-                      <td className="px-4 py-3">Stores analytics and marketing choices so they are respected on later visits.</td>
+                      <td className="px-4 py-3">Stores analytics, Preferred Sources and marketing choices so they are respected on later visits.</td>
                       <td className="px-4 py-3">Until cleared or replaced</td>
                     </tr>
                     <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
@@ -80,6 +80,12 @@ export default function CookiePolicy() {
                       <td className="px-4 py-3">Analytics, optional</td>
                       <td className="px-4 py-3">Measures aggregate page use and privacy-screened enquiry actions after analytics consent.</td>
                       <td className="px-4 py-3">Set by Google according to tag configuration</td>
+                    </tr>
+                    <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
+                      <td className="px-4 py-3 font-mono text-foreground/60">Google Preferred Sources (publisher.js)</td>
+                      <td className="px-4 py-3">Functional Google feature, optional</td>
+                      <td className="px-4 py-3">Loads only after separate Preferred Sources consent to render Google&apos;s official button. The control receives the current page URL and opens Google&apos;s Source Preferences flow when used.</td>
+                      <td className="px-4 py-3">Google account and session settings are controlled by Google</td>
                     </tr>
                     <tr>
                       <td className="px-4 py-3 font-mono text-foreground/60">Meta Pixel</td>
@@ -101,6 +107,7 @@ export default function CookiePolicy() {
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Necessary:</strong> consent preferences, security and essential site operation. Always active.</li>
                 <li><strong className="font-medium text-foreground/70">Analytics:</strong> Google Tag Manager and GA4 measurement. Off by default.</li>
+                <li><strong className="font-medium text-foreground/70">Preferred Sources:</strong> Google&apos;s optional publisher control. This is a functional third-party feature, not analytics, and is off by default.</li>
                 <li><strong className="font-medium text-foreground/70">Marketing:</strong> Meta Pixel and any advertising tags configured in GTM. Off by default.</li>
                 <li>Names, contact details, messages, assessment answers and clinical information are not included in analytics events.</li>
               </ul>
@@ -108,7 +115,7 @@ export default function CookiePolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">4. Managing cookies</h2>
-              <p className="mb-3">You can accept all, reject all non-essential technologies, or choose analytics and marketing separately. Rejecting is offered as prominently as accepting.</p>
+              <p className="mb-3">You can accept all, reject all non-essential technologies, or choose analytics, Preferred Sources and marketing separately. Rejecting is offered as prominently as accepting.</p>
               <p className="mb-3">Use the Cookie Settings link in the website footer at any time to change your choice. Withdrawing a previously granted category reloads the page so the related scripts are no longer present.</p>
               <p className="mb-3">You can control and delete cookies through your browser settings. Here are links to cookie management guides for common browsers:</p>
               <ul className="flex flex-col gap-2 pl-4">
@@ -117,7 +124,7 @@ export default function CookiePolicy() {
                 <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary transition-colors">Apple Safari</a></li>
                 <li><a href="https://support.microsoft.com/en-us/windows/manage-cookies-in-microsoft-edge" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-primary transition-colors">Microsoft Edge</a></li>
               </ul>
-              <p className="mt-3">Forms, phone links, email and WhatsApp continue to work when analytics and marketing are rejected.</p>
+              <p className="mt-3">Forms, phone links, email, WhatsApp and the user-initiated Google Source Preferences deeplink continue to work when analytics, Preferred Sources and marketing are rejected.</p>
             </div>
 
             <div>

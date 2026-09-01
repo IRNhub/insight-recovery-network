@@ -1,10 +1,15 @@
-export type ConsentCategory = "necessary" | "analytics" | "marketing";
+export type ConsentCategory =
+  | "necessary"
+  | "analytics"
+  | "preferredSources"
+  | "marketing";
 
 export interface ConsentPreferences {
   necessary: true;
   analytics: boolean;
+  preferredSources: boolean;
   marketing: boolean;
-  version: 1;
+  version: 2;
   updatedAt: string;
 }
 
@@ -16,7 +21,8 @@ declare global {
   }
 }
 
-const STORAGE_KEY = "irn_cookie_consent_v1";
+const STORAGE_KEY = "irn_cookie_consent_v2";
+const LEGACY_STORAGE_KEY = "irn_cookie_consent_v1";
 export const CONSENT_CHANGED_EVENT = "irn:consent-changed";
 const GTM_ID = "GTM-59F8HXNV";
 const META_PIXEL_ID = "984528117299181";
@@ -24,8 +30,9 @@ const META_PIXEL_ID = "984528117299181";
 const DEFAULT_CONSENT: ConsentPreferences = {
   necessary: true,
   analytics: false,
+  preferredSources: false,
   marketing: false,
-  version: 1,
+  version: 2,
   updatedAt: "",
 };
 
@@ -43,8 +50,9 @@ function storedPreferences(): ConsentPreferences | null {
     if (!value) return null;
     const parsed = JSON.parse(value) as Partial<ConsentPreferences>;
     if (
-      parsed.version !== 1 ||
+      parsed.version !== 2 ||
       typeof parsed.analytics !== "boolean" ||
+      typeof parsed.preferredSources !== "boolean" ||
       typeof parsed.marketing !== "boolean"
     ) {
       return null;
@@ -52,8 +60,9 @@ function storedPreferences(): ConsentPreferences | null {
     return {
       necessary: true,
       analytics: parsed.analytics,
+      preferredSources: parsed.preferredSources,
       marketing: parsed.marketing,
-      version: 1,
+      version: 2,
       updatedAt: typeof parsed.updatedAt === "string" ? parsed.updatedAt : "",
     };
   } catch {
@@ -160,19 +169,21 @@ export function initialiseConsent() {
 }
 
 export function saveConsentPreferences(
-  values: Pick<ConsentPreferences, "analytics" | "marketing">,
+  values: Pick<ConsentPreferences, "analytics" | "preferredSources" | "marketing">,
 ) {
   const previous = getConsentPreferences();
   const preferences: ConsentPreferences = {
     necessary: true,
     analytics: values.analytics,
+    preferredSources: values.preferredSources,
     marketing: values.marketing,
-    version: 1,
+    version: 2,
     updatedAt: new Date().toISOString(),
   };
 
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
+    window.localStorage.removeItem(LEGACY_STORAGE_KEY);
   } catch {
     // Consent remains effective for this page even if storage is unavailable.
   }
@@ -186,6 +197,7 @@ export function saveConsentPreferences(
     preferences,
     requiresReload:
       (previous.analytics && !preferences.analytics) ||
+      (previous.preferredSources && !preferences.preferredSources) ||
       (previous.marketing && !preferences.marketing),
   };
 }
