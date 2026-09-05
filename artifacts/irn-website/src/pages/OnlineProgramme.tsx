@@ -175,58 +175,26 @@ export default function OnlineProgramme() {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
-                  <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto">
+              <div className="flex flex-col flex-wrap sm:flex-row gap-3 pt-2">
+                <Button asChild size="lg" className="rounded-none h-auto min-h-12 md:min-h-14 px-5 md:px-7 text-sm md:text-base shadow-sm w-full sm:w-auto max-w-full whitespace-normal text-center">
+                  <Link data-primary-commercial-cta="true" href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                     {parity.primaryCta.label}
-                  </Button>
-                </Link>
-                <Link href="/assessments">
-                  <Button variant="outline" size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
-                    Take a free assessment
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-none h-auto min-h-12 md:min-h-14 px-5 md:px-7 text-sm md:text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto max-w-full whitespace-normal text-center">
+                  <a href="#programme-options">
+                    Compare support levels
+                  </a>
+                </Button>
               </div>
               <p className="text-[11.5px] text-muted-foreground/55 font-light tracking-wide">
                 Private, structured, non-judgemental support.
               </p>
-              <p className="text-[12px] text-muted-foreground/60 font-light leading-relaxed">
-                Not sure if this programme is right for you? Read the{" "}
-                <Link
-                  href="/resources/online-recovery-programmes"
-                  className="underline underline-offset-2 hover:text-primary transition-colors"
-                >
-                  evidence and safety guide to online addiction recovery
-                </Link>
-                {" "}or use our{" "}
-                <Link
-                  href="/assessments/alcohol-use"
-                  className="underline underline-offset-2 hover:text-primary transition-colors"
-                >
-                  Alcohol
-                </Link>
-                {", "}
-                <Link
-                  href="/assessments/drug-use"
-                  className="underline underline-offset-2 hover:text-primary transition-colors"
-                >
-                  drug use
-                </Link>
-                {", "}
-                <Link
-                  href="/assessments/anxiety"
-                  className="underline underline-offset-2 hover:text-primary transition-colors"
-                >
-                  anxiety
-                </Link>
-                {" and "}
-                <Link
-                  href="/assessments/depression"
-                  className="underline underline-offset-2 hover:text-primary transition-colors"
-                >
-                  depression
-                </Link>
-                {" assessments are available free and confidentially."}
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                We discuss programme suitability with you in a confidential consultation. You do not need to complete a self-assessment first. Read the{" "}
+                <Link href="/resources/online-recovery-programmes" className="underline underline-offset-4 hover:text-primary">
+                  evidence and safety guide to online recovery
+                </Link>.
               </p>
             </div>
 
@@ -386,7 +354,7 @@ export default function OnlineProgramme() {
       </section>
 
       {/* ── More than online counselling, split layout ── */}
-      <section className="py-7 md:py-10 bg-background">
+      <section id="programme-options" className="scroll-mt-28 py-7 md:py-10 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -536,13 +504,10 @@ export default function OnlineProgramme() {
                   data-source-page="online-programme"
                   data-service-interest="online-programme"
                   data-cta-location="essential_pricing_card"
-                >
-                  <button
-                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+                    className="block text-center w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
                   >
                     Book a confidential call
-                  </button>
                 </Link>
               </div>
             </div>
@@ -608,23 +573,20 @@ export default function OnlineProgramme() {
                   data-source-page="online-programme"
                   data-service-interest="online-programme"
                   data-cta-location="structured_pricing_card"
-                >
-                  <button
-                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none transition-all duration-200"
+                    className="block text-center w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none transition-all duration-200"
                     style={{
                       background: "rgba(201,169,110,0.15)",
                       border: "1px solid rgba(201,169,110,0.40)",
                       color: "rgba(201,169,110,0.90)",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,169,110,0.25)";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(201,169,110,0.25)";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.background = "rgba(201,169,110,0.15)";
+                      (e.currentTarget as HTMLAnchorElement).style.background = "rgba(201,169,110,0.15)";
                     }}
                   >
                     Book a confidential call
-                  </button>
                 </Link>
               </div>
             </div>
@@ -675,13 +637,10 @@ export default function OnlineProgramme() {
                   data-source-page="online-programme"
                   data-service-interest="online-programme"
                   data-cta-location="enhanced_pricing_card"
-                >
-                  <button
-                    className="w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
+                    className="block text-center w-full text-[13px] font-medium tracking-wide py-3 px-5 rounded-none border transition-all duration-200 hover:bg-primary hover:text-white hover:border-primary"
                     style={{ border: "1px solid rgba(22,43,59,0.25)", color: "rgba(22,43,59,0.80)" }}
                   >
                     Book a confidential call
-                  </button>
                 </Link>
               </div>
             </div>
@@ -702,6 +661,21 @@ export default function OnlineProgramme() {
         </div>
       </section>
 
+      <section className="border-t border-border/40 bg-secondary/20 py-10">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl border-l-2 border-accent pl-6">
+            <h2 className="font-serif text-2xl text-primary">Optional self-checks</h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Our free <Link href="/assessments/alcohol-use" className="underline underline-offset-4">alcohol use</Link>,{" "}
+              <Link href="/assessments/drug-use" className="underline underline-offset-4">drug use</Link>,{" "}
+              <Link href="/assessments/anxiety" className="underline underline-offset-4">anxiety</Link> and{" "}
+              <Link href="/assessments/depression" className="underline underline-offset-4">depression</Link> self-checks
+              can help you reflect on your concerns. They do not diagnose a condition or determine whether the online programme is suitable. Programme suitability is discussed with a practitioner.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <RelatedServiceLinks
         links={[
           { title: "Private Rehab Alternative UK", description: "Compare online support with residential and community options.", href: "/private-rehab-alternative-uk" },
@@ -719,7 +693,7 @@ export default function OnlineProgramme() {
         heading="Ready to build recovery with structure?"
         description="Start with a confidential consultation. We will help you understand whether the online programme is the right level of support for your situation."
         primaryCta={{ label: "Book a confidential programme consultation", href: "/get-help" }}
-        secondaryCta={{ label: "Take a free assessment", href: "/assessments" }}
+        secondaryCta={{ label: "Read the programme safety guide", href: "/resources/online-recovery-programmes" }}
         primaryEvent="online_programme_enquiry"
         sourcePage="online-programme"
         serviceInterest="online-programme"

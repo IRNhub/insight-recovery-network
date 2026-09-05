@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/ui/cta-section";
 import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
+import { RelatedGuideCard } from "@/components/ui/related-guide-card";
 import { RouteSchemas } from "@/components/RouteSchemas";
 import { getRouteParity } from "@/data/route-parity";
 import familyImage from "@/assets/wwo-family-intervention.webp";
@@ -125,18 +126,18 @@ export default function FamilyInterventionUK() {
               Speak confidentially with Craig Bilton about risk, boundaries, how to approach the conversation and which treatment options should be ready if the person agrees.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
-                <Button className="h-12 w-full rounded-none px-7 sm:w-auto">
+              <Button asChild className="h-12 w-full rounded-none px-7 sm:w-auto">
+                  <Link data-primary-commercial-cta="true" href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                   {parity.primaryCta.label}
                   <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
                 </Button>
-              </Link>
-              <a href="tel:+447415994475">
-                <Button variant="outline" className="h-12 w-full rounded-none border-primary/25 px-7 sm:w-auto">
+              <Button asChild variant="outline" className="h-12 w-full rounded-none border-primary/25 px-7 sm:w-auto">
+                  <a href="tel:+447415994475">
                   <Phone className="mr-2 h-4 w-4" />
                   Call +44 7415 994475
+                </a>
                 </Button>
-              </a>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
               Private · No obligation · You can call without your loved one being present
@@ -188,8 +189,22 @@ export default function FamilyInterventionUK() {
               <p className="mt-5 leading-relaxed text-muted-foreground">
                 Families often call while still questioning themselves. If the situation is affecting safety, trust, finances, children, work or the family’s ability to function, it is reasonable to ask for guidance.
               </p>
+              <figure className="mt-7 overflow-hidden rounded-xl bg-secondary/30">
+                <ResponsiveImage
+                  src="/support-for-family-affected-by-addiction.webp"
+                  alt="A woman speaking privately by video from home"
+                  width={1600}
+                  height={900}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 480px, calc(100vw - 48px)"
+                  className="aspect-video w-full object-cover"
+                />
+                <figcaption className="px-5 py-4 text-sm leading-relaxed text-primary">
+                  Support for you, even before your loved one is ready for treatment.
+                </figcaption>
+              </figure>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+            <div className="grid content-center gap-4 sm:grid-cols-2 lg:col-span-7">
               {signs.map((sign) => (
                 <div key={sign} className="flex gap-3 border border-border/40 bg-white p-5">
                   <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
@@ -205,7 +220,8 @@ export default function FamilyInterventionUK() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="mx-auto mb-10 max-w-2xl text-center">
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">The consultation process</p>
-            <h2 className="font-serif text-3xl text-primary md:text-4xl">From fear and disagreement to one practical plan</h2>
+            <h2 className="font-serif text-3xl text-primary md:text-4xl">What we help families do</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">A shared plan for safer conversations, realistic boundaries and the next step.</p>
           </div>
           <div className="grid gap-4 md:grid-cols-5">
             {process.map((step, index) => (
@@ -249,25 +265,24 @@ export default function FamilyInterventionUK() {
 
       <section className="bg-secondary/20 py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
+          <h2 className="mb-8 font-serif text-3xl text-primary md:text-4xl">Practical guidance for what comes next</h2>
           <div className="grid gap-8 lg:grid-cols-2">
-            <div className="border border-border/40 bg-white p-7 md:p-9">
-              <h2 className="font-serif text-2xl text-primary">If treatment may be needed</h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                We can help you think through private detox, residential rehab, dual-diagnosis needs, online support and aftercare before the family commits financially.
-              </p>
-              <Link href="/treatment-placement" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:text-accent">
-                Explore treatment placement <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="border border-border/40 bg-white p-7 md:p-9">
-              <h2 className="font-serif text-2xl text-primary">If they are not ready</h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                The family can still change how it responds. A clear plan, consistent boundaries and appropriate support can reduce chaos even when the person continues to deny the problem.
-              </p>
-              <Link href="/resources/what-to-do-when-someone-refuses-treatment" className="mt-6 inline-flex items-center text-sm font-semibold text-primary hover:text-accent">
-                Read what to do when help is refused <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
+            <RelatedGuideCard
+              title="If treatment may be needed"
+              description="We can help you think through private detox, residential rehab, dual-diagnosis needs, online support and aftercare before the family commits financially."
+              href="/treatment-placement"
+              image="/treatment-placement-navigation-hero.webp"
+              imageAlt="A person considering two paths along the coast"
+              label="Explore treatment placement"
+              sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+            />
+            <RelatedGuideCard
+              title="If they are not ready"
+              description="The family can still change how it responds. A clear plan, consistent boundaries and appropriate support can reduce chaos even when the person continues to deny the problem."
+              href="/resources/what-to-do-when-someone-refuses-treatment"
+              label="Read what to do when help is refused"
+              sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+            />
           </div>
         </div>
       </section>

@@ -7,6 +7,7 @@ import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
+import { RelatedGuideCard } from "@/components/ui/related-guide-card";
 import { CTASection } from "@/components/ui/cta-section";
 import { RouteSchemas } from "@/components/RouteSchemas";
 import { getRouteParity } from "@/data/route-parity";
@@ -263,7 +264,7 @@ export default function RehabCostUK() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href={parity.primaryCta.href}
+                  data-primary-commercial-cta="true" href={parity.primaryCta.href}
                   data-analytics-event={parity.primaryCta.analyticsEvent}
                   data-source-page={parity.primaryCta.sourcePage}
                   data-service-interest={parity.primaryCta.serviceInterest}
@@ -309,9 +310,9 @@ export default function RehabCostUK() {
         updated="28 August 2026"
       />
 
-      <section className="py-12 md:py-18 border-b border-border/40">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-3xl space-y-5 text-muted-foreground leading-relaxed">
+      <section className="py-12 md:py-20 border-b border-border/40">
+        <div className="container mx-auto grid items-center gap-8 px-6 md:px-12 lg:grid-cols-2 lg:gap-14">
+          <div className="space-y-5 text-muted-foreground leading-relaxed">
             <h2 className="font-serif text-3xl md:text-4xl font-medium leading-tight text-primary">
               Families often search for rehab costs under pressure.
             </h2>
@@ -337,6 +338,23 @@ export default function RehabCostUK() {
               .
             </p>
           </div>
+          <figure className="overflow-hidden rounded-xl bg-primary text-primary-foreground shadow-sm">
+            <ResponsiveImage
+              src="/family-addiction-safety-boundaries-plan.webp"
+              alt="Three adults having a calm discussion around a table"
+              width={1600}
+              height={900}
+              loading="lazy"
+              sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+              className="aspect-video w-full object-cover"
+            />
+            <figcaption className="p-6 md:p-7">
+              <p className="font-serif text-2xl">Compare the complete cost of care.</p>
+              <p className="mt-3 text-sm leading-relaxed text-primary-foreground/85">
+                Ask for a written breakdown of assessment, detox where needed, the treatment stay and aftercare. A clear plan makes the options easier to compare.
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -606,6 +624,32 @@ export default function RehabCostUK() {
                 <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border/40 bg-secondary/20 py-12 md:py-20" aria-labelledby="cost-decision-guides">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-8 max-w-2xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Before you commit</p>
+            <h2 id="cost-decision-guides" className="font-serif text-3xl text-primary md:text-4xl">Look beyond the headline price.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RelatedGuideCard
+              href="/resources/how-to-choose-private-rehab-centre-uk"
+              title="How to choose a private rehab"
+              description="Check clinical capability, regulation, inclusions and aftercare before making a commitment."
+            />
+            <RelatedGuideCard
+              href="/resources/28-day-vs-90-day-rehab"
+              title="28 days or a longer stay?"
+              description="Understand how treatment length, progress reviews and continuing care affect the decision."
+            />
+            <RelatedGuideCard
+              href="/resources/private-rehab-vs-nhs-addiction-treatment"
+              title="Private rehab and NHS treatment"
+              description="Compare access, funding and support, with a clearer view of what each route involves."
+            />
           </div>
         </div>
       </section>
