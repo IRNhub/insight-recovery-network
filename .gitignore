@@ -47,3 +47,7 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Reproducible responsive artwork generated before dev, build and typecheck
+artifacts/irn-website/public/responsive/
+artifacts/irn-website/src/data/responsive-images.generated.ts

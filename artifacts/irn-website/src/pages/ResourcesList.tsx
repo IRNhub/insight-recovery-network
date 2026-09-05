@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { SEO } from "@/components/SEO";
@@ -134,7 +135,7 @@ export default function ResourcesList() {
                     "0 12px 40px -8px rgba(22,43,59,0.20), 0 0 0 1px rgba(22,43,59,0.06)",
                 }}
               >
-                <img
+                <ResponsiveImage
                   src={resourcesHero}
                   alt="Clinical resource library, laptop showing the Insight Recovery Network resources page on a desk with clinical books and a notebook"
                   className="absolute inset-0 w-full h-full object-cover"

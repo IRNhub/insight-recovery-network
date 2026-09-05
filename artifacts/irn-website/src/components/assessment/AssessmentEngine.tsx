@@ -1,14 +1,14 @@
-import { useRef, useState } from "react";
-import { Shield, ChevronRight, ChevronLeft, Clock } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Shield, ChevronRight, ChevronLeft, Clock, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import type { AssessmentConfig, AssessmentAnswers, ScoreResult } from "@/types/assessment";
-import { scoreAssessment } from "@/lib/assessment-scorer";
+import type { PublicAssessmentConfig, AssessmentAnswers } from "@/types/assessment";
+import { pruneHiddenAnswers, visibleAssessmentSections } from "@/lib/assessment-branching";
 
 interface AssessmentEngineProps {
-  config: AssessmentConfig;
-  onComplete: (answers: AssessmentAnswers, result: ScoreResult, consent: boolean) => Promise<void>;
+  config: PublicAssessmentConfig;
+  onComplete: (answers: AssessmentAnswers, consent: boolean) => Promise<void>;
   isSubmitting: boolean;
 }
 
@@ -19,15 +19,48 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
   const [errors, setErrors] = useState<Record<string, string>>({});
   const isCompleting = useRef(false);
 
-  const section = config.sections[currentSection];
-  const totalSections = config.sections.length;
+  const visibleSections = visibleAssessmentSections(config, answers);
+  const section = visibleSections[currentSection] ?? visibleSections[0];
+  const totalSections = visibleSections.length;
   const progressPct = Math.round(((currentSection) / totalSections) * 100);
   const isLastSection = currentSection === totalSections - 1;
+  const requiresLegacyConsent = config.sections.some((candidate) => candidate.id === "contact-consent");
+  const eligibilityAnswer = config.eligibility
+    ? answers[config.eligibility.questionId]
+    : undefined;
+  const eligibilityBlocked = Boolean(
+    config.eligibility
+    && typeof eligibilityAnswer === "string"
+    && !config.eligibility.allowedValues.includes(eligibilityAnswer),
+  );
+
+  useEffect(() => {
+    if (currentSection >= totalSections) setCurrentSection(Math.max(0, totalSections - 1));
+  }, [currentSection, totalSections]);
 
   function setAnswer(questionId: string, value: string) {
-    setAnswers((prev) => ({ ...prev, [questionId]: value }));
+    setAnswers((prev) => pruneHiddenAnswers(config, { ...prev, [questionId]: value }));
     setErrors((prev) => {
       const next = { ...prev };
+      delete next[questionId];
+      return next;
+    });
+  }
+
+  function toggleAnswer(questionId: string, value: string) {
+    setAnswers((previous) => {
+      const current = previous[questionId];
+      const values = Array.isArray(current) ? current : [];
+      const nextValues = values.includes(value)
+        ? values.filter((candidate) => candidate !== value)
+        : [...values, value];
+      const next = { ...previous };
+      if (nextValues.length > 0) next[questionId] = nextValues;
+      else delete next[questionId];
+      return pruneHiddenAnswers(config, next);
+    });
+    setErrors((previous) => {
+      const next = { ...previous };
       delete next[questionId];
       return next;
     });
@@ -47,7 +80,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
         }
       }
     }
-    if (isLastSection && !consent) {
+    if (isLastSection && requiresLegacyConsent && !consent) {
       newErrors["_consent"] = "You must consent to continue.";
     }
     setErrors(newErrors);
@@ -56,12 +89,17 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
   async function handleNext() {
     if (!validateSection()) return;
+    if (eligibilityBlocked) return;
     if (isLastSection) {
       if (isCompleting.current) return;
       isCompleting.current = true;
-      const result = scoreAssessment(config, answers);
       try {
-        await onComplete(answers, result, consent);
+        await onComplete(answers, requiresLegacyConsent ? consent : false);
+      } catch {
+        setErrors((current) => ({
+          ...current,
+          _submit: "We could not save your assessment result. Your answers remain on this page, so please try again.",
+        }));
       } finally {
         isCompleting.current = false;
       }
@@ -119,7 +157,7 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
           <h2 className="text-2xl md:text-3xl font-serif text-primary leading-snug mb-3">
             {section.id === "contact-consent"
               ? "Where should we send your results?"
-              : "Please answer honestly, your responses are completely confidential."}
+              : "Please answer as accurately as you can. Your responses are handled securely."}
           </h2>
           {section.description && (
             <p className="text-muted-foreground font-light leading-relaxed">
@@ -161,18 +199,51 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
                           aria-checked={selected}
                           onClick={() => setAnswer(question.id, option.value)}
                           className={cn(
-                            "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
+                            "w-full cursor-pointer text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:border-border/40 disabled:bg-muted/50 disabled:text-muted-foreground disabled:opacity-70",
                             selected
                               ? "border-primary bg-primary text-primary-foreground"
                               : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30"
                           )}
                         >
                           <span className={cn(
-                            "inline-block w-4 h-4 rounded-full border-2 mr-3 flex-shrink-0 align-middle",
+                            "inline-flex w-4 h-4 rounded-full border-2 mr-3 flex-shrink-0 align-middle items-center justify-center",
                             selected
-                              ? "border-primary-foreground bg-primary-foreground/20"
-                              : "border-muted-foreground/40"
-                          )} />
+                              ? "border-primary-foreground bg-primary-foreground"
+                              : "border-primary/45 bg-white"
+                          )} aria-hidden="true">
+                            {selected && <span className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                          </span>
+                          {option.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {question.type === "checkbox" && question.options && (
+                  <div className="flex flex-col gap-2.5" role="group" aria-label={question.text} aria-describedby={error ? `${question.id}-error` : undefined}>
+                    {question.options.map((option) => {
+                      const selected = Array.isArray(answers[question.id]) && answers[question.id].includes(option.value);
+                      return (
+                        <button
+                          key={option.value}
+                          type="button"
+                          role="checkbox"
+                          aria-checked={selected}
+                          onClick={() => toggleAnswer(question.id, option.value)}
+                          className={cn(
+                            "w-full text-left px-5 py-4 border transition-all duration-150 text-sm font-light leading-relaxed",
+                            selected
+                              ? "border-primary bg-primary text-primary-foreground"
+                              : "border-border/60 bg-white text-foreground hover:border-primary/40 hover:bg-secondary/30",
+                          )}
+                        >
+                          <span className={cn(
+                            "inline-flex w-4 h-4 border-2 mr-3 flex-shrink-0 align-middle items-center justify-center",
+                            selected ? "border-primary-foreground" : "border-muted-foreground/40",
+                          )}>
+                            {selected ? "✓" : ""}
+                          </span>
                           {option.label}
                         </button>
                       );
@@ -207,8 +278,30 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
             );
           })}
 
+          {eligibilityBlocked && config.eligibility && (
+            <section className="border border-amber-300 bg-amber-50 p-5" role="status" aria-live="polite">
+              <h3 className="font-serif text-xl text-primary">{config.eligibility.ineligibleHeading}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{config.eligibility.ineligibleBody}</p>
+              <div className="mt-4 flex flex-col gap-3">
+                {config.eligibility.pathways.map((pathway) => (
+                  <a
+                    key={pathway.destination}
+                    href={pathway.destination}
+                    className="flex items-start justify-between gap-3 border border-amber-300 bg-white p-4 text-sm hover:border-primary/50"
+                  >
+                    <span>
+                      <strong className="block text-primary">{pathway.label}</strong>
+                      <span className="mt-1 block text-muted-foreground">{pathway.description}</span>
+                    </span>
+                    <ExternalLink className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Consent (last section only) */}
-          {isLastSection && (
+          {isLastSection && requiresLegacyConsent && (
             <div>
               <button
                 type="button"
@@ -250,6 +343,12 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
               )}
             </div>
           )}
+
+          {errors["_submit"] && (
+            <p role="alert" className="border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+              {errors["_submit"]}
+            </p>
+          )}
         </div>
 
         {/* Navigation */}
@@ -266,12 +365,12 @@ export function AssessmentEngine({ config, onComplete, isSubmitting }: Assessmen
 
           <div className="flex items-center gap-2">
             <Shield className="w-3.5 h-3.5 text-accent" />
-            <span className="text-xs text-muted-foreground font-light">Confidential</span>
+            <span className="text-xs text-muted-foreground font-light">Handled securely</span>
           </div>
 
           <Button
             onClick={handleNext}
-            disabled={isSubmitting || isCompleting.current}
+            disabled={isSubmitting || isCompleting.current || eligibilityBlocked}
             className="flex items-center gap-2 rounded-none h-11 px-7"
           >
             {isSubmitting

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { RouteSchemas } from "@/components/RouteSchemas";
@@ -244,7 +245,7 @@ export default function TreatmentPlacement() {
                     border: "1px solid rgba(201,169,110,0.22)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src="/treatment-placement-navigation-hero.webp"
                   alt="Adult standing where two coastal footpaths divide."
                   width={1600}

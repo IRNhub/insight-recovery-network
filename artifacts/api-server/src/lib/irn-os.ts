@@ -30,7 +30,7 @@ export interface IrnOsAssessmentPayload {
   email: string;
   phone?: string;
   type: string;
-  scoreValue: number;
+  scoreValue?: number;
   scoreLevel: string;
   bandName: string;
   redFlags: string[];
@@ -50,16 +50,19 @@ export interface IrnOsForwardResult {
 }
 
 interface IrnOsResponse {
+  success?: unknown;
   error?: unknown;
   duplicate?: unknown;
   leadId?: unknown;
   existingId?: unknown;
+  enquiryAttached?: unknown;
+  enquiryId?: unknown;
 }
 
 function assessmentMessage(payload: IrnOsAssessmentPayload): string {
   return [
     `Website assessment completed: ${payload.type}`,
-    `Result: ${payload.bandName} (${payload.scoreValue})`,
+    `Result: ${payload.bandName}${payload.scoreValue === undefined ? "" : ` (${payload.scoreValue})`}`,
     `Score level: ${payload.scoreLevel}`,
     `Red flags: ${payload.redFlags.join(", ") || "None"}`,
     `Advisories: ${payload.advisories.join(", ") || "None"}`,
@@ -94,8 +97,10 @@ export function buildAssessmentLeadPayload(payload: IrnOsAssessmentPayload): Rec
     message: assessmentMessage(payload),
     assessment_type: payload.type,
     assessmentType: payload.type,
-    score_value: payload.scoreValue,
-    scoreValue: payload.scoreValue,
+    ...(payload.scoreValue === undefined ? {} : {
+      score_value: payload.scoreValue,
+      scoreValue: payload.scoreValue,
+    }),
     score_level: payload.scoreLevel,
     scoreLevel: payload.scoreLevel,
     score_label: payload.bandName,
@@ -141,7 +146,7 @@ async function forwardToIrnOs(
     const data = (await response.json().catch(() => null)) as IrnOsResponse | null;
 
     if (!response.ok) {
-      const error = typeof data?.error === "string" ? data.error : `IRN OS returned ${response.status}`;
+      const error = `IRN OS returned ${response.status}`;
       logger.warn({ error, status: response.status, sourceId }, "IRN OS lead forwarding failed");
       return { forwarded: false, error };
     }
@@ -152,6 +157,12 @@ async function forwardToIrnOs(
         ? data.existingId
         : undefined;
 
+    if (!leadId || (sourceId.startsWith('website-enquiry-') && data?.success !== true)) return { forwarded: false, error: "invalid_response" };
+    if (sourceId.startsWith('website-enquiry-') && data?.duplicate === true &&
+      (data.enquiryAttached !== true || String(data.enquiryId) !== sourceId.slice('website-enquiry-'.length))) {
+      return { forwarded: false, error: 'enquiry_receipt_unconfirmed' };
+    }
+
     return {
       forwarded: true,
       duplicate: Boolean(data?.duplicate),
@@ -160,9 +171,7 @@ async function forwardToIrnOs(
   } catch (err: unknown) {
     const error = err instanceof Error && err.name === "AbortError"
       ? "IRN OS forwarding timed out"
-      : err instanceof Error
-        ? err.message
-        : "Unknown IRN OS forwarding error";
+      : "IRN OS forwarding unavailable";
     logger.warn({ error, sourceId }, "IRN OS lead forwarding failed");
     return { forwarded: false, error };
   } finally {

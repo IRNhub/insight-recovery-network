@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { ArrowRight, Check, Globe2, ShieldCheck, Stethoscope } from "lucide-react";
@@ -157,7 +158,7 @@ export default function PremiumTreatmentPage({ slug }: { slug: string }) {
             <figure className="relative lg:col-span-6">
               <div className="absolute -inset-3 rounded-2xl border border-accent/20 bg-accent/10" />
               <div className="relative aspect-square overflow-hidden rounded-xl shadow-2xl">
-                <img
+                <ResponsiveImage
                   src={page.heroImage}
                   alt={page.heroAlt}
                   width={1600}

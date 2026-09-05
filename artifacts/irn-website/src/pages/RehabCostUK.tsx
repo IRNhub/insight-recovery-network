@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
@@ -286,7 +287,7 @@ export default function RehabCostUK() {
             </div>
 
             <div>
-              <img
+              <ResponsiveImage
                 src={HERO_IMAGE_PATH}
                 alt="Adult comparing unbranded rehabilitation information beside a calculator and laptop."
                 width={1600}

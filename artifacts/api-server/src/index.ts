@@ -3,6 +3,11 @@ import { logger } from "./lib/logger";
 import { seedArticlesIfEmpty } from "./lib/seed-articles";
 import { seedFamilySurvey } from "./lib/seed-family-survey";
 import { startSurveySyncWorker } from "./lib/irn-os-survey-sync";
+import { startAssessmentDeliveryWorker } from "./assessment-engine/assessment-delivery-worker";
+import { startAssessmentRetentionWorker } from "./assessment-engine/assessment-retention-worker";
+import { startAssessmentRateLimitCleanupWorker } from "./assessment-engine/assessment-rate-limit-worker";
+
+import { startEnquiryDeliveryWorker, assertEnquiryStorageReady } from "./lib/enquiry-worker";
 
 const rawPort = process.env["PORT"];
 
@@ -18,6 +23,7 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
+await assertEnquiryStorageReady();
 app.listen(port, (err) => {
   if (err) {
     logger.error({ err }, "Error listening on port");
@@ -35,4 +41,9 @@ app.listen(port, (err) => {
   seedFamilySurvey()
     .catch((err) => logger.error({ err }, "Unexpected error in seedFamilySurvey"))
     .finally(() => startSurveySyncWorker());
+
+  startEnquiryDeliveryWorker();
+  startAssessmentDeliveryWorker();
+  startAssessmentRetentionWorker();
+  startAssessmentRateLimitCleanupWorker();
 });

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Briefcase, Check, LockKeyhole, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
@@ -96,7 +97,7 @@ export default function ProfessionalAddictionSupport() {
             </div>
           </div>
           <div className="relative lg:col-span-6">
-            <img
+            <ResponsiveImage
               src={professionalImage}
               alt="A professional arranging confidential addiction treatment support"
               className="aspect-[5/4] w-full rounded-xl object-cover shadow-2xl"

@@ -52,7 +52,7 @@ export default function CookiePolicy() {
               <h2 className="font-serif text-xl font-medium text-primary mb-3">2. Cookies we use</h2>
               <p className="mb-4">Necessary storage is used without optional consent. Google and Meta technologies remain blocked unless you actively accept the relevant category. If optional Google services are not enabled, the Preferred Sources call to action uses Google&apos;s documented deeplink and does not load Google code until you choose to open it.</p>
 
-              <div className="border rounded" style={{ borderColor: "rgba(201,169,110,0.25)" }}>
+              <div className="overflow-x-auto border rounded" style={{ borderColor: "rgba(201,169,110,0.25)" }}>
                 <table className="w-full text-xs">
                   <thead>
                     <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.25)", background: "rgba(201,169,110,0.06)" }}>
@@ -74,6 +74,12 @@ export default function CookiePolicy() {
                       <td className="px-4 py-3">Necessary local storage</td>
                       <td className="px-4 py-3">Stores analytics, Preferred Sources and marketing choices so they are respected on later visits.</td>
                       <td className="px-4 py-3">Until cleared or replaced</td>
+                    </tr>
+                    <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
+                      <td className="px-4 py-3 font-mono text-foreground/60">irn_assessment_result</td>
+                      <td className="px-4 py-3">Necessary HTTP-only cookie</td>
+                      <td className="px-4 py-3">Contains a random result-access token so the assessment result can be retrieved. It does not contain answers or result content and is scoped to assessment API requests.</td>
+                      <td className="px-4 py-3">Up to 30 days</td>
                     </tr>
                     <tr className="border-b" style={{ borderColor: "rgba(201,169,110,0.15)" }}>
                       <td className="px-4 py-3 font-mono text-foreground/60">Google Analytics / GTM</td>
@@ -110,6 +116,7 @@ export default function CookiePolicy() {
                 <li><strong className="font-medium text-foreground/70">Preferred Sources:</strong> Google&apos;s optional publisher control. This is a functional third-party feature, not analytics, and is off by default.</li>
                 <li><strong className="font-medium text-foreground/70">Marketing:</strong> Meta Pixel and any advertising tags configured in GTM. Off by default.</li>
                 <li>Names, contact details, messages, assessment answers and clinical information are not included in analytics events.</li>
+                <li>Google and Meta scripts are excluded from assessment, result and assessment-linked help journeys even where optional consent was previously granted.</li>
               </ul>
             </div>
 

@@ -1,0 +1,4446 @@
+{
+  "title": "IRN Assessment Platform Phase C Clinical Director Fixture Pack",
+  "generatedAt": "2026-08-30",
+  "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+  "clinicalDirectorApprovalDate": "2026-08-30",
+  "fixtures": [
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-minimal",
+      "assessmentKey": "anxiety",
+      "profile": "Minimal symptoms",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "not-at-all",
+        "gad7-2": "not-at-all",
+        "gad7-3": "not-at-all",
+        "gad7-4": "not-at-all",
+        "gad7-5": "not-at-all",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 0,
+        "maximumScore": 21,
+        "band": "Minimal anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 0,
+          "maximumScore": 21,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety symptom burden as a prominent part of this profile.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "Minimal anxiety",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ]
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-moderate-persistent",
+      "assessmentKey": "anxiety",
+      "profile": "Moderate persistent symptoms",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "more-than-half",
+        "gad7-2": "more-than-half",
+        "gad7-3": "more-than-half",
+        "gad7-4": "more-than-half",
+        "gad7-5": "more-than-half",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "over-six-months",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "not-helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 10,
+        "maximumScore": 21,
+        "band": "Moderate anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 10,
+          "maximumScore": 21,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "gad7-1",
+            "gad7-2",
+            "gad7-3",
+            "gad7-4",
+            "gad7-5"
+          ],
+          "summary": "Anxiety symptoms are prominent in the GAD-7 response pattern.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 5,
+          "maximumScore": 5,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "anxiety-duration",
+            "anxiety-coping"
+          ],
+          "summary": "The pattern appears persistent despite limited benefit from current coping attempts.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "anxiety.persistent-coping.v2",
+          "title": "Anxiety symptom burden and Persistence and coping attempts",
+          "statement": "The anxiety pattern appears persistent, while current coping strategies are providing limited relief.",
+          "whyItMatters": "Persistent symptoms despite coping attempts can justify reviewing whether more structured support would be useful.",
+          "evidenceDomainIds": [
+            "anxiety-symptoms",
+            "persistence-coping"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 10,
+        "band": "Moderate anxiety",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "anxiety.persistent-coping.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-severe-functional",
+      "assessmentKey": "anxiety",
+      "profile": "Severe symptoms with functional impairment",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "nearly-every-day",
+        "gad7-2": "nearly-every-day",
+        "gad7-3": "nearly-every-day",
+        "gad7-4": "nearly-every-day",
+        "gad7-5": "nearly-every-day",
+        "gad7-6": "nearly-every-day",
+        "gad7-7": "nearly-every-day",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "severe",
+        "anxiety-work-study": "most-or-all",
+        "anxiety-social": "most-or-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 21,
+        "maximumScore": 21,
+        "band": "Severe anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 21,
+          "maximumScore": 21,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "gad7-1",
+            "gad7-2",
+            "gad7-3",
+            "gad7-4",
+            "gad7-5",
+            "gad7-6",
+            "gad7-7"
+          ],
+          "summary": "Anxiety symptoms are prominent in the GAD-7 response pattern.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 9,
+          "maximumScore": 12,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "anxiety-functioning",
+            "anxiety-work-study",
+            "anxiety-social"
+          ],
+          "summary": "Avoidance and effects on daily functioning stand out.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "anxiety.avoidance-functioning.v2",
+          "title": "Anxiety symptom burden and Avoidance and functioning",
+          "statement": "Your responses suggest that avoidance may be reinforcing the anxiety. Situations that feel difficult are increasingly being avoided, and this appears to be affecting day-to-day functioning.",
+          "whyItMatters": "Understanding this interaction can help a professional choose support that addresses both symptoms and the cycle of avoidance.",
+          "evidenceDomainIds": [
+            "anxiety-symptoms",
+            "avoidance-functioning"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 21,
+        "band": "Severe anxiety",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "anxiety.avoidance-functioning.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-avoidance",
+      "assessmentKey": "anxiety",
+      "profile": "Anxiety plus avoidance",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "more-than-half",
+        "gad7-2": "more-than-half",
+        "gad7-3": "more-than-half",
+        "gad7-4": "more-than-half",
+        "gad7-5": "more-than-half",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "major",
+        "anxiety-functioning": "moderate",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 10,
+        "maximumScore": 21,
+        "band": "Moderate anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 10,
+          "maximumScore": 21,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "gad7-1",
+            "gad7-2",
+            "gad7-3",
+            "gad7-4",
+            "gad7-5"
+          ],
+          "summary": "Anxiety symptoms are prominent in the GAD-7 response pattern.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 5,
+          "maximumScore": 12,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "anxiety-avoidance",
+            "anxiety-functioning"
+          ],
+          "summary": "Avoidance and effects on daily functioning stand out.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "anxiety.avoidance-functioning.v2",
+          "title": "Anxiety symptom burden and Avoidance and functioning",
+          "statement": "Your responses suggest that avoidance may be reinforcing the anxiety. Situations that feel difficult are increasingly being avoided, and this appears to be affecting day-to-day functioning.",
+          "whyItMatters": "Understanding this interaction can help a professional choose support that addresses both symptoms and the cycle of avoidance.",
+          "evidenceDomainIds": [
+            "anxiety-symptoms",
+            "avoidance-functioning"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 10,
+        "band": "Moderate anxiety",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "anxiety.avoidance-functioning.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-substance-coping",
+      "assessmentKey": "anxiety",
+      "profile": "Anxiety plus substance coping",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "more-than-half",
+        "gad7-2": "more-than-half",
+        "gad7-3": "more-than-half",
+        "gad7-4": "more-than-half",
+        "gad7-5": "more-than-half",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "often",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 10,
+        "maximumScore": 21,
+        "band": "Moderate anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 10,
+          "maximumScore": 21,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "gad7-1",
+            "gad7-2",
+            "gad7-3",
+            "gad7-4",
+            "gad7-5"
+          ],
+          "summary": "Anxiety symptoms are prominent in the GAD-7 response pattern.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 2,
+          "maximumScore": 3,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "anxiety-substance-coping"
+          ],
+          "summary": "Alcohol, medication or other drug use appears relevant as a coping strategy.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "anxiety.substance-coping.v2",
+          "title": "Anxiety symptom burden and Substance use as coping",
+          "statement": "Anxiety symptoms appear alongside using alcohol, medication or other drugs to cope.",
+          "whyItMatters": "Both needs should be considered separately because short-term relief can obscure or reinforce a more complex pattern.",
+          "evidenceDomainIds": [
+            "anxiety-symptoms",
+            "substance-overlap"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "nhs-substance-service",
+          "category": "nhs-specialist",
+          "label": "Discuss alcohol or drug coping with an appropriate service",
+          "description": "Substance use as a coping strategy deserves its own confidential assessment and should not be folded into a mental-health screening score.",
+          "destination": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/",
+          "commercial": false,
+          "priority": 98
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 97
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 10,
+        "band": "Moderate anxiety",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "anxiety.substance-coping.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-mild-passing-thoughts",
+      "assessmentKey": "anxiety",
+      "profile": "Mild symptoms plus current passing self-harm thoughts",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "several-days",
+        "gad7-2": "several-days",
+        "gad7-3": "several-days",
+        "gad7-4": "several-days",
+        "gad7-5": "several-days",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "passing-current"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 5,
+        "maximumScore": 21,
+        "band": "Mild anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 5,
+          "maximumScore": 21,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "gad7-1",
+            "gad7-2",
+            "gad7-3",
+            "gad7-4",
+            "gad7-5"
+          ],
+          "summary": "Anxiety symptom burden is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.passing-current.anxiety.v2",
+          "version": 2,
+          "action": "clinical-review-recommended",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-current-review",
+          "pathwayIds": [
+            "gp-review",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "clinical-review-recommended",
+      "deterministicFindings": [
+        {
+          "id": "domain.anxiety-symptoms",
+          "title": "Anxiety symptom burden",
+          "statement": "Anxiety symptom burden is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety.",
+          "evidenceDomainIds": [
+            "anxiety-symptoms"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-current-review",
+          "heading": "Please arrange prompt mental-health support",
+          "body": "You reported current passing thoughts of self-harm or suicide. This assessment cannot determine or predict risk. A qualified professional should discuss these thoughts with you promptly and help you decide what support is needed.",
+          "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health service. You can also call Samaritans on 116 123.",
+          "emergencyText": "If the thoughts become more frequent, you are concerned about staying safe, or there is immediate danger, call 999 or go to A&E."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 5,
+        "band": "Mild anxiety",
+        "safetyAction": "clinical-review-recommended",
+        "requiredContentIds": [
+          "mental-health-current-review"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-recurring-thoughts",
+      "assessmentKey": "anxiety",
+      "profile": "Recurring or increasing self-harm thoughts",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "not-at-all",
+        "gad7-2": "not-at-all",
+        "gad7-3": "not-at-all",
+        "gad7-4": "not-at-all",
+        "gad7-5": "not-at-all",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "recurring-increasing"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 0,
+        "maximumScore": 21,
+        "band": "Minimal anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 0,
+          "maximumScore": 21,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety symptom burden as a prominent part of this profile.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.recurring-increasing.anxiety.v2",
+          "version": 2,
+          "action": "urgent-same-day-assessment",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-urgent",
+          "pathwayIds": [
+            "urgent-mental-health",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "urgent-same-day-assessment",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "urgent-mental-health",
+          "category": "urgent-medical",
+          "label": "Seek urgent mental-health support today",
+          "description": "Contact NHS 111 and select the mental-health option, your GP, or an appropriate local crisis service today.",
+          "destination": "tel:111",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-urgent",
+          "heading": "Please seek urgent mental-health support today",
+          "body": "Your answer indicates significant or recurring thoughts of self-harm or suicide. This assessment cannot determine or predict risk, but this answer needs prompt support from a qualified professional.",
+          "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health crisis service today.",
+          "emergencyText": "If you feel unable to keep yourself safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "Minimal anxiety",
+        "safetyAction": "urgent-same-day-assessment",
+        "requiredContentIds": [
+          "mental-health-urgent"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "anxiety-cannot-remain-safe",
+      "assessmentKey": "anxiety",
+      "profile": "Immediate inability to remain safe",
+      "definitionVersion": 2,
+      "definitionHash": "db2821cb788fe45d208c34bbe1c4ab7fb260109be31f5d0a1ff948997754325a",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "gad7-1": "not-at-all",
+        "gad7-2": "not-at-all",
+        "gad7-3": "not-at-all",
+        "gad7-4": "not-at-all",
+        "gad7-5": "not-at-all",
+        "gad7-6": "not-at-all",
+        "gad7-7": "not-at-all",
+        "anxiety-duration": "under-two-weeks",
+        "anxiety-avoidance": "none",
+        "anxiety-functioning": "none",
+        "anxiety-work-study": "not-at-all",
+        "anxiety-social": "not-at-all",
+        "anxiety-substance-coping": "no",
+        "anxiety-coping": "helping",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "cannot-remain-safe"
+      },
+      "validatedInstrumentResult": {
+        "name": "GAD-7",
+        "version": "GAD-7",
+        "rawScore": 0,
+        "maximumScore": 21,
+        "band": "Minimal anxiety"
+      },
+      "contextualDomains": [
+        {
+          "id": "anxiety-symptoms",
+          "label": "Anxiety symptom burden",
+          "score": 0,
+          "maximumScore": 21,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety symptom burden as a prominent part of this profile.",
+          "whyItMatters": "Symptom burden is useful when interpreted alongside duration, avoidance, functioning and safety."
+        },
+        {
+          "id": "avoidance-functioning",
+          "label": "Avoidance and functioning",
+          "score": 0,
+          "maximumScore": 12,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify avoidance and functioning as a prominent part of this profile.",
+          "whyItMatters": "Avoidance can bring short-term relief while reinforcing anxiety and restricting daily life."
+        },
+        {
+          "id": "persistence-coping",
+          "label": "Persistence and coping attempts",
+          "score": 0,
+          "maximumScore": 5,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify persistence and coping attempts as a prominent part of this profile.",
+          "whyItMatters": "Persistent symptoms despite attempts to cope can support seeking a more structured assessment or intervention."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can complicate anxiety and deserves a separate, non-judgemental assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and readiness can help engagement, but never reduce a required safety action."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.cannot-remain-safe.anxiety.v2",
+          "version": 2,
+          "action": "emergency-help-now",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-emergency",
+          "pathwayIds": [
+            "emergency-999",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "emergency-help-now",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "emergency-999",
+          "category": "emergency",
+          "label": "Call 999 or go to A&E",
+          "description": "Use emergency services now if you may not remain safe, there has been a recent attempt, or there is immediate danger.",
+          "destination": "tel:999",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-emergency",
+          "heading": "Please get emergency help now",
+          "body": "Your answer indicates that immediate help is needed. This online assessment cannot provide emergency care.",
+          "actionText": "Call 999 or go to A&E now. If possible, ask someone you trust to stay with you while help is arranged.",
+          "emergencyText": "You can also call Samaritans on 116 123 for immediate emotional support."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "Minimal anxiety",
+        "safetyAction": "emergency-help-now",
+        "requiredContentIds": [
+          "mental-health-emergency"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-minimal",
+      "assessmentKey": "depression",
+      "profile": "Minimal symptoms",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "not-at-all",
+        "phq9-2": "not-at-all",
+        "phq9-3": "not-at-all",
+        "phq9-4": "not-at-all",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "none",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 0,
+        "maximumScore": 27,
+        "band": "Minimal depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 0,
+          "maximumScore": 24,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify depression symptom burden as a prominent part of this profile.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functioning and withdrawal as a prominent part of this profile.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "Minimal depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ]
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-low-mood-low-impact",
+      "assessmentKey": "depression",
+      "profile": "Low mood without major impairment",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "not-at-all",
+        "phq9-2": "several-days",
+        "phq9-3": "not-at-all",
+        "phq9-4": "not-at-all",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "mild",
+        "depression-isolation": "none",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 1,
+        "maximumScore": 27,
+        "band": "Minimal depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 1,
+          "maximumScore": 24,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "phq9-2"
+          ],
+          "summary": "Depression symptom burden is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 1,
+          "maximumScore": 8,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "depression-functioning"
+          ],
+          "summary": "Functioning and withdrawal is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "domain.depression-symptoms",
+          "title": "Depression symptom burden",
+          "statement": "Depression symptom burden is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety.",
+          "evidenceDomainIds": [
+            "depression-symptoms"
+          ]
+        },
+        {
+          "id": "domain.functioning-withdrawal",
+          "title": "Functioning and withdrawal",
+          "statement": "Functioning and withdrawal is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement.",
+          "evidenceDomainIds": [
+            "functioning-withdrawal"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 1,
+        "band": "Minimal depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ]
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-anhedonia-energy",
+      "assessmentKey": "depression",
+      "profile": "Prominent anhedonia and low energy",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "nearly-every-day",
+        "phq9-2": "not-at-all",
+        "phq9-3": "not-at-all",
+        "phq9-4": "nearly-every-day",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "regular",
+        "depression-substance-coping": "no",
+        "depression-routine": "none",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 6,
+        "maximumScore": 27,
+        "band": "Mild depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 6,
+          "maximumScore": 24,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "phq9-1",
+            "phq9-4"
+          ],
+          "summary": "Low mood, reduced interest and associated symptoms are prominent in the PHQ-9 response pattern.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 4,
+          "maximumScore": 8,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "depression-isolation",
+            "depression-routine"
+          ],
+          "summary": "Reduced functioning, withdrawal or loss of routine stands out.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "depression.symptoms-withdrawal.v2",
+          "title": "Depression symptom burden and Functioning and withdrawal",
+          "statement": "The pattern is not limited to feeling low. Reduced interest, low energy and withdrawing from other people appear to be occurring together, which can make it harder to regain routine and positive activity.",
+          "whyItMatters": "The interaction between symptoms and withdrawal can be more informative for planning support than the total score alone.",
+          "evidenceDomainIds": [
+            "depression-symptoms",
+            "functioning-withdrawal"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 6,
+        "band": "Mild depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "depression.symptoms-withdrawal.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-functional-impact",
+      "assessmentKey": "depression",
+      "profile": "Significant functional impairment",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "several-days",
+        "phq9-2": "several-days",
+        "phq9-3": "several-days",
+        "phq9-4": "several-days",
+        "phq9-5": "several-days",
+        "phq9-6": "several-days",
+        "phq9-7": "several-days",
+        "phq9-8": "several-days",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "severe",
+        "depression-isolation": "major",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 8,
+        "maximumScore": 27,
+        "band": "Mild depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 8,
+          "maximumScore": 24,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "phq9-1",
+            "phq9-2",
+            "phq9-3",
+            "phq9-4",
+            "phq9-5",
+            "phq9-6",
+            "phq9-7",
+            "phq9-8"
+          ],
+          "summary": "Low mood, reduced interest and associated symptoms are prominent in the PHQ-9 response pattern.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 6,
+          "maximumScore": 8,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "depression-functioning",
+            "depression-isolation"
+          ],
+          "summary": "Reduced functioning, withdrawal or loss of routine stands out.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "depression.symptoms-withdrawal.v2",
+          "title": "Depression symptom burden and Functioning and withdrawal",
+          "statement": "The pattern is not limited to feeling low. Reduced interest, low energy and withdrawing from other people appear to be occurring together, which can make it harder to regain routine and positive activity.",
+          "whyItMatters": "The interaction between symptoms and withdrawal can be more informative for planning support than the total score alone.",
+          "evidenceDomainIds": [
+            "depression-symptoms",
+            "functioning-withdrawal"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 8,
+        "band": "Mild depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "depression.symptoms-withdrawal.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-isolation-hopelessness",
+      "assessmentKey": "depression",
+      "profile": "Isolation plus hopelessness",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "more-than-half",
+        "phq9-2": "nearly-every-day",
+        "phq9-3": "not-at-all",
+        "phq9-4": "several-days",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "major",
+        "depression-substance-coping": "no",
+        "depression-routine": "rarely",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 6,
+        "maximumScore": 27,
+        "band": "Mild depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 6,
+          "maximumScore": 24,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "phq9-1",
+            "phq9-2",
+            "phq9-4"
+          ],
+          "summary": "Low mood, reduced interest and associated symptoms are prominent in the PHQ-9 response pattern.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 5,
+          "maximumScore": 8,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "depression-isolation",
+            "depression-routine"
+          ],
+          "summary": "Reduced functioning, withdrawal or loss of routine stands out.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "depression.symptoms-withdrawal.v2",
+          "title": "Depression symptom burden and Functioning and withdrawal",
+          "statement": "The pattern is not limited to feeling low. Reduced interest, low energy and withdrawing from other people appear to be occurring together, which can make it harder to regain routine and positive activity.",
+          "whyItMatters": "The interaction between symptoms and withdrawal can be more informative for planning support than the total score alone.",
+          "evidenceDomainIds": [
+            "depression-symptoms",
+            "functioning-withdrawal"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 6,
+        "band": "Mild depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "depression.symptoms-withdrawal.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-substance-coping",
+      "assessmentKey": "depression",
+      "profile": "Depression symptoms with substance coping",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "several-days",
+        "phq9-2": "several-days",
+        "phq9-3": "several-days",
+        "phq9-4": "several-days",
+        "phq9-5": "several-days",
+        "phq9-6": "several-days",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "none",
+        "depression-substance-coping": "often",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 6,
+        "maximumScore": 27,
+        "band": "Mild depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 6,
+          "maximumScore": 24,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "phq9-1",
+            "phq9-2",
+            "phq9-3",
+            "phq9-4",
+            "phq9-5",
+            "phq9-6"
+          ],
+          "summary": "Low mood, reduced interest and associated symptoms are prominent in the PHQ-9 response pattern.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functioning and withdrawal as a prominent part of this profile.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 2,
+          "maximumScore": 3,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "depression-substance-coping"
+          ],
+          "summary": "Alcohol, medication or other drug use appears relevant as a coping strategy.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "depression.substance-coping.v2",
+          "title": "Depression symptom burden and Substance use as coping",
+          "statement": "Depression symptoms appear alongside using alcohol, medication or other drugs to cope.",
+          "whyItMatters": "Mood support and substance-use support may both be relevant and should not be collapsed into one severity label.",
+          "evidenceDomainIds": [
+            "depression-symptoms",
+            "substance-overlap"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "nhs-talking-therapies",
+          "category": "nhs-specialist",
+          "label": "Explore NHS Talking Therapies",
+          "description": "Adults in England can check local NHS Talking Therapies options, including self-referral where available.",
+          "destination": "https://www.nhs.uk/service-search/mental-health/find-an-NHS-talking-therapies-service/",
+          "commercial": false,
+          "assessmentKeys": [
+            "anxiety",
+            "depression"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "nhs-substance-service",
+          "category": "nhs-specialist",
+          "label": "Discuss alcohol or drug coping with an appropriate service",
+          "description": "Substance use as a coping strategy deserves its own confidential assessment and should not be folded into a mental-health screening score.",
+          "destination": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/",
+          "commercial": false,
+          "priority": 98
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 97
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 6,
+        "band": "Mild depression",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "depression.substance-coping.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-lower-item9",
+      "assessmentKey": "depression",
+      "profile": "Lower total severity plus self-harm thoughts",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "not-at-all",
+        "phq9-2": "not-at-all",
+        "phq9-3": "not-at-all",
+        "phq9-4": "not-at-all",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "several-days",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "none",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "passing-current"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 1,
+        "maximumScore": 27,
+        "band": "Minimal depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 0,
+          "maximumScore": 24,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify depression symptom burden as a prominent part of this profile.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functioning and withdrawal as a prominent part of this profile.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.passing-current.depression.v2",
+          "version": 2,
+          "action": "clinical-review-recommended",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-current-review",
+          "pathwayIds": [
+            "gp-review",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        },
+        {
+          "id": "phq9.item9.positive.v2",
+          "version": 2,
+          "action": "clinical-review-recommended",
+          "evidenceQuestionIds": [
+            "phq9-9"
+          ],
+          "contentId": "phq9-item9-review",
+          "pathwayIds": [
+            "gp-review",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "clinical-review-recommended",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-current-review",
+          "heading": "Please arrange prompt mental-health support",
+          "body": "You reported current passing thoughts of self-harm or suicide. This assessment cannot determine or predict risk. A qualified professional should discuss these thoughts with you promptly and help you decide what support is needed. Your PHQ-9 item 9 response remains part of the PHQ-9 score, but it is not a suicide-risk score. The symptom total does not determine immediate safety. This guidance is based on your separate safety answer and current context.",
+          "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health service. You can also call Samaritans on 116 123.",
+          "emergencyText": "If the thoughts become more frequent, you are concerned about staying safe, or there is immediate danger, call 999 or go to A&E."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 1,
+        "band": "Minimal depression",
+        "safetyAction": "clinical-review-recommended",
+        "requiredContentIds": [
+          "mental-health-current-review"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-recurring-thoughts",
+      "assessmentKey": "depression",
+      "profile": "Recurring self-harm thoughts",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "not-at-all",
+        "phq9-2": "not-at-all",
+        "phq9-3": "not-at-all",
+        "phq9-4": "not-at-all",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "several-days",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "none",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "recurring-increasing"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 1,
+        "maximumScore": 27,
+        "band": "Minimal depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 0,
+          "maximumScore": 24,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify depression symptom burden as a prominent part of this profile.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functioning and withdrawal as a prominent part of this profile.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.recurring-increasing.depression.v2",
+          "version": 2,
+          "action": "urgent-same-day-assessment",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-urgent",
+          "pathwayIds": [
+            "urgent-mental-health",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        },
+        {
+          "id": "phq9.item9.positive.v2",
+          "version": 2,
+          "action": "clinical-review-recommended",
+          "evidenceQuestionIds": [
+            "phq9-9"
+          ],
+          "contentId": "phq9-item9-review",
+          "pathwayIds": [
+            "gp-review",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "urgent-same-day-assessment",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "urgent-mental-health",
+          "category": "urgent-medical",
+          "label": "Seek urgent mental-health support today",
+          "description": "Contact NHS 111 and select the mental-health option, your GP, or an appropriate local crisis service today.",
+          "destination": "tel:111",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-urgent",
+          "heading": "Please seek urgent mental-health support today",
+          "body": "Your answer indicates significant or recurring thoughts of self-harm or suicide. This assessment cannot determine or predict risk, but this answer needs prompt support from a qualified professional. Your PHQ-9 item 9 response remains part of the PHQ-9 score, but it is not a suicide-risk score. The symptom total does not determine immediate safety. This guidance is based on your separate safety answer and current context.",
+          "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health crisis service today.",
+          "emergencyText": "If you feel unable to keep yourself safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 1,
+        "band": "Minimal depression",
+        "safetyAction": "urgent-same-day-assessment",
+        "requiredContentIds": [
+          "mental-health-urgent"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "depression-cannot-remain-safe",
+      "assessmentKey": "depression",
+      "profile": "Immediate inability to remain safe",
+      "definitionVersion": 2,
+      "definitionHash": "196c1080c09381bf4d1079aef0e817f90da21be4e49d089c11af07c2cbc66060",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "phq9-1": "not-at-all",
+        "phq9-2": "not-at-all",
+        "phq9-3": "not-at-all",
+        "phq9-4": "not-at-all",
+        "phq9-5": "not-at-all",
+        "phq9-6": "not-at-all",
+        "phq9-7": "not-at-all",
+        "phq9-8": "not-at-all",
+        "phq9-9": "not-at-all",
+        "depression-duration": "under-two-weeks",
+        "depression-functioning": "none",
+        "depression-isolation": "none",
+        "depression-substance-coping": "no",
+        "depression-routine": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "cannot-remain-safe"
+      },
+      "validatedInstrumentResult": {
+        "name": "PHQ-9",
+        "version": "PHQ-9",
+        "rawScore": 0,
+        "maximumScore": 27,
+        "band": "Minimal depression"
+      },
+      "contextualDomains": [
+        {
+          "id": "depression-symptoms",
+          "label": "Depression symptom burden",
+          "score": 0,
+          "maximumScore": 24,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify depression symptom burden as a prominent part of this profile.",
+          "whyItMatters": "The PHQ-9 symptom pattern is useful when interpreted alongside functioning, duration, support and safety."
+        },
+        {
+          "id": "functioning-withdrawal",
+          "label": "Functioning and withdrawal",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functioning and withdrawal as a prominent part of this profile.",
+          "whyItMatters": "Withdrawal and reduced activity can make it harder to regain routine and positive reinforcement."
+        },
+        {
+          "id": "persistence",
+          "label": "Duration",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify duration as a prominent part of this profile.",
+          "whyItMatters": "Duration adds context to the two-week PHQ-9 window but does not change its score."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance use as coping",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance use as coping as a prominent part of this profile.",
+          "whyItMatters": "Substance coping can worsen mood or complicate recovery and deserves its own assessment."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support and willingness to seek help can be useful context, but never downgrade safety guidance."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.cannot-remain-safe.depression.v2",
+          "version": 2,
+          "action": "emergency-help-now",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-emergency",
+          "pathwayIds": [
+            "emergency-999",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "emergency-help-now",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "emergency-999",
+          "category": "emergency",
+          "label": "Call 999 or go to A&E",
+          "description": "Use emergency services now if you may not remain safe, there has been a recent attempt, or there is immediate danger.",
+          "destination": "tel:999",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-emergency",
+          "heading": "Please get emergency help now",
+          "body": "Your answer indicates that immediate help is needed. This online assessment cannot provide emergency care.",
+          "actionText": "Call 999 or go to A&E now. If possible, ask someone you trust to stay with you while help is arranged.",
+          "emergencyText": "You can also call Samaritans on 116 123 for immediate emotional support."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "Minimal depression",
+        "safetyAction": "emergency-help-now",
+        "requiredContentIds": [
+          "mental-health-emergency"
+        ],
+        "requireCommercialSuppression": true
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-few-symptoms",
+      "assessmentKey": "adhd",
+      "profile": "Few symptoms",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "never",
+        "asrs-2": "never",
+        "asrs-3": "never",
+        "asrs-4": "never",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "no",
+        "adhd-settings": "none",
+        "adhd-functioning": "none",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 0,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold not reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 0,
+          "maximumScore": 7,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify attention and organisation as a prominent part of this profile.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify childhood and multiple-setting context as a prominent part of this profile.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 0,
+          "maximumScore": 9,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functional impact as a prominent part of this profile.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "ASRS screening threshold not reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ]
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-attention-only",
+      "assessmentKey": "adhd",
+      "profile": "Attention symptoms only",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "no",
+        "adhd-settings": "one",
+        "adhd-functioning": "mild",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 4,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 1,
+          "maximumScore": 6,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-settings"
+          ],
+          "summary": "Childhood and multiple-setting context is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 1,
+          "maximumScore": 9,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-functioning"
+          ],
+          "summary": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.context-uncertain.v2",
+          "title": "Attention and organisation and Childhood and multiple-setting context and Functional impact",
+          "statement": "Your responses show notable attention and organisation difficulties, but the information about childhood symptoms, problems across different settings or functional impact is less clear. That makes formal assessment important before concluding that ADHD is the explanation.",
+          "whyItMatters": "ADHD diagnosis requires a developmental and functional assessment, and similar symptoms can have other causes.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "developmental-context",
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 4,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.context-uncertain.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-restlessness-impulsivity",
+      "assessmentKey": "adhd",
+      "profile": "Impulsivity and restlessness profile",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "never",
+        "asrs-2": "never",
+        "asrs-3": "never",
+        "asrs-4": "never",
+        "asrs-5": "often",
+        "asrs-6": "sometimes",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "most-or-all",
+        "adhd-emotional-regulation": "often",
+        "adhd-childhood": "no",
+        "adhd-settings": "none",
+        "adhd-functioning": "moderate",
+        "adhd-work-study": "often",
+        "adhd-relationships": "often",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 2,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold not reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 0,
+          "maximumScore": 7,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify attention and organisation as a prominent part of this profile.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 7,
+          "maximumScore": 8,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "asrs-5",
+            "asrs-6",
+            "adhd-impulsivity",
+            "adhd-emotional-regulation"
+          ],
+          "summary": "Restlessness, impulsivity or emotional regulation difficulties stand out.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify childhood and multiple-setting context as a prominent part of this profile.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 6,
+          "maximumScore": 9,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-functioning",
+            "adhd-work-study",
+            "adhd-relationships"
+          ],
+          "summary": "The reported difficulties have a notable effect on functioning, responsibilities or relationships.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.restlessness-impact.v2",
+          "title": "Restlessness, impulsivity and regulation and Functional impact",
+          "statement": "Restlessness, impulsivity or emotional regulation difficulties appear alongside meaningful day-to-day impact.",
+          "whyItMatters": "A formal assessment can examine how persistent and pervasive this pattern is and whether another explanation fits better.",
+          "evidenceDomainIds": [
+            "restlessness-impulsivity",
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "self-guided",
+          "category": "self-guided",
+          "label": "Review practical information and monitor the pattern",
+          "description": "Use reliable information and seek professional support if symptoms, impact or safety concerns persist or increase.",
+          "destination": "/resources",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 2,
+        "band": "ASRS screening threshold not reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.restlessness-impact.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-no-childhood",
+      "assessmentKey": "adhd",
+      "profile": "Symptoms without childhood persistence",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "no",
+        "adhd-settings": "multiple",
+        "adhd-functioning": "moderate",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 4,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 3,
+          "maximumScore": 6,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "adhd-settings"
+          ],
+          "summary": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 2,
+          "maximumScore": 9,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-functioning"
+          ],
+          "summary": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.context-uncertain.v2",
+          "title": "Attention and organisation and Childhood and multiple-setting context and Functional impact",
+          "statement": "Your responses show notable attention and organisation difficulties, but the information about childhood symptoms, problems across different settings or functional impact is less clear. That makes formal assessment important before concluding that ADHD is the explanation.",
+          "whyItMatters": "ADHD diagnosis requires a developmental and functional assessment, and similar symptoms can have other causes.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "developmental-context",
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 4,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.context-uncertain.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-one-setting",
+      "assessmentKey": "adhd",
+      "profile": "Symptoms in only one setting",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "clear",
+        "adhd-settings": "one",
+        "adhd-functioning": "moderate",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 4,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 4,
+          "maximumScore": 6,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-childhood",
+            "adhd-settings"
+          ],
+          "summary": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 2,
+          "maximumScore": 9,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-functioning"
+          ],
+          "summary": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.context-uncertain.v2",
+          "title": "Attention and organisation and Childhood and multiple-setting context and Functional impact",
+          "statement": "Your responses show notable attention and organisation difficulties, but the information about childhood symptoms, problems across different settings or functional impact is less clear. That makes formal assessment important before concluding that ADHD is the explanation.",
+          "whyItMatters": "ADHD diagnosis requires a developmental and functional assessment, and similar symptoms can have other causes.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "developmental-context",
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 4,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.context-uncertain.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-multisetting-impact",
+      "assessmentKey": "adhd",
+      "profile": "Symptoms with significant multi-setting impairment",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "often",
+        "asrs-6": "sometimes",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "clear",
+        "adhd-settings": "multiple",
+        "adhd-functioning": "severe",
+        "adhd-work-study": "most-or-all",
+        "adhd-relationships": "often",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 6,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 2,
+          "maximumScore": 8,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-5",
+            "asrs-6"
+          ],
+          "summary": "Restlessness, impulsivity or emotional regulation difficulties stand out.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 6,
+          "maximumScore": 6,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-childhood",
+            "adhd-settings"
+          ],
+          "summary": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 8,
+          "maximumScore": 9,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-functioning",
+            "adhd-work-study",
+            "adhd-relationships"
+          ],
+          "summary": "The reported difficulties have a notable effect on functioning, responsibilities or relationships.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.multi-setting-impact.v2",
+          "title": "Attention and organisation and Childhood and multiple-setting context and Functional impact",
+          "statement": "Attention and organisation difficulties appear alongside childhood persistence, problems in more than one setting and meaningful functional impact.",
+          "whyItMatters": "This pattern can support seeking a formal specialist assessment, but the screening result still cannot diagnose ADHD.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "developmental-context",
+            "functional-impact"
+          ]
+        },
+        {
+          "id": "adhd.restlessness-impact.v2",
+          "title": "Restlessness, impulsivity and regulation and Functional impact",
+          "statement": "Restlessness, impulsivity or emotional regulation difficulties appear alongside meaningful day-to-day impact.",
+          "whyItMatters": "A formal assessment can examine how persistent and pervasive this pattern is and whether another explanation fits better.",
+          "evidenceDomainIds": [
+            "restlessness-impulsivity",
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 6,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.multi-setting-impact.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-mental-health-overlap",
+      "assessmentKey": "adhd",
+      "profile": "ADHD-like symptoms with anxiety or depression overlap",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "possible",
+        "adhd-settings": "multiple",
+        "adhd-functioning": "moderate",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "likely",
+        "adhd-mood-anxiety": "yes",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 4,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 4,
+          "maximumScore": 6,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-childhood",
+            "adhd-settings"
+          ],
+          "summary": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 2,
+          "maximumScore": 9,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-functioning"
+          ],
+          "summary": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 4,
+          "maximumScore": 6,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-sleep",
+            "adhd-mood-anxiety"
+          ],
+          "summary": "Sleep, anxiety, depression or trauma-related overlap may be contributing to the pattern.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.context-uncertain.v2",
+          "title": "Attention and organisation and Childhood and multiple-setting context and Functional impact",
+          "statement": "Your responses show notable attention and organisation difficulties, but the information about childhood symptoms, problems across different settings or functional impact is less clear. That makes formal assessment important before concluding that ADHD is the explanation.",
+          "whyItMatters": "ADHD diagnosis requires a developmental and functional assessment, and similar symptoms can have other causes.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "developmental-context",
+            "functional-impact"
+          ]
+        },
+        {
+          "id": "adhd.differential-overlap.v2",
+          "title": "Attention and organisation and Anxiety, depression, sleep and trauma context",
+          "statement": "ADHD-like difficulties appear alongside sleep, anxiety, depression or trauma-related factors that may overlap with them.",
+          "whyItMatters": "A careful assessment should examine these explanations rather than treating a positive screen as diagnostic.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "mental-health-overlap"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 98
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 4,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.context-uncertain.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-substance-overlap",
+      "assessmentKey": "adhd",
+      "profile": "ADHD-like symptoms with substance use",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "often",
+        "asrs-2": "often",
+        "asrs-3": "often",
+        "asrs-4": "sometimes",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "clear",
+        "adhd-settings": "multiple",
+        "adhd-functioning": "moderate",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "yes",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "none"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 4,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 4,
+          "maximumScore": 7,
+          "state": "elevated",
+          "evidenceQuestionIds": [
+            "asrs-1",
+            "asrs-2",
+            "asrs-3",
+            "asrs-4"
+          ],
+          "summary": "Attention, organisation, task initiation or distractibility difficulties stand out.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 6,
+          "maximumScore": 6,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-childhood",
+            "adhd-settings"
+          ],
+          "summary": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 2,
+          "maximumScore": 9,
+          "state": "present",
+          "evidenceQuestionIds": [
+            "adhd-functioning"
+          ],
+          "summary": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 3,
+          "maximumScore": 3,
+          "state": "prominent",
+          "evidenceQuestionIds": [
+            "adhd-substance-overlap"
+          ],
+          "summary": "Alcohol, medication or other drug use may be contributing to or used to manage the difficulties.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [],
+      "safetyAction": "no-immediate-warning-identified",
+      "deterministicFindings": [
+        {
+          "id": "adhd.substance-overlap.v2",
+          "title": "Attention and organisation and Substance-use context",
+          "statement": "ADHD-like difficulties appear alongside substance effects or substance use as a coping strategy.",
+          "whyItMatters": "Both areas need separate assessment because intoxication, withdrawal and coping patterns can affect attention, sleep and impulse control.",
+          "evidenceDomainIds": [
+            "attention-organisation",
+            "substance-overlap"
+          ]
+        },
+        {
+          "id": "domain.developmental-context",
+          "title": "Childhood and multiple-setting context",
+          "statement": "There is evidence of childhood persistence and difficulties across more than one setting.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD.",
+          "evidenceDomainIds": [
+            "developmental-context"
+          ]
+        },
+        {
+          "id": "domain.functional-impact",
+          "title": "Functional impact",
+          "statement": "Functional impact is present in the profile but did not stand out as an elevated area.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment.",
+          "evidenceDomainIds": [
+            "functional-impact"
+          ]
+        }
+      ],
+      "pathways": [
+        {
+          "id": "formal-adhd",
+          "category": "formal-assessment",
+          "label": "Discuss a formal ADHD assessment",
+          "description": "A specialist assessment considers developmental history, impairment across settings and other possible explanations. Screening alone cannot diagnose ADHD.",
+          "destination": "https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/diagnosis/",
+          "commercial": false,
+          "assessmentKeys": [
+            "adhd"
+          ],
+          "priority": 100
+        },
+        {
+          "id": "gp-review",
+          "category": "gp",
+          "label": "Speak with your GP or a qualified clinician",
+          "description": "A professional can review symptoms, safety, physical health, medication and other explanations that an online screen cannot establish.",
+          "destination": "https://www.nhs.uk/service-search/find-a-gp",
+          "commercial": false,
+          "priority": 99
+        },
+        {
+          "id": "nhs-substance-service",
+          "category": "nhs-specialist",
+          "label": "Discuss alcohol or drug coping with an appropriate service",
+          "description": "Substance use as a coping strategy deserves its own confidential assessment and should not be folded into a mental-health screening score.",
+          "destination": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/",
+          "commercial": false,
+          "priority": 98
+        },
+        {
+          "id": "irn-consultation",
+          "category": "irn-consultation",
+          "label": "Discuss mental-health support options with IRN",
+          "description": "IRN can discuss appropriate support and treatment-navigation options. IRN is not an emergency or diagnostic service.",
+          "destination": "/get-help",
+          "commercial": true,
+          "priority": 97
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "screening-limitation",
+          "heading": "About your result",
+          "body": "Your answers haven't identified an immediate warning sign within this screening tool. This does not mean that an online assessment can rule out medical or mental-health concerns. If you're worried about your symptoms, substance use or safety, seek professional advice."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 4,
+        "band": "ASRS screening threshold reached",
+        "safetyAction": "no-immediate-warning-identified",
+        "requiredContentIds": [
+          "screening-limitation"
+        ],
+        "requiredFindingId": "adhd.substance-overlap.v2"
+      }
+    },
+    {
+      "approvalStatus": "CLINICAL DIRECTOR APPROVED 30 AUGUST 2026",
+      "fixtureId": "adhd-self-harm",
+      "assessmentKey": "adhd",
+      "profile": "Self-harm requiring a separate safety pathway",
+      "definitionVersion": 2,
+      "definitionHash": "d6ccd4d5144126c3d34faa8275f9e097e1a5deeee83a2d0d92a16ad51deb136b",
+      "exactSyntheticAnswers": {
+        "age-eligibility": "adult",
+        "asrs-1": "never",
+        "asrs-2": "never",
+        "asrs-3": "never",
+        "asrs-4": "never",
+        "asrs-5": "never",
+        "asrs-6": "never",
+        "adhd-distractibility": "not-at-all",
+        "adhd-impulsivity": "not-at-all",
+        "adhd-emotional-regulation": "not-at-all",
+        "adhd-childhood": "no",
+        "adhd-settings": "none",
+        "adhd-functioning": "none",
+        "adhd-work-study": "not-at-all",
+        "adhd-relationships": "not-at-all",
+        "adhd-sleep": "unlikely",
+        "adhd-mood-anxiety": "no",
+        "adhd-trauma": "no",
+        "adhd-substance-overlap": "no",
+        "support": "yes",
+        "readiness": "not-ready",
+        "mental-health-safety": "recurring-increasing"
+      },
+      "validatedInstrumentResult": {
+        "name": "Adult ADHD Self-Report Scale (ASRS-v1.1) Screener",
+        "version": "v1.1 six-question screener",
+        "rawScore": 0,
+        "maximumScore": 6,
+        "band": "ASRS screening threshold not reached"
+      },
+      "contextualDomains": [
+        {
+          "id": "attention-organisation",
+          "label": "Attention and organisation",
+          "score": 0,
+          "maximumScore": 7,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify attention and organisation as a prominent part of this profile.",
+          "whyItMatters": "These symptoms can support formal assessment but also overlap with sleep, anxiety, depression, trauma and substance effects."
+        },
+        {
+          "id": "restlessness-impulsivity",
+          "label": "Restlessness, impulsivity and regulation",
+          "score": 0,
+          "maximumScore": 8,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify restlessness, impulsivity and regulation as a prominent part of this profile.",
+          "whyItMatters": "The pattern and its consequences matter more than any one symptom."
+        },
+        {
+          "id": "developmental-context",
+          "label": "Childhood and multiple-setting context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify childhood and multiple-setting context as a prominent part of this profile.",
+          "whyItMatters": "A specialist assessment considers developmental onset and impairment in multiple settings before diagnosing ADHD."
+        },
+        {
+          "id": "functional-impact",
+          "label": "Functional impact",
+          "score": 0,
+          "maximumScore": 9,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify functional impact as a prominent part of this profile.",
+          "whyItMatters": "Clinically meaningful impairment is an important part of formal assessment."
+        },
+        {
+          "id": "mental-health-overlap",
+          "label": "Anxiety, depression, sleep and trauma context",
+          "score": 0,
+          "maximumScore": 6,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify anxiety, depression, sleep and trauma context as a prominent part of this profile.",
+          "whyItMatters": "These factors can resemble or intensify ADHD-like symptoms and deserve appropriate assessment in their own right."
+        },
+        {
+          "id": "substance-overlap",
+          "label": "Substance-use context",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify substance-use context as a prominent part of this profile.",
+          "whyItMatters": "Substance effects and coping use should be assessed separately during diagnostic work."
+        },
+        {
+          "id": "readiness-support",
+          "label": "Support and readiness",
+          "score": 0,
+          "maximumScore": 3,
+          "state": "not-indicated",
+          "evidenceQuestionIds": [],
+          "summary": "Your answers did not identify support and readiness as a prominent part of this profile.",
+          "whyItMatters": "Support can help engagement but cannot establish a diagnosis or reduce a safety action."
+        }
+      ],
+      "triggeredSafetyRules": [
+        {
+          "id": "mental-health.recurring-increasing.adhd.v2",
+          "version": 2,
+          "action": "urgent-same-day-assessment",
+          "evidenceQuestionIds": [
+            "mental-health-safety"
+          ],
+          "contentId": "mental-health-urgent",
+          "pathwayIds": [
+            "urgent-mental-health",
+            "samaritans"
+          ],
+          "approvalStatus": "approved"
+        }
+      ],
+      "safetyAction": "urgent-same-day-assessment",
+      "deterministicFindings": [],
+      "pathways": [
+        {
+          "id": "urgent-mental-health",
+          "category": "urgent-medical",
+          "label": "Seek urgent mental-health support today",
+          "description": "Contact NHS 111 and select the mental-health option, your GP, or an appropriate local crisis service today.",
+          "destination": "tel:111",
+          "commercial": false,
+          "priority": 100
+        },
+        {
+          "id": "samaritans",
+          "category": "nhs-specialist",
+          "label": "Call Samaritans on 116 123",
+          "description": "Confidential emotional support is available at any time.",
+          "destination": "tel:116123",
+          "commercial": false,
+          "priority": 99
+        }
+      ],
+      "requiredContent": [
+        {
+          "id": "mental-health-urgent",
+          "heading": "Please seek urgent mental-health support today",
+          "body": "Your answer indicates significant or recurring thoughts of self-harm or suicide. This assessment cannot determine or predict risk, but this answer needs prompt support from a qualified professional.",
+          "actionText": "Contact your GP, NHS 111 or an appropriate local mental-health crisis service today.",
+          "emergencyText": "If you feel unable to keep yourself safe, call 999 or go to A&E. You can also call Samaritans on 116 123."
+        }
+      ],
+      "prohibitedContent": [
+        "Any alcohol, detox or withdrawal safety copy",
+        "Any low, medium or high suicide-risk label",
+        "Any diagnostic claim",
+        "Any commercial call to action when safety suppression is required"
+      ],
+      "expectedReviewAssertions": {
+        "score": 0,
+        "band": "ASRS screening threshold not reached",
+        "safetyAction": "urgent-same-day-assessment",
+        "requiredContentIds": [
+          "mental-health-urgent"
+        ],
+        "requireCommercialSuppression": true
+      }
+    }
+  ]
+}

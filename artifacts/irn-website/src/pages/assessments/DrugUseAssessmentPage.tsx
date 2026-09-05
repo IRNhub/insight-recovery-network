@@ -1,11 +1,13 @@
 import AssessmentPage from "./AssessmentPage";
-import { drugUseAssessment } from "@/data/assessments/drug-use";
 
 export default function DrugUseAssessmentPage() {
   return (
     <AssessmentPage
-      config={drugUseAssessment}
-      seoDescription="Take our free confidential drug use and substance assessment. Reflect on whether substance use may be affecting your life and whether professional support could help."
+      assessmentKey="drug-use"
+      title="Substance Use and Support Needs Assessment"
+      subtitle="An anonymous, substance-specific IRN needs profile covering use patterns, impact and relevant safety considerations. It does not diagnose a substance-use disorder or establish withdrawal safety."
+      estimatedMinutes={8}
+      seoDescription="Complete an anonymous substance-specific needs assessment covering patterns, impact, safety guidance and possible support pathways."
       canonical="/assessments/drug-use"
     />
   );

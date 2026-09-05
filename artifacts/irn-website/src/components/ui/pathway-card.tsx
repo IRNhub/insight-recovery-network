@@ -31,7 +31,7 @@ export function PathwayCard({ title, description, href, linkLabel = "Explore pat
           )}
         </div>
 
-        <div className="flex items-center text-xs font-semibold tracking-wide uppercase text-accent mt-auto group-hover:text-primary transition-colors duration-300">
+        <div className="flex items-center text-xs font-semibold tracking-wide uppercase text-[#786036] mt-auto group-hover:text-primary transition-colors duration-300">
           <span>{linkLabel}</span>
           <ArrowRight className="ml-2 w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform duration-300" />
         </div>

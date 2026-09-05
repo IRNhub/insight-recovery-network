@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import craigImg from "@assets/craig-bilton-founder-crop-4x5_1779191279403.jpg";
-import heroImg from "@assets/About_US_Hero_1779191456783.webp";
+
 
 const trustPoints = [
   "20+ years' international addiction treatment experience",
@@ -111,10 +112,10 @@ export default function About() {
                   boxShadow: "0 12px 40px -8px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.07)",
                 }}
               >
-                <img
-                  src={heroImg}
-                  alt="A calm private consultation setting with a notebook, pen, and glass of water on a warm neutral desk"
-                  className="w-full h-full object-cover object-center"
+                <ResponsiveImage
+                  src={craigImg}
+                  alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network"
+                  className="w-full h-full object-cover object-top"
                   fetchPriority="high"
                   loading="eager"
                 />
@@ -252,10 +253,10 @@ export default function About() {
                   className="relative w-full max-w-[280px] mx-auto md:mx-0"
                   style={{ aspectRatio: "4/5" }}
                 >
-                  <img
+                  <ResponsiveImage
                     src={craigImg}
                     alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network."
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-top"
                     style={{
                       boxShadow: "0 8px 32px -4px rgba(22,43,59,0.16), 0 0 0 1px rgba(22,43,59,0.06)",
                     }}

@@ -109,7 +109,7 @@ export function useHealthCheck<
 }
 
 /**
- * Stores a new enquiry from the contact form and notifies the team
+ * Atomically stores an enquiry and queues delivery. Reusing an unchanged submissionId returns the original receipt.
  * @summary Submit a contact enquiry
  */
 export const getSubmitEnquiryUrl = () => {

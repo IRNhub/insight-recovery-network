@@ -1,11 +1,13 @@
 import AssessmentPage from "./AssessmentPage";
-import { alcoholUseAssessment } from "@/data/assessments/alcohol-use";
 
 export default function AlcoholUseAssessmentPage() {
   return (
     <AssessmentPage
-      config={alcoholUseAssessment}
-      seoDescription="Take our free confidential alcohol use assessment. Reflect on whether drinking may be affecting your health, relationships, or daily life, and find out what support may help."
+      assessmentKey="alcohol-use"
+      title="Alcohol Use and Support Needs Assessment"
+      subtitle="An anonymous IRN-developed profile of alcohol patterns, impact and independent withdrawal safety. It does not provide a diagnosis or use a combined score."
+      estimatedMinutes={8}
+      seoDescription="Complete an anonymous alcohol use and support-needs assessment with separate pattern, withdrawal-safety and next-step guidance."
       canonical="/assessments/alcohol-use"
     />
   );

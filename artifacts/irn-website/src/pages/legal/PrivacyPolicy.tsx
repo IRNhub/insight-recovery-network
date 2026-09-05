@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       <SEO
         title="Privacy Policy"
         fullTitle="Privacy Policy | Insight Recovery Network"
-        description="How Insight Recovery Network collects, uses and protects personal data under UK GDPR, including optional analytics and Google Preferred Sources."
+        description="How Insight Recovery Network collects, uses, stores and shares website and assessment information under UK GDPR, including optional analytics and Google Preferred Sources."
         canonical="/privacy-policy"
       />
 
@@ -48,11 +48,12 @@ export default function PrivacyPolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">1. Data we collect and how</h2>
-              <p className="mb-3">We collect personal data only when you actively provide it to us. The main ways this happens are:</p>
+              <p className="mb-3">We collect information you actively provide, data needed to operate the service securely, and optional analytics data where you have permitted it. The main assessment-related flows are:</p>
               <ul className="flex flex-col gap-2 pl-4">
                 <li><strong className="font-medium text-foreground/70">Enquiry form (/contact):</strong> name, email address, phone number (optional), and the content of your message.</li>
-                <li><strong className="font-medium text-foreground/70">Self-assessment forms (/assessments/*):</strong> name, email address, phone number (optional), your assessment answers, and your consent to receive results by email.</li>
-                <li><strong className="font-medium text-foreground/70">Website usage:</strong> with separate permission for each purpose, GA4 receives privacy-screened page and interaction data, and Google&apos;s Preferred Sources control receives the current page URL so it can render and operate. Analytics, Preferred Sources and marketing are off by default. Our web server may also log standard access data for security and error diagnostics.</li>
+                  <li><strong className="font-medium text-foreground/70">Anonymous core self-assessment (/assessments/*):</strong> no name, email address or phone number is required. We store the answers you submit, the score or descriptive profile, derived safety and interpretation information, the assessment definition version, completion and delivery status, a hashed result-access token and a scheduled deletion date.</li>
+                  <li><strong className="font-medium text-foreground/70">Optional choices after the result:</strong> if you ask for an emailed result, we collect your email address and an optional name. If you request IRN follow-up, we also require your name and may collect an optional phone number. Marketing permission is a separate, optional choice.</li>
+                  <li><strong className="font-medium text-foreground/70">Website usage:</strong> with separate permission for each purpose, GA4 receives privacy-screened page and interaction data on non-assessment pages, and Google&apos;s Preferred Sources control receives the current page URL so it can render and operate. Analytics, Preferred Sources and marketing are off by default. Google and Meta tracking, and the Preferred Sources control, are excluded throughout individual assessment and linked result journeys, regardless of an earlier cookie choice. Our web server or hosting provider may log standard access data for security and error diagnostics.</li>
               </ul>
             </div>
 
@@ -60,38 +61,43 @@ export default function PrivacyPolicy() {
               <h2 className="font-serif text-xl font-medium text-primary mb-3">2. How we use your data</h2>
               <ul className="flex flex-col gap-2 pl-4">
                 <li>To respond to your enquiry and provide the support or information you have requested.</li>
-                <li>To send you your assessment results and any associated guidance.</li>
-                <li>To store a record of your contact for case continuity if you follow up with us.</li>
-                <li>To send you service information you have specifically requested.</li>
-                <li>We do not use your data for automated decision-making or profiling, and we do not sell or rent your data to any third party.</li>
+                <li>To calculate, store and allow you to recover the rule-based result requested through the assessment.</li>
+                <li>To email the complete result only if you select the result-email permission.</li>
+                <li>To create an IRNOS follow-up record only if you separately ask IRN to contact you. The assessment path sends contact details and a derived clinical summary, not the raw answer set.</li>
+                <li>To record marketing permission only if you separately select it. Marketing is not required for an emailed result or follow-up.</li>
+                <li>The result uses fixed, versioned rules. Assessment AI is disabled. The result does not make a decision with legal or similarly significant effect, and we do not sell or rent your data.</li>
               </ul>
             </div>
 
             <div>
-              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Legal basis for processing</h2>
-              <p className="mb-3">Under UK GDPR, we rely on the following lawful bases:</p>
+              <h2 className="font-serif text-xl font-medium text-primary mb-3">3. Purposes and processing choices</h2>
+              <p className="mb-3">Assessment answers and derived results may concern health, mental health or substance use. We use that information operationally to calculate, store and allow you to recover the assessment result you request.</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Legitimate interests (Article 6(1)(f)):</strong> responding to direct enquiries, maintaining a record of contacts for continuity of support, and improving our services.</li>
-                <li><strong className="font-medium text-foreground/70">Consent (Article 6(1)(a)):</strong> when you choose to share sensitive health-related information in your assessment or enquiry message. You can withdraw consent at any time by emailing us.</li>
-                <li>Where data relates to health or addiction, it constitutes <em>special category data</em> under Article 9. We process it solely on the basis of your explicit consent and limit access strictly to the people needed to respond to you.</li>
+                <li>You can generate an anonymous core result without providing a name, email address or phone number.</li>
+                <li>We process a result-email request only when you separately select that option and provide an email address.</li>
+                <li>We process an IRN follow-up request only when you separately ask IRN to contact you and provide the required contact details.</li>
+                <li>Marketing permission is a separate optional choice and is not required for the anonymous result, result email or IRN follow-up.</li>
               </ul>
             </div>
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">4. Data retention</h2>
-              <p>We retain enquiry and assessment data for up to two years from the date of your last contact, or until you request deletion, whichever is sooner. After that period, personal data is permanently deleted from our systems.</p>
+              <p className="mb-3">New anonymous core assessment records are assigned a deletion date 90 days after completion. A scheduled server process deletes those assessment rows from the live website database after the deadline; linked delivery-queue rows are removed with them. The necessary result-access cookie lasts for up to 30 days.</p>
+              <p className="mb-3">Legacy assessment rows without a deletion date are not automatically placed on this schedule. Enquiry records, emails and any IRNOS record created after a requested follow-up are separate records and are not deleted by the website assessment job. Backup copies, hosting logs and records held by external processors are also not automatically erased by that job and follow the applicable separate retention and erasure process.</p>
+              <p>You may request erasure sooner, subject to any lawful reason data must be retained.</p>
             </div>
 
             <div>
-              <h2 className="font-serif text-xl font-medium text-primary mb-3">5. Third-party processors</h2>
-              <p className="mb-3">We use a small number of trusted third-party services to operate our website. Each is bound by appropriate data processing agreements:</p>
+              <h2 className="font-serif text-xl font-medium text-primary mb-3">5. Service providers and connected systems</h2>
+              <p className="mb-3">The assessment implementation uses the following services and connected systems:</p>
               <ul className="flex flex-col gap-2 pl-4">
-                <li><strong className="font-medium text-foreground/70">Resend</strong> (email delivery service), used to send notification and acknowledgement emails. Resend may transiently process your name and email address as part of email delivery. Resend is GDPR-compliant.</li>
-                <li><strong className="font-medium text-foreground/70">Replit</strong> (hosting infrastructure), our website and database are hosted on Replit&rsquo;s infrastructure, which is SOC 2 compliant.</li>
-                <li><strong className="font-medium text-foreground/70">Google</strong> (optional analytics, tag management and Preferred Sources), loaded only after the relevant separate consent choice. Preferred Sources is classified as functional third-party technology rather than analytics. Its control uses the current page URL and may use your Google account or Google session when you choose to open its selection flow.</li>
-                <li><strong className="font-medium text-foreground/70">Meta</strong> (optional marketing technology), loaded only after marketing consent. Automatic page-view and health-context conversion events are disabled.</li>
+                  <li><strong className="font-medium text-foreground/70">Replit</strong> provides the website, API and database hosting infrastructure.</li>
+                  <li><strong className="font-medium text-foreground/70">Resend</strong> is used only when you request an emailed result. It processes the destination email address, optional name and the complete result email, which contains derived health-related information. Raw assessment answers are not included in that email.</li>
+                  <li><strong className="font-medium text-foreground/70">IRNOS</strong> is IRN&apos;s connected operational system. It receives contact details and a derived clinical summary only when you ask IRN to follow up. The current assessment path does not forward raw answers.</li>
+                  <li><strong className="font-medium text-foreground/70">Google</strong> provides optional analytics, tag management and Preferred Sources on non-assessment pages, loaded only after the relevant separate consent choice. Preferred Sources is classified as functional third-party technology rather than analytics. Its control uses the current page URL and may use your Google account or Google session when you choose to open its selection flow.</li>
+                  <li><strong className="font-medium text-foreground/70">Meta</strong> provides optional marketing technology on non-assessment pages, loaded only after marketing consent. Automatic page views and health-context conversion events are disabled.</li>
               </ul>
-              <p className="mt-3">We do not send names, email addresses, phone numbers, messages, assessment answers or clinical information in analytics events. See the Cookie Policy for controls and categories.</p>
+              <p className="mt-3">We do not send names, email addresses, phone numbers, messages, assessment answers, scores, results or clinical information in analytics events. Google and Meta scripts and the Preferred Sources control are not loaded on individual assessment or linked result journeys. See the Cookie Policy for controls and categories.</p>
             </div>
 
             <div>
@@ -112,6 +118,7 @@ export default function PrivacyPolicy() {
                   info@insightrecoverynetwork.com
                 </a>. We will respond within 30 days.
               </p>
+              <p className="mt-3">Withdrawing an optional result-email, follow-up or marketing permission stops future use for that purpose where applicable. It does not automatically erase the core assessment record or undo processing that already occurred. Erasure is a separate request and may be subject to lawful exceptions.</p>
             </div>
 
             <div>
@@ -132,7 +139,7 @@ export default function PrivacyPolicy() {
 
             <div>
               <h2 className="font-serif text-xl font-medium text-primary mb-3">9. Changes to this policy</h2>
-              <p>We may update this policy from time to time. The &ldquo;last updated&rdquo; date at the top of this page will reflect any changes. Continued use of the site after changes constitutes acceptance of the updated policy.</p>
+              <p>We may update this policy from time to time. The &ldquo;last updated&rdquo; date at the top of this page will reflect any changes.</p>
             </div>
 
             <div className="pt-6 border-t" style={{ borderColor: "rgba(201,169,110,0.2)" }}>

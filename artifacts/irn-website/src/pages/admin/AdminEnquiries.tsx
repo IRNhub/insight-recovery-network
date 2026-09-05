@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Loader2, LogOut, AlertTriangle, CheckCircle2, Mail, Phone } from "lucide-react";
 
 interface AdminEnquiry {
+  deliveries?: { channel: 'notification' | 'crm'; status: 'queued' | 'processing' | 'sent' | 'failed'; attempts: number; last_error_code?: string | null }[];
   id: number;
   name: string;
   email: string;
@@ -68,9 +69,11 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
   const { data: enquiries = [], isLoading, isError } = useQuery({
     queryKey: ["admin-enquiries", secret],
     queryFn: () => fetchAdminEnquiries(secret),
+    refetchInterval: 30_000,
   });
 
-  const missedCount = enquiries.filter((e) => !e.notificationSent).length;
+  const needsReview = (e: AdminEnquiry) => e.deliveries?.length ? e.deliveries.some(d => d.status === 'failed') : !e.notificationSent;
+  const missedCount = enquiries.filter(needsReview).length;
 
   return (
     <div className="min-h-screen bg-background">
@@ -154,10 +157,10 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                 <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-sm font-semibold text-red-800">
-                    {missedCount} enquir{missedCount === 1 ? "y" : "ies"} without a team notification
+                    {missedCount} enquir{missedCount === 1 ? "y" : "ies"} requiring delivery review
                   </p>
                   <p className="text-xs text-red-600 mt-0.5 font-light">
-                    The email notification failed for {missedCount === 1 ? "this enquiry" : "these enquiries"}.
+                    A delivery has exhausted its retries, or the historical notification has not been confirmed.
                     Please review and follow up manually.
                   </p>
                 </div>
@@ -178,29 +181,29 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                 <p className="text-muted-foreground font-light">No enquiries yet.</p>
               </div>
             ) : (
-              <div className="border border-border/40 overflow-hidden">
+              <div className="border border-border/40 overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr
                       style={{ background: "rgba(246,244,240,0.8)" }}
                       className="border-b border-border/40"
                     >
-                      <th className="text-left px-5 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70">
+                      <th className="text-left px-5 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground">
                         Contact
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden md:table-cell">
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground hidden md:table-cell">
                         Enquiry Type
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden lg:table-cell">
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground hidden lg:table-cell">
                         Submitted
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden xl:table-cell">
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground hidden xl:table-cell">
                         Source
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70">
-                        Notification
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground">
+                        Delivery
                       </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 hidden 2xl:table-cell">
+                      <th className="text-left px-4 py-3 text-xs font-semibold tracking-widest uppercase text-muted-foreground">
                         Message
                       </th>
                     </tr>
@@ -210,7 +213,7 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                       <tr
                         key={enquiry.id}
                         className={`border-b border-border/30 last:border-0 ${
-                          !enquiry.notificationSent
+                          needsReview(enquiry)
                             ? "bg-red-50/60"
                             : idx % 2 === 0
                             ? ""
@@ -224,11 +227,11 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                             </p>
                             <a
                               href={`mailto:${enquiry.email}`}
-                              className="text-xs text-muted-foreground/70 font-light hover:text-primary transition-colors"
+                              className="text-xs text-muted-foreground font-light hover:text-primary transition-colors"
                             >
                               {enquiry.email}
                             </a>
-                            <div className="flex items-center gap-1 mt-0.5 text-xs text-muted-foreground/60">
+                            <div className="flex items-center gap-1 mt-0.5 text-xs text-muted-foreground">
                               {CONTACT_ICONS[enquiry.preferredContact]}
                               <span className="font-light">{enquiry.phone}</span>
                             </div>
@@ -245,7 +248,7 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                           </span>
                         </td>
                         <td className="px-4 py-4 hidden xl:table-cell">
-                          <div className="text-[11px] text-muted-foreground/70 leading-relaxed max-w-[260px]">
+                          <div className="text-[11px] text-muted-foreground leading-relaxed max-w-[260px]">
                             <p>
                               <span className="font-semibold text-primary/70">Current:</span>{" "}
                               {enquiry.currentPage ?? enquiry.pageSource ?? "Unknown"}
@@ -269,22 +272,15 @@ export default function AdminEnquiries({ secret, onLogout }: AdminEnquiriesProps
                           </div>
                         </td>
                         <td className="px-4 py-4">
-                          {enquiry.notificationSent ? (
-                            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-green-50 text-green-700 border border-green-200">
-                              <CheckCircle2 className="w-3 h-3" />
-                              Sent
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-red-50 text-red-700 border border-red-200">
-                              <AlertTriangle className="w-3 h-3" />
-                              Missed
-                            </span>
-                          )}
+                          <div className="space-y-2 text-xs">{(['notification','crm'] as const).map(channel => {
+                            const delivery = enquiry.deliveries?.find(d => d.channel === channel);
+                            const status = delivery?.status;
+                            const label = channel === 'crm' ? 'IRNOS' : 'Team email';
+                            const description = status === 'sent' ? (channel === 'crm' ? 'Received by IRNOS' : 'Accepted by email provider') : status === 'queued' ? 'Queued for retry / delivery' : status === 'processing' ? 'Sending' : status === 'failed' ? 'Needs review' : channel === 'notification' && enquiry.notificationSent ? 'Historical send confirmed' : 'Historical status unverified';
+                            return <p key={channel} className={status === 'failed' ? 'text-red-800' : status === 'sent' ? 'text-green-800' : 'text-muted-foreground'}><strong>{label}:</strong> {description}{delivery && delivery.attempts > 0 && <span className="block">Attempts: {delivery.attempts}</span>}</p>;
+                          })}</div>
                         </td>
-                        <td className="px-4 py-4 hidden 2xl:table-cell">
-                          <p className="text-xs text-muted-foreground font-light line-clamp-2 max-w-xs">
-                            {enquiry.message}
-                          </p>
+                        <td className="px-4 py-4"><details className="min-w-32 max-w-sm text-xs leading-relaxed"><summary className="cursor-pointer font-semibold text-primary">Message & contact preferences</summary><p className="mt-3 whitespace-pre-wrap break-words text-muted-foreground">{enquiry.message || "No additional message"}</p></details>
                         </td>
                       </tr>
                     ))}

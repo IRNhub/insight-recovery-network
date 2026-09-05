@@ -31,7 +31,7 @@ paths:
       operationId: submitEnquiry
       tags: [enquiries]
       summary: Submit a contact enquiry
-      description: Stores a new enquiry from the contact form and notifies the team
+      description: Atomically stores an enquiry and queues delivery. Reusing an unchanged submissionId returns the original receipt.
       requestBody:
         required: true
         content:
@@ -39,6 +39,12 @@ paths:
             schema:
               $ref: "#/components/schemas/EnquiryInput"
       responses:
+        "200":
+          description: Original receipt for an unchanged retry
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EnquiryCreated"
         "201":
           description: Enquiry received
           content:
@@ -66,12 +72,15 @@ components:
         name:
           type: string
           minLength: 2
+          maxLength: 120
         email:
           type: string
-          format: email
+          maxLength: 254
+          description: Required and validated as an email address when preferredContact is email; otherwise may be empty.
         phone:
           type: string
-          minLength: 5
+          maxLength: 35
+          description: Required for phone or WhatsApp; 7 to 15 digits with common phone punctuation.
         preferredContact:
           type: string
           enum: [email, phone, whatsapp]
@@ -83,17 +92,19 @@ components:
           enum: [treatment-placement, online-programme, family-support, free-assessment, insight-os, professional, not-sure]
         message:
           type: string
-          minLength: 10
+          maxLength: 2400
+        submissionId:
+          type: string
+          format: uuid
+          description: Reuse for an unchanged request after an uncertain response.
         consent:
           type: boolean
+          enum: [true]
       required:
         - name
-        - email
-        - phone
         - preferredContact
         - supportType
         - serviceInterest
-        - message
         - consent
     EnquiryCreated:
       type: object

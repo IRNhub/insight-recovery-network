@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -90,7 +91,7 @@ export function HeroCarousel({ slides, intervalMs = 5500 }: HeroCarouselProps) {
                 }}
                 aria-hidden={!isCurrent}
               >
-                <img
+                <ResponsiveImage
                   src={slide.src}
                   alt={slide.alt}
                   className="w-full h-full object-cover"

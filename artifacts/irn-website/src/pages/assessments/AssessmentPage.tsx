@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
 import { AssessmentEngine } from "@/components/assessment/AssessmentEngine";
 import { AssessmentResult } from "@/components/assessment/AssessmentResult";
-import { buildClinicalBrief } from "@/lib/assessment-scorer";
-import type { AssessmentConfig, AssessmentAnswers, ScoreResult, AnchorReport } from "@/types/assessment";
+import type { AssessmentAnswers, AuthoritativeAssessmentResult, PublicAssessmentConfig } from "@/types/assessment";
 import { Shield, Clock, Lock } from "lucide-react";
-import { trackEvent } from "@/lib/analytics";
+import { Link } from "wouter";
 
 interface AssessmentPageProps {
-  config: AssessmentConfig;
+  assessmentKey: string;
+  title: string;
+  subtitle: string;
+  estimatedMinutes: number;
   seoDescription: string;
   canonical: string;
 }
@@ -18,137 +20,118 @@ type Phase = "intro" | "assessment" | "result";
 
 const API_BASE = "/api";
 
-export default function AssessmentPage({ config, seoDescription, canonical }: AssessmentPageProps) {
+export default function AssessmentPage({
+  assessmentKey,
+  title,
+  subtitle,
+  estimatedMinutes,
+  seoDescription,
+  canonical,
+}: AssessmentPageProps) {
   const [phase, setPhase] = useState<Phase>("intro");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [result, setResult] = useState<ScoreResult | null>(null);
-  const [anchorReport, setAnchorReport] = useState<AnchorReport | null>(null);
-  const [assessmentId, setAssessmentId] = useState<number | undefined>(undefined);
-  const [userName, setUserName] = useState("");
-  const [isLoadingAnchor, setIsLoadingAnchor] = useState(false);
-  const [leadSubmitStatus, setLeadSubmitStatus] = useState<"submitting" | "success" | "error">("submitting");
+  const [result, setResult] = useState<AuthoritativeAssessmentResult | null>(null);
+  const [config, setConfig] = useState<PublicAssessmentConfig | null>(null);
+  const [definitionError, setDefinitionError] = useState(false);
+  const submissionKey = useRef(crypto.randomUUID());
 
-  async function handleComplete(answers: AssessmentAnswers, score: ScoreResult, consent: boolean) {
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`${API_BASE}/assessments/${assessmentKey}/definition`, {
+      signal: controller.signal,
+      cache: "no-store",
+    })
+      .then(async (response) => {
+        if (!response.ok) throw new Error("Definition unavailable");
+        const definition = await response.json() as Omit<
+          PublicAssessmentConfig,
+          "id" | "definitionVersion"
+        > & { key: string; version: number };
+        if (definition.key !== assessmentKey || !Number.isInteger(definition.version)) {
+          throw new Error("Definition mismatch");
+        }
+        setConfig({
+          id: definition.key,
+          definitionVersion: definition.version,
+          definitionHash: definition.definitionHash,
+          title: definition.title,
+          subtitle: definition.subtitle,
+          estimatedMinutes: definition.estimatedMinutes,
+          eligibility: definition.eligibility,
+          sections: definition.sections,
+        });
+      })
+      .catch((error) => {
+        if (error instanceof Error && error.name === "AbortError") return;
+        setDefinitionError(true);
+      });
+    return () => controller.abort();
+  }, [assessmentKey]);
+
+  async function handleComplete(answers: AssessmentAnswers, consent: boolean) {
     setIsSubmitting(true);
-
-    const name = typeof answers["name"] === "string" ? answers["name"] : "";
-    const email = typeof answers["email"] === "string" ? answers["email"] : "";
-    const phone = typeof answers["phone"] === "string" ? answers["phone"] : undefined;
-
-    const clinicalBrief = buildClinicalBrief(config, answers, score);
-    const tags = buildTags(score);
-
-    setResult(score);
-    setUserName(name);
-    setIsLoadingAnchor(true);
-    setLeadSubmitStatus("submitting");
-    setPhase("result");
-    setIsSubmitting(false);
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-    });
     try {
       const response = await fetch(`${API_BASE}/assessments/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: config.id,
-          name,
-          email,
-          phone: phone || undefined,
-          consent,
+          assessmentKey,
+          definitionVersion: config?.definitionVersion,
+          submissionKey: submissionKey.current,
           answers,
-          scoreValue: score.value,
-          scoreLevel: score.level,
-          scoreLabel: score.label,
-          bandName: score.bandName,
-          redFlags: score.redFlags,
-          advisories: score.advisories,
-          tags,
-          clinicalBrief,
+          ...(consent ? { consent: true } : {}),
         }),
       });
 
-      if (response.ok) {
-        setLeadSubmitStatus("success");
-        trackEvent("assessment_complete", {
-          form_name: "self_assessment",
-        });
-        const data = await response.json();
-        if (data.anchorReport) {
-          setAnchorReport(data.anchorReport as AnchorReport);
-        }
-        if (typeof data.id === "number") {
-          setAssessmentId(data.id);
-        }
-      } else setLeadSubmitStatus("error");
-    } catch {
-      // Anchor unavailable, result still shown with deterministic content
-      setLeadSubmitStatus("error");
+      const data = await response.json().catch(() => null) as {
+        result?: AuthoritativeAssessmentResult;
+        resultPath?: string;
+      } | null;
+      if (!response.ok || !data?.result) throw new Error("Assessment result was not saved");
+
+      setResult(data.result);
+      setPhase("result");
+      window.history.replaceState(null, "", data.resultPath || `/assessment-results/${assessmentKey}`);
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
     } finally {
-      setIsLoadingAnchor(false);
+      setIsSubmitting(false);
     }
   }
 
   async function handleCtaClick() {
-    if (!assessmentId) return;
     try {
-      await fetch(`${API_BASE}/assessments/${assessmentId}/cta-clicked`, {
-        method: "POST",
-      });
+      await fetch(`${API_BASE}/assessments/result/cta`, { method: "POST" });
     } catch {
-      // Non-fatal, tracking failure should not interrupt navigation
+      // A first-party operational event must never interrupt the pathway.
     }
   }
 
-  function buildTags(score: ScoreResult): string[] {
-    const tags: string[] = [
-      `assessment:${config.id}`,
-      `score-level:${score.level}`,
-    ];
-    for (const flag of score.redFlags) {
-      tags.push(`red-flag:${flag}`);
-      if (flag === "mental-health-risk") {
-        tags.push("mental-health-red-flag");
-        tags.push("urgent-safeguarding");
-        tags.push("crisis-support-recommended");
-      }
-    }
-    for (const advisory of score.advisories) {
-      tags.push(advisory);
-    }
-    if (score.value >= config.scoreThresholds.possibleDetoxRisk) {
-      tags.push("priority:high");
-    } else if (score.value >= config.scoreThresholds.higherConcern) {
-      tags.push("priority:high");
-    } else if (score.value >= config.scoreThresholds.moderateConcern) {
-      tags.push("priority:medium");
-    } else {
-      tags.push("priority:standard");
-    }
-    return tags;
-  }
-
-  const showDetoxBand = config.scoreThresholds.possibleDetoxRisk < 100;
-
-  const resultBands = [
+  const isPhaseCMentalHealth = config && ["anxiety", "depression", "adhd"].includes(config.id) && config.definitionVersion === 2;
+  const resultBands = isPhaseCMentalHealth ? [
+    { label: "Validated screening result", colour: "#2e7d52" },
+    { label: "Independent safety guidance", colour: "#b08a2a" },
+    { label: "Separate context profile", colour: "#c0622a" },
+    { label: "Anonymous core result", colour: "#162B3B" },
+  ] : config?.definitionVersion === 2 ? [
+    { label: "Substance-specific needs profile", colour: "#2e7d52" },
+    { label: "Independent safety guidance", colour: "#b08a2a" },
+    { label: "No combined detox score", colour: "#c0622a" },
+    { label: "Anonymous core result", colour: "#162B3B" },
+  ] : [
     { label: "Lower Concern", colour: "#2e7d52" },
     { label: "Moderate Concern", colour: "#b08a2a" },
     { label: "Higher Concern", colour: "#c0622a" },
-    ...(showDetoxBand
-      ? [
-          { label: "Possible Detox Risk", colour: "#9b2a2a" },
-          { label: "Urgent Medical Advice Recommended", colour: "#6b1a1a" },
-        ]
-      : [{ label: "Urgent Support Recommended", colour: "#6b1a1a" }]),
+    { label: "Elevated Concern", colour: "#9b2a2a" },
   ];
 
-  if (phase === "assessment") {
+  if (phase === "assessment" && config) {
     return (
       <Layout>
         <SEO
-          title={config.title}
+          title={title}
           description={seoDescription}
           canonical={canonical}
           noIndex={true}
@@ -164,31 +147,26 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
 
   if (phase === "result" && result) {
     return (
-      <Layout>
+      <>
         <SEO
           title="Your Assessment Results"
-          description="Your confidential assessment results from Insight Recovery Network."
+          description="Your private assessment result from Insight Recovery Network."
           canonical={`${canonical}/result`}
           noIndex={true}
         />
         <AssessmentResult
           result={result}
-          name={userName}
-          anchorReport={anchorReport}
-          isLoading={isLoadingAnchor}
-          advisories={result.advisories}
-          assessmentId={assessmentId}
           onCtaClick={handleCtaClick}
-          leadSubmitStatus={leadSubmitStatus}
+          onResultUpdate={setResult}
         />
-      </Layout>
+      </>
     );
   }
 
   return (
     <Layout>
       <SEO
-        title={config.title}
+        title={title}
         description={seoDescription}
         canonical={canonical}
       />
@@ -205,50 +183,60 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
         <div className="container mx-auto px-6 md:px-12 max-w-2xl">
           <div className="w-8 h-px mb-8" style={{ background: "#C9A96E" }} />
           <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 font-sans">
-            Clinical Self-Assessment
+            Private Self-Assessment
           </p>
           <h1 className="font-serif text-primary text-4xl md:text-5xl leading-tight mb-6">
-            {config.title}
+            {config?.title ?? title}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-10">
-            {config.subtitle}
+            {config?.subtitle ?? subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-10 text-sm text-muted-foreground font-light">
             <span className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-accent" />
-              Approximately {config.estimatedMinutes} minutes
+              Approximately {config?.estimatedMinutes ?? estimatedMinutes} minutes
             </span>
             <span className="flex items-center gap-2">
               <Shield className="w-4 h-4 text-accent" />
-              Completely confidential
+              Handled securely
             </span>
             <span className="flex items-center gap-2">
               <Lock className="w-4 h-4 text-accent" />
-              Results sent to your email
+              Durable result page
             </span>
           </div>
 
           <button
             onClick={() => {
-              trackEvent("assessment_start", {
-                cta_location: "assessment_intro",
-              });
+              if (!config) return;
               setPhase("assessment");
               window.scrollTo({
                 top: 0,
                 behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
               });
             }}
-            className="inline-flex items-center gap-3 px-8 h-14 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            disabled={!config}
+            className="inline-flex items-center gap-3 px-8 h-14 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:cursor-not-allowed disabled:opacity-60"
           >
             Begin Assessment
           </button>
 
+          {definitionError && (
+            <p role="alert" className="mt-4 text-sm text-red-700">
+              The assessment definition could not be loaded. Please refresh the page before continuing.
+            </p>
+          )}
+
           <p className="text-xs text-muted-foreground font-light mt-6 leading-relaxed max-w-md">
-            This assessment is not a diagnosis. It is designed to help you
-            understand your current situation and identify a safe pathway
-            forward. If you are in immediate danger, call 999.
+            This screening and triage assessment is not a diagnosis, medical
+            clearance or a substitute for professional assessment. IRN does not
+            monitor submissions as an emergency service. If you are in immediate
+            danger, call 999 or use the urgent pathway shown to you directly.
+          </p>
+          <p className="text-xs text-muted-foreground font-light mt-3 leading-relaxed max-w-md">
+            The core assessment does not ask for your identity. Your answers and rule-based result are stored on IRN's server with a deletion date 90 days after completion. Google and Meta tracking are excluded throughout the assessment journey. Read the{" "}
+            <Link href="/privacy-policy" className="underline underline-offset-2">Privacy Policy</Link>.
           </p>
         </div>
       </section>
@@ -260,7 +248,7 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
             What this assessment covers
           </h2>
           <div className="flex flex-col gap-5">
-            {config.sections.map((section, i) => (
+            {(config?.sections ?? []).map((section, i) => (
               <div key={section.id} className="flex items-start gap-5">
                 <span
                   className="font-serif text-2xl leading-none flex-shrink-0 mt-0.5"
@@ -294,9 +282,10 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
             How results are calculated
           </h2>
           <p className="text-muted-foreground font-light mb-8 leading-relaxed">
-            Scores are calculated using fixed clinical logic, not AI. Your
-            result level is determined by your total score and the presence of
-            any specific risk indicators.
+            Your result is calculated on the server using fixed, versioned
+            rules. {isPhaseCMentalHealth
+              ? "The validated screening score, IRN context, safety guidance and possible pathways are assessed separately, so one cannot hide or alter another."
+              : "Substance-use patterns, safety guidance and possible pathways are assessed separately, so an important answer cannot be hidden by an overall total."}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {resultBands.map((item) => (
@@ -315,9 +304,9 @@ export default function AssessmentPage({ config, seoDescription, canonical }: As
             ))}
           </div>
           <p className="text-xs text-muted-foreground font-light mt-6 leading-relaxed">
-            After your score is calculated, Anchor, our AI-assisted recovery
-            guidance system, will generate a personalised interpretation. Anchor
-            does not diagnose or give medical instructions.
+            Your personalised interpretation is generated deterministically from
+            the pattern across relevant domains. It remains complete if AI, email
+            or IRN's contact system is unavailable and it is not a diagnosis.
           </p>
         </div>
       </section>

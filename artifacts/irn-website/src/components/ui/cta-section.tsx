@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import { Button } from "./button";
 import type { ConversionEvent } from "@/lib/analytics";
 
 interface CTASectionProps {
@@ -85,31 +84,23 @@ export function CTASection({
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isExternal || isDirectHref(resolvedPrimaryCta.href) ? (
-              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
-                <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
+              <a href={resolvedPrimaryCta.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
                   {resolvedPrimaryCta.label}
-                </Button>
-              </a>
+                </a>
             ) : (
-              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
-                <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full">
+              <Link href={resolvedPrimaryCta.href} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base bg-white text-primary hover:bg-white/90 w-full" {...analyticsAttributes(primaryEvent ?? analyticsEvent, resolvedPrimaryCta.label)}>
                   {resolvedPrimaryCta.label}
-                </Button>
-              </Link>
+                </Link>
             )}
 
             {resolvedSecondaryCta && (isDirectHref(resolvedSecondaryCta.href) ? (
-              <a href={resolvedSecondaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
-                <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
+              <a href={resolvedSecondaryCta.href} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full border bg-transparent" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
                   {resolvedSecondaryCta.label}
-                </Button>
-              </a>
+                </a>
             ) : (
-              <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
-                <Button variant="outline" size="lg" className="rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full">
+              <Link href={resolvedSecondaryCta.href} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none h-14 px-10 text-base border-white/20 text-white hover:bg-white/10 w-full border bg-transparent" {...analyticsAttributes(secondaryEvent, resolvedSecondaryCta.label)}>
                   {resolvedSecondaryCta.label}
-                </Button>
-              </Link>
+                </Link>
             ))}
           </div>
         </div>

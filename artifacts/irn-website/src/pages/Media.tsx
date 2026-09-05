@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Link } from "wouter";
@@ -136,7 +137,7 @@ export default function Media() {
               boxShadow: "0 18px 50px -16px rgba(22,43,59,0.28), 0 0 0 1px rgba(22,43,59,0.08)",
             }}
           >
-            <img
+            <ResponsiveImage
               src={HERO_IMAGE}
               alt="Insight Recovery Network media and expert commentary studio"
               className="block h-full w-full object-cover object-center"

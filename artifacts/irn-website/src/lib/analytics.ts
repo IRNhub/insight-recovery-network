@@ -1,4 +1,8 @@
 import { hasConsent } from "@/lib/consent";
+import {
+  currentPathIsAssessmentSensitive,
+  markAssessmentEntryIfNeeded,
+} from "@/lib/assessment-tracking-boundary";
 
 declare global {
   interface Window {
@@ -25,6 +29,7 @@ export type AnalyticsEvent =
   | "treatment_placement_enquiry"
   | "online_programme_enquiry"
   | "family_support_enquiry"
+  | "preferred_source_click"
   | "not_found_view";
 
 export type ConversionEvent = Exclude<AnalyticsEvent, "spa_page_view">;
@@ -87,7 +92,11 @@ export function trackEvent(
   event: AnalyticsEvent,
   parameters: Record<string, AnalyticsValue> = {},
 ) {
-  if (typeof window === "undefined" || !hasConsent("analytics")) return false;
+  if (
+    typeof window === "undefined" ||
+    currentPathIsAssessmentSensitive() ||
+    !hasConsent("analytics")
+  ) return false;
 
   const filtered = safeParameters(parameters);
   const fingerprint = eventFingerprint(event, filtered);
@@ -108,7 +117,11 @@ export function trackEvent(
 }
 
 export function trackPageView() {
-  if (typeof window === "undefined" || !hasConsent("analytics")) return false;
+  if (
+    typeof window === "undefined" ||
+    currentPathIsAssessmentSensitive() ||
+    !hasConsent("analytics")
+  ) return false;
   const path = window.location.pathname;
   if (lastPageViewPath === path) return false;
   const tracked = trackEvent("spa_page_view");
@@ -151,6 +164,7 @@ function isAnalyticsEvent(value: string): value is AnalyticsEvent {
     "treatment_placement_enquiry",
     "online_programme_enquiry",
     "family_support_enquiry",
+    "preferred_source_click",
     "not_found_view",
   ].includes(value);
 }
@@ -187,6 +201,15 @@ export function installLeadClickTracking() {
     if (!(target instanceof Element)) return;
     const anchor = target.closest("a[href]");
     if (!(anchor instanceof HTMLAnchorElement)) return;
+
+    try {
+      const targetUrl = new URL(anchor.href, window.location.origin);
+      if (targetUrl.origin === window.location.origin) {
+        markAssessmentEntryIfNeeded(targetUrl.pathname);
+      }
+    } catch {
+      // Invalid targets are ignored by both privacy marking and analytics.
+    }
 
     const explicitEvent = anchor.dataset.analyticsEvent;
     const eventName =

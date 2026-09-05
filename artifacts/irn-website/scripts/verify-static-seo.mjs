@@ -311,11 +311,12 @@ const treatmentVisuals = {
   },
 };
 
+const responsiveManifest = JSON.parse(readFileSync(resolve(dist, 'responsive/manifest.json'), 'utf8'));
 for (const [pathname, visual] of Object.entries(treatmentVisuals)) {
   const html = htmlByPath.get(pathname);
   const imageTag = [...html.matchAll(/<img\b[^>]*>/gi)]
     .map((match) => match[0])
-    .find((tag) => tagAttributes(tag).src === visual.hero);
+    .find((tag) => tagAttributes(tag).src === (responsiveManifest[visual.hero]?.src ?? visual.hero));
   if (!imageTag) {
     fail(`${pathname} has no visibly rendered masthead hero; an OG image alone is not sufficient.`);
   }
@@ -324,6 +325,16 @@ for (const [pathname, visual] of Object.entries(treatmentVisuals)) {
   if (image.width !== "1600" || image.height !== "900") fail(`${pathname} hero lacks 1600x900 intrinsic dimensions.`);
   if (image.loading !== "eager" || image.fetchpriority !== "high") fail(`${pathname} above-the-fold hero lacks eager loading or high fetch priority.`);
   if (!image.sizes) fail(`${pathname} hero has no responsive sizes attribute.`);
+  if (responsiveManifest[visual.hero]) {
+    if (image.srcset !== responsiveManifest[visual.hero].srcSet) fail(`${pathname} hero responsive candidates differ from the build manifest.`);
+    for (const candidate of image.srcset.split(', ')) {
+      const [url, width] = candidate.split(' ');
+      const variant = resolve(dist, url.slice(1));
+      const metadata = await sharp(variant).metadata();
+      if (metadata.width !== Number.parseInt(width, 10) || metadata.format !== 'webp') fail(`${pathname} responsive hero candidate is invalid.`);
+      if (statSync(variant).size > 200 * 1024) fail(`${pathname} responsive hero exceeds the 200 KB ceiling.`);
+    }
+  }
 
   const heroPath = resolve(dist, visual.hero.slice(1));
   const ogPath = resolve(dist, visual.og.slice(1));
@@ -442,7 +453,7 @@ for (const [pathname, visual] of Object.entries(batchThreeResourceVisuals)) {
 
   const imageTag = [...html.matchAll(/<img\b[^>]*>/gi)]
     .map((match) => match[0])
-    .find((tag) => tagAttributes(tag).src === visual.hero);
+    .find((tag) => tagAttributes(tag).src === (responsiveManifest[visual.hero]?.src ?? visual.hero));
   if (!imageTag) fail(`${pathname} has no visible hero; an OG image alone is not sufficient.`);
   const image = tagAttributes(imageTag);
   if (image.alt !== visual.alt) fail(`${pathname} hero ALT does not match the approved literal description.`);
@@ -614,9 +625,8 @@ for (const pathname of conversionPriorityPaths) {
   const html = read(resolve(dist, target.replace(/^\//, "")));
   for (const requiredText of [
     "Who this is for",
-    "What it helps solve",
-    "Where it applies",
-    "Book a confidential call",
+    ...(pathname === "/contact" ? ["Choose how you would like us to contact you", "Request a private conversation"] : ["What it helps solve", "Where it applies"]),
+    pathname === "/contact" ? "Request a private conversation" : "Book a confidential call",
     "Craig Bilton",
     "not a regulated healthcare provider",
   ]) {
@@ -630,14 +640,14 @@ const getHelpTarget = targetForPath("/get-help");
 if (!getHelpTarget) fail("/get-help is unmapped.");
 const getHelp = read(resolve(dist, getHelpTarget.replace(/^\//, "")));
 for (const requiredText of [
-  "Speak to Someone About Private Addiction Treatment",
+  "Let’s talk through your options.",
   "private, paid services",
   "does not provide emergency or NHS crisis care",
   "under 18",
-  "Private rehab placement",
+  "Private rehab / detox options",
   "Online recovery support",
-  "Family support",
-  "Professional intervention guidance",
+  "Family support / intervention",
+  "Request a private conversation",
 ]) {
   if (!getHelp.toLowerCase().includes(requiredText.toLowerCase())) {
     fail(`/get-help is missing required commercial or safety content: ${requiredText}`);

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
@@ -9,42 +10,42 @@ const assessmentsHeroImg = "/assessments-hero-brain.png";
 const assessments = [
   {
     id: "alcohol-detox",
-    title: "Alcohol & Detox Suitability Assessment",
+    title: "Alcohol Change and Withdrawal Assessment",
     description:
-      "Explore whether alcohol may be affecting your wellbeing and whether stopping suddenly could carry medical risk. Covers use patterns, withdrawal history, and detox safety.",
+      "Explore alcohol patterns, withdrawal history and the level of professional assessment to consider before making a substantial change.",
     href: "/assessments/alcohol-detox",
-    duration: "10–15 minutes",
-    forWhom: "For individuals drinking heavily who are considering stopping",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people considering reducing or stopping alcohol",
     featured: true,
   },
   {
     id: "alcohol-use",
-    title: "Alcohol Use Assessment",
+    title: "Alcohol Use and Support Needs Assessment",
     description:
-      "Reflect on your current relationship with alcohol and understand whether it may be affecting your health, relationships, or daily life.",
+      "Build an anonymous descriptive profile of alcohol exposure, impaired control, consequences and independent withdrawal-safety factors.",
     href: "/assessments/alcohol-use",
-    duration: "7–10 minutes",
-    forWhom: "For individuals questioning their drinking",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people questioning their drinking",
     featured: false,
   },
   {
     id: "drug-use",
-    title: "Drug Use & Substance Assessment",
+    title: "Substance Use and Support Needs Assessment",
     description:
-      "Explore your relationship with substances and identify whether further professional support or treatment may be appropriate.",
+      "Select the substances that are relevant and receive branched, substance-specific pattern, safety and support guidance.",
     href: "/assessments/drug-use",
-    duration: "7–10 minutes",
-    forWhom: "For individuals concerned about substance use",
+    duration: "Approximately 8 minutes",
+    forWhom: "For people concerned about substance use",
     featured: false,
   },
   {
     id: "detox",
-    title: "Detox Suitability Assessment",
+    title: "Substance-Specific Change and Withdrawal Assessment",
     description:
-      "If you are considering stopping or reducing alcohol or substance use, this assessment helps identify the safest pathway.",
+      "Identify the relevant substance and explore withdrawal, overdose and health factors before changing use. It does not provide medical clearance.",
     href: "/assessments/detox",
-    duration: "8–12 minutes",
-    forWhom: "For those considering stopping or reducing use",
+    duration: "Approximately 10 minutes",
+    forWhom: "For people considering stopping or reducing use",
     featured: false,
   },
   {
@@ -84,7 +85,7 @@ export default function AssessmentsIndex() {
     <Layout>
       <SEO
         title="Free Confidential Addiction and Mental Health Self-Assessments"
-        description="Free confidential self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD. Clinically informed, non-diagnostic, results sent to your email."
+        description="Private self-assessments for alcohol use, drug use, detox suitability, anxiety, depression, and ADHD, with server-calculated, non-diagnostic results."
         canonical="/assessments"
         ogImage={ogImageUrl("og-assessments.png")}
       />
@@ -103,7 +104,7 @@ export default function AssessmentsIndex() {
             <div className="lg:w-[52%] flex flex-col">
               <div className="w-7 h-px mb-5" style={{ background: "#C9A96E" }} />
               <p className="text-[10px] font-semibold tracking-[0.20em] uppercase text-accent/70 font-sans mb-3">
-                Clinical Self-Assessments
+                Private Self-Assessments
               </p>
               <h1 className="font-serif text-primary leading-tight mb-4" style={{ fontSize: "clamp(1.9rem, 3.5vw, 2.75rem)" }}>
                 Free Confidential Addiction and Mental Health Assessments
@@ -117,11 +118,11 @@ export default function AssessmentsIndex() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-sm text-muted-foreground font-light">
                 <span className="flex items-center gap-2">
                   <Shield className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                  Completely confidential
+                  Handled securely
                 </span>
                 <span className="flex items-center gap-2">
                   <Lock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                  Results sent to your email
+                  Durable result page
                 </span>
                 <span className="flex items-center gap-2">
                   <Clock className="w-3.5 h-3.5 text-accent flex-shrink-0" />
@@ -143,7 +144,7 @@ export default function AssessmentsIndex() {
                   aspectRatio: "16/11",
                 }}
               >
-                <img
+                <ResponsiveImage
                   src={assessmentsHeroImg}
                   alt="Illustration of a connected brain representing confidential mental health self-assessments"
                   className="w-full h-full object-cover"

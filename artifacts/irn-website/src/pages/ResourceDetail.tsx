@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
@@ -254,7 +255,7 @@ function parseContent(
         elements.push(
           <figure key={`supporting-image-${i}`} className="my-8">
             <div className="overflow-hidden rounded-xl border border-border/40 bg-secondary/20">
-              <img
+              <ResponsiveImage
                 src={supportingImage.src}
                 alt={supportingImage.alt}
                 width={1600}
@@ -1176,7 +1177,7 @@ export default function ResourceDetail() {
                     "0 12px 40px -8px rgba(22,43,59,0.18), 0 0 0 1px rgba(22,43,59,0.06)",
                 }}
               >
-                <img
+                <ResponsiveImage
                   src={article.image}
                   alt={article.imageAlt ?? article.title}
                   width={1600}
