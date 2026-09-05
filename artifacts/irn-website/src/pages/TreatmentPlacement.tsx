@@ -8,6 +8,8 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
+import { RelatedGuideCard } from "@/components/ui/related-guide-card";
+import residentialSetting from "@/assets/wwo-treatment-placement.webp";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
@@ -221,14 +223,14 @@ export default function TreatmentPlacement() {
                 ))}
               </div>
               <div className="flex flex-col gap-3 pt-2">
-                <Link href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
-                  <Button
+                <Button asChild
                     size="lg"
                     className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto"
                   >
+                  <Link data-primary-commercial-cta="true" href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
                     {parity.primaryCta.label}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <p className="text-[11.5px] text-muted-foreground/60 font-light tracking-wide">
                   Confidential · No obligation · Individuals and families welcome
                 </p>
@@ -325,9 +327,17 @@ export default function TreatmentPlacement() {
 
             {/* Right: International Network card */}
             <div
-              className="border border-border/40 rounded-xl p-7 md:p-9 bg-white"
+              className="overflow-hidden border border-border/40 rounded-xl bg-white"
               style={{ boxShadow: "0 2px 12px rgba(22,43,59,0.07)" }}
             >
+              <ResponsiveImage
+                src={residentialSetting}
+                alt="A peaceful garden courtyard with seating and a clear path between buildings"
+                className="aspect-[2/1] w-full object-cover"
+                sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
+                loading="lazy"
+              />
+              <div className="p-7 md:p-9">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-secondary flex-shrink-0">
                   <MapPin className="w-4 h-4 text-accent" strokeWidth={1.5} />
@@ -381,6 +391,7 @@ export default function TreatmentPlacement() {
               <p className="text-[11.5px] text-muted-foreground/60 font-light leading-relaxed italic">
                 Recommendations are based on assessed suitability and individual requirements. IRN does not own or operate the facilities, and the chosen provider retains responsibility for its clinical assessment, admission decision and care.
               </p>
+              </div>
             </div>
 
           </div>
@@ -599,19 +610,14 @@ export default function TreatmentPlacement() {
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {decisionGuides.map((guide) => (
-              <Link
+              <RelatedGuideCard
                 key={guide.href}
                 href={guide.href}
-                className="group border border-border/40 bg-background p-6 transition-colors hover:border-accent/50"
-              >
-                <div className="mb-4 flex items-start justify-between gap-4">
-                  <h3 className="font-serif text-xl leading-snug text-primary transition-colors group-hover:text-accent">
-                    {guide.title}
-                  </h3>
-                  <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-accent" />
-                </div>
-                <p className="text-sm font-light leading-relaxed text-muted-foreground">{guide.body}</p>
-              </Link>
+                title={guide.title}
+                description={guide.body}
+                image={guide.href === "/how-much-does-rehab-cost-uk" ? "/rehab-costs-uk-comparison-hero.webp" : undefined}
+                imageAlt={guide.href === "/how-much-does-rehab-cost-uk" ? "Person comparing treatment brochures and costs at a table" : undefined}
+              />
             ))}
           </div>
         </div>
