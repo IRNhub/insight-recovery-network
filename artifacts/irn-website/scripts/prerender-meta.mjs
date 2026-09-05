@@ -40,6 +40,7 @@ import {
   buildRouteSchemas,
   routeParity,
 } from "../src/data/route-parity.js";
+import { placementSteps, placementChecks } from "../src/data/placement-journey.js";
 import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -235,7 +236,7 @@ function applySharedParity(page) {
     title: parity.title,
     description: parity.description,
     noIndex: !parity.indexable,
-    body: supplementParityBody(page.body, page.route),
+    body: page.route === "/get-help" ? buildParityBody(page.route) : supplementParityBody(page.body, page.route),
     jsonLd: [...sharedSchemas, ...additionalSchemas],
   };
 }
@@ -771,10 +772,9 @@ const PAGES = [
   {
     route: "/contact",
     file: "contact.html",
-    title: "Contact Us | Book a confidential call | Insight Recovery Network",
-    description:
-      "Contact Insight Recovery Network confidentially. Based in Newquay, Cornwall, we provide private guidance on addiction treatment, rehab placement, online recovery programmes, and mental health support for individuals and families.",
-    ogImage: `${SITE_URL}/og-contact.png`,
+    title: "Contact Insight Recovery Network",
+    description: "Contact IRN by phone, WhatsApp, email or a private enquiry form. Tell us how and when it is suitable to respond about treatment placement or recovery support.",
+    ogImage: `${SITE_URL}/og-home-v2.png`,
     body: `
       <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
         <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
@@ -4388,8 +4388,13 @@ async function main() {
     : null;
 
   const home = routeParity["/"];
+  const homeBody = baseHtml
+    .replace(/(<h1\b[^>]*>)[\s\S]*?(<\/h1>)/i, `$1${esc(home.h1)}$2`)
+    .replace(/(<h1\b[\s\S]*?<\/h1>\s*<p\b[^>]*>)[\s\S]*?(<\/p>)/i, `$1${esc(home.heroIntro)}$2`)
+    .replace(/(<a\b[^>]*data-primary-commercial-cta="true"[^>]*>)[\s\S]*?(<\/a>)/i, `$1${esc(home.primaryCta.label)}$2`)
+    .replace('</main>', `<section style="max-width:1120px;margin:0 auto;padding:2rem;"><h2>A clear path into suitable care</h2>${placementSteps.map(step => `<article><h3>${esc(step.title)}</h3><p>${esc(step.summary)} ${esc(step.detail)}</p></article>`).join('')}<h2>Understand the options before you commit</h2>${placementChecks.map(item => `<h3>${esc(item.title)}</h3><p>${esc(item.body)}</p>`).join('')}</section></main>`);
   const homeHtml = injectJsonLd(
-    injectPageMeta(baseHtml, {
+    injectPageMeta(homeBody, {
       route: "/",
       title: home.title,
       description: home.description,

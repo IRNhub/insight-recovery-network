@@ -7,6 +7,8 @@ import { startAssessmentDeliveryWorker } from "./assessment-engine/assessment-de
 import { startAssessmentRetentionWorker } from "./assessment-engine/assessment-retention-worker";
 import { startAssessmentRateLimitCleanupWorker } from "./assessment-engine/assessment-rate-limit-worker";
 
+import { startEnquiryDeliveryWorker, assertEnquiryStorageReady } from "./lib/enquiry-worker";
+
 const rawPort = process.env["PORT"];
 
 if (!rawPort) {
@@ -21,6 +23,7 @@ if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${rawPort}"`);
 }
 
+await assertEnquiryStorageReady();
 app.listen(port, (err) => {
   if (err) {
     logger.error({ err }, "Error listening on port");
@@ -39,6 +42,7 @@ app.listen(port, (err) => {
     .catch((err) => logger.error({ err }, "Unexpected error in seedFamilySurvey"))
     .finally(() => startSurveySyncWorker());
 
+  startEnquiryDeliveryWorker();
   startAssessmentDeliveryWorker();
   startAssessmentRetentionWorker();
   startAssessmentRateLimitCleanupWorker();

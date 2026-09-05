@@ -16,19 +16,37 @@ export const HealthCheckResponse = zod.object({
 });
 
 /**
- * Stores a new enquiry from the contact form and notifies the team
+ * Atomically stores an enquiry and queues delivery. Reusing an unchanged submissionId returns the original receipt.
  * @summary Submit a contact enquiry
  */
 export const submitEnquiryBodyNameMin = 2;
+export const submitEnquiryBodyNameMax = 120;
 
-export const submitEnquiryBodyPhoneMin = 5;
+export const submitEnquiryBodyEmailMax = 254;
 
-export const submitEnquiryBodyMessageMin = 10;
+export const submitEnquiryBodyPhoneMax = 35;
+
+export const submitEnquiryBodyMessageMax = 2400;
 
 export const SubmitEnquiryBody = zod.object({
-  name: zod.string().min(submitEnquiryBodyNameMin),
-  email: zod.string().email(),
-  phone: zod.string().min(submitEnquiryBodyPhoneMin),
+  name: zod
+    .string()
+    .min(submitEnquiryBodyNameMin)
+    .max(submitEnquiryBodyNameMax),
+  email: zod
+    .string()
+    .max(submitEnquiryBodyEmailMax)
+    .optional()
+    .describe(
+      "Required and validated as an email address when preferredContact is email; otherwise may be empty.",
+    ),
+  phone: zod
+    .string()
+    .max(submitEnquiryBodyPhoneMax)
+    .optional()
+    .describe(
+      "Required for phone or WhatsApp; 7 to 15 digits with common phone punctuation.",
+    ),
   preferredContact: zod.enum(["email", "phone", "whatsapp"]),
   supportType: zod.enum(["myself", "someone-else", "professional", "general"]),
   serviceInterest: zod.enum([
@@ -40,6 +58,16 @@ export const SubmitEnquiryBody = zod.object({
     "professional",
     "not-sure",
   ]),
-  message: zod.string().min(submitEnquiryBodyMessageMin),
-  consent: zod.boolean(),
+  message: zod.string().max(submitEnquiryBodyMessageMax).optional(),
+  submissionId: zod
+    .string()
+    .uuid()
+    .optional()
+    .describe("Reuse for an unchanged request after an uncertain response."),
+  consent: zod.literal(true),
+});
+
+export const SubmitEnquiryResponse = zod.object({
+  id: zod.number(),
+  createdAt: zod.coerce.date(),
 });

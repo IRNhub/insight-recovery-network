@@ -20,7 +20,7 @@ export function SectionHeader({
   return (
     <div className={`flex flex-col gap-4 max-w-3xl ${align === "center" ? "mx-auto text-center items-center" : ""} ${className}`}>
       {label && (
-        <span className="text-xs font-semibold tracking-widest uppercase text-accent font-sans">
+        <span className="text-xs font-semibold tracking-widest uppercase text-[#786036] font-sans">
           {label}
         </span>
       )}

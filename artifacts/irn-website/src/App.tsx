@@ -8,7 +8,9 @@ import { lazy, Suspense, useEffect } from "react";
 import Home from "@/pages/Home";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { installLeadClickTracking, trackPageView } from "@/lib/analytics";
-import { CONSENT_CHANGED_EVENT } from "@/lib/consent";
+import { captureEnquiryAttribution } from "@/lib/enquiry-attribution";
+import { RouteLoading } from "@/components/RouteLoading";
+import { CONSENT_CHANGED_EVENT, hasConsent } from "@/lib/consent";
 import { CookieConsent } from "@/components/CookieConsent";
 import {
   currentPathIsAssessmentSensitive,
@@ -173,17 +175,11 @@ function Router() {
   }, [location]);
 
   useEffect(() => {
-    try {
-      if (!window.sessionStorage.getItem("irn_landing_page")) {
-        window.sessionStorage.setItem(
-          "irn_landing_page",
-          `${window.location.pathname}${window.location.search}`,
-        );
-      }
-    } catch {
-      // Source attribution is useful, but should never block the app.
-    }
-  }, []);
+    const capture = () => captureEnquiryAttribution(hasConsent("analytics") && !currentPathIsAssessmentSensitive());
+    capture();
+    window.addEventListener(CONSENT_CHANGED_EVENT, capture);
+    return () => window.removeEventListener(CONSENT_CHANGED_EVENT, capture);
+  }, [location]);
 
   useEffect(() => installLeadClickTracking(), []);
 
@@ -231,7 +227,7 @@ function Router() {
 
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<RouteLoading />}>
         <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />

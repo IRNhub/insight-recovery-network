@@ -1,7 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, Search } from "lucide-react";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { SocialLinks } from "@/components/SocialLinks";
 
 const SearchModal = lazy(() =>
@@ -28,6 +27,12 @@ export function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobileMenuOpen(false); };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, []);
 
   // "/" shortcut opens search
   useEffect(() => {
@@ -72,14 +77,14 @@ export function Navbar() {
               className="group flex items-center gap-2 flex-shrink-0"
               data-testid="link-home"
             >
-              <span className="font-serif text-xl font-medium tracking-tight text-primary transition-colors group-hover:text-primary/80">
+              <span className="font-serif text-[1.05rem] sm:text-xl font-medium tracking-tight text-primary transition-colors group-hover:text-primary/80">
                 Insight Recovery Network
               </span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-4 ml-6 xl:ml-10 xl:gap-6">
-              <ul className="flex items-center gap-3.5 text-xs font-medium xl:gap-5 xl:text-sm">
+            <nav className="hidden xl:flex items-center gap-4 ml-6 xl:ml-10 xl:gap-6">
+              <ul className="flex items-center gap-3.5 whitespace-nowrap text-xs font-medium xl:gap-5 xl:text-sm">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -110,18 +115,13 @@ export function Navbar() {
               >
                 <Search size={17} strokeWidth={1.5} />
               </button>
-              <Link href="/get-help" data-testid="link-nav-contact" data-analytics-event="get_help_click" data-cta-location="header" data-service-interest="general-support">
-                <Button
-                  variant="default"
-                  className="rounded-none font-medium h-10 px-4 text-xs xl:px-6 xl:text-sm"
-                >
-                  Discuss treatment options
-                </Button>
-              </Link>
+              <Link href="/get-help" data-testid="link-nav-contact" data-analytics-event="get_help_click" data-cta-location="header" data-service-interest="general-support" className="inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none font-medium h-10 px-4 text-xs xl:px-6 xl:text-sm bg-primary text-primary-foreground hover:bg-primary/90">
+                  Get help
+                </Link>
             </nav>
 
             {/* Mobile: search + toggle */}
-            <div className="lg:hidden flex items-center gap-1">
+            <div className="xl:hidden flex items-center gap-1">
               <button
                 onClick={() => setSearchOpen(true)}
                 className="p-2 text-primary"
@@ -134,7 +134,9 @@ export function Navbar() {
                 className="p-2 -mr-2 text-primary"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 data-testid="button-mobile-menu"
-                aria-label="Toggle menu"
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
               >
                 {mobileMenuOpen ? (
                   <X size={24} strokeWidth={1.5} />
@@ -148,8 +150,8 @@ export function Navbar() {
 
         {/* Mobile Nav */}
         {mobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg animate-in slide-in-from-top-2">
-            <nav className="container mx-auto px-6 py-8 flex flex-col gap-6">
+          <div className="xl:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg animate-in slide-in-from-top-2">
+            <nav id="mobile-navigation" aria-label="Mobile navigation" className="container mx-auto max-h-[calc(100dvh-88px)] overflow-y-auto px-6 py-6 flex flex-col gap-5">
               <ul className="flex flex-col gap-4 text-base font-medium">
                 <li>
                   <Link
@@ -185,19 +187,14 @@ export function Navbar() {
               <div className="pt-4 border-t border-border">
                 <Link
                   href="/get-help"
-                  className="block w-full"
+                  className="block w-full inline-flex items-center justify-center gap-2 text-center font-medium transition-colors w-full rounded-none font-medium h-12 bg-primary text-primary-foreground hover:bg-primary/90"
                   data-testid="link-mobile-contact"
                   data-analytics-event="get_help_click"
                   data-cta-location="mobile_menu"
                   data-service-interest="general-support"
                 >
-                  <Button
-                    variant="default"
-                    className="w-full rounded-none font-medium h-12"
-                  >
                     Discuss treatment options
-                  </Button>
-                </Link>
+                  </Link>
               </div>
             </nav>
           </div>

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
@@ -37,7 +38,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
         <div className="container mx-auto px-6 md:px-12 py-10 md:py-14">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] gap-8 lg:gap-12 items-center">
             <div className="overflow-hidden border border-border/40 bg-primary shadow-sm">
-              <img
+              <ResponsiveImage
                 src={d.heroImage}
                 alt={d.heroImageAlt}
                 width={1717}

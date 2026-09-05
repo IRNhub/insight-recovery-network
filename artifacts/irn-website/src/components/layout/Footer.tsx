@@ -18,7 +18,7 @@ export function Footer() {
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed text-sm">
               Confidential guidance for private rehab, detox, family intervention and structured online addiction recovery support.
             </p>
-            <div className="flex flex-col gap-2 text-sm text-primary-foreground/60">
+            <div className="flex flex-col gap-2 text-sm text-primary-foreground/80">
               <a href="mailto:info@insightrecoverynetwork.com" className="hover:text-accent transition-colors">
                 info@insightrecoverynetwork.com
               </a>
@@ -27,16 +27,16 @@ export function Footer() {
               </a>
             </div>
             <div className="flex flex-col gap-3 pt-2">
-              <h4 className="font-serif text-lg text-primary-foreground/90">
+              <h2 className="font-serif text-lg text-primary-foreground/90">
                 Follow Insight Recovery Network
-              </h4>
+              </h2>
               <SocialLinks variant="footer" showLabels />
             </div>
           </div>
 
           <div className="lg:col-span-2 lg:col-start-5 flex flex-col gap-4">
-            <h4 className="font-serif text-lg text-primary-foreground/90">Treatment Guidance</h4>
-            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
+            <h2 className="font-serif text-lg text-primary-foreground/90">Treatment Guidance</h2>
+            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/treatment-placement" className="hover:text-accent transition-colors">
                   Treatment Placement
@@ -86,8 +86,8 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 lg:col-start-7 flex flex-col gap-4">
-            <h4 className="font-serif text-lg text-primary-foreground/90">Organisation</h4>
-            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
+            <h2 className="font-serif text-lg text-primary-foreground/90">Organisation</h2>
+            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/about" className="hover:text-accent transition-colors">
                   About Us
@@ -112,8 +112,8 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 lg:col-start-9 flex flex-col gap-4">
-            <h4 className="font-serif text-lg text-primary-foreground/90">Resources</h4>
-            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
+            <h2 className="font-serif text-lg text-primary-foreground/90">Resources</h2>
+            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/resources" className="hover:text-accent transition-colors">
                   All Articles
@@ -138,8 +138,8 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2 lg:col-start-11 flex flex-col gap-4">
-            <h4 className="font-serif text-lg text-primary-foreground/90">Legal</h4>
-            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/60">
+            <h2 className="font-serif text-lg text-primary-foreground/90">Legal</h2>
+            <ul className="flex flex-col gap-3 text-sm text-primary-foreground/80">
               <li>
                 <Link href="/privacy-policy" className="hover:text-accent transition-colors">
                   Privacy Policy
@@ -175,10 +175,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/10">
-          <p className="text-xs text-primary-foreground/35 leading-relaxed max-w-3xl mb-6">
-            <strong className="font-medium text-primary-foreground/45">Important:</strong> Insight Recovery Network is not an emergency or crisis service. If you or someone else is in immediate danger, please call <strong className="font-medium text-primary-foreground/45">999</strong> or attend your nearest A&amp;E. For emotional support at any time, the Samaritans are available on <strong className="font-medium text-primary-foreground/45">116 123</strong> (free, 24/7). Our services are private support and treatment guidance, not regulated medical treatment.
+          <p className="text-xs text-primary-foreground/80 leading-relaxed max-w-3xl mb-6">
+            <strong className="font-medium text-primary-foreground/90">Important:</strong> Insight Recovery Network is not an emergency or crisis service. If you or someone else is in immediate danger, please call <strong className="font-medium text-primary-foreground/90">999</strong> or attend your nearest A&amp;E. For emotional support at any time, the Samaritans are available on <strong className="font-medium text-primary-foreground/90">116 123</strong> (free, 24/7). IRN provides private support and treatment guidance. We are not a regulated healthcare provider.
           </p>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-sm text-primary-foreground/50">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-sm text-primary-foreground/80">
             <p>© {currentYear} Insight Recovery Network. All rights reserved.</p>
             <p>Newquay, Cornwall, UK &middot; Discreet, private support.</p>
           </div>

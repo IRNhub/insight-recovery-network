@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { SEO } from "@/components/SEO";
 import { RouteSchemas } from "@/components/RouteSchemas";
 import { Layout } from "@/components/layout/Layout";
@@ -239,7 +240,7 @@ export default function OnlineProgramme() {
                     border: "1px solid rgba(201,169,110,0.22)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={heroImg}
                   alt="Person working through online recovery programme at home"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
@@ -399,7 +400,7 @@ export default function OnlineProgramme() {
                     border: "1px solid rgba(201,169,110,0.20)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={oneToOneImg}
                   alt="One-to-one online therapy session with recovery worksheets"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"

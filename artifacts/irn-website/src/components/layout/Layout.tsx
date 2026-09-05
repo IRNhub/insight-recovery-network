@@ -94,8 +94,9 @@ export function Layout({ children }: LayoutProps) {
           {JSON.stringify(PERSON_SCHEMA)}
         </script>
       </Helmet>
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar />
-      <main className="flex-1 flex flex-col pt-[88px]">
+      <main id="main-content" tabIndex={-1} className="flex-1 flex flex-col pt-[88px]">
         {children}
         {shouldShowPreferredSources(location) && <PreferredSources />}
       </main>

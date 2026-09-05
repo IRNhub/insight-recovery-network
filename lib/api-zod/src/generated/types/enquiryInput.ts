@@ -6,19 +6,31 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { EnquiryInputPreferredContact } from "./enquiryInputPreferredContact";
-import type { EnquiryInputSupportType } from "./enquiryInputSupportType";
 import type { EnquiryInputServiceInterest } from "./enquiryInputServiceInterest";
+import type { EnquiryInputSupportType } from "./enquiryInputSupportType";
 
 export interface EnquiryInput {
-  /** @minLength 2 */
+  /**
+   * @minLength 2
+   * @maxLength 120
+   */
   name: string;
-  email: string;
-  /** @minLength 5 */
-  phone: string;
+  /**
+   * Required and validated as an email address when preferredContact is email; otherwise may be empty.
+   * @maxLength 254
+   */
+  email?: string;
+  /**
+   * Required for phone or WhatsApp; 7 to 15 digits with common phone punctuation.
+   * @maxLength 35
+   */
+  phone?: string;
   preferredContact: EnquiryInputPreferredContact;
   supportType: EnquiryInputSupportType;
   serviceInterest: EnquiryInputServiceInterest;
-  /** @minLength 10 */
-  message: string;
+  /** @maxLength 2400 */
+  message?: string;
+  /** Reuse for an unchanged request after an uncertain response. */
+  submissionId?: string;
   consent: boolean;
 }

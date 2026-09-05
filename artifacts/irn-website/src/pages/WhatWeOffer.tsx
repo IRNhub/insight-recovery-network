@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { SEO } from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
 import { Layout } from "@/components/layout/Layout";
@@ -212,7 +213,7 @@ export default function WhatWeOffer() {
                     border: "1px solid rgba(201,169,110,0.22)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={heroImg}
                   alt="Clinical consultation and recovery guidance"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
@@ -287,7 +288,7 @@ export default function WhatWeOffer() {
               >
                 {/* Image */}
                 <div className="relative overflow-hidden" style={{ height: "196px" }}>
-                  <img
+                  <ResponsiveImage
                     src={s.img}
                     alt={s.imgAlt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
@@ -451,7 +452,7 @@ export default function WhatWeOffer() {
                 }}
               >
                 <div className="relative overflow-hidden flex-shrink-0" style={{ height: "200px" }}>
-                  <img
+                  <ResponsiveImage
                     src={item.img}
                     alt={item.imgAlt}
                     className="w-full h-full object-cover"

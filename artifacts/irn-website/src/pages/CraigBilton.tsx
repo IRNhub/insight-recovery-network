@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
@@ -62,7 +63,7 @@ export default function CraigBilton() {
               boxShadow: "0 18px 50px -16px rgba(22,43,59,0.28), 0 0 0 1px rgba(22,43,59,0.08)",
             }}
           >
-            <img
+            <ResponsiveImage
               src={HERO_IMAGE}
               alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network"
               className="block h-full w-full object-cover object-center"

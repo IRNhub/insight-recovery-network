@@ -2,6 +2,7 @@ import { afterEach, describe, it } from "node:test";
 import assert from "node:assert/strict";
 import {
   buildAssessmentLeadPayload,
+  forwardEnquiryToIrnOs,
   forwardAssessmentToIrnOs,
   type IrnOsAssessmentPayload,
 } from "./irn-os.ts";
@@ -9,6 +10,18 @@ import {
 const originalFetch = globalThis.fetch;
 const originalEndpoint = process.env.IRN_OS_LEAD_ENDPOINT;
 const originalApiKey = process.env.IRN_OS_LEAD_API_KEY;
+
+it('requires a persisted enquiry receipt, including attachment of a repeat enquiry', async () => {
+  process.env.IRN_OS_LEAD_ENDPOINT = 'https://synthetic.invalid/leads';
+  process.env.IRN_OS_LEAD_API_KEY = 'test-only';
+  const payload = { enquiryId: '42', createdAt: new Date(), name: 'Synthetic', email: 'test@example.test', phone: '', preferredContact: 'email', supportType: 'general', serviceInterest: 'not-sure', message: '', consent: true, submittedAt: new Date().toUTCString() };
+  for (const data of [{}, { success: false, leadId: 'lead-123' }, { success: true }, { success: true, duplicate: true, existingId: 'lead-123' }, { success: true, duplicate: true, existingId: 'lead-123', enquiryAttached: true, enquiryId: '43' }]) {
+    globalThis.fetch = async () => new Response(JSON.stringify(data), {status: 200});
+    assert.equal((await forwardEnquiryToIrnOs(payload)).forwarded, false);
+  }
+  globalThis.fetch = async () => new Response(JSON.stringify({success:true,duplicate:true,existingId:'lead-123',enquiryAttached:true,enquiryId:'42'}), {status:200});
+  assert.equal((await forwardEnquiryToIrnOs(payload)).forwarded,true);
+});
 
 function assessment(overrides: Partial<IrnOsAssessmentPayload> = {}): IrnOsAssessmentPayload {
   return {

@@ -607,24 +607,21 @@ export async function sendResourceLeadEmails(data: ResourceLeadEmailData): Promi
   logger.info({ to: data.email, teamEmail }, "Resource lead emails sent");
 }
 
-export async function sendEnquiryNotification(data: EnquiryData): Promise<void> {
+export async function sendEnquiryNotification(data: EnquiryData, idempotencyKey?: string): Promise<void> {
   const apiKey = process.env["RESEND_API_KEY"];
   const toEmail = process.env["GENERAL_ENQUIRY_TO"];
   const fromEmail = process.env["ENQUIRY_FROM_EMAIL"];
 
   if (!apiKey) {
-    logger.info("RESEND_API_KEY not set — skipping email notification");
-    return;
+    throw new Error("enquiry_email_not_configured");
   }
 
   if (!toEmail) {
-    logger.info("GENERAL_ENQUIRY_TO not set — skipping email notification");
-    return;
+    throw new Error("enquiry_email_not_configured");
   }
 
   if (!fromEmail) {
-    logger.info("ENQUIRY_FROM_EMAIL not set — skipping email notification");
-    return;
+    throw new Error("enquiry_email_not_configured");
   }
 
   const resend = new Resend(apiKey);
@@ -635,11 +632,11 @@ export async function sendEnquiryNotification(data: EnquiryData): Promise<void> 
     subject: "New IRN website enquiry",
     html: buildNotificationHtml(data),
     text: buildNotificationText(data),
-  });
+  }, idempotencyKey ? { idempotencyKey } : undefined);
 
   if (error) {
-    throw new Error(`Resend error: ${error.message}`);
+    throw new Error("enquiry_email_delivery_failed");
   }
 
-  logger.info({ to: toEmail }, "Enquiry notification email sent via Resend");
+  logger.info("Enquiry notification email accepted by provider");
 }

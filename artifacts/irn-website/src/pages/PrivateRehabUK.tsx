@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "wouter";
@@ -204,7 +205,7 @@ export default function PrivateRehabUK() {
                     srcSet="/private-rehab-uk-hero-480.webp 480w, /private-rehab-uk-hero-768.webp 768w, /private-rehab-uk-hero-1024.webp 1024w, /private-rehab-uk-hero-1536.webp 1536w"
                     sizes="(max-width: 1023px) calc(100vw - 3rem), 44vw"
                   />
-                  <img
+                  <ResponsiveImage
                     src="/private-rehab-uk-hero.png"
                     alt="Couple reviewing private rehab and treatment options with assessment-led guidance"
                     className="block w-full h-full object-cover aspect-[4/3] lg:aspect-[5/4]"

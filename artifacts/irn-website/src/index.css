@@ -294,3 +294,19 @@
   .section-y-hero { @apply py-14 md:py-20; }
   .section-y-tight { @apply py-10 md:py-16; }
 }
+/* Calm, readable commercial journeys. Motion never gates content. */
+.eyebrow { color: #786036; font-size: .75rem; font-weight: 650; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
+.section-title { color: hsl(var(--primary)); font-family: var(--font-serif); font-size: clamp(1.9rem, 3.1vw, 2.75rem); font-weight: 500; line-height: 1.16; letter-spacing: -.025em; }
+.home-hero { background: radial-gradient(ellipse at 90% 20%, #e9dfca80, transparent 55%), linear-gradient(135deg, #f7f4ed, #eeebe3); }
+.hero-portrait { aspect-ratio: 4 / 4.7; max-height: 510px; }
+.pathway-link, .journey-step { transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease; }
+.pathway-link:hover { border-color: #77858c; box-shadow: 0 5px 18px #162b3b0a; }
+.skip-link { position: fixed; top: .75rem; left: 1rem; z-index: 100; transform: translateY(-180%); padding: .8rem 1rem; background: #162b3b; color: white; border-radius: .35rem; }
+.skip-link:focus { transform: translateY(0); }
+:where(a, button, summary, input, textarea, select):focus-visible { outline: 2px solid #786036; outline-offset: 4px; }
+#book, #main-content { scroll-margin-top: 7rem; }
+@media (max-width: 639px) { .hero-portrait { aspect-ratio: 1 / 1; max-height: 360px; } }
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+  .journey-step, .pathway-link, .skip-link { transition: none; }
+}

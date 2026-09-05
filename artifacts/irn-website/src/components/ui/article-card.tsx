@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Link } from "wouter";
 import { Article, formatDate } from "@/data/articles";
 import { Clock, Calendar } from "lucide-react";
@@ -12,7 +13,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
       {/* Image area, consistent 16:9 crop across all cards */}
       <div className="relative overflow-hidden flex-shrink-0" style={{ aspectRatio: "16/9" }}>
         {article.image ? (
-          <img
+          <ResponsiveImage
             src={article.image}
             alt={article.imageAlt ?? article.title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"

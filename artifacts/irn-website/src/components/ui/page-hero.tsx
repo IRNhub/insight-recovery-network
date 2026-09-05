@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { ReactNode } from "react";
 import { Button } from "./button";
 import { Link } from "wouter";
@@ -80,7 +81,7 @@ export function PageHero({
             <div className="lg:col-span-5 relative mt-8 lg:mt-0">
               <div className="aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] w-full relative">
                 <div className="absolute inset-0 bg-secondary/30 translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0"></div>
-                <img
+                <ResponsiveImage
                   src={image.src}
                   alt={image.alt}
                   width={image.width}

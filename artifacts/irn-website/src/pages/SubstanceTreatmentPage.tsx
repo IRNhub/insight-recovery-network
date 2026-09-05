@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { AlertTriangle, ArrowRight, Check, ClipboardCheck, Network, ShieldCheck } from "lucide-react";
@@ -164,7 +165,7 @@ export default function SubstanceTreatmentPage({ slug }: { slug: string }) {
 
             <div className="space-y-6 lg:mt-8">
               <figure className="aspect-video overflow-hidden bg-secondary/20 shadow-xl">
-                <img
+                <ResponsiveImage
                   src={page.heroImage}
                   alt={page.heroAlt}
                   width={1600}

@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { ArrowRight, Check, HeartHandshake, Phone, Shield, Users } from "lucide-react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
@@ -144,7 +145,7 @@ export default function FamilyInterventionUK() {
 
           <div className="relative lg:col-span-6">
             <div className="absolute -inset-3 rounded-2xl border border-accent/20 bg-accent/10" />
-            <img
+            <ResponsiveImage
               src={familyImage}
               alt="A private family addiction consultation with an experienced adviser"
               className="relative aspect-[5/4] w-full rounded-xl object-cover shadow-xl"

@@ -50,10 +50,13 @@ export interface IrnOsForwardResult {
 }
 
 interface IrnOsResponse {
+  success?: unknown;
   error?: unknown;
   duplicate?: unknown;
   leadId?: unknown;
   existingId?: unknown;
+  enquiryAttached?: unknown;
+  enquiryId?: unknown;
 }
 
 function assessmentMessage(payload: IrnOsAssessmentPayload): string {
@@ -143,7 +146,7 @@ async function forwardToIrnOs(
     const data = (await response.json().catch(() => null)) as IrnOsResponse | null;
 
     if (!response.ok) {
-      const error = typeof data?.error === "string" ? data.error : `IRN OS returned ${response.status}`;
+      const error = `IRN OS returned ${response.status}`;
       logger.warn({ error, status: response.status, sourceId }, "IRN OS lead forwarding failed");
       return { forwarded: false, error };
     }
@@ -154,6 +157,12 @@ async function forwardToIrnOs(
         ? data.existingId
         : undefined;
 
+    if (!leadId || (sourceId.startsWith('website-enquiry-') && data?.success !== true)) return { forwarded: false, error: "invalid_response" };
+    if (sourceId.startsWith('website-enquiry-') && data?.duplicate === true &&
+      (data.enquiryAttached !== true || String(data.enquiryId) !== sourceId.slice('website-enquiry-'.length))) {
+      return { forwarded: false, error: 'enquiry_receipt_unconfirmed' };
+    }
+
     return {
       forwarded: true,
       duplicate: Boolean(data?.duplicate),
@@ -162,9 +171,7 @@ async function forwardToIrnOs(
   } catch (err: unknown) {
     const error = err instanceof Error && err.name === "AbortError"
       ? "IRN OS forwarding timed out"
-      : err instanceof Error
-        ? err.message
-        : "Unknown IRN OS forwarding error";
+      : "IRN OS forwarding unavailable";
     logger.warn({ error, sourceId }, "IRN OS lead forwarding failed");
     return { forwarded: false, error };
   } finally {

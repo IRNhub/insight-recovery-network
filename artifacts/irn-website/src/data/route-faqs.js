@@ -6,7 +6,7 @@ export const routeFaqs = {
   "/get-help": [
     {
       question: "Is this confidential?",
-      answer: "Yes. Your enquiry is private. Nothing is shared with your loved one or with anyone else. We only use your details to respond to you.",
+      answer: "We handle enquiries discreetly and use your details to respond to your request. Tell us how it is safe to contact you. Our privacy policy explains how information is handled, including service providers and circumstances where disclosure may be required.",
     },
     {
       question: "What happens on the call?",

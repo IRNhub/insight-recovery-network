@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
@@ -206,7 +207,7 @@ export default function InsightOS() {
                     border: "1px solid rgba(201,169,110,0.22)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={heroMockupImg}
                   alt="Insight OS dashboard on laptop and phone"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
@@ -287,7 +288,7 @@ export default function InsightOS() {
                     border: "1px solid rgba(201,169,110,0.20)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={anchorGuidanceImg}
                   alt="Anchor guidance interface on laptop and phone showing recovery prompts"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
@@ -415,7 +416,7 @@ export default function InsightOS() {
                     border: "1px solid rgba(201,169,110,0.20)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={phoneCheckinImg}
                   alt="Insight OS daily check-in screen on mobile phone"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
@@ -444,7 +445,7 @@ export default function InsightOS() {
                     border: "1px solid rgba(201,169,110,0.20)",
                   }}
                 />
-                <img
+                <ResponsiveImage
                   src={recoveryToolsImg}
                   alt="Insight OS recovery tools, journaling, grounding, and reflection"
                   className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"

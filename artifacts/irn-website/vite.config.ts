@@ -31,7 +31,7 @@ function cacheControlPlugin() {
     next: () => void,
   ) {
     const pathname = (req.url ?? "/").split("?")[0];
-    if (/^\/assets\//.test(pathname)) {
+    if (/^\/(assets|responsive)\//.test(pathname)) {
       res.setHeader("cache-control", "public, max-age=31536000, immutable");
     } else if (
       pathname === "/" ||

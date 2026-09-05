@@ -1,3 +1,4 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
@@ -143,7 +144,7 @@ export default function AssessmentsIndex() {
                   aspectRatio: "16/11",
                 }}
               >
-                <img
+                <ResponsiveImage
                   src={assessmentsHeroImg}
                   alt="Illustration of a connected brain representing confidential mental health self-assessments"
                   className="w-full h-full object-cover"
