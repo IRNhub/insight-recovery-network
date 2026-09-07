@@ -10,6 +10,194 @@ import { batchTwoDetoxWithdrawalArticles } from "./article-batch-2-detox-withdra
 import { batchThreeCommercialDecisionArticles } from "./article-batch-3-commercial-decisions";
 
 export const approvedArticles = [
+  {
+    "slug": "still-functioning-addiction",
+    "title": "I’m still functioning. Could I still have an addiction?",
+    "excerpt": "Keeping work and family life going does not tell the whole story. Explore control, hidden costs and when it is worth asking for help with alcohol or drugs.",
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-07",
+    "readingTime": 8,
+    "category": "Addiction & Substances",
+    "image": "/still-functioning-addiction-hero.webp",
+    "ogImage": "/still-functioning-addiction-og.webp",
+    "imageAlt": "A woman pauses beside a closed laptop and mug in her kitchen, looking towards a window; gold Insight Recovery Network logo.",
+    "seoTitle": "Still Functioning: Could I Have an Addiction? | IRN",
+    "metaDescription": "Still working and keeping life together, but worried about alcohol or drugs? Understand what functioning can hide and how to seek appropriate support.",
+    "ogTitle": "I’m still functioning. Could I still have an addiction?",
+    "ogDescription": "Keeping life going does not tell the whole story. A clear, respectful guide to understanding your concerns and asking for help.",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "supportingImages": [
+      {
+        "afterHeading": "If you are worried about someone who says “I’m fine”",
+        "src": "/still-functioning-addiction-conversation.webp",
+        "alt": "Two adults having a calm conversation over mugs at a home dining table; gold Insight Recovery Network logo.",
+        "caption": "A calm conversation can begin with what you have noticed. Illustrative image, not an IRN client or treatment session."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does being able to stop for a while rule out an addiction?",
+        "answer": "No. Periods without use are relevant, but assessment also considers what happens when you return to it, control over use and any harm or distress. A break is not, on its own, a diagnosis or proof that there is no problem. Discuss the whole pattern with a qualified professional.[1]"
+      },
+      {
+        "question": "Is it worth getting help if I am not ready to stop completely?",
+        "answer": "Yes. You can discuss your concerns and goals before making a decision about change. The NHS explains that alcohol support can help people reduce harm even when they are not yet ready to stop. If dependence or withdrawal may be present, seek medical advice before reducing use.[3]"
+      },
+      {
+        "question": "What if an assessment says I do not have an addiction?",
+        "answer": "The conversation can still be useful. You may want help with a risky pattern, the role alcohol or drugs play in coping, or another health concern. Support does not have to depend on meeting a diagnostic label. Ask what the findings mean and which next step would be proportionate.[1][6]"
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "National Institute on Alcohol Abuse and Alcoholism",
+        "title": "[1] Alcohol Use Disorder: From Risk to Diagnosis to Recovery",
+        "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[2] Addiction: what is it?",
+        "url": "https://www.nhs.uk/live-well/addiction-support/addiction-what-is-it/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[3] Alcohol-use disorder",
+        "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[4] Cocaine addiction: get help",
+        "url": "https://www.nhs.uk/live-well/addiction-support/cocaine-get-help/"
+      },
+      {
+        "publisher": "National Institute for Health and Care Excellence",
+        "title": "[5] CG115: Alcohol-use disorders, recommendations",
+        "url": "https://www.nice.org.uk/guidance/cg115/chapter/Recommendations"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[6] Drug addiction: getting help",
+        "url": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/"
+      },
+      {
+        "publisher": "Medicines and Healthcare products Regulatory Agency",
+        "title": "[7] Improving information supplied with gabapentinoids, benzodiazepines and Z-drugs",
+        "url": "https://www.gov.uk/drug-safety-update/improving-information-supplied-with-gabapentinoids-pregabalin-slash-gabapentin-benzodiazepines-and-z-drugs"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[8] Advice for the families of people who use drugs",
+        "url": "https://www.nhs.uk/live-well/addiction-support/advice-for-the-families-of-drug-users/"
+      }
+    ],
+    content: `Yes. You can be working, paying the bills and caring for your family while alcohol or drug use has become difficult to control. Those responsibilities matter, but keeping them going does not, by itself, rule out a problem. Assessment looks at the wider pattern, including control, distress, health and relationships. For alcohol, this conclusion follows from criteria in which difficulty fulfilling responsibilities is only one of several possible symptoms of alcohol use disorder.[1]
+
+You do not have to decide which label applies before asking for help. A more useful starting question is: **“Is my use becoming harder to control, and what is it costing me to keep everything looking normal?”**
+
+This article is general information for adults concerned about alcohol or drug use. It cannot diagnose you or decide which treatment you need. If dependence or withdrawal may be present, seek medical advice before changing your use.
+
+## What “still functioning” can leave out
+
+Perhaps you have never missed a deadline. The children get to school. You turn up, answer messages and manage what people expect of you. Those are real parts of your life, and it is understandable to see them as reassuring.
+
+But “I am managing my responsibilities” and “my relationship with alcohol or drugs is manageable” are different questions.
+
+Consider what happens outside the visible working day. Are evenings increasingly organised around using? Are you giving up things you used to enjoy? Is a growing amount of time spent recovering, negotiating with yourself or repairing tension at home? These are details worth discussing, even when an employer or friend has noticed nothing.
+
+“High-functioning addiction” is an informal description, not a separate diagnosis. The clinical question is whether there is a harmful or difficult-to-control pattern, not whether someone fits a particular picture of what addiction looks like.[1][2]
+
+There is no requirement to lose a job, relationship or home before your concern deserves attention. Equally, being tired, stressed or wanting some privacy does not establish addiction. The pattern needs to be understood in context.
+
+## Look at control and cost, not just appearances
+
+The NHS describes signs of alcohol use disorder that include repeatedly drinking more than intended, difficulty reducing use, craving and continuing despite problems. It also makes clear that people can seek help because they are worried, before they know how serious the situation is.[3]
+
+The following questions are prompts for a conversation, not a test or a way to diagnose yourself.
+
+### Do my own limits keep changing?
+
+Think about the limits you actually set. Perhaps the plan was one evening, a certain amount or no use before an important day. What happened next? Did you follow the plan, or keep making exceptions that you later regretted?
+
+One occasion does not tell the whole story. A repeated gap between what you intend and what happens is more useful to discuss than an argument about whether you are “bad enough”.
+
+### How much of my life is organised around it?
+
+Look beyond the time spent drinking or using. Include arranging access, recovering afterwards, avoiding particular conversations and choosing plans around the opportunity to use.
+
+You might still meet every work commitment while feeling that your free time is getting smaller. Naming that experience does not settle a diagnosis. It helps explain what you want to change.
+
+### What am I paying for it privately?
+
+The cost may be money, but it might also be lost sleep, worry about your health, distance from a partner or repeated promises to yourself. Write down specific examples rather than judging your character.
+
+“I cancelled two things I wanted to do because I was recovering” gives a professional more to work with than “I should have more willpower”. If someone you trust has raised a concern, include what they noticed, even if you interpret it differently.
+
+For the broader picture, our guide to [how addiction works](/resources/why-cant-i-stop-how-addiction-works) explains why repeated difficulty stopping deserves understanding and appropriate support.
+
+## Does it count if it only happens at weekends?
+
+Substance-free days are useful information, but they are not the whole assessment. For cocaine specifically, the NHS states that use does not need to happen every day for addiction to be present.[4]
+
+The practical questions are what happens when you use, whether you can keep to your intentions, and what follows afterwards. A weekend pattern can deserve attention if it repeatedly causes harm or is difficult to change. That does not mean every person who drinks or uses at weekends has an addiction.
+
+Tell the person assessing you about the actual pattern, including the quieter weeks. You should not have to exaggerate it to be taken seriously. Our [cocaine addiction guide](/resources/cocaine-addiction) and [alcohol dependency guide](/resources/understanding-alcohol-dependency) cover substance-specific concerns in more detail.
+
+## What to do when you are not sure
+
+You can start with uncertainty. “I am still working, but I keep going beyond the limits I set” is a sufficient opening for an honest conversation.
+
+Before an appointment, make a short private note of:
+
+- what you take or drink, roughly how much and when;
+- what you want to change, and what has happened when you have tried;
+- effects on sleep, mood, physical health, money and relationships;
+- prescribed medicines, other substances and any symptoms when you reduce or stop;
+- the work, caring responsibilities and support at home that a plan needs to account for.
+
+This is preparation for an assessment, not a request to prove anything by stopping on your own. Include what is going well as well as what concerns you. NICE recommends an assessment that considers alcohol use alongside health, risks, social circumstances and the person's preferences.[5]
+
+A GP or local NHS drug and alcohol service is an appropriate starting point. For drug treatment, the NHS also explains how to approach a local service directly if you are not comfortable starting with your GP.[6]
+
+If you prefer to explore private options, [IRN’s confidential guidance for professionals](/confidential-addiction-help-professionals) can help you think through support around work and family. An IRN conversation can help organise the next step; it does not replace a clinical diagnosis or medical assessment.
+
+## Asking for help does not automatically mean rehab
+
+The first decision is what support is appropriate. It is not which residential programme to buy.
+
+Depending on the assessment, support may involve a GP or community service, psychological treatment, peer support or a more structured programme. Some people need medically supported withdrawal or a residential setting. Others receive treatment while continuing to live at home. NICE recommends matching alcohol interventions to need and risk, with community support appropriate for many people.[5]
+
+Work commitments belong in that discussion, but they cannot make an unsafe option safe. Equally, holding a demanding job is not, on its own, a reason for residential treatment.
+
+If online support is being considered, ask who will assess suitability, what happens if needs change and how medical or urgent concerns are managed. Our guide to [online support and residential rehab](/resources/online-addiction-support-vs-residential-rehab) explains the decision in more detail.
+
+## If you are worried about someone who says “I’m fine”
+
+Try beginning with an observation and a question rather than a diagnosis. For example: “You are keeping work going, but you have said you are worried about your drinking. Would it help to talk it through with someone?”
+
+That is a suggested opening, not a script that guarantees agreement. Choose a time when neither of you is intoxicated, and put safety first if there is intimidation or conflict. You can seek support for yourself without waiting for the other person to accept a label.[8]
+
+Our guide to [talking about drinking or drug use](/resources/how-to-talk-to-someone-about-drinking-drug-use) offers more help with the conversation. [Family support](/family-addiction-intervention-uk) can also help relatives think through their own needs and next steps.
+
+## A safety point before you make changes
+
+If alcohol dependence is possible, or you have had withdrawal symptoms when cutting down, get medical advice before reducing or stopping. Suddenly stopping can be dangerous. For severe alcohol withdrawal symptoms, such as seizures, hallucinations or confusion, **call 999 or go to A&E. Do not drive yourself.**[3]
+
+Physical dependence on a prescribed medicine is not automatically addiction. Medicines such as benzodiazepines can cause dependence even when taken as prescribed. Do not abruptly stop them or create your own reduction schedule; speak with the prescriber. The MHRA distinguishes dependence, addiction and withdrawal and advises gradual changes under professional guidance.[7]
+
+If someone is in immediate danger or cannot stay safe, call **999**. IRN is not an emergency service.
+
+## You can ask before you have an answer
+
+You do not need a more dramatic story. You can describe the life you are managing, the parts that are becoming difficult and what you want to be different.
+
+A useful first conversation makes room for all three. It should help you understand the concern and the next step, without pressuring you into a label or a particular level of care.
+
+[CTA:/get-help:Talk through your options]
+Concerned about your own alcohol or drug use, or someone close to you? Insight Recovery Network can help you explore appropriate support and treatment options. Share only what you feel ready to share, and tell us how and when it is safe to contact you. There is no obligation to proceed.
+[/CTA]`,
+  },
   ...batchThreeCommercialDecisionArticles,
   ...batchTwoDetoxWithdrawalArticles,
   gamblingAddictionArticle,

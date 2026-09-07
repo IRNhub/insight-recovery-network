@@ -579,6 +579,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "still-functioning-addiction") {
+      return [
+        { title: "NHS routes to support", description: "Understand GP appointments, local drug services and what a first conversation can involve.", href: "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/" },
+        { title: "Confidential help for professionals", description: "Explore support when privacy, work and responsibilities are part of your concerns.", href: "/confidential-addiction-help-professionals" },
+        { title: "Support for families", description: "Find guidance on conversations, boundaries and getting support for yourself.", href: "/family-addiction-intervention-uk" },
+      ];
+    }
     if (article.slug === "gambling-addiction") {
       return [
         { title: "NHS help for gambling problems", description: "Find gambling-specific NHS information and routes to specialist support.", href: "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" },
@@ -783,6 +790,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "still-functioning-addiction") {
+      return {
+        heading: "You can start with a conversation",
+        description: "You do not need to settle on a label before asking for help. Tell IRN what is concerning you and we can explain the support we offer and whether another service is more appropriate.",
+        primaryCta: { label: "Talk through your options", href: "/get-help" },
+        secondaryCta: { label: "Support for families", href: "/family-addiction-intervention-uk" },
+      };
+    }
     if (slug === "gambling-addiction") {
       return {
         heading: "Need gambling-specific support?",
@@ -1065,6 +1080,7 @@ export default function ResourceDetail() {
         description={article.metaDescription ?? article.excerpt}
         canonical={canonicalPath}
         ogImage={ogImage}
+        ogImageAlt={article.slug === "still-functioning-addiction" ? "I’m still functioning. Could I still have an addiction? A thoughtful woman at home beside the gold Insight Recovery Network logo." : undefined}
         ogType="article"
         datePublished={article.date}
         dateModified={article.updatedDate ?? article.date}
