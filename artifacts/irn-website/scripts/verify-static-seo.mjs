@@ -703,7 +703,12 @@ const generatedHtmlFiles = listGeneratedHtmlFiles(dist).filter(
 );
 for (const htmlPath of generatedHtmlFiles) {
   const outputPath = htmlPath.slice(dist.length).replaceAll("\\", "/") || "/";
-  assertOrganizationSocialProfiles(read(htmlPath), outputPath);
+  const html = read(htmlPath);
+  const title = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "";
+  if (/\bIRN\s*\|\s*Insight Recovery Network\b/i.test(title)) {
+    fail(`${outputPath} repeats the company branding in its search title.`);
+  }
+  assertOrganizationSocialProfiles(html, outputPath);
 }
 
 console.log(`✓ Static SEO verification passed for ${checked} sitemap URLs.`);
