@@ -579,6 +579,27 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "alcohol-cocaine-cravings") {
+      return [
+        { title: "NHS cocaine support", description: "Understand assessment, talking therapies and local treatment routes.", href: "https://www.nhs.uk/live-well/addiction-support/cocaine-get-help/" },
+        { title: "Plan for vulnerable situations", description: "Prepare a practical relapse prevention plan with appropriate support.", href: "/resources/relapse-prevention-plan" },
+        { title: "Explore treatment options", description: "Discuss which level of support may fit the whole pattern.", href: "/treatment-placement" },
+      ];
+    }
+    if (article.slug === "rebuilding-trust-after-stopping-drinking") {
+      return [
+        { title: "Support for families", description: "Find help with your own needs, communication and boundaries.", href: "/family-addiction-intervention-uk" },
+        { title: "Boundaries in recovery", description: "Distinguish your own limits from trying to control another adult.", href: "/resources/family-boundaries-addiction-recovery" },
+        { title: "Specialist domestic-abuse help", description: "Find NHS information and specialist support when safety is a concern.", href: "https://www.nhs.uk/live-well/getting-help-for-domestic-violence/" },
+      ];
+    }
+    if (article.slug === "alcohol-free-beer-recovery" || article.slug === "ai-chatbots-addiction-recovery-support") {
+      return [
+        { title: "NHS alcohol support", description: "Find medical assessment and treatment when drinking or withdrawal is a concern.", href: "https://www.nhs.uk/conditions/alcohol-use-disorder/" },
+        { title: "A continuing recovery plan", description: "Explore the role of structured human support beyond a single decision.", href: "/resources/how-structured-support-prevents-relapse" },
+        { title: "Talk through your options", description: "Ask IRN about non-urgent support and its service limits.", href: "/get-help" },
+      ];
+    }
     if (article.slug === "still-functioning-addiction") {
       return [
         { title: "NHS routes to support", description: "Understand GP appointments, local drug services and what a first conversation can involve.", href: "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/" },
@@ -790,6 +811,22 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "rebuilding-trust-after-stopping-drinking") {
+      return {
+        heading: "Support for your needs matters too",
+        description: "You can discuss communication, boundaries and family support without waiting for your partner to be ready. Where there is abuse or immediate danger, use specialist or emergency support.",
+        primaryCta: { label: "Explore family support", href: "/family-addiction-intervention-uk" },
+        secondaryCta: { label: "Contact IRN", href: "/get-help" },
+      };
+    }
+    if (["alcohol-cocaine-cravings", "alcohol-free-beer-recovery", "ai-chatbots-addiction-recovery-support"].includes(slug)) {
+      return {
+        heading: "Turn the question into a useful conversation",
+        description: "Tell IRN what is concerning you. We can explain the support we offer and when another service is more appropriate. Medical, withdrawal and emergency concerns need qualified healthcare support.",
+        primaryCta: { label: "Talk through your options", href: "/get-help" },
+        secondaryCta: { label: "Find NHS support", href: "https://www.nhs.uk/conditions/alcohol-use-disorder/" },
+      };
+    }
     if (slug === "still-functioning-addiction") {
       return {
         heading: "You can start with a conversation",

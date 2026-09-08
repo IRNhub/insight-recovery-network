@@ -214,6 +214,22 @@ kind = "web"
   to = "/_resources/still-functioning-addiction.html"
 
   [[services.production.rewrites]]
+  from = "/resources/alcohol-cocaine-cravings"
+  to = "/_resources/alcohol-cocaine-cravings.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/rebuilding-trust-after-stopping-drinking"
+  to = "/_resources/rebuilding-trust-after-stopping-drinking.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/alcohol-free-beer-recovery"
+  to = "/_resources/alcohol-free-beer-recovery.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/ai-chatbots-addiction-recovery-support"
+  to = "/_resources/ai-chatbots-addiction-recovery-support.html"
+
+  [[services.production.rewrites]]
   from = "/resources/prescription-drug-addiction"
   to = "/_resources/prescription-drug-addiction.html"
 
