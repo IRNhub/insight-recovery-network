@@ -11,6 +11,596 @@ import { batchThreeCommercialDecisionArticles } from "./article-batch-3-commerci
 
 export const approvedArticles = [
   {
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-08",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "slug": "alcohol-cocaine-cravings",
+    "title": "Why do I want cocaine as soon as I start drinking?",
+    "excerpt": "When alcohol repeatedly leads to cocaine, the plan needs to address both. Understand the cues, the risks of mixing them and where to begin getting support.",
+    "category": "Addiction & Substances",
+    "seoTitle": "Why Does Drinking Make Me Want Cocaine? | IRN",
+    "metaDescription": "Understand why alcohol can trigger cocaine cravings, why mixing the two carries extra risk, and how to seek support for the whole pattern.",
+    "imageAlt": "A thoughtful man at a kitchen table beside water and a phone, with gold Insight Recovery Network branding. Illustrative image.",
+    "supportingImages": [
+      {
+        "afterHeading": "Look at the whole evening, not just the moment you used",
+        "src": "/alcohol-cocaine-cravings-guide.webp",
+        "alt": "Reflection guide: before drinking, when the plan changed, and afterwards. Use the whole sequence to prepare for support.",
+        "caption": "Look for opportunities to bring support in earlier. This reflection guide is not a diagnostic test."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Can alcohol trigger cocaine cravings even if I do not want cocaine when sober?",
+        "answer": "Yes. Alcohol and familiar drinking situations can become cues associated with cocaine use. NHS Greater Glasgow and Clyde lists other substances, including alcohol, among possible triggers. A repeated pattern is worth discussing with a drug and alcohol service.[1]"
+      },
+      {
+        "question": "Does weekend-only cocaine use mean I do not need help?",
+        "answer": "Frequency alone does not establish whether use is manageable or safe. Repeated loss of control, distress, risky combinations or harm to health and relationships are reasons to seek an assessment, even if there are days without use."
+      },
+      {
+        "question": "Should I stop drinking immediately if it leads to cocaine?",
+        "answer": "Alcohol needs to be part of your support plan, but sudden stopping can be dangerous if you are physically dependent. Seek medical advice before stopping or sharply reducing alcohol when withdrawal may be present.[4]"
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "NHS Greater Glasgow and Clyde",
+        "title": "[1] Cocaine toolkit: overview of cocaine",
+        "url": "https://www.rightdecisions.scot.nhs.uk/mypsych-app/cocaine-toolkit/interventions-for-harm-from-cocaine-use/overview-of-cocaine/"
+      },
+      {
+        "publisher": "NHS inform",
+        "title": "[2] Cocaine: risks, mixing substances and emergencies",
+        "url": "https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/cocaine/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[3] Cocaine addiction: get help",
+        "url": "https://www.nhs.uk/live-well/addiction-support/cocaine-get-help/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[4] Alcohol-use disorder",
+        "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+      }
+    ],
+    "readingTime": 7,
+    "image": "/alcohol-cocaine-cravings-hero.webp",
+    "ogImage": "/alcohol-cocaine-cravings-og.png",
+    "ogTitle": "Why do I want cocaine as soon as I start drinking?",
+    "ogDescription": "When alcohol repeatedly leads to cocaine, the plan needs to address both. Understand the cues, the risks of mixing them and where to begin getting support.",
+    content: `Alcohol can become a powerful cue for cocaine use. If the two have repeatedly been part of the same evenings, the first drinks, familiar people or a particular place may start a learned sequence of expectation and craving. Alcohol can also make it harder to follow the decisions you made before going out. Wanting cocaine after drinking does not, on its own, establish a diagnosis, but a repeated pattern that you struggle to change deserves attention.[1]
+
+You may be quite certain on Friday afternoon that cocaine is not part of the plan. You might genuinely have no interest in it while you are working, making dinner or getting ready. Then a few drinks later, the idea starts to feel different. A message is sent. The evening takes a familiar turn. The next morning, you are left trying to understand how a decision that felt firm became negotiable.
+
+The useful question is not simply whether you meant your promise. It is what happens between making that promise and breaking it.
+
+## Why the first drink can change the plan
+
+Cravings do not always begin as a constant desire for a substance. They can be linked to cues. NHS Greater Glasgow and Clyde's cocaine toolkit identifies other substances, including alcohol, alongside sights, sounds and smells as possible triggers.[1]
+
+That helps explain why someone might feel little desire for cocaine on a quiet Tuesday and a strong urge in a familiar drinking environment. The setting matters. So can the people, the time, the messages arriving on the phone and the expectation of how the evening will unfold.
+
+For some people, alcohol and cocaine become part of the same routine rather than two separate habits. Alcohol is the beginning of the sequence; cocaine is the next expected step. A plan that looks only at access to cocaine may therefore leave the start of the pattern untouched.
+
+There is no universal number of drinks at which this happens. Searching for a reliably safe threshold can become another negotiation with a pattern that has already proved difficult to control. An assessment is more useful than an experiment designed to prove that this time will be different.
+
+## Look at the whole evening, not just the moment you used
+
+One practical starting point is to reconstruct a recent evening without turning it into a case against yourself. This is a reflection exercise, not a diagnostic test.
+
+Consider three points in the sequence:
+
+- **Before drinking:** What had you decided? Were you tired, stressed, celebrating or already expecting to see people who use cocaine?
+- **When the plan changed:** What happened just before the first message, search or suggestion? What did you tell yourself made it acceptable?
+- **Afterwards:** What were the effects on sleep, money, mood, relationships, work or the following day's responsibilities?
+
+Be specific. “I need more willpower” gives you little to work with. “I started negotiating with myself after meeting that group, and I still had the contact available” identifies something that a treatment plan can address.
+
+The purpose is to find points where support and different decisions can enter earlier. Our guide to a [practical relapse prevention plan](/resources/relapse-prevention-plan) develops this approach in more detail.
+
+## Why alcohol and cocaine together need particular caution
+
+Combining the two is not a way to cancel their effects. When alcohol and cocaine are used together, the body can form cocaethylene, which adds cardiovascular risk. Cocaine can also make someone feel less drunk without removing alcohol-related impairment or making driving safe.[1][2]
+
+This matters even when use is occasional. Frequency is only one part of risk. The combination, amount used, other substances, physical health and what happens during the episode all matter. Feeling alert is not evidence that the body is coping safely.
+
+Call **999** for chest pain, collapse, a seizure, severe breathing difficulty, signs of a stroke, or if someone cannot be woken after substance use. Tell the emergency team what may have been taken. Do not drive yourself to hospital.[2]
+
+## Does it count as a problem if it only happens at weekends?
+
+You do not need to use cocaine every day for the consequences to be significant. A weekend pattern can still occupy the week through anticipation, recovery from the last episode, money worries or arguments about the next one.
+
+Questions worth taking to a professional include:
+
+- Do I repeatedly use after deciding not to?
+- Once I start, do I use more or continue longer than intended?
+- Am I arranging social life around access, or avoiding people who would question it?
+- Do I hide spending, minimise what happened or rely on promises that are not holding?
+- Have I continued despite physical symptoms, distress or damage to relationships?
+
+These questions are conversation starters. They cannot diagnose addiction. Equally, having a job and meeting responsibilities does not settle the question. The [still functioning article](/resources/still-functioning-addiction) looks at why outward stability can conceal a growing cost.
+
+## What a more useful change plan can include
+
+A plan needs to cover both substances and the circumstances linking them. A GP or local drug and alcohol service can help assess the pattern, immediate risks and the level of support needed. NHS cocaine treatment commonly involves talking therapies and may be delivered while you continue living at home; residential care is not the automatic starting point.[3]
+
+Depending on assessment, practical planning might include changing social arrangements, reducing access to supply, agreeing support before vulnerable times and developing a response to an urge that does not depend on making every decision alone. Choose people who can support your plan without becoming responsible for policing you.
+
+If alcohol reliably leads to cocaine, alcohol needs a central place in the conversation. However, **if you may be physically dependent on alcohol, do not stop suddenly or sharply reduce it without medical advice**. Morning shaking, sweating, nausea or needing alcohol to feel steady warrant assessment. Severe withdrawal can be dangerous.[4]
+
+There is no need to design your own detox to demonstrate commitment. Getting the right assessment is part of taking the problem seriously. Our [alcohol withdrawal safety guide](/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help) explains this distinction.
+
+## If you are the partner watching the pattern repeat
+
+Repeated apologies can leave you unsure what to believe. You can describe the behaviour and its impact without arguing about which label applies: the money spent, missed plans, disrupted sleep or worry about safety.
+
+Support might mean helping someone contact a service or agreeing how to respond to an emergency. It does not mean checking every message, funding another episode or accepting intimidation. You can seek [family support](/family-addiction-intervention-uk) in your own right, even if the other person is not ready.
+
+When change starts, rebuilding trust may need its own attention. [Stopping drinking and repairing a relationship](/resources/rebuilding-trust-after-stopping-drinking) are connected tasks, but they do not necessarily move at the same pace.
+
+## Start with an accurate conversation
+
+You could begin simply: “I do not usually want cocaine until I drink. Once that happens, my plan changes, and I am worried about where it is going.” That is enough information to open a useful discussion.
+
+The [NHS cocaine help page](https://www.nhs.uk/live-well/addiction-support/cocaine-get-help/) explains treatment routes. IRN can offer a non-urgent conversation about support and treatment options, including whether specialist or residential assessment may be appropriate. IRN does not provide emergency care, prescribe medication or deliver medical detox.
+
+[CTA:/get-help:Talk through your support options]
+Describe the pattern you want to change. We can explain the support IRN offers and when another service is the more appropriate next step.
+[/CTA]
+
+This article provides general education for adults. It does not diagnose a substance use disorder or replace individual medical assessment. The images are illustrative and do not depict real clients.`
+  },
+  {
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-08",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "slug": "rebuilding-trust-after-stopping-drinking",
+    "title": "I’ve stopped drinking. Why doesn’t my partner trust me yet?",
+    "excerpt": "Sobriety and rebuilding trust can move at different speeds. A practical guide to reliability, boundaries, family support and knowing when safety comes first.",
+    "category": "Family & Relationships",
+    "seoTitle": "Rebuilding Trust After Stopping Drinking | IRN",
+    "metaDescription": "Why stopping drinking does not automatically restore trust, and how couples and families can approach reliability, boundaries and appropriate support.",
+    "imageAlt": "Two adults having a calm conversation across a kitchen table, with gold Insight Recovery Network branding. Illustrative image.",
+    "supportingImages": [
+      {
+        "afterHeading": "Sobriety, trust and reconciliation are different",
+        "src": "/rebuilding-trust-after-stopping-drinking-guide.webp",
+        "alt": "Three distinct questions: sobriety concerns substance use, trust concerns reliable behaviour, and reconciliation concerns whether both people want the relationship.",
+        "caption": "Progress in recovery does not create an obligation to forgive or remain in a relationship."
+      }
+    ],
+    "faq": [
+      {
+        "question": "How long should it take to rebuild trust after stopping drinking?",
+        "answer": "There is no fixed timetable. The history of the relationship, current behaviour, safety and each person’s wishes matter. A number of sober days cannot establish when someone should feel ready to trust again."
+      },
+      {
+        "question": "Can I get family support if my partner does not want help?",
+        "answer": "Yes. UK guidance recognises family members’ own support needs, including when the person drinking does not engage with treatment. Support should not make you responsible for someone else’s recovery.[1]"
+      },
+      {
+        "question": "Is couples therapy always appropriate after an alcohol problem?",
+        "answer": "No. Suitability needs assessment and willing participation. UK guidance does not recommend behavioural couples therapy where there is current domestic abuse or the partner is also drinking problematically. Specialist safety support takes priority where abuse is present.[2][3]"
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Department of Health and Social Care",
+        "title": "[1] Clinical guidelines for alcohol treatment: principles of care",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/2-principles-of-care"
+      },
+      {
+        "publisher": "Department of Health and Social Care",
+        "title": "[2] Clinical guidelines for alcohol treatment: psychosocial interventions",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/5-psychosocial-interventions"
+      },
+      {
+        "publisher": "Department of Health and Social Care",
+        "title": "[3] People experiencing or perpetrating domestic abuse",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/22-people-experiencing-or-perpetrating-domestic-abuse"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[4] Getting help for domestic violence and abuse",
+        "url": "https://www.nhs.uk/live-well/getting-help-for-domestic-violence/"
+      }
+    ],
+    "readingTime": 8,
+    "image": "/rebuilding-trust-after-stopping-drinking-hero.webp",
+    "ogImage": "/rebuilding-trust-after-stopping-drinking-og.png",
+    "ogTitle": "I’ve stopped drinking. Why doesn’t my partner trust me yet?",
+    "ogDescription": "Sobriety and rebuilding trust can move at different speeds. A practical guide to reliability, boundaries, family support and knowing when safety comes first.",
+    content: `Stopping drinking is an important change, but it does not automatically restore a partner's sense of safety or confidence. Trust is shaped by what happened before, what is happening now and whether new behaviour remains consistent over time. There is no set number of sober days after which someone should feel ready to trust again.
+
+For the person who has stopped, each day may involve effort that is difficult to explain. For their partner, the same day may include remembering previous promises and wondering whether it is safe to relax. Both experiences can exist at once. Recognising progress does not require someone to forget the impact of what came before.
+
+This article is for adults navigating that gap. It offers a practical framework for conversation, not a prediction about whether a particular relationship will recover.
+
+## You may be starting from different places
+
+The person who has stopped may feel that a new chapter has begun. They know what they are trying to do, which conversations they have had and how different this attempt feels from the inside.
+
+Their partner cannot directly see that internal shift. They see actions, and they interpret them through the relationship's history. If the same reassurance was offered several times before, it may no longer carry the meaning it once did.
+
+For example, “You don't need to worry; I've changed” might be intended as comfort. To the person who has repeatedly been reassured before, it can sound like a request to ignore their own experience. A more useful opening might be: “I understand why a promise may not be enough. I want us to discuss what I can realistically do differently.”
+
+This is not about treating every worry as proof of relapse. It is about understanding why certainty cannot simply be requested.
+
+## Sobriety, trust and reconciliation are different
+
+Keeping these distinctions clear can reduce pressure on both people.
+
+**Sobriety or a treatment goal** concerns substance use and recovery. **Trust** concerns confidence in another person's behaviour. **Reconciliation** concerns whether both people want to continue or rebuild the relationship.
+
+Progress in one area may help another, but it does not guarantee it. Someone can recognise a partner's recovery effort while still needing distance. Someone can decide that a relationship is over while sincerely hoping the other person continues to recover.
+
+No one owes continued partnership, sex, shared finances or immediate forgiveness as a reward for stopping drinking. Equally, recovery deserves support that is not made wholly dependent on a partner's approval. A wider network matters for both people.
+
+## Rebuild confidence through things that can be observed
+
+A practical conversation is often easier when it concerns ordinary behaviour rather than a demand to “trust me”. The following are suggested discussion points, not a clinical checklist or a guaranteed route to reconciliation.
+
+- **Make fewer, more realistic commitments.** Choose actions you can maintain rather than a sweeping promise that nothing difficult will happen again.
+- **Follow through on ordinary responsibilities.** Reliability includes agreed plans, household tasks, childcare arrangements and financial commitments, not only treatment attendance.
+- **Address past harm specifically.** Acknowledge what happened and listen to its impact without immediately asking for reassurance in return.
+- **Raise difficulties early.** Agree how to communicate an urge, a missed appointment or a setback before secrecy becomes another source of injury.
+- **Keep recovery support wider than the relationship.** A partner should not have to function as therapist, sponsor, investigator and emergency service.
+
+Repair may also involve practical work: an honest financial discussion, independent debt advice, replacing money where possible or taking responsibility for missed commitments. A promise to repay everything immediately can create another disappointment if it is not realistic. A clear, achievable plan is more useful.
+
+## Transparency needs agreement, not permanent surveillance
+
+Couples sometimes consider sharing information about spending, schedules or treatment attendance. Whether that is helpful depends on the circumstances, consent and how it is used.
+
+An arrangement should have a clear purpose, proportionate limits and a review point. It should not become an assumed right to inspect every conversation, demand passwords or track someone indefinitely. Neither person should be pressured into unsafe disclosure.
+
+Treatment information has its own confidentiality boundaries. UK alcohol-treatment guidance recommends agreeing the level and type of family involvement with the person receiving care and the family member. Relatives can also receive information and support for their own needs.[1]
+
+It can help to ask: “What information would make this particular concern easier to discuss?” That is more specific than “How can I prove everything?” Our [family boundaries guide](/resources/family-boundaries-addiction-recovery) explains the difference between deciding your own limits and trying to control another adult.
+
+## Make room for a conversation that has an ending
+
+An unresolved issue can take over every evening if there is no agreed way to return to it. Where it is safe to do so, consider a short planned conversation at a time when neither person is intoxicated, rushing or trying to sleep.
+
+Each person could bring one concern, one observation about what has changed and one practical request. For example: “I noticed you contacted your support worker when you were struggling. That matters. I still feel anxious when plans change without a message. Could we agree how we handle that?”
+
+The aim is not to settle the entire relationship in one sitting. It is to make the next step understandable. If either person becomes overwhelmed, agree when and how the conversation will resume. A pause should not become a way to avoid every difficult subject indefinitely.
+
+These examples illustrate an approach. They are not scripts that can make another person respond well. If conversation repeatedly becomes frightening, coercive or unsafe, the next step is specialist support, not a better choice of words.
+
+## When professional support may help
+
+Individual support can give both people somewhere to discuss feelings that are difficult to express together. The person in recovery may need treatment and relapse-prevention support. Their partner may need help with exhaustion, uncertainty, grief or decisions about the relationship.
+
+UK guidance includes behavioural couples therapy as an option in suitable circumstances when a partner is willing to participate. It requires appropriately trained practitioners and is not recommended where there is current domestic abuse or the partner is also drinking problematically. Suitability needs assessment; couples therapy is not a universal answer.[2]
+
+Family support is worthwhile even when the person drinking does not engage with treatment. It should help relatives protect their own wellbeing, rather than make them responsible for securing someone else's recovery.[1]
+
+## If there has been abuse, safety comes first
+
+Alcohol problems do not excuse violence, threats, coercive control or sexual abuse. Stopping drinking does not by itself establish that these behaviours have ended or that a relationship is safe. Current UK guidance places specialist domestic-abuse support and safety planning at the centre of the response.[3]
+
+If you are afraid of your partner, seek confidential specialist advice before attempting a joint conversation or changing arrangements that could increase danger. Call **999** in immediate danger. [Refuge's National Domestic Abuse Helpline website](https://www.nationaldahelpline.org.uk/) provides information about support for women in England; the [NHS domestic-abuse help page](https://www.nhs.uk/live-well/getting-help-for-domestic-violence/) lists additional routes.[4]
+
+Children should not be asked to monitor sobriety, carry messages between adults or reassure the family that everything is safe.
+
+## What progress might look like
+
+Progress may be quieter than either person expects: a difficult question answered without an argument, an appointment kept, a limit respected or a day that no longer revolves around checking what might happen next.
+
+The useful measure is not whether every concern has disappeared. It is whether the relationship is becoming more honest, reliable and safe, and whether both people have room to make their own decisions.
+
+[CTA:/family-addiction-intervention-uk:Explore support for yourself or your family]
+IRN can help you think through communication, boundaries and support options. You can seek a conversation about your own needs without waiting for your partner to be ready.
+[/CTA]
+
+This article provides general education and does not assess the safety of an individual relationship. It is not a substitute for specialist domestic-abuse, safeguarding or emergency support. The images are illustrative and do not depict real clients.`
+  },
+  {
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-08",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "slug": "alcohol-free-beer-recovery",
+    "title": "Alcohol-free beer in recovery: helpful substitute or a trigger?",
+    "excerpt": "There is no single answer for everyone in recovery. Explore the developing evidence, familiar drinking rituals and questions to discuss before deciding.",
+    "category": "Recovery & Wellbeing",
+    "seoTitle": "Alcohol-Free Beer in Recovery: Help or Trigger? | IRN",
+    "metaDescription": "Is alcohol-free beer helpful in recovery or a trigger? Explore the limits of current evidence, personal cues, product labels and individual medical advice.",
+    "imageAlt": "Unbranded glasses of an alcohol-free beer and sparkling water beside a notebook, with gold Insight Recovery Network branding. Illustrative image.",
+    "supportingImages": [
+      {
+        "afterHeading": "Four questions to discuss before deciding",
+        "src": "/alcohol-free-beer-recovery-guide.webp",
+        "alt": "Four discussion prompts: your care plan, what you hope the drink will help with, previous experiences of cues, and your support plan if uncomfortable.",
+        "caption": "A framework for discussion with support, not an invitation to test your cravings."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Does alcohol-free beer cause relapse?",
+        "answer": "There is not enough robust evidence to make that claim for everyone. People’s experiences of taste, ritual and context differ. If you know a drink intensifies your cravings, there is no need to test that response again; discuss alternatives with your support professional.[1][2]"
+      },
+      {
+        "question": "Can I have alcohol-free beer while taking disulfiram?",
+        "answer": "Ask your prescriber or pharmacist about the specific product. Royal Free London cautions that some low-alcohol, non-alcoholic and alcohol-free beers and wines may cause a disulfiram–alcohol reaction if enough is consumed. Follow individual medical advice.[3]"
+      },
+      {
+        "question": "Can I use alcohol-free drinks to detox at home?",
+        "answer": "An alcohol-free substitute does not treat withdrawal. If you are physically dependent, a sudden reduction in alcohol can be dangerous. Seek medical assessment before changing your intake.[4]"
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "Sheffield Addictions Research Group",
+        "title": "[1] Mapping advice on alcohol-free drinks in treatment and recovery services",
+        "url": "https://sarg-sheffield.ac.uk/news-media/help-sarg-map-the-advice-given-on-alcohol-free-drinks-in-alcohol-treatment-and-recovery-services/"
+      },
+      {
+        "publisher": "Addiction",
+        "title": "[2] Zero tolerance for 0%? Opinion and debate on no- and low-alcohol products",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41208345/"
+      },
+      {
+        "publisher": "Royal Free London NHS Foundation Trust",
+        "title": "[3] Disulfiram (Antabuse): patient information",
+        "url": "https://www.royalfree.nhs.uk/patients-and-visitors/patient-information-leaflets/disulfiram-antabuse"
+      },
+      {
+        "publisher": "Department of Health and Social Care",
+        "title": "[4] Clinical guidelines for alcohol treatment: pharmacological interventions",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/10-pharmacological-interventions"
+      }
+    ],
+    "readingTime": 8,
+    "image": "/alcohol-free-beer-recovery-hero.webp",
+    "ogImage": "/alcohol-free-beer-recovery-og.png",
+    "ogTitle": "Alcohol-free beer in recovery: helpful substitute or a trigger?",
+    "ogDescription": "There is no single answer for everyone in recovery. Explore the developing evidence, familiar drinking rituals and questions to discuss before deciding.",
+    content: `Alcohol-free beer can feel like a useful alternative for some people and an uncomfortable reminder of drinking for others. There is not enough evidence to give everyone in recovery the same answer. Your health, treatment goals, experience of cravings and the circumstances in which you would drink it all deserve consideration.[1][2]
+
+For one person, a familiar drink at a barbecue may make socialising easier. For another, the taste, glass or ritual may bring back an urge they would rather not invite. Those examples illustrate why the question needs more care than either “it's harmless” or “it always causes relapse”. Neither claim is supported as a universal rule.
+
+If you are wondering whether alcohol-free drinks belong in your recovery, the aim is to make a considered decision with appropriate support. There is no need to prove that you can tolerate them, and no reason to shame someone whose experience differs from yours.
+
+## Why this question deserves a balanced answer
+
+In March 2026, the Sheffield Addictions Research Group announced work to map the advice given about alcohol-free drinks in UK treatment and recovery services. The team highlighted both an absence of formal clinical guidance for people with alcohol use disorders and a lack of robust evidence about benefits or the risk of triggering cravings and relapse.[1]
+
+That was a research initiative, not a finding that these products work or cause harm. Its announcement should not be presented as a completed clinical trial.
+
+A related article in the journal Addiction, first published online in November 2025 and appearing in the May 2026 issue, argues for a more nuanced approach to alcohol-free and low-alcohol products in higher-risk groups. It is an opinion-and-debate paper, not proof that a particular product prevents relapse.[2]
+
+The honest position is that the decision is individual and the research is still developing. Popularity, personal recommendations and a reassuring label cannot settle clinical suitability on their own.
+
+## What might make an alcohol-free drink appealing?
+
+The appeal may have little to do with wanting intoxication. Someone may enjoy the flavour, appreciate having a choice beyond soft drinks or prefer not to explain their recovery in a social setting. Keeping a familiar part of a meal or occasion can feel useful.
+
+Those are understandable preferences. They should be discussed rather than dismissed as proof that someone is not serious about change.
+
+It is still worth asking what job the drink is being asked to do. Is it an occasional beverage you enjoy, or is it becoming the only way you can imagine relaxing? Does it fit comfortably into life, or does choosing and consuming it recreate a preoccupation you are trying to move away from?
+
+These are reflective questions, not diagnostic tests. Their value is in making the decision more specific than whether alcohol-free beer is “good” or “bad”.
+
+## The ritual matters as well as the contents
+
+Alcohol-related cues can include familiar places, sensations and routines. For someone whose previous drinking involved a particular taste, glass or evening ritual, an alcohol-like substitute may feel different from water or tea. Whether that experience is helpful, neutral or difficult cannot be assumed from the product alone.[2]
+
+Consider the whole setting. Drinking an alcohol-free beer with lunch at home is a different situation from returning to a place strongly associated with heavy drinking or cocaine use. A change of beverage does not automatically change the social pressures around it.
+
+You might decide that a particular product feels comfortable but a particular setting does not. You might decide that you prefer drinks that do not resemble alcohol at all. Neither decision needs to become a rule for everybody else.
+
+## Four questions to discuss before deciding
+
+The following is a discussion framework, not a recommendation to test your cravings.
+
+| Question | Why it matters |
+| --- | --- |
+| What does my care plan advise? | Individual medical or treatment advice takes priority over a general article or someone else's experience. |
+| What am I hoping the drink will help with? | Naming the need may reveal other ways to meet it, such as a different social plan or support with anxiety. |
+| What has happened around similar cues before? | Your previous experience can inform the conversation without predicting every future situation. |
+| What will I do if I feel uncomfortable or want alcohol? | Agreeing a support contact and an alternative beforehand is more useful than relying on a decision made under pressure. |
+
+If you already know that these drinks intensify cravings, you do not need another experiment to justify avoiding them. If you are uncertain, especially early in recovery or after a recent relapse, talk it through with your treatment professional or recovery support worker first.
+
+Our [relapse prevention guide](/resources/relapse-prevention-plan) can help you organise the wider plan. A beverage choice should be one small part of it, rather than the entire strategy.
+
+## Read the actual label and follow individual medical advice
+
+Do not assume that “alcohol-free”, “low-alcohol”, “non-alcoholic” and “0.0%” all describe identical products. Check the stated alcohol by volume and ingredients on the product you are considering. Labelling terms and products vary, particularly across countries.[2]
+
+Where a clinician has advised avoiding alcohol completely because of a medical condition, pregnancy, prescribed medicine or your treatment plan, ask that clinician or a pharmacist about the specific product. Do not use a broad online discussion to override their advice.
+
+This is especially relevant if you take a medicine such as disulfiram. The NHS advises avoiding alcohol while taking it and for the specified period afterwards; a pharmacist can help with questions about drinks and products that may contain alcohol.[3]
+
+The question is not whether a trace amount should carry a moral judgement. It is whether the product is appropriate for your circumstances.
+
+## If cravings increase, respond without turning it into a verdict
+
+If a drink or setting leaves you wanting alcohol, step away from it and use the support agreed in your recovery plan. You do not need to finish a drink to prove you are in control. Contact a trusted support person or service rather than spending the evening arguing with the urge alone.
+
+Then review what happened with curiosity: was it the taste, the place, the people, the expectation or something else? The purpose is to improve your plan, not decide that a difficult response means you have failed.
+
+Equally, another person's positive experience does not mean they have discovered a solution that you must adopt. Recovery support should make room for different needs while remaining honest about risk.
+
+## An alcohol-free substitute is not a detox plan
+
+Replacing alcoholic drinks with alcohol-free alternatives can sharply reduce alcohol intake. **If you are physically dependent on alcohol, a sudden reduction or stop can cause dangerous withdrawal.** Get medical advice before making that change. Alcohol-free beer does not treat withdrawal.[4]
+
+Morning shaking, sweating, nausea or needing alcohol to function warrant professional assessment. Severe withdrawal symptoms, including seizures, hallucinations or severe shaking, require emergency help. Call **999**.[4]
+
+The [alcohol withdrawal safety guide](/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help) explains why stopping safely and sustaining recovery are related but distinct decisions.
+
+## Make the choice serve your recovery
+
+You are allowed to choose a drink because it fits your life and your care plan. You are also allowed to leave it alone without defending that choice to friends, advertisers or other people in recovery.
+
+A useful decision leaves you with more clarity about your needs, not another argument about whether you are doing recovery correctly. If your uncertainty is part of a wider difficulty controlling drinking, a conversation with a GP or local alcohol service can help establish the appropriate support.
+
+[CTA:/get-help:Talk through your recovery support options]
+IRN can discuss the wider support you are looking for and explain its service limits. Questions about withdrawal, medication or medical suitability should go to an appropriate healthcare professional.
+[/CTA]
+
+This article is general education for adults, not a product recommendation, detox plan or individual medical assessment. The images are illustrative.`
+  },
+  {
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-08",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "slug": "ai-chatbots-addiction-recovery-support",
+    "title": "Would you tell an AI something you haven’t told anyone else?",
+    "excerpt": "AI can feel easier to confide in. What might it help with in recovery, what does the research actually show, and when should a conversation reach a real person?",
+    "category": "Recovery & Wellbeing",
+    "seoTitle": "AI Chatbots and Addiction Recovery Support | IRN",
+    "metaDescription": "Could talking to AI help you ask for addiction support? Explore early research, privacy, practical uses and why chatbots cannot replace human care.",
+    "imageAlt": "A woman thoughtfully looks at her phone beside a notebook and water, with gold Insight Recovery Network branding. Illustrative image.",
+    "supportingImages": [
+      {
+        "afterHeading": "A useful role may be preparing for human support",
+        "src": "/ai-chatbots-addiction-recovery-support-guide.webp",
+        "alt": "A possible path from private reflection to human support: put the concern into words, prepare questions, and contact an appropriate person or service.",
+        "caption": "These are suggested preparation tasks, not established clinical benefits of AI. Crisis or withdrawal concerns need professional help."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Has AI been shown to treat addiction?",
+        "answer": "The small Suzy development study discussed here assessed feasibility and acceptability, not whether the tool reduced substance use or prevented relapse. It cannot establish clinical effectiveness for that chatbot or other products.[1]"
+      },
+      {
+        "question": "Are conversations with an AI chatbot confidential?",
+        "answer": "Do not assume clinical confidentiality. Check the specific service’s privacy information, storage, access, retention and deletion arrangements before sharing sensitive information. A private-feeling conversation may still create a record."
+      },
+      {
+        "question": "Can a chatbot tell me whether it is safe to detox?",
+        "answer": "Do not rely on a chatbot to assess withdrawal risk, design a taper or manage an emergency. Possible alcohol dependence needs medical advice before stopping or reducing use. Immediate danger requires emergency services.[3][4]"
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "JMIR Formative Research",
+        "title": "[1] Suzy recovery-support chatbot development study (20 May 2026)",
+        "url": "https://formative.jmir.org/2026/1/e84683/"
+      },
+      {
+        "publisher": "World Health Organization",
+        "title": "[2] AI ethics and governance guidance for large multi-modal models",
+        "url": "https://www.who.int/news/item/18-01-2024-who-releases-ai-ethics-and-governance-guidance-for-large-multi-modal-models"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[3] Alcohol-use disorder",
+        "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "[4] Where to get urgent help for mental health",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      }
+    ],
+    "readingTime": 8,
+    "image": "/ai-chatbots-addiction-recovery-support-hero.webp",
+    "ogImage": "/ai-chatbots-addiction-recovery-support-og.png",
+    "ogTitle": "Would you tell an AI something you haven’t told anyone else?",
+    "ogDescription": "AI can feel easier to confide in. What might it help with in recovery, what does the research actually show, and when should a conversation reach a real person?",
+    content: `It can feel easier to type a difficult thought into a chatbot than say it aloud to another person. Digital tools may offer a place to organise thoughts or prepare for a conversation, but a reassuring response is not evidence of clinical understanding, confidentiality or safe advice. AI should not be relied on to assess withdrawal, manage a crisis or replace addiction treatment.
+
+Imagine opening a chat window late at night and typing a sentence you have been avoiding: “I think my drinking is getting out of control.” There is no face watching you, no appointment to arrange and no immediate need to explain everything. That apparent distance can make the first words feel more manageable.
+
+The important question is what happens next. Does the conversation help you move towards appropriate support, or does it become somewhere to keep the problem contained and hidden?
+
+## Why talking to a machine might feel easier
+
+Shame, uncertainty and fear of judgement can make an ordinary conversation feel consequential. You may worry that a professional will insist on a label, that a partner will be hurt or that admitting the problem makes it impossible to take back.
+
+A chatbot can appear to offer control over the pace. You can pause, rewrite a sentence or close the window. That may explain some of its appeal, but it does not mean the system understands you in the way a person does.
+
+The potential opening is worth taking seriously. So is the possibility that an apparently helpful conversation never reaches someone able to assess the situation and act.
+
+## What the research actually shows
+
+A study published in JMIR Formative Research on 20 May 2026 described the development of a chatbot called Suzy for people receiving substance use disorder care. Patient usability testing involved eight participants using a rule-based version. A later large-language-model version underwent expert co-design and safety review.[1]
+
+The study reported encouraging feasibility and acceptability findings. It did **not** demonstrate that the chatbot reduced substance use, prevented relapse or could replace a recovery professional. The authors identified evaluation of effectiveness in larger, real-world studies as a next step.[1]
+
+That distinction matters. A tool can be easy to use and well liked without having established clinical benefit. Results from a specialist research prototype also cannot establish that a general-purpose chatbot, or a different commercial recovery app, is effective or safe.
+
+When you read a headline about AI treatment, ask what was actually measured: satisfaction, the quality of a conversation, symptom change, substance use or long-term outcomes. Those are different questions.
+
+## A useful role may be preparing for human support
+
+The following are examples of limited, practical tasks to consider. They are not benefits established by the Suzy study, and they do not require disclosing identifying information.
+
+- Turn a rough list of concerns into questions for a GP or drug and alcohol service.
+- Practise a simple opening sentence for a conversation with someone you trust.
+- Organise your own notes about situations you want to discuss at an appointment.
+- Ask for a plain-language explanation of a term, then check it against a reliable source.
+
+For example, you could ask for help wording a request for an appointment without entering your full substance-use history. The useful output might be a short message you can review and send yourself.
+
+Keep factual details in your own words and check that the tool has not added symptoms, assumptions or promises. If an output does not sound like your experience, you do not have to adopt it.
+
+You can also take these steps without AI. A notebook, a helpline or a conversation with a trusted person may meet the same need more comfortably.
+
+## Warmth and confidence are not a safety check
+
+AI-generated language can sound certain even when the answer is incomplete or wrong. The World Health Organization's guidance on large multimodal models in health identifies risks including inaccurate outputs, bias, privacy concerns and people placing too much trust in automated answers.[2]
+
+In recovery, that matters when a response appears to approve a home detox, dismiss a physical symptom, make a diagnosis or reassure someone that a risky pattern is under control. You should not treat conversational confidence as an assessment.
+
+Be cautious if the answer gives precise medical instructions without a qualified professional assessing you, invents a source, or frames disagreement from people around you as proof that only the chatbot understands. An answer that feels supportive still needs to be checked against reality.
+
+A tool should leave room for uncertainty and appropriate professional involvement. It should not make you feel obliged to trust it, remain in the conversation or withdraw from other support.
+
+## A private-feeling conversation may still create a data record
+
+Before sharing sensitive information, check who operates the service and read its privacy information. Look for clear explanations of whether conversations are stored, who can access them, how long they are retained, whether they may be used to improve systems and how deletion works. If those answers are unclear, avoid adding details you would not be comfortable disclosing.
+
+Do not paste another person's messages, clinical notes or identifying history into a chatbot without appropriate permission. You can ask about a general situation without including names, addresses, employer details or dates that identify someone.
+
+Different tools and account settings may have different terms. A familiar name, a padlock in the browser or a friendly tone does not by itself establish clinical confidentiality. WHO guidance treats privacy and data governance as core requirements for AI in health.[2]
+
+## Notice whether digital support is connecting or isolating you
+
+One useful personal check is what happens after the conversation. Have you contacted a service, prepared an honest discussion or followed an agreed recovery plan? Or have you spent another evening seeking reassurance while avoiding the action you already know needs attention?
+
+This is not a diagnostic test for dependence on technology. It is a way to consider whether a tool is serving the purpose you chose it for.
+
+If you find yourself repeatedly asking the same question until you receive the answer you want, bring the question to a trusted person or qualified professional. If you feel increasingly reluctant to discuss the chatbot's advice with anyone else, that is also worth pausing over.
+
+Recovery support should widen the people and options available to you. Our guide to [structured recovery support](/resources/how-structured-support-prevents-relapse) looks at the role of a continuing plan beyond moments of motivation.
+
+## Situations that need a real person now
+
+Do not use a chatbot to decide whether you can safely stop alcohol or benzodiazepines, to design a taper, or to manage suspected overdose. If alcohol dependence may be present, get medical advice before stopping or sharply reducing your intake.[3]
+
+Call **999** for an overdose, seizure, collapse, severe breathing difficulty, an inability to wake someone or immediate danger to life. If you are in a mental-health crisis, use an appropriate NHS or local crisis service. In England, urgent mental-health help is available through NHS 111; immediate danger requires 999 or A&E.[4]
+
+An AI conversation should not delay that contact. Nor should you assume a chatbot is monitored by a person or able to summon help unless the service explicitly establishes those capabilities.
+
+## Let the first words become a next step
+
+If writing to a chatbot has helped you admit that something is wrong, the next useful step may be sharing one sentence with a person: “I have been trying to work this out privately, and I need some help.” You do not have to arrive with a diagnosis or a polished explanation.
+
+The [NHS guide to getting help for drug problems](https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/) explains routes into support. IRN can also offer a non-urgent conversation about its services and treatment-navigation options. It is not an emergency service and does not prescribe or provide medical detox.
+
+[CTA:/get-help:Start a conversation with IRN]
+Tell us what is concerning you. We can explain the support available through IRN and when another service is more appropriate.
+[/CTA]
+
+This article provides general education for adults. It does not endorse a particular chatbot or claim that IRN's digital products have the outcomes of another system's research. The images are illustrative and do not depict real clients or a functioning clinical chatbot.`
+  },
+  {
     "slug": "still-functioning-addiction",
     "title": "I’m still functioning. Could I still have an addiction?",
     "excerpt": "Keeping work and family life going does not tell the whole story. Explore control, hidden costs and when it is worth asking for help with alcohol or drugs.",
