@@ -243,7 +243,10 @@ function applySharedParity(page) {
 
 function articleDocumentTitle(title) {
   const suffix = ` | ${SITE_NAME}`;
-  return title.endsWith(suffix) ? title : `${title}${suffix}`;
+  const brandedSuffixes = [suffix, " | IRN", " - IRN"];
+  return brandedSuffixes.some((brand) => title.endsWith(brand))
+    ? title
+    : `${title}${suffix}`;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
