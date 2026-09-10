@@ -277,6 +277,8 @@ This guide focuses on the immediate withdrawal decision. The [benzodiazepine add
 
 Insight Recovery Network is not a regulated healthcare provider. We do not diagnose, prescribe, change medication, provide medical detox or create taper schedules.
 
+If you are experiencing persistent symptoms after stopping, our guide to [PAWS after benzodiazepines and protracted withdrawal](/resources/paws-after-benzodiazepines) explains uncertainty, medical review and practical support.
+
 ## Why benzodiazepine withdrawal needs clinical planning
 
 Benzodiazepines are prescribed for conditions including severe anxiety, insomnia, muscle spasm and seizures. Physical dependence can develop even when a medicine has been taken exactly as prescribed. This is a physiological adaptation, not proof of addiction or wrongdoing.

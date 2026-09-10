@@ -3234,6 +3234,8 @@ function articleToPrerenderMeta(article) {
     ogTitle: article.ogTitle ?? article.title,
     description: article.metaDescription ?? article.ogDescription ?? article.excerpt,
     image: siteImageUrl(article.ogImage ?? article.image),
+    ogImageWidth: article.ogImageWidth ?? 1200,
+    ogImageHeight: article.ogImageHeight ?? 630,
     imageAlt: article.imageAlt ?? SITE_NAME,
     date: article.date,
     updatedDate: article.updatedDate ?? article.date,
@@ -4248,16 +4250,16 @@ function injectArticleMeta(html, article, full = null) {
     `$1${esc(article.image)}$2`
   );
 
-  // og:image:width, set to 1200
+  // og:image:width, preserving the default for existing articles
   out = out.replace(
     /(<meta\s+property="og:image:width"\s+content=")[^"]*(")/,
-    `$11200$2`
+    `$1${article.ogImageWidth ?? 1200}$2`
   );
 
-  // og:image:height, set to 630
+  // og:image:height, preserving the default for existing articles
   out = out.replace(
     /(<meta\s+property="og:image:height"\s+content=")[^"]*(")/,
-    `$1630$2`
+    `$1${article.ogImageHeight ?? 630}$2`
   );
 
   // og:image:alt

@@ -206,6 +206,10 @@ kind = "web"
 
   # ── /resources article pages → internal _resources/ directory ────────────────
   [[services.production.rewrites]]
+  from = "/resources/paws-after-benzodiazepines"
+  to = "/_resources/paws-after-benzodiazepines.html"
+
+  [[services.production.rewrites]]
   from = "/resources/gambling-addiction"
   to = "/_resources/gambling-addiction.html"
 

@@ -13,6 +13,199 @@ export const approvedArticles = [
   {
     "author": "Craig Bilton",
     "authorRole": "Founder & Clinical Director",
+    "date": "2026-09-10",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "slug": "paws-after-benzodiazepines",
+    "title": "PAWS After Benzodiazepines: Understanding Protracted Withdrawal",
+    "excerpt": "Understand persistent symptoms after stopping benzodiazepines, the uncertainty around recovery, and ways to find appropriate medical and practical support.",
+    "category": "Recovery & Wellbeing",
+    "seoTitle": "PAWS After Benzodiazepines: Protracted Withdrawal | IRN",
+    "metaDescription": "Understand PAWS after benzodiazepines, persistent withdrawal symptoms, recovery uncertainty and ways to find appropriate medical and practical support.",
+    "image": "/paws-after-benzodiazepines-hero.webp",
+    "ogImage": "/paws-after-benzodiazepines-hero.webp",
+    "ogImageWidth": 1600,
+    "ogImageHeight": 900,
+    "imageAlt": "A thoughtful woman sitting beside a window at home, with gold Insight Recovery Network branding. Illustrative image.",
+    "supportingImages": [
+      {
+        "afterHeading": "Getting a useful medical review",
+        "src": "/paws-after-benzodiazepines-medical-review.webp",
+        "alt": "A man discussing his concerns with a healthcare professional beside an open notebook. Illustrative image.",
+        "caption": "A short written summary can help you explain your symptoms and the support you need. Illustrative image."
+      },
+      {
+        "afterHeading": "How family and friends can respond",
+        "src": "/paws-after-benzodiazepines-family-support.webp",
+        "alt": "Two women having a calm conversation at a kitchen table. Illustrative image.",
+        "caption": "Ask what help would be welcome, and keep the person involved in decisions. Illustrative image."
+      }
+    ],
+    "sources": [
+      {
+        "publisher": "American Society of Addiction Medicine and partner organisations",
+        "title": "Joint Clinical Practice Guideline on Benzodiazepine Tapering (2025)",
+        "url": "https://www.asam.org/quality-care/clinical-guidelines/benzodiazepine-tapering"
+      },
+      {
+        "publisher": "NICE",
+        "title": "Medicines associated with dependence or withdrawal symptoms: recommendations (NG215)",
+        "url": "https://www.nice.org.uk/guidance/ng215/chapter/Recommendations"
+      },
+      {
+        "publisher": "MHRA",
+        "title": "Benzodiazepines: patient information",
+        "url": "https://assets.publishing.service.gov.uk/media/695d44fb34c664251c38a139/Benzodiazepines_Patient_Resource_-_FINAL.pdf"
+      },
+      {
+        "publisher": "FDA",
+        "title": "Benzodiazepine drug class: updated safety warning",
+        "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-requiring-boxed-warning-updated-improve-safe-use-benzodiazepine-drug-class"
+      },
+      {
+        "publisher": "PLOS ONE",
+        "title": "Shade and colleagues: long-term neurological consequences following benzodiazepine exposure, scoping review (2025)",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0330277"
+      },
+      {
+        "publisher": "NHS",
+        "title": "Diazepam",
+        "url": "https://www.nhs.uk/medicines/diazepam/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "Sleep problems",
+        "url": "https://www.nhs.uk/every-mind-matters/mental-health-issues/sleep/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "Sudden confusion",
+        "url": "https://www.nhs.uk/symptoms/confusion/"
+      },
+      {
+        "publisher": "NHS",
+        "title": "Where to get urgent help for mental health",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      }
+    ],
+    "readingTime": 8,
+    content: `Stopping a benzodiazepine can feel like it should mark the end of a difficult chapter. If you are still struggling with sleep, concentration or everyday life afterwards, it can be unsettling to find that you do not feel the way you expected.
+
+**Some people experience withdrawal symptoms that continue beyond the initial withdrawal period. This is often called protracted benzodiazepine withdrawal, or described as post-acute withdrawal syndrome (PAWS).** The 2025 joint clinical guideline led by the American Society of Addiction Medicine recognises this problem, while acknowledging gaps in the evidence. [Joint benzodiazepine guideline, 2025](https://www.asam.org/quality-care/clinical-guidelines/benzodiazepine-tapering)
+
+If this sounds familiar, you deserve a careful assessment and support. You should not have to prove that you are suffering before someone takes your concerns seriously.
+
+This article focuses on persistent symptoms after stopping. If you are still taking a benzodiazepine, do not stop suddenly or change your dose because of something you read online. Withdrawal can be dangerous and needs an individual plan with your prescriber. Our [benzodiazepine withdrawal and detox guide](https://www.insightrecoverynetwork.com/resources/benzodiazepine-withdrawal) explains that process. [NHS: diazepam](https://www.nhs.uk/medicines/diazepam/)
+
+## What does PAWS mean after benzodiazepines?
+
+PAWS stands for **post-acute withdrawal syndrome**. In discussions about benzodiazepines, it refers to difficulties that continue after the early withdrawal period. Clinical guidance commonly uses the term **protracted withdrawal**.
+
+The terminology is less settled than the abbreviation might suggest. A 2025 review of the research found inconsistent descriptions and important gaps in how persistent symptoms have been studied. An online label cannot, by itself, establish what is causing an individual's symptoms. [Shade and colleagues, 2025](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0330277)
+
+For someone looking for help, the useful starting point is a clear account of what has happened: which medicine they took, when it changed, what symptoms followed and how their life has been affected.
+
+## Physical dependence is not the same as addiction
+
+Physical dependence can develop while taking benzodiazepines as prescribed. It means the body has adapted to the medicine and withdrawal symptoms may occur when the dose is reduced or stopped. Addiction involves a different, broader pattern, including difficulty controlling use and a strong drive to keep taking the drug. The two can occur together, but one does not automatically establish the other. [MHRA: benzodiazepine patient information](https://assets.publishing.service.gov.uk/media/695d44fb34c664251c38a139/Benzodiazepines_Patient_Resource_-_FINAL.pdf)
+
+This distinction matters. Someone seeking help after prescribed medication should be able to describe their experience without being blamed or given an addiction label that has not been established.
+
+Our [benzodiazepine dependence and addiction guide](https://www.insightrecoverynetwork.com/resources/benzodiazepine-addiction) explains the distinction in more detail.
+
+## What symptoms can persist?
+
+The US Food and Drug Administration recognises persistent symptoms including anxiety, low mood, insomnia, cognitive difficulties, weakness, tremor, muscle twitching and unusual crawling sensations on the skin. This is a range of reported experiences, not a checklist that everyone will develop. [FDA benzodiazepine safety communication](https://www.fda.gov/drugs/drug-safety-and-availability/fda-requiring-boxed-warning-updated-improve-safe-use-benzodiazepine-drug-class)
+
+The effect on daily life deserves attention too. During an appointment, explain whether you are struggling to work, follow a conversation, manage household tasks or care for yourself. Those details help communicate the support you need more clearly than a symptom list alone.
+
+**New, severe or worsening symptoms should be assessed.** Do not assume they are safe to ignore because you have read about PAWS. Withdrawal, a returning condition and a new health problem can be difficult to distinguish. [NICE NG215](https://www.nice.org.uk/guidance/ng215/chapter/Recommendations)
+
+## How long does protracted withdrawal last?
+
+There is no reliable recovery date that an article can give you. The ASAM-led guideline describes symptoms lasting months and, for some people, years. That does not mean everyone who takes or stops a benzodiazepine will have this experience. [Joint benzodiazepine guideline, 2025](https://www.asam.org/quality-care/clinical-guidelines/benzodiazepine-tapering)
+
+The 2025 scoping review examined 46 publications. It found reports of persistent difficulties alongside studies showing benefits after discontinuation, but could not establish how common enduring symptoms are or their typical course. Many findings were incidental, rather than outcomes the studies had been designed to investigate. [Shade and colleagues, 2025](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0330277)
+
+That leaves room for hope and a need for honesty. Another person's recovery story cannot tell you exactly what will happen to you. Promises that everyone recovers by a particular month go beyond what the evidence can support.
+
+## Getting a useful medical review
+
+Arrange a review with your GP or the clinician who managed your prescription. NICE advises clinicians to consider whether symptoms are new, different from the original problem or associated with a dose change. Continuing symptoms should be discussed rather than automatically treated as a return of anxiety or insomnia. [NICE NG215](https://www.nice.org.uk/guidance/ng215/chapter/Recommendations)
+
+You could take a short written summary covering:
+
+- The medicine, how long you took it and when it was reduced or stopped.
+- Your main symptoms, when they began and whether they have changed.
+- Other medicines, supplements, alcohol or substances you use.
+- The practical difficulties you most need help with.
+- Any previous assessments and the advice you were given.
+
+Useful questions include: “Could withdrawal be contributing?”, “What else needs checking?”, “Who will coordinate my care?” and “What should I do if things become worse before the next appointment?”
+
+If you find appointments difficult, consider bringing someone you trust, with your agreement. You can also ask for the plan in writing. If your concerns remain unresolved, ask what further assessment or referral would be appropriate.
+
+## What support can help day to day?
+
+The following suggestions are ways to organise support. They are not a treatment protocol for protracted withdrawal or a promise of faster recovery.
+
+### Agree the next step in your care
+
+Try to leave appointments knowing what is being assessed, when you will be reviewed and whom to contact between appointments. A plan is easier to follow when responsibilities are clear.
+
+Avoid independently restarting benzodiazepines, changing other medicines or adding substances to manage symptoms. Discuss medication decisions with a prescriber and check supplements with a pharmacist. The FDA advises gradual, individually managed withdrawal and warns that combining benzodiazepines with alcohol or other depressants can cause serious harm. [FDA benzodiazepine safety communication](https://www.fda.gov/drugs/drug-safety-and-availability/fda-requiring-boxed-warning-updated-improve-safe-use-benzodiazepine-drug-class)
+
+### Make practical requests for help
+
+Rather than trying to explain everything at once, identify one or two things another person could do: accompany you to an appointment, help with shopping, prepare a meal or take over a demanding household task.
+
+You do not need a perfect explanation of the biology to ask for help with an ordinary day. Equally, accepting help does not mean giving up control of your decisions.
+
+### Give sleep difficulties proper attention
+
+A consistent sleep routine and a quiet period before bed may help with sleep. Persistent insomnia deserves assessment, particularly when it is affecting daily functioning. These are general sleep measures, not a demonstrated cure for benzodiazepine withdrawal. [NHS: sleep problems](https://www.nhs.uk/every-mind-matters/mental-health-issues/sleep/)
+
+If you are already making an effort and still sleeping badly, describe that clearly. You should not be left feeling that a difficult night means you have failed at recovery.
+
+### Choose support that respects your experience
+
+If you seek counselling or peer support, ask how the person or group approaches prescribed dependence and persistent withdrawal symptoms. Look for space to discuss uncertainty, practical difficulties and the effect on relationships, without pressure to follow someone else's medication plan.
+
+You can value another person's account without treating it as a forecast. It is reasonable to step back from online discussions that leave you more frightened, or from anyone promising a guaranteed cure.
+
+## How family and friends can respond
+
+Start by asking what is hardest at the moment and what help would be welcome. “Would you like me to come to the appointment?” is often a more useful offer than another explanation of what the person should try.
+
+Avoid using an expected finishing date as a test of their effort. Agree which responsibilities can be shared and revisit that arrangement together. Keep including the person in decisions, even when they need considerable practical support.
+
+You can take their symptoms seriously while encouraging medical assessment. Those responses belong together.
+
+## When to get urgent help
+
+Call **999 or go to A&E** for a seizure associated with suspected withdrawal, sudden severe confusion, loss of consciousness, severe breathing difficulty or immediate danger to life. Do not dismiss an emergency as “just PAWS”. [FDA withdrawal safety information](https://www.fda.gov/drugs/drug-safety-and-availability/fda-requiring-boxed-warning-updated-improve-safe-use-benzodiazepine-drug-class), [NHS: sudden confusion](https://www.nhs.uk/symptoms/confusion/)
+
+If you or someone else cannot stay safe, seek emergency help. For urgent mental-health support in England without immediate danger, call **111 and select the mental-health option**, or request an urgent GP appointment. Elsewhere in the UK, use your local urgent mental-health service. [NHS: urgent mental-health help](https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/)
+
+## Do persistent symptoms mean I need another detox or rehab?
+
+Persistent symptoms alone are not a reason to book another detox. If you have already stopped taking benzodiazepines, explain that clearly when seeking advice. The assessment should address your current symptoms, current medicine use and individual needs.
+
+Our existing [withdrawal and detox guide](https://www.insightrecoverynetwork.com/resources/benzodiazepine-withdrawal) explains how community and more intensive care are considered. Residential accommodation does not, by itself, establish that a service has appropriate medical expertise.
+
+## Finding appropriate support
+
+You do not need to have all the answers before asking for help. A useful next step may be a medical review, a clearer care plan or practical support for the part of life that is hardest right now.
+
+Insight Recovery Network can help you organise questions and explore appropriate support options. We do not diagnose protracted withdrawal, prescribe medication, design tapering schedules or provide medical detox. Any discussion of our non-medical support should sit alongside the medical care your situation requires.
+
+If you would like help understanding support routes for yourself or someone close to you, you can [contact Insight Recovery Network for a confidential conversation](https://www.insightrecoverynetwork.com/get-help).
+
+This article provides general information and cannot determine the cause of an individual's symptoms or replace personal medical advice.`
+  },
+  {
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
     "date": "2026-09-08",
     "publishedStatus": "published",
     "medicalWebPage": true,

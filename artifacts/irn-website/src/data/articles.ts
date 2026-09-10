@@ -13,6 +13,8 @@ export interface Article {
   content: string;
   image?: string;
   ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   imageAlt?: string;
   medicalWebPage?: boolean;
   supportingImages?: Array<{

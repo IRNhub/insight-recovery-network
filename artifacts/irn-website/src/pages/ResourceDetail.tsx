@@ -579,6 +579,13 @@ export default function ResourceDetail() {
     (candidate) => candidate.slug === article.slug,
   );
   const commercialLinks = (() => {
+    if (article.slug === "paws-after-benzodiazepines") {
+      return [
+        { title: "Benzodiazepine withdrawal guide", description: "Read about the initial withdrawal decision and prescriber-led planning.", href: "/resources/benzodiazepine-withdrawal" },
+        { title: "Dependence and addiction", description: "Understand why physical dependence does not automatically mean addiction.", href: "/resources/benzodiazepine-addiction" },
+        { title: "Discuss support options", description: "Ask IRN about appropriate non-medical support alongside your medical care.", href: "/get-help" },
+      ];
+    }
     if (article.slug === "alcohol-cocaine-cravings") {
       return [
         { title: "NHS cocaine support", description: "Understand assessment, talking therapies and local treatment routes.", href: "https://www.nhs.uk/live-well/addiction-support/cocaine-get-help/" },
@@ -811,6 +818,14 @@ export default function ResourceDetail() {
       };
     }
     const slug = article.slug;
+    if (slug === "paws-after-benzodiazepines") {
+      return {
+        heading: "Finding appropriate support",
+        description: "IRN can help you organise questions and explore support options alongside your medical care. We do not diagnose protracted withdrawal, prescribe medication, design tapering schedules or provide medical detox.",
+        primaryCta: { label: "Talk through support options", href: "/get-help" },
+        secondaryCta: { label: "Read the withdrawal guide", href: "/resources/benzodiazepine-withdrawal" },
+      };
+    }
     if (slug === "rebuilding-trust-after-stopping-drinking") {
       return {
         heading: "Support for your needs matters too",
@@ -1066,8 +1081,8 @@ export default function ResourceDetail() {
     image: {
       "@type": "ImageObject",
       url: ogImage,
-      width: 1200,
-      height: 630,
+      width: article.ogImageWidth ?? 1200,
+      height: article.ogImageHeight ?? 630,
     },
     articleSection: article.category,
     inLanguage: "en-GB",
@@ -1117,6 +1132,8 @@ export default function ResourceDetail() {
         description={article.metaDescription ?? article.excerpt}
         canonical={canonicalPath}
         ogImage={ogImage}
+        ogImageWidth={article.ogImageWidth}
+        ogImageHeight={article.ogImageHeight}
         ogImageAlt={article.slug === "still-functioning-addiction" ? "I’m still functioning. Could I still have an addiction? A thoughtful woman at home beside the gold Insight Recovery Network logo." : undefined}
         ogType="article"
         datePublished={article.date}

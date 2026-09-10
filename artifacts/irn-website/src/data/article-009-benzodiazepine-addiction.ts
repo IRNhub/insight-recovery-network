@@ -82,6 +82,8 @@ Benzodiazepine dependence means the body has adapted to regular exposure and wit
 
 Withdrawal can be medically dangerous. NICE advises against abrupt cessation except in exceptional medical circumstances and recommends an individual, slow, stepwise reduction when withdrawal is appropriate. The plan must reflect the medicine, duration and pattern of use, previous withdrawal, other substances, physical and mental health, and available support. No single online taper is safe for everyone.
 
+If you are experiencing persistent symptoms after stopping, our guide to [PAWS after benzodiazepines and protracted withdrawal](/resources/paws-after-benzodiazepines) explains uncertainty, medical review and practical support.
+
 ## Table of contents
 
 1. [Key takeaways](#key-takeaways)
