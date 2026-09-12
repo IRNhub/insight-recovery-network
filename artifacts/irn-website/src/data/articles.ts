@@ -2644,6 +2644,21 @@ However, treatment abroad should never be chosen purely because it looks attract
 
 For some people, treatment abroad is a strong option. For others, staying in the UK is safer and more practical. The key is not location alone. The key is suitability. [Treatment placement guidance](/treatment-placement) can help you weigh these options clearly.
 
+### Before returning to the UK: agree the handover
+
+Before discharge from rehab abroad, ask the treatment team to agree a practical handover with the person receiving care. Check:
+
+- Who will coordinate follow-up in the UK and when the first contact will happen.
+- Which GP, local treatment service or mental-health professional needs a discharge summary, with appropriate information-sharing arrangements.
+- Who is responsible for medication review and prescribing after discharge. IRN does not prescribe.
+- Where the person will stay, how they will get home and which recovery or peer-support contacts are in place.
+- What happens if the person leaves earlier than planned or needs help before the first appointment.
+- What aftercare is included in the fee and what requires a separate arrangement.
+
+A written plan should name the people responsible for each next step. Digital tools can support that plan; they do not provide medical care or replace agreed professional follow-up.
+
+For the continuity-planning principles behind this checklist, see the [Department of Health and Social Care's alcohol-treatment guidance, sections 14.4.5 and 14.4.6](https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/14-residential-treatment-and-intensive-structured-day-programmes). The checklist adapts those principles to a return from abroad; UK guidance does not regulate overseas providers.
+
 ## The Role of Family in Choosing Rehab
 
 Families often carry the urgency long before the person struggling is ready to accept help. They may have watched months or years of broken promises, secrecy, emotional distance, financial problems, health concerns, or repeated attempts to stop.

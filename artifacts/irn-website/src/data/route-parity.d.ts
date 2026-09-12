@@ -31,6 +31,13 @@ export interface RouteParityDefinition {
 }
 
 export const routeParity: Record<string, RouteParityDefinition>;
+export const guidanceSections: Record<string, {
+  heading: string;
+  paragraphs: string[];
+  linkPrefix: string;
+  link: { href: string; label: string };
+  linkSuffix: string;
+}>;
 export const parityRoutes: string[];
 export function getRouteParity(pathname: string): RouteParityDefinition;
 export function buildRouteSchemas(pathname: string, faqs?: RouteFaq[]): Record<string, unknown>[];

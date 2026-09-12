@@ -66,7 +66,7 @@ export const routeFaqs = {
     },
     {
       question: "What does treatment placement cost?",
-      answer: "Fees depend on the assessment and level of placement support required. We explain IRN fees and any relevant provider relationship before you proceed. Treatment-provider fees are separate and should be confirmed in writing. Our services and pricing guide gives the current overview.",
+      answer: "Fees depend on the assessment and level of placement support required. Before you proceed, we explain the scope and cost of IRN's support, the treatment provider's separate charges, and any relevant commercial or referral relationship. Ask whether a provider would pay IRN for your placement, whether this affects the price you pay, how the options were selected and which alternatives may be appropriate. Request a written cost breakdown and read our services and pricing guide; a general guide is not a quotation for your care.",
     },
     {
       question: "Can you help with an urgent placement?",

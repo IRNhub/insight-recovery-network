@@ -13,9 +13,10 @@ import residentialSetting from "@/assets/wwo-treatment-placement.webp";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
-import { getRouteParity } from "@/data/route-parity";
+import { getRouteParity, guidanceSections } from "@/data/route-parity";
 
 const parity = getRouteParity("/treatment-placement");
+const relationshipCopy = guidanceSections["/treatment-placement"];
 const placementSteps = [
   {
     n: "1",
@@ -71,7 +72,7 @@ const placementFaqs: FAQItem[] = [
   },
   {
     question: "What does treatment placement cost?",
-    answer: "Fees depend on the assessment and level of placement support required. We explain IRN fees and any relevant provider relationship before you proceed. Treatment-provider fees are separate and should be confirmed in writing. Our services and pricing guide gives the current overview.",
+    answer: "Fees depend on the assessment and level of placement support required. Before you proceed, we explain the scope and cost of IRN's support, the treatment provider's separate charges, and any relevant commercial or referral relationship. Ask whether a provider would pay IRN for your placement, whether this affects the price you pay, how the options were selected and which alternatives may be appropriate. Request a written cost breakdown and read our services and pricing guide; a general guide is not a quotation for your care.",
   },
   {
     question: "Can you help with an urgent placement?",
@@ -589,9 +590,11 @@ export default function TreatmentPlacement() {
               </Link>
             </div>
           </div>
-          <div className="mt-8 max-w-3xl border-l-4 border-accent bg-background p-6 text-sm leading-relaxed text-muted-foreground">
-            IRN's guidance is separate from the provider's final clinical and admission decision. IRN fees, treatment-provider costs and any relevant partner, referral or commercial relationship are explained before you proceed. Review the <Link href="/services-pricing-guide" className="font-semibold text-primary underline underline-offset-4">services and pricing guide</Link>, or ask us to explain the likely costs during a confidential call.
-          </div>
+          <section aria-labelledby="provider-relationships" className="mt-8 max-w-3xl border-l-4 border-accent bg-background p-6 text-sm leading-relaxed text-muted-foreground">
+            <h2 id="provider-relationships" className="mb-4 font-serif text-2xl text-primary">{relationshipCopy.heading}</h2>
+            {relationshipCopy.paragraphs.map((paragraph) => <p key={paragraph} className="mb-4">{paragraph}</p>)}
+            <p>{relationshipCopy.linkPrefix}<Link href={relationshipCopy.link.href} className="font-semibold text-primary underline underline-offset-4">{relationshipCopy.link.label}</Link>{relationshipCopy.linkSuffix}</p>
+          </section>
         </div>
       </section>
 

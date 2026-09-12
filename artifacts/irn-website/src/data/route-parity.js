@@ -254,6 +254,36 @@ export const routeParity = {
   },
 };
 
+export const guidanceSections = {
+  "/treatment-placement": {
+    "heading": "Fees and provider relationships",
+    "paragraphs": [
+      "Insight Recovery Network provides private treatment guidance. The treatment provider makes its own clinical assessment and admission decision and remains responsible for the care it delivers.",
+      "Before you proceed, we explain the scope and cost of IRN's support, the treatment provider's separate charges, and any relevant commercial or referral relationship. Ask us whether a provider would pay IRN for your placement and whether this affects the price you pay. You can also ask how the options being discussed were selected and which alternatives may be appropriate."
+    ],
+    "linkPrefix": "Request a written breakdown of your proposed costs and read our ",
+    "link": {
+      "href": "/services-pricing-guide",
+      "label": "services and pricing guide"
+    },
+    "linkSuffix": ". A general guide is not a quotation for your care."
+  },
+  "/family-addiction-intervention-uk": {
+    "heading": "What can I prepare for a family consultation?",
+    "paragraphs": [
+      "You can speak with Craig Bilton by telephone or video about your own concerns before your adult relative agrees to treatment. You do not need a diagnosis or a chosen rehab before making contact.",
+      "It may help to note what is worrying you now, what conversations or support have already been tried, who is involved, and what you most need help deciding. Mention any immediate safety concerns at the start. You do not need to gather somebody else's private records before contacting us.",
+      "The discussion can cover communication, realistic boundaries, treatment options and the family's own support. Contacting IRN does not commit you or your relative to residential treatment. We explain the limits of confidentiality before information is shared with other people or providers."
+    ],
+    "linkPrefix": "",
+    "link": {
+      "href": "/get-help",
+      "label": "Discuss your family situation"
+    },
+    "linkSuffix": ". IRN is not an emergency service; if someone is in immediate danger, call 999 or attend A&E."
+  }
+};
+
 export const parityRoutes = Object.keys(routeParity);
 
 export function getRouteParity(pathname) {

@@ -9,12 +9,13 @@ import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
 import { ServiceSummary } from "@/components/ui/service-summary";
 import { RelatedGuideCard } from "@/components/ui/related-guide-card";
 import { RouteSchemas } from "@/components/RouteSchemas";
-import { getRouteParity } from "@/data/route-parity";
+import { getRouteParity, guidanceSections } from "@/data/route-parity";
 import familyImage from "@/assets/wwo-family-intervention.webp";
 
 const SITE_URL = "https://www.insightrecoverynetwork.com";
 const CANONICAL = "/family-addiction-intervention-uk";
 const parity = getRouteParity(CANONICAL);
+const preparationCopy = guidanceSections[CANONICAL];
 
 const faqs: FAQItem[] = [
   {
@@ -231,6 +232,16 @@ export default function FamilyInterventionUK() {
                 <p className="mt-3 text-sm font-light leading-relaxed text-muted-foreground">{step.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="family-consultation-preparation" className="border-b border-border/40 py-12 md:py-20">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl">
+            <h2 id="family-consultation-preparation" className="mb-6 font-serif text-3xl leading-tight text-primary md:text-4xl">{preparationCopy.heading}</h2>
+            {preparationCopy.paragraphs.map((paragraph) => <p key={paragraph} className="mb-5 leading-relaxed text-muted-foreground">{paragraph}</p>)}
+            <p className="leading-relaxed text-muted-foreground">{preparationCopy.linkPrefix}<Link href={preparationCopy.link.href} className="font-semibold text-primary underline underline-offset-4" data-analytics-event="family_support_enquiry" data-source-page="family-addiction-intervention-uk" data-service-interest="family-support" data-cta-location="consultation-preparation" data-cta-label={preparationCopy.link.label}>{preparationCopy.link.label}</Link>{preparationCopy.linkSuffix}</p>
           </div>
         </div>
       </section>

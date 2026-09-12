@@ -39,6 +39,7 @@ import {
 import {
   buildRouteSchemas,
   routeParity,
+  guidanceSections,
 } from "../src/data/route-parity.js";
 import { placementSteps, placementChecks } from "../src/data/placement-journey.js";
 import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
@@ -148,6 +149,15 @@ function supplementParityBody(body, route) {
   if (!page) return body;
 
   const additions = [];
+  const guidance = guidanceSections[route];
+  if (guidance && !body.includes(guidance.heading)) {
+    additions.push(`
+      <section style="max-width:1120px;margin:0 auto;padding:2.5rem 2rem;border-top:1px solid rgba(22,43,59,.15);">
+        <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.8rem;">${esc(guidance.heading)}</h2>
+        ${guidance.paragraphs.map((paragraph) => `<p style="line-height:1.75;max-width:760px;color:#4a5568;">${esc(paragraph)}</p>`).join("")}
+        <p style="line-height:1.75;max-width:760px;color:#4a5568;">${esc(guidance.linkPrefix)}<a href="${esc(guidance.link.href)}">${esc(guidance.link.label)}</a>${esc(guidance.linkSuffix)}</p>
+      </section>`);
+  }
   const serviceLabels = [
     "Who this is for",
     "What it helps solve",
