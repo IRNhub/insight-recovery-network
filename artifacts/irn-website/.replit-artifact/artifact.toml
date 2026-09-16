@@ -509,6 +509,10 @@ kind = "web"
   from = "/media"
   to = "/media.html"
 
+  [[services.production.rewrites]]
+  from = "/resources/process-addictions"
+  to = "/_resources/process-addictions.html"
+
   [services.env]
   PORT = "18088"
   BASE_PATH = "/"
