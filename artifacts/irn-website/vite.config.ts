@@ -383,6 +383,7 @@ const SERVER_REDIRECTS: Record<string, string> = {
   "/drug-treatment":                     "/treatment-placement",
   "/drug-detox":                         "/treatment-placement",
   "/drug-rehabilitation":                "/treatment-placement",
+  "/residential-treatment":             "/treatment-placement",
   "/drug-addiction":                     "/treatment-placement",
   "/mental-health":                      "/what-we-offer",
   "/mental-health-support":              "/what-we-offer",

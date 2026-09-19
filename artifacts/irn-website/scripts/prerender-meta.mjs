@@ -43,6 +43,7 @@ import {
 } from "../src/data/route-parity.js";
 import { placementSteps, placementChecks } from "../src/data/placement-journey.js";
 import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
+import { articleNextSteps } from "../src/data/article-next-steps.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -3893,6 +3894,7 @@ function buildArticleBodyHtml(meta, full) {
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
             ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1200px) 720px, calc(100vw - 4rem)" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
+            ${buildArticleNextStep(full.slug)}
             ${markdownToHtml(withoutEmbeddedFaq(full.content), full.supportingImages)}
           </article>
           ${faqHtml}
@@ -3902,6 +3904,17 @@ function buildArticleBodyHtml(meta, full) {
         </div>
       </main>
 ${STATIC_FOOTER}`;
+}
+
+function buildArticleNextStep(slug) {
+  const next = articleNextSteps[slug];
+  if (!next) return "";
+  return `<aside aria-labelledby="article-next-step" style="max-width:720px;margin:0 0 2rem;padding:1.5rem;border:1px solid #d5d5ca;border-radius:0.75rem;background:#f1eee6;">
+    <h2 id="article-next-step" style="font-family:Georgia,serif;font-size:1.3rem;margin:0 0 0.75rem;">${escText(next.heading)}</h2>
+    <p style="font-family:sans-serif;line-height:1.7;">${escText(next.description)}</p>
+    <p><a href="${esc(next.href)}" data-analytics-event="get_help_click" data-cta-location="article_next_step" style="display:inline-block;background:#162B3B;color:#fff;padding:0.85rem 1.25rem;border-radius:0.375rem;">${escText(next.label)}</a></p>
+    <a href="${esc(next.secondaryHref)}" style="color:#162B3B;">${escText(next.secondaryLabel)}</a>
+  </aside>`;
 }
 
 /** Build the full static body HTML for a destination placement page. */
@@ -4621,6 +4634,7 @@ const SITEMAP_LASTMOD = {
   "/how-much-does-rehab-cost-uk": "2026-08-28",
   "/addiction-help-cornwall": "2026-07-13",
   "/private-rehab-thailand": "2026-07-13",
+  "/private-rehab-south-africa": "2026-09-18",
   "/get-help": "2026-07-24",
   "/luxury-rehab": "2026-07-13",
   "/executive-rehab": "2026-07-13",

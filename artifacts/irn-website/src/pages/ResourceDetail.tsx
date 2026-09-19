@@ -9,6 +9,7 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { PreferredSources } from "@/components/PreferredSources";
+import { articleNextSteps } from "@/data/article-next-steps.js";
 import NotFound from "@/pages/not-found";
 import {
   formatDate,
@@ -808,6 +809,7 @@ export default function ResourceDetail() {
       { title: "Contact IRN", description: "Ask a question privately, without obligation or pressure.", href: "/contact" },
     ];
   })();
+  const nextStep = articleNextSteps[article.slug];
   const contextualCta = (() => {
     if (isEarlyFindingsArticle) {
       return {
@@ -1268,6 +1270,18 @@ export default function ResourceDetail() {
       <article className="py-12 md:py-20">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-3xl mx-auto" data-testid="article-content">
+            {nextStep && (
+              <aside className="mb-10 rounded-xl border border-primary/15 bg-secondary/30 p-6" aria-labelledby="article-next-step">
+                <h2 id="article-next-step" className="font-serif text-xl text-primary mb-3">{nextStep.heading}</h2>
+                <p className="text-sm leading-relaxed text-muted-foreground mb-4">{nextStep.description}</p>
+                <div className="flex flex-col items-start gap-4">
+                  <Link href={nextStep.href} className="inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground" data-analytics-event="get_help_click" data-cta-location="article_next_step">
+                    {nextStep.label}
+                  </Link>
+                  <Link href={nextStep.secondaryHref} className="text-sm text-primary underline underline-offset-4">{nextStep.secondaryLabel}</Link>
+                </div>
+              </aside>
+            )}
             {parseContent(
               withoutEmbeddedFaq(article.content),
               article.supportingImages,

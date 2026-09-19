@@ -167,16 +167,16 @@ export const destinations: Destination[] = [
     slug: "private-rehab-south-africa",
     country: "South Africa",
     title: "Private Rehab in South Africa",
-    seoTitle: "Private Rehab in South Africa | Costs, Placement & Guidance | Insight Recovery Network",
+    seoTitle: "Rehab in South Africa: Costs & Private Treatment | IRN",
     metaDescription:
-      "Considering rehab in South Africa? Assessment-led guidance on residential addiction treatment, with long-term programmes from around £1,800 per month up to around £10,000 for premium facilities.",
+      "Compare rehab in South Africa: guide costs, longer stays, privacy and returning to the UK. Discuss suitable private treatment options with IRN.",
     heroImage: "/private-rehab-south-africa-hero.png",
     heroImageAlt:
       "Private treatment placement hero image for South Africa with a residential rehab setting beneath mountains",
     heroEyebrow: "Treatment Placement: South Africa",
-    heroHeading: "Private Rehab in South Africa",
+    heroHeading: "Private Rehab in South Africa: Costs and Treatment Options",
     heroIntro:
-      "South Africa offers some of the best value residential addiction treatment in the world, with a mature recovery industry, strong English-speaking clinical teams, and options ranging from affordable long-term recovery programmes to premium private facilities. For people who need extended treatment, South Africa often makes a longer stay financially possible where the UK would not.",
+      "Considering rehab in South Africa from the UK? Compare the full cost, clinical care, programme length and support for returning home before choosing a centre. Insight Recovery Network provides assessment-led treatment placement guidance. We do not own or operate the facilities. Craig Bilton brings experience of working in addiction treatment in South Africa to these conversations.",
     whyHeading: "Why people choose South Africa for rehab",
     whyIntro:
       "South Africa is frequently the right answer where treatment length matters more than luxury, and where budget would otherwise cut recovery short:",
@@ -209,6 +209,40 @@ export const destinations: Destination[] = [
     ],
     clinicalNote:
       "For some clients, the difference between 28 days and 90 days is not luxury. It is clinical containment, repetition, routine, and time away from the old environment. South Africa can be a suitable option where longer treatment would be clinically useful but UK private rehab costs make extended care difficult. Whether a longer stay is right is a clinical judgement we make honestly with you, not a default recommendation.",
+    detailSections: [
+      {
+        heading: "Compare the full cost of rehab in South Africa",
+        paragraphs: [
+          "A monthly programme price and a quote for a complete residential stay are not directly comparable. Ask for a written quote for the same length of treatment, with the accommodation, clinical programme and medical support clearly described. The guide range above is not a quotation or a guarantee of availability.",
+          "Before paying a deposit, establish which costs are additional and what happens if a clinician recommends a different level of care or a longer stay. IRN can help you organise these questions when comparing options.",
+        ],
+        points: [
+          "Confirm whether assessment, detox, medication and psychiatric consultations are included or separately charged.",
+          "Budget for flights, airport transfers and any travel or visa requirements that apply to your circumstances.",
+          "Check the total for the proposed stay, payment currency, cancellation terms and the cost of any extension.",
+          "Ask what aftercare is included, how long it lasts and whether it is accessible from the UK.",
+        ],
+      },
+      {
+        heading: "Rehab for business owners and professionals in South Africa",
+        paragraphs: [
+          "Running a business can make time away feel difficult. The useful question is whether a programme can meet your treatment needs while you make realistic arrangements for responsibilities at home. An executive label or attractive setting does not establish clinical suitability.",
+          "Discuss confidentiality, contact with colleagues or family, device access and any essential work commitments before admission. Each centre sets its own rules. Continuing to work throughout treatment should not be assumed, and any agreed contact needs to fit the clinical plan.",
+        ],
+        points: [
+          "Ask who receives information and what consent is required before anyone is contacted.",
+          "Agree a practical handover of work and financial responsibilities before travelling.",
+          "Clarify whether private accommodation is available and whether it changes the quoted cost.",
+        ],
+      },
+      {
+        heading: "Plan safe travel and your return to the UK",
+        paragraphs: [
+          "If physical dependence or withdrawal may be involved, seek a medical assessment before making travel arrangements. Overseas placement is not a way to manage urgent withdrawal or an emergency.",
+          "Before admission, ask how the centre plans discharge, medication continuity and ongoing support at home. Agree who will coordinate any handover with UK services and what support is available if difficulties arise after returning. IRN can discuss continuing support options within its service scope; availability and suitability should be confirmed in advance.",
+        ],
+      },
+    ],
     faqs: [
       {
         question: "Is South Africa suitable for long-term addiction treatment?",
