@@ -167,7 +167,7 @@ export const destinations: Destination[] = [
     slug: "private-rehab-south-africa",
     country: "South Africa",
     title: "Private Rehab in South Africa",
-    seoTitle: "Rehab in South Africa: Costs & Private Treatment | IRN",
+    seoTitle: "Rehab in South Africa: Costs and Private Treatment | IRN",
     metaDescription:
       "Compare rehab in South Africa: guide costs, longer stays, privacy and returning to the UK. Discuss suitable private treatment options with IRN.",
     heroImage: "/private-rehab-south-africa-hero.png",
