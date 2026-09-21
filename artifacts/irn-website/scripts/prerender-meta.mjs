@@ -3378,8 +3378,22 @@ async function loadTsModule(relPath) {
       const batchThreeTmpPath = resolve(distPublic, ".tmp-article-batch-3-commercial-decisions.mjs");
       writeFileSync(batchThreeTmpPath, batchThreeTransformed.code, "utf8");
       temporaryDependencies.push(batchThreeTmpPath);
+      const familyProgrammePath = resolve(root, "src/data/article-rehab-family-programme.ts");
+      const familyProgrammeSource = readFileSync(familyProgrammePath, "utf8");
+      const familyProgrammeTransformed = await transformWithEsbuild(familyProgrammeSource, familyProgrammePath, {
+        loader: "ts",
+        format: "esm",
+        target: "node20",
+      });
+      const familyProgrammeTmpPath = resolve(distPublic, ".tmp-article-rehab-family-programme.mjs");
+      writeFileSync(familyProgrammeTmpPath, familyProgrammeTransformed.code, "utf8");
+      temporaryDependencies.push(familyProgrammeTmpPath);
       const approvedTmpPath = resolve(distPublic, ".tmp-approved-articles.mjs");
       const approvedCode = approvedTransformed.code
+        .replace(
+          /from\s+["']\.\/article-rehab-family-programme["']/,
+          'from "./.tmp-article-rehab-family-programme.mjs"',
+        )
         .replace(
           /from\s+["']\.\/article-008-mental-health-and-addiction["']/,
           'from "./.tmp-article-008-mental-health-and-addiction.mjs"',
@@ -3893,7 +3907,7 @@ function buildArticleBodyHtml(meta, full) {
             <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.9);margin-bottom:1.25rem;">${escText(full.seriesLabel ?? full.category)}</p>
             <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.9rem,4vw,2.75rem);line-height:1.12;font-weight:500;margin-bottom:1rem;max-width:720px;">${escText(full.title)}</h1>
             <p style="font-family:sans-serif;font-size:0.85rem;color:#4a5568;margin-bottom:2.5rem;">By <a href="/craig-bilton" style="color:#162B3B;">${escText(full.author)}</a>, ${escText(full.authorRole)} · ${updatedDateFormatted ? `Updated ${updatedDateFormatted}` : dateFormatted} · ${full.readingTime} min read</p>
-            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1200px) 720px, calc(100vw - 4rem)" style="display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
+            ${full.image ? `<figure style="margin:0 0 2.5rem;max-width:720px;"><img src="${escText(full.image)}" width="1600" height="900" alt="${esc(full.imageAlt ?? full.title)}" loading="eager" fetchpriority="high" decoding="async" sizes="(min-width: 1200px) 720px, calc(100vw - 4rem)" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:0.75rem;" /></figure>` : ""}
             ${buildArticleNextStep(full.slug)}
             ${markdownToHtml(withoutEmbeddedFaq(full.content), full.supportingImages)}
           </article>

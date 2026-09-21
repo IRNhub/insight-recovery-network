@@ -1,4 +1,5 @@
 import type { Article } from "./articles";
+import { rehabFamilyProgrammeArticle } from "./article-rehab-family-programme";
 
 import { mentalHealthAndAddictionArticle } from "./article-008-mental-health-and-addiction";
 import { benzodiazepineAddictionArticle } from "./article-009-benzodiazepine-addiction";
@@ -10,6 +11,7 @@ import { batchTwoDetoxWithdrawalArticles } from "./article-batch-2-detox-withdra
 import { batchThreeCommercialDecisionArticles } from "./article-batch-3-commercial-decisions";
 
 export const approvedArticles = [
+  rehabFamilyProgrammeArticle,
   {
     "slug": "process-addictions",
     "title": "Understanding Process Addictions: Signs, Examples and Getting Help",
@@ -3512,6 +3514,8 @@ Relatives may help by providing an accurate history, identifying previous withdr
 ### During treatment
 
 With consent, a family member may learn how the programme works, attend selected sessions, support agreed routines, understand medicines at a general safety level, and know who to contact if risk changes. Family or social-network interventions should be delivered by practitioners trained and supervised in the method.
+
+If you are comparing residential providers, use our [seven questions about rehab family programmes](/resources/rehab-family-programme) to clarify appointments, consent, costs and continuing support before admission.
 
 ### At transitions
 
