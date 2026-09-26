@@ -6,14 +6,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground py-12 md:py-20 border-t border-primary/20">
+    <footer className="premium-footer py-12 md:py-16">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-4 flex flex-col gap-6">
             <Link href="/" className="inline-block" data-testid="link-footer-home">
-              <span className="font-serif text-2xl font-medium tracking-tight">
-                Insight Recovery Network
-              </span>
+              <span className="irn-wordmark">Insight<span>Recovery Network</span></span>
             </Link>
             <p className="text-primary-foreground/70 max-w-sm leading-relaxed text-sm">
               Confidential guidance for private rehab, detox, family intervention and structured online addiction recovery support.
@@ -26,6 +24,7 @@ export function Footer() {
                 +44 7415 994475
               </a>
             </div>
+            <a href="https://wa.me/447723486235" target="_blank" rel="noopener noreferrer" className="text-sm underline underline-offset-4">WhatsApp IRN <span className="sr-only">(opens in a new tab)</span></a>
             <div className="flex flex-col gap-3 pt-2">
               <h2 className="font-serif text-lg text-primary-foreground/90">
                 Follow Insight Recovery Network

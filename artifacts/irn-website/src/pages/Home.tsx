@@ -1,88 +1,14 @@
-import { ResponsiveImage } from "@/components/ResponsiveImage";
-import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import type { MouseEvent } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/SEO";
-import { Button } from "@/components/ui/button";
-import { CTASection } from "@/components/ui/cta-section";
 import { RouteSchemas } from "@/components/RouteSchemas";
+import { useEnquiryJourney } from "@/components/forms/EnquiryJourney";
 import { getRouteParity } from "@/data/route-parity";
-import craigImage from "@/assets/craig-bilton.jpg";
-import familyImage from "@/assets/hero-family-guidance.webp";
-import onlineImage from "@/assets/hero-online-programme.webp";
-import treatmentImage from "@/assets/hero-treatment-placement.webp";
-import digitalToolsImage from "@/assets/hero-digital-tools.webp";
+import "@/styles/premium-pages.css";
 
-const SITE_URL = "https://www.insightrecoverynetwork.com";
 const parity = getRouteParity("/");
-
-const pathways = [
-  {
-    title: "I need help for myself",
-    description:
-      "Understand whether online support, detox or residential treatment is the safest next step.",
-    href: "/treatment-placement",
-    linkLabel: "Explore my options",
-  },
-  {
-    title: "I am worried about someone",
-    description:
-      "Get a family plan even if your loved one denies the problem or is refusing treatment.",
-    href: "/family-addiction-intervention-uk",
-    linkLabel: "Get family guidance",
-  },
-  {
-    title: "I need discreet professional help",
-    description:
-      "Compare private treatment and online support around work, family and confidentiality.",
-    href: "/confidential-addiction-help-professionals",
-    linkLabel: "View confidential support",
-  },
-  {
-    title: "I am comparing rehab costs",
-    description:
-      "See realistic UK and international cost ranges and what should be included.",
-    href: "/how-much-does-rehab-cost-uk",
-    linkLabel: "Compare rehab costs",
-  },
-];
-
-const services = [
-  {
-    image: treatmentImage,
-    imageAlt:
-      "Private residential treatment setting used to illustrate treatment placement",
-    title: "Private treatment placement",
-    body: "Clarify detox needs, compare suitable private rehab options and coordinate the move into treatment in the UK or selected international destinations.",
-    href: "/treatment-placement",
-    cta: "Compare treatment options",
-  },
-  {
-    image: familyImage,
-    imageAlt: "Private family consultation for addiction support",
-    title: "Family consultation and intervention",
-    body: "Create a calm, practical plan for risk, communication, boundaries and treatment, even before your loved one agrees to help.",
-    href: "/family-addiction-intervention-uk",
-    cta: "Get family guidance",
-  },
-  {
-    image: onlineImage,
-    imageAlt: "Person accessing structured online addiction recovery support",
-    title: "Structured online recovery support",
-    body: "A private, structured route for medically stable people who need recovery support around work, family or aftercare responsibilities.",
-    href: "/online-programme",
-    cta: "Check online suitability",
-  },
-  {
-    image: digitalToolsImage,
-    imageAlt: "Insight OS digital recovery planning and check-in tools",
-    title: "Insight OS recovery tools",
-    body: "Daily check-ins, journalling, recovery planning and pattern tracking that help turn a treatment plan into repeatable everyday actions.",
-    href: "/insight-os",
-    cta: "Explore Insight OS",
-  },
-];
-
 const destinations = [
   ["United Kingdom", "/private-rehab-uk"],
   ["South Africa", "/private-rehab-south-africa"],
@@ -90,10 +16,63 @@ const destinations = [
   ["Spain", "/private-rehab-spain"],
   ["Sri Lanka", "/private-rehab-sri-lanka"],
 ] as const;
+const services = [
+  {
+    title: "Private treatment placement",
+    body: "Clarify detox needs, compare suitable private rehab options and coordinate the move into treatment in the UK or selected international destinations.",
+    href: "/treatment-placement",
+    cta: "Compare treatment options",
+  },
+  {
+    title: "Family consultation and intervention",
+    body: "Create a calm, practical plan for risk, communication, boundaries and treatment, even before your loved one agrees to help.",
+    href: "/family-addiction-intervention-uk",
+    cta: "Get family guidance",
+  },
+  {
+    title: "Structured online recovery support",
+    body: "A private, structured route for medically stable people who need recovery support around work, family or aftercare responsibilities.",
+    href: "/online-programme",
+    cta: "Check online suitability",
+  },
+  {
+    title: "Insight OS recovery tools",
+    body: "Daily check-ins, journalling, recovery planning and pattern tracking that help turn a treatment plan into repeatable everyday actions.",
+    href: "/insight-os",
+    cta: "Explore Insight OS",
+  },
+];
+const Arrow = () => (
+  <ArrowUpRight size={21} strokeWidth={1} aria-hidden="true" />
+);
 
-import { PlacementJourney } from "@/components/PlacementJourney";
-import { placementChecks } from "@/data/placement-journey.js";
+function PremiumHeadline({ children }: { children: string }) {
+  const parts = children.split(" to ");
+  if (parts.length !== 2) return <h1>{children}</h1>;
+  return (
+    <h1>
+      {parts[0]}
+      <br />
+      {" to "}
+      <em>{parts[1]}</em>
+    </h1>
+  );
+}
+
 export default function Home() {
+  const { open } = useEnquiryJourney();
+  function directEnquiry(event: MouseEvent<HTMLAnchorElement>) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    event.preventDefault();
+    open({ direct: true });
+  }
   return (
     <Layout>
       <SEO
@@ -102,251 +81,366 @@ export default function Home() {
         description={parity.description}
         canonical={parity.canonical}
         noIndex={!parity.indexable}
-        ogImage={`${SITE_URL}/og-home-v2.png`}
+        ogImage="https://www.insightrecoverynetwork.com/og-home-v2.png"
       />
       <RouteSchemas route="/" />
-      <section className="home-hero border-b border-border/70">
-        <div className="container mx-auto grid items-center gap-9 px-6 py-10 md:px-12 md:py-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-          <div>
-            <p className="eyebrow mb-5">
-              Private rehab placement · UK & international
+      <div className="premium-page premium-home">
+        <section className="home-hero wrap">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <span className="line" /> Private treatment. Personal guidance.
             </p>
-            <h1 className="max-w-2xl font-serif text-[2.6rem] font-medium leading-[1.08] tracking-tight text-primary sm:text-5xl lg:text-[3.9rem]">
-              {parity.h1}
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {parity.heroIntro}
+            <PremiumHeadline>{parity.h1}</PremiumHeadline>
+            <p className="intro">{parity.heroIntro}</p>
+            <p className="hero-detail">
+              Speak directly with Craig Bilton about treatment for yourself or
+              someone you care about, in the UK or internationally.
             </p>
-            <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Button
-                asChild
-                className="h-auto min-h-12 w-full whitespace-normal rounded-md px-6 py-3 sm:w-auto"
+            <div className="hero-actions">
+              <Link
+                href={parity.primaryCta.href}
+                onClick={directEnquiry}
+                className="button"
+                data-primary-commercial-cta="true"
+                data-analytics-event={parity.primaryCta.analyticsEvent}
+                data-source-page={parity.primaryCta.sourcePage}
+                data-service-interest={parity.primaryCta.serviceInterest}
+                data-cta-location={parity.primaryCta.location}
               >
-                <Link
-                  href={parity.primaryCta.href}
-                  data-primary-commercial-cta="true"
-                  data-analytics-event={parity.primaryCta.analyticsEvent}
-                  data-source-page={parity.primaryCta.sourcePage}
-                  data-service-interest={parity.primaryCta.serviceInterest}
-                  data-cta-location={parity.primaryCta.location}
-                >
-                  {parity.primaryCta.label}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-              <a
-                href="tel:+447415994475"
-                className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                +44 7415 994475
+                {parity.primaryCta.label}
+                <Arrow />
+              </Link>
+              <a className="text-link" href="#start-here">
+                Not sure where to start? <span aria-hidden="true">↓</span>
               </a>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <p className="micro reassurance">
+              <span className="small-lock" aria-hidden="true">
+                ◇
+              </span>{" "}
               A private conversation. No obligation to proceed.
             </p>
-            <div className="mt-8 flex items-start gap-3 border-t border-primary/15 pt-6">
-              <ShieldCheck
-                className="mt-1 h-5 w-5 shrink-0 text-primary"
-                aria-hidden="true"
-              />
-              <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
-                <strong className="font-semibold text-primary">
-                  Speak directly with Craig Bilton.
-                </strong>{" "}
-                More than 20 years’ international experience in addiction
-                treatment, family support and recovery programme management.
-              </p>
-            </div>
           </div>
-          <figure className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <ResponsiveImage
-              src={craigImage}
+          <figure className="hero-portrait">
+            <img
+              src="/images/premium/craig-portrait.webp"
               alt="Craig Bilton, Founder and Clinical Director of Insight Recovery Network"
-              width={1227}
-              height={1536}
-              sizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, calc(100vw - 48px)"
+              width={1000}
+              height={750}
               fetchPriority="high"
               loading="eager"
-              className="hero-portrait w-full rounded-2xl object-cover object-top"
+              sizes="(min-width: 1280px) 530px, (min-width: 621px) 45vw, calc(100vw - 40px)"
             />
-            <figcaption className="absolute bottom-4 left-4 right-4 rounded-xl bg-primary/95 p-5 text-white">
-              <p className="font-serif text-xl">Craig Bilton</p>
-              <p className="mt-1 text-sm text-white/85">
-                Founder & Clinical Director
-              </p>
+            <figcaption>
+              <span className="portrait-rule" />
+              <span>
+                <strong>Craig Bilton</strong>
+                <small>Founder &amp; Clinical Director</small>
+              </span>
+              <span className="portrait-monogram" aria-hidden="true">
+                IRN
+              </span>
             </figcaption>
           </figure>
-        </div>
-      </section>
-      <section className="border-b border-border bg-white py-5">
-        <div className="container mx-auto px-6 md:px-12">
-          <p className="max-w-4xl text-sm leading-relaxed text-muted-foreground">
-            <strong className="text-primary">Need urgent medical help?</strong>{" "}
-            IRN is not an emergency service. In immediate danger, call{" "}
-            <a className="font-semibold underline" href="tel:999">
-              999
-            </a>{" "}
-            or attend A&amp;E. For urgent non-emergency advice, use{" "}
-            <a
-              href="https://111.nhs.uk"
-              className="font-semibold underline"
-              target="_blank"
-              rel="noopener noreferrer"
+        </section>
+        <section className="credibility wrap" aria-label="Our experience">
+          <div>
+            <strong>20+ years</strong>
+            <span>International addiction treatment experience</span>
+          </div>
+          <div>
+            <strong>UK &amp; international</strong>
+            <span>Treatment options considered around your needs</span>
+          </div>
+          <div>
+            <strong>Personal guidance</strong>
+            <span>A direct conversation with Craig Bilton</span>
+          </div>
+        </section>
+        <section className="routes-section section wrap" id="start-here">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Start with what matters to you</p>
+              <h2>
+                You do not need <br />
+                all the answers yet.
+              </h2>
+            </div>
+            <p>
+              A few simple questions can help you tell us what you need. Or you
+              can request a conversation straight away.
+            </p>
+          </div>
+          <div className="route-list">
+            <button
+              type="button"
+              className="route-row"
+              onClick={() => open({ who: "myself", service: "placement" })}
             >
-              NHS 111
-            </a>
-            .
-          </p>
-        </div>
-      </section>
-      <section className="py-14 md:py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <p className="eyebrow mb-3">Start where you are</p>
-          <h2 className="section-title max-w-2xl">
-            You do not need to have the answers yet.
-          </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {pathways.map((p) => (
-              <Link
-                key={p.href}
-                href={p.href}
-                className="pathway-link group rounded-xl border border-border bg-white p-6 md:p-7"
-              >
-                <h3 className="font-serif text-2xl text-primary">{p.title}</h3>
-                <p className="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-                  {p.description}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                  {p.linkLabel}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              <span className="route-num">01</span>
+              <span className="route-title">
+                I’m considering treatment
+                <span>Understand your options and the next step.</span>
+              </span>
+              <span className="circle-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </button>
+            <button
+              type="button"
+              className="route-row"
+              onClick={() => open({ who: "someone", service: "family" })}
+            >
+              <span className="route-num">02</span>
+              <span className="route-title">
+                I’m worried about someone
+                <span>
+                  Talk through the situation, even if they are not ready.
                 </span>
+              </span>
+              <span className="circle-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </button>
+            <button
+              type="button"
+              className="route-row"
+              onClick={() => open({ service: "placement" })}
+            >
+              <span className="route-num">03</span>
+              <span className="route-title">
+                I’m comparing options and costs
+                <span>Make sense of what is included before committing.</span>
+              </span>
+              <span className="circle-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </button>
+          </div>
+          <p className="quiet-note">
+            Need discretion around work or public responsibilities?{" "}
+            <Link href="/confidential-addiction-help-professionals">
+              Explore confidential support for professionals.
+            </Link>
+          </p>
+        </section>
+        <section className="dark-section" id="how-we-help">
+          <div className="wrap section">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">A person beside you. A plan ahead.</p>
+                <h2>
+                  From uncertainty <br />
+                  to a <em>clearer next step.</em>
+                </h2>
+              </div>
+              <p>
+                Choosing treatment involves more than finding a place. We help
+                you consider the person, the care and the practical details
+                together.
+              </p>
+            </div>
+            <div className="service-steps">
+              <article>
+                <span className="step-number">01 / Understand</span>
+                <h3>
+                  Make room for <br />
+                  your situation.
+                </h3>
+                <p>
+                  Talk through your concerns, medical and mental-health needs,
+                  what has already been tried, and the support available at
+                  home.
+                </p>
+              </article>
+              <article>
+                <span className="step-number">02 / Compare</span>
+                <h3>
+                  See the options <br />
+                  more clearly.
+                </h3>
+                <p>
+                  Consider treatment needs, provider capabilities, location,
+                  complete costs and family involvement. We explain relevant
+                  provider relationships and fees.
+                </p>
+              </article>
+              <article>
+                <span className="step-number">03 / Coordinate</span>
+                <h3>
+                  Know what <br />
+                  happens next.
+                </h3>
+                <p>
+                  Get help with provider conversations, admission planning and
+                  the questions to ask about aftercare. The provider retains
+                  responsibility for its clinical assessment and care.
+                </p>
+              </article>
+            </div>
+            <div className="dark-bottom">
+              <Link
+                className="text-link light-link"
+                href="/treatment-placement"
+              >
+                Explore treatment placement <Arrow />
               </Link>
+              <div className="inline-destinations">
+                {destinations.map(([name, href]) => (
+                  <Link key={href} href={href}>
+                    {name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="founder-section section wrap" id="about-craig">
+          <figure className="founder-photo">
+            <img
+              src="/images/premium/craig-at-work.webp"
+              width={1000}
+              height={1250}
+              loading="lazy"
+              alt="Craig Bilton seated during an interview"
+              sizes="(min-width: 1280px) 570px, (min-width: 621px) 45vw, calc(100vw - 40px)"
+            />
+            <figcaption>
+              Craig Bilton · Founder &amp; Clinical Director
+            </figcaption>
+          </figure>
+          <div className="founder-copy">
+            <p className="eyebrow">Meet the person you will speak to</p>
+            <h2>
+              Experienced guidance. <br />
+              <em>A personal approach.</em>
+            </h2>
+            <p className="lead">
+              I’m Craig Bilton, founder of Insight Recovery Network.
+            </p>
+            <p>
+              My work over more than 20 years has included addiction treatment,
+              recovery programme management, family support and treatment
+              placement, with international experience in South Africa, Thailand
+              and Sri Lanka.
+            </p>
+            <p>
+              IRN brings that experience to the decisions you are facing now,
+              with space to ask questions and understand your options.
+            </p>
+            <button
+              type="button"
+              className="text-link"
+              onClick={() => open({ direct: true })}
+            >
+              Request a conversation with Craig <Arrow />
+            </button>
+            <p className="quiet-note">
+              For adults seeking private support, and families concerned about
+              an adult. <Link href="/about">More about Craig and IRN.</Link>
+            </p>
+          </div>
+        </section>
+        <section
+          className="premium-support section wrap"
+          aria-labelledby="support-options-heading"
+        >
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Support that fits the situation</p>
+              <h2 id="support-options-heading">
+                Different needs. <br />
+                <em>Practical routes forward.</em>
+              </h2>
+            </div>
+            <p>
+              Residential treatment is one route. The right support depends on
+              safety, the person’s needs and their circumstances.
+            </p>
+          </div>
+          <div className="support-grid">
+            {services.map((service, index) => (
+              <article key={service.href}>
+                <span className="step-number">0{index + 1}</span>
+                <h3>{service.title}</h3>
+                <p>{service.body}</p>
+                <Link className="text-link" href={service.href}>
+                  {service.cta}
+                  <Arrow />
+                </Link>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
-      <section className="bg-primary py-14 text-white md:py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#dccaa3]">
-            A considered treatment decision
-          </p>
-          <h2 className="max-w-2xl font-serif text-3xl leading-tight md:text-4xl">
-            Understand the options before you commit.
-          </h2>
-          <p className="mt-5 max-w-2xl leading-relaxed text-white/85">
-            A suitable placement depends on the person, their needs and what is
-            realistically possible. These are the questions we help you work
-            through.
-          </p>
-          <div className="mt-9 grid gap-7 md:grid-cols-3">
-            {placementChecks.map((p, i) => (
-              <div key={p.title} className="border-t border-white/25 pt-5">
-                <span className="text-sm text-[#dccaa3]">0{i + 1}</span>
-                <h3 className="mt-3 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/85">
-                  {p.body}
+          <div className="support-links">
+            <Link href="/how-much-does-rehab-cost-uk">Compare rehab costs</Link>
+            <Link href="/services-pricing-guide">IRN services and fees</Link>
+          </div>
+        </section>
+        <section className="guide-section">
+          <div className="wrap guide-layout">
+            <div>
+              <p className="eyebrow">Your next step</p>
+              <h2>
+                Start wherever <br />
+                <em>you are.</em>
+              </h2>
+              <p>
+                You do not need a diagnosis, a chosen provider or a complete
+                history before asking for guidance.
+              </p>
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => open({ direct: true })}
+              >
+                Go straight to contact <Arrow />
+              </button>
+            </div>
+            <div className="card-stack">
+              <div className="start-card">
+                <div className="card-top">
+                  <span>LET’S FIND A STARTING POINT</span>
+                  <span>01 / 04</span>
+                </div>
+                <h3>
+                  Who are you looking <br />
+                  for help for?
+                </h3>
+                <div className="starter-options">
+                  <button type="button" onClick={() => open({ who: "myself" })}>
+                    Myself <Arrow />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => open({ who: "someone" })}
+                  >
+                    Someone I care about <Arrow />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => open({ who: "professional" })}
+                  >
+                    A client <Arrow />
+                  </button>
+                </div>
+                <p className="micro">
+                  A few optional questions. You stay in control.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
-          <div className="mt-9 flex flex-wrap gap-x-7 gap-y-4 text-sm font-semibold">
-            <Link
-              href="/treatment-placement"
-              className="underline underline-offset-4"
-            >
-              How treatment placement works
-            </Link>
-            <Link
-              href="/services-pricing-guide"
-              className="underline underline-offset-4"
-            >
-              IRN services and fees
-            </Link>
-          </div>
-        </div>
-      </section>
-      <PlacementJourney />
-      <section className="border-y border-border bg-white py-14 md:py-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <p className="eyebrow mb-3">Support that fits the situation</p>
-          <h2 className="section-title">
-            Different needs. Practical routes forward.
-          </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((s) => (
-              <Link
-                href={s.href}
-                key={s.href}
-                className="group overflow-hidden rounded-xl border border-border"
-              >
-                <ResponsiveImage
-                  src={s.image}
-                  alt={s.imageAlt}
-                  loading="lazy"
-                  width={640}
-                  height={400}
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, calc(100vw - 48px)"
-                  className="aspect-[8/5] w-full object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="font-serif text-xl text-primary">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {s.body}
-                  </p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    {s.cta}
-                    <ArrowRight
-                      className="h-4 w-4 shrink-0"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="py-14 md:py-20">
-        <div className="container mx-auto grid gap-10 px-6 md:px-12 lg:grid-cols-2">
-          <div>
-            <p className="eyebrow mb-3">UK and international options</p>
-            <h2 className="section-title">Compare the whole treatment plan.</h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">
-              Location is one part of the decision. Consider clinical
-              suitability, total cost, travel, family involvement and support
-              after treatment.
-            </p>
-            <Link
-              href="/how-much-does-rehab-cost-uk"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary underline underline-offset-4"
-            >
-              Compare rehab costs
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
-          </div>
-          <div className="divide-y divide-border rounded-xl border border-border bg-white px-6">
-            {destinations.map(([name, href]) => (
-              <Link
-                key={href}
-                href={href}
-                className="flex min-h-16 items-center justify-between gap-4 py-4 text-primary hover:underline underline-offset-4"
-              >
-                Private rehab in {name}
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-      <CTASection
-        heading="A clearer next step starts with a conversation."
-        description="Tell us what you need help with, in your own time and your own words. We will help you understand the options."
-        primaryLabel="Talk through your options"
-        primaryHref="/get-help"
-        secondaryLabel="About Craig and IRN"
-        secondaryHref="/about"
-      />
+        </section>
+        <section className="other-support wrap">
+          <p>Looking for support outside residential treatment?</p>
+          <button
+            type="button"
+            className="text-link"
+            onClick={() => open({ service: "online", direct: true })}
+          >
+            Ask about online recovery support <Arrow />
+          </button>
+        </section>
+      </div>
     </Layout>
   );
 }

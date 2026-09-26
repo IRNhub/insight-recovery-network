@@ -48,12 +48,11 @@ for (const file of (await walk(dist)).filter((file) =>
     );
   });
   if (file === path.join(dist, "index.html")) {
-    const portrait = manifest["@/assets/craig-bilton.jpg"];
-    if (!portrait)
-      throw new Error("Homepage portrait missing from responsive manifest");
+    const portrait = "/images/premium/craig-portrait.webp";
+    await fs.access(path.join(dist, portrait));
     html = html.replace(
       "</head>",
-      `<link rel="preload" as="image" href="${portrait.src}" imagesrcset="${portrait.srcSet}" imagesizes="(min-width: 1024px) 440px, (min-width: 640px) 448px, calc(100vw - 48px)" fetchpriority="high"></head>`,
+      `<link rel="preload" as="image" href="${portrait}" fetchpriority="high"></head>`,
     );
   }
   await fs.writeFile(file, html);

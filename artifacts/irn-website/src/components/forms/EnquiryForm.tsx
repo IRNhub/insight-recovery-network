@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useEffect, useId, useRef, useState } from "react";
+import { useLocation } from "wouter";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
 import { hasConsent } from "@/lib/consent";
 import { readEnquiryAttribution } from "@/lib/enquiry-attribution";
+import { buildEnquiryMessage, ENQUIRY_MESSAGE_MAX, SAFE_CONTACT_MAX, type JourneyAnswers } from "./enquiry-journey-data";
 
 type Method = "phone" | "email" | "whatsapp";
 type FieldErrors = Record<string, string>;
@@ -13,13 +14,25 @@ const inputClass =
 
 export function EnquiryForm({
   variant = "contact",
+  answers,
+  embedded = false,
+  onAccepted,
+  onPendingChange,
 }: {
   variant?: "get-help" | "contact";
+  answers?: JourneyAnswers;
+  embedded?: boolean;
+  onAccepted?: () => void;
+  onPendingChange?: (pending: boolean) => void;
 }) {
+  const uniqueId = useId();
+  const fieldId = (field: string) => `enquiry-${uniqueId}-${field}`;
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
   const [location, navigate] = useLocation();
-  const [method, setMethod] = useState<Method>("phone");
+  const [method, setMethod] = useState<Method>("email");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
@@ -37,24 +50,14 @@ export function EnquiryForm({
     const form = event.currentTarget;
     const values = new FormData(form);
     const get = (name: string) => String(values.get(name) ?? "").trim();
-    const contactNotes = [
-      get("safeContact")
-        ? `Safe contact / preferred time: ${get("safeContact")}`
-        : "",
-      method === "phone"
-        ? `Voicemail: ${values.get("voicemail") ? "permission to leave a message" : "do not leave a message"}`
-        : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
     const payload = {
       name: get("name"),
       email: method === "email" ? get("email") : "",
       phone: method === "email" ? "" : get("phone"),
       preferredContact: method,
-      supportType: get("supportType") || "general",
-      serviceInterest: get("serviceInterest") || "not-sure",
-      message: [contactNotes, get("message")].filter(Boolean).join("\n\n"),
+      supportType: answers?.who || get("supportType") || "general",
+      serviceInterest: answers?.service || get("serviceInterest") || "not-sure",
+      message: buildEnquiryMessage({ message: get("message"), safeContact: get("safeContact"), method, voicemail: values.get("voicemail") === "on", discussion: answers?.discussion }),
       consent: values.get("consent") === "on",
       website: get("website"),
       pageSource: location,
@@ -67,6 +70,7 @@ export function EnquiryForm({
     lastPayload.current = serialised;
     submitting.current = true;
     setPending(true);
+    onPendingChange?.(true);
     setError("");
     setFieldErrors({});
     try {
@@ -110,6 +114,7 @@ export function EnquiryForm({
           : "contact_form_submit",
         { form_name: formName },
       );
+      onAccepted?.();
       navigate("/thank-you");
     } catch (cause) {
       setError(
@@ -122,26 +127,24 @@ export function EnquiryForm({
       requestAnimationFrame(() => errorRef.current?.focus());
     } finally {
       setPending(false);
+      onPendingChange?.(false);
     }
   }
 
   const message = (field: string) =>
     fieldErrors[field] ? (
-      <p id={`enquiry-${field}-error`} className="mt-2 text-sm text-red-800">
+      <p id={fieldId(`${field}-error`)} className="mt-2 text-sm text-red-800">
         {fieldErrors[field]}
       </p>
     ) : null;
   return (
     <div
-      id="book"
-      className="scroll-mt-28 rounded-2xl border border-border bg-white p-5 shadow-sm sm:p-8"
+      id={embedded ? undefined : "book"}
+      className={embedded ? "irn-enquiry-form" : "scroll-mt-28 rounded-2xl border border-border bg-white p-5 shadow-sm sm:p-8"}
     >
-      <h2 className="font-serif text-2xl text-primary">
-        Request a private conversation
-      </h2>
+      {!embedded && <h2 className="font-serif text-2xl text-primary">Request a private conversation</h2>}
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        Share as much or as little as you feel comfortable with. Fields marked *
-        are required.
+        Share as much or as little as you feel comfortable with. Fields marked * are required.
       </p>
       <noscript>
         <p className="mt-4 text-sm text-primary">
@@ -197,13 +200,15 @@ export function EnquiryForm({
             </p>
           </div>
         )}
+        <fieldset disabled={pending} className="min-w-0 space-y-5 border-0 p-0">
+        <legend className="sr-only">Your contact details and consent</legend>
         <label
           className="block text-sm font-semibold text-primary"
-          htmlFor="enquiry-name"
+          htmlFor={fieldId("name")}
         >
           Your name *
           <input
-            id="enquiry-name"
+            id={fieldId("name")}
             name="name"
             autoComplete="name"
             required
@@ -212,7 +217,7 @@ export function EnquiryForm({
             className={inputClass}
             aria-invalid={!!fieldErrors.name}
             aria-describedby={
-              fieldErrors.name ? "enquiry-name-error" : undefined
+              fieldErrors.name ? fieldId("name-error") : undefined
             }
           />
           {message("name")}
@@ -247,13 +252,15 @@ export function EnquiryForm({
         {method === "email" ? (
           <label
             className="block text-sm font-semibold text-primary"
-            htmlFor="enquiry-email"
+            htmlFor={fieldId("email")}
           >
             Email address *
             <input
               key="email"
-              id="enquiry-email"
+              id={fieldId("email")}
               name="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               type="email"
               autoComplete="email"
               required
@@ -261,7 +268,7 @@ export function EnquiryForm({
               className={inputClass}
               aria-invalid={!!fieldErrors.email}
               aria-describedby={
-                fieldErrors.email ? "enquiry-email-error" : undefined
+                fieldErrors.email ? fieldId("email-error") : undefined
               }
             />
             {message("email")}
@@ -269,13 +276,15 @@ export function EnquiryForm({
         ) : (
           <label
             className="block text-sm font-semibold text-primary"
-            htmlFor="enquiry-phone"
+            htmlFor={fieldId("phone")}
           >
             {method === "whatsapp" ? "WhatsApp number" : "Telephone number"} *
             <input
               key="phone"
-              id="enquiry-phone"
+              id={fieldId("phone")}
               name="phone"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
               type="tel"
               autoComplete="tel"
               inputMode="tel"
@@ -285,10 +294,10 @@ export function EnquiryForm({
               title="Use your telephone number including the country code if outside the UK."
               className={inputClass}
               aria-invalid={!!fieldErrors.phone}
-              aria-describedby={`enquiry-phone-hint${fieldErrors.phone ? " enquiry-phone-error" : ""}`}
+              aria-describedby={[fieldId("phone-hint"), fieldErrors.phone ? fieldId("phone-error") : ""].filter(Boolean).join(" ")}
             />
             <span
-              id="enquiry-phone-hint"
+              id={fieldId("phone-hint")}
               className="mt-2 block text-xs font-normal text-muted-foreground"
             >
               Include the country code if you are outside the UK.
@@ -296,14 +305,14 @@ export function EnquiryForm({
             {message("phone")}
           </label>
         )}
-        <div className="grid gap-5 sm:grid-cols-2">
+        {!answers && <div className="grid gap-5 sm:grid-cols-2">
           <label
             className="block text-sm font-semibold text-primary"
-            htmlFor="enquiry-support"
+            htmlFor={fieldId("support")}
           >
             Who is the help for?
             <select
-              id="enquiry-support"
+              id={fieldId("support")}
               name="supportType"
               defaultValue="general"
               className={inputClass}
@@ -316,11 +325,11 @@ export function EnquiryForm({
           </label>
           <label
             className="block text-sm font-semibold text-primary"
-            htmlFor="enquiry-service"
+            htmlFor={fieldId("service")}
           >
             What would you like help with?
             <select
-              id="enquiry-service"
+              id={fieldId("service")}
               name="serviceInterest"
               defaultValue="not-sure"
               className={inputClass}
@@ -337,23 +346,23 @@ export function EnquiryForm({
               <option value="professional">Professional partnership</option>
             </select>
           </label>
-        </div>
+        </div>}
         <label
           className="block text-sm font-semibold text-primary"
-          htmlFor="enquiry-message"
+          htmlFor={fieldId("message")}
         >
           Anything you would like us to know?{" "}
           <span className="font-normal">(optional)</span>
           <textarea
-            id="enquiry-message"
+            id={fieldId("message")}
             name="message"
             rows={3}
-            maxLength={2000}
+            maxLength={ENQUIRY_MESSAGE_MAX}
             className={inputClass}
-            aria-describedby="enquiry-message-hint"
+            aria-describedby={fieldId("message-hint")}
           />
           <span
-            id="enquiry-message-hint"
+            id={fieldId("message-hint")}
             className="mt-2 block text-xs font-normal text-muted-foreground"
           >
             Please avoid sending medical records or detailed information about
@@ -366,14 +375,14 @@ export function EnquiryForm({
             A suitable time or a safer way to contact you
           </summary>
           <label
-            htmlFor="enquiry-safe-contact"
+            htmlFor={fieldId("safe-contact")}
             className="mt-4 block text-sm text-primary"
           >
             Contact preferences (optional)
             <input
-              id="enquiry-safe-contact"
+              id={fieldId("safe-contact")}
               name="safeContact"
-              maxLength={300}
+              maxLength={SAFE_CONTACT_MAX}
               className={inputClass}
               placeholder="For example, weekdays after 3pm"
             />
@@ -404,15 +413,13 @@ export function EnquiryForm({
           <span>
             I agree that IRN can use my details to respond to this enquiry, as
             explained in the{" "}
-            <Link
-              href="/privacy-policy"
-              className="underline underline-offset-2"
-            >
-              privacy policy
-            </Link>
+            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+              privacy policy<span className="sr-only"> (opens in a new tab)</span>
+            </a>
             . *
           </span>
         </label>
+        </fieldset>
         <Button
           type="submit"
           disabled={pending || !ready}
@@ -438,6 +445,9 @@ export function EnquiryForm({
           emergency service.
         </p>
       </form>
+      <p role="status" aria-live="polite" className="sr-only">
+        {pending ? "Sending your request. Your contact details are temporarily locked while we confirm receipt." : ""}
+      </p>
     </div>
   );
 }

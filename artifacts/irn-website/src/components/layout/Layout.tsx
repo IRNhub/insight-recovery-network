@@ -1,3 +1,4 @@
+import "@/styles/premium-shell.css";
 import { ReactNode, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "wouter";
@@ -82,7 +83,7 @@ export function Layout({ children }: LayoutProps) {
   }, [location]);
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
+    <div className="irn-site min-h-[100dvh] flex flex-col bg-background text-foreground font-sans">
       <Helmet>
         <script type="application/ld+json">
           {JSON.stringify(ORGANIZATION_SCHEMA)}
@@ -96,7 +97,7 @@ export function Layout({ children }: LayoutProps) {
       </Helmet>
       <a href="#main-content" className="skip-link">Skip to content</a>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="flex-1 flex flex-col pt-[88px]">
+      <main id="main-content" tabIndex={-1} className="irn-main flex-1 flex flex-col">
         {children}
         {shouldShowPreferredSources(location) && <PreferredSources />}
       </main>

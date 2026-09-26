@@ -1,3 +1,4 @@
+import { EnquiryJourneyProvider } from "@/components/forms/EnquiryJourney";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { useBrowserLocation } from "wouter/use-browser-location";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -6,7 +7,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { installLeadClickTracking, trackPageView } from "@/lib/analytics";
 import { captureEnquiryAttribution } from "@/lib/enquiry-attribution";
 import { RouteLoading } from "@/components/RouteLoading";
@@ -292,7 +292,6 @@ function Router() {
         <Route component={NotFound} />
         </Switch>
       </Suspense>
-      {!currentPathIsAssessmentSensitive() && <WhatsAppFloat />}
     </>
   );
 }
@@ -302,8 +301,10 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter hook={useNormalisedLocation}>
-          <Router />
-          <CookieConsent />
+          <EnquiryJourneyProvider>
+            <Router />
+            <CookieConsent />
+          </EnquiryJourneyProvider>
         </WouterRouter>
         <Toaster />
       </TooltipProvider>

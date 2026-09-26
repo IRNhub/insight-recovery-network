@@ -14,8 +14,8 @@ export const routeParity = {
     description: "Confidential help comparing private rehab, detox, family intervention and structured online addiction support in the UK and selected destinations.",
     canonical: "/",
     indexable: true,
-    h1: "Clear guidance on rehab and recovery.",
-    heroIntro: "Private treatment placement and addiction support for individuals and families, in the UK and abroad.",
+    h1: "A considered path to private treatment.",
+    heroIntro: "When you need help choosing rehab, you deserve someone experienced beside you.",
     primaryCta: {
       href: "/get-help",
       label: "Talk through your options",
@@ -86,11 +86,11 @@ export const routeParity = {
     description: "Assessment-led help choosing a private rehab or detox provider. Compare suitable UK and international options, provider relationships and admission planning.",
     canonical: "/treatment-placement",
     indexable: true,
-    h1: "Find a Suitable Private Rehab or Detox Provider Without a Rushed Decision",
-    heroIntro: "Insight Recovery Network helps individuals and families assess their needs, compare appropriate treatment options and access suitable programmes in the UK and internationally.",
+    h1: "A treatment decision made with greater confidence.",
+    heroIntro: "An experienced guide through the options, from your first questions to planning the next step.",
     primaryCta: {
       href: "/get-help",
-      label: "Request a treatment-options call",
+      label: "Discuss treatment options",
       analyticsEvent: "treatment_placement_enquiry",
       sourcePage: "treatment-placement",
       serviceInterest: "treatment-placement",
@@ -108,7 +108,7 @@ export const routeParity = {
     faqs: getRouteFaqs("/treatment-placement"),
     prerenderSections: [
       {
-        heading: "How placement guidance works.",
+        heading: "A clear process. Room to ask questions.",
         body: "We clarify the situation, compare suitable options, explain relevant provider relationships and support practical admission planning while the selected provider retains responsibility for clinical assessment and care.",
       },
       {

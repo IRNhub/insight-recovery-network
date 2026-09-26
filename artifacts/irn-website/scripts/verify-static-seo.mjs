@@ -304,12 +304,15 @@ const treatmentVisuals = {
     alt: "Adult preparing an unlabelled medicine box and notebook for a medication review at home.",
     og: "/prescription-drug-addiction-treatment-uk-og.webp",
   },
-  "/treatment-placement": {
-    hero: "/treatment-placement-navigation-hero.webp",
-    alt: "Adult standing where two coastal footpaths divide.",
-    og: "/treatment-placement-navigation-og.webp",
-  },
 };
+
+// The approved placement design uses an editorial decision guide, not the previous coastal masthead.
+const placementHtml = htmlByPath.get("/treatment-placement");
+for (const marker of ['class="placement-paper"', 'The care you need', 'The complete cost', 'The way forward']) {
+  if (!placementHtml.includes(marker)) fail(`/treatment-placement is missing its visible decision guide: ${marker}`);
+}
+if (!placementHtml.includes('/images/premium/craig-portrait.webp')) fail('/treatment-placement is missing its founder reassurance image.');
+if (!placementHtml.includes(`${siteUrl}/treatment-placement-navigation-og.webp`)) fail('/treatment-placement lost its existing social image.');
 
 const responsiveManifest = JSON.parse(readFileSync(resolve(dist, 'responsive/manifest.json'), 'utf8'));
 for (const [pathname, visual] of Object.entries(treatmentVisuals)) {
@@ -624,9 +627,9 @@ for (const pathname of conversionPriorityPaths) {
   if (!target) fail(`Priority conversion route is unmapped: ${pathname}`);
   const html = read(resolve(dist, target.replace(/^\//, "")));
   for (const requiredText of [
-    "Who this is for",
-    ...(pathname === "/contact" ? ["Choose how you would like us to contact you", "Request a private conversation"] : ["What it helps solve", "Where it applies"]),
-    pathname === "/contact" ? "Request a private conversation" : "Book a confidential call",
+    ...(pathname === "/treatment-placement"
+      ? ["When treatment placement may be appropriate", "What we help you compare", "UK &amp; international options", "Discuss treatment options"]
+      : ["Who this is for", ...(pathname === "/contact" ? ["Choose how you would like us to contact you", "Request a private conversation"] : ["What it helps solve", "Where it applies", "Book a confidential call"])]),
     "Craig Bilton",
     "not a regulated healthcare provider",
   ]) {
@@ -665,7 +668,7 @@ for (const pathname of [
 ]) {
   const target = targetForPath(pathname);
   const html = read(resolve(dist, target.replace(/^\//, "")));
-  if (!/Frequently asked questions|Before you make contact|Questions about/i.test(html)) {
+  if (!/Frequently asked questions|Before you make contact|Questions about|A few questions/i.test(html)) {
     fail(`${pathname} is missing a visible FAQ section.`);
   }
 }

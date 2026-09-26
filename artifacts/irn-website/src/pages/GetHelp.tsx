@@ -3,7 +3,7 @@ import { Phone, MessageCircle, ShieldCheck, ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { RouteSchemas } from "@/components/RouteSchemas";
-import { EnquiryForm } from "@/components/forms/EnquiryForm";
+import { EnquiryJourney } from "@/components/forms/EnquiryJourney";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { FAQSection } from "@/components/ui/faq-section";
 import { getRouteParity } from "@/data/route-parity";
@@ -37,7 +37,7 @@ export function EnquiryPage({
         ogImage="https://www.insightrecoverynetwork.com/og-home-v2.png"
       />
       {!isContact && <RouteSchemas route="/get-help" />}
-      <section className="home-hero py-9 md:py-14">
+      <section className="irn-get-help py-9 md:py-16">
         <div className="container mx-auto grid items-start gap-8 px-6 md:px-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
           <div>
             <p className="eyebrow mb-4">A confidential first step</p>
@@ -89,7 +89,7 @@ export function EnquiryPage({
               </a>
               .
             </p>
-            <div className="mt-8 hidden rounded-xl border border-border bg-white/70 p-6 lg:block">
+            <div className="mt-8 hidden border-t border-border pt-6 lg:block">
               <div className="flex items-center gap-4">
                 <ResponsiveImage
                   src={craigImage}
@@ -98,7 +98,7 @@ export function EnquiryPage({
                   height={80}
                   sizes="80px"
                   loading="lazy"
-                  className="h-20 w-20 rounded-full object-cover object-top"
+                  className="h-20 w-20 rounded-sm object-cover object-top"
                 />
                 <div>
                   <p className="font-serif text-xl text-primary">
@@ -123,7 +123,7 @@ export function EnquiryPage({
               </Link>
             </div>
           </div>
-          <EnquiryForm variant={variant} />
+          <EnquiryJourney inline variant={variant} options={{ direct: isContact }} />
         </div>
       </section>
       <section className="border-y border-border bg-white py-10">
@@ -137,6 +137,7 @@ export function EnquiryPage({
             options in the UK and abroad.
           </p>
         </div>
+        <ul className="container mx-auto mb-8 flex flex-wrap gap-x-8 gap-y-2 px-6 text-sm text-primary md:px-12" aria-label="Support available"><li>Private rehab / detox options</li><li>Online recovery support</li><li>Family support / intervention</li></ul>
         <div className="container mx-auto grid gap-7 px-6 md:grid-cols-3 md:px-12">
           <div>
             <ShieldCheck

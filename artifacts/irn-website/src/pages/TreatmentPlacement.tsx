@@ -1,22 +1,17 @@
-import { ResponsiveImage } from "@/components/ResponsiveImage";
-import { Helmet } from "react-helmet-async";
+import { ArrowUpRight } from "lucide-react";
+import { useRef, useState, type KeyboardEvent, type MouseEvent } from "react";
+import { Link } from "wouter";
 import { SEO } from "@/components/SEO";
 import { RouteSchemas } from "@/components/RouteSchemas";
 import { Layout } from "@/components/layout/Layout";
-import { getOgConfig } from "@/config/og-pages";
-import { CTASection } from "@/components/ui/cta-section";
-import { ServiceSummary } from "@/components/ui/service-summary";
-import { FAQSection, type FAQItem } from "@/components/ui/faq-section";
-import { RelatedServiceLinks } from "@/components/ui/related-service-links";
-import { RelatedGuideCard } from "@/components/ui/related-guide-card";
-import residentialSetting from "@/assets/wwo-treatment-placement.webp";
-import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Shield, HeartHandshake, MapPin, ArrowRight } from "lucide-react";
+import { useEnquiryJourney } from "@/components/forms/EnquiryJourney";
 import { getRouteParity, guidanceSections } from "@/data/route-parity";
+import "@/styles/premium-pages.css";
 
 const parity = getRouteParity("/treatment-placement");
 const relationshipCopy = guidanceSections["/treatment-placement"];
+const processSection = parity.prerenderSections?.[0];
+const suitabilitySection = parity.prerenderSections?.[1];
 const placementSteps = [
   {
     n: "1",
@@ -55,29 +50,6 @@ const locations: Array<{ label: string; href?: string }> = [
   { label: "Thailand", href: "/private-rehab-thailand" },
   { label: "Spain", href: "/private-rehab-spain" },
   { label: "Sri Lanka", href: "/private-rehab-sri-lanka" },
-];
-
-const placementFaqs: FAQItem[] = [
-  {
-    question: "How does treatment placement work?",
-    answer: "We first clarify the person's needs, risks, preferences, location and budget. We then explain suitable detox or residential options and support the practical steps towards admission; the treatment provider remains responsible for its own clinical assessment and care.",
-  },
-  {
-    question: "Do you only place people in UK rehab facilities?",
-    answer: "No. We provide guidance on options in the UK and selected international destinations including South Africa, Spain, Thailand and Sri Lanka. The right location depends on safety, treatment needs, travel, family involvement and affordability.",
-  },
-  {
-    question: "Can Insight Recovery Network arrange medical detox?",
-    answer: "We do not provide or prescribe detox. Where medically assisted withdrawal may be needed, we help people identify an appropriately regulated provider and encourage assessment by a qualified medical professional.",
-  },
-  {
-    question: "What does treatment placement cost?",
-    answer: "Fees depend on the assessment and level of placement support required. Before you proceed, we explain the scope and cost of IRN's support, the treatment provider's separate charges, and any relevant commercial or referral relationship. Ask whether a provider would pay IRN for your placement, whether this affects the price you pay, how the options were selected and which alternatives may be appropriate. Request a written cost breakdown and read our services and pricing guide; a general guide is not a quotation for your care.",
-  },
-  {
-    question: "Can you help with an urgent placement?",
-    answer: "We can prioritise time-sensitive enquiries and help clarify safe next steps, but IRN is not an emergency or crisis service. If someone is medically unstable, at immediate risk, suicidal, violent or experiencing severe withdrawal, call 999, attend A&E or seek urgent NHS advice before placement planning.",
-  },
 ];
 
 const decisionGuides = [
@@ -123,7 +95,8 @@ const comparison: Array<{
   {
     country: "South Africa",
     href: "/private-rehab-south-africa",
-    bestFor: "Longer treatment, relapse history, extended care, budget-sensitive families",
+    bestFor:
+      "Longer treatment, relapse history, extended care, budget-sensitive families",
     cost: "From around £1,800/month up to around £10,000",
     advantage: "Best value for longer-term treatment and secondary care",
   },
@@ -132,14 +105,17 @@ const comparison: Array<{
     href: "/private-rehab-spain",
     bestFor: "UK proximity, family involvement, treatment close to home",
     cost: "Around £4,000 to £28,000 for 28 days",
-    advantage: "Easy travel from the UK with a wide range of clinical and private options",
+    advantage:
+      "Easy travel from the UK with a wide range of clinical and private options",
   },
   {
     country: "Thailand",
     href: "/private-rehab-thailand",
-    bestFor: "Privacy, distance from triggers, established international centres",
+    bestFor:
+      "Privacy, distance from triggers, established international centres",
     cost: "Around £8,000 to £15,000 for a standard 28-day stay",
-    advantage: "Well-established international rehab market with structured residential care",
+    advantage:
+      "Well-established international rehab market with structured residential care",
   },
   {
     country: "Sri Lanka",
@@ -151,15 +127,226 @@ const comparison: Array<{
   {
     country: "United Kingdom",
     href: "/private-rehab-uk",
-    bestFor: "Proximity, family involvement, ease of travel, NHS/private continuity",
+    bestFor:
+      "Proximity, family involvement, ease of travel, NHS/private continuity",
     cost: "Varies widely by detox needs, length of stay and clinical intensity",
     advantage: "Closest to home, with detox and residential options nationwide",
   },
 ];
 
-const treatmentOg = getOgConfig("/treatment-placement")!;
+const comparisonAreas = [
+  {
+    id: "care",
+    label: "Clinical suitability",
+    eyebrow: "A SUITABLE LEVEL OF CARE",
+    title: "Can this provider meet the person’s needs?",
+    checks: [
+      "Appropriate medical and psychiatric assessment",
+      "Experience with the relevant treatment needs",
+      "Staffing, programme structure and individual support",
+      "Clear admission criteria and care responsibilities",
+    ],
+    note: "The treatment provider makes its own clinical assessment and admission decision. IRN does not diagnose or prescribe.",
+  },
+  {
+    id: "cost",
+    label: "Complete costs",
+    eyebrow: "A CLEAR FINANCIAL PICTURE",
+    title: "What will the whole treatment pathway cost?",
+    checks: [
+      "Treatment fees and the proposed length of stay",
+      "Assessment, medication and other separate charges",
+      "Travel, transfers and practical arrangements",
+      "Aftercare, extensions and IRN’s own support fees",
+    ],
+    note: "Ask for a dated written breakdown. We explain any relevant referral or commercial relationship before you decide.",
+  },
+  {
+    id: "continuity",
+    label: "Life after treatment",
+    eyebrow: "CONTINUITY FROM THE START",
+    title: "What will support look like afterwards?",
+    checks: [
+      "A clear discharge and continuing-care plan",
+      "Family involvement with appropriate consent",
+      "Practical support for returning home",
+      "Connections to relevant local or online support",
+    ],
+    note: "The plan should reflect the person’s needs and the provider’s recommendations. It is worth discussing before admission.",
+  },
+];
+const relatedServices = [
+  {
+    title: "Alcohol Addiction Treatment",
+    description:
+      "Compare withdrawal assessment, community, online and residential alcohol treatment routes.",
+    href: "/alcohol-addiction-treatment",
+  },
+  {
+    title: "Cocaine Addiction Treatment",
+    description:
+      "Compare psychological, community, online and residential cocaine support.",
+    href: "/cocaine-addiction-treatment",
+  },
+  {
+    title: "Cannabis Addiction Treatment",
+    description:
+      "Choose support based on use, mental health, home stability and treatment fit.",
+    href: "/cannabis-addiction-treatment",
+  },
+  {
+    title: "Ketamine Addiction Treatment",
+    description:
+      "Coordinate addiction support with appropriate medical assessment for physical harm.",
+    href: "/ketamine-addiction-treatment",
+  },
+  {
+    title: "Benzodiazepine Treatment",
+    description:
+      "Keep prescriber-led withdrawal planning connected to wider recovery support.",
+    href: "/benzodiazepine-addiction-treatment",
+  },
+  {
+    title: "Prescription Drug Treatment",
+    description:
+      "Separate physical dependence and withdrawal from addiction, with prescribers retaining medication responsibility.",
+    href: "/prescription-drug-addiction-treatment",
+  },
+  {
+    title: "Dual Diagnosis Treatment",
+    description:
+      "Compare integrated mental-health and addiction treatment capability.",
+    href: "/dual-diagnosis-treatment",
+  },
+  {
+    title: "Addiction Detox UK",
+    description:
+      "Understand withdrawal risk, clinical assessment and the differences between community, residential and inpatient settings.",
+    href: "/resources/addiction-detox-uk",
+  },
+  {
+    title: "Detox vs Rehab",
+    description:
+      "Separate withdrawal management from rehabilitation and continuing recovery care.",
+    href: "/resources/detox-vs-rehab",
+  },
+  {
+    title: "Rehab Cost UK Guide",
+    description:
+      "Compare typical UK rehab, detox, overseas treatment and online recovery costs.",
+    href: "/how-much-does-rehab-cost-uk",
+  },
+  {
+    title: "Private Rehab UK",
+    description: "Understand UK detox and residential rehabilitation options.",
+    href: "/private-rehab-uk",
+  },
+  {
+    title: "Private Rehab Alternatives",
+    description:
+      "Compare structured online support and other non-residential routes.",
+    href: "/private-rehab-alternative-uk",
+  },
+  {
+    title: "Online Recovery Programme",
+    description:
+      "Explore structured support for people who are medically stable.",
+    href: "/online-programme",
+  },
+  {
+    title: "Family Guidance",
+    description: "Practical support for families deciding what to do next.",
+    href: "/what-we-offer#family-guidance",
+  },
+  {
+    title: "Detox Suitability Assessment",
+    description:
+      "Reflect on withdrawal risk before making changes to alcohol or drug use.",
+    href: "/assessments/detox",
+  },
+  {
+    title: "Luxury Rehab",
+    description:
+      "Compare premium private treatment without mistaking accommodation for clinical quality.",
+    href: "/luxury-rehab",
+  },
+  {
+    title: "Executive Rehab",
+    description:
+      "Review discreet treatment options for professionals and business leaders.",
+    href: "/executive-rehab",
+  },
+  {
+    title: "Destination Rehab",
+    description:
+      "Compare private treatment abroad, travel safety and return-home planning.",
+    href: "/destination-rehab",
+  },
+];
+const firstQuestions = [
+  {
+    question: "Can I contact you about someone else?",
+    answer:
+      "Yes. Families can ask for guidance about their own concerns before their adult relative agrees to treatment. Please do not send another person’s medical records with an initial enquiry.",
+  },
+  {
+    question: "Do I need to choose a rehab first?",
+    answer:
+      "No. You can begin with the questions you have now. IRN can help you understand what to consider before choosing a provider.",
+  },
+  {
+    question: "Does contacting IRN commit me to treatment?",
+    answer:
+      "No. An enquiry does not book an appointment, reserve a treatment place or commit you to a service. The scope and fees of any proposed support should be agreed before you proceed.",
+  },
+];
+const Arrow = () => (
+  <ArrowUpRight size={21} strokeWidth={1} aria-hidden="true" />
+);
+
+function PremiumHeadline({ children }: { children: string }) {
+  const parts = children.split(" made with ");
+  if (parts.length !== 2) return <h1>{children}</h1>;
+  return (
+    <h1>
+      {parts[0]}
+      <br />
+      {" made with "}
+      <br />
+      <em>{parts[1]}</em>
+    </h1>
+  );
+}
 
 export default function TreatmentPlacement() {
+  const { open } = useEnquiryJourney();
+  const [activeArea, setActiveArea] = useState(0);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  function onTabKey(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next = index;
+    if (event.key === "ArrowDown" || event.key === "ArrowRight")
+      next = (index + 1) % comparisonAreas.length;
+    else if (event.key === "ArrowUp" || event.key === "ArrowLeft")
+      next = (index + comparisonAreas.length - 1) % comparisonAreas.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = comparisonAreas.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveArea(next);
+    tabs.current[next]?.focus();
+  }
+  function directEnquiry(event: MouseEvent<HTMLAnchorElement>) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    event.preventDefault();
+    open({ direct: true, service: "placement" });
+  }
   return (
     <Layout>
       <SEO
@@ -174,494 +361,492 @@ export default function TreatmentPlacement() {
         ogImageAlt="Adult standing where two coastal footpaths divide."
       />
       <RouteSchemas route="/treatment-placement" />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ImageObject",
-            "@id": "https://www.insightrecoverynetwork.com/treatment-placement#primaryimage",
-            "contentUrl": "https://www.insightrecoverynetwork.com/treatment-placement-navigation-hero.webp",
-            "width": 1600,
-            "height": 900,
-            "caption": "Adult standing where two coastal footpaths divide.",
-          })}
-        </script>
-      </Helmet>
-
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-background py-8 md:py-12 lg:py-14">
-        <div
-          className="absolute inset-0 opacity-[0.025] pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg,#162B3B,#162B3B 1px,transparent 1px,transparent 72px),repeating-linear-gradient(90deg,#162B3B,#162B3B 1px,transparent 1px,transparent 72px)",
-          }}
-        />
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-
-            {/* Left: text */}
-            <div className="lg:col-span-6 flex flex-col gap-5 md:gap-6">
-              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80">
-                Treatment Placement
-              </span>
-              <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                {parity.h1}
-              </h1>
-              <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                {parity.heroIntro}
-              </p>
-              <div className="flex flex-col gap-2.5 pt-1">
-                {[
-                  "Recommendations guided by clinical fit and safety",
-                  "Clinically matched to individual need",
-                  "Commercial relationships explained transparently",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
-                    <span className="text-[13px] text-muted-foreground/75 font-light">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3 pt-2">
-                <Button asChild
-                    size="lg"
-                    className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto"
-                  >
-                  <Link data-primary-commercial-cta="true" href={parity.primaryCta.href} data-analytics-event={parity.primaryCta.analyticsEvent} data-source-page={parity.primaryCta.sourcePage} data-service-interest={parity.primaryCta.serviceInterest} data-cta-location={parity.primaryCta.location} data-cta-label={parity.primaryCta.label}>
-                    {parity.primaryCta.label}
-                  </Link>
-                </Button>
-                <p className="text-[11.5px] text-muted-foreground/60 font-light tracking-wide">
-                  Confidential · No obligation · Individuals and families welcome
-                </p>
-              </div>
+      <div className="premium-page premium-placement">
+        <section className="placement-hero wrap">
+          <div className="hero-copy">
+            <p className="eyebrow">
+              <span className="line" /> Private rehab &amp; detox guidance
+            </p>
+            <PremiumHeadline>{parity.h1}</PremiumHeadline>
+            <p className="intro">{parity.heroIntro}</p>
+            <p className="hero-detail">
+              Compare private treatment in the UK and internationally with Craig
+              Bilton. We help you consider suitability, complete costs and
+              continuity of support.
+            </p>
+            <div className="hero-actions">
+              <Link
+                href={parity.primaryCta.href}
+                onClick={directEnquiry}
+                className="button"
+                data-primary-commercial-cta="true"
+                data-analytics-event={parity.primaryCta.analyticsEvent}
+                data-source-page={parity.primaryCta.sourcePage}
+                data-service-interest={parity.primaryCta.serviceInterest}
+                data-cta-location={parity.primaryCta.location}
+              >
+                {parity.primaryCta.label}
+                <Arrow />
+              </Link>
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => open({ service: "placement" })}
+              >
+                Help me get started <span aria-hidden="true">→</span>
+              </button>
             </div>
-
-            {/* Right: image */}
-            <div className="lg:col-span-6 relative mt-4 lg:mt-0">
-              <div className="relative" style={{ paddingBottom: "68%" }}>
-                <div
-                  className="absolute inset-0 translate-x-4 translate-y-4 md:translate-x-5 md:translate-y-5 rounded-xl"
-                  style={{
-                    background: "rgba(201,169,110,0.11)",
-                    border: "1px solid rgba(201,169,110,0.22)",
-                  }}
-                />
-                <ResponsiveImage
-                  src="/treatment-placement-navigation-hero.webp"
-                  alt="Adult standing where two coastal footpaths divide."
-                  width={1600}
-                  height={900}
-                  className="absolute inset-0 w-full h-full object-cover rounded-xl z-10"
-                  style={{ objectPosition: "center" }}
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                  sizes="(min-width: 1024px) 48vw, 100vw"
-                />
-                <div
-                  className="absolute bottom-4 left-4 z-20 px-3.5 py-2.5 rounded-lg"
-                  style={{ background: "rgba(22,43,59,0.82)", backdropFilter: "blur(8px)" }}
-                >
-                  <p className="font-serif text-white text-[12px] leading-tight">Assessment before placement</p>
-                  <p className="text-white/55 text-[10.5px] font-light">Compare safety, fit and continuity</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <ServiceSummary
-        who="Individuals or families considering private detox, residential rehabilitation or a more intensive treatment setting."
-        problem="Makes complex treatment choices clearer and supports a safer, more appropriate placement decision."
-        applies="Across the UK and selected international treatment destinations."
-      />
-
-      {/* ── Not all facilities section ── */}
-      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start max-w-6xl mx-auto">
-
-            {/* Left: copy */}
-            <div className="flex flex-col gap-6">
-              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block">
-                Why guidance matters
-              </span>
-              <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
-                Not all facilities are appropriate for all individuals.
-              </h2>
-              <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                Finding a reputable rehab facility is difficult. Marketing materials often obscure clinical realities, and making the wrong choice at a critical moment can be detrimental to recovery.
-              </p>
-              <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                We provide assessment-led, clinically informed placement guidance. We assess the individual's needs, risks, background and family circumstances, then compare these with suitable treatment providers. IRN may have partner or referral relationships with some providers, and any relevant relationship is explained transparently before a decision is made.
-              </p>
-
-              <div className="flex flex-col gap-5 mt-2">
-                {[
-                  {
-                    Icon: Shield,
-                    title: "Suitability Assessment",
-                    body: "We assess suitability using risk, treatment need, location, budget and aftercare. Recommendations are based on assessed fit rather than pressure to choose a particular facility.",
-                  },
-                  {
-                    Icon: HeartHandshake,
-                    title: "Managed Transition",
-                    body: "From initial admission logistics to discharge planning and aftercare, we manage the process.",
-                  },
-                ].map(({ Icon, title, body }) => (
-                  <div key={title} className="flex items-start gap-4">
-                    <div className="mt-0.5 flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg bg-secondary">
-                      <Icon className="w-4 h-4 text-primary" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <h4 className="font-serif text-[16px] text-primary mb-1">{title}</h4>
-                      <p className="text-[13px] text-muted-foreground font-light leading-relaxed">{body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: International Network card */}
-            <div
-              className="overflow-hidden border border-border/40 rounded-xl bg-white"
-              style={{ boxShadow: "0 2px 12px rgba(22,43,59,0.07)" }}
-            >
-              <ResponsiveImage
-                src={residentialSetting}
-                alt="A peaceful garden courtyard with seating and a clear path between buildings"
-                className="aspect-[2/1] w-full object-cover"
-                sizes="(min-width: 1024px) 560px, calc(100vw - 48px)"
-                loading="lazy"
-              />
-              <div className="p-7 md:p-9">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-secondary flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-accent" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <span className="text-[9px] font-semibold tracking-[0.18em] uppercase text-accent/70 block mb-0.5">
-                    Coverage
-                  </span>
-                  <h3 className="text-[19px] font-serif text-primary leading-none">Our International Network</h3>
-                </div>
-              </div>
-
-              <p className="text-[13.5px] text-muted-foreground font-light leading-relaxed mb-6">
-                We maintain close relationships with selected, high-quality treatment partners across multiple regions to ensure we can meet specific clinical and environmental needs.
-              </p>
-
-              {/* Location pill tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {locations.map((loc) =>
-                  loc.href ? (
-                    <Link
-                      key={loc.label}
-                      href={loc.href}
-                      className="text-[12px] font-light px-3.5 py-1.5 rounded-full border hover:border-accent/60 transition-colors"
-                      style={{
-                        color: "rgba(22,43,59,0.75)",
-                        borderColor: "rgba(201,169,110,0.35)",
-                        background: "rgba(201,169,110,0.07)",
-                      }}
-                    >
-                      {loc.label}
-                    </Link>
-                  ) : (
-                    <span
-                      key={loc.label}
-                      className="text-[12px] font-light px-3.5 py-1.5 rounded-full border"
-                      style={{
-                        color: "rgba(22,43,59,0.75)",
-                        borderColor: "rgba(201,169,110,0.35)",
-                        background: "rgba(201,169,110,0.07)",
-                      }}
-                    >
-                      {loc.label}
-                    </span>
-                  )
-                )}
-              </div>
-
-              <div className="w-full h-px mb-6" style={{ background: "rgba(22,43,59,0.08)" }} />
-
-              <p className="text-[11.5px] text-muted-foreground/60 font-light leading-relaxed italic">
-                Recommendations are based on assessed suitability and individual requirements. IRN does not own or operate the facilities, and the chosen provider retains responsibility for its clinical assessment, admission decision and care.
-              </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── International options comparison ── */}
-      <section id="international-options" className="py-12 md:py-20 bg-background scroll-mt-28">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-8 md:mb-12 max-w-3xl">
-            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
-              Comparing destinations
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight mb-4">
-              International treatment options at a glance.
-            </h2>
-            <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-              A starting point, not a recommendation. The right destination depends on clinical need,
-              detox and mental health risk, budget, and family circumstances, which is exactly what a
-              confidential assessment works through. All costs are typical guide ranges only.
+            <p className="micro reassurance">
+              Private guidance. No obligation to choose a provider.
             </p>
           </div>
-
-          {/* Desktop / tablet table */}
-          <div className="hidden md:block overflow-hidden border border-border/40 rounded-xl bg-white" style={{ boxShadow: "0 2px 12px rgba(22,43,59,0.06)" }}>
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="bg-primary text-primary-foreground">
-                  <th className="font-serif font-medium text-[15px] px-5 py-4 w-[18%]">Destination</th>
-                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[30%] text-primary-foreground/80">Best suited for</th>
-                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[26%] text-primary-foreground/80">Typical guide cost</th>
-                  <th className="font-sans font-medium text-[12px] tracking-wide uppercase px-5 py-4 w-[26%] text-primary-foreground/80">Key advantage</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparison.map((row, i) => (
-                  <tr
-                    key={row.country}
-                    className={`border-t border-border/40 align-top transition-colors hover:bg-secondary/30 ${i % 2 === 1 ? "bg-secondary/15" : ""}`}
-                  >
-                    <td className="px-5 py-5">
-                      <Link
-                        href={row.href}
-                        className="font-serif text-[17px] text-primary hover:text-accent transition-colors inline-flex items-center gap-1.5"
-                      >
-                        {row.country}
-                        <ArrowRight className="w-3.5 h-3.5 text-accent" />
-                      </Link>
-                    </td>
-                    <td className="px-5 py-5 text-[13.5px] text-muted-foreground font-light leading-relaxed">{row.bestFor}</td>
-                    <td className="px-5 py-5 text-[13.5px] text-primary/85 font-light leading-relaxed">{row.cost}</td>
-                    <td className="px-5 py-5 text-[13.5px] text-muted-foreground font-light leading-relaxed">{row.advantage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile stacked cards */}
-          <div className="md:hidden flex flex-col gap-4">
-            {comparison.map((row) => (
-              <Link
-                key={row.country}
-                href={row.href}
-                className="group block border border-border/40 rounded-xl bg-white p-5"
-                style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-serif text-lg text-primary group-hover:text-accent transition-colors">{row.country}</h3>
-                  <ArrowRight className="w-4 h-4 text-accent flex-shrink-0" />
-                </div>
-                <dl className="flex flex-col gap-2.5">
-                  <div>
-                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Best suited for</dt>
-                    <dd className="text-[13px] text-muted-foreground font-light leading-relaxed">{row.bestFor}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Typical guide cost</dt>
-                    <dd className="text-[13px] text-primary/85 font-light leading-relaxed">{row.cost}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[10px] font-semibold tracking-[0.14em] uppercase text-accent/70 mb-0.5">Key advantage</dt>
-                    <dd className="text-[13px] text-muted-foreground font-light leading-relaxed">{row.advantage}</dd>
-                  </div>
-                </dl>
-              </Link>
-            ))}
-          </div>
-
-          <p className="text-[11.5px] text-muted-foreground/60 font-light leading-relaxed italic mt-5 max-w-3xl">
-            Guide ranges only. Actual costs depend on the facility, length of stay, level of medical
-            care required, and accommodation. Where detox is needed, withdrawal risk must be assessed
-            before any placement or travel.
-          </p>
-        </div>
-      </section>
-
-      {/* ── How placement guidance works ── */}
-      <section className="py-12 md:py-20 bg-background">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-10 md:mb-14">
-            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
-              The process
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
-              How placement guidance works.
+          <div className="placement-paper">
+            <div className="paper-top">
+              <span>THE WHOLE PICTURE</span>
+              <span className="paper-seal" aria-hidden="true">
+                IRN
+              </span>
+            </div>
+            <h2>
+              Good questions. <br />
+              <em>Better-informed decisions.</em>
             </h2>
+            <div className="paper-item">
+              <span>01</span>
+              <div>
+                <h3>The care you need</h3>
+                <p>What can the provider safely support?</p>
+              </div>
+            </div>
+            <div className="paper-item">
+              <span>02</span>
+              <div>
+                <h3>The complete cost</h3>
+                <p>What is included, and what is separate?</p>
+              </div>
+            </div>
+            <div className="paper-item">
+              <span>03</span>
+              <div>
+                <h3>The way forward</h3>
+                <p>What happens before and after admission?</p>
+              </div>
+            </div>
+            <p className="paper-caption">
+              The areas we help you consider together.
+            </p>
           </div>
-
-          <div className="relative">
-            {/* Horizontal connector: desktop only */}
+        </section>
+        <section className="placement-reassurance wrap">
+          <img
+            src="/images/premium/craig-portrait.webp"
+            alt=""
+            width={64}
+            height={64}
+          />
+          <div>
+            <strong>Speak directly with Craig Bilton</strong>
+            <p>
+              More than 20 years’ international addiction treatment experience.
+            </p>
+          </div>
+          <p>
+            UK-based guidance. <br />
+            UK and international options.
+          </p>
+        </section>
+        <section className="section wrap compare-section" id="compare-options">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">What we help you compare</p>
+              <h2>
+                The detail behind <br />a suitable placement.
+              </h2>
+            </div>
+            <p>
+              A reassuring website or an attractive setting is only part of the
+              picture. These are the questions worth working through.
+            </p>
+          </div>
+          <div className="comparison-layout">
             <div
-              className="hidden md:block absolute top-[1.625rem] left-[calc(12.5%+1.25rem)] right-[calc(12.5%+1.25rem)] h-px pointer-events-none"
-              style={{ background: "rgba(201,169,110,0.25)" }}
-            />
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 md:gap-5 lg:gap-6">
-              {placementSteps.map((s) => (
-                <div
-                  key={s.n}
-                  className="flex flex-col items-center text-center bg-white border border-border/30 rounded-xl px-4 pt-5 pb-5 md:px-5 md:pt-6 md:pb-6"
-                  style={{ boxShadow: "0 1px 4px rgba(22,43,59,0.05)" }}
+              className="comparison-tabs"
+              role="tablist"
+              aria-label="Treatment comparison areas"
+              aria-orientation="vertical"
+            >
+              {comparisonAreas.map((area, index) => (
+                <button
+                  key={area.id}
+                  type="button"
+                  role="tab"
+                  ref={(element) => {
+                    tabs.current[index] = element;
+                  }}
+                  id={`tab-${area.id}`}
+                  aria-selected={activeArea === index}
+                  aria-controls={`panel-${area.id}`}
+                  tabIndex={activeArea === index ? 0 : -1}
+                  onClick={() => setActiveArea(index)}
+                  onKeyDown={(event) => onTabKey(event, index)}
                 >
-                  <div
-                    className="w-12 h-12 flex items-center justify-center font-serif text-base mb-4 relative z-10"
-                    style={{
-                      background: "rgba(246,244,240,1)",
-                      border: "1px solid rgba(201,169,110,0.50)",
-                      color: "rgba(22,43,59,0.88)",
-                      borderRadius: "50%",
-                    }}
-                  >
-                    {s.n}
-                  </div>
-                  <h3 className="font-serif text-primary text-[15px] leading-snug mb-2">{s.title}</h3>
-                  <p className="text-[12.5px] text-muted-foreground/65 font-light leading-relaxed">{s.body}</p>
-                </div>
+                  <span>0{index + 1}</span>
+                  {area.label}
+                  <Arrow />
+                </button>
+              ))}
+            </div>
+            <div className="comparison-panels">
+              {comparisonAreas.map((area, index) => (
+                <article
+                  key={area.id}
+                  role="tabpanel"
+                  id={`panel-${area.id}`}
+                  aria-labelledby={`tab-${area.id}`}
+                  tabIndex={0}
+                  hidden={activeArea !== index}
+                >
+                  <span className="panel-label">{area.eyebrow}</span>
+                  <h3>{area.title}</h3>
+                  <ul className="check-list">
+                    {area.checks.map((check) => (
+                      <li key={check}>{check}</li>
+                    ))}
+                  </ul>
+                  <p>{area.note}</p>
+                </article>
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── When treatment placement may be appropriate ── */}
-      <section className="py-12 md:py-20" style={{ background: "rgba(246,244,240,0.55)" }}>
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-10 md:mb-14">
-            <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/70 block mb-3">
-              Clinical indicators
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif text-primary leading-tight">
-              When treatment placement may be appropriate.
+        </section>
+        <section className="dark-section">
+          <div className="wrap section">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">How we work with you</p>
+                <h2>
+                  {`${processSection?.heading.split(". ")[0]}. `}
+                  <br />
+                  <em>
+                    {processSection?.heading.split(". ").slice(1).join(". ")}
+                  </em>
+                </h2>
+              </div>
+              <p>{processSection?.body}</p>
+            </div>
+            <div className="timeline">
+              {placementSteps.map((step) => (
+                <article key={step.n}>
+                  <span>0{step.n}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              ))}
+            </div>
+            <button
+              type="button"
+              className="button light-button"
+              onClick={() => open({ direct: true, service: "placement" })}
+            >
+              Start with a conversation <Arrow />
+            </button>
+          </div>
+        </section>
+        <section className="section wrap placement-details">
+          <div>
+            <p className="eyebrow">UK &amp; international options</p>
+            <h2>
+              The right setting <br />
+              <em>for the individual.</em>
+            </h2>
+            <p>
+              Location is one part of a treatment decision. We help you consider
+              the care available, practicalities, privacy, family access and the
+              total cost.
+            </p>
+            <div className="destination-list">
+              {locations.map((location) => (
+                <Link key={location.label} href={location.href!}>
+                  {location.label}
+                </Link>
+              ))}
+            </div>
+            <p className="quiet-note">
+              IRN does not own or operate treatment facilities. Suitability and
+              admission remain the provider’s responsibility.
+            </p>
+            <a href="#international-options" className="text-link">
+              Compare destination guide costs <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <div className="fee-note">
+            <span className="eyebrow">Clear before you commit</span>
+            <h3>
+              Fees and provider <br />
+              relationships.
+            </h3>
+            <p>
+              Before you proceed, we explain the scope and cost of IRN’s
+              support, the provider’s separate fees and any relevant commercial
+              or referral relationship.
+            </p>
+            <p>
+              You can ask whether a provider would pay IRN for a placement and
+              whether that affects the price you pay.
+            </p>
+            <button
+              type="button"
+              className="text-link"
+              onClick={() => open({ direct: true, service: "placement" })}
+            >
+              Ask about fees and options <Arrow />
+            </button>
+            <p className="quiet-note">
+              <Link href="/services-pricing-guide">
+                Read our services and pricing guide.
+              </Link>
+            </p>
+          </div>
+        </section>
+        <section className="faq-section wrap">
+          <div>
+            <p className="eyebrow">Before we speak</p>
+            <h2>
+              A few questions <br />
+              you may have.
             </h2>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
-            {indications.map((item, i) => (
-              <div
-                key={item}
-                className="flex items-start gap-4 bg-white border border-border/30 rounded-xl px-5 py-4"
-                style={{ boxShadow: "0 1px 3px rgba(22,43,59,0.04)" }}
-              >
-                <span
-                  className="flex-shrink-0 font-serif text-[10.5px] mt-0.5"
-                  style={{ color: "rgba(201,169,110,0.85)" }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-[13.5px] text-primary/80 font-light leading-snug">{item}</p>
-              </div>
+          <div className="faq-list">
+            {firstQuestions.map((faq) => (
+              <details key={faq.question}>
+                <summary>
+                  {faq.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{faq.answer}</p>
+              </details>
             ))}
+            <details>
+              <summary>
+                What if someone needs urgent medical help?
+                <span aria-hidden="true">+</span>
+              </summary>
+              <p>
+                IRN is not an emergency service. In immediate danger, call{" "}
+                <a href="tel:999">999</a> or attend A&amp;E. For urgent
+                non-emergency medical advice in England, contact{" "}
+                <a
+                  href="https://111.nhs.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  NHS 111
+                </a>
+                .
+              </p>
+            </details>
           </div>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-3 sm:items-center">
-            <p className="text-sm text-muted-foreground font-light">
-              Unsure about your risk level?
+        </section>
+        <section
+          className="placement-library section wrap"
+          aria-labelledby="placement-detail-heading"
+        >
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Take a closer look</p>
+              <h2 id="placement-detail-heading">
+                The detail for <br />
+                <em>your decision.</em>
+              </h2>
+            </div>
+            <p>
+              Explore costs, clinical considerations and practical guides in
+              your own time. You can ask us about any of these areas.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/assessments/detox">
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
+          </div>
+          <details className="library-group" id="international-options">
+            <summary>
+              International treatment options at a glance
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content">
+              <p>
+                A starting point, not a recommendation. The right destination
+                depends on clinical need, detox and mental-health risk, budget
+                and family circumstances. All costs are typical guide ranges
+                only.
+              </p>
+              <div className="destination-comparison">
+                {comparison.map((row) => (
+                  <article key={row.country}>
+                    <h3>
+                      <Link href={row.href}>
+                        {row.country}
+                        <Arrow />
+                      </Link>
+                    </h3>
+                    <dl>
+                      <div>
+                        <dt>May suit</dt>
+                        <dd>{row.bestFor}</dd>
+                      </div>
+                      <div>
+                        <dt>Typical guide cost</dt>
+                        <dd>{row.cost}</dd>
+                      </div>
+                      <div>
+                        <dt>Practical considerations</dt>
+                        <dd>{row.advantage}</dd>
+                      </div>
+                    </dl>
+                  </article>
+                ))}
+              </div>
+              <p className="quiet-note">
+                Guide ranges only. Actual costs depend on the facility, length
+                of stay, level of medical care required and accommodation. Where
+                detox is needed, withdrawal risk must be assessed before any
+                placement or travel.
+              </p>
+            </div>
+          </details>
+          <details className="library-group">
+            <summary>
+              {suitabilitySection?.heading}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content">
+              <p>{suitabilitySection?.body}</p>
+              <ul className="check-list indication-list">
+                {indications.map((indication) => (
+                  <li key={indication}>{indication}</li>
+                ))}
+              </ul>
+              <p>
+                Our self-assessments can help you reflect on your situation.
+                They do not replace a medical assessment or determine whether
+                withdrawal is safe.
+              </p>
+              <div className="support-links">
+                <Link href="/assessments/detox">
                   Detox Suitability Assessment
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </Link>
-              <Link href="/assessments/alcohol-use">
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
+                </Link>
+                <Link href="/assessments/alcohol-use">
                   Alcohol Use Assessment
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </Link>
-              <Link href="/assessments/drug-use">
-                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/20 px-4 py-2 hover:bg-primary/5 transition-colors">
-                  Drug Use Assessment
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </Link>
+                </Link>
+                <Link href="/assessments/drug-use">Drug Use Assessment</Link>
+              </div>
+            </div>
+          </details>
+          <details className="library-group">
+            <summary>
+              {relationshipCopy.heading}
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content">
+              {relationshipCopy.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <p>
+                {relationshipCopy.linkPrefix}
+                <Link href={relationshipCopy.link.href}>
+                  {relationshipCopy.link.label}
+                </Link>
+                {relationshipCopy.linkSuffix}
+              </p>
+            </div>
+          </details>
+          <details className="library-group">
+            <summary>
+              Guides to choosing treatment, admission, duration and cost
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content">
+              <p>
+                Start with safety and clinical fit, then compare access,
+                duration, location and complete pathway cost.
+              </p>
+              <div className="guide-links">
+                {decisionGuides.map((guide) => (
+                  <article key={guide.href}>
+                    <h3>
+                      <Link href={guide.href}>
+                        {guide.title}
+                        <Arrow />
+                      </Link>
+                    </h3>
+                    <p>{guide.body}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </details>
+          <details className="library-group">
+            <summary>
+              Explore treatment needs and other support routes
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content guide-links">
+              {relatedServices.map((service) => (
+                <article key={service.href}>
+                  <h3>
+                    <Link href={service.href}>
+                      {service.title}
+                      <Arrow />
+                    </Link>
+                  </h3>
+                  <p>{service.description}</p>
+                </article>
+              ))}
+            </div>
+          </details>
+          <details className="library-group">
+            <summary>
+              More about treatment placement<span aria-hidden="true">+</span>
+            </summary>
+            <div className="library-content faq-list">
+              {(parity.faqs ?? []).map((faq) => (
+                <details key={faq.question}>
+                  <summary>
+                    {faq.question}
+                    <span aria-hidden="true">+</span>
+                  </summary>
+                  <p>{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </details>
+        </section>
+        <section className="closing-section">
+          <div className="wrap">
+            <p className="eyebrow">A conversation is a place to start</p>
+            <h2>
+              You do not have to work <br />
+              it all out <em>on your own.</em>
+            </h2>
+            <p>
+              Tell us what you need help deciding. We will talk through the next
+              step.
+            </p>
+            <div className="hero-actions">
+              <button
+                type="button"
+                className="button"
+                onClick={() => open({ direct: true, service: "placement" })}
+              >
+                Request a private conversation <Arrow />
+              </button>
+              <button
+                type="button"
+                className="text-link"
+                onClick={() => open({ service: "placement" })}
+              >
+                Start with a few questions <span aria-hidden="true">→</span>
+              </button>
             </div>
           </div>
-          <section aria-labelledby="provider-relationships" className="mt-8 max-w-3xl border-l-4 border-accent bg-background p-6 text-sm leading-relaxed text-muted-foreground">
-            <h2 id="provider-relationships" className="mb-4 font-serif text-2xl text-primary">{relationshipCopy.heading}</h2>
-            {relationshipCopy.paragraphs.map((paragraph) => <p key={paragraph} className="mb-4">{paragraph}</p>)}
-            <p>{relationshipCopy.linkPrefix}<Link href={relationshipCopy.link.href} className="font-semibold text-primary underline underline-offset-4">{relationshipCopy.link.label}</Link>{relationshipCopy.linkSuffix}</p>
-          </section>
-        </div>
-      </section>
-
-      <section className="border-y border-border/40 bg-secondary/15 py-12 md:py-20" aria-labelledby="treatment-decision-guides">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-9 max-w-3xl">
-            <span className="mb-3 block text-[9.5px] font-semibold uppercase tracking-[0.20em] text-accent/70">
-              Make the next decision deliberately
-            </span>
-            <h2 id="treatment-decision-guides" className="mb-4 font-serif text-3xl leading-tight text-primary md:text-4xl">
-              Compare admission, provider quality, treatment length and cost.
-            </h2>
-            <p className="text-[15px] font-light leading-relaxed text-muted-foreground">
-              These guides answer different parts of the same decision. Start with safety and clinical fit, then compare access, duration, location and complete pathway cost.
-            </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {decisionGuides.map((guide) => (
-              <RelatedGuideCard
-                key={guide.href}
-                href={guide.href}
-                title={guide.title}
-                description={guide.body}
-                image={guide.href === "/how-much-does-rehab-cost-uk" ? "/rehab-costs-uk-comparison-hero.webp" : undefined}
-                imageAlt={guide.href === "/how-much-does-rehab-cost-uk" ? "Person comparing treatment brochures and costs at a table" : undefined}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <RelatedServiceLinks
-        links={[
-          { title: "Alcohol Addiction Treatment", description: "Compare withdrawal assessment, community, online and residential alcohol treatment routes.", href: "/alcohol-addiction-treatment" },
-          { title: "Cocaine Addiction Treatment", description: "Compare psychological, community, online and residential cocaine support.", href: "/cocaine-addiction-treatment" },
-          { title: "Cannabis Addiction Treatment", description: "Choose support based on use, mental health, home stability and treatment fit.", href: "/cannabis-addiction-treatment" },
-          { title: "Ketamine Addiction Treatment", description: "Coordinate addiction support with appropriate medical assessment for physical harm.", href: "/ketamine-addiction-treatment" },
-          { title: "Benzodiazepine Treatment", description: "Keep prescriber-led withdrawal planning connected to wider recovery support.", href: "/benzodiazepine-addiction-treatment" },
-          { title: "Prescription Drug Treatment", description: "Separate physical dependence and withdrawal from addiction, with prescribers retaining medication responsibility.", href: "/prescription-drug-addiction-treatment" },
-          { title: "Dual Diagnosis Treatment", description: "Compare integrated mental-health and addiction treatment capability.", href: "/dual-diagnosis-treatment" },
-          { title: "Addiction Detox UK", description: "Understand withdrawal risk, clinical assessment and the differences between community, residential and inpatient settings.", href: "/resources/addiction-detox-uk" },
-          { title: "Detox vs Rehab", description: "Separate withdrawal management from rehabilitation and continuing recovery care.", href: "/resources/detox-vs-rehab" },
-          { title: "Rehab Cost UK Guide", description: "Compare typical UK rehab, detox, overseas treatment and online recovery costs.", href: "/how-much-does-rehab-cost-uk" },
-          { title: "Private Rehab UK", description: "Understand UK detox and residential rehabilitation options.", href: "/private-rehab-uk" },
-          { title: "Private Rehab Alternatives", description: "Compare structured online support and other non-residential routes.", href: "/private-rehab-alternative-uk" },
-          { title: "Online Recovery Programme", description: "Explore structured support for people who are medically stable.", href: "/online-programme" },
-          { title: "Family Guidance", description: "Practical support for families deciding what to do next.", href: "/what-we-offer#family-guidance" },
-          { title: "Detox Suitability Assessment", description: "Reflect on withdrawal risk before making changes to alcohol or drug use.", href: "/assessments/detox" },
-          { title: "Luxury Rehab", description: "Compare premium private treatment without mistaking accommodation for clinical quality.", href: "/luxury-rehab" },
-          { title: "Executive Rehab", description: "Review discreet treatment options for professionals and business leaders.", href: "/executive-rehab" },
-          { title: "Destination Rehab", description: "Compare private treatment abroad, travel safety and return-home planning.", href: "/destination-rehab" },
-        ]}
-      />
-
-      <FAQSection items={parity.faqs ?? []} includeSchema={false} />
-
-      {/* ── CTA ── */}
-      <CTASection
-        heading="Need help choosing the right treatment setting?"
-        description="Speak confidentially with our team. We will help you understand the available options without pressure or obligation."
-        primaryCta={{ label: "Request a confidential placement consultation", href: "/get-help" }}
-        secondaryCta={{ label: "Take a free assessment", href: "/assessments/detox" }}
-        primaryEvent="treatment_placement_enquiry"
-        sourcePage="treatment-placement"
-        serviceInterest="treatment-placement"
-        ctaLocation="final_cta"
-      />
+        </section>
+      </div>
     </Layout>
   );
 }

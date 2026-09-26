@@ -1,211 +1,70 @@
 import { Link, useLocation } from "wouter";
-import { Menu, X, Search } from "lucide-react";
-import { lazy, Suspense, useEffect, useState } from "react";
-import { SocialLinks } from "@/components/SocialLinks";
+import { Menu, X, Search, ArrowUpRight } from "lucide-react";
+import { lazy, Suspense, useEffect, useRef, useState, type MouseEvent } from "react";
+import { useEnquiryJourney } from "@/components/forms/EnquiryJourney";
 
-const SearchModal = lazy(() =>
-  import("@/components/search/SearchModal").then((module) => ({
-    default: module.SearchModal,
-  })),
-);
+const SearchModal = lazy(() => import("@/components/search/SearchModal").then(module => ({ default: module.SearchModal })));
 
 export function Navbar() {
   const [location] = useLocation();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const { open } = useEnquiryJourney();
+  const hideContactBar = /^\/(assessments|assessment|research|admin|thank-you|get-help|contact)(\/|$)/.test(location);
+  useEffect(() => { setMobileMenuOpen(false); }, [location]);
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [location]);
-
-  useEffect(() => {
-    const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMobileMenuOpen(false); };
-    document.addEventListener("keydown", close);
-    return () => document.removeEventListener("keydown", close);
-  }, []);
-
-  // "/" shortcut opens search
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (
-        e.key === "/" &&
-        !e.ctrlKey &&
-        !e.metaKey &&
-        !(e.target instanceof HTMLInputElement) &&
-        !(e.target instanceof HTMLTextAreaElement)
-      ) {
-        e.preventDefault();
-        setSearchOpen(true);
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        menuButton.current?.focus();
+      }
+      const target = event.target as HTMLElement;
+      if (event.key === "/" && !event.ctrlKey && !event.metaKey && !event.altKey &&
+        !target.closest('input, textarea, select, [contenteditable="true"], [role="dialog"]')) {
+        event.preventDefault(); setSearchOpen(true);
       }
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
-  }, []);
-
+  }, [mobileMenuOpen]);
+  const requestConversation = (event: MouseEvent<HTMLAnchorElement>, fromMenu = false) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    if (fromMenu) { setMobileMenuOpen(false); menuButton.current?.focus(); }
+    open({ direct: true, service: location === "/treatment-placement" ? "placement" : undefined });
+  };
   const navLinks = [
-    { href: "/treatment-placement", label: "Treatment Placement" },
-    { href: "/family-addiction-intervention-uk", label: "Family Help" },
-    { href: "/how-much-does-rehab-cost-uk", label: "Rehab Costs" },
-    { href: "/online-programme", label: "Online Support" },
-    { href: "/resources", label: "Resources" },
-    { href: "/about", label: "About" },
+    { href: "/treatment-placement", label: "Treatment placement" },
+    { href: "/what-we-offer", label: "How we help" },
+    { href: "/about", label: "About Craig" },
   ];
-
-  return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent ${
-          isScrolled || mobileMenuOpen
-            ? "bg-background/95 backdrop-blur-md border-border/50 py-4 shadow-sm"
-            : "bg-transparent py-6"
-        }`}
-      >
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="group flex items-center gap-2 flex-shrink-0"
-              data-testid="link-home"
-            >
-              <span className="font-serif text-[1.05rem] sm:text-xl font-medium tracking-tight text-primary transition-colors group-hover:text-primary/80">
-                Insight Recovery Network
-              </span>
-            </Link>
-
-            {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-4 ml-6 xl:ml-10 xl:gap-6">
-              <ul className="flex items-center gap-3.5 whitespace-nowrap text-xs font-medium xl:gap-5 xl:text-sm">
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`transition-colors hover:text-primary ${
-                        location === link.href
-                          ? "text-primary"
-                          : "text-muted-foreground"
-                      }`}
-                      data-testid={`link-nav-${link.label
-                        .toLowerCase()
-                        .replace(/\s+/g, "-")}`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <SocialLinks variant="header" />
-              <div className="h-4 w-px bg-border" />
-              {/* Search trigger */}
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="text-muted-foreground hover:text-primary transition-colors p-1"
-                aria-label="Search articles"
-                data-testid="button-search"
-                title="Search articles  /"
-              >
-                <Search size={17} strokeWidth={1.5} />
-              </button>
-              <Link href="/get-help" data-testid="link-nav-contact" data-analytics-event="get_help_click" data-cta-location="header" data-service-interest="general-support" className="inline-flex items-center justify-center gap-2 text-center font-medium transition-colors rounded-none font-medium h-10 px-4 text-xs xl:px-6 xl:text-sm bg-primary text-primary-foreground hover:bg-primary/90">
-                  Get help
-                </Link>
-            </nav>
-
-            {/* Mobile: search + toggle */}
-            <div className="xl:hidden flex items-center gap-1">
-              <button
-                onClick={() => setSearchOpen(true)}
-                className="p-2 text-primary"
-                aria-label="Search articles"
-                data-testid="button-search-mobile"
-              >
-                <Search size={22} strokeWidth={1.5} />
-              </button>
-              <button
-                className="p-2 -mr-2 text-primary"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                data-testid="button-mobile-menu"
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={mobileMenuOpen}
-                aria-controls="mobile-navigation"
-              >
-                {mobileMenuOpen ? (
-                  <X size={24} strokeWidth={1.5} />
-                ) : (
-                  <Menu size={24} strokeWidth={1.5} />
-                )}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Nav */}
-        {mobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg animate-in slide-in-from-top-2">
-            <nav id="mobile-navigation" aria-label="Mobile navigation" className="container mx-auto max-h-[calc(100dvh-88px)] overflow-y-auto px-6 py-6 flex flex-col gap-5">
-              <ul className="flex flex-col gap-4 text-base font-medium">
-                <li>
-                  <Link
-                    href="/"
-                    className={`block transition-colors ${
-                      location === "/" ? "text-primary" : "text-muted-foreground"
-                    }`}
-                  >
-                    Home
-                  </Link>
-                </li>
-                {navLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={`block transition-colors ${
-                        location === link.href
-                          ? "text-primary"
-                          : "text-muted-foreground"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <div className="border-t border-border pt-4">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
-                  Follow us
-                </p>
-                <SocialLinks variant="header" />
-              </div>
-              <div className="pt-4 border-t border-border">
-                <Link
-                  href="/get-help"
-                  className="block w-full inline-flex items-center justify-center gap-2 text-center font-medium transition-colors w-full rounded-none font-medium h-12 bg-primary text-primary-foreground hover:bg-primary/90"
-                  data-testid="link-mobile-contact"
-                  data-analytics-event="get_help_click"
-                  data-cta-location="mobile_menu"
-                  data-service-interest="general-support"
-                >
-                    Discuss treatment options
-                  </Link>
-              </div>
-            </nav>
-          </div>
-        )}
-      </header>
-
-      {searchOpen && (
-        <Suspense fallback={null}>
-          <SearchModal isOpen onClose={() => setSearchOpen(false)} />
-        </Suspense>
-      )}
-    </>
-  );
+  const mobileLinks = [...navLinks,
+    { href: "/family-addiction-intervention-uk", label: "Family support" },
+    { href: "/how-much-does-rehab-cost-uk", label: "Rehab costs" },
+    { href: "/online-programme", label: "Online support" },
+    { href: "/resources", label: "Resources" },
+  ];
+  return <>
+    <header className="irn-header">
+      <Link href="/" className="irn-wordmark" aria-label="Insight Recovery Network home" data-testid="link-home">Insight<span>Recovery Network</span></Link>
+      <nav className="irn-desktop-nav" aria-label="Main navigation">
+        {navLinks.map(link => <Link key={link.href} href={link.href} aria-current={location === link.href ? "page" : undefined}>{link.label}</Link>)}
+      </nav>
+      <button className="irn-search" onClick={() => setSearchOpen(true)} aria-label="Search articles" data-testid="button-search"><Search size={20} strokeWidth={1.5} /></button>
+      <a href="/get-help" className="irn-contact-button irn-header-contact" onClick={requestConversation} data-testid="link-nav-contact" data-analytics-event="get_help_click" data-cta-location="header" data-service-interest="general-support">Request a conversation<ArrowUpRight size={21} strokeWidth={1} aria-hidden="true" /></a>
+      <button ref={menuButton} className="irn-menu-toggle" onClick={() => setMobileMenuOpen(value => !value)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" data-testid="button-mobile-menu">{mobileMenuOpen ? <X size={25} strokeWidth={1} /> : <Menu size={27} strokeWidth={1} />}</button>
+      {mobileMenuOpen && <nav className="irn-mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+        <Link href="/">Home</Link>
+        {mobileLinks.map(link => <Link key={link.href} href={link.href} aria-current={location === link.href ? "page" : undefined}>{link.label}</Link>)}
+        <a href="/get-help" className="irn-contact-button" onClick={event => requestConversation(event, true)} data-testid="link-mobile-contact" data-analytics-event="get_help_click" data-cta-location="mobile_menu" data-service-interest="general-support">Request a conversation<ArrowUpRight size={21} strokeWidth={1} aria-hidden="true" /></a>
+        <p>Private treatment guidance for adults and families.</p>
+      </nav>}
+    </header>
+    {!hideContactBar && <div className="irn-mobile-contact" aria-label="Contact Insight Recovery Network">
+      <a className="irn-mobile-whatsapp" href="https://wa.me/447723486235" target="_blank" rel="noopener noreferrer" aria-label="Contact IRN on WhatsApp (opens in a new tab)" data-cta-location="mobile_contact_bar">WhatsApp</a>
+      <a href="/get-help" className="irn-contact-button" onClick={requestConversation} data-analytics-event="get_help_click" data-cta-location="mobile_contact_bar" data-service-interest="general-support">Talk to Craig<ArrowUpRight size={23} strokeWidth={1} aria-hidden="true" /></a>
+    </div>}
+    {searchOpen && <Suspense fallback={null}><SearchModal isOpen onClose={() => setSearchOpen(false)} /></Suspense>}
+  </>;
 }

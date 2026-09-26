@@ -1,3 +1,4 @@
+import { EnquiryJourneyProvider } from "../src/components/forms/EnquiryJourney";
 import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import { Router } from "wouter";
@@ -24,7 +25,7 @@ export function renderConversionPages() {
       route,
       renderToString(
         <HelmetProvider context={{}}>
-          <Router ssrPath={route as string}>{element}</Router>
+          <Router ssrPath={route as string}><EnquiryJourneyProvider>{element}</EnquiryJourneyProvider></Router>
         </HelmetProvider>,
       ),
     ]),
