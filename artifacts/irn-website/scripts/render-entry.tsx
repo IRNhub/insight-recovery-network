@@ -3,6 +3,7 @@ import { renderToString } from "react-dom/server";
 import { HelmetProvider } from "react-helmet-async";
 import { Router } from "wouter";
 import Home from "../src/pages/Home";
+import ForProfessionals from "../src/pages/ForProfessionals";
 import GetHelp, { EnquiryPage } from "../src/pages/GetHelp";
 import About from "../src/pages/About";
 import TreatmentPlacement from "../src/pages/TreatmentPlacement";
@@ -17,6 +18,7 @@ export function renderConversionPages() {
       ["/get-help", <GetHelp />],
       ["/contact", <EnquiryPage variant="contact" />],
       ["/about", <About />],
+      ["/for-professionals", <ForProfessionals />],
       ["/treatment-placement", <TreatmentPlacement />],
       ["/family-addiction-intervention-uk", <FamilyInterventionUK />],
       ["/how-much-does-rehab-cost-uk", <RehabCostUK />],

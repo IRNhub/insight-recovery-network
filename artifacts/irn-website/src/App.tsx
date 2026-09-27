@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { lazy, Suspense, useEffect } from "react";
 
 import Home from "@/pages/Home";
+import "@/styles/professionals.css";
 import { installLeadClickTracking, trackPageView } from "@/lib/analytics";
 import { captureEnquiryAttribution } from "@/lib/enquiry-attribution";
 import { RouteLoading } from "@/components/RouteLoading";
@@ -17,6 +18,7 @@ import {
   enforceAssessmentTrackingBoundary,
 } from "@/lib/assessment-tracking-boundary";
 
+const ForProfessionals = lazy(() => import("@/pages/ForProfessionals"));
 const About = lazy(() => import("@/pages/About"));
 const WhatWeOffer = lazy(() => import("@/pages/WhatWeOffer"));
 const TreatmentPlacement = lazy(() => import("@/pages/TreatmentPlacement"));
@@ -232,6 +234,7 @@ function Router() {
         <Switch>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/for-professionals" component={ForProfessionals} />
         <Route path="/what-we-offer" component={WhatWeOffer} />
         <Route path="/treatment-placement" component={TreatmentPlacement} />
         <Route path="/online-programme" component={OnlineProgramme} />

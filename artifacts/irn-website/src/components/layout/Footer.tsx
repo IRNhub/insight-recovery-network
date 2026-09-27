@@ -107,6 +107,11 @@ export function Footer() {
                   Media Enquiries
                 </Link>
               </li>
+              <li>
+                <Link href="/for-professionals" className="hover:text-accent transition-colors">
+                  For GPs &amp; Professionals
+                </Link>
+              </li>
             </ul>
           </div>
 

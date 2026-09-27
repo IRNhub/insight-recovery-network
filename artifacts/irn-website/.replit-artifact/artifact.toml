@@ -30,6 +30,10 @@ kind = "web"
   NODE_ENV = "production"
   PORT = "18088"
 
+  [[services.production.rewrites]]
+  from = "/for-professionals"
+  to = "/for-professionals.html"
+
   # ── Substance-specific treatment guides ────────────────────────────────────
   [[services.production.rewrites]]
   from = "/alcohol-addiction-treatment"

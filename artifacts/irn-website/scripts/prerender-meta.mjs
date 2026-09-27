@@ -44,6 +44,7 @@ import {
 import { placementSteps, placementChecks } from "../src/data/placement-journey.js";
 import { SOCIAL_PROFILE_URLS } from "../src/config/social-links.js";
 import { articleNextSteps } from "../src/data/article-next-steps.js";
+import { professionalPage, professionalSchemas } from "../src/data/professional-page.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
@@ -365,6 +366,16 @@ const REHAB_COST_JSONLD = [
  * Keep title/description in sync with the SEO component props in each page.
  */
 const PAGES = [
+  {
+    route: professionalPage.route,
+    file: "for-professionals.html",
+    title: professionalPage.title,
+    description: professionalPage.description,
+    ogImage: professionalPage.ogImage,
+    ogImageAlt: "Craig Bilton, Insight Recovery Network",
+    jsonLd: professionalSchemas,
+    body: `<main><h1>${professionalPage.h1}</h1><p>${professionalPage.description}</p><a href="${professionalPage.pdf}">Download the professional guide</a></main>`,
+  },
   {
     route: "/about",
     file: "about.html",
@@ -4631,6 +4642,7 @@ const SITEMAP_PAGE_META = {
  * omitted rather than being changed on every deployment.
  */
 const SITEMAP_LASTMOD = {
+  "/for-professionals": "2026-09-27",
   "/": "2026-07-13",
   "/about": "2026-07-13",
   "/about-insight-recovery-network": "2026-07-13",
