@@ -728,69 +728,38 @@ const PAGES = [
     file: "insight-os.html",
     title: "Insight OS: The Operating System for Your Recovery | Insight Recovery Network",
     description:
-      "Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
+      "InsightOS by Insight Recovery Network brings daily check-ins, private journalling, mood and trigger tracking, recovery planning and guided programmes together on iPhone, Android and the web.",
     ogImage: `${SITE_URL}/og-insight-os.png`,
     body: `
-      <header style="background:#162B3B;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-        <a href="/" style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:600;color:#F6F4F0;text-decoration:none;letter-spacing:0.02em;">Insight Recovery Network</a>
-        <nav aria-label="Main navigation" style="display:flex;gap:1.25rem;flex-wrap:wrap;align-items:center;">
-          <a href="/about" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">About</a>
-          <a href="/what-we-offer" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">What We Offer</a>
-          <a href="/assessments" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Assessments</a>
-          <a href="/treatment-placement" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Treatment Placement</a>
-          <a href="/online-programme" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Online Programme</a>
-          <a href="/insight-os" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Insight OS</a>
-          <a href="/resources" style="font-family:sans-serif;font-size:0.85rem;color:#F6F4F0;text-decoration:none;opacity:0.85;">Resources</a>
-          <a href="/contact" style="font-family:sans-serif;font-size:0.85rem;color:#fff;text-decoration:none;background:#C9A96E;padding:0.5rem 1.25rem;font-weight:600;">Book a confidential call</a>
-        </nav>
-      </header>
-      <main style="font-family:'Playfair Display',Georgia,serif;background:linear-gradient(160deg,#F2EDE3,#F6F4EF,#EEE9DF);color:#162B3B;">
-        <div style="max-width:1200px;margin:0 auto;padding:3rem 2rem;">
-          <section style="padding:2rem 0 3rem;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <p style="font-family:sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(201,169,110,0.8);margin-bottom:1.25rem;">Insight OS</p>
-            <h1 style="font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;max-width:680px;">
-              Digital Recovery Tools for Addiction and Mental Health
-            </h1>
-            <p style="font-family:sans-serif;font-size:1rem;line-height:1.8;max-width:600px;color:#4a5568;margin-bottom:2rem;">
-              Insight OS is a structured digital recovery platform designed to bring daily rhythm, accountability, and clinical guidance to life outside treatment. It combines daily check-ins, mood tracking, guided journaling, relapse prevention tools, and the Anchor recovery guidance system.
-            </p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Get Started</a>
-          </section>
-          <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1.5rem;">What Insight OS Includes</h2>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Daily Check-Ins</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">A structured morning check-in to set intentions and a reflective evening review to track progress and emotional state.</p>
-              </article>
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Mood Tracking</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Track emotional patterns over time to identify triggers, early warning signs, and progress in recovery.</p>
-              </article>
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Guided Journaling</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Clinically informed journal prompts to support reflection, self-awareness, and emotional processing in recovery.</p>
-              </article>
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Anchor Guidance System</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">A structured recovery guidance system providing strategies, frameworks, and prompts for navigating difficult moments.</p>
-              </article>
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Relapse Prevention Tools</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Personalised prevention plans, trigger identification, and structured response protocols for high-risk situations.</p>
-              </article>
-              <article style="padding:1.5rem;border:1px solid rgba(201,169,110,0.3);background:#fff;">
-                <h3 style="font-size:1rem;font-weight:500;margin-bottom:0.5rem;">Recovery Planning</h3>
-                <p style="font-family:sans-serif;font-size:0.875rem;color:#4a5568;line-height:1.65;">Goal setting, milestone tracking, and structured weekly planning to maintain momentum and long-term wellbeing.</p>
-              </article>
-            </div>
-          </section>
-          <section style="padding:3rem 0;">
-            <h2 style="font-size:2rem;font-weight:500;margin-bottom:1rem;">Get Started with Insight OS</h2>
-            <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:580px;">Insight OS is available as part of the Online Recovery Programme or as a standalone digital recovery tool. Contact us to find out more.</p>
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
-          </section>
-        </div>
+      <header style="background:#162B3B;padding:1.5rem 2rem;"><a href="/" style="color:#fff;">Insight Recovery Network</a></header>
+      <main id="main-content" style="max-width:1080px;margin:auto;padding:3rem 1.5rem;font-family:system-ui,sans-serif;color:#162B3B;line-height:1.7;">
+        <p>InsightOS by Insight Recovery Network</p>
+        <h1>InsightOS. Recovery, brought together.</h1>
+        <p>Bring daily check-ins, private journalling, mood and trigger tracking, and recovery planning together. InsightOS supports the day-to-day work of addiction recovery alongside appropriate human care.</p>
+        <section id="download" aria-label="Download InsightOS">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:24px;padding:12px 0;">
+            <a href="https://apps.apple.com/gb/app/insightos/id6807662315" rel="noreferrer"><img src="/store-badges/app-store-en.svg" alt="Download on the App Store" width="144" height="48" style="display:block;height:48px;width:auto;"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.insightrecoverynetwork.insightrecovery" rel="noreferrer"><img src="/store-badges/google-play-en.svg" alt="Get it on Google Play" width="162" height="48" style="display:block;height:48px;width:auto;"></a>
+          </div>
+          <p>Free to download. Foundation tools are free; Full Recovery is an optional auto-renewing subscription. For adults aged 18 and over.</p>
+          <p>On Google Play, the app is listed as Insight Recovery by Insight Recovery Network.</p>
+          <p><a href="https://irnonline.app" rel="noreferrer">Prefer a browser? Open the web app</a></p>
+        </section>
+        <h2>Built for the daily work of recovery.</h2>
+        <ul><li>Daily check-ins and private journalling</li><li>Mood, triggers and warning signs</li><li>Clean-time tracking and Recovery Wins</li><li>Grounding, breathing and reflection tools</li><li>Weekly planning and relapse prevention planning with Full Recovery</li></ul>
+        <h2>Optional Anchor AI for reflection</h2>
+        <p>Anchor offers optional AI-supported reflection and recovery prompts. The app explains what information will be sent to OpenAI and asks for your permission before each request. AI responses can be inaccurate. Anchor is not medical advice, therapy, clinical monitoring or emergency support.</p>
+        <h2>Start with Foundation. Explore Full Recovery.</h2>
+        <h3>Free Foundation</h3><p>Daily check-ins, private journalling, mood and trigger records, clean-time tracking and Recovery Wins help you keep your day-to-day recovery work in one place.</p>
+        <h3>Full Recovery subscription</h3><p>Includes the guided 90-Day Programme and the separate 12-week Recovery Foundations course, plus weekly planning, relapse prevention planning, recovery reports and advanced tools.</p>
+        <h3>How much does it cost?</h3><p>Foundation is free. Full Recovery has monthly and annual options. Your app store shows the current local price and renewal terms before you confirm. Human therapy and treatment are separate services.</p>
+        <h3>How do I cancel?</h3><p>Manage or cancel your subscription in the Apple or Google account used to subscribe. Deleting your InsightOS account or uninstalling the app does not cancel store billing. Use Restore Purchases in the app to restore eligible access.</p>
+        <h3>Is this clinical care?</h3><p>InsightOS is a recovery education and self-management app for adults. It does not replace medical care, therapy, supervised withdrawal or emergency support.</p>
+        <h2>Download InsightOS and begin with one check-in.</h2>
+        <p><a href="#download">Choose your app store</a></p>
+        <p><a href="https://irnonline.app/app-support" rel="noreferrer">App support</a> · <a href="https://irnonline.app/privacy-policy" rel="noreferrer">App privacy notice</a> · <a href="https://irnonline.app/terms" rel="noreferrer">App terms</a></p>
+        <p>For immediate danger or a medical emergency, contact your local emergency services. In the UK, call 999 or go to A&amp;E.</p>
+        <p style="font-size:12px;">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
       </main>
     `,
   },

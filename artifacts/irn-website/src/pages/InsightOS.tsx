@@ -1,9 +1,9 @@
+import { useEffect } from "react";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { Layout } from "@/components/layout/Layout";
 import { getOgConfig, ogImageUrl } from "@/config/og-pages";
-import { CTASection } from "@/components/ui/cta-section";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,11 +26,28 @@ import phoneCheckinImg from "@/assets/ios-phone-checkin.webp";
 import anchorGuidanceImg from "@/assets/ios-anchor-guidance.webp";
 import recoveryToolsImg from "@/assets/ios-recovery-tools.webp";
 
+const APP_STORE_URL = "https://apps.apple.com/gb/app/insightos/id6807662315";
+const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.insightrecoverynetwork.insightrecovery";
+const launchDescription = "InsightOS by Insight Recovery Network brings daily check-ins, private journalling, mood and trigger tracking, recovery planning and guided programmes together on iPhone, Android and the web.";
+
+function StoreDownloadLinks() {
+  return (
+    <div className="flex flex-wrap items-center gap-6 py-3" aria-label="Download InsightOS">
+      <a href={APP_STORE_URL} rel="noreferrer" className="inline-flex shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+        <img src="/store-badges/app-store-en.svg" alt="Download on the App Store" width="144" height="48" className="block h-12 w-auto" />
+      </a>
+      <a href={GOOGLE_PLAY_URL} rel="noreferrer" className="inline-flex shrink-0 rounded-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+        <img src="/store-badges/google-play-en.svg" alt="Get it on Google Play" width="162" height="48" className="block h-12 w-auto" />
+      </a>
+    </div>
+  );
+}
+
 const features = [
   {
     Icon: CalendarCheck,
     title: "Daily Check-ins",
-    body: "Build consistency through simple daily reflection. A structured check-in takes under two minutes and builds awareness over time.",
+    body: "Build consistency through simple daily reflection. Use a structured check-in to reflect on today and notice patterns over time.",
   },
   {
     Icon: Activity,
@@ -40,7 +57,7 @@ const features = [
   {
     Icon: BookOpen,
     title: "Guided Journaling",
-    body: "Turn thoughts and experiences into insight and action. Structured prompts guide reflection beyond what unstructured writing typically reaches.",
+    body: "Turn thoughts and experiences into insight and action. Use structured prompts or write about what matters to you.",
   },
   {
     Icon: Shield,
@@ -55,7 +72,7 @@ const features = [
   {
     Icon: BarChart2,
     title: "Progress & Insight",
-    body: "Review patterns, wins, and areas needing attention. Progress reviewed regularly is progress sustained.",
+    body: "Review patterns, wins, and areas needing attention. Keep a record you can return to and reflect on.",
   },
 ];
 
@@ -72,7 +89,7 @@ const outcomes = [
   {
     Icon: Lightbulb,
     title: "Recognise risk earlier",
-    body: "Daily tracking surfaces patterns that are easy to miss. Earlier recognition creates earlier intervention.",
+    body: "Record patterns and warning signs that you may want to discuss with your support network.",
   },
   {
     Icon: CalendarCheck,
@@ -82,7 +99,7 @@ const outcomes = [
   {
     Icon: CheckCircle2,
     title: "Strengthen accountability",
-    body: "A structured digital record creates honest visibility for both the individual and their support network.",
+    body: "Keep a private record of your recovery work. Sharing is a deliberate choice, not automatic monitoring.",
   },
   {
     Icon: ArrowRight,
@@ -97,7 +114,7 @@ const outcomes = [
   {
     Icon: RefreshCw,
     title: "Maintain progress after treatment",
-    body: "The post-treatment period is high-risk. Structured digital support reduces the likelihood of relapse in the critical early months.",
+    body: "Keep check-ins, reflection and practical plans together as you return to everyday life after treatment.",
   },
 ];
 
@@ -122,11 +139,18 @@ const pathways = [
 const insightOsOg = getOgConfig("/insight-os")!;
 
 export default function InsightOS() {
+  useEffect(() => {
+    // The route loads lazily, so the browser can miss its initial fragment target.
+    if (window.location.hash === "#download") {
+      document.getElementById("download")?.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+  }, []);
+
   return (
     <Layout>
       <SEO
         title={insightOsOg.seoTitle ?? insightOsOg.title}
-        description="Insight OS is a structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance."
+        description={launchDescription}
         canonical="/insight-os"
         ogImage={ogImageUrl(insightOsOg.file)}
       />
@@ -136,9 +160,10 @@ export default function InsightOS() {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Insight OS",
-            "description": "A structured digital recovery platform with daily check-ins, mood tracking, guided journaling, relapse prevention tools, and Anchor recovery guidance.",
+            "description": launchDescription,
             "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web",
+            "operatingSystem": "iOS, Android, Web",
+            "downloadUrl": [APP_STORE_URL, GOOGLE_PLAY_URL],
             "provider": { "@type": "Organization", "name": "Insight Recovery Network", "url": "https://www.insightrecoverynetwork.com" },
             "url": "https://www.insightrecoverynetwork.com/insight-os",
           })}
@@ -159,20 +184,20 @@ export default function InsightOS() {
 
             {/* Left: text */}
             <div className="lg:col-span-6 flex flex-col gap-5 md:gap-6">
-              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-accent/80">
-                Digital Recovery Platform
+              <span className="text-[9.5px] font-semibold tracking-[0.20em] uppercase text-primary/80">
+                InsightOS by Insight Recovery Network
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-serif text-primary leading-[1.08] tracking-tight">
-                Digital Recovery Tools for Addiction and Mental Health
+                InsightOS. Recovery, brought together.
               </h1>
               <p className="text-base md:text-lg text-muted-foreground font-light leading-relaxed max-w-xl">
-                A structured digital recovery platform helping users build daily consistency, track progress, recognise risk, and stay connected to the tools that support long-term change.
+                Bring daily check-ins, private journalling, mood and trigger tracking, and recovery planning together. InsightOS supports the day-to-day work of addiction recovery alongside appropriate human care.
               </p>
               <div className="flex flex-col gap-2.5 pt-1">
                 {[
                   "Daily structure between sessions and groups",
                   "Relapse prevention and trigger tracking",
-                  "Anchor: your recovery guide",
+                  "Optional Anchor AI for reflection",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-px flex-shrink-0" style={{ background: "rgba(201,169,110,0.7)" }} />
@@ -180,21 +205,18 @@ export default function InsightOS() {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                <a href="https://irnonline.app" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base shadow-sm w-full sm:w-auto">
-                    Open Insight OS
-                  </Button>
-                </a>
-                <a href="#platform-features">
-                  <Button variant="outline" size="lg" className="rounded-none h-12 md:h-14 px-7 md:px-10 text-sm md:text-base border-primary/20 hover:bg-primary/5 w-full sm:w-auto">
-                    Explore the Platform
-                  </Button>
+              <div id="download" className="scroll-mt-24 space-y-3 pt-2">
+                <StoreDownloadLinks />
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Free to download. Foundation tools are free; Full Recovery is an optional auto-renewing subscription. For adults aged 18 and over.
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  On Google Play, the app is listed as Insight Recovery by Insight Recovery Network.
+                </p>
+                <a href="https://irnonline.app" rel="noreferrer" className="inline-block text-sm text-primary underline underline-offset-4 py-2">
+                  Prefer a browser? Open the web app
                 </a>
               </div>
-              <p className="text-[11.5px] text-muted-foreground/55 font-light tracking-wide">
-                Private, structured, recovery-focused support.
-              </p>
             </div>
 
             {/* Right: product mockup image */}
@@ -315,7 +337,7 @@ export default function InsightOS() {
                 Meet Anchor, your recovery guide.
               </h2>
               <p className="text-[15px] text-muted-foreground font-light leading-relaxed">
-                Anchor provides reflective prompts, practical guidance, emotional check-ins, and recovery-focused support based on the tools and frameworks inside Insight OS.
+                Anchor offers optional AI-supported reflection and recovery prompts. The app explains what information will be sent to OpenAI and asks for your permission before each request.
               </p>
               <div className="grid grid-cols-2 gap-2.5 mt-1">
                 {anchorBullets.map((bullet) => (
@@ -330,7 +352,7 @@ export default function InsightOS() {
                 style={{ background: "rgba(246,244,240,0.70)", border: "1px solid rgba(201,169,110,0.18)" }}
               >
                 <p className="text-[12.5px] text-muted-foreground/70 font-light leading-relaxed">
-                  Anchor does not replace therapy, emergency support, or clinical care, but it helps users stay engaged with recovery between sessions.
+                  AI responses can be inaccurate. Anchor is not medical advice, therapy, clinical monitoring or emergency support.
                 </p>
               </div>
             </div>
@@ -392,7 +414,7 @@ export default function InsightOS() {
               </p>
               <div className="flex flex-col gap-2.5 mt-1">
                 {[
-                  "Daily check-ins that take under two minutes",
+                  "Simple daily check-ins",
                   "Structured prompts rather than blank pages",
                   "Plans that exist when they are needed most",
                   "Progress that can be reviewed and shared",
@@ -467,7 +489,7 @@ export default function InsightOS() {
                 Insight OS includes grounding techniques, breathing exercises, guided reflection, and journaling tools, accessible in the moments where support is most needed.
               </p>
               <p className="text-[14px] text-muted-foreground/75 font-light leading-relaxed">
-                These are not passive resources. They are interactive, structured tools that guide users through evidence-based techniques in real time.
+                Explore grounding, breathing and reflection exercises as part of your recovery routine. Choose tools that fit your needs and any guidance from your care team.
               </p>
             </div>
 
@@ -532,18 +554,37 @@ export default function InsightOS() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <CTASection
-        heading="Ready to use Insight OS?"
-        description="Access the platform or speak with us about how Insight OS can support your recovery pathway."
-        primaryCta={{ label: "Open Insight OS", href: "https://irnonline.app" }}
-        secondaryCta={{ label: "Book a confidential call", href: "/contact" }}
-        isExternal={true}
-        secondaryEvent="book_consultation_click"
-        sourcePage="insight-os"
-        serviceInterest="insight-os"
-        ctaLocation="final_cta"
-      />
+      <section className="py-12 md:py-20 bg-background">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-serif text-primary mb-8">Start with Foundation. Explore Full Recovery.</h2>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="border border-primary/15 p-6">
+              <h3 className="text-xl font-serif text-primary mb-3">Free Foundation</h3>
+              <p className="text-muted-foreground leading-relaxed">Daily check-ins, private journalling, mood and trigger records, clean-time tracking and Recovery Wins help you keep your day-to-day recovery work in one place.</p>
+            </div>
+            <div className="border border-primary/15 p-6">
+              <h3 className="text-xl font-serif text-primary mb-3">Full Recovery subscription</h3>
+              <p className="text-muted-foreground leading-relaxed">Includes the guided 90-Day Programme and the separate 12-week Recovery Foundations course, plus weekly planning, relapse prevention planning, recovery reports and advanced tools.</p>
+            </div>
+          </div>
+          <div className="space-y-5 text-sm text-muted-foreground leading-relaxed mb-10">
+            <p><strong className="text-primary">How much does it cost?</strong> Foundation is free. Full Recovery has monthly and annual options. Your app store shows the current local price and renewal terms before you confirm. Human therapy and treatment are separate services.</p>
+            <p><strong className="text-primary">How do I cancel?</strong> Manage or cancel your subscription in the Apple or Google account used to subscribe. Deleting your InsightOS account or uninstalling the app does not cancel store billing. Use Restore Purchases in the app to restore eligible access.</p>
+            <p><strong className="text-primary">Is this clinical care?</strong> InsightOS is a recovery education and self-management app for adults. It does not replace medical care, therapy, supervised withdrawal or emergency support.</p>
+          </div>
+          <h2 className="text-3xl font-serif text-primary mb-4">Download InsightOS and begin with one check-in.</h2>
+          <Button asChild size="lg" className="rounded-none">
+            <a href="#download">Choose your app store <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" /></a>
+          </Button>
+          <p className="mt-4 text-xs text-muted-foreground">Google Play lists the app as Insight Recovery by Insight Recovery Network.</p>
+          <div className="flex flex-wrap gap-x-6 gap-y-3 mt-6 text-sm">
+            <a href="https://irnonline.app/app-support" rel="noreferrer" className="text-primary underline underline-offset-4">App support</a>
+            <a href="https://irnonline.app/privacy-policy" rel="noreferrer" className="text-primary underline underline-offset-4">App privacy notice</a>
+            <a href="https://irnonline.app/terms" rel="noreferrer" className="text-primary underline underline-offset-4">App terms</a>
+          </div>
+          <p className="mt-6 text-xs text-muted-foreground">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+        </div>
+      </section>
     </Layout>
   );
 }
