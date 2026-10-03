@@ -65,3 +65,17 @@ test("strips result identifiers and query strings and rejects personal campaign 
   assert.equal(clean.utmCampaign, "");
   assert.equal(clean.utmTerm, "");
 });
+
+test("server preserves dated campaign labels using the same narrow rule as the browser", () => {
+  for (const campaign of ["irn_growth_20260926", "process_addictions_20260916", "irn_2026_autumn", "irn_growth_20240229"]) {
+    const clean = sanitiseEnquirySource(enquiryInput.parse({ ...request, utmCampaign: campaign }));
+    assert.equal(clean.utmCampaign, campaign);
+  }
+  for (const campaign of ["person07700900123", "person_07700900123", "irn_growth_20260229", "irn_growth_20261301", "irn_growth_20260931", "irn_growth_202609260", "test@example.com", "private free text"]) {
+    const clean = sanitiseEnquirySource(enquiryInput.parse({ ...request, utmCampaign: campaign }));
+    assert.equal(clean.utmCampaign, "", campaign);
+  }
+  const clean = sanitiseEnquirySource(enquiryInput.parse({ ...request, utmTerm: "person_20260926", utmContent: "person07700900123" }));
+  assert.equal(clean.utmTerm, "");
+  assert.equal(clean.utmContent, "");
+});

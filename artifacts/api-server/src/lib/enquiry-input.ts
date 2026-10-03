@@ -65,6 +65,17 @@ export const enquiryInput = z
   });
 export type EnquiryInput = z.infer<typeof enquiryInput>;
 
+function safeCampaignValue(value: string, field: string) {
+  if (!/^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(value)) return "";
+  if (!/\d{7}/.test(value)) return value;
+  // Match the browser's narrow exception for a real campaign YYYYMMDD suffix.
+  const dated = field === "utmCampaign" && value.match(/^[a-zA-Z][a-zA-Z_-]*_(20\d{2})(\d{2})(\d{2})$/);
+  if (!dated) return "";
+  const iso = `${dated[1]}-${dated[2]}-${dated[3]}`;
+  const date = new Date(`${iso}T00:00:00.000Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().startsWith(iso) ? value : "";
+}
+
 export function sanitiseEnquirySource(input: EnquiryInput): EnquiryInput {
   const result = { ...input };
   for (const field of [
@@ -94,11 +105,7 @@ export function sanitiseEnquirySource(input: EnquiryInput): EnquiryInput {
     "utmTerm",
     "utmContent",
   ] as const) {
-    if (
-      !/^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(input[field]) ||
-      /\d{7}/.test(input[field])
-    )
-      result[field] = "";
+    result[field] = safeCampaignValue(input[field], field);
   }
   return result;
 }

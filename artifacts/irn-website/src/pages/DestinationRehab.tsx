@@ -59,12 +59,12 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                 {d.heroIntro}
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/get-help" data-analytics-event="treatment_placement_enquiry" data-service-interest="treatment-placement" data-cta-location="hero">
+                <Link href="/get-help" data-analytics-event="treatment_placement_enquiry" data-service-interest="treatment-placement" data-source-page={d.slug} data-cta-location="hero" data-cta-label="Discuss treatment options">
                   <button
                     type="button"
                     className="inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
                   >
-                    Book a confidential call
+                    Discuss treatment options
                   </button>
                 </Link>
                 <Link href="/assessments">
@@ -120,7 +120,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
             </div>
             <div className="border border-border/40 bg-white p-8">
               <h3 className="font-serif text-xl font-medium mb-5 text-primary">
-                What treatment typically includes
+                {d.costIncludesHeading ?? "What treatment typically includes"}
               </h3>
               <ul className="space-y-3">
                 {d.costIncludes.map((item, i) => (
@@ -147,17 +147,17 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
             </h2>
             <p className="text-primary-foreground/80 leading-relaxed font-light mb-7 max-w-2xl">
               Speak confidentially with Craig Bilton first. Facilities are naturally focused on their
-              own programmes; our role is different. A short, assessment-led conversation can tell you
-              whether {d.country} fits your situation clinically and practically before you commit to
-              anyone.
+              own programmes; our role is different. A short conversation can help you
+              explore whether {d.country} may fit your needs and practical circumstances. The treatment
+              provider remains responsible for clinical assessment and admission.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/contact">
+              <Link href="/get-help" data-analytics-event="treatment_placement_enquiry" data-service-interest="treatment-placement" data-source-page={d.slug} data-cta-location="destination_costs" data-cta-label="Discuss treatment options">
                 <button
                   type="button"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-primary text-sm font-medium hover:bg-white/90 transition-colors w-full sm:w-auto"
                 >
-                  Book a confidential call
+                  Discuss treatment options
                 </button>
               </Link>
               <Link href="/assessments">
@@ -224,6 +224,22 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+      ) : null}
+
+      {d.references?.length ? (
+        <section className="py-8 border-b border-border/40">
+          <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+            <h2 className="font-serif text-xl text-primary mb-4">Travel and safety sources</h2>
+            <ul className="space-y-3 text-sm leading-relaxed">
+              {d.references.map((reference) => (
+                <li key={reference.href}>
+                  <a href={reference.href} className="text-primary underline underline-offset-4 break-words hover:text-accent">{reference.label}</a>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-muted-foreground mt-4">Check current guidance and the chosen provider's arrangements before travel.</p>
           </div>
         </section>
       ) : null}
@@ -323,7 +339,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
                     Private Rehab in {o.country}
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    From around £{o.costLow.toLocaleString()} · guide range
+                    {typeof o.costLow === "number" ? `From around £${o.costLow.toLocaleString()} · guide range` : "Compare itemised quotes and complete costs"}
                   </p>
                 </Link>
               ))}
@@ -345,7 +361,7 @@ export default function DestinationRehab({ slug }: DestinationRehabProps) {
       <CTASection
         heading={`Considering treatment in ${d.country}?`}
         body="A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently."
-        primaryLabel="Book a confidential call"
+        primaryLabel="Discuss treatment options"
         primaryHref="/get-help"
         primaryEvent="treatment_placement_enquiry"
         serviceInterest="treatment-placement"

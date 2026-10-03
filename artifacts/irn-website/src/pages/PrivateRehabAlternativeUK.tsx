@@ -285,6 +285,17 @@ export default function PrivateRehabAlternativeUK() {
         nextStep="Start a confidential conversation about suitable options."
       />
 
+      <section className="py-8 border-b border-border/40 bg-secondary/20" aria-labelledby="support-costs-heading">
+        <div className="container mx-auto px-6 md:px-12 max-w-5xl">
+          <h2 id="support-costs-heading" className="font-serif text-2xl text-primary mb-4">Compare the support and the cost separately</h2>
+          <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">
+            <p>If cost is the main concern, start with your GP or local addiction service. The NHS explains how to access <a href="https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/" className="text-primary underline underline-offset-4">alcohol support</a> and <a href="https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/" className="text-primary underline underline-offset-4">drug treatment services</a>. You do not need to buy an IRN service to explore these routes.</p>
+            <p>IRN's therapy, structured online programmes and additional support are paid services. Compare the sessions, duration and fees in our <Link href="/services-pricing-guide" className="text-primary underline underline-offset-4">services and pricing guide</Link>. An online programme is not a medical detox or a substitute for a higher level of care when required.</p>
+            <p>If you are comparing residential care, our <Link href="/treatment-placement" className="text-primary underline underline-offset-4">treatment-placement guidance</Link> carries no placement or referral fee to you. The chosen provider charges separately for treatment. An enquiry does not commit you to either option.</p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-12 md:py-20 border-b border-border/40">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-2xl mb-10">

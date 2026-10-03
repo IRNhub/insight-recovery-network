@@ -1095,6 +1095,12 @@ const PAGES = [
               <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
             </div>
           </section>
+          <section aria-labelledby="support-costs-heading" style="padding:2rem 0;border-bottom:1px solid rgba(201,169,110,0.25);max-width:760px;">
+            <h2 id="support-costs-heading" style="font-size:1.5rem;">Compare the support and the cost separately</h2>
+            <p style="font-family:sans-serif;line-height:1.8;">If cost is the main concern, start with your GP or local addiction service. The NHS explains how to access <a href="https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/">alcohol support</a> and <a href="https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/">drug treatment services</a>. You do not need to buy an IRN service to explore these routes.</p>
+            <p style="font-family:sans-serif;line-height:1.8;">IRN's therapy, structured online programmes and additional support are paid services. Compare the sessions, duration and fees in our <a href="/services-pricing-guide">services and pricing guide</a>. An online programme is not a medical detox or a substitute for a higher level of care when required.</p>
+            <p style="font-family:sans-serif;line-height:1.8;">If you are comparing residential care, our <a href="/treatment-placement">treatment-placement guidance</a> carries no placement or referral fee to you. The chosen provider charges separately for treatment. An enquiry does not commit you to either option.</p>
+          </section>
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             <h2 style="font-size:1.75rem;font-weight:500;margin-bottom:1.25rem;">Comparing Alternatives to Private Rehab</h2>
             <p style="font-family:sans-serif;font-size:0.95rem;line-height:1.8;color:#4a5568;max-width:720px;margin-bottom:1.5rem;">The most suitable route depends on withdrawal risk, physical and mental health, safety, willingness to engage, practical circumstances and the support available afterwards. These options are not interchangeable, and a proper assessment should come before a decision.</p>
@@ -3937,7 +3943,7 @@ function buildDestinationBodyHtml(d) {
               <div><strong>Who this is for</strong><p>People comparing private residential addiction treatment in ${escText(d.country)}, and families supporting that decision.</p></div>
               <div><strong>What it helps solve</strong><p>Clarifies likely fit, practical considerations and questions to ask before contacting a facility.</p></div>
               <div><strong>Where it applies</strong><p>Private treatment in ${escText(d.country)}; the chosen provider makes final admission and medical decisions.</p></div>
-              <div><strong>Next step</strong><p>Book a confidential call</p></div>
+              <div><strong>Next step</strong><p>Discuss treatment options</p></div>
             </div>
             <p style="font-size:0.78rem;line-height:1.7;color:#4a5568;margin-top:1rem;">Written by <a href="/about" style="color:#162B3B;">Craig Bilton, Founder &amp; Clinical Director</a>, drawing on 20+ years' international addiction and mental health experience. Insight Recovery Network is not a regulated healthcare provider, does not diagnose or prescribe, and is not an emergency service.</p>
           </section>
@@ -3948,7 +3954,7 @@ function buildDestinationBodyHtml(d) {
               <h1 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,4vw,3rem);line-height:1.08;font-weight:500;margin-bottom:1.5rem;">${escText(d.heroHeading)}</h1>
               ${p(d.heroIntro)}
               <div style="display:flex;gap:0.875rem;flex-wrap:wrap;margin-top:1rem;">
-                <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Book a confidential call</a>
+                <a href="/get-help" data-analytics-event="treatment_placement_enquiry" data-source-page="${esc(d.slug)}" data-service-interest="treatment-placement" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;">Discuss treatment options</a>
                 <a href="/treatment-placement" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">How Placement Works</a>
               </div>
             </div>
@@ -3962,7 +3968,7 @@ function buildDestinationBodyHtml(d) {
             ${h2(d.costHeading)}
             ${p(d.costIntro, "font-size:1.05rem;color:#162B3B;")}
             ${p(d.costNote, "font-size:0.85rem;")}
-            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:500;color:#162B3B;margin:1.5rem 0 0.75rem;">What treatment typically includes</h3>
+            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.2rem;font-weight:500;color:#162B3B;margin:1.5rem 0 0.75rem;">${escText(d.costIncludesHeading ?? "What treatment typically includes")}</h3>
             ${ul(d.costIncludes)}
           </section>
           ${d.detailSections?.length ? `
@@ -3975,6 +3981,11 @@ function buildDestinationBodyHtml(d) {
                 ${section.points?.length ? ul(section.points) : ""}
               </article>
             `).join("")}
+          </section>` : ""}
+          ${d.references?.length ? `<section style="padding:2rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
+            ${h2("Travel and safety sources")}
+            <ul style="font-family:sans-serif;line-height:1.8;overflow-wrap:anywhere;">${d.references.map((reference) => `<li><a href="${esc(reference.href)}">${escText(reference.label)}</a></li>`).join("")}</ul>
+            ${p("Check current guidance and the chosen provider's arrangements before travel.")}
           </section>` : ""}
           <section style="padding:3rem 0;border-bottom:1px solid rgba(201,169,110,0.25);">
             ${h2(d.whoHeading)}
@@ -3997,7 +4008,7 @@ function buildDestinationBodyHtml(d) {
             <p style="font-family:sans-serif;font-size:0.9rem;line-height:2;margin-bottom:2rem;"><a href="/treatment-placement" style="color:#162B3B;margin-right:1rem;">Treatment Placement</a><a href="/private-rehab-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab UK</a><a href="/private-rehab-alternative-uk" style="color:#162B3B;margin-right:1rem;">Private Rehab Alternatives</a><a href="/luxury-rehab" style="color:#162B3B;margin-right:1rem;">Luxury Rehab</a><a href="/executive-rehab" style="color:#162B3B;margin-right:1rem;">Executive Rehab</a><a href="/destination-rehab" style="color:#162B3B;margin-right:1rem;">Destination Rehab Guide</a><a href="/online-programme" style="color:#162B3B;margin-right:1rem;">Online Recovery Programme</a><a href="/assessments/detox" style="color:#162B3B;">Change and Withdrawal Assessment</a></p>
             ${h2(`Considering treatment in ${d.country}?`)}
             ${p("A confidential conversation can clarify whether this is the right setting for your situation, clinically and practically. No pressure, with relevant provider relationships explained transparently.")}
-            <a href="/contact" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Book a confidential call</a>
+            <a href="/get-help" data-analytics-event="treatment_placement_enquiry" data-source-page="${esc(d.slug)}" data-service-interest="treatment-placement" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;font-family:sans-serif;font-size:0.875rem;font-weight:500;margin-right:0.75rem;">Discuss treatment options</a>
             <a href="/assessments" style="display:inline-block;padding:0.875rem 2rem;border:1px solid rgba(22,43,59,0.25);color:#162B3B;text-decoration:none;font-family:sans-serif;font-size:0.875rem;">Take a free assessment</a>
           </section>
         </div>
@@ -4017,13 +4028,15 @@ function buildDestinationJsonLd(d) {
       image: `${SITE_URL}${d.heroImage}`,
       provider: { "@id": `${SITE_URL}/#organization` },
       areaServed: { "@type": "Country", name: d.country },
-      offers: {
-        "@type": "AggregateOffer",
-        priceCurrency: "GBP",
-        lowPrice: d.costLow,
-        highPrice: d.costHigh,
-        description: d.costIntro,
-      },
+      ...(Number.isFinite(d.costLow) && Number.isFinite(d.costHigh) ? {
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "GBP",
+          lowPrice: d.costLow,
+          highPrice: d.costHigh,
+          description: d.costIntro,
+        },
+      } : {}),
     },
     {
       "@context": "https://schema.org",
