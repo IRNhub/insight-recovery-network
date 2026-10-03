@@ -19,8 +19,10 @@ export interface Destination {
   whyPoints: string[];
   costHeading: string;
   costIntro: string;
-  costLow: number;
-  costHigh: number;
+  costLow?: number;
+  costHigh?: number;
+  costIncludesHeading?: string;
+  references?: Array<{ label: string; href: string }>;
   costNote: string;
   costIncludes: string[];
   whoHeading: string;
@@ -280,76 +282,111 @@ export const destinations: Destination[] = [
     slug: "private-rehab-spain",
     country: "Spain",
     title: "Private Rehab in Spain",
-    seoTitle: "Private Rehab in Spain | Costs, Placement & Guidance | Insight Recovery Network",
+    seoTitle: "Private Rehab Spain: Costs, UK Comparison & Placement | IRN",
     metaDescription:
-      "Considering private rehab in Spain? Assessment-led guidance on residential addiction treatment, from around £4,000 to £28,000 depending on facility, close to the UK with discreet options.",
+      "Compare private rehab in Spain with UK options. Check written costs, detox arrangements, travel, family involvement and UK aftercare before choosing treatment.",
     heroImage: "/private-rehab-spain-hero.png",
     heroImageAlt:
-      "Private treatment placement hero image for Spain with a Mediterranean residential rehab setting",
+      "Illustrative Mediterranean residential setting for the Spain treatment guide",
     heroEyebrow: "Treatment Placement: Spain",
-    heroHeading: "Private Rehab in Spain",
+    heroHeading: "Private Rehab in Spain: Costs and UK Treatment Options",
     heroIntro:
-      "Spain combines proximity to the UK with a broad spectrum of residential treatment, from accessible, well-run clinics to some of Europe's most exclusive private facilities. Short flights, easy family involvement, and a familiar time zone make Spain a practical choice for people who want distance from their environment without travelling across the world.",
-    whyHeading: "Why people choose Spain for rehab",
+      "Considering private rehab in Spain from the UK? Start by comparing the provider's clinical capability, full written cost and plan for returning home. IRN helps individuals and families work through suitable UK and Spanish options. We do not run the treatment centres, and the chosen provider makes the admission and medical decisions.",
+    whyHeading: "Spain or the UK: what matters for your decision?",
     whyIntro:
-      "Spain suits people who want genuine separation from home life while staying within easy reach of the UK:",
+      "Distance from home is one factor in treatment selection. Compare the same needs and budget in both countries before deciding:",
     whyPoints: [
-      "Two to three hours from most UK airports: practical for admissions, family visits, and returning home",
-      "The widest range of options in Europe: from accessible private clinics to ultra-premium facilities",
-      "English-speaking programmes designed for international clients",
-      "Climate and environment that support physical recovery, routine, and wellbeing",
-      "Easier family involvement in therapy where that is clinically appropriate",
+      "Clinical fit: confirm which withdrawal, physical-health and mental-health needs each provider can safely manage",
+      "Language: check that assessment, therapy, medical explanations and written discharge information are available in English",
+      "Family contact: agree visiting rules and consent for family involvement instead of assuming visits or therapy are included",
+      "Access: compare the whole door-to-door journey, transfer arrangements and what would happen if an early return were needed",
+      "Continuity: identify who will provide follow-up and any medication review after returning to the UK",
     ],
     costHeading: "How much does rehab in Spain cost?",
     costIntro:
-      "Residential treatment in Spain spans a wide range, from around £4,000 at accessible private clinics to around £28,000 at the most exclusive facilities, typically for a 28-day stay.",
-    costLow: 4000,
-    costHigh: 28000,
-    costNote: COST_DISCLAIMER,
+      "There is no single price for private rehab in Spain. Ask for a dated, itemised quote for the recommended length of stay and level of care. Compare the total in the provider's billing currency, including travel and UK aftercare, rather than choosing on a headline weekly or monthly fee.",
+    costNote:
+      "A provider's advertised price is not a personal quote or confirmation of availability. Confirm the exchange rate and payment fees if paying from the UK. IRN does not charge you a treatment-placement or referral fee; treatment providers charge for care, and IRN therapy or additional paid support is agreed separately. Any relevant provider relationship should be explained before you decide.",
+    costIncludesHeading: "What to confirm in your written quote",
     costIncludes: [
-      "Full residential accommodation and meals",
-      "Structured clinical programme: individual and group therapy",
-      "Medical and psychiatric oversight appropriate to the facility",
-      "Family involvement options where clinically appropriate",
-      "Aftercare planning before discharge",
+      "Exact nights, room type, meals and the scheduled individual and group therapy",
+      "Whether detox, medical assessment, psychiatric input, medicines and investigations are included or charged separately",
+      "Airport transfers, flights, changes to travel and any support needed during the journey",
+      "Deposit, cancellation terms, early discharge, additional nights and unexpected hospital care",
+      "Family sessions and aftercare: who delivers them, how often, for how long and at what extra cost",
     ],
-    whoHeading: "Who Spain tends to suit",
+    whoHeading: "When to consider Spain, and when to consider another route",
     whoPoints: [
-      "People who need distance from home but cannot, or do not want to, travel long-haul",
-      "Families who want to remain involved in the treatment process",
-      "Professionals who may need to return to the UK quickly if required",
-      "Those seeking premium, discreet treatment within Europe",
+      "Spain may be an option when the provider can meet the assessed needs and the person can travel safely",
+      "A UK setting may be more practical when local medical care, frequent family contact or continuity with existing services is needed",
+      "Medical or psychiatric instability needs appropriate assessment and care before an overseas admission is considered",
+      "If residential care is not required, compare local services and structured online support as separate options",
+    ],
+    detailSections: [
+      {
+        heading: "Confirm suitability before booking travel",
+        paragraphs: [
+          "Ask the receiving provider who assesses admission, who is medically responsible and which needs it cannot manage. Check the relevant local authorisation, staff qualifications, out-of-hours support and arrangements for escalation to hospital.",
+          "If alcohol or drug dependence raises withdrawal concerns, seek medical advice before stopping or travelling. An online questionnaire or placement conversation cannot establish that flying or detox abroad is safe. Urgent risk should be addressed locally before travel planning.",
+        ],
+      },
+      {
+        heading: "Travel, medicines and insurance from the UK",
+        paragraphs: [
+          "Check the current FCDO Spain travel guidance before booking. Agree the arrival airport, transfer, responsible contact and a plan for delays or a change in health. Discuss prescribed medicines and any required documentation with the prescriber and relevant authorities.",
+          "A GHIC or EHIC does not pay for private rehab or travel specifically for planned treatment. Confirm appropriate insurance with the insurer, including the reason for travel, existing conditions, unexpected care and repatriation; ordinary holiday cover should not be assumed to apply.",
+        ],
+      },
+      {
+        heading: "Plan UK aftercare before admission",
+        paragraphs: [
+          "Ask for a discharge plan that names the follow-up provider, first appointment, contact arrangements and costs. Clarify whether the centre's aftercare is online, individual or group support, and what happens if further help is needed.",
+          "With the person's consent, agree how relevant information will be shared with UK professionals. Medication supply and ongoing prescribing need their own plan. IRN's paid online or therapeutic support can be discussed separately where suitable; it does not replace medical care.",
+        ],
+      },
+      {
+        heading: "Bring the right questions to a placement conversation",
+        paragraphs: [
+          "You can start by explaining whether you are enquiring for yourself or a family member, the preferred timing, approximate budget and practical constraints. You do not need to choose a centre first or have every answer ready.",
+          "Use the confidential enquiry form or a private conversation for personal details. Ask how options are selected, what any referral relationship means and which fees belong to the provider or to additional IRN support. An enquiry does not reserve a place or commit you to treatment.",
+        ],
+      },
+    ],
+    references: [
+      { label: "FCDO: Spain travel and health guidance", href: "https://www.gov.uk/foreign-travel-advice/spain/health" },
+      { label: "GOV.UK: healthcare for UK nationals visiting Spain", href: "https://www.gov.uk/guidance/healthcare-for-uk-nationals-visiting-spain" },
+      { label: "NHS: alcohol support and withdrawal safety", href: "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/" },
     ],
     faqs: [
       {
-        question: "Why is the price range in Spain so wide?",
+        question: "Is private rehab in Spain cheaper than the UK?",
         answer:
-          "Because the market is genuinely broad. Spain hosts both accessible private clinics and some of Europe's most exclusive treatment facilities. The right choice is the one that matches your clinical needs and budget honestly. Paying more does not automatically mean better outcomes, and we will say so when that is the case.",
+          "It depends on the provider, assessed needs, length of stay and what the quote covers. Compare equivalent programmes and add travel, medical extras, extensions and UK aftercare. A lower advertised fee does not establish a lower total cost or suitable clinical care.",
       },
       {
         question: "Is Spain suitable if I need a medical detox?",
         answer:
-          "Several Spanish facilities provide medically supervised detox with appropriate clinical staffing. Whether detox should happen in Spain or be arranged in the UK before travel depends on the severity of physical dependency. This is assessed first, as a safety matter.",
+          "Detox capability varies by provider and must be confirmed directly. A medical professional needs to assess withdrawal risk and safe travel before any decision. Some people need treatment in the UK first or a different setting. IRN does not prescribe, provide detox or decide fitness to fly.",
       },
       {
-        question: "Can my family visit or take part in treatment?",
+        question: "Can my family take part in treatment in Spain?",
         answer:
-          "Often, yes, and proximity is one of Spain's real advantages. Many facilities offer structured family programmes or therapy sessions, and short flights make participation realistic in a way long-haul destinations cannot match.",
+          "Ask the chosen centre about family sessions, visiting, remote participation, consent and any additional fees. Do not assume that family therapy or visits are included in a residential price. Agree these arrangements before admission.",
       },
       {
-        question: "How do I choose between Spain and somewhere like Thailand?",
+        question: "Does a GHIC or EHIC cover rehab in Spain?",
         answer:
-          "It usually comes down to distance, budget, family involvement, and what kind of separation you need. Spain offers proximity and flexibility; Thailand and South Africa offer greater distance and, often, more treatment time per pound. This is exactly the kind of decision our placement guidance is designed to work through with you.",
+          "No. These cards cover eligible state healthcare, not private treatment or travel for planned treatment. Check funding, payment and appropriate insurance separately before booking.",
       },
       {
-        question: "Is Spain a good option for private rehab close to the UK?",
+        question: "What happens when I return to the UK?",
         answer:
-          "For many people, yes. Spain is two to three hours from most UK airports, which makes admission, family involvement, and the return home far more practical than long-haul destinations, while still providing genuine distance from the home environment. It suits people who want separation without travelling across the world. The right setting still depends on clinical need, detox requirements, and budget.",
+          "Agree a written discharge and aftercare plan before admission, including who provides follow-up, the first appointment, any medicine or prescribing arrangements and the costs. The centre's aftercare offer and any additional IRN support should be explained separately.",
       },
       {
-        question: "How quickly can someone travel to Spain for treatment?",
+        question: "How do I enquire about treatment in Spain?",
         answer:
-          "Once a facility is agreed and any clinical considerations are addressed, the short flight means travel can usually be arranged quickly. The key safety step is the same wherever someone goes: if there is significant physical dependency, withdrawal risk must be assessed and a medical detox planned before travel. We coordinate this so the move into treatment is safe and structured.",
+          "Request a confidential treatment conversation through IRN's enquiry form. We can discuss needs, timing, budget and UK or overseas options. Sending an enquiry does not book an appointment, reserve a treatment place or commit you to a service.",
       },
     ],
   },

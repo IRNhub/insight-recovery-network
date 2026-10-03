@@ -1,4 +1,5 @@
 import { hasConsent } from "@/lib/consent";
+import { safeAnalyticsParameters } from "@/lib/analytics-parameters";
 import {
   currentPathIsAssessmentSensitive,
   markAssessmentEntryIfNeeded,
@@ -34,8 +35,6 @@ export type AnalyticsEvent =
 
 export type ConversionEvent = Exclude<AnalyticsEvent, "spa_page_view">;
 
-const SENSITIVE_PARAMETER =
-  /(^|_)(name|email|phone|message|answer|response|clinical|diagnosis|score|result|risk|symptom|substance|assessment_type|free_text)(_|$)/i;
 const recentEvents = new Map<string, number>();
 let lastPageViewPath = "";
 
@@ -63,17 +62,6 @@ function trafficSource() {
   }
 }
 
-function safeParameters(parameters: Record<string, AnalyticsValue>) {
-  return Object.fromEntries(
-    Object.entries(parameters).filter(
-      ([key, value]) =>
-        !SENSITIVE_PARAMETER.test(key) &&
-        value !== undefined &&
-        (typeof value === "boolean" || typeof value === "number" || value.length <= 120),
-    ),
-  );
-}
-
 function eventFingerprint(event: AnalyticsEvent, parameters: Record<string, AnalyticsValue>) {
   return [
     event,
@@ -98,7 +86,7 @@ export function trackEvent(
     !hasConsent("analytics")
   ) return false;
 
-  const filtered = safeParameters(parameters);
+  const filtered = safeAnalyticsParameters(parameters);
   const fingerprint = eventFingerprint(event, filtered);
   const now = Date.now();
   if (now - (recentEvents.get(fingerprint) ?? 0) < 1_000) return false;

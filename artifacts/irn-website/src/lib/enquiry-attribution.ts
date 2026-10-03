@@ -18,6 +18,18 @@ const campaignFields = {
   utmContent: "utm_content",
 } as const;
 
+function safeCampaignValue(value: string, field: string) {
+  if (!/^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(value)) return "";
+  if (!/\d{7}/.test(value)) return value;
+  // Permit a real YYYYMMDD suffix on named campaigns, not phone-like numbers.
+  // Keep this rule aligned with the server's enquiry-input validator.
+  const dated = field === "utmCampaign" && value.match(/^[a-zA-Z][a-zA-Z_-]*_(20\d{2})(\d{2})(\d{2})$/);
+  if (!dated) return "";
+  const iso = `${dated[1]}-${dated[2]}-${dated[3]}`;
+  const date = new Date(`${iso}T00:00:00.000Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().startsWith(iso) ? value : "";
+}
+
 export function safeSourcePath(value: string, origin: string) {
   if (!value) return "";
   try {
@@ -49,9 +61,8 @@ export function sourceFromUrl(
   };
   for (const [field, parameter] of Object.entries(campaignFields)) {
     const value = url.searchParams.get(parameter) ?? "";
-    // Short campaign identifiers only; reject email/phone-like values and free text.
-    if (/^[a-zA-Z][a-zA-Z0-9_-]{0,79}$/.test(value) && !/\d{7}/.test(value))
-      source[field as keyof typeof campaignFields] = value;
+    // Short identifiers only; no contact details, query strings or free text.
+    source[field as keyof typeof campaignFields] = safeCampaignValue(value, field);
   }
   return source;
 }

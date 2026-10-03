@@ -104,9 +104,9 @@ const comparison: Array<{
     country: "Spain",
     href: "/private-rehab-spain",
     bestFor: "UK proximity, family involvement, treatment close to home",
-    cost: "Around £4,000 to £28,000 for 28 days",
+    cost: "Request an itemised quote for the assessed needs and length of stay",
     advantage:
-      "Easy travel from the UK with a wide range of clinical and private options",
+      "Compare clinical suitability, travel arrangements and UK aftercare",
   },
   {
     country: "Thailand",
@@ -157,7 +157,7 @@ const comparisonAreas = [
       "Treatment fees and the proposed length of stay",
       "Assessment, medication and other separate charges",
       "Travel, transfers and practical arrangements",
-      "Aftercare, extensions and IRN’s own support fees",
+      "Aftercare, extensions and any separate paid support",
     ],
     note: "Ask for a dated written breakdown. We explain any relevant referral or commercial relationship before you decide.",
   },
