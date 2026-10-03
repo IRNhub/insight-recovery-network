@@ -617,7 +617,7 @@ export default function ResourceDetail() {
         { title: "Support for families", description: "Find guidance on conversations, boundaries and getting support for yourself.", href: "/family-addiction-intervention-uk" },
       ];
     }
-    if (article.slug === "gambling-addiction") {
+    if (["gambling-addiction", "gambling-at-work"].includes(article.slug)) {
       return [
         { title: "NHS help for gambling problems", description: "Find gambling-specific NHS information and routes to specialist support.", href: "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" },
         { title: "Mental health and addiction", description: "Understand why gambling harm and mental-health needs should be assessed together.", href: "/resources/mental-health-and-addiction" },
@@ -854,7 +854,7 @@ export default function ResourceDetail() {
         secondaryCta: { label: "Support for families", href: "/family-addiction-intervention-uk" },
       };
     }
-    if (slug === "gambling-addiction") {
+    if (["gambling-addiction", "gambling-at-work"].includes(slug)) {
       return {
         heading: "Need gambling-specific support?",
         description: "Use NHS or commissioned gambling services for assessment and treatment. IRN can discuss its service limits and help you organise non-urgent next questions, but it is not a specialist gambling-treatment provider.",

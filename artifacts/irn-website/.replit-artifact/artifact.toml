@@ -525,6 +525,15 @@ kind = "web"
   from = "/resources/process-addictions"
   to = "/_resources/process-addictions.html"
 
+  # Explicit targets for the two newly approved articles.
+  [[services.production.rewrites]]
+  from = "/resources/hangxiety-anxiety-after-drinking"
+  to = "/_resources/hangxiety-anxiety-after-drinking.html"
+
+  [[services.production.rewrites]]
+  from = "/resources/gambling-at-work"
+  to = "/_resources/gambling-at-work.html"
+
   [services.env]
   PORT = "18088"
   BASE_PATH = "/"

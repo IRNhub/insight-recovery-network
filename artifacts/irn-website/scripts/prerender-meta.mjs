@@ -3862,7 +3862,14 @@ function buildArticleBodyHtml(meta, full) {
       </nav>`
     : "";
 
-  const finalCtaHtml = full.seriesLabel
+  const finalCtaHtml = full.slug === "gambling-at-work"
+    ? `<section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
+        <h2 style="font-family:Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Need gambling-specific support?</h2>
+        <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;max-width:680px;">Use NHS or commissioned gambling services for assessment and treatment. IRN can discuss its service limits and help you organise non-urgent next questions, but it is not a specialist gambling-treatment provider.</p>
+        <p><a href="https://www.nhs.uk/live-well/addiction-support/gambling-addiction/" style="display:inline-block;padding:0.875rem 2rem;background:#162B3B;color:#fff;text-decoration:none;">Find NHS gambling support</a></p>
+        <a href="/contact" style="color:#162B3B;">Ask IRN about service limits</a>
+      </section>`
+    : full.seriesLabel
     ? `<section style="padding:3rem 0;border-top:1px solid rgba(201,169,110,0.25);">
         <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:1.6rem;font-weight:500;margin-bottom:1rem;">Take part in the ongoing research</h2>
         <p style="font-family:sans-serif;font-size:1rem;line-height:1.7;color:#4a5568;margin-bottom:2rem;max-width:620px;">Have you been affected by a family member's addiction or compulsive behaviour? The anonymous UK Family Addiction Impact Survey 2026 remains open and will contribute to the final report.</p>

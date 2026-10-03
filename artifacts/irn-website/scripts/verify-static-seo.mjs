@@ -407,9 +407,9 @@ for (const pathname of batchTwoResourcePaths) {
 
 const batchThreeResourceVisuals = {
   "/resources/cannabis-withdrawal": {
-    hero: "/cannabis-withdrawal-uk-hero.webp",
-    alt: "Adult filling a glass of water beside an open kitchen window in the early morning.",
-    og: "/cannabis-withdrawal-uk-og.webp",
+    hero: "/cannabis-withdrawal-hero.webp",
+    alt: "An adult reading in bed beside a warm bedside lamp in a quiet evening bedroom. Illustrative image, not an IRN client.",
+    og: "/cannabis-withdrawal-og.webp",
   },
   "/resources/how-quickly-can-someone-enter-rehab": {
     hero: "/how-quickly-enter-private-rehab-uk-hero.webp",

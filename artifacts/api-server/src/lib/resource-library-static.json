@@ -1,6 +1,46 @@
 {
   "articles": [
     {
+      "slug": "hangxiety-anxiety-after-drinking",
+      "title": "Hangxiety: why alcohol can make anxiety worse the next day",
+      "excerpt": "The drink that helped you switch off can leave tomorrow feeling harder. Understand next-day anxiety, what may help and when symptoms need medical attention.",
+      "category": "Alcohol Recovery",
+      "image": "/hangxiety-anxiety-after-drinking-hero.webp",
+      "readingTime": 6,
+      "date": "2026-10-03",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "gambling-at-work",
+      "title": "Gambling at work: the problem a good performance review can miss",
+      "excerpt": "Good work performance can hide gambling harm. How to start a private conversation, set boundaries and find specialist support.",
+      "category": "Addiction & Substances",
+      "image": "/gambling-at-work-hero.webp",
+      "readingTime": 7,
+      "date": "2026-10-03",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "slip-lapse-relapse-difference",
+      "title": "Slip, lapse or relapse? The difference and what to do next",
+      "excerpt": "A return to use deserves attention, whatever you call it. Understand the language, check immediate safety and make a practical plan for support.",
+      "category": "Relapse Prevention",
+      "image": "/slip-lapse-relapse-difference-hero.webp",
+      "readingTime": 7,
+      "date": "2026-06-12",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "cannabis-withdrawal",
+      "title": "Cannabis Withdrawal: Symptoms, Timeline and Support",
+      "excerpt": "Understand cannabis withdrawal, sleep disruption and vivid dreams, realistic timelines, practical support and when symptoms need assessment.",
+      "category": "Addiction & Substances",
+      "image": "/cannabis-withdrawal-hero.webp",
+      "readingTime": 7,
+      "date": "2026-08-30",
+      "publishedStatus": "published"
+    },
+    {
       "slug": "rehab-family-programme",
       "title": "What should a rehab family programme actually include?",
       "excerpt": "“Family programme included” can leave a lot unexplained. Use these questions to find out what a rehab offers, who can take part, what it costs and how support continues after treatment.",
@@ -78,16 +118,6 @@
       "image": "/still-functioning-addiction-hero.webp",
       "readingTime": 8,
       "date": "2026-09-07",
-      "publishedStatus": "published"
-    },
-    {
-      "slug": "cannabis-withdrawal",
-      "title": "Cannabis Withdrawal: Symptoms, Timeline and Support",
-      "excerpt": "Understand cannabis withdrawal, including sleep disruption, irritability, appetite and mood changes, cravings, the usual recovery trajectory and when support may help.",
-      "category": "Addiction & Substances",
-      "image": "/cannabis-withdrawal-uk-hero.webp",
-      "readingTime": 13,
-      "date": "2026-08-30",
       "publishedStatus": "published"
     },
     {
@@ -442,15 +472,6 @@
       "date": "2026-06-12"
     },
     {
-      "slug": "slip-lapse-relapse-difference",
-      "title": "Slip, Lapse and Relapse: What Is the Difference?",
-      "excerpt": "Learn the difference between a slip, lapse, and relapse, and why the way you respond can shape your recovery.",
-      "category": "Relapse Prevention",
-      "image": "/slip-lapse-relapse-difference.png",
-      "readingTime": 11,
-      "date": "2026-06-12"
-    },
-    {
       "slug": "why-relapse-happens-before-substance-use",
       "title": "Why Relapse Happens Before the Substance Is Used",
       "excerpt": "Relapse often begins before drinking, drug use, or addictive behaviour. Learn the emotional and mental stages that come first.",
@@ -632,6 +653,10 @@
     }
   ],
   "approvedSlugs": [
+    "hangxiety-anxiety-after-drinking",
+    "gambling-at-work",
+    "slip-lapse-relapse-difference",
+    "cannabis-withdrawal",
     "rehab-family-programme",
     "process-addictions",
     "paws-after-benzodiazepines",
@@ -640,7 +665,6 @@
     "alcohol-free-beer-recovery",
     "ai-chatbots-addiction-recovery-support",
     "still-functioning-addiction",
-    "cannabis-withdrawal",
     "how-quickly-can-someone-enter-rehab",
     "28-day-vs-90-day-rehab",
     "alcohol-withdrawal-symptoms-when-you-need-medical-help",

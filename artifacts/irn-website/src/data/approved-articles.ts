@@ -10,7 +10,7 @@ import { gamblingAddictionArticle } from "./article-013-gambling-addiction";
 import { batchTwoDetoxWithdrawalArticles } from "./article-batch-2-detox-withdrawal";
 import { batchThreeCommercialDecisionArticles } from "./article-batch-3-commercial-decisions";
 
-export const approvedArticles = [
+const previouslyApprovedArticles = [
   rehabFamilyProgrammeArticle,
   {
     "slug": "process-addictions",
@@ -3622,4 +3622,371 @@ Seek professional advice promptly when:
 
 You do not need to wait until the situation is at its worst. An independent family appointment can be appropriate even when the person with the addiction is not ready to take part.`.trim(),
   },
+] satisfies Article[];
+
+// Four editorially approved articles for the 3 October 2026 release.
+// Refreshes override their existing canonical slugs without publishing other drafts.
+const searchAiFourArticles = [
+  {
+    "slug": "hangxiety-anxiety-after-drinking",
+    "title": "Hangxiety: why alcohol can make anxiety worse the next day",
+    "excerpt": "The drink that helped you switch off can leave tomorrow feeling harder. Understand next-day anxiety, what may help and when symptoms need medical attention.",
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-10-03",
+    "readingTime": 6,
+    "category": "Alcohol Recovery",
+    "seoTitle": "Hangxiety: Anxiety After Drinking and What Helps | IRN",
+    "metaDescription": "Anxious after drinking? Understand hangxiety, sleep disruption and the difference from alcohol withdrawal, with practical next steps and when to seek help.",
+    "ogTitle": "Hangxiety: why alcohol can make anxiety worse the next day",
+    "ogDescription": "The drink that helped you switch off can leave tomorrow feeling harder. Understand next-day anxiety, what may help and when symptoms need medical attention.",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "content": "**Hangxiety is an informal name for anxiety during a hangover. Alcohol can briefly feel calming, then leave you more restless as its effects wear off. Disrupted sleep and physical discomfort can add to the experience. However, anxiety after drinking is not automatically a hangover: withdrawal, an existing anxiety problem or another condition may need assessment.** [1](https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/hangovers) [2](https://www2.hse.ie/living-well/alcohol/health/mental-health/how-alcohol-affects-your-mental-health/) [3](https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/mental-health-issues-alcohol-use-disorder-and-common-co-occurring-conditions)\n\nPerhaps the evening felt ordinary: dinner, a few drinks and some welcome distance from work. The next morning brings a sense of dread. You replay a conversation, open your messages and wonder why a manageable day now feels so demanding.\n\nWhen this happens, the useful question is what is happening around the anxiety, and what would make the next step safer.\n\n## Why can something relaxing leave you anxious?\n\nAlcohol's immediate effects and its later effects can feel very different. NIAAA explains that the brain adapts to alcohol's initially relaxing effects; when those wear off, restlessness and anxiety can follow. A hangover involves several processes, so explaining it as dehydration alone misses part of the picture. [1](https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/hangovers)\n\nThere can also be a repeating pattern: stress, drinking for relief, feeling less able to cope afterwards, then wanting relief again. HSE guidance describes how drinking to manage difficult feelings can worsen mental health and leave the original pressures unresolved. That does not mean every anxious morning indicates dependence. It means the whole pattern deserves attention. [2](https://www2.hse.ie/living-well/alcohol/health/mental-health/how-alcohol-affects-your-mental-health/)\n\nTry asking: **“Is drinking helping with the pressure, or mainly postponing the moment I have to face it?”** You do not need to settle on a label to consider that question.\n\n## Falling asleep is not the same as sleeping well\n\nAlcohol can make falling asleep easier while leaving sleep lighter and more interrupted. Waking at 3 am after dropping off quickly is therefore not necessarily evidence that alcohol helped your sleep. [4](https://www.nhlbi.nih.gov/health/insomnia/treatment)\n\nNotice both parts of the night. How easily did you fall asleep, and how rested did you feel afterwards? For someone who drinks to switch off, that distinction can change how they judge the apparent benefit.\n\nProtecting the following night's sleep is more useful than looking for a dramatic reset. A consistent routine, a quiet wind-down and avoiding late caffeine are ordinary sleep measures recommended by NHLBI. They are not a treatment for withdrawal or a guarantee that anxiety will disappear. [5](https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits)\n\n## Hangover, withdrawal or an underlying anxiety problem?\n\nThese possibilities can overlap. A symptom list cannot reliably separate them for an individual.\n\n| What you notice | What deserves attention |\n|---|---|\n| Anxiety during the day after drinking | A hangover may contribute, but timing alone does not establish the cause. |\n| Anxiety, sweating or tremor when drinking is delayed or reduced | Possible withdrawal needs medical advice, especially with regular heavy drinking. [10](https://www2.hse.ie/living-well/alcohol/dependence/signs-patterns/) |\n| Anxiety that predates drinking, occurs on alcohol-free days or repeatedly disrupts daily life | Discuss both anxiety and alcohol use with a professional rather than assuming one explains everything. |\n\nAn assessment may look at what happened before drinking, during intoxication and after reducing use, alongside sleep, medicines and other health concerns. Mental-health symptoms can be alcohol-related, independent or interacting. [3](https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/mental-health-issues-alcohol-use-disorder-and-common-co-occurring-conditions)\n\n**If you may be dependent on alcohol, or have had withdrawal symptoms when cutting down, seek medical advice before reducing or stopping. Abrupt withdrawal can be dangerous.** Do not use another drink as a diagnostic test or attempt to devise your own detox plan. [6](https://www.nhs.uk/conditions/alcohol-use-disorder/)\n\nCall **999 or go to A&E** for severe withdrawal symptoms such as severe shaking (tremors), hallucinations, confusion or a seizure after reducing or stopping alcohol. Do not drive yourself. Milder shaking or sweating when alcohol is delayed or reduced still needs medical advice. [6](https://www.nhs.uk/conditions/alcohol-use-disorder/) [10](https://www2.hse.ie/living-well/alcohol/dependence/signs-patterns/)\n\nFor more detail, read our [alcohol withdrawal safety guide](https://www.insightrecoverynetwork.com/resources/alcohol-withdrawal-symptoms-when-you-need-medical-help).\n\n## What can you do today?\n\nIf withdrawal or another urgent problem might be involved, use healthcare support rather than the suggestions below.\n\n**Look after basic comfort.** Water and manageable food may ease some hangover discomfort. A supplement, punishing workout or another drink is not a proven cure. HSE advises contacting a GP about persistent symptoms or frequent hangovers. [7](https://www2.hse.ie/living-well/alcohol/health/how-alcohol-can-affect-everyday-life/hangover/)\n\n**Give the anxiety somewhere sensible to go.** The NHS suggests talking to someone you trust and trying calming breathing exercises. Choose something manageable rather than expecting yourself to solve every worry at once. Seek help if anxiety is difficult to cope with or your own efforts are not helping. [8](https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/)\n\n**Separate a concern from a conclusion.** As a reflection exercise, make two brief columns: “What I know happened” and “What I am worried might have happened.” This is an optional writing prompt, not a treatment or a way to dismiss real consequences. You can address something you regret without deciding that every anxious prediction is true.\n\n**Prepare one useful sentence.** For example: “I keep feeling anxious after drinking, and I would like help understanding the pattern.” It is enough to start a conversation with a GP or alcohol service. You do not need a polished account.\n\n## When it keeps happening, look beyond the morning after\n\nConsider what you want a professional conversation to clarify:\n\n- What role does alcohol play in the evening: enjoyment, sleep, confidence, escape or something else?\n- What changes the following day, including work, relationships and willingness to socialise?\n- What happens when you try to change the pattern?\n- Does anxiety also need attention in its own right?\n\nThese are discussion prompts, not a scoring tool. Current UK treatment guidance supports addressing both alcohol use and mental-health needs through an appropriate, coordinated plan. The timing of assessment and treatment should reflect the person's circumstances; a blanket requirement for prolonged abstinence can delay needed care. [9](https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/18-people-with-co-occurring-mental-health-conditions)\n\nOur [mental health and addiction guide](https://www.insightrecoverynetwork.com/resources/mental-health-and-addiction) explains how these needs can interact. IRN can help you explore recovery support and treatment-navigation options through a [confidential conversation](https://www.insightrecoverynetwork.com/get-help). IRN does not diagnose, prescribe, provide medical detox or replace emergency care.",
+    "faq": [
+      {
+        "question": "How long does hangxiety last?",
+        "answer": "A hangover may last 24 hours or longer, but there is no dependable countdown for an individual's anxiety. Persistent, worsening or severe symptoms deserve assessment. Do not wait for a presumed hangover to pass if you feel unsafe."
+      },
+      {
+        "question": "Does anxiety after drinking mean I have an addiction?",
+        "answer": "That symptom alone cannot establish a diagnosis. The wider pattern, including control over drinking, consequences and possible withdrawal, matters. You can ask for help because something concerns you, even without knowing which label fits."
+      },
+      {
+        "question": "Is hangxiety the same as alcohol withdrawal?",
+        "answer": "No. The informal term does not tell you whether dependence-related withdrawal is occurring. Some symptoms overlap. Anxiety with shaking or sweating when alcohol is reduced warrants medical advice; severe withdrawal symptoms need emergency care."
+      },
+      {
+        "question": "Will coffee, supplements or another drink fix it?",
+        "answer": "There is no proven quick hangover cure. More alcohol can prolong the problem, and remedies should not delay assessment when symptoms are concerning. Treating discomfort is different from resolving the drinking pattern behind repeated episodes."
+      },
+      {
+        "question": "What if I am anxious even when I have not been drinking?",
+        "answer": "Tell a GP or qualified professional. Anxiety may have causes beyond alcohol and deserves appropriate help. If you cannot keep yourself or someone else safe, call 999 or go to A&E. For urgent mental-health help in England, call NHS 111 and select the mental health option; routes vary elsewhere in the UK."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NIAAA: Hangovers",
+        "publisher": "niaaa.nih.gov",
+        "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/hangovers"
+      },
+      {
+        "title": "HSE: How alcohol affects your mental health",
+        "publisher": "www2.hse.ie",
+        "url": "https://www2.hse.ie/living-well/alcohol/health/mental-health/how-alcohol-affects-your-mental-health/"
+      },
+      {
+        "title": "NIAAA: Alcohol use disorder and common co-occurring mental-health conditions",
+        "publisher": "niaaa.nih.gov",
+        "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/mental-health-issues-alcohol-use-disorder-and-common-co-occurring-conditions"
+      },
+      {
+        "title": "NHLBI: Insomnia treatment",
+        "publisher": "nhlbi.nih.gov",
+        "url": "https://www.nhlbi.nih.gov/health/insomnia/treatment"
+      },
+      {
+        "title": "NHLBI: Healthy sleep habits",
+        "publisher": "nhlbi.nih.gov",
+        "url": "https://www.nhlbi.nih.gov/health/sleep-deprivation/healthy-sleep-habits"
+      },
+      {
+        "title": "NHS: Alcohol-use disorder",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+      },
+      {
+        "title": "NHS: Alcohol support",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/"
+      },
+      {
+        "title": "HSE: Hangover",
+        "publisher": "www2.hse.ie",
+        "url": "https://www2.hse.ie/living-well/alcohol/health/how-alcohol-can-affect-everyday-life/hangover/"
+      },
+      {
+        "title": "NHS: Get help with anxiety, fear or panic",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/feelings-and-symptoms/anxiety-fear-panic/"
+      },
+      {
+        "title": "UK clinical guidelines for alcohol treatment: Co-occurring mental-health conditions",
+        "publisher": "gov.uk",
+        "url": "https://www.gov.uk/guidance/clinical-guidelines-for-alcohol-treatment/18-people-with-co-occurring-mental-health-conditions"
+      },
+      {
+        "title": "HSE: Signs of alcohol dependence",
+        "publisher": "www2.hse.ie",
+        "url": "https://www2.hse.ie/living-well/alcohol/dependence/signs-patterns/"
+      },
+      {
+        "title": "NHS: Where to get urgent help for mental health",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      }
+    ],
+    "image": "/hangxiety-anxiety-after-drinking-hero.webp",
+    "imageAlt": "Adult reflecting beside a kitchen window in morning light, with a glass of water on the table. Illustrative image, not an IRN client.",
+    "ogImage": "/hangxiety-anxiety-after-drinking-og.webp",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630
+  },
+  {
+    "slug": "gambling-at-work",
+    "title": "Gambling at work: the problem a good performance review can miss",
+    "excerpt": "Good work performance can hide gambling harm. How to start a private conversation, set boundaries and find specialist support.",
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-10-03",
+    "readingTime": 7,
+    "category": "Addiction & Substances",
+    "seoTitle": "Gambling at Work: Signs, Support and UK Help | IRN",
+    "metaDescription": "Gambling harm can stay hidden behind good work performance. Learn how to start a private conversation, offer practical support and find specialist UK help.",
+    "ogTitle": "Gambling at work: the problem a good performance review can miss",
+    "ogDescription": "Good work performance can hide gambling harm. How to start a private conversation, set boundaries and find specialist support.",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "content": "**Someone can be meeting targets and still need help with gambling.** A performance review describes part of a person's working life. It cannot establish whether they are chasing losses, worrying about debt or finding gambling increasingly difficult to control. The useful response is a private, respectful conversation, clear boundaries and access to specialist support.\n\nThat matters whether you are worried about yourself, a colleague or someone you manage. You do not need to wait for a missed deadline, a damaged relationship or a financial crisis before taking a concern seriously.\n\n## Why good performance tells only part of the story\n\nA person can answer emails, lead meetings and finish a project while keeping something difficult to themselves. Equally, an employee who seems distracted may be dealing with bereavement, illness, caring responsibilities or another pressure entirely.\n\nWorkplace concern needs to leave room for both possibilities. Assuming everything is fine because the work is getting done can close off a conversation. Assuming gambling explains every change can make that conversation accusatory.\n\nNICE identifies shame and fear of disclosure as barriers to seeking help.[1](https://www.nice.org.uk/guidance/ng248/chapter/recommendations) Before raising a concern, consider whether the person knows where they could speak privately, what would happen next and who might receive information. An unexplained promise to “tell HR” is unlikely to answer those worries.\n\n## What might justify a check-in?\n\nStart with what you have actually noticed or what someone has chosen to tell you. Examples might include repeated requests to borrow money, distress after discussing losses, missed commitments or an employee saying that betting is occupying their thoughts during the day.\n\n**None of these observations establishes a gambling disorder.** Frequent phone use, tiredness or a difficult month are especially poor grounds for drawing conclusions. Avoid diagnosing a colleague from a checklist, searching their personal accounts or discussing suspicions with the team.\n\nGamCare describes how gambling problems can affect wellbeing, attendance and productivity, and recommends workplace policies and appropriate signposting.[2](https://www.gamcare.org.uk/news-and-blog/blog/problem-gambling-at-work/) The point of noticing a change is to open a route to support, not to build a case around an assumed diagnosis.\n\n## How to start a private conversation\n\nChoose a quiet setting with enough time. If you manage the person, explain the purpose of the conversation and the limits of confidentiality before inviting sensitive detail. Do not promise that nothing they say could ever be shared.\n\nAn opening could be:\n\n“You mentioned that money has been worrying you, and you seemed upset after our last conversation. I wanted to check how you are doing. Is there something affecting you that you would like support with?”\n\nIf the person has already mentioned gambling, be direct without being confrontational:\n\n“You said the betting has become hard to switch off. Is it causing you difficulties? We can look at specialist support together if that would help.”\n\nAllow an answer without immediately offering a solution. If they do not want to discuss it, leave the door open and provide the support details privately. Avoid demanding a full account of debts, bets or family disagreements. The first conversation can end with one manageable next step and an agreed time to check in.\n\n## What helpful workplace support can look like\n\nA manager's role has limits. You can help someone reach appropriate support without becoming their therapist, debt adviser or monitor.\n\nPractical arrangements to discuss might include time for an appointment, a private place to make a support call or a follow-up meeting with a named person. If an employee assistance programme or occupational health service is available, clarify what it offers rather than assuming it includes specialist gambling treatment.\n\nKeep any record factual and proportionate. Agree how routine updates will happen and explain who needs to know about an arrangement. Avoid unnecessary details in shared calendars or team messages. For an individual employment or information-sharing decision, obtain appropriate HR or professional advice.\n\nSupport also needs clear boundaries. If there is an actual safety incident, missing money or another concrete workplace concern, address it through the relevant process. A disclosure of gambling harm does not establish misconduct, and a supportive conversation should not promise a particular employment outcome.\n\nReview everyday team activities too. Someone should be able to decline a sweepstake or betting conversation without being pressed for an explanation. Offer social activities where gambling is not the organising theme.\n\n## If you are worried about your own gambling\n\nYou can seek specialist help before deciding what to disclose at work. A first call can begin with: “My work looks fine, but gambling is becoming difficult to manage.” You do not need to arrive with the right label or a complete plan.\n\nOur [guide to gambling addiction and gambling-related harm](https://www.insightrecoverynetwork.com/resources/gambling-addiction) explains warning signs, assessment and treatment in more detail.\n\nThe NHS suggests practical measures including gambling-payment blocks, self-exclusion and advice about debts.[3](https://www.nhs.uk/live-well/addiction-support/gambling-addiction/) Ask a support adviser which options fit your circumstances. Each tool has limits; putting a barrier in place is one action, not proof that the underlying difficulty has been resolved.\n\nIf work is affected, consider what you need from a conversation: time for treatment, help with a particular task or advice about an immediate concern. You can ask how personal information will be handled before deciding how much to share.\n\n## Colleagues and families need boundaries too\n\nAs a colleague, you can listen, pass on support details and offer company while someone makes a call. You can also decline to lend money or give a false explanation for someone's absence. A possible response is: “I cannot lend you money, but I can sit with you while you contact someone who can help.”\n\nPartners and families may need support in their own right. NICE recommends helping affected others manage their distress and access advice independently of the person gambling.[1](https://www.nice.org.uk/guidance/ng248/chapter/recommendations) Their needs should not be reduced to persuading someone else to change.\n\nFor wider guidance on communication and boundaries, see our [addiction support for families guide](https://www.insightrecoverynetwork.com/resources/addiction-support-for-families). Use the gambling-specific services below for specialist gambling support.\n\n## Where to find specialist help\n\n- **GamCare's National Gambling Helpline:** call **0808 8020 133**, free, 24 hours a day, seven days a week. Live chat is also available through [GamCare](https://www.gamcare.org.uk/).[4](https://www.gamcare.org.uk/)\n- **NHS services:** in England, you can self-refer to a specialist gambling clinic or ask your GP about local options. See the [NHS gambling support page](https://www.nhs.uk/live-well/addiction-support/gambling-addiction/).[3](https://www.nhs.uk/live-well/addiction-support/gambling-addiction/)\n- **Immediate danger:** call **999** or go to A&E if someone's life is at risk or you cannot keep yourself or another person safe. In England, call **111** and select the mental health option for urgent mental health help.[5](https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/)\n- **Someone to talk to:** [Samaritans](https://www.samaritans.org/how-we-can-help/contact-samaritan/) is available free on **116 123**, day or night.[6](https://www.samaritans.org/how-we-can-help/contact-samaritan/)\n\nGambling-related harm can involve serious suicide risk.[1](https://www.nice.org.uk/guidance/ng248/chapter/recommendations) If someone describes immediate danger, focus on getting urgent help rather than continuing a workplace discussion.",
+    "faq": [
+      {
+        "question": "Can someone have a gambling problem while doing well at work?",
+        "answer": "Yes. Work performance does not measure control over gambling or harm elsewhere in a person's life. Consider the concern they describe, rather than waiting for professional consequences."
+      },
+      {
+        "question": "Should I ask a colleague whether they gamble?",
+        "answer": "If you have a relevant concern, a calm, private question can be appropriate. Explain what prompted it, avoid assumptions and respect their choice about what to disclose."
+      },
+      {
+        "question": "Does borrowing money mean someone has a gambling addiction?",
+        "answer": "No. Financial difficulty has many possible causes. Set your own lending boundary without assigning a diagnosis."
+      },
+      {
+        "question": "Can a family member get help if the person gambling refuses?",
+        "answer": "Yes. Support for affected others can be accessed separately. Their wellbeing matters regardless of whether the person gambling is ready to seek treatment."
+      },
+      {
+        "question": "Does IRN provide specialist gambling treatment?",
+        "answer": "Insight Recovery Network provides recovery and treatment-navigation information. IRN is not a specialist gambling treatment service. For gambling-specific assessment and treatment, start with the specialist services listed above."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NICE NG248: Gambling-related harms, recommendations",
+        "publisher": "nice.org.uk",
+        "url": "https://www.nice.org.uk/guidance/ng248/chapter/recommendations"
+      },
+      {
+        "title": "GamCare: Problem Gambling at Work",
+        "publisher": "gamcare.org.uk",
+        "url": "https://www.gamcare.org.uk/news-and-blog/blog/problem-gambling-at-work/"
+      },
+      {
+        "title": "NHS: Help for problems with gambling",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/live-well/addiction-support/gambling-addiction/"
+      },
+      {
+        "title": "GamCare: Support starts here",
+        "publisher": "gamcare.org.uk",
+        "url": "https://www.gamcare.org.uk/"
+      },
+      {
+        "title": "NHS: Where to get urgent help for mental health",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      },
+      {
+        "title": "Samaritans: Contact a Samaritan",
+        "publisher": "samaritans.org",
+        "url": "https://www.samaritans.org/how-we-can-help/contact-samaritan/"
+      }
+    ],
+    "image": "/gambling-at-work-hero.webp",
+    "imageAlt": "Adult taking a private pause in an office breakout area, with an inactive phone face down beside a closed notebook. Illustrative image, not an IRN client.",
+    "ogImage": "/gambling-at-work-og.webp",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630
+  },
+  {
+    "slug": "slip-lapse-relapse-difference",
+    "title": "Slip, lapse or relapse? The difference and what to do next",
+    "excerpt": "A return to use deserves attention, whatever you call it. Understand the language, check immediate safety and make a practical plan for support.",
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-06-12",
+    "readingTime": 7,
+    "category": "Relapse Prevention",
+    "seoTitle": "Slip, Lapse or Relapse? Differences and Next Steps | IRN",
+    "metaDescription": "Understand slip, lapse and relapse, why even a brief return to use can be serious, and how to take the next step with safety, support and less shame.",
+    "ogTitle": "Slip, lapse or relapse? The difference and what to do next",
+    "ogDescription": "A return to use deserves attention, whatever you call it. Understand the language, check immediate safety and make a practical plan for support.",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "content": "**A lapse usually means a brief return to substance use after a period of change or abstinence. “Slip” is an informal word often used in the same way. “Relapse” often describes a return to an established pattern, although services and researchers use these terms differently. None of these labels tells you whether an episode is medically safe.** [Relapse prevention review](https://doi.org/10.1186/1747-597X-6-17)\n\nIf you have used again, you may be asking two different questions: “What do I call this?” and “What does this mean about me?” The first can help describe what happened. The second can quickly turn an event into a verdict on your worth.\n\nYou can take the event seriously without deciding that everything you have learned has disappeared. Start with what needs attention now. The explanation can follow once immediate safety has been considered.\n\n## Check safety before choosing a label\n\nIf an overdose or harmful poisoning may have occurred, call **999** for emergency help. Do not wait for certainty or describe an episode as “only a slip” to explain away unconsciousness, breathing difficulties or a seizure. Follow the call handler's instructions. [NHS poisoning guidance](https://www.nhs.uk/conditions/poisoning/)\n\n**A single return to opioid use can cause an overdose.** Tolerance falls after a period without opioids, so a previously used amount may now be dangerous. The NHS specifically warns about this after heroin detoxification. [NHS heroin treatment guidance](https://www.nhs.uk/live-well/addiction-support/heroin-get-help/)\n\nIf you may be physically dependent on alcohol, seek medical advice before reducing or stopping. Abrupt withdrawal can be dangerous. Severe symptoms such as hallucinations, confusion or seizures require emergency help. Do not turn “get back on track” into an unsupervised detox plan. [NHS alcohol-use disorder guidance](https://www.nhs.uk/conditions/alcohol-use-disorder/)\n\nIf you cannot keep yourself or someone else safe, call **999 or go to A&E**. In England, NHS 111's mental-health option can help with urgent mental-health needs without immediate danger. [NHS urgent mental-health help](https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/)\n\n## What do slip, lapse and relapse mean?\n\nThese are useful descriptions, but there is no universal rule that one episode is a lapse and two episodes are a relapse. Research definitions vary by substance, treatment goal and study. Agreeing what the words mean with your support team is more helpful than treating them as fixed grades of seriousness. [Relapse prevention review](https://doi.org/10.1186/1747-597X-6-17)\n\n| Term | How it is commonly used | What it does not establish |\n|---|---|---|\n| Slip | An informal description of a return to use, often brief. | That the episode was minor, accidental or safe. |\n| Lapse | A brief return after abstinence or another agreed change. | That it will remain isolated or needs no support. |\n| Relapse | A return to a previous pattern; some services use it for any return to use. | That recovery is impossible or previous progress has no value. |\n\nThe same person might describe an event differently from their clinician or support group. Ask: “When we use that word, what action are we agreeing to take?” That keeps the conversation useful.\n\n## Does a return to use mean treatment has failed?\n\nA return to use is a reason to review support, not automatic proof that treatment cannot work. NIDA advises that recurrence may indicate a need to resume treatment, modify it or try another approach. It also stresses that returning to use can be dangerous. [NIDA: Drugs, Brains, and Behavior](https://irp.nida.nih.gov/wp-content/uploads/2019/12/NIDA_DrugsBrainsAddiction_2018.pdf)\n\nThat does not make relapse inevitable, harmless or a required stage of recovery. You do not need to experience another episode to qualify for help.\n\nTry holding two statements together: **“This matters” and “I am still worth helping.”** Neither cancels the other. They leave room for responsibility, practical changes and an honest account of what happened.\n\n## What should you do after a lapse or relapse?\n\nOnce urgent safety needs have been addressed, make the next steps specific enough to carry out.\n\n### 1. Tell someone who can help\n\nContact your treatment team, local drug or alcohol service, GP or a trusted support person. A starting sentence can be short: “I used again and need help deciding what to do next.” If you already have a care plan, check its instructions for contacting support between appointments.\n\nThe NHS describes local services as a route to assessment and a plan suited to your circumstances. You can approach a drug treatment service yourself; a GP referral is not always needed. [NHS: getting help with drug use](https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/)\n\n### 2. Describe the event without softening or catastrophising it\n\nRecord what you used, roughly when, whether other substances or medicines were involved, and how you feel now. Give clinicians the information they need. Do not change prescribed medication or make a withdrawal plan from an online article.\n\nFor your own reflection, “I drank on Friday and missed my appointment” is more specific than either “It was nothing” or “Everything is ruined”. Specific information creates a useful starting point for the next conversation.\n\n### 3. Review what support needs to change\n\nWith your support team, look at what was happening around the episode. Was there an unexpected situation, a difficult evening, untreated distress, access to substances or a gap between appointments? These are questions to explore, not a formula that explains every relapse.\n\nChoose one immediate change and one follow-up action. For example: arrange contact this evening, then discuss the treatment plan tomorrow. Our [relapse prevention plan guide](https://www.insightrecoverynetwork.com/resources/relapse-prevention-plan) can help organise a longer conversation once immediate needs are covered.\n\n## What about shame and “I've ruined everything” thinking?\n\nRelapse-prevention models describe an “abstinence violation effect”: interpreting a lapse as personal failure may contribute to further use. It is a model for understanding a possible response, not a rule that explains everyone's experience. [Relapse prevention overview](https://pmc.ncbi.nlm.nih.gov/articles/PMC5844157/)\n\nAvoid replacing one accusation with another: “I relapsed because I felt ashamed” can become another way to blame yourself. Many factors may be involved. A useful response is to notice the thought, tell someone what happened and ask what support is needed.\n\nCompassion does not require ignoring consequences. You can acknowledge harm, repair what is possible and accept boundaries without using humiliation as the recovery plan.\n\n## How can families respond?\n\nA first response might be: “I'm glad you told me. Are you safe, and who can we contact?” Save detailed questions about the relationship or money for a time when the person can participate safely.\n\nFamily members can be compassionate and clear about their limits. You do not have to lend money, cover up an absence or accept threatening behaviour. You can offer help making a call while recognising that you cannot control another person's recovery.\n\nAsk for support for yourself if the situation is exhausting or frightening. Families should not be expected to replace emergency services or clinical care. If you are with someone in immediate danger, call 999 and follow the call handler's instructions.\n\n## When should you seek more support?\n\nYou can ask now. Repeated episodes, difficulty interrupting use, worsening health or a plan that no longer feels workable are reasons for a professional review. You do not have to wait until an event meets someone's definition of relapse.\n\nIRN can help you explore [recovery support](https://www.insightrecoverynetwork.com/online-programme) and [treatment-placement options](https://www.insightrecoverynetwork.com/treatment-placement). Suitability depends on individual circumstances and any necessary assessment by a qualified healthcare professional. IRN does not provide medical detox, prescribe or replace emergency care.\n\nA [confidential conversation with IRN](https://www.insightrecoverynetwork.com/contact) can help you organise your questions and consider appropriate next steps.",
+    "faq": [
+      {
+        "question": "Is a lapse the same as a slip?",
+        "answer": "Often, yes. “Slip” is informal language, while “lapse” commonly describes a brief return to use. Meanings vary. Ask your support team how they use the terms rather than assuming they indicate different levels of safety."
+      },
+      {
+        "question": "Can one use be serious enough to need urgent help?",
+        "answer": "Yes. The duration or label does not determine medical risk. One episode can involve overdose or another emergency, particularly when opioid tolerance has fallen. Seek urgent help according to symptoms and circumstances."
+      },
+      {
+        "question": "Does a lapse always become a relapse?",
+        "answer": "No. A further return to use is not inevitable, but no response guarantees prevention. Address safety, reconnect with support and review what needs to change."
+      },
+      {
+        "question": "Must I reset my recovery day count?",
+        "answer": "People and programmes use day counts differently. Discuss what is honest and useful within your approach. A counting decision should not delay help or erase skills, relationships and changes you have built."
+      },
+      {
+        "question": "Do I need residential treatment after a relapse?",
+        "answer": "Not automatically. Treatment should fit your health, risks, circumstances and preferences. A professional assessment can help decide whether community support, changes to an existing plan or more intensive care is appropriate."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Hendershot and colleagues: Relapse prevention for addictive behaviors, 2011",
+        "publisher": "doi.org",
+        "url": "https://doi.org/10.1186/1747-597X-6-17"
+      },
+      {
+        "title": "NHS: Poisoning",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/conditions/poisoning/"
+      },
+      {
+        "title": "NHS: Heroin addiction, getting help",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/live-well/addiction-support/heroin-get-help/"
+      },
+      {
+        "title": "NHS: Alcohol-use disorder",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/conditions/alcohol-use-disorder/"
+      },
+      {
+        "title": "NHS: Where to get urgent help for mental health",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      },
+      {
+        "title": "NIDA: Drugs, Brains, and Behavior, 2018",
+        "publisher": "irp.nida.nih.gov",
+        "url": "https://irp.nida.nih.gov/wp-content/uploads/2019/12/NIDA_DrugsBrainsAddiction_2018.pdf"
+      },
+      {
+        "title": "NHS: Drug addiction, getting help",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/"
+      },
+      {
+        "title": "Menon and Kandasamy: Relapse prevention, 2018",
+        "publisher": "pmc.ncbi.nlm.nih.gov",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5844157/"
+      }
+    ],
+    "updatedDate": "2026-10-03",
+    "image": "/slip-lapse-relapse-difference-hero.webp",
+    "imageAlt": "Two adults having a calm, supportive conversation in a comfortable living room. Illustrative image, not IRN clients.",
+    "ogImage": "/slip-lapse-relapse-difference-og.webp",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630
+  },
+  {
+    "slug": "cannabis-withdrawal",
+    "title": "Cannabis Withdrawal: Symptoms, Timeline and Support",
+    "excerpt": "Understand cannabis withdrawal, sleep disruption and vivid dreams, realistic timelines, practical support and when symptoms need assessment.",
+    "author": "Craig Bilton",
+    "authorRole": "Founder & Clinical Director",
+    "date": "2026-08-30",
+    "readingTime": 7,
+    "category": "Addiction & Substances",
+    "seoTitle": "Cannabis Withdrawal: Symptoms, Sleep & Timeline | IRN",
+    "metaDescription": "Struggling to sleep after stopping cannabis? Understand withdrawal symptoms, vivid dreams, likely timelines, practical support and when to seek help.",
+    "ogTitle": "Cannabis Withdrawal: Symptoms, Timeline and Support",
+    "ogDescription": "Understand cannabis withdrawal, sleep disruption and vivid dreams, realistic timelines, practical support and when symptoms need assessment.",
+    "publishedStatus": "published",
+    "medicalWebPage": true,
+    "content": "**Cannabis withdrawal can affect sleep, mood, appetite and cravings after someone stops or substantially reduces frequent use. Difficulty sleeping and vivid dreams are recognised experiences. They do not mean that you have failed at stopping, but severe or worsening symptoms deserve assessment rather than an assumption that they will pass.** [NHS inform](https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/cannabis/)\n\nIf you cannot keep yourself or someone else safe, call **999 or go to A&E**. For urgent mental-health help without immediate danger, contact an urgent GP service or NHS 111; in England, select the mental-health option. [NHS urgent help](https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/)\n\n## What cannabis withdrawal can feel like\n\nPeople describe being more easily irritated, struggling to concentrate, feeling low, craving cannabis or lying awake when exhausted. Dreams can become unusually intense. Not everyone has every symptom, and someone who looks outwardly capable may still be finding the evenings difficult. [NHS inform](https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/cannabis/)\n\nRestlessness and reduced appetite can also occur. Some people describe headache, nausea or cramping. Withdrawal can happen without a diagnosis of cannabis use disorder; symptoms alone do not establish that diagnosis. [NIH cannabis information](https://health.nih.gov/substance-use-drugs/cannabis)\n\nAvoid turning a symptom checklist into a verdict. A useful description for a professional is specific: when you last used, what changed, how sleep and eating have been affected, and whether you feel safe.\n\n## How long does cannabis withdrawal last?\n\nConnor and colleagues' clinical review describes symptoms commonly beginning within **24 to 48 hours**, with many peaking around **days two to six**. Some symptoms last three weeks or longer after heavy use, and sleep disturbance can persist beyond the early phase. These ranges describe groups of people, not a deadline for an individual. [Clinical management of cannabis withdrawal](https://pmc.ncbi.nlm.nih.gov/articles/PMC9110555/)\n\nThere is no reliable day on which everyone's sleep or mood “resets”. Track whether daily life is becoming more manageable, rather than comparing yourself with somebody else's recovery calendar. If you are deteriorating, seek help instead of waiting to reach a particular day.\n\nUncomplicated cannabis withdrawal usually has a low risk of severe medical consequences. Other substance dependence, physical illness or mental-health problems can change that assessment. Supportive counselling and information are usual first approaches; inpatient withdrawal care is not routinely needed for uncomplicated cases. [Connor and colleagues](https://pmc.ncbi.nlm.nih.gov/articles/PMC9110555/)\n\n## “I stopped cannabis. Why can't I sleep?”\n\nSleep problems after stopping can feel especially discouraging if cannabis had become part of your bedtime routine. You may think: “I made a good decision, so why do I feel worse tonight?” Recognising that concern makes room for a plan rather than another argument with yourself at 2 am.\n\nDifficulty sleeping and vivid dreams are recognised withdrawal symptoms. A difficult night does not prove that your body needs cannabis indefinitely. Nor does a vivid dream, by itself, establish a new mental-health condition. Describe what is happening without deciding in advance what it means. [NHS inform](https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/cannabis/)\n\n### Build a realistic evening routine\n\nGeneral NHS sleep guidance offers practical starting points:\n\n- Keep a consistent getting-up time and go to bed when sleepy.\n- Give yourself a quieter period before bed, with less stimulating screen use.\n- Make the bedroom comfortable, dark and quiet where possible.\n- Reduce late caffeine and include manageable daytime activity.\n- Do not drive when sleepy.\n\nThese are ordinary sleep-support measures, not a proven cure for cannabis withdrawal. If sleep difficulties make everyday life hard to cope with, speak to your GP. [NHS insomnia guidance](https://www.nhs.uk/conditions/insomnia/)\n\nIf you are lying awake becoming increasingly frustrated, try a quiet activity somewhere comfortable and return to bed when sleepy. Writing tomorrow's tasks down earlier in the evening can help keep planning out of bed. Avoid repeatedly checking the clock. [NHS Every Mind Matters](https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/)\n\nChoose one or two changes you can sustain. You do not need a perfect bedroom, an expensive device or a complicated evening ritual to start organising support.\n\n### Do not make another substance the sleep plan\n\nDo not replace cannabis with alcohol, borrowed benzodiazepines or unprescribed sleeping tablets. Do not change prescribed medication on the strength of this article. Discuss sleep products or medication questions with a clinician who knows your circumstances. NHS guidance highlights dependence and side-effect risks with sleeping pills. [NHS insomnia guidance](https://www.nhs.uk/conditions/insomnia/)\n\nKeep a brief record of bedtime, approximate sleep, daytime functioning and any other substances used. Bring it to an appointment as a conversation aid, not a scorecard. A useful question is: “What else should we assess, and what support is appropriate while my sleep is disrupted?”\n\n## Mood, appetite and cravings need attention too\n\nMake the next day practical: arrange food you can manage, leave space between demanding commitments and decide who you can contact. If you expect an evening to be difficult, plan that contact before the evening starts.\n\nIrritability does not excuse threatening or harmful behaviour. A family can agree to pause an escalating conversation and return to it later, while keeping clear boundaries about safety.\n\nFor a craving, try identifying the immediate situation: being alone after work, an argument, boredom or preparing for bed. Then choose a specific alternative action, such as leaving the usual smoking space, phoning support or starting a planned task. Treat this as a coping experiment, not a test of character.\n\nPersistent vomiting, inability to keep fluids down or significant physical symptoms need medical advice. Long-term cannabis use can also be associated with recurrent severe vomiting, which should not automatically be labelled withdrawal. [NIH cannabis information](https://health.nih.gov/substance-use-drugs/cannabis)\n\n## When symptoms need urgent help\n\nNew hallucinations, strongly held frightening beliefs that others do not share, or markedly confused thinking need immediate medical assessment. Do not wait for a withdrawal timetable to finish. A GP or existing mental-health team can help arrange urgent assessment; severe symptoms with immediate safety risk require 999 or A&E. [NHS psychosis guidance](https://www.nhs.uk/mental-health/conditions/psychosis/overview/)\n\nIf suicidal thoughts, severe distress or rapidly worsening mental health make staying safe uncertain, use urgent services. A friend can help you make the call or explain what has changed, but should not be expected to manage a crisis alone. [NHS urgent help](https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/)\n\nTell clinicians about alcohol, other drugs and prescribed medicines as well as cannabis. This is relevant health information, not something you need to minimise to deserve help.\n\n## What support is available in the UK?\n\nYou can speak to your GP or approach a local drug treatment service directly. NHS and charitable services provide most UK drug treatment; private options also exist. An initial appointment considers your substance use and circumstances, then helps you agree a suitable plan. [NHS: getting help](https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/)\n\nAsk practical questions: “Who should I contact between appointments? How will we address sleep? What happens if I use again? Can a family member join part of the discussion?” You are allowed to ask what the proposed support involves before committing.\n\nThe early withdrawal period is only one part of change. Longer-term work may address the situations and reasons associated with use. The broader [cannabis addiction guide](https://www.insightrecoverynetwork.com/resources/cannabis-addiction) and [cannabis treatment page](https://www.insightrecoverynetwork.com/cannabis-addiction-treatment) explain that wider context.\n\nIRN provides recovery support and treatment guidance. We are not a regulated healthcare provider and do not diagnose, prescribe or provide medical detox or emergency care. External clinicians remain responsible for their own assessments and treatment.\n\nIf you want to organise your concerns before a conversation, the [drug-use self-assessment](https://www.insightrecoverynetwork.com/assessments/drug-use) is an educational starting point. It cannot diagnose a condition or assess an emergency.",
+    "faq": [
+      {
+        "question": "Is poor sleep after stopping cannabis a sign of failure?",
+        "answer": "No. Sleep difficulty is a recognised withdrawal experience. It is a reason to plan support, not to judge your commitment."
+      },
+      {
+        "question": "Will I sleep normally after a fixed number of days?",
+        "answer": "There is no guaranteed deadline. Sleep disturbance can outlast the early withdrawal period. Seek assessment when symptoms are severe or disrupt functioning."
+      },
+      {
+        "question": "Should I wait several weeks before asking for help?",
+        "answer": "No. You can approach a GP or local drug service when you need support. Urgent symptoms need urgent assessment, regardless of timing."
+      },
+      {
+        "question": "Does everyone need residential treatment?",
+        "answer": "No. Treatment should fit individual circumstances. Discuss community support and other options during assessment rather than assuming that one setting suits everyone."
+      },
+      {
+        "question": "Can IRN prescribe something to help me sleep?",
+        "answer": "No. Medication and medical assessment belong with appropriately qualified healthcare professionals. IRN can help you consider support and treatment options."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NHS inform: Cannabis",
+        "publisher": "nhsinform.scot",
+        "url": "https://www.nhsinform.scot/healthy-living/drugs-and-drug-use/common-drugs/cannabis/"
+      },
+      {
+        "title": "Connor JP and colleagues: Clinical management of cannabis withdrawal, Addiction, 2022",
+        "publisher": "pmc.ncbi.nlm.nih.gov",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9110555/"
+      },
+      {
+        "title": "NHS: Insomnia",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/conditions/insomnia/"
+      },
+      {
+        "title": "NHS Every Mind Matters: How to fall asleep faster and sleep better",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/every-mind-matters/mental-wellbeing-tips/how-to-fall-asleep-faster-and-sleep-better/"
+      },
+      {
+        "title": "NIH: Cannabis",
+        "publisher": "health.nih.gov",
+        "url": "https://health.nih.gov/substance-use-drugs/cannabis"
+      },
+      {
+        "title": "NHS: Psychosis",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/mental-health/conditions/psychosis/overview/"
+      },
+      {
+        "title": "NHS: Where to get urgent help for mental health",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/nhs-services/mental-health-services/where-to-get-urgent-help-for-mental-health/"
+      },
+      {
+        "title": "NHS: Drug addiction, getting help",
+        "publisher": "nhs.uk",
+        "url": "https://www.nhs.uk/live-well/addiction-support/drug-addiction-getting-help/"
+      }
+    ],
+    "image": "/cannabis-withdrawal-hero.webp",
+    "ogImage": "/cannabis-withdrawal-og.webp",
+    "imageAlt": "An adult reading in bed beside a warm bedside lamp in a quiet evening bedroom. Illustrative image, not an IRN client.",
+    "updatedDate": "2026-10-03",
+    "ogImageWidth": 1200,
+    "ogImageHeight": 630
+  }
+] satisfies Article[];
+
+const searchAiFourSlugs = new Set(searchAiFourArticles.map((article) => article.slug));
+export const approvedArticles = [
+  ...searchAiFourArticles,
+  ...previouslyApprovedArticles.filter((article) => !searchAiFourSlugs.has(article.slug)),
 ] satisfies Article[];
