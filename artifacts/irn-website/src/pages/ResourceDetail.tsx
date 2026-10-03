@@ -9,6 +9,7 @@ import { CTASection } from "@/components/ui/cta-section";
 import { ArticleCard } from "@/components/ui/article-card";
 import { RelatedServiceLinks } from "@/components/ui/related-service-links";
 import { PreferredSources } from "@/components/PreferredSources";
+import { ArticleShare } from "@/components/ArticleShare";
 import { articleNextSteps } from "@/data/article-next-steps.js";
 import NotFound from "@/pages/not-found";
 import {
@@ -576,6 +577,7 @@ export default function ResourceDetail() {
   const relatedArticles = [...related, ...moreRelated].slice(0, 2);
 
   const canonicalPath = `/resources/${article.slug}`;
+  const showInsightOsNextStep = ["Recovery & Wellbeing", "Relapse Prevention"].includes(article.category);
   const isEarlyFindingsArticle = EARLY_FINDINGS_SERIES.some(
     (candidate) => candidate.slug === article.slug,
   );
@@ -1202,6 +1204,7 @@ export default function ResourceDetail() {
                 </span>
               </div>
             </div>
+            <ArticleShare slug={article.slug} title={article.title} />
           </div>
         </div>
       </section>
@@ -1339,6 +1342,23 @@ export default function ResourceDetail() {
           </div>
         </div>
       </article>
+
+      {showInsightOsNextStep && (
+        <aside className="border-t border-border/40 bg-secondary/20" aria-labelledby="insightos-next-step">
+          <div className="container mx-auto px-6 py-8 md:px-12">
+            <div className="mx-auto max-w-3xl">
+              <h2 id="insightos-next-step" className="font-serif text-xl text-primary">Bring reflection into your day</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                InsightOS brings free check-ins, private journalling and recovery tracking together, alongside appropriate human support.
+              </p>
+              <Link href="/insight-os" className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary underline underline-offset-4">
+                Explore InsightOS <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+              <p className="mt-2 text-xs text-muted-foreground">For adults aged 18 and over. Not medical care or emergency support.</p>
+            </div>
+          </div>
+        </aside>
+      )}
 
       <PreferredSources />
 

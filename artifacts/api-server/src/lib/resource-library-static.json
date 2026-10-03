@@ -1,0 +1,709 @@
+{
+  "articles": [
+    {
+      "slug": "rehab-family-programme",
+      "title": "What should a rehab family programme actually include?",
+      "excerpt": "“Family programme included” can leave a lot unexplained. Use these questions to find out what a rehab offers, who can take part, what it costs and how support continues after treatment.",
+      "category": "Family Support",
+      "image": "/rehab-family-programme-hero.webp",
+      "readingTime": 7,
+      "date": "2026-09-21",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "process-addictions",
+      "title": "Understanding Process Addictions: Signs, Examples and Getting Help",
+      "excerpt": "Understanding gambling, gaming, compulsive sexual behaviour and pornography concerns, with practical steps and confidential support from Insight Recovery Network.",
+      "category": "Behavioural Addictions",
+      "image": "/process-addictions-irn-hero.webp",
+      "readingTime": 15,
+      "date": "2026-09-16",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "paws-after-benzodiazepines",
+      "title": "PAWS After Benzodiazepines: Understanding Protracted Withdrawal",
+      "excerpt": "Understand persistent symptoms after stopping benzodiazepines, the uncertainty around recovery, and ways to find appropriate medical and practical support.",
+      "category": "Recovery & Wellbeing",
+      "image": "/paws-after-benzodiazepines-hero.webp",
+      "readingTime": 8,
+      "date": "2026-09-10",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "alcohol-cocaine-cravings",
+      "title": "Why do I want cocaine as soon as I start drinking?",
+      "excerpt": "When alcohol repeatedly leads to cocaine, the plan needs to address both. Understand the cues, the risks of mixing them and where to begin getting support.",
+      "category": "Addiction & Substances",
+      "image": "/alcohol-cocaine-cravings-hero.webp",
+      "readingTime": 7,
+      "date": "2026-09-08",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "rebuilding-trust-after-stopping-drinking",
+      "title": "I’ve stopped drinking. Why doesn’t my partner trust me yet?",
+      "excerpt": "Sobriety and rebuilding trust can move at different speeds. A practical guide to reliability, boundaries, family support and knowing when safety comes first.",
+      "category": "Family & Relationships",
+      "image": "/rebuilding-trust-after-stopping-drinking-hero.webp",
+      "readingTime": 8,
+      "date": "2026-09-08",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "alcohol-free-beer-recovery",
+      "title": "Alcohol-free beer in recovery: helpful substitute or a trigger?",
+      "excerpt": "There is no single answer for everyone in recovery. Explore the developing evidence, familiar drinking rituals and questions to discuss before deciding.",
+      "category": "Recovery & Wellbeing",
+      "image": "/alcohol-free-beer-recovery-hero.webp",
+      "readingTime": 8,
+      "date": "2026-09-08",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "ai-chatbots-addiction-recovery-support",
+      "title": "Would you tell an AI something you haven’t told anyone else?",
+      "excerpt": "AI can feel easier to confide in. What might it help with in recovery, what does the research actually show, and when should a conversation reach a real person?",
+      "category": "Recovery & Wellbeing",
+      "image": "/ai-chatbots-addiction-recovery-support-hero.webp",
+      "readingTime": 8,
+      "date": "2026-09-08",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "still-functioning-addiction",
+      "title": "I’m still functioning. Could I still have an addiction?",
+      "excerpt": "Keeping work and family life going does not tell the whole story. Explore control, hidden costs and when it is worth asking for help with alcohol or drugs.",
+      "category": "Addiction & Substances",
+      "image": "/still-functioning-addiction-hero.webp",
+      "readingTime": 8,
+      "date": "2026-09-07",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "cannabis-withdrawal",
+      "title": "Cannabis Withdrawal: Symptoms, Timeline and Support",
+      "excerpt": "Understand cannabis withdrawal, including sleep disruption, irritability, appetite and mood changes, cravings, the usual recovery trajectory and when support may help.",
+      "category": "Addiction & Substances",
+      "image": "/cannabis-withdrawal-uk-hero.webp",
+      "readingTime": 13,
+      "date": "2026-08-30",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "how-quickly-can-someone-enter-rehab",
+      "title": "How Quickly Can Someone Enter Private Rehab?",
+      "excerpt": "Understand what affects private rehab admission speed in the UK, what information providers need and how to prepare without bypassing safety checks.",
+      "category": "Treatment Options",
+      "image": "/how-quickly-enter-private-rehab-uk-hero.webp",
+      "readingTime": 12,
+      "date": "2026-08-30",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "28-day-vs-90-day-rehab",
+      "title": "28-Day vs Longer-Term Rehab: How Duration Is Decided",
+      "excerpt": "Compare 28-day and longer-term residential rehab without assuming one programme length fits everyone. Learn which needs, goals and aftercare questions matter.",
+      "category": "Treatment Options",
+      "image": "/28-day-vs-longer-rehab-uk-hero.webp",
+      "readingTime": 13,
+      "date": "2026-08-30",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "alcohol-withdrawal-symptoms-when-you-need-medical-help",
+      "title": "Alcohol Detox and Withdrawal: When Medical Help Is Needed",
+      "excerpt": "Understand alcohol detox, withdrawal warning signs, how clinicians choose a safe setting and when emergency help is needed in the UK.",
+      "category": "Alcohol Recovery",
+      "image": "/alcohol-withdrawal-safety-uk-hero.webp",
+      "readingTime": 13,
+      "date": "2026-06-12",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "benzodiazepine-withdrawal",
+      "title": "Benzodiazepine Withdrawal and Detox: A UK Safety Guide",
+      "excerpt": "A clinically bounded guide to benzodiazepine withdrawal, why abrupt stopping can be unsafe and how prescriber-led support should work.",
+      "category": "Addiction & Substances",
+      "image": "/benzodiazepine-withdrawal-uk-hero.webp",
+      "readingTime": 14,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "opioid-detox",
+      "title": "Opioid Detox and Withdrawal: UK Treatment and Safety",
+      "excerpt": "Understand opioid withdrawal, maintenance versus detox, reduced tolerance and how qualified UK treatment should be planned.",
+      "category": "Addiction & Substances",
+      "image": "/addiction-detox-uk-safe-assessment-hero.webp",
+      "readingTime": 15,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "cocaine-withdrawal",
+      "title": "Cocaine Withdrawal: The Crash, Risks and Support",
+      "excerpt": "Understand the cocaine crash, withdrawal-related mental-health risks and why treatment usually focuses on assessment and psychological support.",
+      "category": "Addiction & Substances",
+      "image": "/cocaine-withdrawal-uk-hero.webp",
+      "readingTime": 12,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "ketamine-withdrawal",
+      "title": "Ketamine Withdrawal: Symptoms, Risks and Getting Help",
+      "excerpt": "Understand psychological ketamine withdrawal, why bladder or abdominal symptoms need a separate medical pathway and what support may help.",
+      "category": "Addiction & Substances",
+      "image": "/ketamine-withdrawal-uk-hero.webp",
+      "readingTime": 12,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "detox-vs-rehab",
+      "title": "Detox vs Rehab: What Is the Difference?",
+      "excerpt": "Compare detox and rehabilitation, understand when one or both may be needed and see which questions to ask before choosing a service.",
+      "category": "Treatment Options",
+      "image": "/detox-vs-rehab-uk-hero.webp",
+      "readingTime": 13,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "gambling-addiction",
+      "title": "Gambling Addiction: Signs, Harms and Treatment",
+      "excerpt": "Understand the signs and harms of gambling addiction, urgent safety concerns, assessment, practical safeguards and evidence-based UK treatment.",
+      "category": "Behavioural Addictions",
+      "image": "/gambling-addiction-uk-hero.webp",
+      "readingTime": 22,
+      "date": "2026-08-30",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "prescription-drug-addiction",
+      "title": "Prescription Drug Addiction: Signs, Risks and Help",
+      "excerpt": "Understand prescription medicine dependence, addiction, withdrawal safety, assessment and evidence-based UK treatment options.",
+      "category": "Addiction & Substances",
+      "image": "/prescription-drug-addiction-uk-hero.webp",
+      "readingTime": 23,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "cannabis-addiction",
+      "title": "Cannabis Addiction: Signs, Effects and Treatment",
+      "excerpt": "Understand cannabis addiction, withdrawal, mental-health risks, assessment and evidence-based UK treatment options.",
+      "category": "Addiction & Substances",
+      "image": "/cannabis-addiction-uk-hero.webp",
+      "readingTime": 24,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "ketamine-addiction",
+      "title": "Ketamine Addiction: Signs, Harms and Treatment",
+      "excerpt": "Understand ketamine addiction, bladder and mental-health harms, urgent warning signs, assessment and evidence-based UK treatment options.",
+      "category": "Addiction & Substances",
+      "image": "/ketamine-addiction-uk-hero.webp",
+      "readingTime": 23,
+      "date": "2026-08-28",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "benzodiazepine-addiction",
+      "title": "Benzodiazepine Addiction and Dependence: UK Guide",
+      "excerpt": "Understand benzodiazepine dependence, addiction and withdrawal risks, when urgent help is needed, and how safe UK assessment and treatment work.",
+      "category": "Addiction & Substances",
+      "image": "/benzodiazepine-addiction-uk-hero.webp",
+      "readingTime": 23,
+      "date": "2026-08-25",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "mental-health-and-addiction",
+      "title": "Mental Health and Addiction: A Complete UK Guide",
+      "excerpt": "Understand how mental health and addiction interact, what a safe assessment covers, urgent warning signs and how to find coordinated UK support.",
+      "category": "Mental Health",
+      "image": "/mental-health-and-addiction-uk-hero.webp",
+      "readingTime": 24,
+      "date": "2026-02-24",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "cocaine-addiction",
+      "title": "Cocaine Addiction: Signs, Risks and Treatment",
+      "excerpt": "Understand the signs and risks of cocaine addiction, what withdrawal can feel like and which UK treatment options may help.",
+      "category": "Addiction & Substances",
+      "image": "/cocaine-addiction-signs-treatment-uk-hero.webp",
+      "readingTime": 18,
+      "date": "2026-08-11",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "addiction-detox-uk",
+      "title": "Addiction Detox UK: Safety, Settings and Next Steps",
+      "excerpt": "A practical UK guide to withdrawal safety, detox settings, professional assessment and the continuing treatment needed afterwards.",
+      "category": "Treatment Options",
+      "image": "/addiction-detox-uk-treatment-navigation-hero.webp",
+      "readingTime": 19,
+      "date": "2026-08-11",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "what-happens-in-residential-rehabilitation",
+      "title": "Residential Rehab UK: What Happens and Who It Helps",
+      "excerpt": "A practical guide to residential rehab in the UK, including suitability, assessment, detox, therapy, provider checks and continuing care.",
+      "category": "Treatment Options",
+      "image": "/residential-rehab-uk-arrival-assessment-hero.webp",
+      "readingTime": 20,
+      "date": "2026-04-14",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "dual-diagnosis",
+      "title": "Dual Diagnosis: Addiction and Mental Health in the UK",
+      "excerpt": "Understand dual diagnosis, joined-up assessment and coordinated addiction and mental-health treatment options in the UK.",
+      "category": "Mental Health",
+      "image": "/dual-diagnosis-uk-joined-up-assessment.webp",
+      "readingTime": 18,
+      "date": "2026-08-11",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "online-recovery-programmes",
+      "title": "Online Addiction Recovery Programme: Evidence & Safety",
+      "excerpt": "A clinically informed UK guide to how online addiction recovery works, who it may suit, its safety limits and how to choose credible support.",
+      "category": "Treatment Options",
+      "image": "/online-addiction-recovery-programme-uk-hero.webp",
+      "readingTime": 25,
+      "date": "2026-02-10",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "addiction-support-for-families",
+      "title": "Addiction Support for Families: A Complete UK Guide",
+      "excerpt": "Practical UK guidance for families affected by addiction: safety, conversations, boundaries, treatment options and support for your own wellbeing.",
+      "category": "Family Support",
+      "image": "/addiction-support-for-families-uk-hero.webp",
+      "readingTime": 25,
+      "date": "2026-08-14",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "families-carrying-burden-addiction-early-findings",
+      "title": "Early Findings: Families Are Carrying the Burden of Addiction Alone",
+      "excerpt": "Early UK findings show how responsibility for safety, secrecy and difficult family decisions can move onto the people surrounding addiction.",
+      "category": "Family Support",
+      "image": "/uk-family-addiction-report-2026-early-findings.webp",
+      "readingTime": 9,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "why-families-delay-seeking-addiction-help",
+      "title": "Why Families Can Live with Addiction for Years Before Seeking Help",
+      "excerpt": "Early UK findings suggest that long delays can reflect fear, uncertainty, hope and limited confidence in treatment options, not a lack of care.",
+      "category": "Family Support",
+      "image": "/uk-family-addiction-report-2026-early-findings.webp",
+      "readingTime": 10,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "hidden-family-cost-of-addiction",
+      "title": "The Hidden Cost of Addiction Is Not Only Financial",
+      "excerpt": "Early UK findings show how addiction can reshape responsibility, trust, relationships and daily family life long before every cost is visible.",
+      "category": "Family Support",
+      "image": "/uk-family-addiction-report-2026-early-findings.webp",
+      "readingTime": 10,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "families-carrying-burden-addiction-early-findings",
+      "title": "Early Findings: Families Are Carrying the Burden of Addiction Alone",
+      "excerpt": "Early UK findings show how responsibility for safety, secrecy and difficult family decisions can move onto the people surrounding addiction.",
+      "category": "Family Support",
+      "image": "/addiction-support-for-families.png",
+      "readingTime": 9,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "why-families-delay-seeking-addiction-help",
+      "title": "Why Families Can Live with Addiction for Years Before Seeking Help",
+      "excerpt": "Early UK findings suggest that long delays can reflect fear, uncertainty, hope and limited confidence in treatment options, not a lack of care.",
+      "category": "Family Support",
+      "image": "/family-consider-rehab-loved-one.png",
+      "readingTime": 10,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "hidden-family-cost-of-addiction",
+      "title": "The Hidden Cost of Addiction Is Not Only Financial",
+      "excerpt": "Early UK findings show how addiction can reshape responsibility, trust, relationships and daily family life long before every cost is visible.",
+      "category": "Family Support",
+      "image": "/family-boundaries-addiction-recovery.png",
+      "readingTime": 10,
+      "date": "2026-08-02",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "crypto-trading-addiction-warning-signs-help",
+      "title": "Crypto Trading Addiction: Warning Signs, Family Impact and Getting Help",
+      "excerpt": "Crypto trading can become compulsive and harmful. Learn the warning signs, how families are affected, and practical steps towards appropriate support.",
+      "category": "Addiction & Substances",
+      "image": "/crypto-trading-addiction-hero.webp",
+      "readingTime": 12,
+      "date": "2026-07-01",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "what-does-enabler-mean",
+      "title": "What Does Enabler Mean in Addiction?",
+      "excerpt": "Learn what enabling means in addiction, why families do it, and how to support someone without protecting the addiction.",
+      "category": "Family Support",
+      "image": "/what-does-enabler-mean-in-addiction.png",
+      "readingTime": 12,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "help-someone-with-addiction-without-enabling",
+      "title": "How to Help Someone With Addiction Without Enabling Them",
+      "excerpt": "Learn how to support someone with addiction without rescuing, covering up, giving money, or protecting harmful behaviour.",
+      "category": "Family Support",
+      "image": "/help-someone-with-addiction-without-enabling.png",
+      "readingTime": 13,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "what-to-do-when-someone-refuses-treatment",
+      "title": "What to Do When Someone Refuses Addiction Treatment",
+      "excerpt": "A practical guide for families when someone refuses rehab, detox, or addiction treatment, including boundaries, safety, and next steps.",
+      "category": "Family Support",
+      "image": "/someone-refuses-addiction-treatment.png",
+      "readingTime": 13,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "how-to-stage-addiction-intervention-uk",
+      "title": "How to Stage an Addiction Intervention in the UK",
+      "excerpt": "Learn how addiction interventions really work, when they may help, what families should prepare, and why professional support matters.",
+      "category": "Family Support",
+      "image": "/addiction-intervention-uk.png",
+      "readingTime": 11,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "family-boundaries-addiction-recovery",
+      "title": "Family Boundaries in Addiction Recovery",
+      "excerpt": "Learn how families can set clear, compassionate boundaries that support recovery without control, punishment, or enabling.",
+      "category": "Family Support",
+      "image": "/family-boundaries-addiction-recovery.png",
+      "readingTime": 13,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "how-to-talk-to-someone-about-drinking-drug-use",
+      "title": "How to Talk to Someone About Their Drinking or Drug Use",
+      "excerpt": "Learn how to have a calm, honest conversation about drinking, drug use, or addiction without threats, shame, or escalation.",
+      "category": "Family Support",
+      "image": "/talk-to-someone-about-drinking-drug-use.png",
+      "readingTime": 12,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "when-should-family-consider-rehab",
+      "title": "When Should a Family Consider Rehab for a Loved One?",
+      "excerpt": "Understand the signs that a loved one may need rehab, detox, or treatment placement, and what families can do about it.",
+      "category": "Family Support",
+      "image": "/family-consider-rehab-loved-one.png",
+      "readingTime": 11,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "relapse-meaning",
+      "title": "Relapse Meaning: What Relapse Really Means in Addiction Recovery",
+      "excerpt": "Understand what relapse really means in addiction recovery, why it happens, and how to respond without shame or denial.",
+      "category": "Relapse Prevention",
+      "image": "/relapse-meaning-addiction-recovery.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "relapsing-does-not-mean-you-have-failed",
+      "title": "Relapsing Does Not Mean You Have Failed",
+      "excerpt": "Relapse is serious, but it does not mean recovery has failed. Learn how to respond, reset, and rebuild support quickly.",
+      "category": "Relapse Prevention",
+      "image": "/relapsing-does-not-mean-you-have-failed.png",
+      "readingTime": 10,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "slip-lapse-relapse-difference",
+      "title": "Slip, Lapse and Relapse: What Is the Difference?",
+      "excerpt": "Learn the difference between a slip, lapse, and relapse, and why the way you respond can shape your recovery.",
+      "category": "Relapse Prevention",
+      "image": "/slip-lapse-relapse-difference.png",
+      "readingTime": 11,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "why-relapse-happens-before-substance-use",
+      "title": "Why Relapse Happens Before the Substance Is Used",
+      "excerpt": "Relapse often begins before drinking, drug use, or addictive behaviour. Learn the emotional and mental stages that come first.",
+      "category": "Relapse Prevention",
+      "image": "/why-relapse-happens-before-substance-use.png",
+      "readingTime": 10,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "relapse-prevention-plan",
+      "title": "Relapse Prevention Plan: What Should Actually Be Included?",
+      "excerpt": "Learn what a relapse prevention plan should include, from warning signs and triggers to support, structure, and clear action steps.",
+      "category": "Relapse Prevention",
+      "image": "/relapse-prevention-plan-what-to-include.png",
+      "readingTime": 11,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "addiction-warning-signs",
+      "title": "Addiction Warning Signs: How to Spot Relapse Risk Early",
+      "excerpt": "Learn how to spot early addiction warning signs, identify relapse risk, and respond before things escalate, for yourself or a loved one.",
+      "category": "Relapse Prevention",
+      "image": "/addiction-warning-signs-relapse-risk.png",
+      "readingTime": 10,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "what-to-do-after-relapse",
+      "title": "What to Do After a Relapse",
+      "excerpt": "A calm, practical guide to what to do after a relapse: stay safe, reduce harm, rebuild support, and get back on track quickly.",
+      "category": "Relapse Prevention",
+      "image": "/what-to-do-after-a-relapse.png",
+      "readingTime": 10,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "how-structured-support-prevents-relapse",
+      "title": "How Structured Recovery Support Helps Prevent Relapse",
+      "excerpt": "Learn how routine, accountability, groups, one-to-one support, and recovery planning work together to reduce relapse risk.",
+      "category": "Relapse Prevention",
+      "image": "/structured-recovery-support-prevent-relapse.png",
+      "readingTime": 10,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "detoxing-from-alcohol-symptoms-when-dangerous",
+      "title": "Detoxing From Alcohol Symptoms: When Is It Dangerous?",
+      "excerpt": "Alcohol detox symptoms can be mild or life-threatening. Learn the warning signs, when it is dangerous, and when to get urgent medical help.",
+      "category": "Alcohol Recovery",
+      "image": "/article-detoxing-from-alcohol-symptoms-when-dangerous.png",
+      "readingTime": 10,
+      "date": "2026-06-12",
+      "publishedStatus": "draft"
+    },
+    {
+      "slug": "how-long-does-alcohol-stay-in-your-system",
+      "title": "How Long Does Alcohol Stay in Your System?",
+      "excerpt": "How long alcohol stays in your blood, breath, urine, and hair, what affects it, and why you cannot rely on it to judge if you are safe to drive.",
+      "category": "Alcohol Recovery",
+      "image": "/article-how-long-does-alcohol-stay-in-your-system.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "can-i-stop-drinking-without-rehab",
+      "title": "Can I Stop Drinking Without Rehab?",
+      "excerpt": "Yes, many people stop drinking without rehab, but not everyone can do it safely. Learn who can, who needs medical help, and what stopping really takes.",
+      "category": "Alcohol Recovery",
+      "image": "/article-can-i-stop-drinking-without-rehab.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "do-i-need-alcohol-rehab-or-online-support",
+      "title": "Do I Need Alcohol Rehab or Online Support?",
+      "excerpt": "Not sure whether you need residential rehab or online recovery support? Learn the signs that point to each, and how to choose the right level of help.",
+      "category": "Alcohol Recovery",
+      "image": "/article-do-i-need-alcohol-rehab-or-online-support.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "private-alcohol-rehab-uk-costs-options-alternatives",
+      "title": "Private Alcohol Rehab UK: Costs, Options and Alternatives",
+      "excerpt": "An alcohol-specific guide to detox risk, residential treatment fees, programme length and alternatives to private alcohol rehab in the UK.",
+      "category": "Alcohol Recovery",
+      "image": "/article-private-alcohol-rehab-uk-costs-options-alternatives.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "alcohol-rehab-alternatives-uk",
+      "title": "Alcohol Rehab Alternatives UK: What Are Your Options?",
+      "excerpt": "A clear guide to alcohol rehab alternatives in the UK, from online programmes and outpatient care to therapy, peer support, and international options.",
+      "category": "Alcohol Recovery",
+      "image": "/article-alcohol-rehab-alternatives-uk-options.png",
+      "readingTime": 9,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "online-alcohol-recovery-programme-uk",
+      "title": "Online Alcohol Recovery Programme UK: How It Works and Who It Helps",
+      "excerpt": "How an online alcohol recovery programme works, what is included, and who it helps, a structured, affordable alternative to residential rehab.",
+      "category": "Alcohol Recovery",
+      "image": "/article-online-alcohol-recovery-programme-uk.png",
+      "readingTime": 8,
+      "date": "2026-06-12"
+    },
+    {
+      "slug": "private-rehab-vs-nhs-addiction-treatment",
+      "title": "Private Rehab vs NHS Addiction Treatment: What Is the Difference?",
+      "excerpt": "Compare private rehab and NHS addiction treatment in the UK, including access, cost, detox, confidentiality, aftercare and support, and understand which route may be more appropriate for your situation.",
+      "category": "Treatment Options",
+      "image": "/private-rehab-nhs.png",
+      "readingTime": 15,
+      "date": "2026-05-20"
+    },
+    {
+      "slug": "how-to-choose-private-rehab-centre-uk",
+      "title": "How to Choose the Right Private Rehab Centre in the UK",
+      "excerpt": "Choosing private rehab in the UK? Learn what to look for, what questions to ask, what warning signs to avoid, and how to find a treatment setting that is clinically appropriate for the person's actual needs.",
+      "category": "Treatment Options",
+      "image": "/rehab-options.png",
+      "readingTime": 18,
+      "date": "2026-05-19"
+    },
+    {
+      "slug": "why-cant-i-stop-how-addiction-works",
+      "title": "Why Can't I Stop, Even When I Want To? Understanding How Addiction Actually Works",
+      "excerpt": "If you have tried to stop drinking, using, or acting out and found that willpower was never enough, the problem was never your character. This article explains what addiction actually is, why willpower keeps losing, and what genuine recovery involves.",
+      "category": "Addiction & Substances",
+      "image": "/article-why-cant-i-stop.png",
+      "readingTime": 12,
+      "date": "2026-05-19"
+    },
+    {
+      "slug": "understanding-alcohol-dependency",
+      "title": "Understanding Alcohol Dependency: Signs, Stages and What to Do Next",
+      "excerpt": "Alcohol dependency develops gradually, often beneath the surface of everyday life. Recognising the signs early can make a significant difference to the path ahead.",
+      "category": "Addiction & Substances",
+      "readingTime": 7,
+      "date": "2026-04-28"
+    },
+    {
+      "slug": "managing-relapse-part-of-recovery",
+      "title": "Managing Relapse: Why It Is Part of Recovery, Not the End of It",
+      "excerpt": "Relapse is one of the most misunderstood aspects of addiction. Understanding it clinically, rather than morally, changes everything about how we respond to it.",
+      "category": "Recovery & Wellbeing",
+      "readingTime": 6,
+      "date": "2026-03-31"
+    },
+    {
+      "slug": "supporting-a-loved-one-through-recovery",
+      "title": "Supporting a Loved One Through Recovery: What Helps and What Does Not",
+      "excerpt": "Watching someone you care about struggle with addiction is one of the most distressing experiences a family can face. Knowing how to respond, and what to avoid, can make a real difference.",
+      "category": "Family & Relationships",
+      "readingTime": 7,
+      "date": "2026-03-17"
+    },
+    {
+      "slug": "online-addiction-support-vs-residential-rehab",
+      "title": "Online Addiction Support vs Residential Rehab: Which Is More Effective?",
+      "excerpt": "Online addiction support or residential rehab? A clinically informed UK guide to choosing the right level of care based on risk, fit, and recovery needs.",
+      "category": "Treatment Options",
+      "image": "/online-vs-residential-hero.png",
+      "readingTime": 14,
+      "date": "2026-05-26",
+      "publishedStatus": "published"
+    },
+    {
+      "slug": "why-willpower-is-not-a-recovery-plan",
+      "title": "Why Willpower Is Not a Recovery Plan",
+      "excerpt": "Willpower can help someone get through a difficult moment, but it is not the same as having a recovery plan. Lasting recovery needs structure, support, emotional regulation, accountability and a clear relapse prevention strategy.",
+      "category": "Recovery & Wellbeing",
+      "image": "/article-willpower.png",
+      "readingTime": 18,
+      "date": "2026-05-29",
+      "publishedStatus": "published"
+    }
+  ],
+  "approvedSlugs": [
+    "rehab-family-programme",
+    "process-addictions",
+    "paws-after-benzodiazepines",
+    "alcohol-cocaine-cravings",
+    "rebuilding-trust-after-stopping-drinking",
+    "alcohol-free-beer-recovery",
+    "ai-chatbots-addiction-recovery-support",
+    "still-functioning-addiction",
+    "cannabis-withdrawal",
+    "how-quickly-can-someone-enter-rehab",
+    "28-day-vs-90-day-rehab",
+    "alcohol-withdrawal-symptoms-when-you-need-medical-help",
+    "benzodiazepine-withdrawal",
+    "opioid-detox",
+    "cocaine-withdrawal",
+    "ketamine-withdrawal",
+    "detox-vs-rehab",
+    "gambling-addiction",
+    "prescription-drug-addiction",
+    "cannabis-addiction",
+    "ketamine-addiction",
+    "benzodiazepine-addiction",
+    "mental-health-and-addiction",
+    "cocaine-addiction",
+    "addiction-detox-uk",
+    "what-happens-in-residential-rehabilitation",
+    "dual-diagnosis",
+    "online-recovery-programmes",
+    "addiction-support-for-families"
+  ],
+  "assessments": [
+    {
+      "slug": "alcohol-detox",
+      "title": "Alcohol Change and Withdrawal Assessment",
+      "description": "Explore alcohol patterns, withdrawal history and the level of professional assessment to consider before making a substantial change.",
+      "duration": "Approximately 8 minutes"
+    },
+    {
+      "slug": "alcohol-use",
+      "title": "Alcohol Use and Support Needs Assessment",
+      "description": "Build an anonymous descriptive profile of alcohol exposure, impaired control, consequences and independent withdrawal-safety factors.",
+      "duration": "Approximately 8 minutes"
+    },
+    {
+      "slug": "drug-use",
+      "title": "Substance Use and Support Needs Assessment",
+      "description": "Select the substances that are relevant and receive branched, substance-specific pattern, safety and support guidance.",
+      "duration": "Approximately 8 minutes"
+    },
+    {
+      "slug": "detox",
+      "title": "Substance-Specific Change and Withdrawal Assessment",
+      "description": "Identify the relevant substance and explore withdrawal, overdose and health factors before changing use. It does not provide medical clearance.",
+      "duration": "Approximately 10 minutes"
+    },
+    {
+      "slug": "anxiety",
+      "title": "Anxiety Self-Assessment",
+      "description": "Reflect on how anxiety may be affecting your thoughts, physical wellbeing, and daily life.",
+      "duration": "6–8 minutes"
+    },
+    {
+      "slug": "depression",
+      "title": "Depression Self-Assessment",
+      "description": "Reflect on how low mood or depression may be affecting your energy, motivation, and sense of wellbeing.",
+      "duration": "6–8 minutes"
+    },
+    {
+      "slug": "adhd-impulsivity",
+      "title": "ADHD & Impulsivity Self-Reflection",
+      "description": "Explore patterns of attention, impulsivity, and restlessness that may be affecting your work, relationships, or daily life.",
+      "duration": "7–10 minutes"
+    }
+  ]
+}
