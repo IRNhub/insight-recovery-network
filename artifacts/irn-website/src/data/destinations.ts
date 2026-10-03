@@ -282,7 +282,7 @@ export const destinations: Destination[] = [
     slug: "private-rehab-spain",
     country: "Spain",
     title: "Private Rehab in Spain",
-    seoTitle: "Private Rehab Spain: Costs, UK Comparison & Placement | IRN",
+    seoTitle: "Private Rehab Spain: Costs, UK Comparison and Placement | IRN",
     metaDescription:
       "Compare private rehab in Spain with UK options. Check written costs, detox arrangements, travel, family involvement and UK aftercare before choosing treatment.",
     heroImage: "/private-rehab-spain-hero.png",
