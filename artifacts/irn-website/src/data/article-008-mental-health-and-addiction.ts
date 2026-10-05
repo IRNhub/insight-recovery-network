@@ -5,7 +5,7 @@ export const mentalHealthAndAddictionArticle = {
   author: "Craig Bilton",
   authorRole: "Founder & Clinical Director",
   date: "2026-02-24",
-  updatedDate: "2026-08-18",
+  updatedDate: "2026-10-05",
   readingTime: 24,
   category: "Mental Health",
   image: "/mental-health-and-addiction-uk-hero.webp",
@@ -301,7 +301,14 @@ A GP can assess physical and mental-health concerns, review prescribed medicines
 
 ### Local drug and alcohol services
 
-Many community services accept self-referrals and provide confidential assessment, harm reduction, psychosocial support and links to medical or mental-health care. In England, the NHS service search and local council websites can help locate provision. Scotland has local alcohol and drug services through the NHS inform directory; Wales has DAN 24/7; Northern Ireland provides local service directories and some self-referral routes.
+Many community services accept self-referrals and provide confidential assessment, harm reduction, psychosocial support and links to medical or mental-health care. Use the service information for your nation to find a local starting point:
+
+- **England:** the NHS lists [alcohol addiction support services](https://www.nhs.uk/nhs-services/find-alcohol-addiction-support-services/) and [drug addiction support](https://www.nhs.uk/service-search/other-health-services/drug-addiction-support).
+- **Scotland:** [NHS inform's alcohol support guide](https://www.nhsinform.scot/healthy-living/alcohol/alcohol-support) links to local services and support organisations.
+- **Wales:** [DAN 24/7](https://dan247.org.uk/) provides drug and alcohol information and help finding an agency.
+- **Northern Ireland:** [Drugs and Alcohol NI](https://drugsandalcoholni.info/) provides routes to local support, including help for people affected by someone else's use.
+
+When contacting a service, explain both the mental-health symptoms and the alcohol or drug use, including any withdrawal concerns. Ask whether you can refer yourself, what assessment is offered and how the service coordinates with your GP or mental-health team. These directories are starting points for ongoing support, not emergency services.
 
 ### NHS mental-health services
 

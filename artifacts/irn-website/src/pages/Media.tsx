@@ -29,6 +29,15 @@ interface MediaCoverageItem {
 
 const coverage: MediaCoverageItem[] = [
   {
+    publication: "Psychreg",
+    title: "What Replaces the Evening Drink When Alcohol Has Become the Way You Switch Off?",
+    author: "Craig Bilton",
+    description:
+      "Craig Bilton explores the role an evening drink can take on, how to build other ways to unwind, and when drinking or withdrawal concerns call for professional help.",
+    href: "https://www.psychreg.org/what-replaces-evening-drink-when-alcohol-has-become-way-you-switch-off/",
+    schemaType: "Article",
+  },
+  {
     publication: "Business Insider",
     title: "How crypto-trading addiction can affect finances, relationships and recovery",
     href: "https://www.businessinsider.com/crypto-trading-addicts-gambling-therapy-marriage-conflicts-financial-losses-lawsuits-2025-2",

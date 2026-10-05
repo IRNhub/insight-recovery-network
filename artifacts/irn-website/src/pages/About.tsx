@@ -365,6 +365,28 @@ export default function About() {
         </div>
       </section>
 
+      <section className="py-10 md:py-14 border-t border-border/40">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <h2 className="font-serif text-3xl text-primary mb-4">Published writing and commentary</h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            Craig contributes practical commentary on addiction, recovery and treatment decisions. In his latest Psychreg article, he explores the role an evening drink can take on, other ways to unwind, and when professional help is needed.
+          </p>
+          <p className="mb-4">
+            <a
+              href="https://www.psychreg.org/what-replaces-evening-drink-when-alcohol-has-become-way-you-switch-off/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              What Replaces the Evening Drink When Alcohol Has Become the Way You Switch Off?
+            </a>
+          </p>
+          <Link href="/media" className="text-primary underline underline-offset-4">
+            View Craig&apos;s other publications and media contributions
+          </Link>
+        </div>
+      </section>
+
       {/* ── Values ── */}
       <section
         className="py-10 md:py-14"
