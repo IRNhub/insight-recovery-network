@@ -71,6 +71,7 @@ const REDIRECT_PATHS: Record<string, string> = {
   // ── Previously handled ────────────────────────────────────────────────
   "/suspended":                          "/",
   "/private-addiction-treatment":        "/treatment-placement",
+  "/the-insight-advantage-why-getting-your-rehabplacement-right-the-first-time-is-the-key-to-success-in-spain": "/private-rehab-spain",
 
   // ── Old WordPress page slugs ──────────────────────────────────────────
   "/about-us":                           "/about",
